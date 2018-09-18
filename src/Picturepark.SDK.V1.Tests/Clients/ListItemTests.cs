@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using FluentAssertions;
+using FluentAssertions.Extensions;
+using Newtonsoft.Json.Linq;
 using Xunit;
 using Picturepark.SDK.V1.Tests.Contracts;
 using Picturepark.SDK.V1.Contract;
+using Picturepark.SDK.V1.Localization;
 using Picturepark.SDK.V1.Tests.Fixtures;
 
 namespace Picturepark.SDK.V1.Tests.Clients
@@ -613,6 +616,56 @@ namespace Picturepark.SDK.V1.Tests.Clients
             // Assert
             receivedItem1.DisplayValues[DisplayPatternType.Name.ToString().ToLowerCamelCase()].Should().Be("value2");
             receivedItem2.DisplayValues[DisplayPatternType.Name.ToString().ToLowerCamelCase()].Should().Be("value1");
+        }
+
+        [Fact]
+        [Trait("Stack", "ListItem")]
+        public async Task ShouldUseLocalDateForDisplayValue()
+        {
+            // Arange
+            var schema = await SchemaHelper.CreateSchemasIfNotExistentAsync<LocalDateTestItem>(_client).ConfigureAwait(false);
+
+            var date = DateTime.UtcNow;
+
+            var listItem1 = new LocalDateTestItem
+            {
+                DateTimeField = date,
+                Child = new LocalDateTestItem
+                {
+                    DateTimeField = new DateTime(2010, 1, 1, 12, 1, 1)
+                }
+            };
+
+            var detail = await _client.ListItem.CreateFromObjectAsync(listItem1).ConfigureAwait(false);
+
+            var details = await detail.FetchDetail(new[] { ListItemResolveBehaviour.Content, ListItemResolveBehaviour.InnerDisplayValueName }).ConfigureAwait(false);
+            var items = details.SucceededItems;
+
+            // Act
+            var item = items.Last();
+            var dateValue = item.ConvertTo<LocalDateTestItem>().DateTimeField;
+
+            const string quote = "\"";
+            var shouldBeValue = $"{{{{ {quote}{dateValue:O}{quote} | date: {quote}%d.%m.%Y %H:%M:%S{quote} }}}}";
+
+            // Assert
+            item.DisplayValues[DisplayPatternType.Name.ToString().ToLowerCamelCase()]
+                .Should().Be(shouldBeValue);
+
+            var renderedDisplayValue = LocalizationService.GetDateTimeLocalizedDisplayValue(shouldBeValue);
+            var formatedLocalDate = date.ToLocalTime().ToString("dd.MM.yyyy HH:mm:ss");
+            var formatedChildLocalDate = listItem1.Child.DateTimeField.ToString("dd.MM.yyyy HH:mm:ss");
+            renderedDisplayValue.Should().Be(formatedLocalDate);
+
+            // Apply local time to object tree
+            LocalizationService.ReplaceDateTimeLocalizedDisplayValueInObject(item);
+
+            item.DisplayValues["name"].Should().Be(formatedLocalDate);
+            ((JObject)item.Content)
+                .GetValue("child")
+                .Value<JToken>("displayValue")
+                .Value<string>("name").Should()
+                .Be(formatedChildLocalDate);
         }
 
         [Fact]

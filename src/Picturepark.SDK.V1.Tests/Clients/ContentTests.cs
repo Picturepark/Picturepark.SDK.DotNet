@@ -336,7 +336,8 @@ namespace Picturepark.SDK.V1.Tests.Clients
             int maxNumberOfDownloadFiles = 3;
             string searchString = string.Empty;
 
-            ContentSearchResult result = await _fixture.GetRandomContentsAsync(searchString, maxNumberOfDownloadFiles).ConfigureAwait(false);
+            ContentSearchResult result = await _fixture.GetRandomContentsAsync(searchString, maxNumberOfDownloadFiles, new[] { ContentType.Bitmap, ContentType.TextDocument })
+                .ConfigureAwait(false);
             Assert.True(result.Results.Count > 0);
 
             await _client.Content.DownloadFilesAsync(

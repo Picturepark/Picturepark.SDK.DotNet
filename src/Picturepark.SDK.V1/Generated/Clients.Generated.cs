@@ -1231,10 +1231,10 @@ namespace Picturepark.SDK.V1
         partial void PrepareRequest(System.Net.Http.HttpClient client, System.Net.Http.HttpRequestMessage request, System.Text.StringBuilder urlBuilder);
         partial void ProcessResponse(System.Net.Http.HttpClient client, System.Net.Http.HttpResponseMessage response);
     
-        /// <summary>Get detail - single</summary>
-        /// <param name="contentId">The content id.</param>
-        /// <param name="resolveBehaviours">List of enum that control which parts of the content are resolved and returned</param>
-        /// <returns>ContentDetail</returns>
+        /// <summary>Get content</summary>
+        /// <param name="contentId">The content ID.</param>
+        /// <param name="resolveBehaviours">List of enums that control which parts of the content are resolved and returned.</param>
+        /// <returns>Content detail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="ContentNotFoundException">Content not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -1415,10 +1415,12 @@ namespace Picturepark.SDK.V1
             }
         }
     
-        /// <summary>Delete - single</summary>
-        /// <param name="contentId">the id of the content to delete</param>
+        /// <summary>Delete content</summary>
+        /// <param name="contentId">The ID of the content to delete.</param>
         /// <param name="forceReferenceRemoval">A value indicating whether references to the content should be removed.</param>
-        /// <param name="timeout">Maximum time to wait for the business process completed state.</param>
+        /// <param name="timeout">Maximum time to wait for the operation to complete. If timeout is exceeded, the operation is not aborted but continues anyhow.
+        ///             Only the waiting is aborted, and the calls returned.</param>
+        /// <returns>Ok</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="BusinessProcessLifeCycleNotHitException">The specified wait timeout exceeded</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
@@ -1590,10 +1592,10 @@ namespace Picturepark.SDK.V1
             }
         }
     
-        /// <summary>Get detail - many</summary>
-        /// <param name="ids">List of contentIds</param>
-        /// <param name="resolveBehaviours">List of enum that control which parts of the content are resolved and returned</param>
-        /// <returns>List of ContentDetail</returns>
+        /// <summary>Get multiple contents</summary>
+        /// <param name="ids">List of content IDs</param>
+        /// <param name="resolveBehaviours">List of enums that control which parts of the content are resolved and returned.</param>
+        /// <returns>List of Content detail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="ContentNotFoundException">One or more contents not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -1771,11 +1773,13 @@ namespace Picturepark.SDK.V1
             }
         }
     
-        /// <summary>Create - single</summary>
-        /// <param name="contentCreateRequest">The content create request.</param>
-        /// <param name="resolveBehaviours">List of enum that control which parts of the content are resolved and returned</param>
-        /// <param name="allowMissingDependencies">Allow creating list items that refer to list items or contents that don't exist in the system.</param>
-        /// <param name="timeout">Maximum time to wait for the business process completed state.</param>
+        /// <summary>Create content</summary>
+        /// <param name="contentCreateRequest">Content create request.</param>
+        /// <param name="resolveBehaviours">List of enums that control which parts of the content are resolved and returned.</param>
+        /// <param name="allowMissingDependencies">Allows creating contents that refer to list items or contents that don't exist in the system.</param>
+        /// <param name="timeout">Maximum time to wait for the operation to complete. If timeout is exceeded, the operation is not aborted but continues anyhow.
+        ///             Only the waiting is aborted, and the calls returned.</param>
+        /// <returns>The content details</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="BusinessProcessLifeCycleNotHitException">The specified wait timeout exceeded</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
@@ -1963,9 +1967,9 @@ namespace Picturepark.SDK.V1
             }
         }
     
-        /// <summary>Search</summary>
-        /// <param name="contentSearchRequest">The content search request.</param>
-        /// <returns>ContentSearchResult</returns>
+        /// <summary>Search contents</summary>
+        /// <param name="contentSearchRequest">Content search request.</param>
+        /// <returns>Content search result</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -2139,9 +2143,9 @@ namespace Picturepark.SDK.V1
             }
         }
     
-        /// <summary>Aggregate</summary>
-        /// <param name="contentAggregationRequest">The aggregation request.</param>
-        /// <returns>ObjectAggregationResult</returns>
+        /// <summary>Aggregate contents</summary>
+        /// <param name="contentAggregationRequest">Content aggregation request.</param>
+        /// <returns>Object aggregation result</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -2315,9 +2319,9 @@ namespace Picturepark.SDK.V1
             }
         }
     
-        /// <summary>Aggregate on channel</summary>
-        /// <param name="contentAggregationOnChannelRequest">The content aggregation on channel request.</param>
-        /// <returns>ObjectAggregationResult</returns>
+        /// <summary>Aggregate contents on channel</summary>
+        /// <param name="contentAggregationOnChannelRequest">Content aggregation on channel request.</param>
+        /// <returns>Object aggregation result</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -2491,7 +2495,9 @@ namespace Picturepark.SDK.V1
             }
         }
     
-        /// <summary>Get references</summary>
+        /// <summary>Get content references</summary>
+        /// <param name="contentId">The content ID whose references to retrieve.</param>
+        /// <param name="contentReferencesRequest">Content references request.</param>
         /// <returns>ContentReferencesResult</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -2670,8 +2676,9 @@ namespace Picturepark.SDK.V1
             }
         }
     
-        /// <summary>Get references - many</summary>
-        /// <returns>ContentReferencesResult</returns>
+        /// <summary>Get many content references</summary>
+        /// <param name="contentManyReferencesRequest">Content many references request.</param>
+        /// <returns>Content references result</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -2846,8 +2853,8 @@ namespace Picturepark.SDK.V1
         }
     
         /// <summary>Create download link</summary>
-        /// <param name="request">The content download link request</param>
-        /// <returns>ContentBatchDonloadItem</returns>
+        /// <param name="request">Content download link request</param>
+        /// <returns>Download link</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -3021,13 +3028,13 @@ namespace Picturepark.SDK.V1
             }
         }
     
-        /// <summary>Download output</summary>
-        /// <param name="contentId">The content id</param>
-        /// <param name="outputFormatId">The output format id</param>
-        /// <param name="width">Optional width in pixels to resize image</param>
-        /// <param name="height">Optional height in pixels to resize image</param>
-        /// <param name="range">The range of bytes to download (http range header): bytes={from}-{to} (e.g. bytes=0-100000)</param>
-        /// <returns>HttpResponseMessage</returns>
+        /// <summary>Download content</summary>
+        /// <param name="contentId">The content ID.</param>
+        /// <param name="outputFormatId">The output format ID.</param>
+        /// <param name="width">Optional width in pixels to resize image.</param>
+        /// <param name="height">Optional height in pixels to resize image.</param>
+        /// <param name="range">The range of bytes to download (http range header): bytes={from}-{to} (e.g. bytes=0-100000).</param>
+        /// <returns>Http response message</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -3225,11 +3232,11 @@ namespace Picturepark.SDK.V1
         }
     
         /// <summary>Download thumbnail</summary>
-        /// <param name="contentId">The Content id</param>
-        /// <param name="size">Thumbnail size. Either small, medium or large</param>
-        /// <param name="width">Optional width in pixels to resize image</param>
-        /// <param name="height">Optional height in pixels to resize image</param>
-        /// <returns>HttpResponseMessage</returns>
+        /// <param name="contentId">The content ID.</param>
+        /// <param name="size">Thumbnail size. Either small, medium or large.</param>
+        /// <param name="width">Optional width in pixels to resize image.</param>
+        /// <param name="height">Optional height in pixels to resize image.</param>
+        /// <returns>Http response message</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -3416,8 +3423,9 @@ namespace Picturepark.SDK.V1
             }
         }
     
-        /// <summary>Create - many</summary>
-        /// <param name="contentCreateManyRequest">The content create many request.</param>
+        /// <summary>Create multiple contents</summary>
+        /// <param name="contentCreateManyRequest">Content create many request.</param>
+        /// <returns>Business process</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -3591,9 +3599,9 @@ namespace Picturepark.SDK.V1
             }
         }
     
-        /// <summary>Delete - many</summary>
-        /// <param name="deleteManyRequest">The delete many request</param>
-        /// <returns>BusinessProcess</returns>
+        /// <summary>Delete multiple contents</summary>
+        /// <param name="deleteManyRequest">Delete many request</param>
+        /// <returns>Business process</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -3767,11 +3775,12 @@ namespace Picturepark.SDK.V1
             }
         }
     
-        /// <summary>Restore - single</summary>
-        /// <param name="contentId">The content id.</param>
-        /// <param name="allowMissingDependencies">Allow restoring contents that refer to list items or contents that don't exist in the system.</param>
-        /// <param name="timeout">Maximum time to wait for the business process completed state.</param>
-        /// <returns>Void</returns>
+        /// <summary>Restore content</summary>
+        /// <param name="contentId">The content ID.</param>
+        /// <param name="allowMissingDependencies">Allows restoring contents that refer to list items or contents that don't exist in the system.</param>
+        /// <param name="timeout">Maximum time to wait for the operation to complete. If timeout is exceeded, the operation is not aborted but continues anyhow.
+        ///             Only the waiting is aborted, and the calls returned.</param>
+        /// <returns>Ok</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="BusinessProcessLifeCycleNotHitException">The specified wait timeout exceeded</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
@@ -3944,9 +3953,9 @@ namespace Picturepark.SDK.V1
             }
         }
     
-        /// <summary>Restore - many</summary>
-        /// <param name="restoreManyRequest">The content restore many request.</param>
-        /// <returns>BusinessProcess</returns>
+        /// <summary>Restore multiple contents</summary>
+        /// <param name="restoreManyRequest">Content restore many request.</param>
+        /// <returns>Business process</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -4120,9 +4129,10 @@ namespace Picturepark.SDK.V1
             }
         }
     
-        /// <summary>Update file - single</summary>
-        /// <param name="contentId">The id of the content to replace</param>
-        /// <param name="updateRequest">Update request</param>
+        /// <summary>Update content file</summary>
+        /// <param name="contentId">The ID of the content to replace.</param>
+        /// <param name="updateRequest">Content file update request</param>
+        /// <returns>Business process</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -4300,13 +4310,14 @@ namespace Picturepark.SDK.V1
             }
         }
     
-        /// <summary>Update metadata - single</summary>
-        /// <param name="contentId">The content id.</param>
-        /// <param name="updateRequest">The metadata update request.</param>
-        /// <param name="resolveBehaviours">List of enum that control which parts of the content are resolved and returned</param>
-        /// <param name="allowMissingDependencies">Allow storing references to missing list items</param>
-        /// <param name="timeout">Maximum time to wait for the business process completed state.</param>
-        /// <returns>ContentDetail</returns>
+        /// <summary>Update content metadata</summary>
+        /// <param name="contentId">The content ID.</param>
+        /// <param name="updateRequest">Content metadata update request.</param>
+        /// <param name="resolveBehaviours">List of enums that control which parts of the content are resolved and returned.</param>
+        /// <param name="allowMissingDependencies">Allows storing references to list items or contents that don't exist in the system.</param>
+        /// <param name="timeout">Maximum time to wait for the operation to complete. If timeout is exceeded, the operation is not aborted but continues anyhow.
+        ///             Only the waiting is aborted, and the calls returned.</param>
+        /// <returns>Content detail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="BusinessProcessLifeCycleNotHitException">The specified wait timeout exceeded</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
@@ -4498,12 +4509,13 @@ namespace Picturepark.SDK.V1
             }
         }
     
-        /// <summary>Update permissions - single</summary>
-        /// <param name="contentId">The content id.</param>
-        /// <param name="updateRequest">The content permission update request.</param>
-        /// <param name="resolveBehaviours">List of enum that control which parts of the content are resolved and returned</param>
-        /// <param name="timeout">Maximum time to wait for the business process completed state.</param>
-        /// <returns>ContentDetail</returns>
+        /// <summary>Update content permissions</summary>
+        /// <param name="contentId">The content ID.</param>
+        /// <param name="updateRequest">Content permissions update request.</param>
+        /// <param name="resolveBehaviours">List of enums that control which parts of the content are resolved and returned.</param>
+        /// <param name="timeout">Maximum time to wait for the operation to complete. If timeout is exceeded, the operation is not aborted but continues anyhow.
+        ///             Only the waiting is aborted, and the calls returned.</param>
+        /// <returns>Content detail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="BusinessProcessLifeCycleNotHitException">The specified wait timeout exceeded</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
@@ -4691,9 +4703,9 @@ namespace Picturepark.SDK.V1
             }
         }
     
-        /// <summary>Update metadata - many</summary>
-        /// <param name="updateRequest">The metadata update requests.</param>
-        /// <returns>BusinessProcess</returns>
+        /// <summary>Update multiple content metadata</summary>
+        /// <param name="updateRequest">Content metadata update many request.</param>
+        /// <returns>Business process</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="ContentNotFoundException">Not all provided contents could be found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -4868,9 +4880,9 @@ namespace Picturepark.SDK.V1
             }
         }
     
-        /// <summary>Update permissions - many</summary>
-        /// <param name="updateManyRequest">The permissions update many request.</param>
-        /// <returns>BusinessProcess</returns>
+        /// <summary>Update multiple contents permissions</summary>
+        /// <param name="updateManyRequest">Content permissions update many request.</param>
+        /// <returns>Business process</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -5044,11 +5056,12 @@ namespace Picturepark.SDK.V1
             }
         }
     
-        /// <summary>Transfer ownership - single</summary>
-        /// <param name="contentId">The content id.</param>
-        /// <param name="updateRequest">The content ownership transfer request update request.</param>
-        /// <param name="timeout">Maximum time to wait for the business process completed state.</param>
-        /// <returns>ContentDetail</returns>
+        /// <summary>Transfer content ownership</summary>
+        /// <param name="contentId">The content ID.</param>
+        /// <param name="updateRequest">Content ownership transfer request.</param>
+        /// <param name="timeout">Maximum time to wait for the operation to complete. If timeout is exceeded, the operation is not aborted but continues anyhow.
+        ///             Only the waiting is aborted, and the calls returned.</param>
+        /// <returns>Ok</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="BusinessProcessLifeCycleNotHitException">The specified wait timeout exceeded</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
@@ -5056,7 +5069,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        public async System.Threading.Tasks.Task<ContentDetail> TransferOwnershipAsync(string contentId, ContentOwnershipTransferRequest updateRequest, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task TransferOwnershipAsync(string contentId, ContentOwnershipTransferRequest updateRequest, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (contentId == null)
                 throw new System.ArgumentNullException("contentId");
@@ -5079,7 +5092,6 @@ namespace Picturepark.SDK.V1
                     content_.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json");
                     request_.Content = content_;
                     request_.Method = new System.Net.Http.HttpMethod("PUT");
-                    request_.Headers.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
     
                     PrepareRequest(client_, request_, urlBuilder_);
                     var url_ = urlBuilder_.ToString();
@@ -5101,17 +5113,7 @@ namespace Picturepark.SDK.V1
                         var status_ = ((int)response_.StatusCode).ToString();
                         if (status_ == "200") 
                         {
-                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            var result_ = default(ContentDetail); 
-                            try
-                            {
-                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<ContentDetail>(responseData_, _settings.Value);
-                                return result_; 
-                            } 
-                            catch (System.Exception exception_) 
-                            {
-                                throw new ApiException("Could not deserialize the response body.", (int)response_.StatusCode, responseData_, headers_, exception_);
-                            }
+                            return;
                         }
                         else
                         if (status_ == "400") 
@@ -5217,8 +5219,6 @@ namespace Picturepark.SDK.V1
                             var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
                             throw new ApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", (int)response_.StatusCode, responseData_, headers_, null);
                         }
-            
-                        return default(ContentDetail);
                     }
                     finally
                     {
@@ -5232,9 +5232,9 @@ namespace Picturepark.SDK.V1
             }
         }
     
-        /// <summary>Transfer ownership - many</summary>
-        /// <param name="contentOwnershipTransferManyRequest">The content ownership transfer many request.</param>
-        /// <returns>BusinessProcess</returns>
+        /// <summary>Transfer multiple contents ownerships</summary>
+        /// <param name="contentOwnershipTransferManyRequest">Content ownership transfer many request.</param>
+        /// <returns>Business process</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -5408,9 +5408,9 @@ namespace Picturepark.SDK.V1
             }
         }
     
-        /// <summary>Batch update fields - by ids</summary>
-        /// <param name="updateRequest">The metadata update request.</param>
-        /// <returns>BusinessProcess</returns>
+        /// <summary>Batch update content fields - by IDs</summary>
+        /// <param name="updateRequest">Content fields batch update request.</param>
+        /// <returns>Business process</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -5585,8 +5585,8 @@ namespace Picturepark.SDK.V1
         }
     
         /// <summary>Batch update fields - by filter</summary>
-        /// <param name="updateRequest">The metadata update request.</param>
-        /// <returns>BusinessProcess</returns>
+        /// <param name="updateRequest">Content fields batch update filter request. It contains the changes that need to be applied to the contents and the filter request to identify the contents.</param>
+        /// <returns>Business process</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -5817,9 +5817,9 @@ namespace Picturepark.SDK.V1
         partial void PrepareRequest(System.Net.Http.HttpClient client, System.Net.Http.HttpRequestMessage request, System.Text.StringBuilder urlBuilder);
         partial void ProcessResponse(System.Net.Http.HttpClient client, System.Net.Http.HttpResponseMessage response);
     
-        /// <summary>Search</summary>
-        /// <param name="request">The permission search request.</param>
-        /// <returns>PermissionSetSearchResult</returns>
+        /// <summary>Search content permissions sets</summary>
+        /// <param name="request">The permission set search request.</param>
+        /// <returns>Permission set search result</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -5993,9 +5993,9 @@ namespace Picturepark.SDK.V1
             }
         }
     
-        /// <summary>Get detail - single</summary>
-        /// <param name="permissionSetId">The content permission set id.</param>
-        /// <returns>ContentPermissionSetDetail</returns>
+        /// <summary>Get permission set</summary>
+        /// <param name="permissionSetId">The content permission set ID.</param>
+        /// <returns>Content permission set detail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -7589,9 +7589,9 @@ namespace Picturepark.SDK.V1
         partial void PrepareRequest(System.Net.Http.HttpClient client, System.Net.Http.HttpRequestMessage request, System.Text.StringBuilder urlBuilder);
         partial void ProcessResponse(System.Net.Http.HttpClient client, System.Net.Http.HttpResponseMessage response);
     
-        /// <summary>Get Json Schema</summary>
-        /// <param name="schemaId">Schema Id</param>
-        /// <returns>JsonSchemaViewItem</returns>
+        /// <summary>Get json schema</summary>
+        /// <param name="schemaId">The ID of the schema whose json schema to retrieve.</param>
+        /// <returns>Json schema view item: almost a 1:1 representation of the Newtonsoft json schema.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -7823,9 +7823,9 @@ namespace Picturepark.SDK.V1
         partial void PrepareRequest(System.Net.Http.HttpClient client, System.Net.Http.HttpRequestMessage request, System.Text.StringBuilder urlBuilder);
         partial void ProcessResponse(System.Net.Http.HttpClient client, System.Net.Http.HttpResponseMessage response);
     
-        /// <summary>Get detail - single</summary>
-        /// <param name="listItemId">The list item id.</param>
-        /// <param name="resolveBehaviours">List of enum that control which parts of the list item are resolved and returned</param>
+        /// <summary>Get list item</summary>
+        /// <param name="listItemId">The list item ID.</param>
+        /// <param name="resolveBehaviours">List of enums that control which parts of the list item are resolved and returned.</param>
         /// <returns>List item detail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="ListItemNotFoundException">List item not found</exception>
@@ -8007,13 +8007,14 @@ namespace Picturepark.SDK.V1
             }
         }
     
-        /// <summary>Update - single</summary>
-        /// <param name="listItemId">The list item id.</param>
+        /// <summary>Update list item</summary>
+        /// <param name="listItemId">The list item ID.</param>
         /// <param name="updateRequest">The list item update request.</param>
-        /// <param name="resolveBehaviours">List of enum that control which parts of the list item are resolved and returned</param>
-        /// <param name="allowMissingDependencies">Allow creating list items that refer to list items or contents that don't exist in the system.</param>
-        /// <param name="timeout">Maximum time to wait for the business process completed state.</param>
-        /// <returns>ListItemDetail</returns>
+        /// <param name="resolveBehaviours">List of enums that control which parts of the list item are resolved and returned.</param>
+        /// <param name="allowMissingDependencies">Allows creating list items that refer to list items or contents that don't exist in the system.</param>
+        /// <param name="timeout">Maximum time to wait for the operation to complete. If timeout is exceeded, the operation is not aborted but continues anyhow.
+        ///             Only the waiting is aborted, and the calls returned.</param>
+        /// <returns>List item detail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -8204,11 +8205,12 @@ namespace Picturepark.SDK.V1
             }
         }
     
-        /// <summary>Delete - single</summary>
-        /// <param name="listItemId">The id of the list item to delete</param>
-        /// <param name="forceReferenceRemoval">A value indicating whether references to the listitem should be removed.</param>
-        /// <param name="timeout">Maximum time to wait for the business process completed state.</param>
-        /// <returns>Void</returns>
+        /// <summary>Delete list item</summary>
+        /// <param name="listItemId">The ID of the list item to delete.</param>
+        /// <param name="forceReferenceRemoval">A value indicating whether references to the list item should be removed.</param>
+        /// <param name="timeout">Maximum time to wait for the operation to complete. If timeout is exceeded, the operation is not aborted but continues anyhow.
+        ///             Only the waiting is aborted, and the calls returned.</param>
+        /// <returns>Ok</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="BusinessProcessLifeCycleNotHitException">The specified wait timeout exceeded</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
@@ -8380,9 +8382,9 @@ namespace Picturepark.SDK.V1
             }
         }
     
-        /// <summary>Get detail - many</summary>
-        /// <param name="ids">List of list item ids</param>
-        /// <param name="resolveBehaviours">List of enum that control which parts of the list items are resolved and returned</param>
+        /// <summary>Get multiple list items</summary>
+        /// <param name="ids">List of list item IDs.</param>
+        /// <param name="resolveBehaviours">List of enums that control which parts of the list items are resolved and returned.</param>
         /// <returns>List of list item details</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="ListItemNotFoundException">One or more list items not found</exception>
@@ -8561,12 +8563,13 @@ namespace Picturepark.SDK.V1
             }
         }
     
-        /// <summary>Create - single</summary>
+        /// <summary>Create list item</summary>
         /// <param name="listItemCreateRequest">List item create request.</param>
-        /// <param name="resolveBehaviours">List of enum that control which parts of the list item are resolved and returned</param>
-        /// <param name="allowMissingDependencies">Allow creating list items that refer to list items or contents that don't exist in the system.</param>
-        /// <param name="timeout">Maximum time to wait for the business process completed state.</param>
-        /// <returns>ListItemDetail</returns>
+        /// <param name="resolveBehaviours">List of enums that control which parts of the list item are resolved and returned.</param>
+        /// <param name="allowMissingDependencies">Allows creating list items that refer to list items or contents that don't exist in the system.</param>
+        /// <param name="timeout">Maximum time to wait for the operation to complete. If timeout is exceeded, the operation is not aborted but continues anyhow.
+        ///             Only the waiting is aborted, and the calls returned.</param>
+        /// <returns>List item detail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="BusinessProcessLifeCycleNotHitException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
@@ -8754,9 +8757,9 @@ namespace Picturepark.SDK.V1
             }
         }
     
-        /// <summary>Search</summary>
+        /// <summary>Search list items</summary>
         /// <param name="listItemSearchRequest">The list item search request.</param>
-        /// <returns>List item result set.</returns>
+        /// <returns>List item search result</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -8930,9 +8933,9 @@ namespace Picturepark.SDK.V1
             }
         }
     
-        /// <summary>Aggregate</summary>
+        /// <summary>Aggregate list items</summary>
         /// <param name="listItemAggregationRequest">The list item aggregation request.</param>
-        /// <returns>ObjectAggregationResult</returns>
+        /// <returns>Object aggregation result</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -9106,9 +9109,9 @@ namespace Picturepark.SDK.V1
             }
         }
     
-        /// <summary>Create - many</summary>
+        /// <summary>Create multiple list items</summary>
         /// <param name="listItemCreateManyRequest">List item create many request.</param>
-        /// <returns>BusinessProcess</returns>
+        /// <returns>Business process</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -9282,9 +9285,9 @@ namespace Picturepark.SDK.V1
             }
         }
     
-        /// <summary>Update - many</summary>
+        /// <summary>Update multiple list items</summary>
         /// <param name="listItemUpdateManyRequest">List item update many request.</param>
-        /// <returns>BusinessProcess</returns>
+        /// <returns>Business process</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -9458,9 +9461,9 @@ namespace Picturepark.SDK.V1
             }
         }
     
-        /// <summary>Delete - many</summary>
-        /// <param name="deleteManyRequest">The list items delete many request</param>
-        /// <returns>BusinessProcess</returns>
+        /// <summary>Delete multiple list items</summary>
+        /// <param name="deleteManyRequest">List item delete many request.</param>
+        /// <returns>Business process</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -9634,11 +9637,12 @@ namespace Picturepark.SDK.V1
             }
         }
     
-        /// <summary>Restore - single</summary>
-        /// <param name="listItemId">The list item id.</param>
-        /// <param name="allowMissingDependencies">Allow restoring list items that refer to list items or contents that don't exist in the system.</param>
-        /// <param name="timeout">Maximum time to wait for the business process completed state.</param>
-        /// <returns>Void</returns>
+        /// <summary>Restore list item</summary>
+        /// <param name="listItemId">The list item ID.</param>
+        /// <param name="allowMissingDependencies">Allows restoring list items that refer to list items or contents that don't exist in the system.</param>
+        /// <param name="timeout">Maximum time to wait for the operation to complete. If timeout is exceeded, the operation is not aborted but continues anyhow.
+        ///             Only the waiting is aborted, and the calls returned.</param>
+        /// <returns>Ok</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="BusinessProcessLifeCycleNotHitException">The specified wait timeout exceeded</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
@@ -9811,9 +9815,9 @@ namespace Picturepark.SDK.V1
             }
         }
     
-        /// <summary>Restore - many</summary>
-        /// <param name="restoreManyRequest">The list items restore many request.</param>
-        /// <returns>BusinessProcess</returns>
+        /// <summary>Restore multiple list items</summary>
+        /// <param name="restoreManyRequest">List item restore many request.</param>
+        /// <returns>Business process</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -9987,9 +9991,9 @@ namespace Picturepark.SDK.V1
             }
         }
     
-        /// <summary>Batch update fields - by ids</summary>
-        /// <param name="updateRequest">The metadata update request.</param>
-        /// <returns>BusinessProcess</returns>
+        /// <summary>Batch update fields - by IDs</summary>
+        /// <param name="updateRequest">List item fields batch update request.</param>
+        /// <returns>Business process</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -10164,8 +10168,8 @@ namespace Picturepark.SDK.V1
         }
     
         /// <summary>Batch update fields - by filter</summary>
-        /// <param name="updateRequest">The metadata update request.</param>
-        /// <returns>BusinessProcess</returns>
+        /// <param name="updateRequest">List item fields batch update by filter request.</param>
+        /// <returns>Business process</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -10339,9 +10343,9 @@ namespace Picturepark.SDK.V1
             }
         }
     
-        /// <summary>Gets the references to a list item.</summary>
+        /// <summary>Get list item references</summary>
         /// <param name="listItemId">The ID of the list item.</param>
-        /// <returns>MetadataReferences</returns>
+        /// <returns>List item references</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -10516,9 +10520,9 @@ namespace Picturepark.SDK.V1
             }
         }
     
-        /// <summary>Gets the references to the specified list items.</summary>
+        /// <summary>Get multiple list items references</summary>
         /// <param name="ids">The IDs of the list items.</param>
-        /// <returns>A MetadataReferences per list item id.</returns>
+        /// <returns>A list of references per list item.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -12129,9 +12133,9 @@ namespace Picturepark.SDK.V1
         partial void PrepareRequest(System.Net.Http.HttpClient client, System.Net.Http.HttpRequestMessage request, System.Text.StringBuilder urlBuilder);
         partial void ProcessResponse(System.Net.Http.HttpClient client, System.Net.Http.HttpResponseMessage response);
     
-        /// <summary>Get - single</summary>
-        /// <param name="schemaId">The schema id.</param>
-        /// <returns>SchemaDetail</returns>
+        /// <summary>Get schema</summary>
+        /// <param name="schemaId">The schema ID.</param>
+        /// <returns>Schema detail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="SchemaNotFoundException">Requested schema could not be found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -12307,13 +12311,14 @@ namespace Picturepark.SDK.V1
             }
         }
     
-        /// <summary>Update - single</summary>
-        /// <param name="schemaId">The schema id.</param>
+        /// <summary>Update schema</summary>
+        /// <param name="schemaId">The schema ID.</param>
         /// <param name="schema">The schema update request.</param>
-        /// <param name="timeout">Maximum time to wait for the operation to complete.</param>
-        /// <returns>SchemaUpdateResult containing the updated schema</returns>
+        /// <param name="timeout">Maximum time to wait for the operation to complete. If timeout is exceeded, the operation is not aborted but continues anyhow.
+        ///             Only the waiting is aborted, and the calls returned.</param>
+        /// <returns>Schema update result, containing the updated schema</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="SchemaNotFoundException">Schema with this id could not be found</exception>
+        /// <exception cref="SchemaNotFoundException">Schema with this ID could not be found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkArgumentNullException">Argument must not be null</exception>
         /// <exception cref="SchemaValidationException">The validation exception of schema creation</exception>
@@ -12498,15 +12503,16 @@ namespace Picturepark.SDK.V1
             }
         }
     
-        /// <summary>Delete - single</summary>
-        /// <param name="schemaId">The schema id.</param>
-        /// <param name="timeout">Maximum time to wait for the operation to complete.</param>
-        /// <returns>SchemaDeleteResult</returns>
+        /// <summary>Delete schema</summary>
+        /// <param name="schemaId">The schema ID.</param>
+        /// <param name="timeout">Maximum time to wait for the operation to complete. If timeout is exceeded, the operation is not aborted but continues anyhow.
+        ///             Only the waiting is aborted, and the calls returned.</param>
+        /// <returns>Schema delete result</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="SchemaNotFoundException">Schema with this id could not be found</exception>
+        /// <exception cref="SchemaNotFoundException">Schema with this ID could not be found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkArgumentNullException">Argument must not be null</exception>
-        /// <exception cref="SchemaInUseException">Schema is used in other entites and cannot be deleted</exception>
+        /// <exception cref="SchemaInUseException">Schema is used in other entities and cannot be deleted</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
@@ -12684,9 +12690,9 @@ namespace Picturepark.SDK.V1
             }
         }
     
-        /// <summary>Get - many</summary>
-        /// <param name="ids">Comma separated list of schema ids</param>
-        /// <returns>SchemaDetail</returns>
+        /// <summary>Get multiple schemas</summary>
+        /// <param name="ids">Comma separated list of schema IDs.</param>
+        /// <returns>List of schema details</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -12862,10 +12868,11 @@ namespace Picturepark.SDK.V1
             }
         }
     
-        /// <summary>Create - single</summary>
+        /// <summary>Create schema</summary>
         /// <param name="schema">The schema create request.</param>
-        /// <param name="timeout">Maximum time to wait for the operation to complete.</param>
-        /// <returns>SchemaCreateResult containing the created schema.</returns>
+        /// <param name="timeout">Maximum time to wait for the operation to complete. If timeout is exceeded, the operation is not aborted but continues anyhow.
+        ///             Only the waiting is aborted, and the calls returned.</param>
+        /// <returns>Schema create result, containing the created schema</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="DuplicateSchemaException">Schema with this name already exists</exception>
         /// <exception cref="PictureparkArgumentNullException">Argument must not be null</exception>
@@ -13048,9 +13055,9 @@ namespace Picturepark.SDK.V1
             }
         }
     
-        /// <summary>Search</summary>
+        /// <summary>Search schemas</summary>
         /// <param name="schemaSearchRequest">The schema search request.</param>
-        /// <returns>Schema result set.</returns>
+        /// <returns>Schema search result</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -13224,8 +13231,8 @@ namespace Picturepark.SDK.V1
             }
         }
     
-        /// <summary>Get index fields</summary>
-        /// <param name="request">The get request.</param>
+        /// <summary>Search index fields</summary>
+        /// <param name="request">The search request.</param>
         /// <returns>Indexed fields</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -13400,10 +13407,10 @@ namespace Picturepark.SDK.V1
             }
         }
     
-        /// <summary>Exists</summary>
-        /// <param name="schemaId">The schema id.</param>
-        /// <param name="fieldId">The optional field id.</param>
-        /// <returns>ExistsResponse</returns>
+        /// <summary>Exists schema</summary>
+        /// <param name="schemaId">The schema ID.</param>
+        /// <param name="fieldId">The optional field ID.</param>
+        /// <returns>Exists response</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -13640,9 +13647,9 @@ namespace Picturepark.SDK.V1
         partial void PrepareRequest(System.Net.Http.HttpClient client, System.Net.Http.HttpRequestMessage request, System.Text.StringBuilder urlBuilder);
         partial void ProcessResponse(System.Net.Http.HttpClient client, System.Net.Http.HttpResponseMessage response);
     
-        /// <summary>Search</summary>
-        /// <param name="request">The permission search request.</param>
-        /// <returns>PermissionSetSearchResult</returns>
+        /// <summary>Search schema permission sets</summary>
+        /// <param name="request">The permission set search request.</param>
+        /// <returns>Permission set search result</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -13816,9 +13823,9 @@ namespace Picturepark.SDK.V1
             }
         }
     
-        /// <summary>Get detail - single</summary>
-        /// <param name="permissionSetId">The schema permission set id.</param>
-        /// <returns>SchemaPermissionSetDetail</returns>
+        /// <summary>Get schema permission set</summary>
+        /// <param name="permissionSetId">The schema permission set ID.</param>
+        /// <returns>Schema permission set detail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
