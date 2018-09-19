@@ -5936,6 +5936,9 @@
             "PermissionValidationException": {
               "$ref": "#/components/schemas/PermissionValidationException"
             },
+            "PermissionSetInUseException": {
+              "$ref": "#/components/schemas/PermissionSetInUseException"
+            },
             "UnsupportedListItemChangeCommandException": {
               "$ref": "#/components/schemas/UnsupportedListItemChangeCommandException"
             },
@@ -6172,6 +6175,9 @@
             },
             "SchemaFieldImportTypeMismatchException": {
               "$ref": "#/components/schemas/SchemaFieldImportTypeMismatchException"
+            },
+            "SchemaFieldNotSupportedException": {
+              "$ref": "#/components/schemas/SchemaFieldNotSupportedException"
             },
             "SnapshotTimeoutException": {
               "$ref": "#/components/schemas/SnapshotTimeoutException"
@@ -7532,6 +7538,24 @@
           },
           "operation": {
             "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          }
+        ]
+      },
+      "PermissionSetInUseException": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "referenceCount"
+        ],
+        "properties": {
+          "referenceCount": {
+            "type": "integer",
+            "format": "int64"
           }
         },
         "allOf": [
@@ -9102,6 +9126,26 @@
             "type": "string"
           },
           "existingFieldType": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          }
+        ]
+      },
+      "SchemaFieldNotSupportedException": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "fieldId": {
+            "type": "string"
+          },
+          "schemaId": {
+            "type": "string"
+          },
+          "fieldType": {
             "type": "string"
           }
         },
