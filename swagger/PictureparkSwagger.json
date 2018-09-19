@@ -13029,6 +13029,9 @@
             "ContentBackupFailedException": {
               "$ref": "#/components/schemas/ContentBackupFailedException"
             },
+            "ContentLayerSameRootException": {
+              "$ref": "#/components/schemas/ContentLayerSameRootException"
+            },
             "BusinessProcessEngineRequestException": {
               "$ref": "#/components/schemas/BusinessProcessEngineRequestException"
             },
@@ -15825,6 +15828,41 @@
           }
         ]
       },
+      "ContentLayerSameRootException": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "contentId": {
+            "type": "string"
+          },
+          "layerIdsByRootSchema": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LayerIdsByRootSchema"
+            }
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          }
+        ]
+      },
+      "LayerIdsByRootSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "rootSchemaId": {
+            "type": "string"
+          },
+          "layerSchemaIds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
       "BusinessProcessEngineRequestException": {
         "type": "object",
         "additionalProperties": false,
@@ -18221,7 +18259,7 @@
             ]
           },
           "lifeCycleFilter": {
-            "description": "Limits the search to the list items that have the specified life cycle state. Defaults to ActiveOnly.",
+            "description": "Limits the search to the contents that have the specified life cycle state. Defaults to ActiveOnly.",
             "default": "ActiveOnly",
             "allOf": [
               {
@@ -18230,7 +18268,7 @@
             ]
           },
           "brokenDependenciesFilter": {
-            "description": "Limits the search to the list items that have or not have broken references. By default it includes both.",
+            "description": "Limits the search to the contents that have or not have broken references. By default it includes both.",
             "default": "All",
             "allOf": [
               {
@@ -21561,6 +21599,7 @@
         "additionalProperties": false,
         "required": [
           "id",
+          "schemaNamespace",
           "types",
           "displayPatterns",
           "system",
@@ -21571,6 +21610,11 @@
           "id": {
             "type": "string",
             "description": "The schema ID. It is unique throughout the whole customer setup.",
+            "minLength": 1
+          },
+          "schemaNamespace": {
+            "type": "string",
+            "description": "System generated schema namespace. It contains the full schema hierarchy up to the root schema (i.e. [RootSchemaId].[ParentSchemaId].[SchemaId]).",
             "minLength": 1
           },
           "parentSchemaId": {
