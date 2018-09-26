@@ -6002,6 +6002,9 @@
             "AggregationNameInvalidException": {
               "$ref": "#/components/schemas/AggregationNameInvalidException"
             },
+            "AggregationSizeInvalidException": {
+              "$ref": "#/components/schemas/AggregationSizeInvalidException"
+            },
             "SchemaFieldOverwriteTypeMismatchException": {
               "$ref": "#/components/schemas/SchemaFieldOverwriteTypeMismatchException"
             },
@@ -7965,6 +7968,30 @@
           },
           "aggregationPrefix": {
             "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          }
+        ]
+      },
+      "AggregationSizeInvalidException": {
+        "type": "object",
+        "description": "Size of the aggregation is invalid.",
+        "additionalProperties": false,
+        "required": [
+          "aggregationSize"
+        ],
+        "properties": {
+          "aggregationName": {
+            "type": "string",
+            "description": "The name identifying the aggregation."
+          },
+          "aggregationSize": {
+            "type": "integer",
+            "description": "The invalid size of the aggregation: size must be equal or greater than 1.",
+            "format": "int32"
           }
         },
         "allOf": [

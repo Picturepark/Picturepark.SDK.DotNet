@@ -1781,6 +1781,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("RelationTypeNotFoundException", typeof(RelationTypeNotFoundException))]
     [JsonInheritanceAttribute("RelationTypeTargetDocTypeMismatchException", typeof(RelationTypeTargetDocTypeMismatchException))]
     [JsonInheritanceAttribute("AggregationNameInvalidException", typeof(AggregationNameInvalidException))]
+    [JsonInheritanceAttribute("AggregationSizeInvalidException", typeof(AggregationSizeInvalidException))]
     [JsonInheritanceAttribute("SchemaFieldOverwriteTypeMismatchException", typeof(SchemaFieldOverwriteTypeMismatchException))]
     [JsonInheritanceAttribute("SchemaFieldOverwriteIdException", typeof(SchemaFieldOverwriteIdException))]
     [JsonInheritanceAttribute("SchemaFieldIdDuplicatedException", typeof(SchemaFieldIdDuplicatedException))]
@@ -4098,6 +4099,31 @@ namespace Picturepark.SDK.V1.Contract
         public static AggregationNameInvalidException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<AggregationNameInvalidException>(data);
+        }
+    
+    }
+    
+    /// <summary>Size of the aggregation is invalid.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class AggregationSizeInvalidException : PictureparkValidationException
+    {
+        /// <summary>The name identifying the aggregation.</summary>
+        [Newtonsoft.Json.JsonProperty("aggregationName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string AggregationName { get; set; }
+    
+        /// <summary>The invalid size of the aggregation: size must be equal or greater than 1.</summary>
+        [Newtonsoft.Json.JsonProperty("aggregationSize", Required = Newtonsoft.Json.Required.Always)]
+        public int AggregationSize { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static AggregationSizeInvalidException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<AggregationSizeInvalidException>(data);
         }
     
     }
@@ -12655,11 +12681,21 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>Request to search indexed fields of specific schemas</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class IndexFieldsSearchBySchemaIdsRequest 
     {
+        /// <summary>The IDs of the schemas for which the indexed fields should be returned.</summary>
         [Newtonsoft.Json.JsonProperty("schemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> SchemaIds { get; set; }
+    
+        /// <summary>Controls how the search works which schemas should be considered in the search.
+        /// AllDescendantsFieldsOnRootSchema: All indexed fields from descendant schemas of root ones will be returned. Schemas that are not root schemas will be ignored.
+        /// SchemaAndParentFieldsOnly: Indexed fields of the requested schema and its parents will be returned.</summary>
+        [Newtonsoft.Json.JsonProperty("searchMode", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public IndexFieldsSearchMode SearchMode { get; set; } = Picturepark.SDK.V1.Contract.IndexFieldsSearchMode.AllDescendantsFieldsOnRootSchema;
     
         public string ToJson() 
         {
@@ -12670,6 +12706,18 @@ namespace Picturepark.SDK.V1.Contract
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<IndexFieldsSearchBySchemaIdsRequest>(data);
         }
+    
+    }
+    
+    /// <summary>How the index field search works</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
+    public enum IndexFieldsSearchMode
+    {
+        [System.Runtime.Serialization.EnumMember(Value = "AllDescendantsFieldsOnRootSchema")]
+        AllDescendantsFieldsOnRootSchema = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "SchemaAndParentFieldsOnly")]
+        SchemaAndParentFieldsOnly = 1,
     
     }
     

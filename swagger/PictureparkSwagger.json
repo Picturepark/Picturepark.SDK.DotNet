@@ -7344,7 +7344,7 @@
           "Schema"
         ],
         "summary": "Search index fields",
-        "description": "Search the indexed fields for specified schemas. Specified schemas must be root ones, otherwise they are ignored. All fields are aggregated and returned\nas a a single list.",
+        "description": "Search the indexed fields based on the search request.\nAn indexed field object is created for a schema field only if that field has one of the following properties set to true: Index,\nSimpleSearch or Sortable.\nAll indexed fields are aggregated and returned as a a single list.",
         "operationId": "Schema_GetIndexFields",
         "requestBody": {
           "x-name": "request",
@@ -12882,6 +12882,9 @@
             "AggregationNameInvalidException": {
               "$ref": "#/components/schemas/AggregationNameInvalidException"
             },
+            "AggregationSizeInvalidException": {
+              "$ref": "#/components/schemas/AggregationSizeInvalidException"
+            },
             "SchemaFieldOverwriteTypeMismatchException": {
               "$ref": "#/components/schemas/SchemaFieldOverwriteTypeMismatchException"
             },
@@ -14845,6 +14848,30 @@
           },
           "aggregationPrefix": {
             "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          }
+        ]
+      },
+      "AggregationSizeInvalidException": {
+        "type": "object",
+        "description": "Size of the aggregation is invalid.",
+        "additionalProperties": false,
+        "required": [
+          "aggregationSize"
+        ],
+        "properties": {
+          "aggregationName": {
+            "type": "string",
+            "description": "The name identifying the aggregation."
+          },
+          "aggregationSize": {
+            "type": "integer",
+            "description": "The invalid size of the aggregation: size must be equal or greater than 1.",
+            "format": "int32"
           }
         },
         "allOf": [
@@ -23278,15 +23305,41 @@
       },
       "IndexFieldsSearchBySchemaIdsRequest": {
         "type": "object",
+        "description": "Request to search indexed fields of specific schemas",
         "additionalProperties": false,
+        "required": [
+          "searchMode"
+        ],
         "properties": {
           "schemaIds": {
             "type": "array",
+            "description": "The IDs of the schemas for which the indexed fields should be returned.",
             "items": {
               "type": "string"
             }
+          },
+          "searchMode": {
+            "description": "Controls how the search works which schemas should be considered in the search.\nAllDescendantsFieldsOnRootSchema: All indexed fields from descendant schemas of root ones will be returned. Schemas that are not root schemas will be ignored.\nSchemaAndParentFieldsOnly: Indexed fields of the requested schema and its parents will be returned.",
+            "default": "AllDescendantsFieldsOnRootSchema",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/IndexFieldsSearchMode"
+              }
+            ]
           }
         }
+      },
+      "IndexFieldsSearchMode": {
+        "type": "string",
+        "description": "How the index field search works",
+        "x-enumNames": [
+          "AllDescendantsFieldsOnRootSchema",
+          "SchemaAndParentFieldsOnly"
+        ],
+        "enum": [
+          "AllDescendantsFieldsOnRootSchema",
+          "SchemaAndParentFieldsOnly"
+        ]
       },
       "ExistsResponse": {
         "type": "object",
