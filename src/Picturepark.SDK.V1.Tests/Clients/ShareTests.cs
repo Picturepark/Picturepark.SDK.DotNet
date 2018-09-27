@@ -253,11 +253,16 @@ namespace Picturepark.SDK.V1.Tests.Clients
         {
             // Arrange
             var outputFormatIds = new List<string> { "Original", "Preview" };
-            var shareContentItems = new List<ShareContent>
+            var contentIds = new List<string>();
+
+            while (contentIds.Count < 2)
             {
-                new ShareContent { ContentId = await _fixture.GetRandomContentIdAsync(string.Empty, 30).ConfigureAwait(false), OutputFormatIds = outputFormatIds },
-                new ShareContent { ContentId = await _fixture.GetRandomContentIdAsync(string.Empty, 30).ConfigureAwait(false), OutputFormatIds = outputFormatIds }
-            };
+                var contentId = await _fixture.GetRandomContentIdAsync(string.Empty, 30).ConfigureAwait(false);
+                if (!contentIds.Contains(contentId))
+                    contentIds.Add(contentId);
+            }
+
+            var shareContentItems = contentIds.Select(x => new ShareContent() { ContentId = x, OutputFormatIds = outputFormatIds }).ToList();
 
             var request = new ShareEmbedCreateRequest
             {
