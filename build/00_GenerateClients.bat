@@ -1,4 +1,4 @@
 pushd "%~dp0/../"
-cmd /c npm update
+cmd /c npm install nswag
 cmd /c npm run nswag
 popd

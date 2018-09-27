@@ -6005,6 +6005,9 @@
             "AggregationSizeInvalidException": {
               "$ref": "#/components/schemas/AggregationSizeInvalidException"
             },
+            "RelationTypeMissingException": {
+              "$ref": "#/components/schemas/RelationTypeMissingException"
+            },
             "SchemaFieldOverwriteTypeMismatchException": {
               "$ref": "#/components/schemas/SchemaFieldOverwriteTypeMismatchException"
             },
@@ -6137,8 +6140,8 @@
             "MissingDisplayPatternForCustomerDefaultLanguageException": {
               "$ref": "#/components/schemas/MissingDisplayPatternForCustomerDefaultLanguageException"
             },
-            "DeleteContentsWithRelationsException": {
-              "$ref": "#/components/schemas/DeleteContentsWithRelationsException"
+            "DeleteContentsWithReferencesException": {
+              "$ref": "#/components/schemas/DeleteContentsWithReferencesException"
             },
             "ContentMetadataUpdateManyException": {
               "$ref": "#/components/schemas/ContentMetadataUpdateManyException"
@@ -7632,15 +7635,13 @@
       "DeleteListItemsWithReferencesException": {
         "type": "object",
         "additionalProperties": false,
+        "required": [
+          "numberOfReferences"
+        ],
         "properties": {
-          "referencesList": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "references": {
-            "type": "string"
+          "numberOfReferences": {
+            "type": "integer",
+            "format": "int64"
           }
         },
         "allOf": [
@@ -7997,6 +7998,15 @@
         "allOf": [
           {
             "$ref": "#/components/schemas/PictureparkValidationException"
+          }
+        ]
+      },
+      "RelationTypeMissingException": {
+        "type": "object",
+        "additionalProperties": false,
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkBusinessException"
           }
         ]
       },
@@ -8828,18 +8838,21 @@
           "Name"
         ]
       },
-      "DeleteContentsWithRelationsException": {
+      "DeleteContentsWithReferencesException": {
         "type": "object",
         "additionalProperties": false,
+        "required": [
+          "numberOfReferences",
+          "numberOfShares"
+        ],
         "properties": {
-          "relationList": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
+          "numberOfReferences": {
+            "type": "integer",
+            "format": "int64"
           },
-          "relations": {
-            "type": "string"
+          "numberOfShares": {
+            "type": "integer",
+            "format": "int64"
           }
         },
         "allOf": [

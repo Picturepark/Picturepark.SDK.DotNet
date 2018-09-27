@@ -921,6 +921,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [JsonInheritanceAttribute("RelationTypeTargetDocTypeMismatchException", typeof(RelationTypeTargetDocTypeMismatchException))]
     [JsonInheritanceAttribute("AggregationNameInvalidException", typeof(AggregationNameInvalidException))]
     [JsonInheritanceAttribute("AggregationSizeInvalidException", typeof(AggregationSizeInvalidException))]
+    [JsonInheritanceAttribute("RelationTypeMissingException", typeof(RelationTypeMissingException))]
     [JsonInheritanceAttribute("SchemaFieldOverwriteTypeMismatchException", typeof(SchemaFieldOverwriteTypeMismatchException))]
     [JsonInheritanceAttribute("SchemaFieldOverwriteIdException", typeof(SchemaFieldOverwriteIdException))]
     [JsonInheritanceAttribute("SchemaFieldIdDuplicatedException", typeof(SchemaFieldIdDuplicatedException))]
@@ -965,7 +966,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [JsonInheritanceAttribute("SchemaFieldRelationSchemaTypeUnsupportedException", typeof(SchemaFieldRelationSchemaTypeUnsupportedException))]
     [JsonInheritanceAttribute("SchemaMultipleTypesException", typeof(SchemaMultipleTypesException))]
     [JsonInheritanceAttribute("MissingDisplayPatternForCustomerDefaultLanguageException", typeof(MissingDisplayPatternForCustomerDefaultLanguageException))]
-    [JsonInheritanceAttribute("DeleteContentsWithRelationsException", typeof(DeleteContentsWithRelationsException))]
+    [JsonInheritanceAttribute("DeleteContentsWithReferencesException", typeof(DeleteContentsWithReferencesException))]
     [JsonInheritanceAttribute("ContentMetadataUpdateManyException", typeof(ContentMetadataUpdateManyException))]
     [JsonInheritanceAttribute("ContentNotFoundException", typeof(ContentNotFoundException))]
     [JsonInheritanceAttribute("ContentLayerInvalidException", typeof(ContentLayerInvalidException))]
@@ -2828,11 +2829,8 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [Newtonsoft.Json.JsonObjectAttribute]
     public partial class DeleteListItemsWithReferencesException : PictureparkValidationException
     {
-        [Newtonsoft.Json.JsonProperty("referencesList", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> ReferencesList { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("references", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string References { get; set; }
+        [Newtonsoft.Json.JsonProperty("numberOfReferences", Required = Newtonsoft.Json.Required.Always)]
+        public long NumberOfReferences { get; set; }
     
         public string ToJson() 
         {
@@ -3263,6 +3261,22 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         public static AggregationSizeInvalidException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<AggregationSizeInvalidException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class RelationTypeMissingException : PictureparkBusinessException
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static RelationTypeMissingException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<RelationTypeMissingException>(data);
         }
     
     }
@@ -4273,22 +4287,22 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
     [Newtonsoft.Json.JsonObjectAttribute]
-    public partial class DeleteContentsWithRelationsException : PictureparkValidationException
+    public partial class DeleteContentsWithReferencesException : PictureparkValidationException
     {
-        [Newtonsoft.Json.JsonProperty("relationList", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> RelationList { get; set; }
+        [Newtonsoft.Json.JsonProperty("numberOfReferences", Required = Newtonsoft.Json.Required.Always)]
+        public long NumberOfReferences { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("relations", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Relations { get; set; }
+        [Newtonsoft.Json.JsonProperty("numberOfShares", Required = Newtonsoft.Json.Required.Always)]
+        public long NumberOfShares { get; set; }
     
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
         }
         
-        public static DeleteContentsWithRelationsException FromJson(string data)
+        public static DeleteContentsWithReferencesException FromJson(string data)
         {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<DeleteContentsWithRelationsException>(data);
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<DeleteContentsWithReferencesException>(data);
         }
     
     }

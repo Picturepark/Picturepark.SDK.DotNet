@@ -546,6 +546,7 @@ namespace Picturepark.SDK.V1.Contract
     
         /// <summary>Get list item references</summary>
         /// <param name="listItemId">The ID of the list item.</param>
+        /// <param name="listItemReferencesRequest">Request options to specify how many references to fetch.</param>
         /// <returns>List item references</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -553,10 +554,10 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<ListItemReferences> GetReferencesToListItemAsync(string listItemId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ListItemReferencesResult> GetReferencesToListItemAsync(string listItemId, ListItemReferencesRequest listItemReferencesRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Get multiple list items references</summary>
-        /// <param name="ids">The IDs of the list items.</param>
+        /// <param name="listItemManyReferencesRequest">ListItemManyReferencesRequest</param>
         /// <returns>A list of references per list item.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -564,7 +565,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<ListItemReferences>> GetReferencesToListItemsAsync(System.Collections.Generic.IEnumerable<string> ids, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ListItemReferencesResult> GetReferencesToListItemsAsync(ListItemManyReferencesRequest listItemManyReferencesRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
     }
     
@@ -1782,6 +1783,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("RelationTypeTargetDocTypeMismatchException", typeof(RelationTypeTargetDocTypeMismatchException))]
     [JsonInheritanceAttribute("AggregationNameInvalidException", typeof(AggregationNameInvalidException))]
     [JsonInheritanceAttribute("AggregationSizeInvalidException", typeof(AggregationSizeInvalidException))]
+    [JsonInheritanceAttribute("RelationTypeMissingException", typeof(RelationTypeMissingException))]
     [JsonInheritanceAttribute("SchemaFieldOverwriteTypeMismatchException", typeof(SchemaFieldOverwriteTypeMismatchException))]
     [JsonInheritanceAttribute("SchemaFieldOverwriteIdException", typeof(SchemaFieldOverwriteIdException))]
     [JsonInheritanceAttribute("SchemaFieldIdDuplicatedException", typeof(SchemaFieldIdDuplicatedException))]
@@ -1826,7 +1828,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("SchemaFieldRelationSchemaTypeUnsupportedException", typeof(SchemaFieldRelationSchemaTypeUnsupportedException))]
     [JsonInheritanceAttribute("SchemaMultipleTypesException", typeof(SchemaMultipleTypesException))]
     [JsonInheritanceAttribute("MissingDisplayPatternForCustomerDefaultLanguageException", typeof(MissingDisplayPatternForCustomerDefaultLanguageException))]
-    [JsonInheritanceAttribute("DeleteContentsWithRelationsException", typeof(DeleteContentsWithRelationsException))]
+    [JsonInheritanceAttribute("DeleteContentsWithReferencesException", typeof(DeleteContentsWithReferencesException))]
     [JsonInheritanceAttribute("ContentMetadataUpdateManyException", typeof(ContentMetadataUpdateManyException))]
     [JsonInheritanceAttribute("ContentNotFoundException", typeof(ContentNotFoundException))]
     [JsonInheritanceAttribute("ContentLayerInvalidException", typeof(ContentLayerInvalidException))]
@@ -3689,11 +3691,8 @@ namespace Picturepark.SDK.V1.Contract
     [Newtonsoft.Json.JsonObjectAttribute]
     public partial class DeleteListItemsWithReferencesException : PictureparkValidationException
     {
-        [Newtonsoft.Json.JsonProperty("referencesList", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> ReferencesList { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("references", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string References { get; set; }
+        [Newtonsoft.Json.JsonProperty("numberOfReferences", Required = Newtonsoft.Json.Required.Always)]
+        public long NumberOfReferences { get; set; }
     
         public string ToJson() 
         {
@@ -4124,6 +4123,22 @@ namespace Picturepark.SDK.V1.Contract
         public static AggregationSizeInvalidException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<AggregationSizeInvalidException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class RelationTypeMissingException : PictureparkBusinessException
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static RelationTypeMissingException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<RelationTypeMissingException>(data);
         }
     
     }
@@ -5134,22 +5149,22 @@ namespace Picturepark.SDK.V1.Contract
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
     [Newtonsoft.Json.JsonObjectAttribute]
-    public partial class DeleteContentsWithRelationsException : PictureparkValidationException
+    public partial class DeleteContentsWithReferencesException : PictureparkValidationException
     {
-        [Newtonsoft.Json.JsonProperty("relationList", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> RelationList { get; set; }
+        [Newtonsoft.Json.JsonProperty("numberOfReferences", Required = Newtonsoft.Json.Required.Always)]
+        public long NumberOfReferences { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("relations", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Relations { get; set; }
+        [Newtonsoft.Json.JsonProperty("numberOfShares", Required = Newtonsoft.Json.Required.Always)]
+        public long NumberOfShares { get; set; }
     
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
         }
         
-        public static DeleteContentsWithRelationsException FromJson(string data)
+        public static DeleteContentsWithReferencesException FromJson(string data)
         {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<DeleteContentsWithRelationsException>(data);
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<DeleteContentsWithReferencesException>(data);
         }
     
     }
@@ -8073,9 +8088,9 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class ContentReferencesResult 
     {
-        /// <summary>List of content references</summary>
+        /// <summary>List of references. Only available when requested in the request.</summary>
         [Newtonsoft.Json.JsonProperty("metadataReferences", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<ContentReferences> MetadataReferences { get; set; }
+        public MetadataReferenceResult MetadataReferences { get; set; }
     
         /// <summary>List of share references</summary>
         [Newtonsoft.Json.JsonProperty("shareReferences", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -8093,73 +8108,76 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    /// <summary>Base class for References</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
-    public abstract partial class ReferencesBase 
+    public partial class BaseResultOfMetadataReference 
     {
-        /// <summary>The ID of the target item of the reference.</summary>
+        [Newtonsoft.Json.JsonProperty("totalResults", Required = Newtonsoft.Json.Required.Always)]
+        public long TotalResults { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("results", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.Collections.Generic.ICollection<MetadataReference> Results { get; set; } = new System.Collections.Generic.List<MetadataReference>();
+    
+        [Newtonsoft.Json.JsonProperty("pageToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string PageToken { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("queryDebugInformation", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public QueryDebugInformation QueryDebugInformation { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static BaseResultOfMetadataReference FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BaseResultOfMetadataReference>(data);
+        }
+    
+    }
+    
+    /// <summary>Result for getting references.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class MetadataReferenceResult : BaseResultOfMetadataReference
+    {
+        /// <summary>Indicates if any reference is originating from an item that the current user does not have access to.</summary>
+        [Newtonsoft.Json.JsonProperty("isReferencedByRestrictedItem", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool? IsReferencedByRestrictedItem { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static MetadataReferenceResult FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<MetadataReferenceResult>(data);
+        }
+    
+    }
+    
+    /// <summary>Reference to a metadata item</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class MetadataReference 
+    {
+        /// <summary>Target ID of reference.</summary>
         [Newtonsoft.Json.JsonProperty("targetMetadataItemId", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
         public string TargetMetadataItemId { get; set; }
     
-        /// <summary>All the references to the item identified by the TargetMetadataItemId property. Only items the user has permissions to see, are listed here.</summary>
-        [Newtonsoft.Json.JsonProperty("references", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<MetadataReference> References { get; set; }
+        /// <summary>Indicates if the source of the reference is restricted because of permissions.
+        /// If this is true and the SourceMetadataItemId property is filled, the user does not have the
+        /// edit permission on the source metadata item. If the SourceMetadataItemId is null, the user also
+        /// does not have the view permission on that item.</summary>
+        [Newtonsoft.Json.JsonProperty("isRestricted", Required = Newtonsoft.Json.Required.Always)]
+        public bool IsRestricted { get; set; }
     
-        /// <summary>If there are references that cannot be listed because the user requesting them have no permissions to see the referenced contents / list items, this flag is
-        /// set to true.</summary>
-        [Newtonsoft.Json.JsonProperty("isReferencedByRestrictedItem", Required = Newtonsoft.Json.Required.Always)]
-        public bool IsReferencedByRestrictedItem { get; set; }
+        /// <summary>ID of the source of the reference.</summary>
+        [Newtonsoft.Json.JsonProperty("sourceMetadataItemId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string SourceMetadataItemId { get; set; }
     
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static ReferencesBase FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<ReferencesBase>(data);
-        }
-    
-    }
-    
-    /// <summary>References to a content</summary>
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class ContentReferences : ReferencesBase
-    {
-        /// <summary>The relations to the item identified by the TargetMetadataItemId property. Only items the user has permissions to see, are listed here.</summary>
-        [Newtonsoft.Json.JsonProperty("relations", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<MetadataReference> Relations { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static ContentReferences FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentReferences>(data);
-        }
-    
-    }
-    
-    /// <summary>A metadata reference between two documents</summary>
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class MetadataReference 
-    {
-        /// <summary>The target document type of the reference. Currently DocTypeContent and DocTypeListItem.</summary>
-        [Newtonsoft.Json.JsonProperty("targetDocType", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public string TargetDocType { get; set; }
-    
-        /// <summary>The ID of the source document of the reference.</summary>
-        [Newtonsoft.Json.JsonProperty("sourceId", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public string SourceId { get; set; }
-    
-        /// <summary>The source document type of the reference. Currently DocTypeContent and DocTypeListItem.</summary>
-        [Newtonsoft.Json.JsonProperty("sourceDocType", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
+        /// <summary>DocType of the source of the reference.</summary>
+        [Newtonsoft.Json.JsonProperty("sourceDocType", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string SourceDocType { get; set; }
     
         public string ToJson() 
@@ -8271,6 +8289,10 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class ContentReferencesRequest 
     {
+        /// <summary>Limits the number of the returned metadata references by setting paging information.</summary>
+        [Newtonsoft.Json.JsonProperty("references", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public MetadataReferencesPagingRequest References { get; set; }
+    
         /// <summary>Limits the number of the returned share references by setting paging information.</summary>
         [Newtonsoft.Json.JsonProperty("shares", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public PagingRequest Shares { get; set; }
@@ -8311,6 +8333,26 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>Request to get paginated metadata references</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class MetadataReferencesPagingRequest : PagingRequest
+    {
+        /// <summary>Set to true to check if any incoming references are originating from an item the current user does not have full access to.</summary>
+        [Newtonsoft.Json.JsonProperty("fetchReferencedByRestrictedItem", Required = Newtonsoft.Json.Required.Always)]
+        public bool FetchReferencedByRestrictedItem { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static MetadataReferencesPagingRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<MetadataReferencesPagingRequest>(data);
+        }
+    
+    }
+    
     /// <summary>Request to get multiple contents' references</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class ContentManyReferencesRequest 
@@ -8319,6 +8361,10 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("contentIds", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
         public System.Collections.Generic.ICollection<string> ContentIds { get; set; } = new System.Collections.Generic.List<string>();
+    
+        /// <summary>Limits the number of the returned metadata references by setting paging information.</summary>
+        [Newtonsoft.Json.JsonProperty("references", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public MetadataReferencesPagingRequest References { get; set; }
     
         /// <summary>Limits the number of the returned share references by setting paging information.</summary>
         [Newtonsoft.Json.JsonProperty("shares", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -10284,18 +10330,67 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    /// <summary>References to a list item</summary>
+    /// <summary>Result from getting references to list items.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class ListItemReferences : ReferencesBase
+    public partial class ListItemReferencesResult 
     {
+        /// <summary>List of references. Only available when requested in the request.</summary>
+        [Newtonsoft.Json.JsonProperty("metadataReferences", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public MetadataReferenceResult MetadataReferences { get; set; }
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
         }
         
-        public static ListItemReferences FromJson(string data)
+        public static ListItemReferencesResult FromJson(string data)
         {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<ListItemReferences>(data);
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ListItemReferencesResult>(data);
+        }
+    
+    }
+    
+    /// <summary>Request to get the references to a list item</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class ListItemReferencesRequest 
+    {
+        /// <summary>Limits the number of the returned metadata references by setting paging information.</summary>
+        [Newtonsoft.Json.JsonProperty("references", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public MetadataReferencesPagingRequest References { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ListItemReferencesRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ListItemReferencesRequest>(data);
+        }
+    
+    }
+    
+    /// <summary>Request to get the references to multiple list items</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class ListItemManyReferencesRequest 
+    {
+        /// <summary>The IDs of the list items whose references need to be retrieved.</summary>
+        [Newtonsoft.Json.JsonProperty("listItemIds", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.Collections.Generic.ICollection<string> ListItemIds { get; set; } = new System.Collections.Generic.List<string>();
+    
+        /// <summary>Limits the number of the returned metadata references by setting paging information.</summary>
+        [Newtonsoft.Json.JsonProperty("references", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public MetadataReferencesPagingRequest References { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ListItemManyReferencesRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ListItemManyReferencesRequest>(data);
         }
     
     }
