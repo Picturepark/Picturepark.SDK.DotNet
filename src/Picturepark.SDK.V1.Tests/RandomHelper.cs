@@ -8,6 +8,8 @@ namespace Picturepark.SDK.V1.Tests
 {
     public class RandomHelper
     {
+        private static readonly Random Random = new Random();
+
         public static async Task<ContentSearchResult> GetRandomContentsAsync(IPictureparkService client, string searchString, int limit, IReadOnlyList<ContentType> contentTypes = null)
         {
             var request = new ContentSearchRequest { SearchString = searchString, Limit = limit };
@@ -35,7 +37,7 @@ namespace Picturepark.SDK.V1.Tests
 
             if (result.Results.Count > 0)
             {
-                int randomNumber = new Random().Next(0, result.Results.Count);
+                int randomNumber = Random.Next(0, result.Results.Count);
                 contentId = result.Results.Skip(randomNumber).First().Id;
             }
 
@@ -50,7 +52,7 @@ namespace Picturepark.SDK.V1.Tests
 
             if (result.Results.Count > 0)
             {
-                var randomNumber = new Random().Next(0, result.Results.Count);
+                var randomNumber = Random.Next(0, result.Results.Count);
                 permissionSetId = result.Results.Skip(randomNumber).First().Id;
             }
 
@@ -65,7 +67,7 @@ namespace Picturepark.SDK.V1.Tests
 
             if (result.Results.Count > 0)
             {
-                int randomNumber = new Random().Next(0, result.Results.Count);
+                int randomNumber = Random.Next(0, result.Results.Count);
                 fileTransferId = result.Results.Skip(randomNumber).First().Id;
             }
 
@@ -80,7 +82,7 @@ namespace Picturepark.SDK.V1.Tests
 
             if (result.Results.Count > 0)
             {
-                int randomNumber = new Random().Next(0, result.Results.Count);
+                int randomNumber = Random.Next(0, result.Results.Count);
                 permissionSetId = result.Results.Skip(randomNumber).First().Id;
             }
 
@@ -102,7 +104,7 @@ namespace Picturepark.SDK.V1.Tests
             var shares = result.Results;
             if (shares.Count > 0)
             {
-                var randomNumber = new Random().Next(0, shares.Count);
+                var randomNumber = Random.Next(0, shares.Count);
                 shareId = shares.Skip(randomNumber).First().Id;
             }
 
