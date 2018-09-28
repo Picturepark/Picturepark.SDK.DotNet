@@ -1408,7 +1408,6 @@ namespace Picturepark.SDK.V1.Contract
     
     /// <summary>Business process</summary>
     [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
-    [JsonInheritanceAttribute("BusinessProcessBulkResponse", typeof(BusinessProcessBulkResponse))]
     [JsonInheritanceAttribute("BusinessProcessDetails", typeof(BusinessProcessDetails))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class BusinessProcess 
@@ -1468,6 +1467,10 @@ namespace Picturepark.SDK.V1.Contract
         /// <summary>Current state of the business process.</summary>
         [Newtonsoft.Json.JsonProperty("currentState", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string CurrentState { get; set; }
+    
+        /// <summary>Timestamp when the business process last reported progress.</summary>
+        [Newtonsoft.Json.JsonProperty("lastReportedProgress", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.DateTime? LastReportedProgress { get; set; }
     
         public string ToJson() 
         {
@@ -1574,83 +1577,6 @@ namespace Picturepark.SDK.V1.Contract
         public static ErrorResponse FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<ErrorResponse>(data);
-        }
-    
-    }
-    
-    /// <summary>Business process with detailed information of succeeded / failed items during the run of the operation</summary>
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class BusinessProcessBulkResponse : BusinessProcess
-    {
-        /// <summary>Contains information regarding of succeeded / failed items.</summary>
-        [Newtonsoft.Json.JsonProperty("response", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public BulkResponse Response { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static BusinessProcessBulkResponse FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessProcessBulkResponse>(data);
-        }
-    
-    }
-    
-    /// <summary>Response to a bulk operation</summary>
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class BulkResponse 
-    {
-        /// <summary>Rows of the bulk response.</summary>
-        [Newtonsoft.Json.JsonProperty("rows", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<BulkResponseRow> Rows { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static BulkResponse FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<BulkResponse>(data);
-        }
-    
-    }
-    
-    /// <summary>Row information of a bulk response</summary>
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class BulkResponseRow 
-    {
-        /// <summary>ID of the document.</summary>
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public string Id { get; set; }
-    
-        /// <summary>Version of the document.</summary>
-        [Newtonsoft.Json.JsonProperty("version", Required = Newtonsoft.Json.Required.Always)]
-        public long Version { get; set; }
-    
-        /// <summary>Eventual error.</summary>
-        [Newtonsoft.Json.JsonProperty("error", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Error { get; set; }
-    
-        /// <summary>True if item successfully saved. False otherwise.</summary>
-        [Newtonsoft.Json.JsonProperty("succeeded", Required = Newtonsoft.Json.Required.Always)]
-        public bool Succeeded { get; set; }
-    
-        /// <summary>Returned status code.</summary>
-        [Newtonsoft.Json.JsonProperty("status", Required = Newtonsoft.Json.Required.Always)]
-        public int Status { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static BulkResponseRow FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<BulkResponseRow>(data);
         }
     
     }
@@ -14119,6 +14045,63 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>Response to a bulk operation</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class BulkResponse 
+    {
+        /// <summary>Rows of the bulk response.</summary>
+        [Newtonsoft.Json.JsonProperty("rows", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<BulkResponseRow> Rows { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static BulkResponse FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BulkResponse>(data);
+        }
+    
+    }
+    
+    /// <summary>Row information of a bulk response</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class BulkResponseRow 
+    {
+        /// <summary>ID of the document.</summary>
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public string Id { get; set; }
+    
+        /// <summary>Version of the document.</summary>
+        [Newtonsoft.Json.JsonProperty("version", Required = Newtonsoft.Json.Required.Always)]
+        public long Version { get; set; }
+    
+        /// <summary>Eventual error.</summary>
+        [Newtonsoft.Json.JsonProperty("error", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Error { get; set; }
+    
+        /// <summary>True if item successfully saved. False otherwise.</summary>
+        [Newtonsoft.Json.JsonProperty("succeeded", Required = Newtonsoft.Json.Required.Always)]
+        public bool Succeeded { get; set; }
+    
+        /// <summary>Returned status code.</summary>
+        [Newtonsoft.Json.JsonProperty("status", Required = Newtonsoft.Json.Required.Always)]
+        public int Status { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static BulkResponseRow FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BulkResponseRow>(data);
+        }
+    
+    }
+    
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class ShareDeleteManyRequest 
     {
@@ -14171,12 +14154,12 @@ namespace Picturepark.SDK.V1.Contract
         public long ItemsCancelled { get; set; }
     
         /// <summary>Time stamp of last progress update from data extraction.</summary>
-        [Newtonsoft.Json.JsonProperty("lastDataExtractionProgressStamp", Required = Newtonsoft.Json.Required.Always)]
-        public long LastDataExtractionProgressStamp { get; set; }
+        [Newtonsoft.Json.JsonProperty("lastDataExtractionProgressTimeStamp", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.DateTime? LastDataExtractionProgressTimeStamp { get; set; }
     
-        /// <summary>LastTime stamp of last progress update from upload.</summary>
-        [Newtonsoft.Json.JsonProperty("lastFileUploadProgressStamp", Required = Newtonsoft.Json.Required.Always)]
-        public long LastFileUploadProgressStamp { get; set; }
+        /// <summary>Time stamp of last progress update from upload.</summary>
+        [Newtonsoft.Json.JsonProperty("lastFileUploadProgressTimeStamp", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.DateTime? LastFileUploadProgressTimeStamp { get; set; }
     
         public string ToJson() 
         {
