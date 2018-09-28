@@ -5459,12 +5459,7 @@
       "BusinessProcess": {
         "type": "object",
         "discriminator": {
-          "propertyName": "kind",
-          "mapping": {
-            "BusinessProcessBulkResponse": {
-              "$ref": "#/components/schemas/BusinessProcessBulkResponse"
-            }
-          }
+          "propertyName": "kind"
         },
         "description": "Business process",
         "additionalProperties": false,
@@ -5542,6 +5537,11 @@
           "currentState": {
             "type": "string",
             "description": "Current state of the business process."
+          },
+          "lastReportedProgress": {
+            "type": "string",
+            "description": "Timestamp when the business process last reported progress.",
+            "format": "date-time"
           },
           "kind": {
             "type": "string"
@@ -5627,76 +5627,6 @@
           "traceJobId": {
             "type": "string",
             "description": "Trace job ID."
-          }
-        }
-      },
-      "BusinessProcessBulkResponse": {
-        "type": "object",
-        "description": "Business process with detailed information of succeeded / failed items during the run of the operation",
-        "additionalProperties": false,
-        "properties": {
-          "response": {
-            "description": "Contains information regarding of succeeded / failed items.",
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/BulkResponse"
-              }
-            ]
-          }
-        },
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/BusinessProcess"
-          }
-        ]
-      },
-      "BulkResponse": {
-        "type": "object",
-        "description": "Response to a bulk operation",
-        "additionalProperties": false,
-        "properties": {
-          "rows": {
-            "type": "array",
-            "description": "Rows of the bulk response.",
-            "items": {
-              "$ref": "#/components/schemas/BulkResponseRow"
-            }
-          }
-        }
-      },
-      "BulkResponseRow": {
-        "type": "object",
-        "description": "Row information of a bulk response",
-        "additionalProperties": false,
-        "required": [
-          "id",
-          "version",
-          "succeeded",
-          "status"
-        ],
-        "properties": {
-          "id": {
-            "type": "string",
-            "description": "ID of the document.",
-            "minLength": 1
-          },
-          "version": {
-            "type": "integer",
-            "description": "Version of the document.",
-            "format": "int64"
-          },
-          "error": {
-            "type": "string",
-            "description": "Eventual error."
-          },
-          "succeeded": {
-            "type": "boolean",
-            "description": "True if item successfully saved. False otherwise."
-          },
-          "status": {
-            "type": "integer",
-            "description": "Returned status code.",
-            "format": "int32"
           }
         }
       },
