@@ -1000,10 +1000,11 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="request">The create transfer request</param>
         /// <returns>Transfer</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="MaximumTransferSizeException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
-        /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         System.Threading.Tasks.Task<Transfer> CreateAsync(CreateTransferRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
@@ -1780,6 +1781,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("ForbiddenHtmlElementsUsedException", typeof(ForbiddenHtmlElementsUsedException))]
     [JsonInheritanceAttribute("BusinessProcessStateNotHitException", typeof(BusinessProcessStateNotHitException))]
     [JsonInheritanceAttribute("BusinessProcessLifeCycleNotHitException", typeof(BusinessProcessLifeCycleNotHitException))]
+    [JsonInheritanceAttribute("MaximumTransferSizeException", typeof(MaximumTransferSizeException))]
     [JsonInheritanceAttribute("EnvironmentNotAvailableException", typeof(EnvironmentNotAvailableException))]
     [JsonInheritanceAttribute("CustomerNotAvailableException", typeof(CustomerNotAvailableException))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
@@ -5737,6 +5739,31 @@ namespace Picturepark.SDK.V1.Contract
         public static BusinessProcessLifeCycleNotHitException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessProcessLifeCycleNotHitException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class MaximumTransferSizeException : PictureparkException
+    {
+        [Newtonsoft.Json.JsonProperty("transferSize", Required = Newtonsoft.Json.Required.Always)]
+        public int TransferSize { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("maximumTransferSize", Required = Newtonsoft.Json.Required.Always)]
+        public int MaximumTransferSize { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("transferId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string TransferId { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static MaximumTransferSizeException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<MaximumTransferSizeException>(data);
         }
     
     }

@@ -918,6 +918,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [JsonInheritanceAttribute("ForbiddenHtmlElementsUsedException", typeof(ForbiddenHtmlElementsUsedException))]
     [JsonInheritanceAttribute("BusinessProcessStateNotHitException", typeof(BusinessProcessStateNotHitException))]
     [JsonInheritanceAttribute("BusinessProcessLifeCycleNotHitException", typeof(BusinessProcessLifeCycleNotHitException))]
+    [JsonInheritanceAttribute("MaximumTransferSizeException", typeof(MaximumTransferSizeException))]
     [JsonInheritanceAttribute("EnvironmentNotAvailableException", typeof(EnvironmentNotAvailableException))]
     [JsonInheritanceAttribute("CustomerNotAvailableException", typeof(CustomerNotAvailableException))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
@@ -4875,6 +4876,31 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         public static BusinessProcessLifeCycleNotHitException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessProcessLifeCycleNotHitException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class MaximumTransferSizeException : PictureparkException
+    {
+        [Newtonsoft.Json.JsonProperty("transferSize", Required = Newtonsoft.Json.Required.Always)]
+        public int TransferSize { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("maximumTransferSize", Required = Newtonsoft.Json.Required.Always)]
+        public int MaximumTransferSize { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("transferId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string TransferId { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static MaximumTransferSizeException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<MaximumTransferSizeException>(data);
         }
     
     }

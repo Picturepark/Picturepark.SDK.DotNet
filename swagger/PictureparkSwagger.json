@@ -9548,6 +9548,31 @@
               }
             }
           },
+          "400": {
+            "x-nullable": true,
+            "description": "\nor\nValidation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            },
+            "x-expectedSchemas": [
+              {
+                "description": "",
+                "schema": {
+                  "$ref": "#/components/schemas/MaximumTransferSizeException"
+                }
+              },
+              {
+                "description": "Validation exception",
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            ]
+          },
           "500": {
             "x-nullable": true,
             "description": "Internal server error",
@@ -9583,17 +9608,6 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/PictureparkConflictException"
-                }
-              }
-            }
-          },
-          "400": {
-            "x-nullable": true,
-            "description": "Validation exception",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkValidationException"
                 }
               }
             }
@@ -13037,6 +13051,9 @@
             "BusinessProcessLifeCycleNotHitException": {
               "$ref": "#/components/schemas/BusinessProcessLifeCycleNotHitException"
             },
+            "MaximumTransferSizeException": {
+              "$ref": "#/components/schemas/MaximumTransferSizeException"
+            },
             "EnvironmentNotAvailableException": {
               "$ref": "#/components/schemas/EnvironmentNotAvailableException"
             },
@@ -16190,6 +16207,32 @@
         "allOf": [
           {
             "$ref": "#/components/schemas/PictureparkTimeoutException"
+          }
+        ]
+      },
+      "MaximumTransferSizeException": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "transferSize",
+          "maximumTransferSize"
+        ],
+        "properties": {
+          "transferSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "maximumTransferSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "transferId": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkException"
           }
         ]
       },
