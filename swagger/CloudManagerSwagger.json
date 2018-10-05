@@ -6148,6 +6148,9 @@
             "BusinessProcessLifeCycleNotHitException": {
               "$ref": "#/components/schemas/BusinessProcessLifeCycleNotHitException"
             },
+            "MaximumTransferSizeException": {
+              "$ref": "#/components/schemas/MaximumTransferSizeException"
+            },
             "EnvironmentNotAvailableException": {
               "$ref": "#/components/schemas/EnvironmentNotAvailableException"
             },
@@ -9301,6 +9304,32 @@
         "allOf": [
           {
             "$ref": "#/components/schemas/PictureparkTimeoutException"
+          }
+        ]
+      },
+      "MaximumTransferSizeException": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "transferSize",
+          "maximumTransferSize"
+        ],
+        "properties": {
+          "transferSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "maximumTransferSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "transferId": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkException"
           }
         ]
       },
