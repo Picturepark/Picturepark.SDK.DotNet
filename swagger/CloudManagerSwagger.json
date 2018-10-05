@@ -6147,6 +6147,12 @@
             },
             "BusinessProcessLifeCycleNotHitException": {
               "$ref": "#/components/schemas/BusinessProcessLifeCycleNotHitException"
+            },
+            "EnvironmentNotAvailableException": {
+              "$ref": "#/components/schemas/EnvironmentNotAvailableException"
+            },
+            "CustomerNotAvailableException": {
+              "$ref": "#/components/schemas/CustomerNotAvailableException"
             }
           }
         },
@@ -6475,6 +6481,9 @@
             "type": "string"
           },
           "version": {
+            "type": "string"
+          },
+          "expectedVersion": {
             "type": "string"
           }
         },
@@ -9292,6 +9301,29 @@
         "allOf": [
           {
             "$ref": "#/components/schemas/PictureparkTimeoutException"
+          }
+        ]
+      },
+      "EnvironmentNotAvailableException": {
+        "type": "object",
+        "additionalProperties": false,
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkException"
+          }
+        ]
+      },
+      "CustomerNotAvailableException": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "customerId": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkException"
           }
         ]
       },
