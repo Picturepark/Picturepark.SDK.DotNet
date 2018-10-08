@@ -14,18 +14,20 @@ namespace Picturepark.SDK.V1.Tests.Fixtures
 
         private readonly ConcurrentQueue<string> _createdSchemaIds = new ConcurrentQueue<string>();
 
-        private object _disposeSync = new object();
+        private readonly object _disposeSync = new object();
 
         public async Task<IReadOnlyList<SchemaDetail>> RandomizeSchemaIdsAndCreate(IEnumerable<SchemaDetail> schemas)
         {
             var schemaSuffix = new Random().Next(0, 1000000);
-            var createSchemaTasks = schemas.Select(async s =>
-            {
-                AppendSchemaIdSuffix(s, schemaSuffix);
-                return await Client.Schema.CreateAsync(s, true, TimeSpan.FromMinutes(1)).ConfigureAwait(false);
-            });
+            var createdSchemas = new List<SchemaDetail>();
 
-            var createdSchemas = (await Task.WhenAll(createSchemaTasks)).Select(r => r.Schema).ToArray();
+            foreach (var schema in schemas)
+            {
+                AppendSchemaIdSuffix(schema, schemaSuffix);
+                var result = await Client.Schema.CreateAsync(schema, true, TimeSpan.FromMinutes(1)).ConfigureAwait(false);
+
+                createdSchemas.Add(result.Schema);
+            }
 
             foreach (var createdSchema in createdSchemas)
             {
