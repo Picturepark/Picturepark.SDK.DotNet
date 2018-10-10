@@ -28,6 +28,9 @@ namespace Picturepark.SDK.V1
         public PictureparkRetryHandler(HttpMessageHandler innerHandler, int maxRetries = 3)
             : base(innerHandler)
         {
+            if (maxRetries < 0)
+                throw new ArgumentOutOfRangeException(nameof(maxRetries), maxRetries, "MaxRetries should be 0 or a positive integer");
+
             _maxRetries = maxRetries;
         }
 
@@ -42,7 +45,7 @@ namespace Picturepark.SDK.V1
         protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
         {
             HttpResponseMessage msg = null;
-            for (int i = 0; i < _maxRetries; i++)
+            for (int i = 0; i < _maxRetries + 1; i++)
             {
                 msg = await base.SendAsync(request, cancellationToken).ConfigureAwait(false);
                 if (msg.StatusCode != (HttpStatusCode)429)
