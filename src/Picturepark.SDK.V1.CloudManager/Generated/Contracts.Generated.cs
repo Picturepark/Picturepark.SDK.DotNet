@@ -6109,6 +6109,14 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.TimeSpan UserRetentionTime { get; set; }
     
+        [Newtonsoft.Json.JsonProperty("documentHistoryRetentionTime", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public System.TimeSpan DocumentHistoryRetentionTime { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("liveStreamRetentionTime", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public System.TimeSpan LiveStreamRetentionTime { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("snapshotFullbackupScheduleTime", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.TimeSpan SnapshotFullbackupScheduleTime { get; set; }
@@ -6369,6 +6377,14 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [Newtonsoft.Json.JsonProperty("userRetentionTime", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.TimeSpan UserRetentionTime { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("documentHistoryRetentionTime", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public System.TimeSpan DocumentHistoryRetentionTime { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("liveStreamRetentionTime", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public System.TimeSpan LiveStreamRetentionTime { get; set; }
     
         [Newtonsoft.Json.JsonProperty("snapshotFullbackupScheduleTime", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
@@ -7583,6 +7599,14 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [Newtonsoft.Json.JsonProperty("userRetentionTime", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.TimeSpan UserRetentionTime { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("documentHistoryRetentionTime", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public System.TimeSpan DocumentHistoryRetentionTime { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("liveStreamRetentionTime", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public System.TimeSpan LiveStreamRetentionTime { get; set; }
     
         [Newtonsoft.Json.JsonProperty("snapshotFullbackupScheduleTime", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]

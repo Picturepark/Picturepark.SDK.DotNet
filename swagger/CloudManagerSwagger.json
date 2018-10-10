@@ -10190,6 +10190,8 @@
           "listItemRetentionTime",
           "snapshotRetentionTime",
           "userRetentionTime",
+          "documentHistoryRetentionTime",
+          "liveStreamRetentionTime",
           "snapshotFullbackupScheduleTime",
           "contentBackupState",
           "apiCallsPerMinute"
@@ -10391,6 +10393,14 @@
             "type": "string",
             "format": "time-span"
           },
+          "documentHistoryRetentionTime": {
+            "type": "string",
+            "format": "time-span"
+          },
+          "liveStreamRetentionTime": {
+            "type": "string",
+            "format": "time-span"
+          },
           "snapshotFullbackupScheduleTime": {
             "type": "string",
             "format": "time-span"
@@ -10547,6 +10557,8 @@
           "listItemRetentionTime",
           "snapshotRetentionTime",
           "userRetentionTime",
+          "documentHistoryRetentionTime",
+          "liveStreamRetentionTime",
           "snapshotFullbackupScheduleTime",
           "contentBackupState",
           "apiCallsPerMinute"
@@ -10669,6 +10681,14 @@
             "format": "time-span"
           },
           "userRetentionTime": {
+            "type": "string",
+            "format": "time-span"
+          },
+          "documentHistoryRetentionTime": {
+            "type": "string",
+            "format": "time-span"
+          },
+          "liveStreamRetentionTime": {
             "type": "string",
             "format": "time-span"
           },
@@ -11859,6 +11879,8 @@
           "listItemRetentionTime",
           "snapshotRetentionTime",
           "userRetentionTime",
+          "documentHistoryRetentionTime",
+          "liveStreamRetentionTime",
           "snapshotFullbackupScheduleTime",
           "useSsl",
           "enableQueryDetails",
@@ -11899,6 +11921,14 @@
             "format": "time-span"
           },
           "userRetentionTime": {
+            "type": "string",
+            "format": "time-span"
+          },
+          "documentHistoryRetentionTime": {
+            "type": "string",
+            "format": "time-span"
+          },
+          "liveStreamRetentionTime": {
             "type": "string",
             "format": "time-span"
           },
