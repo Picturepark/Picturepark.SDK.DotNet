@@ -623,9 +623,9 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldUseLocalDateForDisplayValue()
         {
             // Arange
-            var schema = await SchemaHelper.CreateSchemasIfNotExistentAsync<LocalDateTestItem>(_client).ConfigureAwait(false);
+            await SchemaHelper.CreateSchemasIfNotExistentAsync<LocalDateTestItem>(_client).ConfigureAwait(false);
 
-            var date = DateTime.UtcNow;
+            var date = new DateTime(2012, 12, 12, 1, 1, 1).ToUniversalTime();
 
             var listItem1 = new LocalDateTestItem
             {
@@ -646,26 +646,26 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var dateValue = item.ConvertTo<LocalDateTestItem>().DateTimeField;
 
             const string quote = "\"";
-            var shouldBeValue = $"{{{{ {quote}{dateValue:O}{quote} | date: {quote}%d.%m.%Y %H:%M:%S{quote} }}}}";
+            var shouldBeValue = $"{{{{ {quote}{dateValue:s}Z{quote} | date: {quote}%d.%m.%Y %H:%M:%S{quote} }}}}";
 
             // Assert
             item.DisplayValues[DisplayPatternType.Name.ToString().ToLowerCamelCase()]
                 .Should().Be(shouldBeValue);
 
             var renderedDisplayValue = LocalizationService.GetDateTimeLocalizedDisplayValue(shouldBeValue);
-            var formatedLocalDate = date.ToLocalTime().ToString("dd.MM.yyyy HH:mm:ss");
-            var formatedChildLocalDate = listItem1.Child.DateTimeField.ToString("dd.MM.yyyy HH:mm:ss");
-            renderedDisplayValue.Should().Be(formatedLocalDate);
+            var formattedLocalDate = date.ToLocalTime().ToString("dd.MM.yyyy HH:mm:ss");
+            var formattedChildLocalDate = listItem1.Child.DateTimeField.ToString("dd.MM.yyyy HH:mm:ss");
+            renderedDisplayValue.Should().Be(formattedLocalDate);
 
             // Apply local time to object tree
             LocalizationService.ReplaceDateTimeLocalizedDisplayValueInObject(item);
 
-            item.DisplayValues["name"].Should().Be(formatedLocalDate);
+            item.DisplayValues["name"].Should().Be(formattedLocalDate);
             ((JObject)item.Content)
                 .GetValue("child")
                 .Value<JToken>("displayValue")
                 .Value<string>("name").Should()
-                .Be(formatedChildLocalDate);
+                .Be(formattedChildLocalDate);
         }
 
         [Fact]
