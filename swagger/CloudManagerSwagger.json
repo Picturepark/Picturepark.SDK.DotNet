@@ -9814,7 +9814,7 @@
       },
       "SnapshotDataType": {
         "type": "string",
-        "description": "Type of data that have been snapshotted",
+        "description": "Type of data that have been snapshot",
         "x-enumNames": [
           "Customer",
           "History",

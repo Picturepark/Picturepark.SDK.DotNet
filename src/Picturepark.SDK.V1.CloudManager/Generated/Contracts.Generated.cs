@@ -5463,7 +5463,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
     }
     
-    /// <summary>Type of data that have been snapshotted</summary>
+    /// <summary>Type of data that have been snapshot</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
     public enum SnapshotDataType
     {
