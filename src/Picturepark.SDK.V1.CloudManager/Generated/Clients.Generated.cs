@@ -2002,10 +2002,10 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        public async System.Threading.Tasks.Task<SnapshotsCleanupResult> CleanupAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<SnapshotRepositoryCleanupResult> CleanupRepositoriesAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/backup/snapshot/cleanup");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/backup/repository/cleanup");
     
             var client_ = _httpClient;
             try
@@ -2037,10 +2037,10 @@ namespace Picturepark.SDK.V1.CloudManager
                         if (status_ == "200") 
                         {
                             var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            var result_ = default(SnapshotsCleanupResult); 
+                            var result_ = default(SnapshotRepositoryCleanupResult); 
                             try
                             {
-                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<SnapshotsCleanupResult>(responseData_, _settings.Value);
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<SnapshotRepositoryCleanupResult>(responseData_, _settings.Value);
                                 return result_; 
                             } 
                             catch (System.Exception exception_) 
@@ -2153,7 +2153,7 @@ namespace Picturepark.SDK.V1.CloudManager
                             throw new ApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", (int)response_.StatusCode, responseData_, headers_, null);
                         }
             
-                        return default(SnapshotsCleanupResult);
+                        return default(SnapshotRepositoryCleanupResult);
                     }
                     finally
                     {
@@ -2352,21 +2352,19 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        public async System.Threading.Tasks.Task<SnapshotRepository> ArchiveRepositoryAsync(string repositoryName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<SnapshotRepository> ArchiveRepositoryAsync(SnapshotRepositoryArchiveRequest archiveRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            if (repositoryName == null)
-                throw new System.ArgumentNullException("repositoryName");
-    
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/backup/snapshot/{repositoryName}/archive");
-            urlBuilder_.Replace("{repositoryName}", System.Uri.EscapeDataString(ConvertToString(repositoryName, System.Globalization.CultureInfo.InvariantCulture)));
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/backup/repository/archive");
     
             var client_ = _httpClient;
             try
             {
                 using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
-                    request_.Content = new System.Net.Http.StringContent(string.Empty, System.Text.Encoding.UTF8, "application/json");
+                    var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(archiveRequest, _settings.Value));
+                    content_.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json");
+                    request_.Content = content_;
                     request_.Method = new System.Net.Http.HttpMethod("PUT");
                     request_.Headers.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
     
@@ -2527,21 +2525,20 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        public async System.Threading.Tasks.Task<SnapshotRepository> GetRepositoryAsync(string repositoryName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<SnapshotRepository> GetRepositoryAsync(SnapshotRepositorySearchByNameRequest searchByNameRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            if (repositoryName == null)
-                throw new System.ArgumentNullException("repositoryName");
-    
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/backup/snapshot/{repositoryName}");
-            urlBuilder_.Replace("{repositoryName}", System.Uri.EscapeDataString(ConvertToString(repositoryName, System.Globalization.CultureInfo.InvariantCulture)));
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/backup/repository/searchByName");
     
             var client_ = _httpClient;
             try
             {
                 using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
-                    request_.Method = new System.Net.Http.HttpMethod("GET");
+                    var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(searchByNameRequest, _settings.Value));
+                    content_.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json");
+                    request_.Content = content_;
+                    request_.Method = new System.Net.Http.HttpMethod("POST");
                     request_.Headers.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
     
                     PrepareRequest(client_, request_, urlBuilder_);

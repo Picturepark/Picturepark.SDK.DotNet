@@ -1005,12 +1005,12 @@
         ]
       }
     },
-    "/backup/snapshot/cleanup": {
+    "/backup/repository/cleanup": {
       "post": {
         "tags": [
           "CloudBackup"
         ],
-        "operationId": "CloudBackup_Cleanup",
+        "operationId": "CloudBackup_CleanupRepositories",
         "responses": {
           "200": {
             "x-nullable": true,
@@ -1018,7 +1018,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/SnapshotsCleanupResult"
+                  "$ref": "#/components/schemas/SnapshotRepositoryCleanupResult"
                 }
               }
             }
@@ -1197,21 +1197,23 @@
         ]
       }
     },
-    "/backup/snapshot/{repositoryName}/archive": {
+    "/backup/repository/archive": {
       "put": {
         "tags": [
           "CloudBackup"
         ],
         "operationId": "CloudBackup_ArchiveRepository",
-        "parameters": [
-          {
-            "type": "string",
-            "name": "repositoryName",
-            "in": "path",
-            "required": true,
-            "nullable": false
-          }
-        ],
+        "requestBody": {
+          "x-name": "archiveRequest",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SnapshotRepositoryArchiveRequest"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "200": {
             "x-nullable": true,
@@ -1285,21 +1287,23 @@
         ]
       }
     },
-    "/backup/snapshot/{repositoryName}": {
-      "get": {
+    "/backup/repository/searchByName": {
+      "post": {
         "tags": [
           "CloudBackup"
         ],
         "operationId": "CloudBackup_GetRepository",
-        "parameters": [
-          {
-            "type": "string",
-            "name": "repositoryName",
-            "in": "path",
-            "required": true,
-            "nullable": false
-          }
-        ],
+        "requestBody": {
+          "x-name": "searchByNameRequest",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SnapshotRepositorySearchByNameRequest"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "200": {
             "x-nullable": true,
@@ -9797,8 +9801,30 @@
           },
           "customerId": {
             "type": "string"
+          },
+          "snapshotDataType": {
+            "description": "Limits the returned snapshots to the ones containing data of the specified type (customer, export or history). This search criteria is applied only if no repository name\nis specified.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/SnapshotDataType"
+              }
+            ]
           }
         }
+      },
+      "SnapshotDataType": {
+        "type": "string",
+        "description": "Type of data that have been snapshot",
+        "x-enumNames": [
+          "Customer",
+          "History",
+          "Export"
+        ],
+        "enum": [
+          "Customer",
+          "History",
+          "Export"
+        ]
       },
       "SnapshotRepositorySearchResult": {
         "type": "object",
@@ -9828,6 +9854,14 @@
           },
           "customerAlias": {
             "type": "string"
+          },
+          "snapshotDataType": {
+            "description": "Limits the returned snapshot repositories to the ones containing customer, history or export backups.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/SnapshotDataType"
+              }
+            ]
           }
         }
       },
@@ -9943,7 +9977,7 @@
           }
         }
       },
-      "SnapshotsCleanupResult": {
+      "SnapshotRepositoryCleanupResult": {
         "type": "object",
         "additionalProperties": false,
         "required": [
@@ -9989,6 +10023,30 @@
           },
           "keepRepository": {
             "type": "boolean"
+          }
+        }
+      },
+      "SnapshotRepositoryArchiveRequest": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "isArchived"
+        ],
+        "properties": {
+          "isArchived": {
+            "type": "boolean"
+          },
+          "repositoryName": {
+            "type": "string"
+          }
+        }
+      },
+      "SnapshotRepositorySearchByNameRequest": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "repositoryName": {
+            "type": "string"
           }
         }
       },
@@ -10132,6 +10190,8 @@
           "listItemRetentionTime",
           "snapshotRetentionTime",
           "userRetentionTime",
+          "documentHistoryRetentionTime",
+          "liveStreamRetentionTime",
           "snapshotFullbackupScheduleTime",
           "contentBackupState",
           "apiCallsPerMinute"
@@ -10333,6 +10393,14 @@
             "type": "string",
             "format": "time-span"
           },
+          "documentHistoryRetentionTime": {
+            "type": "string",
+            "format": "time-span"
+          },
+          "liveStreamRetentionTime": {
+            "type": "string",
+            "format": "time-span"
+          },
           "snapshotFullbackupScheduleTime": {
             "type": "string",
             "format": "time-span"
@@ -10489,6 +10557,8 @@
           "listItemRetentionTime",
           "snapshotRetentionTime",
           "userRetentionTime",
+          "documentHistoryRetentionTime",
+          "liveStreamRetentionTime",
           "snapshotFullbackupScheduleTime",
           "contentBackupState",
           "apiCallsPerMinute"
@@ -10611,6 +10681,14 @@
             "format": "time-span"
           },
           "userRetentionTime": {
+            "type": "string",
+            "format": "time-span"
+          },
+          "documentHistoryRetentionTime": {
+            "type": "string",
+            "format": "time-span"
+          },
+          "liveStreamRetentionTime": {
             "type": "string",
             "format": "time-span"
           },
@@ -11801,6 +11879,8 @@
           "listItemRetentionTime",
           "snapshotRetentionTime",
           "userRetentionTime",
+          "documentHistoryRetentionTime",
+          "liveStreamRetentionTime",
           "snapshotFullbackupScheduleTime",
           "useSsl",
           "enableQueryDetails",
@@ -11841,6 +11921,14 @@
             "format": "time-span"
           },
           "userRetentionTime": {
+            "type": "string",
+            "format": "time-span"
+          },
+          "documentHistoryRetentionTime": {
+            "type": "string",
+            "format": "time-span"
+          },
+          "liveStreamRetentionTime": {
             "type": "string",
             "format": "time-span"
           },
