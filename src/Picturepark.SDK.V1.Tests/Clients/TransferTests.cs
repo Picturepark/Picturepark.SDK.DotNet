@@ -347,6 +347,34 @@ namespace Picturepark.SDK.V1.Tests.Clients
             result.FileUploads.Should().HaveCount(2);
         }
 
+        [Fact]
+        [Trait("Stack", "Transfers")]
+        public async Task ShouldUploadAndReportLastProgressTimeStamp()
+        {
+            // Arrange
+            var transferName = Guid.NewGuid().ToString();
+            var file = Path.GetTempFileName();
+
+            File.WriteAllText(file, "foobar");
+
+            var files = new[] { new FileLocations(file) };
+
+            // Act
+            var result = await _client.Transfer.UploadFilesAsync(
+                transferName,
+                files,
+                new UploadOptions()
+                {
+                    WaitForTransferCompletion = false,
+                    ErrorDelegate = Console.WriteLine,
+                    SuccessDelegate = Console.WriteLine
+                }).ConfigureAwait(false);
+
+            // Assert
+            var businessProcess = await _client.BusinessProcess.WaitForCompletionAsync(result.Transfer.BusinessProcessId).ConfigureAwait(false);
+            businessProcess.BusinessProcess.LastReportedProgress.Should().NotBeNull();
+        }
+
         private async Task<(CreateTransferResult, string fileId)> CreateFileTransferAsync()
         {
             var transferName = new Random().Next(1000, 9999).ToString();
