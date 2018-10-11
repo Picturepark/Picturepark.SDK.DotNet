@@ -20960,6 +20960,9 @@
             },
             "BusinessProcessEvent": {
               "$ref": "#/components/schemas/BusinessProcessEvent"
+            },
+            "OutputRenderedEvent": {
+              "$ref": "#/components/schemas/OutputRenderedEvent"
             }
           }
         },
@@ -21311,6 +21314,26 @@
             "$ref": "#/components/schemas/BusinessProcessLifeCycle"
           },
           "state": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ApplicationEvent"
+          }
+        ]
+      },
+      "OutputRenderedEvent": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "outputId": {
+            "type": "string"
+          },
+          "contentId": {
+            "type": "string"
+          },
+          "outputFormatId": {
             "type": "string"
           }
         },

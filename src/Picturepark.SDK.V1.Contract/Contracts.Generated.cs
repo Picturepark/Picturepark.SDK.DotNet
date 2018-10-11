@@ -1781,6 +1781,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("RelationTypeNotFoundException", typeof(RelationTypeNotFoundException))]
     [JsonInheritanceAttribute("RelationTypeTargetDocTypeMismatchException", typeof(RelationTypeTargetDocTypeMismatchException))]
     [JsonInheritanceAttribute("AggregationNameInvalidException", typeof(AggregationNameInvalidException))]
+    [JsonInheritanceAttribute("AggregationSizeInvalidException", typeof(AggregationSizeInvalidException))]
     [JsonInheritanceAttribute("SchemaFieldOverwriteTypeMismatchException", typeof(SchemaFieldOverwriteTypeMismatchException))]
     [JsonInheritanceAttribute("SchemaFieldOverwriteIdException", typeof(SchemaFieldOverwriteIdException))]
     [JsonInheritanceAttribute("SchemaFieldIdDuplicatedException", typeof(SchemaFieldIdDuplicatedException))]
@@ -4098,6 +4099,31 @@ namespace Picturepark.SDK.V1.Contract
         public static AggregationNameInvalidException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<AggregationNameInvalidException>(data);
+        }
+    
+    }
+    
+    /// <summary>Size of the aggregation is invalid.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class AggregationSizeInvalidException : PictureparkValidationException
+    {
+        /// <summary>The name identifying the aggregation.</summary>
+        [Newtonsoft.Json.JsonProperty("aggregationName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string AggregationName { get; set; }
+    
+        /// <summary>The invalid size of the aggregation: size must be equal or greater than 1.</summary>
+        [Newtonsoft.Json.JsonProperty("aggregationSize", Required = Newtonsoft.Json.Required.Always)]
+        public int AggregationSize { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static AggregationSizeInvalidException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<AggregationSizeInvalidException>(data);
         }
     
     }
@@ -10489,6 +10515,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("SharePageViewEvent", typeof(SharePageViewEvent))]
     [JsonInheritanceAttribute("ApiStatisticsEvent", typeof(ApiStatisticsEvent))]
     [JsonInheritanceAttribute("BusinessProcessEvent", typeof(BusinessProcessEvent))]
+    [JsonInheritanceAttribute("OutputRenderedEvent", typeof(OutputRenderedEvent))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class ApplicationEvent 
     {
@@ -10897,6 +10924,30 @@ namespace Picturepark.SDK.V1.Contract
         public static BusinessProcessEvent FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessProcessEvent>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class OutputRenderedEvent : ApplicationEvent
+    {
+        [Newtonsoft.Json.JsonProperty("outputId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string OutputId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("contentId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ContentId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("outputFormatId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string OutputFormatId { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static OutputRenderedEvent FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<OutputRenderedEvent>(data);
         }
     
     }
