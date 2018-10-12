@@ -570,6 +570,19 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
     }
     
+    [System.CodeDom.Compiler.GeneratedCode("NSwag", "11.19.2.0 (NJsonSchema v9.10.73.0 (Newtonsoft.Json v9.0.0.0))")]
+    public partial interface IMaintenanceClient
+    {
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        System.Threading.Tasks.Task<BusinessProcess> TouchSchemasAsync(string customerId, System.TimeSpan timeout, TouchSchemasRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+    }
+    
     
 
     /// <summary>Business process</summary>
@@ -9437,6 +9450,24 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         public static UserDeveloperFlagUpdateRequest FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<UserDeveloperFlagUpdateRequest>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class TouchSchemasRequest 
+    {
+        [Newtonsoft.Json.JsonProperty("schemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> SchemaIds { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static TouchSchemasRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<TouchSchemasRequest>(data);
         }
     
     }
