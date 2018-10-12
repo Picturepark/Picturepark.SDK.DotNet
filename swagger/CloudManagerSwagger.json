@@ -7537,7 +7537,9 @@
           "ManageServiceProviders",
           "ManageEmbeds",
           "ManageTemplates",
-          "ManageTermsOfService"
+          "ManageTermsOfService",
+          "ManageLiveStream",
+          "ManageDocumentHistory"
         ],
         "enum": [
           "ManageContent",
@@ -7554,7 +7556,9 @@
           "ManageServiceProviders",
           "ManageEmbeds",
           "ManageTemplates",
-          "ManageTermsOfService"
+          "ManageTermsOfService",
+          "ManageLiveStream",
+          "ManageDocumentHistory"
         ]
       },
       "PermissionSetNotFoundException": {
