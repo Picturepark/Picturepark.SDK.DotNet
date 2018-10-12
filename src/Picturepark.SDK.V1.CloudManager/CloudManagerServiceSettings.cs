@@ -3,29 +3,29 @@ using Picturepark.SDK.V1.Contract.Authentication;
 
 namespace Picturepark.SDK.V1.CloudManager
 {
-    /// <summary>The Picturepark client settings.</summary>
-    public class CloudManagerClientSettings : ICloudManagerClientSettings
+    /// <summary>The Picturepark service settings.</summary>
+    public class CloudManagerServiceSettings : ICloudManagerServiceSettings
     {
-        /// <summary>Initializes a new instance of the <see cref="CloudManagerClientSettings"/> class.</summary>
+        /// <summary>Initializes a new instance of the <see cref="CloudManagerServiceSettings"/> class.</summary>
         /// <param name="baseUrl">The base URL.</param>
-        public CloudManagerClientSettings(string baseUrl)
+        public CloudManagerServiceSettings(string baseUrl)
         {
             BaseUrl = baseUrl;
             HttpTimeout = TimeSpan.FromMinutes(1);
         }
 
-        /// <summary>Initializes a new instance of the <see cref="CloudManagerClientSettings"/> class.</summary>
+        /// <summary>Initializes a new instance of the <see cref="CloudManagerServiceSettings"/> class.</summary>
         /// <param name="authClient">The authentication client.</param>
-        public CloudManagerClientSettings(IAuthClient authClient)
+        public CloudManagerServiceSettings(IAuthClient authClient)
             : this(authClient.BaseUrl)
         {
             AuthClient = authClient;
         }
 
-        /// <summary>Initializes a new instance of the <see cref="CloudManagerClientSettings" /> class.</summary>
+        /// <summary>Initializes a new instance of the <see cref="CloudManagerServiceSettings" /> class.</summary>
         /// <param name="baseUrl">The base URL.</param>
         /// <param name="authClient">The authentication client.</param>
-        public CloudManagerClientSettings(string baseUrl, IAuthClient authClient)
+        public CloudManagerServiceSettings(string baseUrl, IAuthClient authClient)
             : this(baseUrl)
         {
             AuthClient = authClient;

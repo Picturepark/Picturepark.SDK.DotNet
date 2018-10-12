@@ -8,11 +8,11 @@ namespace Picturepark.SDK.V1.CloudManager
     /// <summary>The base class for all clients.</summary>
     public abstract class ClientBase
     {
-        private readonly ICloudManagerClientSettings _settings;
+        private readonly ICloudManagerServiceSettings _settings;
 
         /// <summary>Initializes a new instance of the <see cref="ClientBase" /> class.</summary>
         /// <param name="settings">The client settings.</param>
-        protected ClientBase(ICloudManagerClientSettings settings)
+        protected ClientBase(ICloudManagerServiceSettings settings)
         {
             _settings = settings;
         }

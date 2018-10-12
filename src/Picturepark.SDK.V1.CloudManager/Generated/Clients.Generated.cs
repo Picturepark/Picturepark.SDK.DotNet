@@ -16,7 +16,7 @@ namespace Picturepark.SDK.V1.CloudManager
         private System.Net.Http.HttpClient _httpClient;
         private System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _settings;
     
-        public CdnClient(Picturepark.SDK.V1.CloudManager.ICloudManagerClientSettings configuration, System.Net.Http.HttpClient httpClient) : base(configuration)
+        public CdnClient(Picturepark.SDK.V1.CloudManager.ICloudManagerServiceSettings configuration, System.Net.Http.HttpClient httpClient) : base(configuration)
         {
             _httpClient = httpClient; 
             _settings = new System.Lazy<Newtonsoft.Json.JsonSerializerSettings>(() => 
@@ -248,7 +248,7 @@ namespace Picturepark.SDK.V1.CloudManager
         private System.Net.Http.HttpClient _httpClient;
         private System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _settings;
     
-        public CloudBackupClient(Picturepark.SDK.V1.CloudManager.ICloudManagerClientSettings configuration, System.Net.Http.HttpClient httpClient) : base(configuration)
+        public CloudBackupClient(Picturepark.SDK.V1.CloudManager.ICloudManagerServiceSettings configuration, System.Net.Http.HttpClient httpClient) : base(configuration)
         {
             _httpClient = httpClient; 
             _settings = new System.Lazy<Newtonsoft.Json.JsonSerializerSettings>(() => 
@@ -2731,7 +2731,7 @@ namespace Picturepark.SDK.V1.CloudManager
         private System.Net.Http.HttpClient _httpClient;
         private System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _settings;
     
-        public ContentBackupClient(Picturepark.SDK.V1.CloudManager.ICloudManagerClientSettings configuration, System.Net.Http.HttpClient httpClient) : base(configuration)
+        public ContentBackupClient(Picturepark.SDK.V1.CloudManager.ICloudManagerServiceSettings configuration, System.Net.Http.HttpClient httpClient) : base(configuration)
         {
             _httpClient = httpClient; 
             _settings = new System.Lazy<Newtonsoft.Json.JsonSerializerSettings>(() => 
@@ -3761,7 +3761,7 @@ namespace Picturepark.SDK.V1.CloudManager
         private System.Net.Http.HttpClient _httpClient;
         private System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _settings;
     
-        public CustomerClient(Picturepark.SDK.V1.CloudManager.ICloudManagerClientSettings configuration, System.Net.Http.HttpClient httpClient) : base(configuration)
+        public CustomerClient(Picturepark.SDK.V1.CloudManager.ICloudManagerServiceSettings configuration, System.Net.Http.HttpClient httpClient) : base(configuration)
         {
             _httpClient = httpClient; 
             _settings = new System.Lazy<Newtonsoft.Json.JsonSerializerSettings>(() => 
@@ -5539,7 +5539,7 @@ namespace Picturepark.SDK.V1.CloudManager
         private System.Net.Http.HttpClient _httpClient;
         private System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _settings;
     
-        public CustomerServiceProviderClient(Picturepark.SDK.V1.CloudManager.ICloudManagerClientSettings configuration, System.Net.Http.HttpClient httpClient) : base(configuration)
+        public CustomerServiceProviderClient(Picturepark.SDK.V1.CloudManager.ICloudManagerServiceSettings configuration, System.Net.Http.HttpClient httpClient) : base(configuration)
         {
             _httpClient = httpClient; 
             _settings = new System.Lazy<Newtonsoft.Json.JsonSerializerSettings>(() => 
@@ -5938,7 +5938,7 @@ namespace Picturepark.SDK.V1.CloudManager
         private System.Net.Http.HttpClient _httpClient;
         private System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _settings;
     
-        public EnvironmentClient(Picturepark.SDK.V1.CloudManager.ICloudManagerClientSettings configuration, System.Net.Http.HttpClient httpClient) : base(configuration)
+        public EnvironmentClient(Picturepark.SDK.V1.CloudManager.ICloudManagerServiceSettings configuration, System.Net.Http.HttpClient httpClient) : base(configuration)
         {
             _httpClient = httpClient; 
             _settings = new System.Lazy<Newtonsoft.Json.JsonSerializerSettings>(() => 
@@ -6336,7 +6336,7 @@ namespace Picturepark.SDK.V1.CloudManager
         private System.Net.Http.HttpClient _httpClient;
         private System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _settings;
     
-        public EnvironmentProcessClient(Picturepark.SDK.V1.CloudManager.ICloudManagerClientSettings configuration, System.Net.Http.HttpClient httpClient) : base(configuration)
+        public EnvironmentProcessClient(Picturepark.SDK.V1.CloudManager.ICloudManagerServiceSettings configuration, System.Net.Http.HttpClient httpClient) : base(configuration)
         {
             _httpClient = httpClient; 
             _settings = new System.Lazy<Newtonsoft.Json.JsonSerializerSettings>(() => 
@@ -7247,7 +7247,7 @@ namespace Picturepark.SDK.V1.CloudManager
         private System.Net.Http.HttpClient _httpClient;
         private System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _settings;
     
-        public SampleDataClient(Picturepark.SDK.V1.CloudManager.ICloudManagerClientSettings configuration, System.Net.Http.HttpClient httpClient) : base(configuration)
+        public SampleDataClient(Picturepark.SDK.V1.CloudManager.ICloudManagerServiceSettings configuration, System.Net.Http.HttpClient httpClient) : base(configuration)
         {
             _httpClient = httpClient; 
             _settings = new System.Lazy<Newtonsoft.Json.JsonSerializerSettings>(() => 
@@ -7468,7 +7468,7 @@ namespace Picturepark.SDK.V1.CloudManager
         private System.Net.Http.HttpClient _httpClient;
         private System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _settings;
     
-        public ServiceClient(Picturepark.SDK.V1.CloudManager.ICloudManagerClientSettings configuration, System.Net.Http.HttpClient httpClient) : base(configuration)
+        public ServiceClient(Picturepark.SDK.V1.CloudManager.ICloudManagerServiceSettings configuration, System.Net.Http.HttpClient httpClient) : base(configuration)
         {
             _httpClient = httpClient; 
             _settings = new System.Lazy<Newtonsoft.Json.JsonSerializerSettings>(() => 
@@ -8488,7 +8488,7 @@ namespace Picturepark.SDK.V1.CloudManager
         private System.Net.Http.HttpClient _httpClient;
         private System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _settings;
     
-        public ServiceProviderClient(Picturepark.SDK.V1.CloudManager.ICloudManagerClientSettings configuration, System.Net.Http.HttpClient httpClient) : base(configuration)
+        public ServiceProviderClient(Picturepark.SDK.V1.CloudManager.ICloudManagerServiceSettings configuration, System.Net.Http.HttpClient httpClient) : base(configuration)
         {
             _httpClient = httpClient; 
             _settings = new System.Lazy<Newtonsoft.Json.JsonSerializerSettings>(() => 
@@ -8880,7 +8880,7 @@ namespace Picturepark.SDK.V1.CloudManager
         private System.Net.Http.HttpClient _httpClient;
         private System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _settings;
     
-        public UpdateClient(Picturepark.SDK.V1.CloudManager.ICloudManagerClientSettings configuration, System.Net.Http.HttpClient httpClient) : base(configuration)
+        public UpdateClient(Picturepark.SDK.V1.CloudManager.ICloudManagerServiceSettings configuration, System.Net.Http.HttpClient httpClient) : base(configuration)
         {
             _httpClient = httpClient; 
             _settings = new System.Lazy<Newtonsoft.Json.JsonSerializerSettings>(() => 
@@ -10781,7 +10781,7 @@ namespace Picturepark.SDK.V1.CloudManager
         private System.Net.Http.HttpClient _httpClient;
         private System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _settings;
     
-        public UserClient(Picturepark.SDK.V1.CloudManager.ICloudManagerClientSettings configuration, System.Net.Http.HttpClient httpClient) : base(configuration)
+        public UserClient(Picturepark.SDK.V1.CloudManager.ICloudManagerServiceSettings configuration, System.Net.Http.HttpClient httpClient) : base(configuration)
         {
             _httpClient = httpClient; 
             _settings = new System.Lazy<Newtonsoft.Json.JsonSerializerSettings>(() => 
@@ -11193,7 +11193,7 @@ namespace Picturepark.SDK.V1.CloudManager
         private System.Net.Http.HttpClient _httpClient;
         private System.Lazy<Newtonsoft.Json.JsonSerializerSettings> _settings;
     
-        public MaintenanceClient(Picturepark.SDK.V1.CloudManager.ICloudManagerClientSettings configuration, System.Net.Http.HttpClient httpClient) : base(configuration)
+        public MaintenanceClient(Picturepark.SDK.V1.CloudManager.ICloudManagerServiceSettings configuration, System.Net.Http.HttpClient httpClient) : base(configuration)
         {
             _httpClient = httpClient; 
             _settings = new System.Lazy<Newtonsoft.Json.JsonSerializerSettings>(() => 

@@ -9,7 +9,7 @@ namespace Picturepark.SDK.V1.CloudManager.Tests.Fixtures
 {
     public class ClientFixture : IDisposable
     {
-        private readonly CloudManagerClient _client;
+        private readonly CloudManagerService _client;
         private readonly TestConfiguration _configuration;
 
         public ClientFixture()
@@ -39,8 +39,8 @@ namespace Picturepark.SDK.V1.CloudManager.Tests.Fixtures
             var configurationJson = File.ReadAllText(ProjectDirectory + "Configuration.json");
             _configuration = JsonConvert.DeserializeObject<TestConfiguration>(configurationJson);
 
-            _client = new CloudManagerClient(
-                new CloudManagerClientSettings(_configuration.Server)
+            _client = new CloudManagerService(
+                new CloudManagerServiceSettings(_configuration.Server)
             );
         }
 
@@ -50,7 +50,7 @@ namespace Picturepark.SDK.V1.CloudManager.Tests.Fixtures
 
         public TestConfiguration Configuration => _configuration;
 
-        public CloudManagerClient Client => _client;
+        public CloudManagerService Client => _client;
 
         public void Dispose()
         {
