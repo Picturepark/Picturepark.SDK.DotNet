@@ -3463,6 +3463,12 @@ namespace Picturepark.SDK.V1.Contract
         [System.Runtime.Serialization.EnumMember(Value = "ManageTermsOfService")]
         ManageTermsOfService = 14,
     
+        [System.Runtime.Serialization.EnumMember(Value = "ManageLiveStream")]
+        ManageLiveStream = 15,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "ManageDocumentHistory")]
+        ManageDocumentHistory = 16,
+    
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
