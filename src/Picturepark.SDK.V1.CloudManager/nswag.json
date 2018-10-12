@@ -10,7 +10,7 @@
   "codeGenerators": {
     "swaggerToCSharpClient": {
       "clientBaseClass": "ClientBase",
-      "configurationClass": "Picturepark.SDK.V1.CloudManager.ICloudManagerClientSettings",
+      "configurationClass": "Picturepark.SDK.V1.CloudManager.ICloudManagerServiceSettings",
       "generateClientClasses": true,
       "generateClientInterfaces": true,
       "generateDtoTypes": true,
