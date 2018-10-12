@@ -28,11 +28,11 @@ namespace Picturepark.SDK.V1.CloudManager
             Initialize(settings, httpClient);
         }
 
-        public ICustomerClient Customers { get; private set; }
+        public ICustomerClient Customer { get; private set; }
 
-        public IServiceClient Services { get; private set; }
+        public IServiceClient Service { get; private set; }
 
-        public IUpdateClient Updates { get; private set; }
+        public IUpdateClient Update { get; private set; }
 
         public ISampleDataClient SampleData { get; private set; }
 
@@ -48,7 +48,7 @@ namespace Picturepark.SDK.V1.CloudManager
 
         public IContentBackupClient ContentBackup { get; private set; }
 
-        public IMaintenanceClient MaintenanceClient { get; private set; }
+        public IMaintenanceClient Maintenance { get; private set; }
 
         public void Dispose()
         {
@@ -61,9 +61,9 @@ namespace Picturepark.SDK.V1.CloudManager
 
         private void Initialize(ICloudManagerServiceSettings settings, HttpClient httpClient)
         {
-            Customers = new CustomerClient(settings, httpClient);
-            Services = new ServiceClient(settings, httpClient);
-            Updates = new UpdateClient(settings, httpClient);
+            Customer = new CustomerClient(settings, httpClient);
+            Service = new ServiceClient(settings, httpClient);
+            Update = new UpdateClient(settings, httpClient);
             SampleData = new SampleDataClient(settings, httpClient);
             CloudBackup = new CloudBackupClient(settings, httpClient);
             EnvironmentProcess = new EnvironmentProcessClient(settings, httpClient);
@@ -71,7 +71,7 @@ namespace Picturepark.SDK.V1.CloudManager
             ServiceProvider = new ServiceProviderClient(settings, httpClient);
             CustomerServiceProvider = new CustomerServiceProviderClient(settings, httpClient);
             ContentBackup = new ContentBackupClient(settings, httpClient);
-            MaintenanceClient = new MaintenanceClient(settings, httpClient);
+            Maintenance = new MaintenanceClient(settings, httpClient);
         }
     }
 }
