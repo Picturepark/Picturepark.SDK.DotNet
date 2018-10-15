@@ -28,11 +28,11 @@
           "BusinessProcess"
         ],
         "summary": "Search",
-        "description": "Search for business processes",
+        "description": "Search for business processes.",
         "operationId": "BusinessProcess_Search",
         "requestBody": {
           "x-name": "businessProcessSearchRequest",
-          "description": "The business process request",
+          "description": "The business process request.",
           "content": {
             "application/json": {
               "schema": {
@@ -118,7 +118,7 @@
         "x-code-samples": [
           {
             "lang": "C#",
-            "source": "// Get the last 20 business processes\r\nvar request = new BusinessProcessSearchRequest\r\n{\r\n\tStart = 0,\r\n\tLimit = 20,\r\n\tSort = new List<SortInfo>\r\n\t{\r\n\t\tnew SortInfo\r\n\t\t{\r\n\t\t\tField = \"audit.creationDate\",\r\n\t\t\tDirection = SortDirection.Desc\r\n\t\t}\r\n\t}\r\n};\r\nvar results = await _client.BusinessProcesses.SearchAsync(request);\r\nAssert.NotNull(results);\r\n\t\t"
+            "source": "// Get the last 20 business processes\r\nvar request = new BusinessProcessSearchRequest\r\n{\r\n    Start = 0,\r\n    Limit = 20,\r\n    Sort = new List<SortInfo>\r\n    {\r\n        new SortInfo\r\n        {\r\n            Field = \"audit.creationDate\",\r\n            Direction = SortDirection.Desc\r\n        }\r\n    }\r\n};\r\nvar results = await _client.BusinessProcess.SearchAsync(request);\r\nAssert.NotNull(results);\r\n"
           }
         ]
       }
@@ -128,8 +128,8 @@
         "tags": [
           "BusinessProcess"
         ],
-        "summary": "Wait for lifeCycles",
-        "description": "Wait for given process lifeCycle.",
+        "summary": "Wait for life cycles",
+        "description": "Wait for the business process to hit one of the given life cycles.",
         "operationId": "BusinessProcess_WaitForLifeCycles",
         "parameters": [
           {
@@ -137,14 +137,14 @@
             "name": "processId",
             "in": "path",
             "required": true,
-            "description": "The process id",
+            "description": "The business process id.",
             "nullable": false
           },
           {
             "type": "array",
             "name": "lifeCycleIds",
             "in": "query",
-            "description": "Business process lifeCycle to wait for",
+            "description": "Business process life cycles to wait for.",
             "collectionFormat": "multi",
             "nullable": true,
             "items": {
@@ -241,7 +241,7 @@
           "BusinessProcess"
         ],
         "summary": "Wait for states",
-        "description": "Wait for given process state.",
+        "description": "Wait for the business process to hit one of the given states.",
         "operationId": "BusinessProcess_WaitForStates",
         "parameters": [
           {
@@ -249,14 +249,14 @@
             "name": "processId",
             "in": "path",
             "required": true,
-            "description": "The process id",
+            "description": "The business process id.",
             "nullable": false
           },
           {
             "type": "array",
             "name": "states",
             "in": "query",
-            "description": "Business process states to wait for",
+            "description": "Business process states to wait for.",
             "collectionFormat": "multi",
             "nullable": true,
             "items": {
@@ -353,7 +353,7 @@
           "BusinessProcess"
         ],
         "summary": "Wait for completion",
-        "description": "Wait for given process to complete with lifeCycle \"Succeeded\", \"Cancelled\" or \"Failed\".",
+        "description": "Shortcut to wait for the business process to hit one of the finished life cycles.\nFinished life cycles are:\n- Succeeded\n- SucceededWithErrors\n- Cancelled\n- Failed",
         "operationId": "BusinessProcess_WaitForCompletion",
         "parameters": [
           {
@@ -361,7 +361,7 @@
             "name": "processId",
             "in": "path",
             "required": true,
-            "description": "The process id",
+            "description": "The business process id.",
             "nullable": false
           },
           {
@@ -454,7 +454,7 @@
           "BusinessProcess"
         ],
         "summary": "Get details",
-        "description": "Get details of a given business process.",
+        "description": "Gets details of the given business process.",
         "operationId": "BusinessProcess_GetDetails",
         "parameters": [
           {
@@ -462,7 +462,7 @@
             "name": "processId",
             "in": "path",
             "required": true,
-            "description": "The process id",
+            "description": "The business process id.",
             "nullable": false
           }
         ],
@@ -6381,7 +6381,7 @@
           "Profile"
         ],
         "summary": "Get",
-        "description": "Get profile of currently logged in user",
+        "description": "Get profile of currently logged in user.",
         "operationId": "Profile_Get",
         "responses": {
           "200": {
@@ -6462,7 +6462,7 @@
           "Profile"
         ],
         "summary": "Update",
-        "description": "Updates profile of currently logged in user",
+        "description": "Updates profile of currently logged in user.",
         "operationId": "Profile_Update",
         "requestBody": {
           "x-name": "updateRequest",
@@ -12278,6 +12278,7 @@
     "schemas": {
       "BusinessProcessSearchResult": {
         "type": "object",
+        "description": "Search result from a search for business processes",
         "additionalProperties": false,
         "required": [
           "elapsedMilliseconds"
@@ -12285,6 +12286,7 @@
         "properties": {
           "elapsedMilliseconds": {
             "type": "integer",
+            "description": "Elapsed time in milliseconds for the search request.",
             "format": "int64"
           }
         },
@@ -16265,6 +16267,7 @@
       },
       "BusinessProcessSearchRequest": {
         "type": "object",
+        "description": "Search request to search for business processes",
         "additionalProperties": false,
         "required": [
           "start",
@@ -16273,13 +16276,11 @@
         "properties": {
           "start": {
             "type": "integer",
-            "description": "Defines the offset from the first result you want to fetch. Defaults to 0.",
             "format": "int32",
             "default": 0
           },
           "limit": {
             "type": "integer",
-            "description": "Limits the document count of the result set. Defaults to 30.",
             "format": "int32",
             "default": 30
           },
@@ -16863,34 +16864,64 @@
       },
       "BusinessProcessWaitForLifeCycleResult": {
         "type": "object",
+        "description": "Result from waiting for life cycle(s) on a business process",
         "additionalProperties": false,
+        "required": [
+          "businessProcess"
+        ],
         "properties": {
           "lifeCycleHit": {
-            "$ref": "#/components/schemas/BusinessProcessLifeCycle"
+            "description": "The life cycle that was hit.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/BusinessProcessLifeCycle"
+              }
+            ]
           },
           "businessProcess": {
-            "$ref": "#/components/schemas/BusinessProcess"
+            "description": "The business process.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/BusinessProcess"
+              }
+            ]
           }
         }
       },
       "BusinessProcessWaitForStateResult": {
         "type": "object",
+        "description": "Result from waiting for state(s) on a business process",
         "additionalProperties": false,
+        "required": [
+          "businessProcess"
+        ],
         "properties": {
           "stateHit": {
-            "type": "string"
+            "type": "string",
+            "description": "The state that was hit."
           },
           "businessProcess": {
-            "$ref": "#/components/schemas/BusinessProcess"
+            "description": "The business process.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/BusinessProcess"
+              }
+            ]
           }
         }
       },
       "BusinessProcessDetails": {
         "type": "object",
+        "description": "Detailed representation of a business process",
         "additionalProperties": false,
         "properties": {
           "details": {
-            "$ref": "#/components/schemas/BusinessProcessDetailsDataBase"
+            "description": "Details for the business process.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/BusinessProcessDetailsDataBase"
+              }
+            ]
           }
         },
         "allOf": [
@@ -16918,6 +16949,7 @@
             }
           }
         },
+        "description": "Base class for the details of a business process",
         "x-abstract": true,
         "additionalProperties": false,
         "required": [
@@ -16931,13 +16963,25 @@
       },
       "BusinessProcessDetailsDataBatchResponse": {
         "type": "object",
+        "description": "Business process detailed information regarding a batch operation",
         "additionalProperties": false,
+        "required": [
+          "docType",
+          "response"
+        ],
         "properties": {
           "docType": {
-            "type": "string"
+            "type": "string",
+            "description": "The DocType on which the operation was performed.",
+            "minLength": 1
           },
           "response": {
-            "$ref": "#/components/schemas/BatchResponse"
+            "description": "The response of the batch operation.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/BatchResponse"
+              }
+            ]
           }
         },
         "allOf": [
@@ -16948,10 +16992,15 @@
       },
       "BatchResponse": {
         "type": "object",
+        "description": "Response from a batch operation",
         "additionalProperties": false,
+        "required": [
+          "rows"
+        ],
         "properties": {
           "rows": {
             "type": "array",
+            "description": "Rows in the response.",
             "items": {
               "$ref": "#/components/schemas/BatchResponseRow"
             }
@@ -16960,29 +17009,41 @@
       },
       "BatchResponseRow": {
         "type": "object",
+        "description": "Row in a batch operation response",
         "additionalProperties": false,
         "required": [
+          "id",
           "succeeded",
           "status",
           "version"
         ],
         "properties": {
           "id": {
-            "type": "string"
+            "type": "string",
+            "description": "Id of the item.",
+            "minLength": 1
           },
           "succeeded": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Indicates if the operation succeeded."
           },
           "status": {
             "type": "integer",
+            "description": "Status code of the operation.",
             "format": "int32"
           },
           "version": {
             "type": "integer",
+            "description": "New version of the item.",
             "format": "int64"
           },
           "error": {
-            "$ref": "#/components/schemas/ErrorResponse"
+            "description": "If the operation did not succeeded, this contains error information.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ErrorResponse"
+              }
+            ]
           }
         }
       },
@@ -17098,13 +17159,21 @@
       },
       "BusinessProcessDetailsDataCdnPurge": {
         "type": "object",
+        "description": "Business process detailed information regarding a CDN purge operation",
         "additionalProperties": false,
+        "required": [
+          "serializedCdnConfiguration",
+          "jobs"
+        ],
         "properties": {
           "serializedCdnConfiguration": {
-            "type": "string"
+            "type": "string",
+            "description": "Serialized CDN configuration.",
+            "minLength": 1
           },
           "jobs": {
             "type": "array",
+            "description": "Jobs that were processed in the operation.",
             "items": {
               "$ref": "#/components/schemas/CdnPurgeJobBase"
             }
@@ -17129,6 +17198,7 @@
             }
           }
         },
+        "description": "Base class for a CDN purge job",
         "additionalProperties": false,
         "required": [
           "success",
@@ -17137,10 +17207,12 @@
         ],
         "properties": {
           "success": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Indicates if the operation was performed successfully."
           },
           "retriesLeft": {
             "type": "integer",
+            "description": "Number of retries left until the operation is considered as failed.",
             "format": "int32"
           },
           "kind": {
@@ -17150,10 +17222,16 @@
       },
       "CdnPurgeJobByTag": {
         "type": "object",
+        "description": "Represents a CDN purge by tag (e.g. share ID)",
         "additionalProperties": false,
+        "required": [
+          "tag"
+        ],
         "properties": {
           "tag": {
-            "type": "string"
+            "type": "string",
+            "description": "The tag that should be purged.",
+            "minLength": 1
           }
         },
         "allOf": [
@@ -17178,10 +17256,12 @@
       },
       "BusinessProcessDetailsDataContentImport": {
         "type": "object",
+        "description": "Business process detailed information regarding Content import",
         "additionalProperties": false,
         "properties": {
           "items": {
             "type": "array",
+            "description": "Items that were imported.",
             "items": {
               "$ref": "#/components/schemas/ContentImportResult"
             }
@@ -17195,25 +17275,37 @@
       },
       "ContentImportResult": {
         "type": "object",
+        "description": "Represents an item imported during a content import",
         "additionalProperties": false,
         "required": [
+          "fileTransferId",
           "succeeded"
         ],
         "properties": {
           "fileTransferId": {
-            "type": "string"
+            "type": "string",
+            "description": "ID of the file transfer.",
+            "minLength": 1
           },
           "contentId": {
-            "type": "string"
+            "type": "string",
+            "description": "ID of the resulting content."
           },
           "state": {
-            "type": "string"
+            "type": "string",
+            "description": "State of the item."
           },
           "succeeded": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Indicates if the operation succeeded."
           },
           "error": {
-            "$ref": "#/components/schemas/ErrorResponse"
+            "description": "If the operation did not succeeded, this contains error related information.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ErrorResponse"
+              }
+            ]
           }
         }
       },
@@ -21365,7 +21457,7 @@
       },
       "AuthorizationState": {
         "type": "string",
-        "description": "",
+        "description": "User authorization state.",
         "x-enumNames": [
           "Reviewed",
           "ToBeReviewed",
@@ -21664,6 +21756,7 @@
       },
       "UserProfile": {
         "type": "object",
+        "description": "User profile.",
         "additionalProperties": false,
         "required": [
           "authorizationState",
@@ -21673,52 +21766,73 @@
         ],
         "properties": {
           "id": {
-            "type": "string"
+            "type": "string",
+            "description": "ID of the user."
           },
           "emailAddress": {
-            "type": "string"
+            "type": "string",
+            "description": "Email address."
           },
           "firstName": {
-            "type": "string"
+            "type": "string",
+            "description": "First name."
           },
           "lastName": {
-            "type": "string"
+            "type": "string",
+            "description": "Last name."
           },
           "languageCode": {
-            "type": "string"
+            "type": "string",
+            "description": "Language code."
           },
           "address": {
-            "$ref": "#/components/schemas/UserAddress"
+            "description": "Address.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/UserAddress"
+              }
+            ]
           },
           "authorizationState": {
-            "$ref": "#/components/schemas/AuthorizationState"
+            "description": "Authorization state.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/AuthorizationState"
+              }
+            ]
           },
           "isLocked": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Indicates if the user is locked."
           },
           "userRights": {
             "type": "array",
+            "description": "A list of user rights assigned to the user.",
             "items": {
               "$ref": "#/components/schemas/UserRight"
             }
           },
           "userRoleIds": {
             "type": "array",
+            "description": "A list of user role IDs assigned to the user.",
             "items": {
               "type": "string"
             }
           },
           "termsConsentExpired": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Indicates if the user has not accepted the latest terms of consent."
           },
           "systemUserRoles": {
             "type": "array",
+            "description": "A list of system user roles assigned to the user.",
             "items": {
               "$ref": "#/components/schemas/SystemUserRole"
             }
           },
           "isDeveloper": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Indicates if the user has the developer flag set."
           }
         }
       },
@@ -21763,7 +21877,7 @@
       },
       "SystemUserRole": {
         "type": "string",
-        "description": "",
+        "description": "System user roles.",
         "x-enumNames": [
           "Administrator"
         ],
@@ -21773,25 +21887,36 @@
       },
       "UserProfileUpdateRequest": {
         "type": "object",
+        "description": "Request to update a user profile.",
         "additionalProperties": false,
         "properties": {
           "id": {
-            "type": "string"
+            "type": "string",
+            "description": "ID of the user."
           },
           "emailAddress": {
-            "type": "string"
+            "type": "string",
+            "description": "Email address."
           },
           "firstName": {
-            "type": "string"
+            "type": "string",
+            "description": "First name."
           },
           "lastName": {
-            "type": "string"
+            "type": "string",
+            "description": "Last name."
           },
           "languageCode": {
-            "type": "string"
+            "type": "string",
+            "description": "Language code."
           },
           "address": {
-            "$ref": "#/components/schemas/UserAddress"
+            "description": "Address.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/UserAddress"
+              }
+            ]
           }
         }
       },

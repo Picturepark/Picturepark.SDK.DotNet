@@ -35,7 +35,7 @@ namespace Picturepark.SDK.V1
         partial void ProcessResponse(System.Net.Http.HttpClient client, System.Net.Http.HttpResponseMessage response);
     
         /// <summary>Search</summary>
-        /// <param name="businessProcessSearchRequest">The business process request</param>
+        /// <param name="businessProcessSearchRequest">The business process request.</param>
         /// <returns>BusinessProcessSearchResult</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -210,9 +210,9 @@ namespace Picturepark.SDK.V1
             }
         }
     
-        /// <summary>Wait for lifeCycles</summary>
-        /// <param name="processId">The process id</param>
-        /// <param name="lifeCycleIds">Business process lifeCycle to wait for</param>
+        /// <summary>Wait for life cycles</summary>
+        /// <param name="processId">The business process id.</param>
+        /// <param name="lifeCycleIds">Business process life cycles to wait for.</param>
         /// <param name="timeout">The timeout to wait for completion.</param>
         /// <returns>BusinessProcessWaitForLifeCycleResult</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
@@ -399,8 +399,8 @@ namespace Picturepark.SDK.V1
         }
     
         /// <summary>Wait for states</summary>
-        /// <param name="processId">The process id</param>
-        /// <param name="states">Business process states to wait for</param>
+        /// <param name="processId">The business process id.</param>
+        /// <param name="states">Business process states to wait for.</param>
         /// <param name="timeout">The timeout to wait for completion.</param>
         /// <returns>BusinessProcessWaitResult</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
@@ -587,7 +587,7 @@ namespace Picturepark.SDK.V1
         }
     
         /// <summary>Wait for completion</summary>
-        /// <param name="processId">The process id</param>
+        /// <param name="processId">The business process id.</param>
         /// <param name="timeout">The timeout to wait for completion.</param>
         /// <returns>BusinessProcessWaitResult</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
@@ -770,7 +770,7 @@ namespace Picturepark.SDK.V1
         }
     
         /// <summary>Get details</summary>
-        /// <param name="processId">The process id</param>
+        /// <param name="processId">The business process id.</param>
         /// <returns>BusinessProcessDetails</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
