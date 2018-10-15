@@ -12,7 +12,7 @@ namespace Picturepark.SDK.V1.Contract
     public partial interface IBusinessProcessClient
     {
         /// <summary>Search</summary>
-        /// <param name="businessProcessSearchRequest">The business process request</param>
+        /// <param name="businessProcessSearchRequest">The business process request.</param>
         /// <returns>BusinessProcessSearchResult</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -23,7 +23,7 @@ namespace Picturepark.SDK.V1.Contract
         System.Threading.Tasks.Task<BusinessProcessSearchResult> SearchAsync(BusinessProcessSearchRequest businessProcessSearchRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Get details</summary>
-        /// <param name="processId">The process id</param>
+        /// <param name="processId">The business process id.</param>
         /// <returns>BusinessProcessDetails</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -1389,9 +1389,11 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>Search result from a search for business processes</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class BusinessProcessSearchResult : SearchBehaviorBaseResultOfBusinessProcess
     {
+        /// <summary>Elapsed time in milliseconds for the search request.</summary>
         [Newtonsoft.Json.JsonProperty("elapsedMilliseconds", Required = Newtonsoft.Json.Required.Always)]
         public long ElapsedMilliseconds { get; set; }
     
@@ -5809,14 +5811,13 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>Search request to search for business processes</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class BusinessProcessSearchRequest 
     {
-        /// <summary>Defines the offset from the first result you want to fetch. Defaults to 0.</summary>
         [Newtonsoft.Json.JsonProperty("start", Required = Newtonsoft.Json.Required.Always)]
         public int Start { get; set; } = 0;
     
-        /// <summary>Limits the document count of the result set. Defaults to 30.</summary>
         [Newtonsoft.Json.JsonProperty("limit", Required = Newtonsoft.Json.Required.Always)]
         public int Limit { get; set; } = 30;
     
@@ -6368,15 +6369,19 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>Result from waiting for life cycle(s) on a business process</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class BusinessProcessWaitForLifeCycleResult 
     {
+        /// <summary>The life cycle that was hit.</summary>
         [Newtonsoft.Json.JsonProperty("lifeCycleHit", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public BusinessProcessLifeCycle? LifeCycleHit { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("businessProcess", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public BusinessProcess BusinessProcess { get; set; }
+        /// <summary>The business process.</summary>
+        [Newtonsoft.Json.JsonProperty("businessProcess", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public BusinessProcess BusinessProcess { get; set; } = new BusinessProcess();
     
         public string ToJson() 
         {
@@ -6390,14 +6395,18 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>Result from waiting for state(s) on a business process</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class BusinessProcessWaitForStateResult 
     {
+        /// <summary>The state that was hit.</summary>
         [Newtonsoft.Json.JsonProperty("stateHit", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string StateHit { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("businessProcess", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public BusinessProcess BusinessProcess { get; set; }
+        /// <summary>The business process.</summary>
+        [Newtonsoft.Json.JsonProperty("businessProcess", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public BusinessProcess BusinessProcess { get; set; } = new BusinessProcess();
     
         public string ToJson() 
         {
@@ -6411,9 +6420,11 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>Detailed representation of a business process</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class BusinessProcessDetails : BusinessProcess
     {
+        /// <summary>Details for the business process.</summary>
         [Newtonsoft.Json.JsonProperty("details", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public BusinessProcessDetailsDataBase Details { get; set; }
     
@@ -6429,6 +6440,7 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>Base class for the details of a business process</summary>
     [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
     [JsonInheritanceAttribute("BusinessProcessDetailsDataBatchResponse", typeof(BusinessProcessDetailsDataBatchResponse))]
     [JsonInheritanceAttribute("BusinessProcessDetailsDataSchemaImport", typeof(BusinessProcessDetailsDataSchemaImport))]
@@ -6449,14 +6461,19 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>Business process detailed information regarding a batch operation</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class BusinessProcessDetailsDataBatchResponse : BusinessProcessDetailsDataBase
     {
-        [Newtonsoft.Json.JsonProperty("docType", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        /// <summary>The DocType on which the operation was performed.</summary>
+        [Newtonsoft.Json.JsonProperty("docType", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
         public string DocType { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("response", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public BatchResponse Response { get; set; }
+        /// <summary>The response of the batch operation.</summary>
+        [Newtonsoft.Json.JsonProperty("response", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public BatchResponse Response { get; set; } = new BatchResponse();
     
         public string ToJson() 
         {
@@ -6470,11 +6487,14 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>Response from a batch operation</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class BatchResponse 
     {
-        [Newtonsoft.Json.JsonProperty("rows", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<BatchResponseRow> Rows { get; set; }
+        /// <summary>Rows in the response.</summary>
+        [Newtonsoft.Json.JsonProperty("rows", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.Collections.Generic.ICollection<BatchResponseRow> Rows { get; set; } = new System.Collections.Generic.List<BatchResponseRow>();
     
         public string ToJson() 
         {
@@ -6488,21 +6508,28 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>Row in a batch operation response</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class BatchResponseRow 
     {
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        /// <summary>Id of the item.</summary>
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
         public string Id { get; set; }
     
+        /// <summary>Indicates if the operation succeeded.</summary>
         [Newtonsoft.Json.JsonProperty("succeeded", Required = Newtonsoft.Json.Required.Always)]
         public bool Succeeded { get; set; }
     
+        /// <summary>Status code of the operation.</summary>
         [Newtonsoft.Json.JsonProperty("status", Required = Newtonsoft.Json.Required.Always)]
         public int Status { get; set; }
     
+        /// <summary>New version of the item.</summary>
         [Newtonsoft.Json.JsonProperty("version", Required = Newtonsoft.Json.Required.Always)]
         public long Version { get; set; }
     
+        /// <summary>If the operation did not succeeded, this contains error information.</summary>
         [Newtonsoft.Json.JsonProperty("error", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public ErrorResponse Error { get; set; }
     
@@ -6614,14 +6641,19 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>Business process detailed information regarding a CDN purge operation</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class BusinessProcessDetailsDataCdnPurge : BusinessProcessDetailsDataBase
     {
-        [Newtonsoft.Json.JsonProperty("serializedCdnConfiguration", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        /// <summary>Serialized CDN configuration.</summary>
+        [Newtonsoft.Json.JsonProperty("serializedCdnConfiguration", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
         public string SerializedCdnConfiguration { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("jobs", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<CdnPurgeJobBase> Jobs { get; set; }
+        /// <summary>Jobs that were processed in the operation.</summary>
+        [Newtonsoft.Json.JsonProperty("jobs", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.Collections.Generic.ICollection<CdnPurgeJobBase> Jobs { get; set; } = new System.Collections.Generic.List<CdnPurgeJobBase>();
     
         public string ToJson() 
         {
@@ -6635,15 +6667,18 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>Base class for a CDN purge job</summary>
     [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
     [JsonInheritanceAttribute("CdnPurgeJobByTag", typeof(CdnPurgeJobByTag))]
     [JsonInheritanceAttribute("CdnPurgeJobByUri", typeof(CdnPurgeJobByUri))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class CdnPurgeJobBase 
     {
+        /// <summary>Indicates if the operation was performed successfully.</summary>
         [Newtonsoft.Json.JsonProperty("success", Required = Newtonsoft.Json.Required.Always)]
         public bool Success { get; set; }
     
+        /// <summary>Number of retries left until the operation is considered as failed.</summary>
         [Newtonsoft.Json.JsonProperty("retriesLeft", Required = Newtonsoft.Json.Required.Always)]
         public int RetriesLeft { get; set; }
     
@@ -6659,10 +6694,13 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>Represents a CDN purge by tag (e.g. share ID)</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class CdnPurgeJobByTag : CdnPurgeJobBase
     {
-        [Newtonsoft.Json.JsonProperty("tag", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        /// <summary>The tag that should be purged.</summary>
+        [Newtonsoft.Json.JsonProperty("tag", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
         public string Tag { get; set; }
     
         public string ToJson() 
@@ -6695,9 +6733,11 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>Business process detailed information regarding Content import</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class BusinessProcessDetailsDataContentImport : BusinessProcessDetailsDataBase
     {
+        /// <summary>Items that were imported.</summary>
         [Newtonsoft.Json.JsonProperty("items", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<ContentImportResult> Items { get; set; }
     
@@ -6713,21 +6753,28 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>Represents an item imported during a content import</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class ContentImportResult 
     {
-        [Newtonsoft.Json.JsonProperty("fileTransferId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        /// <summary>ID of the file transfer.</summary>
+        [Newtonsoft.Json.JsonProperty("fileTransferId", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
         public string FileTransferId { get; set; }
     
+        /// <summary>ID of the resulting content.</summary>
         [Newtonsoft.Json.JsonProperty("contentId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ContentId { get; set; }
     
+        /// <summary>State of the item.</summary>
         [Newtonsoft.Json.JsonProperty("state", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string State { get; set; }
     
+        /// <summary>Indicates if the operation succeeded.</summary>
         [Newtonsoft.Json.JsonProperty("succeeded", Required = Newtonsoft.Json.Required.Always)]
         public bool Succeeded { get; set; }
     
+        /// <summary>If the operation did not succeeded, this contains error related information.</summary>
         [Newtonsoft.Json.JsonProperty("error", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public ErrorResponse Error { get; set; }
     
@@ -10944,6 +10991,7 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>User authorization state.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
     public enum AuthorizationState
     {
@@ -11213,47 +11261,61 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>User profile.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class UserProfile 
     {
+        /// <summary>ID of the user.</summary>
         [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
     
+        /// <summary>Email address.</summary>
         [Newtonsoft.Json.JsonProperty("emailAddress", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string EmailAddress { get; set; }
     
+        /// <summary>First name.</summary>
         [Newtonsoft.Json.JsonProperty("firstName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string FirstName { get; set; }
     
+        /// <summary>Last name.</summary>
         [Newtonsoft.Json.JsonProperty("lastName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string LastName { get; set; }
     
+        /// <summary>Language code.</summary>
         [Newtonsoft.Json.JsonProperty("languageCode", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string LanguageCode { get; set; }
     
+        /// <summary>Address.</summary>
         [Newtonsoft.Json.JsonProperty("address", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public UserAddress Address { get; set; }
     
+        /// <summary>Authorization state.</summary>
         [Newtonsoft.Json.JsonProperty("authorizationState", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public AuthorizationState AuthorizationState { get; set; }
     
+        /// <summary>Indicates if the user is locked.</summary>
         [Newtonsoft.Json.JsonProperty("isLocked", Required = Newtonsoft.Json.Required.Always)]
         public bool IsLocked { get; set; }
     
+        /// <summary>A list of user rights assigned to the user.</summary>
         [Newtonsoft.Json.JsonProperty("userRights", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public System.Collections.Generic.ICollection<UserRight> UserRights { get; set; }
     
+        /// <summary>A list of user role IDs assigned to the user.</summary>
         [Newtonsoft.Json.JsonProperty("userRoleIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> UserRoleIds { get; set; }
     
+        /// <summary>Indicates if the user has not accepted the latest terms of consent.</summary>
         [Newtonsoft.Json.JsonProperty("termsConsentExpired", Required = Newtonsoft.Json.Required.Always)]
         public bool TermsConsentExpired { get; set; }
     
+        /// <summary>A list of system user roles assigned to the user.</summary>
         [Newtonsoft.Json.JsonProperty("systemUserRoles", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public System.Collections.Generic.ICollection<SystemUserRole> SystemUserRoles { get; set; }
     
+        /// <summary>Indicates if the user has the developer flag set.</summary>
         [Newtonsoft.Json.JsonProperty("isDeveloper", Required = Newtonsoft.Json.Required.Always)]
         public bool IsDeveloper { get; set; }
     
@@ -11317,6 +11379,7 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>System user roles.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
     public enum SystemUserRole
     {
@@ -11325,24 +11388,31 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>Request to update a user profile.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class UserProfileUpdateRequest 
     {
+        /// <summary>ID of the user.</summary>
         [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
     
+        /// <summary>Email address.</summary>
         [Newtonsoft.Json.JsonProperty("emailAddress", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string EmailAddress { get; set; }
     
+        /// <summary>First name.</summary>
         [Newtonsoft.Json.JsonProperty("firstName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string FirstName { get; set; }
     
+        /// <summary>Last name.</summary>
         [Newtonsoft.Json.JsonProperty("lastName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string LastName { get; set; }
     
+        /// <summary>Language code.</summary>
         [Newtonsoft.Json.JsonProperty("languageCode", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string LanguageCode { get; set; }
     
+        /// <summary>Address.</summary>
         [Newtonsoft.Json.JsonProperty("address", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public UserAddress Address { get; set; }
     
