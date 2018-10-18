@@ -6024,7 +6024,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ObjectSearchResult"
+                  "$ref": "#/components/schemas/LiveStreamSearchResult"
                 }
               }
             }
@@ -12280,16 +12280,6 @@
         "type": "object",
         "description": "Search result from a search for business processes",
         "additionalProperties": false,
-        "required": [
-          "elapsedMilliseconds"
-        ],
-        "properties": {
-          "elapsedMilliseconds": {
-            "type": "integer",
-            "description": "Elapsed time in milliseconds for the search request.",
-            "format": "int64"
-          }
-        },
         "allOf": [
           {
             "$ref": "#/components/schemas/SearchBehaviorBaseResultOfBusinessProcess"
@@ -12308,6 +12298,9 @@
           },
           "isSearchStringRewritten": {
             "type": "boolean"
+          },
+          "queryDebugInformation": {
+            "$ref": "#/components/schemas/QueryDebugInformation"
           }
         },
         "allOf": [
@@ -12316,12 +12309,27 @@
           }
         ]
       },
+      "QueryDebugInformation": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "general": {
+            "type": "string"
+          },
+          "auditTrail": {
+            "type": "string"
+          },
+          "request": {},
+          "response": {}
+        }
+      },
       "BaseResultOfBusinessProcess": {
         "type": "object",
         "additionalProperties": false,
         "required": [
           "totalResults",
-          "results"
+          "results",
+          "elapsedMilliseconds"
         ],
         "properties": {
           "totalResults": {
@@ -12334,11 +12342,9 @@
               "$ref": "#/components/schemas/BusinessProcess"
             }
           },
-          "pageToken": {
-            "type": "string"
-          },
-          "queryDebugInformation": {
-            "$ref": "#/components/schemas/QueryDebugInformation"
+          "elapsedMilliseconds": {
+            "type": "integer",
+            "format": "int64"
           }
         }
       },
@@ -12519,20 +12525,6 @@
             "type": "string",
             "description": "Trace job ID."
           }
-        }
-      },
-      "QueryDebugInformation": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "general": {
-            "type": "string"
-          },
-          "auditTrail": {
-            "type": "string"
-          },
-          "request": {},
-          "response": {}
         }
       },
       "PictureparkException": {
@@ -17814,7 +17806,14 @@
         "description": "A content detail.",
         "additionalProperties": false,
         "required": [
+          "content",
+          "contentSchemaId",
           "contentType",
+          "displayValues",
+          "id",
+          "layerSchemaIds",
+          "outputs",
+          "ownerTokenId",
           "lifeCycle"
         ],
         "properties": {
@@ -17838,10 +17837,12 @@
           },
           "contentSchemaId": {
             "type": "string",
-            "description": "The id of the content schema"
+            "description": "The id of the content schema",
+            "minLength": 1
           },
           "contentType": {
             "description": "The type of content",
+            "minLength": 1,
             "allOf": [
               {
                 "$ref": "#/components/schemas/ContentType"
@@ -17858,7 +17859,8 @@
           },
           "id": {
             "type": "string",
-            "description": "The content id."
+            "description": "The content id.",
+            "minLength": 1
           },
           "layerSchemaIds": {
             "type": "array",
@@ -17884,10 +17886,12 @@
           },
           "ownerTokenId": {
             "type": "string",
-            "description": "The id of a owner token. Defines the content owner."
+            "description": "The id of a owner token. Defines the content owner.",
+            "minLength": 1
           },
           "lifeCycle": {
             "description": "The lifecycle of the content.",
+            "minLength": 1,
             "allOf": [
               {
                 "$ref": "#/components/schemas/LifeCycle"
@@ -17931,24 +17935,31 @@
         "description": "Output",
         "additionalProperties": false,
         "required": [
+          "id",
+          "outputFormatId",
+          "contentId",
           "renderingState",
           "kind"
         ],
         "properties": {
           "id": {
             "type": "string",
-            "description": "The ID of the output."
+            "description": "The ID of the output.",
+            "minLength": 1
           },
           "outputFormatId": {
             "type": "string",
-            "description": "The ID of the output format this output represents."
+            "description": "The ID of the output format this output represents.",
+            "minLength": 1
           },
           "contentId": {
             "type": "string",
-            "description": "The ID of the content for which this output has been created."
+            "description": "The ID of the content for which this output has been created.",
+            "minLength": 1
           },
           "renderingState": {
             "description": "The rendering state of the output file.",
+            "minLength": 1,
             "allOf": [
               {
                 "$ref": "#/components/schemas/OutputRenderingState"
@@ -18255,16 +18266,6 @@
         "type": "object",
         "description": "Result for content search operation",
         "additionalProperties": false,
-        "required": [
-          "elapsedMilliseconds"
-        ],
-        "properties": {
-          "elapsedMilliseconds": {
-            "type": "integer",
-            "description": "Milliseconds elapsed to perform the query.",
-            "format": "int64"
-          }
-        },
         "allOf": [
           {
             "$ref": "#/components/schemas/SearchBehaviorBaseResultOfContent"
@@ -18283,6 +18284,9 @@
           },
           "isSearchStringRewritten": {
             "type": "boolean"
+          },
+          "queryDebugInformation": {
+            "$ref": "#/components/schemas/QueryDebugInformation"
           }
         },
         "allOf": [
@@ -18296,7 +18300,8 @@
         "additionalProperties": false,
         "required": [
           "totalResults",
-          "results"
+          "results",
+          "elapsedMilliseconds"
         ],
         "properties": {
           "totalResults": {
@@ -18309,11 +18314,9 @@
               "$ref": "#/components/schemas/Content"
             }
           },
-          "pageToken": {
-            "type": "string"
-          },
-          "queryDebugInformation": {
-            "$ref": "#/components/schemas/QueryDebugInformation"
+          "elapsedMilliseconds": {
+            "type": "integer",
+            "format": "int64"
           }
         }
       },
@@ -18321,7 +18324,10 @@
         "type": "object",
         "additionalProperties": false,
         "required": [
-          "contentType"
+          "contentSchemaId",
+          "contentType",
+          "displayValues",
+          "id"
         ],
         "properties": {
           "audit": {
@@ -18329,10 +18335,12 @@
           },
           "contentSchemaId": {
             "type": "string",
-            "description": "The id of the schema with schema type content."
+            "description": "The id of the schema with schema type content.",
+            "minLength": 1
           },
           "contentType": {
             "description": "The content type of this content. All except ContentItem are binary files.",
+            "minLength": 1,
             "allOf": [
               {
                 "$ref": "#/components/schemas/ContentType"
@@ -18354,7 +18362,8 @@
             }
           },
           "id": {
-            "type": "string"
+            "type": "string",
+            "minLength": 1
           },
           "brokenReferenceIds": {
             "type": "array",
@@ -18585,6 +18594,14 @@
           "isSearchStringRewritten": {
             "type": "boolean",
             "description": "Flag to notify if the SearchString was modified compared to the original requested one."
+          },
+          "queryDebugInformation": {
+            "description": "Additional information regarding the query execution and reason of the matched documents.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/QueryDebugInformation"
+              }
+            ]
           }
         }
       },
@@ -18803,7 +18820,8 @@
         "additionalProperties": false,
         "required": [
           "totalResults",
-          "results"
+          "results",
+          "elapsedMilliseconds"
         ],
         "properties": {
           "totalResults": {
@@ -18816,11 +18834,9 @@
               "$ref": "#/components/schemas/MetadataReference"
             }
           },
-          "pageToken": {
-            "type": "string"
-          },
-          "queryDebugInformation": {
-            "$ref": "#/components/schemas/QueryDebugInformation"
+          "elapsedMilliseconds": {
+            "type": "integer",
+            "format": "int64"
           }
         }
       },
@@ -18867,7 +18883,8 @@
         "additionalProperties": false,
         "required": [
           "totalResults",
-          "results"
+          "results",
+          "elapsedMilliseconds"
         ],
         "properties": {
           "totalResults": {
@@ -18880,11 +18897,9 @@
               "$ref": "#/components/schemas/ContentShareReference"
             }
           },
-          "pageToken": {
-            "type": "string"
-          },
-          "queryDebugInformation": {
-            "$ref": "#/components/schemas/QueryDebugInformation"
+          "elapsedMilliseconds": {
+            "type": "integer",
+            "format": "int64"
           }
         }
       },
@@ -19803,16 +19818,6 @@
         "type": "object",
         "description": "Result of a permission set search operation",
         "additionalProperties": false,
-        "required": [
-          "elapsedMilliseconds"
-        ],
-        "properties": {
-          "elapsedMilliseconds": {
-            "type": "integer",
-            "description": "Elapsed time in milliseconds to perform the query.",
-            "format": "int64"
-          }
-        },
         "allOf": [
           {
             "$ref": "#/components/schemas/SearchBehaviorBaseResultOfPermissionSet"
@@ -19831,6 +19836,9 @@
           },
           "isSearchStringRewritten": {
             "type": "boolean"
+          },
+          "queryDebugInformation": {
+            "$ref": "#/components/schemas/QueryDebugInformation"
           }
         },
         "allOf": [
@@ -19844,7 +19852,8 @@
         "additionalProperties": false,
         "required": [
           "totalResults",
-          "results"
+          "results",
+          "elapsedMilliseconds"
         ],
         "properties": {
           "totalResults": {
@@ -19857,11 +19866,9 @@
               "$ref": "#/components/schemas/PermissionSet"
             }
           },
-          "pageToken": {
-            "type": "string"
-          },
-          "queryDebugInformation": {
-            "$ref": "#/components/schemas/QueryDebugInformation"
+          "elapsedMilliseconds": {
+            "type": "integer",
+            "format": "int64"
           }
         }
       },
@@ -20055,8 +20062,23 @@
       "DocumentHistorySearchResult": {
         "type": "object",
         "additionalProperties": false,
+        "properties": {
+          "pageToken": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BaseResultOfDocumentHistory"
+          }
+        ]
+      },
+      "BaseResultOfDocumentHistory": {
+        "type": "object",
+        "additionalProperties": false,
         "required": [
           "totalResults",
+          "results",
           "elapsedMilliseconds"
         ],
         "properties": {
@@ -20069,9 +20091,6 @@
             "items": {
               "$ref": "#/components/schemas/DocumentHistory"
             }
-          },
-          "pageToken": {
-            "type": "string"
           },
           "elapsedMilliseconds": {
             "type": "integer",
@@ -20419,7 +20438,8 @@
         "additionalProperties": false,
         "required": [
           "totalResults",
-          "results"
+          "results",
+          "elapsedMilliseconds"
         ],
         "properties": {
           "totalResults": {
@@ -20432,11 +20452,9 @@
               "$ref": "#/components/schemas/ListItem"
             }
           },
-          "pageToken": {
-            "type": "string"
-          },
-          "queryDebugInformation": {
-            "$ref": "#/components/schemas/QueryDebugInformation"
+          "elapsedMilliseconds": {
+            "type": "integer",
+            "format": "int64"
           }
         }
       },
@@ -20967,50 +20985,28 @@
           }
         }
       },
-      "ObjectSearchResult": {
+      "LiveStreamSearchResult": {
         "type": "object",
+        "description": "Results of live stream search.",
         "additionalProperties": false,
-        "required": [
-          "elapsedMilliseconds"
-        ],
         "properties": {
-          "elapsedMilliseconds": {
-            "type": "integer",
-            "format": "int64"
-          }
-        },
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/SearchBehaviorBaseResultOfObject"
-          }
-        ]
-      },
-      "SearchBehaviorBaseResultOfObject": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "isSearchStringRewritten"
-        ],
-        "properties": {
-          "searchString": {
+          "pageToken": {
             "type": "string"
-          },
-          "isSearchStringRewritten": {
-            "type": "boolean"
           }
         },
         "allOf": [
           {
-            "$ref": "#/components/schemas/BaseResultOfObject"
+            "$ref": "#/components/schemas/BaseResultOfLiveStream"
           }
         ]
       },
-      "BaseResultOfObject": {
+      "BaseResultOfLiveStream": {
         "type": "object",
         "additionalProperties": false,
         "required": [
           "totalResults",
-          "results"
+          "results",
+          "elapsedMilliseconds"
         ],
         "properties": {
           "totalResults": {
@@ -21019,13 +21015,41 @@
           },
           "results": {
             "type": "array",
-            "items": {}
+            "items": {
+              "$ref": "#/components/schemas/LiveStream"
+            }
           },
-          "pageToken": {
+          "elapsedMilliseconds": {
+            "type": "integer",
+            "format": "int64"
+          }
+        }
+      },
+      "LiveStream": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "timestamp"
+        ],
+        "properties": {
+          "id": {
             "type": "string"
           },
-          "queryDebugInformation": {
-            "$ref": "#/components/schemas/QueryDebugInformation"
+          "rev": {
+            "type": "string"
+          },
+          "document": {
+            "type": "string"
+          },
+          "documentType": {
+            "type": "string"
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "audit": {
+            "$ref": "#/components/schemas/UserAudit"
           }
         }
       },
@@ -21572,9 +21596,6 @@
           "id": {
             "type": "string"
           },
-          "contractVersion": {
-            "type": "string"
-          },
           "maximumRetryCount": {
             "type": "integer",
             "format": "int32"
@@ -21683,7 +21704,8 @@
         "additionalProperties": false,
         "required": [
           "totalResults",
-          "results"
+          "results",
+          "elapsedMilliseconds"
         ],
         "properties": {
           "totalResults": {
@@ -21696,11 +21718,9 @@
               "$ref": "#/components/schemas/Output"
             }
           },
-          "pageToken": {
-            "type": "string"
-          },
-          "queryDebugInformation": {
-            "$ref": "#/components/schemas/QueryDebugInformation"
+          "elapsedMilliseconds": {
+            "type": "integer",
+            "format": "int64"
           }
         }
       },
@@ -23335,6 +23355,9 @@
           },
           "isSearchStringRewritten": {
             "type": "boolean"
+          },
+          "queryDebugInformation": {
+            "$ref": "#/components/schemas/QueryDebugInformation"
           }
         },
         "allOf": [
@@ -23348,7 +23371,8 @@
         "additionalProperties": false,
         "required": [
           "totalResults",
-          "results"
+          "results",
+          "elapsedMilliseconds"
         ],
         "properties": {
           "totalResults": {
@@ -23361,11 +23385,9 @@
               "$ref": "#/components/schemas/Schema"
             }
           },
-          "pageToken": {
-            "type": "string"
-          },
-          "queryDebugInformation": {
-            "$ref": "#/components/schemas/QueryDebugInformation"
+          "elapsedMilliseconds": {
+            "type": "integer",
+            "format": "int64"
           }
         }
       },
@@ -24451,15 +24473,6 @@
       "ShareSearchResult": {
         "type": "object",
         "additionalProperties": false,
-        "required": [
-          "elapsedMilliseconds"
-        ],
-        "properties": {
-          "elapsedMilliseconds": {
-            "type": "integer",
-            "format": "int64"
-          }
-        },
         "allOf": [
           {
             "$ref": "#/components/schemas/SearchBehaviorBaseResultOfShare"
@@ -24478,6 +24491,9 @@
           },
           "isSearchStringRewritten": {
             "type": "boolean"
+          },
+          "queryDebugInformation": {
+            "$ref": "#/components/schemas/QueryDebugInformation"
           }
         },
         "allOf": [
@@ -24491,7 +24507,8 @@
         "additionalProperties": false,
         "required": [
           "totalResults",
-          "results"
+          "results",
+          "elapsedMilliseconds"
         ],
         "properties": {
           "totalResults": {
@@ -24504,11 +24521,9 @@
               "$ref": "#/components/schemas/Share"
             }
           },
-          "pageToken": {
-            "type": "string"
-          },
-          "queryDebugInformation": {
-            "$ref": "#/components/schemas/QueryDebugInformation"
+          "elapsedMilliseconds": {
+            "type": "integer",
+            "format": "int64"
           }
         }
       },
@@ -24995,16 +25010,6 @@
         "type": "object",
         "description": "Result from a search for transfers.",
         "additionalProperties": false,
-        "required": [
-          "elapsedMilliseconds"
-        ],
-        "properties": {
-          "elapsedMilliseconds": {
-            "type": "integer",
-            "description": "Time in milliseconds query took to execute.",
-            "format": "int64"
-          }
-        },
         "allOf": [
           {
             "$ref": "#/components/schemas/SearchBehaviorBaseResultOfTransfer"
@@ -25023,6 +25028,9 @@
           },
           "isSearchStringRewritten": {
             "type": "boolean"
+          },
+          "queryDebugInformation": {
+            "$ref": "#/components/schemas/QueryDebugInformation"
           }
         },
         "allOf": [
@@ -25036,7 +25044,8 @@
         "additionalProperties": false,
         "required": [
           "totalResults",
-          "results"
+          "results",
+          "elapsedMilliseconds"
         ],
         "properties": {
           "totalResults": {
@@ -25049,11 +25058,9 @@
               "$ref": "#/components/schemas/Transfer"
             }
           },
-          "pageToken": {
-            "type": "string"
-          },
-          "queryDebugInformation": {
-            "$ref": "#/components/schemas/QueryDebugInformation"
+          "elapsedMilliseconds": {
+            "type": "integer",
+            "format": "int64"
           }
         }
       },
@@ -25799,16 +25806,6 @@
         "type": "object",
         "description": "Result from a search for file transfers.",
         "additionalProperties": false,
-        "required": [
-          "elapsedMilliseconds"
-        ],
-        "properties": {
-          "elapsedMilliseconds": {
-            "type": "integer",
-            "description": "Time in milliseconds query took to execute.",
-            "format": "int64"
-          }
-        },
         "allOf": [
           {
             "$ref": "#/components/schemas/SearchBehaviorBaseResultOfFileTransfer"
@@ -25827,6 +25824,9 @@
           },
           "isSearchStringRewritten": {
             "type": "boolean"
+          },
+          "queryDebugInformation": {
+            "$ref": "#/components/schemas/QueryDebugInformation"
           }
         },
         "allOf": [
@@ -25840,7 +25840,8 @@
         "additionalProperties": false,
         "required": [
           "totalResults",
-          "results"
+          "results",
+          "elapsedMilliseconds"
         ],
         "properties": {
           "totalResults": {
@@ -25853,11 +25854,9 @@
               "$ref": "#/components/schemas/FileTransfer"
             }
           },
-          "pageToken": {
-            "type": "string"
-          },
-          "queryDebugInformation": {
-            "$ref": "#/components/schemas/QueryDebugInformation"
+          "elapsedMilliseconds": {
+            "type": "integer",
+            "format": "int64"
           }
         }
       },
@@ -26165,16 +26164,6 @@
         "type": "object",
         "description": "Holds results of the user search.",
         "additionalProperties": false,
-        "required": [
-          "elapsedMilliseconds"
-        ],
-        "properties": {
-          "elapsedMilliseconds": {
-            "type": "integer",
-            "description": "How long did the search take.",
-            "format": "int64"
-          }
-        },
         "allOf": [
           {
             "$ref": "#/components/schemas/SearchBehaviorBaseResultOfUserWithRoles"
@@ -26193,6 +26182,9 @@
           },
           "isSearchStringRewritten": {
             "type": "boolean"
+          },
+          "queryDebugInformation": {
+            "$ref": "#/components/schemas/QueryDebugInformation"
           }
         },
         "allOf": [
@@ -26206,7 +26198,8 @@
         "additionalProperties": false,
         "required": [
           "totalResults",
-          "results"
+          "results",
+          "elapsedMilliseconds"
         ],
         "properties": {
           "totalResults": {
@@ -26219,11 +26212,9 @@
               "$ref": "#/components/schemas/UserWithRoles"
             }
           },
-          "pageToken": {
-            "type": "string"
-          },
-          "queryDebugInformation": {
-            "$ref": "#/components/schemas/QueryDebugInformation"
+          "elapsedMilliseconds": {
+            "type": "integer",
+            "format": "int64"
           }
         }
       },
@@ -26452,16 +26443,6 @@
         "type": "object",
         "description": "Holds results of the user role search.",
         "additionalProperties": false,
-        "required": [
-          "elapsedMilliseconds"
-        ],
-        "properties": {
-          "elapsedMilliseconds": {
-            "type": "integer",
-            "description": "How long did the search take.",
-            "format": "int64"
-          }
-        },
         "allOf": [
           {
             "$ref": "#/components/schemas/SearchBehaviorBaseResultOfUserRole"
@@ -26480,6 +26461,9 @@
           },
           "isSearchStringRewritten": {
             "type": "boolean"
+          },
+          "queryDebugInformation": {
+            "$ref": "#/components/schemas/QueryDebugInformation"
           }
         },
         "allOf": [
@@ -26493,7 +26477,8 @@
         "additionalProperties": false,
         "required": [
           "totalResults",
-          "results"
+          "results",
+          "elapsedMilliseconds"
         ],
         "properties": {
           "totalResults": {
@@ -26506,11 +26491,9 @@
               "$ref": "#/components/schemas/UserRole"
             }
           },
-          "pageToken": {
-            "type": "string"
-          },
-          "queryDebugInformation": {
-            "$ref": "#/components/schemas/QueryDebugInformation"
+          "elapsedMilliseconds": {
+            "type": "integer",
+            "format": "int64"
           }
         }
       },
