@@ -3471,6 +3471,9 @@ namespace Picturepark.SDK.V1.Contract
         [System.Runtime.Serialization.EnumMember(Value = "ManageDocumentHistory")]
         ManageDocumentHistory = 16,
     
+        [System.Runtime.Serialization.EnumMember(Value = "ManageAllShares")]
+        ManageAllShares = 17,
+    
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
@@ -7258,7 +7261,8 @@ namespace Picturepark.SDK.V1.Contract
         public UserAudit Audit { get; set; }
     
         /// <summary>The content data</summary>
-        [Newtonsoft.Json.JsonProperty("content", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("content", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
         public object Content { get; set; }
     
         /// <summary>An optional id list of content permission sets. Controls content accessibility outside of content ownership.</summary>
@@ -7266,43 +7270,49 @@ namespace Picturepark.SDK.V1.Contract
         public System.Collections.Generic.ICollection<string> ContentPermissionSetIds { get; set; }
     
         /// <summary>The id of the content schema</summary>
-        [Newtonsoft.Json.JsonProperty("contentSchemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("contentSchemaId", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
         public string ContentSchemaId { get; set; }
     
         /// <summary>The type of content</summary>
         [Newtonsoft.Json.JsonProperty("contentType", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [System.ComponentModel.DataAnnotations.Required]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public ContentType ContentType { get; set; }
     
         /// <summary>Contains language specific display values, rendered according to the content schema's
         ///              display pattern configuration.</summary>
-        [Newtonsoft.Json.JsonProperty("displayValues", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public DisplayValueDictionary DisplayValues { get; set; }
+        [Newtonsoft.Json.JsonProperty("displayValues", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public DisplayValueDictionary DisplayValues { get; set; } = new DisplayValueDictionary();
     
         /// <summary>The content id.</summary>
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
         public string Id { get; set; }
     
         /// <summary>An optional list of layer schemas ids</summary>
-        [Newtonsoft.Json.JsonProperty("layerSchemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> LayerSchemaIds { get; set; }
+        [Newtonsoft.Json.JsonProperty("layerSchemaIds", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.Collections.Generic.ICollection<string> LayerSchemaIds { get; set; } = new System.Collections.Generic.List<string>();
     
         /// <summary>The metadata dictionary</summary>
         [Newtonsoft.Json.JsonProperty("metadata", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public DataDictionary Metadata { get; set; }
     
         /// <summary>A list of rendering ouputs for underlying digital file.</summary>
-        [Newtonsoft.Json.JsonProperty("outputs", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<Output> Outputs { get; set; }
+        [Newtonsoft.Json.JsonProperty("outputs", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.Collections.Generic.ICollection<Output> Outputs { get; set; } = new System.Collections.Generic.List<Output>();
     
         /// <summary>The id of a owner token. Defines the content owner.</summary>
-        [Newtonsoft.Json.JsonProperty("ownerTokenId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("ownerTokenId", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
         public string OwnerTokenId { get; set; }
     
         /// <summary>The lifecycle of the content.</summary>
         [Newtonsoft.Json.JsonProperty("lifeCycle", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [System.ComponentModel.DataAnnotations.Required]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public LifeCycle LifeCycle { get; set; }
     
@@ -7355,20 +7365,23 @@ namespace Picturepark.SDK.V1.Contract
     public partial class Output 
     {
         /// <summary>The ID of the output.</summary>
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
         public string Id { get; set; }
     
         /// <summary>The ID of the output format this output represents.</summary>
-        [Newtonsoft.Json.JsonProperty("outputFormatId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("outputFormatId", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
         public string OutputFormatId { get; set; }
     
         /// <summary>The ID of the content for which this output has been created.</summary>
-        [Newtonsoft.Json.JsonProperty("contentId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("contentId", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
         public string ContentId { get; set; }
     
         /// <summary>The rendering state of the output file.</summary>
         [Newtonsoft.Json.JsonProperty("renderingState", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [System.ComponentModel.DataAnnotations.Required]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public OutputRenderingState RenderingState { get; set; }
     
@@ -7744,12 +7757,13 @@ namespace Picturepark.SDK.V1.Contract
         public UserAudit Audit { get; set; }
     
         /// <summary>The id of the schema with schema type content.</summary>
-        [Newtonsoft.Json.JsonProperty("contentSchemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("contentSchemaId", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
         public string ContentSchemaId { get; set; }
     
         /// <summary>The content type of this content. All except ContentItem are binary files.</summary>
         [Newtonsoft.Json.JsonProperty("contentType", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [System.ComponentModel.DataAnnotations.Required]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public ContentType ContentType { get; set; }
     
@@ -7758,10 +7772,12 @@ namespace Picturepark.SDK.V1.Contract
         public System.Collections.Generic.ICollection<string> LayerSchemaIds { get; set; }
     
         /// <summary>Contains display values of the specified language, rendered according to the content schema's display pattern configuration.</summary>
-        [Newtonsoft.Json.JsonProperty("displayValues", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.IDictionary<string, string> DisplayValues { get; set; }
+        [Newtonsoft.Json.JsonProperty("displayValues", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.Collections.Generic.IDictionary<string, string> DisplayValues { get; set; } = new System.Collections.Generic.Dictionary<string, string>();
     
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
         public string Id { get; set; }
     
         /// <summary>All the ids of the broken references (tagboxes)</summary>

@@ -14333,7 +14333,8 @@
           "ManageTemplates",
           "ManageTermsOfService",
           "ManageLiveStream",
-          "ManageDocumentHistory"
+          "ManageDocumentHistory",
+          "ManageAllShares"
         ],
         "enum": [
           "ManageContent",
@@ -14352,7 +14353,8 @@
           "ManageTemplates",
           "ManageTermsOfService",
           "ManageLiveStream",
-          "ManageDocumentHistory"
+          "ManageDocumentHistory",
+          "ManageAllShares"
         ]
       },
       "PermissionSetNotFoundException": {
@@ -17814,7 +17816,14 @@
         "description": "A content detail.",
         "additionalProperties": false,
         "required": [
+          "content",
+          "contentSchemaId",
           "contentType",
+          "displayValues",
+          "id",
+          "layerSchemaIds",
+          "outputs",
+          "ownerTokenId",
           "lifeCycle"
         ],
         "properties": {
@@ -17838,10 +17847,12 @@
           },
           "contentSchemaId": {
             "type": "string",
-            "description": "The id of the content schema"
+            "description": "The id of the content schema",
+            "minLength": 1
           },
           "contentType": {
             "description": "The type of content",
+            "minLength": 1,
             "allOf": [
               {
                 "$ref": "#/components/schemas/ContentType"
@@ -17858,7 +17869,8 @@
           },
           "id": {
             "type": "string",
-            "description": "The content id."
+            "description": "The content id.",
+            "minLength": 1
           },
           "layerSchemaIds": {
             "type": "array",
@@ -17884,10 +17896,12 @@
           },
           "ownerTokenId": {
             "type": "string",
-            "description": "The id of a owner token. Defines the content owner."
+            "description": "The id of a owner token. Defines the content owner.",
+            "minLength": 1
           },
           "lifeCycle": {
             "description": "The lifecycle of the content.",
+            "minLength": 1,
             "allOf": [
               {
                 "$ref": "#/components/schemas/LifeCycle"
@@ -17931,24 +17945,31 @@
         "description": "Output",
         "additionalProperties": false,
         "required": [
+          "id",
+          "outputFormatId",
+          "contentId",
           "renderingState",
           "kind"
         ],
         "properties": {
           "id": {
             "type": "string",
-            "description": "The ID of the output."
+            "description": "The ID of the output.",
+            "minLength": 1
           },
           "outputFormatId": {
             "type": "string",
-            "description": "The ID of the output format this output represents."
+            "description": "The ID of the output format this output represents.",
+            "minLength": 1
           },
           "contentId": {
             "type": "string",
-            "description": "The ID of the content for which this output has been created."
+            "description": "The ID of the content for which this output has been created.",
+            "minLength": 1
           },
           "renderingState": {
             "description": "The rendering state of the output file.",
+            "minLength": 1,
             "allOf": [
               {
                 "$ref": "#/components/schemas/OutputRenderingState"
@@ -18321,7 +18342,10 @@
         "type": "object",
         "additionalProperties": false,
         "required": [
-          "contentType"
+          "contentSchemaId",
+          "contentType",
+          "displayValues",
+          "id"
         ],
         "properties": {
           "audit": {
@@ -18329,10 +18353,12 @@
           },
           "contentSchemaId": {
             "type": "string",
-            "description": "The id of the schema with schema type content."
+            "description": "The id of the schema with schema type content.",
+            "minLength": 1
           },
           "contentType": {
             "description": "The content type of this content. All except ContentItem are binary files.",
+            "minLength": 1,
             "allOf": [
               {
                 "$ref": "#/components/schemas/ContentType"
@@ -18354,7 +18380,8 @@
             }
           },
           "id": {
-            "type": "string"
+            "type": "string",
+            "minLength": 1
           },
           "brokenReferenceIds": {
             "type": "array",
