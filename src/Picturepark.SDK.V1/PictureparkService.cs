@@ -56,8 +56,6 @@ namespace Picturepark.SDK.V1
 
         public ISchemaTransferClient SchemaTransfer { get; private set; }
 
-        public IServiceProviderClient ServiceProvider { get; private set; }
-
         public IInfoClient Info { get; private set; }
 
         public IChannelClient Channel { get; private set; }
@@ -89,7 +87,6 @@ namespace Picturepark.SDK.V1
             LiveStream = new LiveStreamClient(settings, httpClient);
             Content = new ContentClient((BusinessProcessClient)BusinessProcess, settings, httpClient);
             Profile = new ProfileClient(settings, httpClient);
-            ServiceProvider = new ServiceProviderClient(settings, httpClient);
             SchemaTransfer = new SchemaTransferClient(settings, httpClient);
             Channel = new ChannelClient(settings, httpClient);
         }

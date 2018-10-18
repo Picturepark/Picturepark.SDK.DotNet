@@ -546,12 +546,13 @@
         "tags": [
           "Channel"
         ],
-        "summary": "Get list of channels",
+        "summary": "Get channels",
+        "description": "Get all channels available for the current user.",
         "operationId": "Channel_GetChannels",
         "responses": {
           "200": {
             "x-nullable": false,
-            "description": "",
+            "description": "List of channel",
             "content": {
               "application/json": {
                 "schema": {
@@ -620,7 +621,7 @@
         "security": [
           {
             "Bearer": [
-              "user_read"
+              "content_read"
             ]
           }
         ]
@@ -1308,7 +1309,7 @@
         ]
       }
     },
-    "/v1/contents/aggregateonchannel": {
+    "/v1/contents/aggregateOnChannel": {
       "post": {
         "tags": [
           "Content"
@@ -3555,7 +3556,7 @@
           "DocumentHistory"
         ],
         "summary": "Search",
-        "description": "Search the document history.",
+        "description": "Search the document history as specified in the search request",
         "operationId": "DocumentHistory_Search",
         "requestBody": {
           "x-name": "documentHistorySearchRequest",
@@ -3572,7 +3573,7 @@
         "responses": {
           "200": {
             "x-nullable": false,
-            "description": "DocumentHistorySearchResult",
+            "description": "Document history search result",
             "content": {
               "application/json": {
                 "schema": {
@@ -3658,14 +3659,14 @@
             "name": "id",
             "in": "path",
             "required": true,
-            "description": "The id of the document (e.g. ContentId)",
+            "description": "The ID of the document (e.g. contentId)",
             "nullable": false
           }
         ],
         "responses": {
           "200": {
             "x-nullable": false,
-            "description": "DocumentHistory",
+            "description": "Document history item",
             "content": {
               "application/json": {
                 "schema": {
@@ -3743,7 +3744,7 @@
           "DocumentHistory"
         ],
         "summary": "Get latest by version",
-        "description": "Gets the latest version of a document by specifiying a specific document version.",
+        "description": "Gets the latest version of a document by specifying a specific document version.",
         "operationId": "DocumentHistory_GetVersion",
         "parameters": [
           {
@@ -3751,7 +3752,7 @@
             "name": "id",
             "in": "path",
             "required": true,
-            "description": "The id of the document (e.g. ContentId)",
+            "description": "The ID of the document (e.g. contentId)",
             "nullable": false
           },
           {
@@ -3766,7 +3767,7 @@
         "responses": {
           "200": {
             "x-nullable": false,
-            "description": "DocumentHistory",
+            "description": "Document history item",
             "content": {
               "application/json": {
                 "schema": {
@@ -3852,7 +3853,7 @@
             "name": "id",
             "in": "path",
             "required": true,
-            "description": "The id of the document (e.g. ContentId)",
+            "description": "The ID of the document (e.g. contentId)",
             "nullable": false
           },
           {
@@ -3868,7 +3869,7 @@
         "responses": {
           "200": {
             "x-nullable": false,
-            "description": "DocumentHistoryDifference",
+            "description": "Document history difference",
             "content": {
               "application/json": {
                 "schema": {
@@ -3954,7 +3955,7 @@
             "name": "id",
             "in": "path",
             "required": true,
-            "description": "The id of the document (e.g. ContentId)",
+            "description": "The ID of the document (e.g. contentId)",
             "nullable": false
           },
           {
@@ -3979,7 +3980,7 @@
         "responses": {
           "200": {
             "x-nullable": false,
-            "description": "DocumentHistoryDifference",
+            "description": "Document history difference",
             "content": {
               "application/json": {
                 "schema": {
@@ -4057,7 +4058,7 @@
           "Info"
         ],
         "summary": "Get info",
-        "description": "Get the customer specific infos",
+        "description": "Get the customer specific configuration infos.",
         "operationId": "Info_GetInfo",
         "responses": {
           "200": {
@@ -4137,7 +4138,8 @@
         "tags": [
           "Info"
         ],
-        "summary": "Get Version",
+        "summary": "Get version",
+        "description": "Get the version information of the deployed application.",
         "operationId": "Info_GetVersion",
         "responses": {
           "200": {
@@ -5998,98 +6000,6 @@
         ]
       }
     },
-    "/v1/liveStream/search": {
-      "post": {
-        "tags": [
-          "LiveStream"
-        ],
-        "summary": "Search LiveStream",
-        "operationId": "LiveStream_Search",
-        "requestBody": {
-          "x-name": "liveStreamSearchRequest",
-          "description": "The livestream search request",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/LiveStreamSearchRequest"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "x-nullable": false,
-            "description": "ObjectSearchResult",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ObjectSearchResult"
-                }
-              }
-            }
-          },
-          "500": {
-            "x-nullable": true,
-            "description": "Internal server error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkException"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Not authorized"
-          },
-          "405": {
-            "description": "Method not allowed"
-          },
-          "404": {
-            "x-nullable": true,
-            "description": "Entity not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkNotFoundException"
-                }
-              }
-            }
-          },
-          "409": {
-            "x-nullable": true,
-            "description": "Version conflict",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkConflictException"
-                }
-              }
-            }
-          },
-          "400": {
-            "x-nullable": true,
-            "description": "Validation exception",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkValidationException"
-                }
-              }
-            }
-          },
-          "429": {
-            "description": "Too many requests"
-          }
-        },
-        "security": [
-          {
-            "Bearer": []
-          }
-        ]
-      }
-    },
     "/v1/liveStream/message": {
       "get": {
         "tags": [
@@ -7847,206 +7757,13 @@
         ]
       }
     },
-    "/v1/serviceProviders/{serviceProviderId}/configuration": {
-      "get": {
-        "tags": [
-          "ServiceProvider"
-        ],
-        "summary": "Get configuration",
-        "description": "Gets the customer configuration of a specific service provider instance.",
-        "operationId": "ServiceProvider_GetConfiguration",
-        "parameters": [
-          {
-            "type": "string",
-            "name": "serviceProviderId",
-            "in": "path",
-            "required": true,
-            "nullable": false
-          }
-        ],
-        "responses": {
-          "200": {
-            "x-nullable": false,
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/CustomerServiceProviderConfiguration"
-                }
-              }
-            }
-          },
-          "500": {
-            "x-nullable": true,
-            "description": "Internal server error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkException"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Not authorized"
-          },
-          "405": {
-            "description": "Method not allowed"
-          },
-          "404": {
-            "x-nullable": true,
-            "description": "Entity not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkNotFoundException"
-                }
-              }
-            }
-          },
-          "409": {
-            "x-nullable": true,
-            "description": "Version conflict",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkConflictException"
-                }
-              }
-            }
-          },
-          "400": {
-            "x-nullable": true,
-            "description": "Validation exception",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkValidationException"
-                }
-              }
-            }
-          },
-          "429": {
-            "description": "Too many requests"
-          }
-        },
-        "security": [
-          {
-            "Bearer": [
-              "serviceprovider_read"
-            ]
-          }
-        ]
-      },
-      "put": {
-        "tags": [
-          "ServiceProvider"
-        ],
-        "summary": "Update configuration",
-        "description": "Updates the customer configuration of a specific service provider instance.",
-        "operationId": "ServiceProvider_UpdateConfiguration",
-        "parameters": [
-          {
-            "type": "string",
-            "name": "serviceProviderId",
-            "in": "path",
-            "required": true,
-            "nullable": false
-          }
-        ],
-        "requestBody": {
-          "x-name": "configuration",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ServiceProviderConfigurationUpdateRequest"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "x-nullable": false,
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/CustomerServiceProviderConfiguration"
-                }
-              }
-            }
-          },
-          "500": {
-            "x-nullable": true,
-            "description": "Internal server error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkException"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Not authorized"
-          },
-          "405": {
-            "description": "Method not allowed"
-          },
-          "404": {
-            "x-nullable": true,
-            "description": "Entity not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkNotFoundException"
-                }
-              }
-            }
-          },
-          "409": {
-            "x-nullable": true,
-            "description": "Version conflict",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkConflictException"
-                }
-              }
-            }
-          },
-          "400": {
-            "x-nullable": true,
-            "description": "Validation exception",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkValidationException"
-                }
-              }
-            }
-          },
-          "429": {
-            "description": "Too many requests"
-          }
-        },
-        "security": [
-          {
-            "Bearer": [
-              "serviceprovider_write"
-            ]
-          }
-        ]
-      }
-    },
     "/v1/shares/{id}": {
       "get": {
         "tags": [
           "Share"
         ],
-        "summary": "Get - single",
-        "description": "Get share by id (basic or embed)",
+        "summary": "Get",
+        "description": "Get share by id (basic or embed).",
         "operationId": "Share_Get",
         "parameters": [
           {
@@ -8054,14 +7771,14 @@
             "name": "id",
             "in": "path",
             "required": true,
-            "description": "Share Id (not token, use PublicAccess to get share by token)",
+            "description": "Share Id (not token, use [GetShareJson](#operation/Share_GetShareJson) to get share by token)",
             "nullable": false
           }
         ],
         "responses": {
           "200": {
             "x-nullable": false,
-            "description": "Polymorph share",
+            "description": "Share detail",
             "content": {
               "application/json": {
                 "schema": {
@@ -8072,7 +7789,7 @@
           },
           "404": {
             "x-nullable": true,
-            "description": "Submited share could not be found\nor\nEntity not found",
+            "description": "Share could not be found\nor\nEntity not found",
             "content": {
               "application/json": {
                 "schema": {
@@ -8082,7 +7799,7 @@
             },
             "x-expectedSchemas": [
               {
-                "description": "Submited share could not be found",
+                "description": "Share could not be found",
                 "schema": {
                   "$ref": "#/components/schemas/ShareNotFoundException"
                 }
@@ -8150,7 +7867,7 @@
         "tags": [
           "Share"
         ],
-        "summary": "Update - single",
+        "summary": "Update",
         "description": "Updates a single share.",
         "operationId": "Share_Update",
         "parameters": [
@@ -8178,7 +7895,7 @@
         "responses": {
           "200": {
             "x-nullable": false,
-            "description": "Share",
+            "description": "Share detail",
             "content": {
               "application/json": {
                 "schema": {
@@ -8270,7 +7987,7 @@
           "Share"
         ],
         "summary": "Search",
-        "description": "Search own shares",
+        "description": "Search shares either created by or sent to current user.",
         "operationId": "Share_Search",
         "requestBody": {
           "x-name": "request",
@@ -8365,7 +8082,7 @@
           "Share"
         ],
         "summary": "Aggregate",
-        "description": "Aggregates own shares",
+        "description": "Aggregates shares either created by or sent to current user.",
         "operationId": "Share_Aggregate",
         "requestBody": {
           "x-name": "request",
@@ -8382,7 +8099,7 @@
         "responses": {
           "200": {
             "x-nullable": false,
-            "description": "AggregationResult",
+            "description": "Share aggregation result",
             "content": {
               "application/json": {
                 "schema": {
@@ -8459,12 +8176,12 @@
         "tags": [
           "Share"
         ],
-        "summary": "Create - single",
+        "summary": "Create",
         "description": "Create a new share (basic or embed).",
         "operationId": "Share_Create",
         "requestBody": {
           "x-name": "request",
-          "description": "Polymorph create contract. Use either ShareBasicCreateRequest or ShareEmbedCreateRequest",
+          "description": "Polymorphic create contract. Use either ShareBasicCreateRequest or ShareEmbedCreateRequest",
           "content": {
             "application/json": {
               "schema": {
@@ -8477,7 +8194,7 @@
         "responses": {
           "404": {
             "x-nullable": true,
-            "description": "Submited content could not be found\nor\nEntity not found",
+            "description": "Content could not be found\nor\nEntity not found",
             "content": {
               "application/json": {
                 "schema": {
@@ -8487,7 +8204,7 @@
             },
             "x-expectedSchemas": [
               {
-                "description": "Submited content could not be found",
+                "description": "Content could not be found",
                 "schema": {
                   "$ref": "#/components/schemas/ContentNotFoundException"
                 }
@@ -8579,8 +8296,8 @@
         "tags": [
           "Share"
         ],
-        "summary": "Delete - many",
-        "description": "Deletes multiple shares. Returnes a bulk reponse with information about successful and failed rows.",
+        "summary": "Delete multiple shares",
+        "description": "Deletes multiple shares. Returns a bulk response with information about successful and failed rows.",
         "operationId": "Share_DeleteMany",
         "requestBody": {
           "x-name": "deleteManyRequest",
@@ -8674,7 +8391,7 @@
         "tags": [
           "Share"
         ],
-        "summary": "Get Share json",
+        "summary": "Get share json",
         "operationId": "Share_GetShareJson",
         "parameters": [
           {
@@ -8762,7 +8479,7 @@
         "tags": [
           "Share"
         ],
-        "summary": "Download Shared outputs",
+        "summary": "Download shared outputs",
         "operationId": "Share_Download",
         "parameters": [
           {
@@ -8889,8 +8606,8 @@
         "tags": [
           "Share"
         ],
-        "summary": "Download Shared outputs\n            ",
-        "description": "Download single content in a specific outputformat. To resize images on download specify target width &amp; height. To download only a portion of the file, specify the range parameter.",
+        "summary": "Download shared outputs\n            ",
+        "description": "Download single content in a specific output format. To resize images on download specify target width &amp; height. To download only a portion of the file, specify the range parameter.",
         "operationId": "Share_DownloadWithContentId",
         "parameters": [
           {
@@ -9025,8 +8742,8 @@
         "tags": [
           "Share"
         ],
-        "summary": "Download Shared outputs\n            ",
-        "description": "Download single content in a specific outputformat. To resize images on download specify target width &amp; height. To download only a portion of the file, specify the range parameter.",
+        "summary": "Download shared outputs\n            ",
+        "description": "Download single content in a specific output format. To resize images on download specify target width &amp; height. To download only a portion of the file, specify the range parameter.",
         "operationId": "Share_DownloadWithOutputFormatId",
         "parameters": [
           {
@@ -12280,16 +11997,6 @@
         "type": "object",
         "description": "Search result from a search for business processes",
         "additionalProperties": false,
-        "required": [
-          "elapsedMilliseconds"
-        ],
-        "properties": {
-          "elapsedMilliseconds": {
-            "type": "integer",
-            "description": "Elapsed time in milliseconds for the search request.",
-            "format": "int64"
-          }
-        },
         "allOf": [
           {
             "$ref": "#/components/schemas/SearchBehaviorBaseResultOfBusinessProcess"
@@ -12308,6 +12015,9 @@
           },
           "isSearchStringRewritten": {
             "type": "boolean"
+          },
+          "queryDebugInformation": {
+            "$ref": "#/components/schemas/QueryDebugInformation"
           }
         },
         "allOf": [
@@ -12316,12 +12026,27 @@
           }
         ]
       },
+      "QueryDebugInformation": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "general": {
+            "type": "string"
+          },
+          "auditTrail": {
+            "type": "string"
+          },
+          "request": {},
+          "response": {}
+        }
+      },
       "BaseResultOfBusinessProcess": {
         "type": "object",
         "additionalProperties": false,
         "required": [
           "totalResults",
-          "results"
+          "results",
+          "elapsedMilliseconds"
         ],
         "properties": {
           "totalResults": {
@@ -12334,11 +12059,9 @@
               "$ref": "#/components/schemas/BusinessProcess"
             }
           },
-          "pageToken": {
-            "type": "string"
-          },
-          "queryDebugInformation": {
-            "$ref": "#/components/schemas/QueryDebugInformation"
+          "elapsedMilliseconds": {
+            "type": "integer",
+            "format": "int64"
           }
         }
       },
@@ -12519,20 +12242,6 @@
             "type": "string",
             "description": "Trace job ID."
           }
-        }
-      },
-      "QueryDebugInformation": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "general": {
-            "type": "string"
-          },
-          "auditTrail": {
-            "type": "string"
-          },
-          "request": {},
-          "response": {}
         }
       },
       "PictureparkException": {
@@ -17313,23 +17022,37 @@
         "type": "object",
         "additionalProperties": false,
         "required": [
-          "sortOrder"
+          "id",
+          "sortOrder",
+          "searchIndexId",
+          "schemaIds",
+          "names",
+          "sort",
+          "aggregations",
+          "extendedSimpleSearchFields",
+          "grantedUserRoleIds",
+          "missingResultsDisplayPatterns",
+          "audit"
         ],
         "properties": {
           "id": {
-            "type": "string"
+            "type": "string",
+            "description": "ID of channel.",
+            "minLength": 1
           },
           "sortOrder": {
             "type": "integer",
+            "description": "Numeric sort order of the channel. Channels are returned ordered by this field.",
             "format": "int32"
           },
           "searchIndexId": {
             "type": "string",
-            "description": "The search index id."
+            "description": "The search index ID where the channel requests the content from. Only RootContentSearchIndex is supported.",
+            "minLength": 1
           },
           "schemaIds": {
             "type": "array",
-            "description": "An id list of schemas with schema type content whose content documents should be found by the simple search.\nThe search by filters and aggregations are unaffected.",
+            "description": "An ID list of schemas with schema type content whose content documents should be found by the simple search.\nThe search by filters and aggregations are unaffected.",
             "items": {
               "type": "string"
             }
@@ -17352,6 +17075,7 @@
           },
           "sort": {
             "type": "array",
+            "description": "Default sort order specified for the channel to sort the results of a content search.",
             "items": {
               "$ref": "#/components/schemas/SortInfo"
             }
@@ -17386,7 +17110,12 @@
             ]
           },
           "audit": {
-            "$ref": "#/components/schemas/UserAudit"
+            "description": "Audit information.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/UserAudit"
+              }
+            ]
           }
         }
       },
@@ -17814,7 +17543,12 @@
         "description": "A content detail.",
         "additionalProperties": false,
         "required": [
+          "content",
+          "contentSchemaId",
           "contentType",
+          "id",
+          "layerSchemaIds",
+          "ownerTokenId",
           "lifeCycle"
         ],
         "properties": {
@@ -17838,10 +17572,12 @@
           },
           "contentSchemaId": {
             "type": "string",
-            "description": "The id of the content schema"
+            "description": "The id of the content schema",
+            "minLength": 1
           },
           "contentType": {
             "description": "The type of content",
+            "minLength": 1,
             "allOf": [
               {
                 "$ref": "#/components/schemas/ContentType"
@@ -17858,7 +17594,8 @@
           },
           "id": {
             "type": "string",
-            "description": "The content id."
+            "description": "The content id.",
+            "minLength": 1
           },
           "layerSchemaIds": {
             "type": "array",
@@ -17884,10 +17621,12 @@
           },
           "ownerTokenId": {
             "type": "string",
-            "description": "The id of a owner token. Defines the content owner."
+            "description": "The id of a owner token. Defines the content owner.",
+            "minLength": 1
           },
           "lifeCycle": {
             "description": "The lifecycle of the content.",
+            "minLength": 1,
             "allOf": [
               {
                 "$ref": "#/components/schemas/LifeCycle"
@@ -17931,24 +17670,31 @@
         "description": "Output",
         "additionalProperties": false,
         "required": [
+          "id",
+          "outputFormatId",
+          "contentId",
           "renderingState",
           "kind"
         ],
         "properties": {
           "id": {
             "type": "string",
-            "description": "The ID of the output."
+            "description": "The ID of the output.",
+            "minLength": 1
           },
           "outputFormatId": {
             "type": "string",
-            "description": "The ID of the output format this output represents."
+            "description": "The ID of the output format this output represents.",
+            "minLength": 1
           },
           "contentId": {
             "type": "string",
-            "description": "The ID of the content for which this output has been created."
+            "description": "The ID of the content for which this output has been created.",
+            "minLength": 1
           },
           "renderingState": {
             "description": "The rendering state of the output file.",
+            "minLength": 1,
             "allOf": [
               {
                 "$ref": "#/components/schemas/OutputRenderingState"
@@ -18255,16 +18001,6 @@
         "type": "object",
         "description": "Result for content search operation",
         "additionalProperties": false,
-        "required": [
-          "elapsedMilliseconds"
-        ],
-        "properties": {
-          "elapsedMilliseconds": {
-            "type": "integer",
-            "description": "Milliseconds elapsed to perform the query.",
-            "format": "int64"
-          }
-        },
         "allOf": [
           {
             "$ref": "#/components/schemas/SearchBehaviorBaseResultOfContent"
@@ -18283,6 +18019,9 @@
           },
           "isSearchStringRewritten": {
             "type": "boolean"
+          },
+          "queryDebugInformation": {
+            "$ref": "#/components/schemas/QueryDebugInformation"
           }
         },
         "allOf": [
@@ -18296,7 +18035,8 @@
         "additionalProperties": false,
         "required": [
           "totalResults",
-          "results"
+          "results",
+          "elapsedMilliseconds"
         ],
         "properties": {
           "totalResults": {
@@ -18309,11 +18049,9 @@
               "$ref": "#/components/schemas/Content"
             }
           },
-          "pageToken": {
-            "type": "string"
-          },
-          "queryDebugInformation": {
-            "$ref": "#/components/schemas/QueryDebugInformation"
+          "elapsedMilliseconds": {
+            "type": "integer",
+            "format": "int64"
           }
         }
       },
@@ -18321,7 +18059,10 @@
         "type": "object",
         "additionalProperties": false,
         "required": [
-          "contentType"
+          "contentSchemaId",
+          "contentType",
+          "displayValues",
+          "id"
         ],
         "properties": {
           "audit": {
@@ -18329,10 +18070,12 @@
           },
           "contentSchemaId": {
             "type": "string",
-            "description": "The id of the schema with schema type content."
+            "description": "The id of the schema with schema type content.",
+            "minLength": 1
           },
           "contentType": {
             "description": "The content type of this content. All except ContentItem are binary files.",
+            "minLength": 1,
             "allOf": [
               {
                 "$ref": "#/components/schemas/ContentType"
@@ -18354,7 +18097,8 @@
             }
           },
           "id": {
-            "type": "string"
+            "type": "string",
+            "minLength": 1
           },
           "brokenReferenceIds": {
             "type": "array",
@@ -18585,6 +18329,14 @@
           "isSearchStringRewritten": {
             "type": "boolean",
             "description": "Flag to notify if the SearchString was modified compared to the original requested one."
+          },
+          "queryDebugInformation": {
+            "description": "Additional information regarding the query execution and reason of the matched documents.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/QueryDebugInformation"
+              }
+            ]
           }
         }
       },
@@ -18803,7 +18555,8 @@
         "additionalProperties": false,
         "required": [
           "totalResults",
-          "results"
+          "results",
+          "elapsedMilliseconds"
         ],
         "properties": {
           "totalResults": {
@@ -18816,11 +18569,9 @@
               "$ref": "#/components/schemas/MetadataReference"
             }
           },
-          "pageToken": {
-            "type": "string"
-          },
-          "queryDebugInformation": {
-            "$ref": "#/components/schemas/QueryDebugInformation"
+          "elapsedMilliseconds": {
+            "type": "integer",
+            "format": "int64"
           }
         }
       },
@@ -18867,7 +18618,8 @@
         "additionalProperties": false,
         "required": [
           "totalResults",
-          "results"
+          "results",
+          "elapsedMilliseconds"
         ],
         "properties": {
           "totalResults": {
@@ -18880,11 +18632,9 @@
               "$ref": "#/components/schemas/ContentShareReference"
             }
           },
-          "pageToken": {
-            "type": "string"
-          },
-          "queryDebugInformation": {
-            "$ref": "#/components/schemas/QueryDebugInformation"
+          "elapsedMilliseconds": {
+            "type": "integer",
+            "format": "int64"
           }
         }
       },
@@ -19803,16 +19553,6 @@
         "type": "object",
         "description": "Result of a permission set search operation",
         "additionalProperties": false,
-        "required": [
-          "elapsedMilliseconds"
-        ],
-        "properties": {
-          "elapsedMilliseconds": {
-            "type": "integer",
-            "description": "Elapsed time in milliseconds to perform the query.",
-            "format": "int64"
-          }
-        },
         "allOf": [
           {
             "$ref": "#/components/schemas/SearchBehaviorBaseResultOfPermissionSet"
@@ -19831,6 +19571,9 @@
           },
           "isSearchStringRewritten": {
             "type": "boolean"
+          },
+          "queryDebugInformation": {
+            "$ref": "#/components/schemas/QueryDebugInformation"
           }
         },
         "allOf": [
@@ -19844,7 +19587,8 @@
         "additionalProperties": false,
         "required": [
           "totalResults",
-          "results"
+          "results",
+          "elapsedMilliseconds"
         ],
         "properties": {
           "totalResults": {
@@ -19857,11 +19601,9 @@
               "$ref": "#/components/schemas/PermissionSet"
             }
           },
-          "pageToken": {
-            "type": "string"
-          },
-          "queryDebugInformation": {
-            "$ref": "#/components/schemas/QueryDebugInformation"
+          "elapsedMilliseconds": {
+            "type": "integer",
+            "format": "int64"
           }
         }
       },
@@ -20055,8 +19797,23 @@
       "DocumentHistorySearchResult": {
         "type": "object",
         "additionalProperties": false,
+        "properties": {
+          "pageToken": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BaseResultOfDocumentHistory"
+          }
+        ]
+      },
+      "BaseResultOfDocumentHistory": {
+        "type": "object",
+        "additionalProperties": false,
         "required": [
           "totalResults",
+          "results",
           "elapsedMilliseconds"
         ],
         "properties": {
@@ -20069,9 +19826,6 @@
             "items": {
               "$ref": "#/components/schemas/DocumentHistory"
             }
-          },
-          "pageToken": {
-            "type": "string"
           },
           "elapsedMilliseconds": {
             "type": "integer",
@@ -20194,7 +19948,7 @@
           },
           "documentId": {
             "type": "string",
-            "description": "Limits the search to a specific document id. E.g. ContentId"
+            "description": "Limits the search to a specific document ID. E.g. contentId"
           },
           "documentVersion": {
             "type": "integer",
@@ -20204,7 +19958,7 @@
           },
           "documentType": {
             "type": "string",
-            "description": "Limits the search to a specifc document type."
+            "description": "Limits the search to a specific document type."
           },
           "sort": {
             "description": "Sorts the search results. Sorting on a not indexed field will throw an exception.",
@@ -20243,35 +19997,58 @@
         "type": "object",
         "additionalProperties": false,
         "required": [
-          "enableQueryDetails"
+          "customerId",
+          "name",
+          "customerAlias",
+          "identityServerUrl",
+          "enableQueryDetails",
+          "languageConfiguration",
+          "languages",
+          "outputFormats"
         ],
         "properties": {
           "customerId": {
-            "type": "string"
+            "type": "string",
+            "description": "The customer ID.",
+            "minLength": 1
           },
           "name": {
-            "type": "string"
+            "type": "string",
+            "description": "The name of the customer instance.",
+            "minLength": 1
           },
           "customerAlias": {
-            "type": "string"
+            "type": "string",
+            "description": "Alias of the customer instance.",
+            "minLength": 1
           },
           "identityServerUrl": {
-            "type": "string"
+            "type": "string",
+            "description": "The base url of identity server to authenticate the user using OpenID Connect.",
+            "minLength": 1
           },
           "enableQueryDetails": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Information if the query details can be enabled when searching. For debug purposes only."
           },
           "languageConfiguration": {
-            "$ref": "#/components/schemas/LanguageConfiguration"
+            "description": "Configured languages of customer instance (system, metadata, default).",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/LanguageConfiguration"
+              }
+            ]
           },
           "languages": {
             "type": "array",
+            "description": "Languages including translations for the configured system and metadata languages.",
             "items": {
               "$ref": "#/components/schemas/Language"
             }
           },
           "outputFormats": {
             "type": "array",
+            "description": "Configured rendering outputs including translations for the customer instance.",
             "items": {
               "$ref": "#/components/schemas/OutputFormatInfo"
             }
@@ -20305,33 +20082,58 @@
       "Language": {
         "type": "object",
         "additionalProperties": false,
+        "required": [
+          "name",
+          "ietf"
+        ],
         "properties": {
           "name": {
-            "$ref": "#/components/schemas/TranslatedStringDictionary"
+            "description": "Language translations.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/TranslatedStringDictionary"
+              }
+            ]
           },
           "ietf": {
-            "type": "string"
+            "type": "string",
+            "description": "IETF language tag. E.g en, en-US, de.",
+            "minLength": 1
           },
           "twoLetterISOLanguageName": {
-            "type": "string"
+            "type": "string",
+            "description": "Two letter ISO language code. E.g. en, de."
           },
           "threeLetterISOLanguageName": {
-            "type": "string"
+            "type": "string",
+            "description": "Three letter ISO language code. E.g. eng, deu."
           },
           "regionCode": {
-            "type": "string"
+            "type": "string",
+            "description": "Region code of the language. E.g. US, DE, CH."
           }
         }
       },
       "OutputFormatInfo": {
         "type": "object",
         "additionalProperties": false,
+        "required": [
+          "id",
+          "names"
+        ],
         "properties": {
           "id": {
-            "type": "string"
+            "type": "string",
+            "description": "Output ID.",
+            "minLength": 1
           },
           "names": {
-            "$ref": "#/components/schemas/TranslatedStringDictionary"
+            "description": "Output translations.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/TranslatedStringDictionary"
+              }
+            ]
           }
         }
       },
@@ -20419,7 +20221,8 @@
         "additionalProperties": false,
         "required": [
           "totalResults",
-          "results"
+          "results",
+          "elapsedMilliseconds"
         ],
         "properties": {
           "totalResults": {
@@ -20432,11 +20235,9 @@
               "$ref": "#/components/schemas/ListItem"
             }
           },
-          "pageToken": {
-            "type": "string"
-          },
-          "queryDebugInformation": {
-            "$ref": "#/components/schemas/QueryDebugInformation"
+          "elapsedMilliseconds": {
+            "type": "integer",
+            "format": "int64"
           }
         }
       },
@@ -20964,99 +20765,6 @@
                 "$ref": "#/components/schemas/MetadataReferencesPagingRequest"
               }
             ]
-          }
-        }
-      },
-      "ObjectSearchResult": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "elapsedMilliseconds"
-        ],
-        "properties": {
-          "elapsedMilliseconds": {
-            "type": "integer",
-            "format": "int64"
-          }
-        },
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/SearchBehaviorBaseResultOfObject"
-          }
-        ]
-      },
-      "SearchBehaviorBaseResultOfObject": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "isSearchStringRewritten"
-        ],
-        "properties": {
-          "searchString": {
-            "type": "string"
-          },
-          "isSearchStringRewritten": {
-            "type": "boolean"
-          }
-        },
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/BaseResultOfObject"
-          }
-        ]
-      },
-      "BaseResultOfObject": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "totalResults",
-          "results"
-        ],
-        "properties": {
-          "totalResults": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "results": {
-            "type": "array",
-            "items": {}
-          },
-          "pageToken": {
-            "type": "string"
-          },
-          "queryDebugInformation": {
-            "$ref": "#/components/schemas/QueryDebugInformation"
-          }
-        }
-      },
-      "LiveStreamSearchRequest": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "from",
-          "to",
-          "limit"
-        ],
-        "properties": {
-          "from": {
-            "type": "string",
-            "description": "Limits the start date of the search request.",
-            "format": "date-time"
-          },
-          "to": {
-            "type": "string",
-            "description": "Limits the end date of the search request.",
-            "format": "date-time"
-          },
-          "limit": {
-            "type": "integer",
-            "description": "Limits the document count of the result set. Defaults to 30.",
-            "format": "int32",
-            "default": 30
-          },
-          "pageToken": {
-            "type": "string",
-            "description": "To get a large amount of data, page token returned from the response can be used to get all data."
           }
         }
       },
@@ -21683,7 +21391,8 @@
         "additionalProperties": false,
         "required": [
           "totalResults",
-          "results"
+          "results",
+          "elapsedMilliseconds"
         ],
         "properties": {
           "totalResults": {
@@ -21696,11 +21405,9 @@
               "$ref": "#/components/schemas/Output"
             }
           },
-          "pageToken": {
-            "type": "string"
-          },
-          "queryDebugInformation": {
-            "$ref": "#/components/schemas/QueryDebugInformation"
+          "elapsedMilliseconds": {
+            "type": "integer",
+            "format": "int64"
           }
         }
       },
@@ -23335,6 +23042,9 @@
           },
           "isSearchStringRewritten": {
             "type": "boolean"
+          },
+          "queryDebugInformation": {
+            "$ref": "#/components/schemas/QueryDebugInformation"
           }
         },
         "allOf": [
@@ -23348,7 +23058,8 @@
         "additionalProperties": false,
         "required": [
           "totalResults",
-          "results"
+          "results",
+          "elapsedMilliseconds"
         ],
         "properties": {
           "totalResults": {
@@ -23361,11 +23072,9 @@
               "$ref": "#/components/schemas/Schema"
             }
           },
-          "pageToken": {
-            "type": "string"
-          },
-          "queryDebugInformation": {
-            "$ref": "#/components/schemas/QueryDebugInformation"
+          "elapsedMilliseconds": {
+            "type": "integer",
+            "format": "int64"
           }
         }
       },
@@ -23994,102 +23703,106 @@
           }
         }
       },
-      "CustomerServiceProviderConfiguration": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "serviceProviderId": {
-            "type": "string"
-          },
-          "customerId": {
-            "type": "string"
-          },
-          "userRoleIds": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "settings": {
-            "type": "string"
-          }
-        }
-      },
-      "ServiceProviderConfigurationUpdateRequest": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "customerId": {
-            "type": "string"
-          },
-          "settings": {
-            "type": "string"
-          },
-          "userRoleIds": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          }
-        }
-      },
       "ShareDetail": {
         "type": "object",
         "additionalProperties": false,
         "required": [
+          "id",
+          "name",
+          "creator",
+          "audit",
+          "contentSelections",
           "expired",
           "outputAccess",
           "shareType"
         ],
         "properties": {
           "id": {
-            "type": "string"
+            "type": "string",
+            "description": "Share ID.",
+            "minLength": 1
           },
           "name": {
-            "type": "string"
+            "type": "string",
+            "description": "Name of share.",
+            "minLength": 1
           },
           "description": {
-            "type": "string"
+            "type": "string",
+            "description": "Description of share entered by user."
           },
           "creator": {
-            "$ref": "#/components/schemas/ShareUser"
+            "description": "Creator of share.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ShareUser"
+              }
+            ]
           },
           "audit": {
-            "$ref": "#/components/schemas/UserAudit"
+            "description": "Audit information.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/UserAudit"
+              }
+            ]
           },
           "contentSelections": {
             "type": "array",
+            "description": "Detailed information about contents in the share.",
             "items": {
               "$ref": "#/components/schemas/ShareContentDetail"
             }
           },
           "layerSchemaIds": {
             "type": "array",
+            "description": "List of shared layers.",
             "items": {
               "type": "string"
             }
           },
           "data": {
-            "$ref": "#/components/schemas/ShareDataBase"
-          },
-          "mailTemplateId": {
-            "type": "string"
+            "description": "Detail of share.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ShareDataBase"
+              }
+            ]
           },
           "expirationDate": {
             "type": "string",
+            "description": "Date when share expires and cannot be accessed anymore.",
             "format": "date-time"
           },
           "expired": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Info if share is already expired."
           },
           "template": {
-            "$ref": "#/components/schemas/TemplateBase"
+            "description": "Configuration for template to use on the share detail page.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/TemplateBase"
+              }
+            ]
           },
           "outputAccess": {
-            "$ref": "#/components/schemas/OutputAccess"
+            "description": "Defined access for contents in share.",
+            "minLength": 1,
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/OutputAccess"
+              }
+            ]
           },
           "shareType": {
-            "$ref": "#/components/schemas/ShareType"
+            "description": "Type of share.",
+            "minLength": 1,
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ShareType"
+              }
+            ]
           }
         }
       },
@@ -24097,14 +23810,20 @@
         "type": "object",
         "description": "Reduced set of user information used for shares",
         "additionalProperties": false,
+        "required": [
+          "displayName",
+          "emailHash"
+        ],
         "properties": {
           "displayName": {
             "type": "string",
-            "description": "Name of user"
+            "description": "Name of user",
+            "minLength": 1
           },
           "emailHash": {
             "type": "string",
-            "description": "MD5 hash of email address. Can be used to display gravatar image"
+            "description": "MD5 hash of email address. Can be used to display gravatar image",
+            "minLength": 1
           }
         }
       },
@@ -24112,12 +23831,18 @@
         "type": "object",
         "additionalProperties": false,
         "required": [
-          "contentType"
+          "contentSchemaId",
+          "content",
+          "id",
+          "outputs",
+          "contentType",
+          "displayValues"
         ],
         "properties": {
           "contentSchemaId": {
             "type": "string",
-            "description": "The id of the schema with schema type content."
+            "description": "The id of the schema with schema type content.",
+            "minLength": 1
           },
           "layerSchemaIds": {
             "type": "array",
@@ -24127,22 +23852,41 @@
             }
           },
           "content": {
-            "$ref": "#/components/schemas/DataDictionary"
+            "description": "The content data.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/DataDictionary"
+              }
+            ]
           },
           "metadata": {
-            "$ref": "#/components/schemas/DataDictionary"
+            "description": "The metadata dictionary.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/DataDictionary"
+              }
+            ]
           },
           "id": {
-            "type": "string"
+            "type": "string",
+            "description": "Content ID.",
+            "minLength": 1
           },
           "outputs": {
             "type": "array",
+            "description": "List of shared outputs for this content.",
             "items": {
               "$ref": "#/components/schemas/ShareOutputBase"
             }
           },
           "contentType": {
-            "$ref": "#/components/schemas/ContentType"
+            "description": "The type of content",
+            "minLength": 1,
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ContentType"
+              }
+            ]
           },
           "displayValues": {
             "description": "Contains language specific display values, rendered according to the content schema's display pattern configuration.",
@@ -24170,21 +23914,32 @@
         "x-abstract": true,
         "additionalProperties": false,
         "required": [
+          "contentId",
+          "outputFormatId",
           "kind"
         ],
         "properties": {
           "contentId": {
-            "type": "string"
+            "type": "string",
+            "description": "Content ID.",
+            "minLength": 1
           },
           "outputFormatId": {
-            "type": "string"
+            "type": "string",
+            "description": "Output format ID.",
+            "minLength": 1
           },
           "url": {
             "type": "string",
             "description": "Url to directly download output. In case of BasicShare if not fetched using a token, a placeholder {token} is included which needs to be replaced with the recipient's token"
           },
           "detail": {
-            "$ref": "#/components/schemas/OutputDataBase"
+            "description": "Output details.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/OutputDataBase"
+              }
+            ]
           },
           "kind": {
             "type": "string"
@@ -24230,11 +23985,14 @@
         "x-abstract": true,
         "additionalProperties": false,
         "required": [
+          "url",
           "kind"
         ],
         "properties": {
           "url": {
-            "type": "string"
+            "type": "string",
+            "description": "The URL to access the share.",
+            "minLength": 1
           },
           "kind": {
             "type": "string"
@@ -24244,9 +24002,14 @@
       "ShareDataEmbed": {
         "type": "object",
         "additionalProperties": false,
+        "required": [
+          "token"
+        ],
         "properties": {
           "token": {
-            "type": "string"
+            "type": "string",
+            "description": "Token for the embed share.",
+            "minLength": 1
           }
         },
         "allOf": [
@@ -24258,21 +24021,28 @@
       "ShareDataBasic": {
         "type": "object",
         "additionalProperties": false,
+        "required": [
+          "mailRecipients",
+          "internalRecipients"
+        ],
         "properties": {
           "mailRecipients": {
             "type": "array",
+            "description": "List of recipients added using email address",
             "items": {
               "$ref": "#/components/schemas/MailRecipient"
             }
           },
           "internalRecipients": {
             "type": "array",
+            "description": "List of recipients that exist in Picturepark.",
             "items": {
               "$ref": "#/components/schemas/InternalRecipient"
             }
           },
           "languageCode": {
-            "type": "string"
+            "type": "string",
+            "description": "Language of share."
           }
         },
         "allOf": [
@@ -24284,45 +24054,72 @@
       "MailRecipient": {
         "type": "object",
         "additionalProperties": false,
+        "required": [
+          "userEmail"
+        ],
         "properties": {
           "userEmail": {
-            "$ref": "#/components/schemas/UserEmail"
+            "description": "User information including email.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/UserEmail"
+              }
+            ]
           },
           "token": {
-            "type": "string"
+            "type": "string",
+            "description": "Recipient specific token."
           },
           "url": {
-            "type": "string"
+            "type": "string",
+            "description": "URL to access the share for this recipient."
           }
         }
       },
       "UserEmail": {
         "type": "object",
         "additionalProperties": false,
+        "required": [
+          "emailAddress"
+        ],
         "properties": {
           "firstName": {
-            "type": "string"
+            "type": "string",
+            "description": "First name."
           },
           "lastName": {
-            "type": "string"
+            "type": "string",
+            "description": "Last name."
           },
           "emailAddress": {
-            "type": "string"
+            "type": "string",
+            "description": "Email address",
+            "minLength": 1
           }
         }
       },
       "InternalRecipient": {
         "type": "object",
         "additionalProperties": false,
+        "required": [
+          "recipient"
+        ],
         "properties": {
           "recipient": {
-            "$ref": "#/components/schemas/User"
+            "description": "User information of recipient.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/User"
+              }
+            ]
           },
           "token": {
-            "type": "string"
+            "type": "string",
+            "description": "Recipient specific token."
           },
           "url": {
-            "type": "string"
+            "type": "string",
+            "description": "URL to access the share for this recipient."
           }
         }
       },
@@ -24451,15 +24248,6 @@
       "ShareSearchResult": {
         "type": "object",
         "additionalProperties": false,
-        "required": [
-          "elapsedMilliseconds"
-        ],
-        "properties": {
-          "elapsedMilliseconds": {
-            "type": "integer",
-            "format": "int64"
-          }
-        },
         "allOf": [
           {
             "$ref": "#/components/schemas/SearchBehaviorBaseResultOfShare"
@@ -24478,6 +24266,9 @@
           },
           "isSearchStringRewritten": {
             "type": "boolean"
+          },
+          "queryDebugInformation": {
+            "$ref": "#/components/schemas/QueryDebugInformation"
           }
         },
         "allOf": [
@@ -24491,7 +24282,8 @@
         "additionalProperties": false,
         "required": [
           "totalResults",
-          "results"
+          "results",
+          "elapsedMilliseconds"
         ],
         "properties": {
           "totalResults": {
@@ -24504,11 +24296,9 @@
               "$ref": "#/components/schemas/Share"
             }
           },
-          "pageToken": {
-            "type": "string"
-          },
-          "queryDebugInformation": {
-            "$ref": "#/components/schemas/QueryDebugInformation"
+          "elapsedMilliseconds": {
+            "type": "integer",
+            "format": "int64"
           }
         }
       },
@@ -24516,34 +24306,54 @@
         "type": "object",
         "additionalProperties": false,
         "required": [
+          "contentIds",
+          "id",
+          "audit",
           "shareType",
           "isReadOnly"
         ],
         "properties": {
           "name": {
-            "type": "string"
+            "type": "string",
+            "description": "Name of share."
           },
           "contentIds": {
             "type": "array",
+            "description": "List of shared content IDs.",
             "items": {
               "type": "string"
             }
           },
           "id": {
-            "type": "string"
+            "type": "string",
+            "description": "Share ID.",
+            "minLength": 1
           },
           "audit": {
-            "$ref": "#/components/schemas/UserAudit"
+            "description": "Audit information.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/UserAudit"
+              }
+            ]
           },
           "expirationDate": {
             "type": "string",
+            "description": "Date when share expires and cannot be accessed anymore.",
             "format": "date-time"
           },
           "shareType": {
-            "$ref": "#/components/schemas/ShareType"
+            "description": "Type of share.",
+            "minLength": 1,
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ShareType"
+              }
+            ]
           },
           "isReadOnly": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Share is readonly if the current user is not the creator but only the recipient."
           }
         }
       },
@@ -24609,7 +24419,7 @@
           },
           "searchBehaviors": {
             "type": "array",
-            "description": "An optional list of search behaviours. All the passed behaviours will be applied",
+            "description": "An optional list of search behaviors. All the passed behaviors will be applied.",
             "items": {
               "$ref": "#/components/schemas/SearchBehavior"
             }
@@ -24667,37 +24477,56 @@
         "x-abstract": true,
         "additionalProperties": false,
         "required": [
+          "name",
+          "contents",
           "outputAccess",
           "kind"
         ],
         "properties": {
           "name": {
-            "type": "string"
+            "type": "string",
+            "description": "Name of share.",
+            "minLength": 1
           },
           "description": {
-            "type": "string"
+            "type": "string",
+            "description": "Optional description of share."
           },
           "expirationDate": {
             "type": "string",
+            "description": "Optional date when share expires and cannot be accessed anymore.",
             "format": "date-time"
           },
           "contents": {
             "type": "array",
+            "description": "List of contents including outputs to share.",
             "items": {
               "$ref": "#/components/schemas/ShareContent"
             }
           },
           "layerSchemaIds": {
             "type": "array",
+            "description": "List of content layers to share.",
             "items": {
               "type": "string"
             }
           },
           "template": {
-            "$ref": "#/components/schemas/TemplateBase"
+            "description": "Configuration for template to use on the share detail page.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/TemplateBase"
+              }
+            ]
           },
           "outputAccess": {
-            "$ref": "#/components/schemas/OutputAccess"
+            "description": "Access for content outputs in share.",
+            "minLength": 1,
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/OutputAccess"
+              }
+            ]
           },
           "kind": {
             "type": "string"
@@ -24707,12 +24536,18 @@
       "ShareContent": {
         "type": "object",
         "additionalProperties": false,
+        "required": [
+          "contentId"
+        ],
         "properties": {
           "contentId": {
-            "type": "string"
+            "type": "string",
+            "description": "Content ID to share.",
+            "minLength": 1
           },
           "outputFormatIds": {
             "type": "array",
+            "description": "List of output formats for this content to share. If not specified outer OutputAccess is used.",
             "items": {
               "type": "string"
             }
@@ -24722,30 +24557,35 @@
       "ShareBasicCreateRequest": {
         "type": "object",
         "additionalProperties": false,
+        "required": [
+          "languageCode"
+        ],
         "properties": {
           "recipientsEmail": {
             "type": "array",
+            "description": "List of external mail recipients which are no Picturepark users.",
             "items": {
               "$ref": "#/components/schemas/UserEmail"
             }
           },
           "recipientsUser": {
             "type": "array",
+            "description": "List of internal recipients which are Picturepark users.",
             "items": {
               "$ref": "#/components/schemas/User"
             }
           },
           "recipientsGroup": {
             "type": "array",
+            "description": "List of user roles. All assignees of these roles receive the share.",
             "items": {
               "$ref": "#/components/schemas/UserRole"
             }
           },
           "languageCode": {
-            "type": "string"
-          },
-          "mailTemplateId": {
-            "type": "string"
+            "type": "string",
+            "description": "System language used for share (mail and detail page). en or de.",
+            "minLength": 1
           }
         },
         "allOf": [
@@ -24805,37 +24645,56 @@
         "x-abstract": true,
         "additionalProperties": false,
         "required": [
+          "name",
+          "contents",
           "outputAccess",
           "kind"
         ],
         "properties": {
           "name": {
-            "type": "string"
+            "type": "string",
+            "description": "Name of share.",
+            "minLength": 1
           },
           "expirationDate": {
             "type": "string",
+            "description": "Optional date when share expires and cannot be accessed anymore.",
             "format": "date-time"
           },
           "description": {
-            "type": "string"
+            "type": "string",
+            "description": "Optional description of share."
           },
-          "shareContentItems": {
+          "contents": {
             "type": "array",
+            "description": "List of contents including outputs. Existing items needs to be sent again, otherwise they will be removed.",
             "items": {
               "$ref": "#/components/schemas/ShareContent"
             }
           },
           "layerSchemaIds": {
             "type": "array",
+            "description": "List of content layers to share.",
             "items": {
               "type": "string"
             }
           },
           "template": {
-            "$ref": "#/components/schemas/TemplateBase"
+            "description": "Configuration for template to use on the share detail page.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/TemplateBase"
+              }
+            ]
           },
           "outputAccess": {
-            "$ref": "#/components/schemas/OutputAccess"
+            "description": "Access for content outputs in share.",
+            "minLength": 1,
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/OutputAccess"
+              }
+            ]
           },
           "kind": {
             "type": "string"
@@ -24995,16 +24854,6 @@
         "type": "object",
         "description": "Result from a search for transfers.",
         "additionalProperties": false,
-        "required": [
-          "elapsedMilliseconds"
-        ],
-        "properties": {
-          "elapsedMilliseconds": {
-            "type": "integer",
-            "description": "Time in milliseconds query took to execute.",
-            "format": "int64"
-          }
-        },
         "allOf": [
           {
             "$ref": "#/components/schemas/SearchBehaviorBaseResultOfTransfer"
@@ -25023,6 +24872,9 @@
           },
           "isSearchStringRewritten": {
             "type": "boolean"
+          },
+          "queryDebugInformation": {
+            "$ref": "#/components/schemas/QueryDebugInformation"
           }
         },
         "allOf": [
@@ -25036,7 +24888,8 @@
         "additionalProperties": false,
         "required": [
           "totalResults",
-          "results"
+          "results",
+          "elapsedMilliseconds"
         ],
         "properties": {
           "totalResults": {
@@ -25049,11 +24902,9 @@
               "$ref": "#/components/schemas/Transfer"
             }
           },
-          "pageToken": {
-            "type": "string"
-          },
-          "queryDebugInformation": {
-            "$ref": "#/components/schemas/QueryDebugInformation"
+          "elapsedMilliseconds": {
+            "type": "integer",
+            "format": "int64"
           }
         }
       },
@@ -25799,16 +25650,6 @@
         "type": "object",
         "description": "Result from a search for file transfers.",
         "additionalProperties": false,
-        "required": [
-          "elapsedMilliseconds"
-        ],
-        "properties": {
-          "elapsedMilliseconds": {
-            "type": "integer",
-            "description": "Time in milliseconds query took to execute.",
-            "format": "int64"
-          }
-        },
         "allOf": [
           {
             "$ref": "#/components/schemas/SearchBehaviorBaseResultOfFileTransfer"
@@ -25827,6 +25668,9 @@
           },
           "isSearchStringRewritten": {
             "type": "boolean"
+          },
+          "queryDebugInformation": {
+            "$ref": "#/components/schemas/QueryDebugInformation"
           }
         },
         "allOf": [
@@ -25840,7 +25684,8 @@
         "additionalProperties": false,
         "required": [
           "totalResults",
-          "results"
+          "results",
+          "elapsedMilliseconds"
         ],
         "properties": {
           "totalResults": {
@@ -25853,11 +25698,9 @@
               "$ref": "#/components/schemas/FileTransfer"
             }
           },
-          "pageToken": {
-            "type": "string"
-          },
-          "queryDebugInformation": {
-            "$ref": "#/components/schemas/QueryDebugInformation"
+          "elapsedMilliseconds": {
+            "type": "integer",
+            "format": "int64"
           }
         }
       },
@@ -26165,16 +26008,6 @@
         "type": "object",
         "description": "Holds results of the user search.",
         "additionalProperties": false,
-        "required": [
-          "elapsedMilliseconds"
-        ],
-        "properties": {
-          "elapsedMilliseconds": {
-            "type": "integer",
-            "description": "How long did the search take.",
-            "format": "int64"
-          }
-        },
         "allOf": [
           {
             "$ref": "#/components/schemas/SearchBehaviorBaseResultOfUserWithRoles"
@@ -26193,6 +26026,9 @@
           },
           "isSearchStringRewritten": {
             "type": "boolean"
+          },
+          "queryDebugInformation": {
+            "$ref": "#/components/schemas/QueryDebugInformation"
           }
         },
         "allOf": [
@@ -26206,7 +26042,8 @@
         "additionalProperties": false,
         "required": [
           "totalResults",
-          "results"
+          "results",
+          "elapsedMilliseconds"
         ],
         "properties": {
           "totalResults": {
@@ -26219,11 +26056,9 @@
               "$ref": "#/components/schemas/UserWithRoles"
             }
           },
-          "pageToken": {
-            "type": "string"
-          },
-          "queryDebugInformation": {
-            "$ref": "#/components/schemas/QueryDebugInformation"
+          "elapsedMilliseconds": {
+            "type": "integer",
+            "format": "int64"
           }
         }
       },
@@ -26452,16 +26287,6 @@
         "type": "object",
         "description": "Holds results of the user role search.",
         "additionalProperties": false,
-        "required": [
-          "elapsedMilliseconds"
-        ],
-        "properties": {
-          "elapsedMilliseconds": {
-            "type": "integer",
-            "description": "How long did the search take.",
-            "format": "int64"
-          }
-        },
         "allOf": [
           {
             "$ref": "#/components/schemas/SearchBehaviorBaseResultOfUserRole"
@@ -26480,6 +26305,9 @@
           },
           "isSearchStringRewritten": {
             "type": "boolean"
+          },
+          "queryDebugInformation": {
+            "$ref": "#/components/schemas/QueryDebugInformation"
           }
         },
         "allOf": [
@@ -26493,7 +26321,8 @@
         "additionalProperties": false,
         "required": [
           "totalResults",
-          "results"
+          "results",
+          "elapsedMilliseconds"
         ],
         "properties": {
           "totalResults": {
@@ -26506,11 +26335,9 @@
               "$ref": "#/components/schemas/UserRole"
             }
           },
-          "pageToken": {
-            "type": "string"
-          },
-          "queryDebugInformation": {
-            "$ref": "#/components/schemas/QueryDebugInformation"
+          "elapsedMilliseconds": {
+            "type": "integer",
+            "format": "int64"
           }
         }
       },
@@ -26731,7 +26558,7 @@
     },
     {
       "name": "Channel",
-      "description": "Endpoints to work with channel."
+      "description": "Endpoints to work with channels."
     },
     {
       "name": "Content",
@@ -26780,10 +26607,6 @@
     {
       "name": "SchemaTransfer",
       "description": "Endpoints to transfer schemas.\r\n\r\n[Code examples](https://github.com/Picturepark/Picturepark.SDK.DotNet/blob/master/src/Picturepark.SDK.V1.Tests/Clients/SchemaTransferTests.cs)\r\n"
-    },
-    {
-      "name": "ServiceProvider",
-      "description": "Endpoints to work with service providers.\r\n\r\n[TODO: Create Code examples](https://github.com/Picturepark/Picturepark.SDK.DotNet/blob/master/src/Picturepark.SDK.V1.Tests/Clients/)\r\n"
     },
     {
       "name": "Share",

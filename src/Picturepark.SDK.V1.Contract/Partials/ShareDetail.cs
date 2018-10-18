@@ -21,7 +21,7 @@ namespace Picturepark.SDK.V1.Contract
                 LayerSchemaIds = LayerSchemaIds,
                 Name = Name,
                 OutputAccess = OutputAccess,
-                ShareContentItems = ContentSelections.Select(i =>
+                Contents = ContentSelections.Select(i =>
                     new ShareContent
                     {
                         ContentId = i.Id,

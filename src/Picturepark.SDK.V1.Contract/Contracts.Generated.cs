@@ -38,7 +38,8 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "11.19.2.0 (NJsonSchema v9.10.73.0 (Newtonsoft.Json v9.0.0.0))")]
     public partial interface IChannelClient
     {
-        /// <summary>Get list of channels</summary>
+        /// <summary>Get channels</summary>
+        /// <returns>List of channel</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -336,7 +337,7 @@ namespace Picturepark.SDK.V1.Contract
     {
         /// <summary>Search</summary>
         /// <param name="documentHistorySearchRequest">The document history search request</param>
-        /// <returns>DocumentHistorySearchResult</returns>
+        /// <returns>Document history search result</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -346,8 +347,8 @@ namespace Picturepark.SDK.V1.Contract
         System.Threading.Tasks.Task<DocumentHistorySearchResult> SearchAsync(DocumentHistorySearchRequest documentHistorySearchRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Get latest</summary>
-        /// <param name="id">The id of the document (e.g. ContentId)</param>
-        /// <returns>DocumentHistory</returns>
+        /// <param name="id">The ID of the document (e.g. contentId)</param>
+        /// <returns>Document history item</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -357,9 +358,9 @@ namespace Picturepark.SDK.V1.Contract
         System.Threading.Tasks.Task<DocumentHistory> GetAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Get latest by version</summary>
-        /// <param name="id">The id of the document (e.g. ContentId)</param>
+        /// <param name="id">The ID of the document (e.g. contentId)</param>
         /// <param name="version">The version</param>
-        /// <returns>DocumentHistory</returns>
+        /// <returns>Document history item</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -369,9 +370,9 @@ namespace Picturepark.SDK.V1.Contract
         System.Threading.Tasks.Task<DocumentHistory> GetVersionAsync(string id, string version, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Get latest difference</summary>
-        /// <param name="id">The id of the document (e.g. ContentId)</param>
+        /// <param name="id">The ID of the document (e.g. contentId)</param>
         /// <param name="oldVersion">The old version</param>
-        /// <returns>DocumentHistoryDifference</returns>
+        /// <returns>Document history difference</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -381,10 +382,10 @@ namespace Picturepark.SDK.V1.Contract
         System.Threading.Tasks.Task<DocumentHistoryDifference> GetDifferenceLatestAsync(string id, long oldVersion, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Get difference</summary>
-        /// <param name="id">The id of the document (e.g. ContentId)</param>
+        /// <param name="id">The ID of the document (e.g. contentId)</param>
         /// <param name="oldVersion">The old version</param>
         /// <param name="newVersion">The new version</param>
-        /// <returns>DocumentHistoryDifference</returns>
+        /// <returns>Document history difference</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -408,7 +409,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         System.Threading.Tasks.Task<CustomerInfo> GetInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
-        /// <summary>Get Version</summary>
+        /// <summary>Get version</summary>
         /// <returns>VersionInfo</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -572,17 +573,6 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "11.19.2.0 (NJsonSchema v9.10.73.0 (Newtonsoft.Json v9.0.0.0))")]
     public partial interface ILiveStreamClient
     {
-        /// <summary>Search LiveStream</summary>
-        /// <param name="liveStreamSearchRequest">The livestream search request</param>
-        /// <returns>ObjectSearchResult</returns>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">Internal server error</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
-        /// <exception cref="PictureparkConflictException">Version conflict</exception>
-        /// <exception cref="PictureparkValidationException">Validation exception</exception>
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<ObjectSearchResult> SearchAsync(LiveStreamSearchRequest liveStreamSearchRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-    
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "11.19.2.0 (NJsonSchema v9.10.73.0 (Newtonsoft.Json v9.0.0.0))")]
@@ -795,36 +785,13 @@ namespace Picturepark.SDK.V1.Contract
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "11.19.2.0 (NJsonSchema v9.10.73.0 (Newtonsoft.Json v9.0.0.0))")]
-    public partial interface IServiceProviderClient
-    {
-        /// <summary>Get configuration</summary>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">Internal server error</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
-        /// <exception cref="PictureparkConflictException">Version conflict</exception>
-        /// <exception cref="PictureparkValidationException">Validation exception</exception>
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<CustomerServiceProviderConfiguration> GetConfigurationAsync(string serviceProviderId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-    
-        /// <summary>Update configuration</summary>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">Internal server error</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
-        /// <exception cref="PictureparkConflictException">Version conflict</exception>
-        /// <exception cref="PictureparkValidationException">Validation exception</exception>
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<CustomerServiceProviderConfiguration> UpdateConfigurationAsync(string serviceProviderId, ServiceProviderConfigurationUpdateRequest configuration, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NSwag", "11.19.2.0 (NJsonSchema v9.10.73.0 (Newtonsoft.Json v9.0.0.0))")]
     public partial interface IShareClient
     {
-        /// <summary>Get - single</summary>
-        /// <param name="id">Share Id (not token, use PublicAccess to get share by token)</param>
-        /// <returns>Polymorph share</returns>
+        /// <summary>Get</summary>
+        /// <param name="id">Share Id (not token, use [GetShareJson](#operation/Share_GetShareJson) to get share by token)</param>
+        /// <returns>Share detail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ShareNotFoundException">Submited share could not be found</exception>
+        /// <exception cref="ShareNotFoundException">Share could not be found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
@@ -832,10 +799,10 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         System.Threading.Tasks.Task<ShareDetail> GetAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
-        /// <summary>Update - single</summary>
+        /// <summary>Update</summary>
         /// <param name="id">The share id.</param>
         /// <param name="updateRequest">The share update request.</param>
-        /// <returns>Share</returns>
+        /// <returns>Share detail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="BusinessProcessLifeCycleNotHitException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
@@ -858,7 +825,7 @@ namespace Picturepark.SDK.V1.Contract
     
         /// <summary>Aggregate</summary>
         /// <param name="request">Aggregation request</param>
-        /// <returns>AggregationResult</returns>
+        /// <returns>Share aggregation result</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -867,11 +834,11 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         System.Threading.Tasks.Task<ObjectAggregationResult> AggregateAsync(ShareAggregationRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
-        /// <summary>Create - single</summary>
-        /// <param name="request">Polymorph create contract. Use either ShareBasicCreateRequest or ShareEmbedCreateRequest</param>
+        /// <summary>Create</summary>
+        /// <param name="request">Polymorphic create contract. Use either ShareBasicCreateRequest or ShareEmbedCreateRequest</param>
         /// <returns>Create result</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="ContentNotFoundException">Submited content could not be found</exception>
+        /// <exception cref="ContentNotFoundException">Content could not be found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PermissionValidationException">No permission to share</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -880,7 +847,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         System.Threading.Tasks.Task<CreateShareResult> CreateAsync(ShareBaseCreateRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
-        /// <summary>Delete - many</summary>
+        /// <summary>Delete multiple shares</summary>
         /// <param name="deleteManyRequest">A delete many request containing the ids of the shares to delete.</param>
         /// <returns>BusinessProcess</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
@@ -891,7 +858,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         System.Threading.Tasks.Task<BulkResponse> DeleteManyAsync(ShareDeleteManyRequest deleteManyRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
-        /// <summary>Get Share json</summary>
+        /// <summary>Get share json</summary>
         /// <param name="token">The token</param>
         /// <returns>ShareDetail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
@@ -902,7 +869,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         System.Threading.Tasks.Task<object> GetShareJsonAsync(string token, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
-        /// <summary>Download Shared outputs</summary>
+        /// <summary>Download shared outputs</summary>
         /// <param name="token">The token</param>
         /// <param name="width">Optional width in pixels to resize image</param>
         /// <param name="height">Optional height in pixels to resize image</param>
@@ -916,7 +883,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         System.Threading.Tasks.Task<FileResponse> DownloadAsync(string token, int? width = null, int? height = null, string range = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
-        /// <summary>Download Shared outputs</summary>
+        /// <summary>Download shared outputs</summary>
         /// <param name="token">The token</param>
         /// <param name="contentId">The content id</param>
         /// <param name="width">Optional width in pixels to resize image</param>
@@ -931,7 +898,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         System.Threading.Tasks.Task<FileResponse> DownloadWithContentIdAsync(string token, string contentId, int? width = null, int? height = null, string range = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
-        /// <summary>Download Shared outputs</summary>
+        /// <summary>Download shared outputs</summary>
         /// <param name="token">The token</param>
         /// <param name="contentId">The content id</param>
         /// <param name="outputFormatId">The output format id+</param>
@@ -1350,11 +1317,8 @@ namespace Picturepark.SDK.V1.Contract
         [System.ComponentModel.DataAnnotations.Required]
         public System.Collections.Generic.ICollection<BusinessProcess> Results { get; set; } = new System.Collections.Generic.List<BusinessProcess>();
     
-        [Newtonsoft.Json.JsonProperty("pageToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string PageToken { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("queryDebugInformation", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public QueryDebugInformation QueryDebugInformation { get; set; }
+        [Newtonsoft.Json.JsonProperty("elapsedMilliseconds", Required = Newtonsoft.Json.Required.Always)]
+        public long ElapsedMilliseconds { get; set; }
     
         public string ToJson() 
         {
@@ -1377,6 +1341,9 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("isSearchStringRewritten", Required = Newtonsoft.Json.Required.Always)]
         public bool IsSearchStringRewritten { get; set; }
     
+        [Newtonsoft.Json.JsonProperty("queryDebugInformation", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public QueryDebugInformation QueryDebugInformation { get; set; }
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -1393,10 +1360,6 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class BusinessProcessSearchResult : SearchBehaviorBaseResultOfBusinessProcess
     {
-        /// <summary>Elapsed time in milliseconds for the search request.</summary>
-        [Newtonsoft.Json.JsonProperty("elapsedMilliseconds", Required = Newtonsoft.Json.Required.Always)]
-        public long ElapsedMilliseconds { get; set; }
-    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -1405,6 +1368,33 @@ namespace Picturepark.SDK.V1.Contract
         public static BusinessProcessSearchResult FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessProcessSearchResult>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class QueryDebugInformation 
+    {
+        [Newtonsoft.Json.JsonProperty("general", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string General { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("auditTrail", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string AuditTrail { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("request", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public object Request { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("response", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public object Response { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static QueryDebugInformation FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<QueryDebugInformation>(data);
         }
     
     }
@@ -1580,33 +1570,6 @@ namespace Picturepark.SDK.V1.Contract
         public static ErrorResponse FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<ErrorResponse>(data);
-        }
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class QueryDebugInformation 
-    {
-        [Newtonsoft.Json.JsonProperty("general", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string General { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("auditTrail", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string AuditTrail { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("request", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public object Request { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("response", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public object Response { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static QueryDebugInformation FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<QueryDebugInformation>(data);
         }
     
     }
@@ -6793,50 +6756,64 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class Channel 
     {
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        /// <summary>ID of channel.</summary>
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
         public string Id { get; set; }
     
+        /// <summary>Numeric sort order of the channel. Channels are returned ordered by this field.</summary>
         [Newtonsoft.Json.JsonProperty("sortOrder", Required = Newtonsoft.Json.Required.Always)]
         public int SortOrder { get; set; }
     
-        /// <summary>The search index id.</summary>
-        [Newtonsoft.Json.JsonProperty("searchIndexId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        /// <summary>The search index ID where the channel requests the content from. Only RootContentSearchIndex is supported.</summary>
+        [Newtonsoft.Json.JsonProperty("searchIndexId", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
         public string SearchIndexId { get; set; }
     
-        /// <summary>An id list of schemas with schema type content whose content documents should be found by the simple search.
+        /// <summary>An ID list of schemas with schema type content whose content documents should be found by the simple search.
         /// The search by filters and aggregations are unaffected.</summary>
-        [Newtonsoft.Json.JsonProperty("schemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> SchemaIds { get; set; }
+        [Newtonsoft.Json.JsonProperty("schemaIds", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.Collections.Generic.ICollection<string> SchemaIds { get; set; } = new System.Collections.Generic.List<string>();
     
         /// <summary>An optional search filter. Limits the content document result set on each search and aggregation request.</summary>
         [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public FilterBase Filter { get; set; }
     
         /// <summary>Language specific names.</summary>
-        [Newtonsoft.Json.JsonProperty("names", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public TranslatedStringDictionary Names { get; set; }
+        [Newtonsoft.Json.JsonProperty("names", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public TranslatedStringDictionary Names { get; set; } = new TranslatedStringDictionary();
     
-        [Newtonsoft.Json.JsonProperty("sort", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<SortInfo> Sort { get; set; }
+        /// <summary>Default sort order specified for the channel to sort the results of a content search.</summary>
+        [Newtonsoft.Json.JsonProperty("sort", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.Collections.Generic.ICollection<SortInfo> Sort { get; set; } = new System.Collections.Generic.List<SortInfo>();
     
         /// <summary>An optional list of aggregators. These aggregations are added by default on each aggregation requests.</summary>
-        [Newtonsoft.Json.JsonProperty("aggregations", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<AggregatorBase> Aggregations { get; set; }
+        [Newtonsoft.Json.JsonProperty("aggregations", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.Collections.Generic.ICollection<AggregatorBase> Aggregations { get; set; } = new System.Collections.Generic.List<AggregatorBase>();
     
         /// <summary>An Optional list of fields. These fields extend the list of simple search fields outside the bounds of any schema field configuration.</summary>
-        [Newtonsoft.Json.JsonProperty("extendedSimpleSearchFields", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> ExtendedSimpleSearchFields { get; set; }
+        [Newtonsoft.Json.JsonProperty("extendedSimpleSearchFields", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.Collections.Generic.ICollection<string> ExtendedSimpleSearchFields { get; set; } = new System.Collections.Generic.List<string>();
     
         /// <summary>User roles granted access to the channel.</summary>
-        [Newtonsoft.Json.JsonProperty("grantedUserRoleIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> GrantedUserRoleIds { get; set; }
+        [Newtonsoft.Json.JsonProperty("grantedUserRoleIds", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.Collections.Generic.ICollection<string> GrantedUserRoleIds { get; set; } = new System.Collections.Generic.List<string>();
     
         /// <summary>Display pattern to use for rendering details when 0 results are returned</summary>
-        [Newtonsoft.Json.JsonProperty("missingResultsDisplayPatterns", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public TranslatedStringDictionary MissingResultsDisplayPatterns { get; set; }
+        [Newtonsoft.Json.JsonProperty("missingResultsDisplayPatterns", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public TranslatedStringDictionary MissingResultsDisplayPatterns { get; set; } = new TranslatedStringDictionary();
     
-        [Newtonsoft.Json.JsonProperty("audit", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public UserAudit Audit { get; set; }
+        /// <summary>Audit information.</summary>
+        [Newtonsoft.Json.JsonProperty("audit", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public UserAudit Audit { get; set; } = new UserAudit();
     
         public string ToJson() 
         {
@@ -7258,7 +7235,8 @@ namespace Picturepark.SDK.V1.Contract
         public UserAudit Audit { get; set; }
     
         /// <summary>The content data</summary>
-        [Newtonsoft.Json.JsonProperty("content", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("content", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
         public object Content { get; set; }
     
         /// <summary>An optional id list of content permission sets. Controls content accessibility outside of content ownership.</summary>
@@ -7266,12 +7244,13 @@ namespace Picturepark.SDK.V1.Contract
         public System.Collections.Generic.ICollection<string> ContentPermissionSetIds { get; set; }
     
         /// <summary>The id of the content schema</summary>
-        [Newtonsoft.Json.JsonProperty("contentSchemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("contentSchemaId", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
         public string ContentSchemaId { get; set; }
     
         /// <summary>The type of content</summary>
         [Newtonsoft.Json.JsonProperty("contentType", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [System.ComponentModel.DataAnnotations.Required]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public ContentType ContentType { get; set; }
     
@@ -7281,12 +7260,14 @@ namespace Picturepark.SDK.V1.Contract
         public DisplayValueDictionary DisplayValues { get; set; }
     
         /// <summary>The content id.</summary>
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
         public string Id { get; set; }
     
         /// <summary>An optional list of layer schemas ids</summary>
-        [Newtonsoft.Json.JsonProperty("layerSchemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> LayerSchemaIds { get; set; }
+        [Newtonsoft.Json.JsonProperty("layerSchemaIds", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.Collections.Generic.ICollection<string> LayerSchemaIds { get; set; } = new System.Collections.Generic.List<string>();
     
         /// <summary>The metadata dictionary</summary>
         [Newtonsoft.Json.JsonProperty("metadata", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -7297,12 +7278,13 @@ namespace Picturepark.SDK.V1.Contract
         public System.Collections.Generic.ICollection<Output> Outputs { get; set; }
     
         /// <summary>The id of a owner token. Defines the content owner.</summary>
-        [Newtonsoft.Json.JsonProperty("ownerTokenId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("ownerTokenId", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
         public string OwnerTokenId { get; set; }
     
         /// <summary>The lifecycle of the content.</summary>
         [Newtonsoft.Json.JsonProperty("lifeCycle", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [System.ComponentModel.DataAnnotations.Required]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public LifeCycle LifeCycle { get; set; }
     
@@ -7355,20 +7337,23 @@ namespace Picturepark.SDK.V1.Contract
     public partial class Output 
     {
         /// <summary>The ID of the output.</summary>
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
         public string Id { get; set; }
     
         /// <summary>The ID of the output format this output represents.</summary>
-        [Newtonsoft.Json.JsonProperty("outputFormatId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("outputFormatId", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
         public string OutputFormatId { get; set; }
     
         /// <summary>The ID of the content for which this output has been created.</summary>
-        [Newtonsoft.Json.JsonProperty("contentId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("contentId", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
         public string ContentId { get; set; }
     
         /// <summary>The rendering state of the output file.</summary>
         [Newtonsoft.Json.JsonProperty("renderingState", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [System.ComponentModel.DataAnnotations.Required]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public OutputRenderingState RenderingState { get; set; }
     
@@ -7678,11 +7663,8 @@ namespace Picturepark.SDK.V1.Contract
         [System.ComponentModel.DataAnnotations.Required]
         public System.Collections.Generic.ICollection<Content> Results { get; set; } = new System.Collections.Generic.List<Content>();
     
-        [Newtonsoft.Json.JsonProperty("pageToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string PageToken { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("queryDebugInformation", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public QueryDebugInformation QueryDebugInformation { get; set; }
+        [Newtonsoft.Json.JsonProperty("elapsedMilliseconds", Required = Newtonsoft.Json.Required.Always)]
+        public long ElapsedMilliseconds { get; set; }
     
         public string ToJson() 
         {
@@ -7705,6 +7687,9 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("isSearchStringRewritten", Required = Newtonsoft.Json.Required.Always)]
         public bool IsSearchStringRewritten { get; set; }
     
+        [Newtonsoft.Json.JsonProperty("queryDebugInformation", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public QueryDebugInformation QueryDebugInformation { get; set; }
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -7721,10 +7706,6 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class ContentSearchResult : SearchBehaviorBaseResultOfContent
     {
-        /// <summary>Milliseconds elapsed to perform the query.</summary>
-        [Newtonsoft.Json.JsonProperty("elapsedMilliseconds", Required = Newtonsoft.Json.Required.Always)]
-        public long ElapsedMilliseconds { get; set; }
-    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -7744,12 +7725,13 @@ namespace Picturepark.SDK.V1.Contract
         public UserAudit Audit { get; set; }
     
         /// <summary>The id of the schema with schema type content.</summary>
-        [Newtonsoft.Json.JsonProperty("contentSchemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("contentSchemaId", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
         public string ContentSchemaId { get; set; }
     
         /// <summary>The content type of this content. All except ContentItem are binary files.</summary>
         [Newtonsoft.Json.JsonProperty("contentType", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [System.ComponentModel.DataAnnotations.Required]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public ContentType ContentType { get; set; }
     
@@ -7758,10 +7740,12 @@ namespace Picturepark.SDK.V1.Contract
         public System.Collections.Generic.ICollection<string> LayerSchemaIds { get; set; }
     
         /// <summary>Contains display values of the specified language, rendered according to the content schema's display pattern configuration.</summary>
-        [Newtonsoft.Json.JsonProperty("displayValues", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.IDictionary<string, string> DisplayValues { get; set; }
+        [Newtonsoft.Json.JsonProperty("displayValues", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.Collections.Generic.IDictionary<string, string> DisplayValues { get; set; } = new System.Collections.Generic.Dictionary<string, string>();
     
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
         public string Id { get; set; }
     
         /// <summary>All the ids of the broken references (tagboxes)</summary>
@@ -7962,6 +7946,10 @@ namespace Picturepark.SDK.V1.Contract
         /// <summary>Flag to notify if the SearchString was modified compared to the original requested one.</summary>
         [Newtonsoft.Json.JsonProperty("isSearchStringRewritten", Required = Newtonsoft.Json.Required.Always)]
         public bool IsSearchStringRewritten { get; set; }
+    
+        /// <summary>Additional information regarding the query execution and reason of the matched documents.</summary>
+        [Newtonsoft.Json.JsonProperty("queryDebugInformation", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public QueryDebugInformation QueryDebugInformation { get; set; }
     
         public string ToJson() 
         {
@@ -8164,11 +8152,8 @@ namespace Picturepark.SDK.V1.Contract
         [System.ComponentModel.DataAnnotations.Required]
         public System.Collections.Generic.ICollection<MetadataReference> Results { get; set; } = new System.Collections.Generic.List<MetadataReference>();
     
-        [Newtonsoft.Json.JsonProperty("pageToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string PageToken { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("queryDebugInformation", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public QueryDebugInformation QueryDebugInformation { get; set; }
+        [Newtonsoft.Json.JsonProperty("elapsedMilliseconds", Required = Newtonsoft.Json.Required.Always)]
+        public long ElapsedMilliseconds { get; set; }
     
         public string ToJson() 
         {
@@ -8248,11 +8233,8 @@ namespace Picturepark.SDK.V1.Contract
         [System.ComponentModel.DataAnnotations.Required]
         public System.Collections.Generic.ICollection<ContentShareReference> Results { get; set; } = new System.Collections.Generic.List<ContentShareReference>();
     
-        [Newtonsoft.Json.JsonProperty("pageToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string PageToken { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("queryDebugInformation", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public QueryDebugInformation QueryDebugInformation { get; set; }
+        [Newtonsoft.Json.JsonProperty("elapsedMilliseconds", Required = Newtonsoft.Json.Required.Always)]
+        public long ElapsedMilliseconds { get; set; }
     
         public string ToJson() 
         {
@@ -9222,11 +9204,8 @@ namespace Picturepark.SDK.V1.Contract
         [System.ComponentModel.DataAnnotations.Required]
         public System.Collections.Generic.ICollection<PermissionSet> Results { get; set; } = new System.Collections.Generic.List<PermissionSet>();
     
-        [Newtonsoft.Json.JsonProperty("pageToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string PageToken { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("queryDebugInformation", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public QueryDebugInformation QueryDebugInformation { get; set; }
+        [Newtonsoft.Json.JsonProperty("elapsedMilliseconds", Required = Newtonsoft.Json.Required.Always)]
+        public long ElapsedMilliseconds { get; set; }
     
         public string ToJson() 
         {
@@ -9249,6 +9228,9 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("isSearchStringRewritten", Required = Newtonsoft.Json.Required.Always)]
         public bool IsSearchStringRewritten { get; set; }
     
+        [Newtonsoft.Json.JsonProperty("queryDebugInformation", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public QueryDebugInformation QueryDebugInformation { get; set; }
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -9265,10 +9247,6 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class PermissionSetSearchResult : SearchBehaviorBaseResultOfPermissionSet
     {
-        /// <summary>Elapsed time in milliseconds to perform the query.</summary>
-        [Newtonsoft.Json.JsonProperty("elapsedMilliseconds", Required = Newtonsoft.Json.Required.Always)]
-        public long ElapsedMilliseconds { get; set; }
-    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -9475,19 +9453,35 @@ namespace Picturepark.SDK.V1.Contract
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class DocumentHistorySearchResult 
+    public partial class BaseResultOfDocumentHistory 
     {
         [Newtonsoft.Json.JsonProperty("totalResults", Required = Newtonsoft.Json.Required.Always)]
         public long TotalResults { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("results", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<DocumentHistory> Results { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("pageToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string PageToken { get; set; }
+        [Newtonsoft.Json.JsonProperty("results", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.Collections.Generic.ICollection<DocumentHistory> Results { get; set; } = new System.Collections.Generic.List<DocumentHistory>();
     
         [Newtonsoft.Json.JsonProperty("elapsedMilliseconds", Required = Newtonsoft.Json.Required.Always)]
         public long ElapsedMilliseconds { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static BaseResultOfDocumentHistory FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BaseResultOfDocumentHistory>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class DocumentHistorySearchResult : BaseResultOfDocumentHistory
+    {
+        [Newtonsoft.Json.JsonProperty("pageToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string PageToken { get; set; }
     
         public string ToJson() 
         {
@@ -9616,7 +9610,7 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("pageToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string PageToken { get; set; }
     
-        /// <summary>Limits the search to a specific document id. E.g. ContentId</summary>
+        /// <summary>Limits the search to a specific document ID. E.g. contentId</summary>
         [Newtonsoft.Json.JsonProperty("documentId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string DocumentId { get; set; }
     
@@ -9624,7 +9618,7 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("documentVersion", Required = Newtonsoft.Json.Required.Always)]
         public long DocumentVersion { get; set; } = -1L;
     
-        /// <summary>Limits the search to a specifc document type.</summary>
+        /// <summary>Limits the search to a specific document type.</summary>
         [Newtonsoft.Json.JsonProperty("documentType", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string DocumentType { get; set; }
     
@@ -9677,29 +9671,44 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class CustomerInfo 
     {
-        [Newtonsoft.Json.JsonProperty("customerId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        /// <summary>The customer ID.</summary>
+        [Newtonsoft.Json.JsonProperty("customerId", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
         public string CustomerId { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        /// <summary>The name of the customer instance.</summary>
+        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
         public string Name { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("customerAlias", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        /// <summary>Alias of the customer instance.</summary>
+        [Newtonsoft.Json.JsonProperty("customerAlias", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
         public string CustomerAlias { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("identityServerUrl", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        /// <summary>The base url of identity server to authenticate the user using OpenID Connect.</summary>
+        [Newtonsoft.Json.JsonProperty("identityServerUrl", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
         public string IdentityServerUrl { get; set; }
     
+        /// <summary>Information if the query details can be enabled when searching. For debug purposes only.</summary>
         [Newtonsoft.Json.JsonProperty("enableQueryDetails", Required = Newtonsoft.Json.Required.Always)]
         public bool EnableQueryDetails { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("languageConfiguration", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public LanguageConfiguration LanguageConfiguration { get; set; }
+        /// <summary>Configured languages of customer instance (system, metadata, default).</summary>
+        [Newtonsoft.Json.JsonProperty("languageConfiguration", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public LanguageConfiguration LanguageConfiguration { get; set; } = new LanguageConfiguration();
     
-        [Newtonsoft.Json.JsonProperty("languages", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<Language> Languages { get; set; }
+        /// <summary>Languages including translations for the configured system and metadata languages.</summary>
+        [Newtonsoft.Json.JsonProperty("languages", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.Collections.Generic.ICollection<Language> Languages { get; set; } = new System.Collections.Generic.List<Language>();
     
-        [Newtonsoft.Json.JsonProperty("outputFormats", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<OutputFormatInfo> OutputFormats { get; set; }
+        /// <summary>Configured rendering outputs including translations for the customer instance.</summary>
+        [Newtonsoft.Json.JsonProperty("outputFormats", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.Collections.Generic.ICollection<OutputFormatInfo> OutputFormats { get; set; } = new System.Collections.Generic.List<OutputFormatInfo>();
     
         public string ToJson() 
         {
@@ -9743,18 +9752,25 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class Language 
     {
-        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public TranslatedStringDictionary Name { get; set; }
+        /// <summary>Language translations.</summary>
+        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public TranslatedStringDictionary Name { get; set; } = new TranslatedStringDictionary();
     
-        [Newtonsoft.Json.JsonProperty("ietf", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        /// <summary>IETF language tag. E.g en, en-US, de.</summary>
+        [Newtonsoft.Json.JsonProperty("ietf", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
         public string Ietf { get; set; }
     
+        /// <summary>Two letter ISO language code. E.g. en, de.</summary>
         [Newtonsoft.Json.JsonProperty("twoLetterISOLanguageName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string TwoLetterISOLanguageName { get; set; }
     
+        /// <summary>Three letter ISO language code. E.g. eng, deu.</summary>
         [Newtonsoft.Json.JsonProperty("threeLetterISOLanguageName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ThreeLetterISOLanguageName { get; set; }
     
+        /// <summary>Region code of the language. E.g. US, DE, CH.</summary>
         [Newtonsoft.Json.JsonProperty("regionCode", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string RegionCode { get; set; }
     
@@ -9773,11 +9789,15 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class OutputFormatInfo 
     {
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        /// <summary>Output ID.</summary>
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
         public string Id { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("names", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public TranslatedStringDictionary Names { get; set; }
+        /// <summary>Output translations.</summary>
+        [Newtonsoft.Json.JsonProperty("names", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public TranslatedStringDictionary Names { get; set; } = new TranslatedStringDictionary();
     
         public string ToJson() 
         {
@@ -9888,11 +9908,8 @@ namespace Picturepark.SDK.V1.Contract
         [System.ComponentModel.DataAnnotations.Required]
         public System.Collections.Generic.ICollection<ListItem> Results { get; set; } = new System.Collections.Generic.List<ListItem>();
     
-        [Newtonsoft.Json.JsonProperty("pageToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string PageToken { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("queryDebugInformation", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public QueryDebugInformation QueryDebugInformation { get; set; }
+        [Newtonsoft.Json.JsonProperty("elapsedMilliseconds", Required = Newtonsoft.Json.Required.Always)]
+        public long ElapsedMilliseconds { get; set; }
     
         public string ToJson() 
         {
@@ -10437,106 +10454,6 @@ namespace Picturepark.SDK.V1.Contract
         public static ListItemManyReferencesRequest FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<ListItemManyReferencesRequest>(data);
-        }
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class BaseResultOfObject 
-    {
-        [Newtonsoft.Json.JsonProperty("totalResults", Required = Newtonsoft.Json.Required.Always)]
-        public long TotalResults { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("results", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.Collections.Generic.ICollection<object> Results { get; set; } = new System.Collections.Generic.List<object>();
-    
-        [Newtonsoft.Json.JsonProperty("pageToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string PageToken { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("queryDebugInformation", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public QueryDebugInformation QueryDebugInformation { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static BaseResultOfObject FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<BaseResultOfObject>(data);
-        }
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class SearchBehaviorBaseResultOfObject : BaseResultOfObject
-    {
-        [Newtonsoft.Json.JsonProperty("searchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string SearchString { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("isSearchStringRewritten", Required = Newtonsoft.Json.Required.Always)]
-        public bool IsSearchStringRewritten { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static SearchBehaviorBaseResultOfObject FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<SearchBehaviorBaseResultOfObject>(data);
-        }
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class ObjectSearchResult : SearchBehaviorBaseResultOfObject
-    {
-        [Newtonsoft.Json.JsonProperty("elapsedMilliseconds", Required = Newtonsoft.Json.Required.Always)]
-        public long ElapsedMilliseconds { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static ObjectSearchResult FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<ObjectSearchResult>(data);
-        }
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class LiveStreamSearchRequest 
-    {
-        /// <summary>Limits the start date of the search request.</summary>
-        [Newtonsoft.Json.JsonProperty("from", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public System.DateTime From { get; set; }
-    
-        /// <summary>Limits the end date of the search request.</summary>
-        [Newtonsoft.Json.JsonProperty("to", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public System.DateTime To { get; set; }
-    
-        /// <summary>Limits the document count of the result set. Defaults to 30.</summary>
-        [Newtonsoft.Json.JsonProperty("limit", Required = Newtonsoft.Json.Required.Always)]
-        public int Limit { get; set; } = 30;
-    
-        /// <summary>To get a large amount of data, page token returned from the response can be used to get all data.</summary>
-        [Newtonsoft.Json.JsonProperty("pageToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string PageToken { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static LiveStreamSearchRequest FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<LiveStreamSearchRequest>(data);
         }
     
     }
@@ -11189,11 +11106,8 @@ namespace Picturepark.SDK.V1.Contract
         [System.ComponentModel.DataAnnotations.Required]
         public System.Collections.Generic.ICollection<Output> Results { get; set; } = new System.Collections.Generic.List<Output>();
     
-        [Newtonsoft.Json.JsonProperty("pageToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string PageToken { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("queryDebugInformation", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public QueryDebugInformation QueryDebugInformation { get; set; }
+        [Newtonsoft.Json.JsonProperty("elapsedMilliseconds", Required = Newtonsoft.Json.Required.Always)]
+        public long ElapsedMilliseconds { get; set; }
     
         public string ToJson() 
         {
@@ -12657,11 +12571,8 @@ namespace Picturepark.SDK.V1.Contract
         [System.ComponentModel.DataAnnotations.Required]
         public System.Collections.Generic.ICollection<Schema> Results { get; set; } = new System.Collections.Generic.List<Schema>();
     
-        [Newtonsoft.Json.JsonProperty("pageToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string PageToken { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("queryDebugInformation", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public QueryDebugInformation QueryDebugInformation { get; set; }
+        [Newtonsoft.Json.JsonProperty("elapsedMilliseconds", Required = Newtonsoft.Json.Required.Always)]
+        public long ElapsedMilliseconds { get; set; }
     
         public string ToJson() 
         {
@@ -12683,6 +12594,9 @@ namespace Picturepark.SDK.V1.Contract
     
         [Newtonsoft.Json.JsonProperty("isSearchStringRewritten", Required = Newtonsoft.Json.Required.Always)]
         public bool IsSearchStringRewritten { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("queryDebugInformation", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public QueryDebugInformation QueryDebugInformation { get; set; }
     
         public string ToJson() 
         {
@@ -13300,102 +13214,66 @@ namespace Picturepark.SDK.V1.Contract
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class CustomerServiceProviderConfiguration 
-    {
-        [Newtonsoft.Json.JsonProperty("serviceProviderId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string ServiceProviderId { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("customerId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string CustomerId { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("userRoleIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> UserRoleIds { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("settings", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Settings { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static CustomerServiceProviderConfiguration FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<CustomerServiceProviderConfiguration>(data);
-        }
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class ServiceProviderConfigurationUpdateRequest 
-    {
-        [Newtonsoft.Json.JsonProperty("customerId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string CustomerId { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("settings", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Settings { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("userRoleIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> UserRoleIds { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static ServiceProviderConfigurationUpdateRequest FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<ServiceProviderConfigurationUpdateRequest>(data);
-        }
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class ShareDetail 
     {
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        /// <summary>Share ID.</summary>
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
         public string Id { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        /// <summary>Name of share.</summary>
+        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
         public string Name { get; set; }
     
+        /// <summary>Description of share entered by user.</summary>
         [Newtonsoft.Json.JsonProperty("description", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Description { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("creator", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public ShareUser Creator { get; set; }
+        /// <summary>Creator of share.</summary>
+        [Newtonsoft.Json.JsonProperty("creator", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public ShareUser Creator { get; set; } = new ShareUser();
     
-        [Newtonsoft.Json.JsonProperty("audit", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public UserAudit Audit { get; set; }
+        /// <summary>Audit information.</summary>
+        [Newtonsoft.Json.JsonProperty("audit", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public UserAudit Audit { get; set; } = new UserAudit();
     
-        [Newtonsoft.Json.JsonProperty("contentSelections", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<ShareContentDetail> ContentSelections { get; set; }
+        /// <summary>Detailed information about contents in the share.</summary>
+        [Newtonsoft.Json.JsonProperty("contentSelections", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.Collections.Generic.ICollection<ShareContentDetail> ContentSelections { get; set; } = new System.Collections.Generic.List<ShareContentDetail>();
     
+        /// <summary>List of shared layers.</summary>
         [Newtonsoft.Json.JsonProperty("layerSchemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> LayerSchemaIds { get; set; }
     
+        /// <summary>Detail of share.</summary>
         [Newtonsoft.Json.JsonProperty("data", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public ShareDataBase Data { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("mailTemplateId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string MailTemplateId { get; set; }
-    
+        /// <summary>Date when share expires and cannot be accessed anymore.</summary>
         [Newtonsoft.Json.JsonProperty("expirationDate", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.DateTime? ExpirationDate { get; set; }
     
+        /// <summary>Info if share is already expired.</summary>
         [Newtonsoft.Json.JsonProperty("expired", Required = Newtonsoft.Json.Required.Always)]
         public bool Expired { get; set; }
     
+        /// <summary>Configuration for template to use on the share detail page.</summary>
         [Newtonsoft.Json.JsonProperty("template", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public TemplateBase Template { get; set; }
     
+        /// <summary>Defined access for contents in share.</summary>
         [Newtonsoft.Json.JsonProperty("outputAccess", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [System.ComponentModel.DataAnnotations.Required]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public OutputAccess OutputAccess { get; set; }
     
+        /// <summary>Type of share.</summary>
         [Newtonsoft.Json.JsonProperty("shareType", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [System.ComponentModel.DataAnnotations.Required]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public ShareType ShareType { get; set; }
     
@@ -13416,11 +13294,13 @@ namespace Picturepark.SDK.V1.Contract
     public partial class ShareUser 
     {
         /// <summary>Name of user</summary>
-        [Newtonsoft.Json.JsonProperty("displayName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("displayName", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
         public string DisplayName { get; set; }
     
         /// <summary>MD5 hash of email address. Can be used to display gravatar image</summary>
-        [Newtonsoft.Json.JsonProperty("emailHash", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("emailHash", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
         public string EmailHash { get; set; }
     
         public string ToJson() 
@@ -13439,33 +13319,43 @@ namespace Picturepark.SDK.V1.Contract
     public partial class ShareContentDetail 
     {
         /// <summary>The id of the schema with schema type content.</summary>
-        [Newtonsoft.Json.JsonProperty("contentSchemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("contentSchemaId", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
         public string ContentSchemaId { get; set; }
     
         /// <summary>An optional id list of schemas with type layer.</summary>
         [Newtonsoft.Json.JsonProperty("layerSchemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> LayerSchemaIds { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("content", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public DataDictionary Content { get; set; }
+        /// <summary>The content data.</summary>
+        [Newtonsoft.Json.JsonProperty("content", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public DataDictionary Content { get; set; } = new DataDictionary();
     
+        /// <summary>The metadata dictionary.</summary>
         [Newtonsoft.Json.JsonProperty("metadata", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public DataDictionary Metadata { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        /// <summary>Content ID.</summary>
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
         public string Id { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("outputs", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<ShareOutputBase> Outputs { get; set; }
+        /// <summary>List of shared outputs for this content.</summary>
+        [Newtonsoft.Json.JsonProperty("outputs", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.Collections.Generic.ICollection<ShareOutputBase> Outputs { get; set; } = new System.Collections.Generic.List<ShareOutputBase>();
     
+        /// <summary>The type of content</summary>
         [Newtonsoft.Json.JsonProperty("contentType", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [System.ComponentModel.DataAnnotations.Required]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public ContentType ContentType { get; set; }
     
         /// <summary>Contains language specific display values, rendered according to the content schema's display pattern configuration.</summary>
-        [Newtonsoft.Json.JsonProperty("displayValues", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public DisplayValueDictionary DisplayValues { get; set; }
+        [Newtonsoft.Json.JsonProperty("displayValues", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public DisplayValueDictionary DisplayValues { get; set; } = new DisplayValueDictionary();
     
         public string ToJson() 
         {
@@ -13485,16 +13375,21 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
     public abstract partial class ShareOutputBase 
     {
-        [Newtonsoft.Json.JsonProperty("contentId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        /// <summary>Content ID.</summary>
+        [Newtonsoft.Json.JsonProperty("contentId", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
         public string ContentId { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("outputFormatId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        /// <summary>Output format ID.</summary>
+        [Newtonsoft.Json.JsonProperty("outputFormatId", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
         public string OutputFormatId { get; set; }
     
         /// <summary>Url to directly download output. In case of BasicShare if not fetched using a token, a placeholder {token} is included which needs to be replaced with the recipient's token</summary>
         [Newtonsoft.Json.JsonProperty("url", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Url { get; set; }
     
+        /// <summary>Output details.</summary>
         [Newtonsoft.Json.JsonProperty("detail", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public OutputDataBase Detail { get; set; }
     
@@ -13549,7 +13444,9 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
     public abstract partial class ShareDataBase 
     {
-        [Newtonsoft.Json.JsonProperty("url", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        /// <summary>The URL to access the share.</summary>
+        [Newtonsoft.Json.JsonProperty("url", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
         public string Url { get; set; }
     
         public string ToJson() 
@@ -13567,7 +13464,9 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class ShareDataEmbed : ShareDataBase
     {
-        [Newtonsoft.Json.JsonProperty("token", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        /// <summary>Token for the embed share.</summary>
+        [Newtonsoft.Json.JsonProperty("token", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
         public string Token { get; set; }
     
         public string ToJson() 
@@ -13585,12 +13484,17 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class ShareDataBasic : ShareDataBase
     {
-        [Newtonsoft.Json.JsonProperty("mailRecipients", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<MailRecipient> MailRecipients { get; set; }
+        /// <summary>List of recipients added using email address</summary>
+        [Newtonsoft.Json.JsonProperty("mailRecipients", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.Collections.Generic.ICollection<MailRecipient> MailRecipients { get; set; } = new System.Collections.Generic.List<MailRecipient>();
     
-        [Newtonsoft.Json.JsonProperty("internalRecipients", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<InternalRecipient> InternalRecipients { get; set; }
+        /// <summary>List of recipients that exist in Picturepark.</summary>
+        [Newtonsoft.Json.JsonProperty("internalRecipients", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.Collections.Generic.ICollection<InternalRecipient> InternalRecipients { get; set; } = new System.Collections.Generic.List<InternalRecipient>();
     
+        /// <summary>Language of share.</summary>
         [Newtonsoft.Json.JsonProperty("languageCode", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string LanguageCode { get; set; }
     
@@ -13609,12 +13513,16 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class MailRecipient 
     {
-        [Newtonsoft.Json.JsonProperty("userEmail", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public UserEmail UserEmail { get; set; }
+        /// <summary>User information including email.</summary>
+        [Newtonsoft.Json.JsonProperty("userEmail", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public UserEmail UserEmail { get; set; } = new UserEmail();
     
+        /// <summary>Recipient specific token.</summary>
         [Newtonsoft.Json.JsonProperty("token", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Token { get; set; }
     
+        /// <summary>URL to access the share for this recipient.</summary>
         [Newtonsoft.Json.JsonProperty("url", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Url { get; set; }
     
@@ -13633,13 +13541,17 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class UserEmail 
     {
+        /// <summary>First name.</summary>
         [Newtonsoft.Json.JsonProperty("firstName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string FirstName { get; set; }
     
+        /// <summary>Last name.</summary>
         [Newtonsoft.Json.JsonProperty("lastName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string LastName { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("emailAddress", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        /// <summary>Email address</summary>
+        [Newtonsoft.Json.JsonProperty("emailAddress", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
         public string EmailAddress { get; set; }
     
         public string ToJson() 
@@ -13657,12 +13569,16 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class InternalRecipient 
     {
-        [Newtonsoft.Json.JsonProperty("recipient", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public User Recipient { get; set; }
+        /// <summary>User information of recipient.</summary>
+        [Newtonsoft.Json.JsonProperty("recipient", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public User Recipient { get; set; } = new User();
     
+        /// <summary>Recipient specific token.</summary>
         [Newtonsoft.Json.JsonProperty("token", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Token { get; set; }
     
+        /// <summary>URL to access the share for this recipient.</summary>
         [Newtonsoft.Json.JsonProperty("url", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Url { get; set; }
     
@@ -13816,11 +13732,8 @@ namespace Picturepark.SDK.V1.Contract
         [System.ComponentModel.DataAnnotations.Required]
         public System.Collections.Generic.ICollection<Share> Results { get; set; } = new System.Collections.Generic.List<Share>();
     
-        [Newtonsoft.Json.JsonProperty("pageToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string PageToken { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("queryDebugInformation", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public QueryDebugInformation QueryDebugInformation { get; set; }
+        [Newtonsoft.Json.JsonProperty("elapsedMilliseconds", Required = Newtonsoft.Json.Required.Always)]
+        public long ElapsedMilliseconds { get; set; }
     
         public string ToJson() 
         {
@@ -13843,6 +13756,9 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("isSearchStringRewritten", Required = Newtonsoft.Json.Required.Always)]
         public bool IsSearchStringRewritten { get; set; }
     
+        [Newtonsoft.Json.JsonProperty("queryDebugInformation", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public QueryDebugInformation QueryDebugInformation { get; set; }
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -13858,9 +13774,6 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class ShareSearchResult : SearchBehaviorBaseResultOfShare
     {
-        [Newtonsoft.Json.JsonProperty("elapsedMilliseconds", Required = Newtonsoft.Json.Required.Always)]
-        public long ElapsedMilliseconds { get; set; }
-    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -13876,26 +13789,36 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class Share 
     {
+        /// <summary>Name of share.</summary>
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Name { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("contentIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> ContentIds { get; set; }
+        /// <summary>List of shared content IDs.</summary>
+        [Newtonsoft.Json.JsonProperty("contentIds", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.Collections.Generic.ICollection<string> ContentIds { get; set; } = new System.Collections.Generic.List<string>();
     
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        /// <summary>Share ID.</summary>
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
         public string Id { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("audit", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public UserAudit Audit { get; set; }
+        /// <summary>Audit information.</summary>
+        [Newtonsoft.Json.JsonProperty("audit", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public UserAudit Audit { get; set; } = new UserAudit();
     
+        /// <summary>Date when share expires and cannot be accessed anymore.</summary>
         [Newtonsoft.Json.JsonProperty("expirationDate", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.DateTime? ExpirationDate { get; set; }
     
+        /// <summary>Type of share.</summary>
         [Newtonsoft.Json.JsonProperty("shareType", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [System.ComponentModel.DataAnnotations.Required]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public ShareType ShareType { get; set; }
     
+        /// <summary>Share is readonly if the current user is not the creator but only the recipient.</summary>
         [Newtonsoft.Json.JsonProperty("isReadOnly", Required = Newtonsoft.Json.Required.Always)]
         public bool IsReadOnly { get; set; }
     
@@ -13960,7 +13883,7 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("searchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string SearchString { get; set; }
     
-        /// <summary>An optional list of search behaviours. All the passed behaviours will be applied</summary>
+        /// <summary>An optional list of search behaviors. All the passed behaviors will be applied.</summary>
         [Newtonsoft.Json.JsonProperty("searchBehaviors", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public System.Collections.Generic.ICollection<SearchBehavior> SearchBehaviors { get; set; }
     
@@ -14013,26 +13936,35 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
     public abstract partial class ShareBaseCreateRequest 
     {
-        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        /// <summary>Name of share.</summary>
+        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
         public string Name { get; set; }
     
+        /// <summary>Optional description of share.</summary>
         [Newtonsoft.Json.JsonProperty("description", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Description { get; set; }
     
+        /// <summary>Optional date when share expires and cannot be accessed anymore.</summary>
         [Newtonsoft.Json.JsonProperty("expirationDate", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.DateTime? ExpirationDate { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("contents", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<ShareContent> Contents { get; set; }
+        /// <summary>List of contents including outputs to share.</summary>
+        [Newtonsoft.Json.JsonProperty("contents", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.Collections.Generic.ICollection<ShareContent> Contents { get; set; } = new System.Collections.Generic.List<ShareContent>();
     
+        /// <summary>List of content layers to share.</summary>
         [Newtonsoft.Json.JsonProperty("layerSchemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> LayerSchemaIds { get; set; }
     
+        /// <summary>Configuration for template to use on the share detail page.</summary>
         [Newtonsoft.Json.JsonProperty("template", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public TemplateBase Template { get; set; }
     
+        /// <summary>Access for content outputs in share.</summary>
         [Newtonsoft.Json.JsonProperty("outputAccess", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [System.ComponentModel.DataAnnotations.Required]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public OutputAccess OutputAccess { get; set; }
     
@@ -14051,9 +13983,12 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class ShareContent 
     {
-        [Newtonsoft.Json.JsonProperty("contentId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        /// <summary>Content ID to share.</summary>
+        [Newtonsoft.Json.JsonProperty("contentId", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
         public string ContentId { get; set; }
     
+        /// <summary>List of output formats for this content to share. If not specified outer OutputAccess is used.</summary>
         [Newtonsoft.Json.JsonProperty("outputFormatIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> OutputFormatIds { get; set; }
     
@@ -14072,20 +14007,22 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class ShareBasicCreateRequest : ShareBaseCreateRequest
     {
+        /// <summary>List of external mail recipients which are no Picturepark users.</summary>
         [Newtonsoft.Json.JsonProperty("recipientsEmail", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<UserEmail> RecipientsEmail { get; set; }
     
+        /// <summary>List of internal recipients which are Picturepark users.</summary>
         [Newtonsoft.Json.JsonProperty("recipientsUser", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<User> RecipientsUser { get; set; }
     
+        /// <summary>List of user roles. All assignees of these roles receive the share.</summary>
         [Newtonsoft.Json.JsonProperty("recipientsGroup", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<UserRole> RecipientsGroup { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("languageCode", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        /// <summary>System language used for share (mail and detail page). en or de.</summary>
+        [Newtonsoft.Json.JsonProperty("languageCode", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
         public string LanguageCode { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("mailTemplateId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string MailTemplateId { get; set; }
     
         public string ToJson() 
         {
@@ -14148,26 +14085,35 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
     public abstract partial class ShareBaseUpdateRequest 
     {
-        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        /// <summary>Name of share.</summary>
+        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
         public string Name { get; set; }
     
+        /// <summary>Optional date when share expires and cannot be accessed anymore.</summary>
         [Newtonsoft.Json.JsonProperty("expirationDate", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.DateTime? ExpirationDate { get; set; }
     
+        /// <summary>Optional description of share.</summary>
         [Newtonsoft.Json.JsonProperty("description", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Description { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("shareContentItems", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<ShareContent> ShareContentItems { get; set; }
+        /// <summary>List of contents including outputs. Existing items needs to be sent again, otherwise they will be removed.</summary>
+        [Newtonsoft.Json.JsonProperty("contents", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.Collections.Generic.ICollection<ShareContent> Contents { get; set; } = new System.Collections.Generic.List<ShareContent>();
     
+        /// <summary>List of content layers to share.</summary>
         [Newtonsoft.Json.JsonProperty("layerSchemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> LayerSchemaIds { get; set; }
     
+        /// <summary>Configuration for template to use on the share detail page.</summary>
         [Newtonsoft.Json.JsonProperty("template", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public TemplateBase Template { get; set; }
     
+        /// <summary>Access for content outputs in share.</summary>
         [Newtonsoft.Json.JsonProperty("outputAccess", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [System.ComponentModel.DataAnnotations.Required]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public OutputAccess OutputAccess { get; set; }
     
@@ -14351,11 +14297,8 @@ namespace Picturepark.SDK.V1.Contract
         [System.ComponentModel.DataAnnotations.Required]
         public System.Collections.Generic.ICollection<Transfer> Results { get; set; } = new System.Collections.Generic.List<Transfer>();
     
-        [Newtonsoft.Json.JsonProperty("pageToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string PageToken { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("queryDebugInformation", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public QueryDebugInformation QueryDebugInformation { get; set; }
+        [Newtonsoft.Json.JsonProperty("elapsedMilliseconds", Required = Newtonsoft.Json.Required.Always)]
+        public long ElapsedMilliseconds { get; set; }
     
         public string ToJson() 
         {
@@ -14378,6 +14321,9 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("isSearchStringRewritten", Required = Newtonsoft.Json.Required.Always)]
         public bool IsSearchStringRewritten { get; set; }
     
+        [Newtonsoft.Json.JsonProperty("queryDebugInformation", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public QueryDebugInformation QueryDebugInformation { get; set; }
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -14394,10 +14340,6 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class TransferSearchResult : SearchBehaviorBaseResultOfTransfer
     {
-        /// <summary>Time in milliseconds query took to execute.</summary>
-        [Newtonsoft.Json.JsonProperty("elapsedMilliseconds", Required = Newtonsoft.Json.Required.Always)]
-        public long ElapsedMilliseconds { get; set; }
-    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -15108,11 +15050,8 @@ namespace Picturepark.SDK.V1.Contract
         [System.ComponentModel.DataAnnotations.Required]
         public System.Collections.Generic.ICollection<FileTransfer> Results { get; set; } = new System.Collections.Generic.List<FileTransfer>();
     
-        [Newtonsoft.Json.JsonProperty("pageToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string PageToken { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("queryDebugInformation", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public QueryDebugInformation QueryDebugInformation { get; set; }
+        [Newtonsoft.Json.JsonProperty("elapsedMilliseconds", Required = Newtonsoft.Json.Required.Always)]
+        public long ElapsedMilliseconds { get; set; }
     
         public string ToJson() 
         {
@@ -15135,6 +15074,9 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("isSearchStringRewritten", Required = Newtonsoft.Json.Required.Always)]
         public bool IsSearchStringRewritten { get; set; }
     
+        [Newtonsoft.Json.JsonProperty("queryDebugInformation", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public QueryDebugInformation QueryDebugInformation { get; set; }
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -15151,10 +15093,6 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class FileTransferSearchResult : SearchBehaviorBaseResultOfFileTransfer
     {
-        /// <summary>Time in milliseconds query took to execute.</summary>
-        [Newtonsoft.Json.JsonProperty("elapsedMilliseconds", Required = Newtonsoft.Json.Required.Always)]
-        public long ElapsedMilliseconds { get; set; }
-    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -15494,11 +15432,8 @@ namespace Picturepark.SDK.V1.Contract
         [System.ComponentModel.DataAnnotations.Required]
         public System.Collections.Generic.ICollection<UserWithRoles> Results { get; set; } = new System.Collections.Generic.List<UserWithRoles>();
     
-        [Newtonsoft.Json.JsonProperty("pageToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string PageToken { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("queryDebugInformation", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public QueryDebugInformation QueryDebugInformation { get; set; }
+        [Newtonsoft.Json.JsonProperty("elapsedMilliseconds", Required = Newtonsoft.Json.Required.Always)]
+        public long ElapsedMilliseconds { get; set; }
     
         public string ToJson() 
         {
@@ -15521,6 +15456,9 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("isSearchStringRewritten", Required = Newtonsoft.Json.Required.Always)]
         public bool IsSearchStringRewritten { get; set; }
     
+        [Newtonsoft.Json.JsonProperty("queryDebugInformation", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public QueryDebugInformation QueryDebugInformation { get; set; }
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -15537,10 +15475,6 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class UserSearchResult : SearchBehaviorBaseResultOfUserWithRoles
     {
-        /// <summary>How long did the search take.</summary>
-        [Newtonsoft.Json.JsonProperty("elapsedMilliseconds", Required = Newtonsoft.Json.Required.Always)]
-        public long ElapsedMilliseconds { get; set; }
-    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -15778,11 +15712,8 @@ namespace Picturepark.SDK.V1.Contract
         [System.ComponentModel.DataAnnotations.Required]
         public System.Collections.Generic.ICollection<UserRole> Results { get; set; } = new System.Collections.Generic.List<UserRole>();
     
-        [Newtonsoft.Json.JsonProperty("pageToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string PageToken { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("queryDebugInformation", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public QueryDebugInformation QueryDebugInformation { get; set; }
+        [Newtonsoft.Json.JsonProperty("elapsedMilliseconds", Required = Newtonsoft.Json.Required.Always)]
+        public long ElapsedMilliseconds { get; set; }
     
         public string ToJson() 
         {
@@ -15805,6 +15736,9 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("isSearchStringRewritten", Required = Newtonsoft.Json.Required.Always)]
         public bool IsSearchStringRewritten { get; set; }
     
+        [Newtonsoft.Json.JsonProperty("queryDebugInformation", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public QueryDebugInformation QueryDebugInformation { get; set; }
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -15821,10 +15755,6 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class UserRoleSearchResult : SearchBehaviorBaseResultOfUserRole
     {
-        /// <summary>How long did the search take.</summary>
-        [Newtonsoft.Json.JsonProperty("elapsedMilliseconds", Required = Newtonsoft.Json.Required.Always)]
-        public long ElapsedMilliseconds { get; set; }
-    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);

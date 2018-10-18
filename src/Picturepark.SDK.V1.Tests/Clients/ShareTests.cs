@@ -130,7 +130,8 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 RecipientsEmail = new List<UserEmail>
                 {
                     _fixture.Configuration.EmailRecipient
-                }
+                },
+                LanguageCode = "en"
             }).ConfigureAwait(false);
 
             // Assert
@@ -159,7 +160,8 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 RecipientsEmail = new List<UserEmail>
                 {
                     _fixture.Configuration.EmailRecipient
-                }
+                },
+                LanguageCode = "en"
             };
 
             // Act and Assert
