@@ -15985,22 +15985,31 @@
         "properties": {
           "start": {
             "type": "integer",
+            "description": "Defines the offset from the first result you want to fetch. Defaults to 0.",
             "format": "int32",
             "default": 0
           },
           "limit": {
             "type": "integer",
+            "description": "Limits the document count of the result set.",
             "format": "int32",
             "default": 30
           },
           "filter": {
-            "$ref": "#/components/schemas/FilterBase"
+            "description": "An optional search filter. Limits the document result set.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/FilterBase"
+              }
+            ]
           },
           "searchString": {
-            "type": "string"
+            "type": "string",
+            "description": "Limits the search by using a query string filter. The Lucene query string syntax is supported."
           },
           "searchBehaviors": {
             "type": "array",
+            "description": "An optional list of search behaviors. All the passed behaviors will be applied.",
             "items": {
               "$ref": "#/components/schemas/SearchBehavior"
             }
@@ -24372,14 +24381,14 @@
           },
           "searchBehaviors": {
             "type": "array",
-            "description": "An optional list of search behaviours. All the passed behaviours will be applied",
+            "description": "An optional list of search behaviors. All the passed behaviors will be applied.",
             "items": {
               "$ref": "#/components/schemas/SearchBehavior"
             }
           },
           "sort": {
             "type": "array",
-            "description": "Sorts the search results. Sorting on a not indexed field will throw an exception.",
+            "description": "Fields and respective directions requested to sort the search results. Sorting on a not indexed field will throw an exception.",
             "items": {
               "$ref": "#/components/schemas/SortInfo"
             }
@@ -24392,12 +24401,12 @@
           },
           "limit": {
             "type": "integer",
-            "description": "Limits the document count of the result set. Defaults to 30.",
+            "description": "Limits the document count of the result set.",
             "format": "int32",
             "default": 30
           },
           "filter": {
-            "description": "An optional search filter. Limits the share document result set.",
+            "description": "An optional search filter. Limits the document result set.",
             "allOf": [
               {
                 "$ref": "#/components/schemas/FilterBase"
@@ -24415,7 +24424,8 @@
         "additionalProperties": false,
         "properties": {
           "searchString": {
-            "type": "string"
+            "type": "string",
+            "description": "Limits the search by using a query string filter. The Lucene query string syntax is supported."
           },
           "searchBehaviors": {
             "type": "array",
@@ -24426,12 +24436,13 @@
           },
           "sort": {
             "type": "array",
+            "description": "Fields and respective directions requested to sort the search results. Sorting on a not indexed field will throw an exception.",
             "items": {
               "$ref": "#/components/schemas/SortInfo"
             }
           },
           "filter": {
-            "description": "An optional search filter. Limits the content document result set.",
+            "description": "An optional search filter. Limits the document result set.",
             "allOf": [
               {
                 "$ref": "#/components/schemas/FilterBase"
@@ -24440,12 +24451,14 @@
           },
           "aggregationFilters": {
             "type": "array",
+            "description": "Special filters used to filter down the aggregations' values on specific conditions. The behavior is different when\nfiltering an aggregation that matches the same AggregationName or another aggregation.\nIn the first case, the filter is put in \"or\" with (eventual) other existing filters. In the second case it is put in \"and\".",
             "items": {
               "$ref": "#/components/schemas/AggregationFilter"
             }
           },
           "aggregators": {
             "type": "array",
+            "description": "List of aggregators that defines how the list item should be aggregated.",
             "items": {
               "$ref": "#/components/schemas/AggregatorBase"
             }
@@ -24918,26 +24931,35 @@
         ],
         "properties": {
           "searchString": {
-            "type": "string"
+            "type": "string",
+            "description": "Limits the search by using a query string filter. The Lucene query string syntax is supported."
           },
           "searchBehaviors": {
             "type": "array",
+            "description": "An optional list of search behaviors. All the passed behaviors will be applied.",
             "items": {
               "$ref": "#/components/schemas/SearchBehavior"
             }
           },
           "start": {
             "type": "integer",
+            "description": "Defines the offset from the first result you want to fetch. Defaults to 0.",
             "format": "int32",
             "default": 0
           },
           "limit": {
             "type": "integer",
+            "description": "Limits the document count of the result set.",
             "format": "int32",
             "default": 30
           },
           "filter": {
-            "$ref": "#/components/schemas/FilterBase"
+            "description": "An optional search filter. Limits the document result set.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/FilterBase"
+              }
+            ]
           }
         }
       },
@@ -25714,26 +25736,35 @@
         ],
         "properties": {
           "searchString": {
-            "type": "string"
+            "type": "string",
+            "description": "Limits the search by using a query string filter. The Lucene query string syntax is supported."
           },
           "searchBehaviors": {
             "type": "array",
+            "description": "An optional list of search behaviors. All the passed behaviors will be applied.",
             "items": {
               "$ref": "#/components/schemas/SearchBehavior"
             }
           },
           "start": {
             "type": "integer",
+            "description": "Defines the offset from the first result you want to fetch. Defaults to 0.",
             "format": "int32",
             "default": 0
           },
           "limit": {
             "type": "integer",
+            "description": "Limits the document count of the result set.",
             "format": "int32",
             "default": 30
           },
           "filter": {
-            "$ref": "#/components/schemas/FilterBase"
+            "description": "An optional search filter. Limits the document result set.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/FilterBase"
+              }
+            ]
           }
         }
       },

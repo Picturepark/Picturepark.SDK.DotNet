@@ -5778,18 +5778,23 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class BusinessProcessSearchRequest 
     {
+        /// <summary>Defines the offset from the first result you want to fetch. Defaults to 0.</summary>
         [Newtonsoft.Json.JsonProperty("start", Required = Newtonsoft.Json.Required.Always)]
         public int Start { get; set; } = 0;
     
+        /// <summary>Limits the document count of the result set.</summary>
         [Newtonsoft.Json.JsonProperty("limit", Required = Newtonsoft.Json.Required.Always)]
         public int Limit { get; set; } = 30;
     
+        /// <summary>An optional search filter. Limits the document result set.</summary>
         [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public FilterBase Filter { get; set; }
     
+        /// <summary>Limits the search by using a query string filter. The Lucene query string syntax is supported.</summary>
         [Newtonsoft.Json.JsonProperty("searchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string SearchString { get; set; }
     
+        /// <summary>An optional list of search behaviors. All the passed behaviors will be applied.</summary>
         [Newtonsoft.Json.JsonProperty("searchBehaviors", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public System.Collections.Generic.ICollection<SearchBehavior> SearchBehaviors { get; set; }
     
@@ -13841,11 +13846,11 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("searchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string SearchString { get; set; }
     
-        /// <summary>An optional list of search behaviours. All the passed behaviours will be applied</summary>
+        /// <summary>An optional list of search behaviors. All the passed behaviors will be applied.</summary>
         [Newtonsoft.Json.JsonProperty("searchBehaviors", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public System.Collections.Generic.ICollection<SearchBehavior> SearchBehaviors { get; set; }
     
-        /// <summary>Sorts the search results. Sorting on a not indexed field will throw an exception.</summary>
+        /// <summary>Fields and respective directions requested to sort the search results. Sorting on a not indexed field will throw an exception.</summary>
         [Newtonsoft.Json.JsonProperty("sort", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<SortInfo> Sort { get; set; }
     
@@ -13853,11 +13858,11 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("start", Required = Newtonsoft.Json.Required.Always)]
         public int Start { get; set; } = 0;
     
-        /// <summary>Limits the document count of the result set. Defaults to 30.</summary>
+        /// <summary>Limits the document count of the result set.</summary>
         [Newtonsoft.Json.JsonProperty("limit", Required = Newtonsoft.Json.Required.Always)]
         public int Limit { get; set; } = 30;
     
-        /// <summary>An optional search filter. Limits the share document result set.</summary>
+        /// <summary>An optional search filter. Limits the document result set.</summary>
         [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public FilterBase Filter { get; set; }
     
@@ -13880,6 +13885,7 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class ShareAggregationRequest 
     {
+        /// <summary>Limits the search by using a query string filter. The Lucene query string syntax is supported.</summary>
         [Newtonsoft.Json.JsonProperty("searchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string SearchString { get; set; }
     
@@ -13887,16 +13893,21 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("searchBehaviors", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public System.Collections.Generic.ICollection<SearchBehavior> SearchBehaviors { get; set; }
     
+        /// <summary>Fields and respective directions requested to sort the search results. Sorting on a not indexed field will throw an exception.</summary>
         [Newtonsoft.Json.JsonProperty("sort", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<SortInfo> Sort { get; set; }
     
-        /// <summary>An optional search filter. Limits the content document result set.</summary>
+        /// <summary>An optional search filter. Limits the document result set.</summary>
         [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public FilterBase Filter { get; set; }
     
+        /// <summary>Special filters used to filter down the aggregations' values on specific conditions. The behavior is different when
+        /// filtering an aggregation that matches the same AggregationName or another aggregation.
+        /// In the first case, the filter is put in "or" with (eventual) other existing filters. In the second case it is put in "and".</summary>
         [Newtonsoft.Json.JsonProperty("aggregationFilters", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<AggregationFilter> AggregationFilters { get; set; }
     
+        /// <summary>List of aggregators that defines how the list item should be aggregated.</summary>
         [Newtonsoft.Json.JsonProperty("aggregators", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<AggregatorBase> Aggregators { get; set; }
     
@@ -14356,18 +14367,23 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class TransferSearchRequest 
     {
+        /// <summary>Limits the search by using a query string filter. The Lucene query string syntax is supported.</summary>
         [Newtonsoft.Json.JsonProperty("searchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string SearchString { get; set; }
     
+        /// <summary>An optional list of search behaviors. All the passed behaviors will be applied.</summary>
         [Newtonsoft.Json.JsonProperty("searchBehaviors", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public System.Collections.Generic.ICollection<SearchBehavior> SearchBehaviors { get; set; }
     
+        /// <summary>Defines the offset from the first result you want to fetch. Defaults to 0.</summary>
         [Newtonsoft.Json.JsonProperty("start", Required = Newtonsoft.Json.Required.Always)]
         public int Start { get; set; } = 0;
     
+        /// <summary>Limits the document count of the result set.</summary>
         [Newtonsoft.Json.JsonProperty("limit", Required = Newtonsoft.Json.Required.Always)]
         public int Limit { get; set; } = 30;
     
+        /// <summary>An optional search filter. Limits the document result set.</summary>
         [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public FilterBase Filter { get; set; }
     
@@ -15109,18 +15125,23 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class FileTransferSearchRequest 
     {
+        /// <summary>Limits the search by using a query string filter. The Lucene query string syntax is supported.</summary>
         [Newtonsoft.Json.JsonProperty("searchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string SearchString { get; set; }
     
+        /// <summary>An optional list of search behaviors. All the passed behaviors will be applied.</summary>
         [Newtonsoft.Json.JsonProperty("searchBehaviors", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public System.Collections.Generic.ICollection<SearchBehavior> SearchBehaviors { get; set; }
     
+        /// <summary>Defines the offset from the first result you want to fetch. Defaults to 0.</summary>
         [Newtonsoft.Json.JsonProperty("start", Required = Newtonsoft.Json.Required.Always)]
         public int Start { get; set; } = 0;
     
+        /// <summary>Limits the document count of the result set.</summary>
         [Newtonsoft.Json.JsonProperty("limit", Required = Newtonsoft.Json.Required.Always)]
         public int Limit { get; set; } = 30;
     
+        /// <summary>An optional search filter. Limits the document result set.</summary>
         [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public FilterBase Filter { get; set; }
     
