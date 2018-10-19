@@ -3434,6 +3434,9 @@ namespace Picturepark.SDK.V1.Contract
         [System.Runtime.Serialization.EnumMember(Value = "ManageDocumentHistory")]
         ManageDocumentHistory = 16,
     
+        [System.Runtime.Serialization.EnumMember(Value = "ManageAllShares")]
+        ManageAllShares = 17,
+    
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
@@ -7261,8 +7264,9 @@ namespace Picturepark.SDK.V1.Contract
     
         /// <summary>Contains language specific display values, rendered according to the content schema's
         ///              display pattern configuration.</summary>
-        [Newtonsoft.Json.JsonProperty("displayValues", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public DisplayValueDictionary DisplayValues { get; set; }
+        [Newtonsoft.Json.JsonProperty("displayValues", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public DisplayValueDictionary DisplayValues { get; set; } = new DisplayValueDictionary();
     
         /// <summary>The content id.</summary>
         [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Always)]
@@ -7279,8 +7283,9 @@ namespace Picturepark.SDK.V1.Contract
         public DataDictionary Metadata { get; set; }
     
         /// <summary>A list of rendering ouputs for underlying digital file.</summary>
-        [Newtonsoft.Json.JsonProperty("outputs", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<Output> Outputs { get; set; }
+        [Newtonsoft.Json.JsonProperty("outputs", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.Collections.Generic.ICollection<Output> Outputs { get; set; } = new System.Collections.Generic.List<Output>();
     
         /// <summary>The id of a owner token. Defines the content owner.</summary>
         [Newtonsoft.Json.JsonProperty("ownerTokenId", Required = Newtonsoft.Json.Required.Always)]

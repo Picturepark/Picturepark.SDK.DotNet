@@ -2619,6 +2619,9 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [System.Runtime.Serialization.EnumMember(Value = "ManageDocumentHistory")]
         ManageDocumentHistory = 16,
     
+        [System.Runtime.Serialization.EnumMember(Value = "ManageAllShares")]
+        ManageAllShares = 17,
+    
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]

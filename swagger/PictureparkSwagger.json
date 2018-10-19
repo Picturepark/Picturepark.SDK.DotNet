@@ -14042,7 +14042,8 @@
           "ManageTemplates",
           "ManageTermsOfService",
           "ManageLiveStream",
-          "ManageDocumentHistory"
+          "ManageDocumentHistory",
+          "ManageAllShares"
         ],
         "enum": [
           "ManageContent",
@@ -14061,7 +14062,8 @@
           "ManageTemplates",
           "ManageTermsOfService",
           "ManageLiveStream",
-          "ManageDocumentHistory"
+          "ManageDocumentHistory",
+          "ManageAllShares"
         ]
       },
       "PermissionSetNotFoundException": {
