@@ -21291,9 +21291,6 @@
           "id": {
             "type": "string"
           },
-          "contractVersion": {
-            "type": "string"
-          },
           "maximumRetryCount": {
             "type": "integer",
             "format": "int32"
