@@ -8399,7 +8399,7 @@
             "name": "token",
             "in": "path",
             "required": true,
-            "description": "The token",
+            "description": "Share token",
             "nullable": false
           }
         ],
@@ -8487,7 +8487,7 @@
             "name": "token",
             "in": "path",
             "required": true,
-            "description": "The token",
+            "description": "Share token",
             "nullable": false
           },
           {
@@ -8615,7 +8615,7 @@
             "name": "token",
             "in": "path",
             "required": true,
-            "description": "The token",
+            "description": "Share token",
             "nullable": false
           },
           {
@@ -8751,7 +8751,7 @@
             "name": "token",
             "in": "path",
             "required": true,
-            "description": "The token",
+            "description": "Share token",
             "nullable": false
           },
           {
@@ -24785,9 +24785,13 @@
       "ShareDeleteManyRequest": {
         "type": "object",
         "additionalProperties": false,
+        "required": [
+          "ids"
+        ],
         "properties": {
           "ids": {
             "type": "array",
+            "description": "IDs of shares to delete.",
             "items": {
               "type": "string"
             }

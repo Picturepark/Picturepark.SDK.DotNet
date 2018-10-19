@@ -15209,7 +15209,7 @@ namespace Picturepark.SDK.V1
         }
     
         /// <summary>Get share json</summary>
-        /// <param name="token">The token</param>
+        /// <param name="token">Share token</param>
         /// <returns>ShareDetail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -15386,7 +15386,7 @@ namespace Picturepark.SDK.V1
         }
     
         /// <summary>Download shared outputs</summary>
-        /// <param name="token">The token</param>
+        /// <param name="token">Share token</param>
         /// <param name="width">Optional width in pixels to resize image</param>
         /// <param name="height">Optional height in pixels to resize image</param>
         /// <param name="range">The range of bytes to download (http range header): bytes={from}-{to} (e.g. bytes=0-100000)</param>
@@ -15584,7 +15584,7 @@ namespace Picturepark.SDK.V1
         }
     
         /// <summary>Download shared outputs</summary>
-        /// <param name="token">The token</param>
+        /// <param name="token">Share token</param>
         /// <param name="contentId">The content id</param>
         /// <param name="width">Optional width in pixels to resize image</param>
         /// <param name="height">Optional height in pixels to resize image</param>
@@ -15787,7 +15787,7 @@ namespace Picturepark.SDK.V1
         }
     
         /// <summary>Download shared outputs</summary>
-        /// <param name="token">The token</param>
+        /// <param name="token">Share token</param>
         /// <param name="contentId">The content id</param>
         /// <param name="outputFormatId">The output format id+</param>
         /// <param name="width">Optional width in pixels to resize image</param>

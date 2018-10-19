@@ -859,7 +859,7 @@ namespace Picturepark.SDK.V1.Contract
         System.Threading.Tasks.Task<BulkResponse> DeleteManyAsync(ShareDeleteManyRequest deleteManyRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Get share json</summary>
-        /// <param name="token">The token</param>
+        /// <param name="token">Share token</param>
         /// <returns>ShareDetail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -870,7 +870,7 @@ namespace Picturepark.SDK.V1.Contract
         System.Threading.Tasks.Task<object> GetShareJsonAsync(string token, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Download shared outputs</summary>
-        /// <param name="token">The token</param>
+        /// <param name="token">Share token</param>
         /// <param name="width">Optional width in pixels to resize image</param>
         /// <param name="height">Optional height in pixels to resize image</param>
         /// <param name="range">The range of bytes to download (http range header): bytes={from}-{to} (e.g. bytes=0-100000)</param>
@@ -884,7 +884,7 @@ namespace Picturepark.SDK.V1.Contract
         System.Threading.Tasks.Task<FileResponse> DownloadAsync(string token, int? width = null, int? height = null, string range = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Download shared outputs</summary>
-        /// <param name="token">The token</param>
+        /// <param name="token">Share token</param>
         /// <param name="contentId">The content id</param>
         /// <param name="width">Optional width in pixels to resize image</param>
         /// <param name="height">Optional height in pixels to resize image</param>
@@ -899,7 +899,7 @@ namespace Picturepark.SDK.V1.Contract
         System.Threading.Tasks.Task<FileResponse> DownloadWithContentIdAsync(string token, string contentId, int? width = null, int? height = null, string range = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Download shared outputs</summary>
-        /// <param name="token">The token</param>
+        /// <param name="token">Share token</param>
         /// <param name="contentId">The content id</param>
         /// <param name="outputFormatId">The output format id+</param>
         /// <param name="width">Optional width in pixels to resize image</param>
@@ -14230,8 +14230,10 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class ShareDeleteManyRequest 
     {
-        [Newtonsoft.Json.JsonProperty("ids", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> Ids { get; set; }
+        /// <summary>IDs of shares to delete.</summary>
+        [Newtonsoft.Json.JsonProperty("ids", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.Collections.Generic.ICollection<string> Ids { get; set; } = new System.Collections.Generic.List<string>();
     
         public string ToJson() 
         {
