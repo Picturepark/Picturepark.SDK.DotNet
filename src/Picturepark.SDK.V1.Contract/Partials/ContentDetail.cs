@@ -17,7 +17,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>The content item.</returns>
         public ContentItem<T> AsContentItem<T>()
         {
-            var item = Content is T ? (T)Content : ((JObject)Content).ToObject<T>();
+            var item = Content is T content ? content : ((JObject)Content).ToObject<T>();
             return new ContentItem<T>
             {
                 Id = Id,

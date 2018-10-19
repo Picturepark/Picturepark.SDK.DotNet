@@ -9676,6 +9676,7 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>Customer configuration information</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class CustomerInfo 
     {
@@ -13218,6 +13219,7 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>Share detail</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class ShareDetail 
     {
@@ -13320,6 +13322,7 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>Detail of shared content</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class ShareContentDetail 
     {
@@ -13374,6 +13377,7 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>Base of shared output</summary>
     [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
     [JsonInheritanceAttribute("ShareOutputBasic", typeof(ShareOutputBasic))]
     [JsonInheritanceAttribute("ShareOutputEmbed", typeof(ShareOutputEmbed))]
@@ -13410,6 +13414,7 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>Shared output for basic share</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class ShareOutputBasic : ShareOutputBase
     {
@@ -13425,9 +13430,11 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>Shared output for embed share</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class ShareOutputEmbed : ShareOutputBase
     {
+        /// <summary>Share token for the shared output.</summary>
         [Newtonsoft.Json.JsonProperty("token", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Token { get; set; }
     
@@ -13443,6 +13450,7 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>Base of share data</summary>
     [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
     [JsonInheritanceAttribute("ShareDataEmbed", typeof(ShareDataEmbed))]
     [JsonInheritanceAttribute("ShareDataBasic", typeof(ShareDataBasic))]
@@ -13466,6 +13474,7 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>Embed share data</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class ShareDataEmbed : ShareDataBase
     {
@@ -13486,6 +13495,7 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>Basic share data</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class ShareDataBasic : ShareDataBase
     {
@@ -13515,6 +13525,7 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>Share mail recipient</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class MailRecipient 
     {
@@ -13571,6 +13582,7 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>Internal share recipient</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class InternalRecipient 
     {
@@ -13776,6 +13788,7 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>Result for share search operation</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class ShareSearchResult : SearchBehaviorBaseResultOfShare
     {
@@ -13791,9 +13804,15 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>Share</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class Share 
     {
+        /// <summary>Share ID.</summary>
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public string Id { get; set; }
+    
         /// <summary>Name of share.</summary>
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Name { get; set; }
@@ -13802,11 +13821,6 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("contentIds", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
         public System.Collections.Generic.ICollection<string> ContentIds { get; set; } = new System.Collections.Generic.List<string>();
-    
-        /// <summary>Share ID.</summary>
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public string Id { get; set; }
     
         /// <summary>Audit information.</summary>
         [Newtonsoft.Json.JsonProperty("audit", Required = Newtonsoft.Json.Required.Always)]
@@ -13839,6 +13853,7 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>Request to search shares</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class ShareSearchRequest 
     {
@@ -13882,6 +13897,7 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>Request to aggregate shares based on the specified aggregators</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class ShareAggregationRequest 
     {
@@ -13923,9 +13939,11 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>Result of share creation</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class CreateShareResult 
     {
+        /// <summary>Share ID.</summary>
         [Newtonsoft.Json.JsonProperty("shareId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ShareId { get; set; }
     
@@ -13941,6 +13959,7 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>Base create request for share</summary>
     [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
     [JsonInheritanceAttribute("ShareBasicCreateRequest", typeof(ShareBasicCreateRequest))]
     [JsonInheritanceAttribute("ShareEmbedCreateRequest", typeof(ShareEmbedCreateRequest))]
@@ -14075,6 +14094,7 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>Create request for embed share</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class ShareEmbedCreateRequest : ShareBaseCreateRequest
     {
@@ -14090,6 +14110,7 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>Base of update request for share</summary>
     [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
     [JsonInheritanceAttribute("ShareBasicUpdateRequest", typeof(ShareBasicUpdateRequest))]
     [JsonInheritanceAttribute("ShareEmbedUpdateRequest", typeof(ShareEmbedUpdateRequest))]
@@ -14140,6 +14161,7 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>Update request for basic share</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class ShareBasicUpdateRequest : ShareBaseUpdateRequest
     {
@@ -14155,6 +14177,7 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>Update request for embed share</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class ShareEmbedUpdateRequest : ShareBaseUpdateRequest
     {

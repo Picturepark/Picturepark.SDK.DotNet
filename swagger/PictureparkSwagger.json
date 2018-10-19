@@ -20006,6 +20006,7 @@
       },
       "CustomerInfo": {
         "type": "object",
+        "description": "Customer configuration information",
         "additionalProperties": false,
         "required": [
           "customerId",
@@ -23713,6 +23714,7 @@
       },
       "ShareDetail": {
         "type": "object",
+        "description": "Share detail",
         "additionalProperties": false,
         "required": [
           "id",
@@ -23837,6 +23839,7 @@
       },
       "ShareContentDetail": {
         "type": "object",
+        "description": "Detail of shared content",
         "additionalProperties": false,
         "required": [
           "contentSchemaId",
@@ -23919,6 +23922,7 @@
             }
           }
         },
+        "description": "Base of shared output",
         "x-abstract": true,
         "additionalProperties": false,
         "required": [
@@ -23956,6 +23960,7 @@
       },
       "ShareOutputBasic": {
         "type": "object",
+        "description": "Shared output for basic share",
         "additionalProperties": false,
         "allOf": [
           {
@@ -23965,10 +23970,12 @@
       },
       "ShareOutputEmbed": {
         "type": "object",
+        "description": "Shared output for embed share",
         "additionalProperties": false,
         "properties": {
           "token": {
-            "type": "string"
+            "type": "string",
+            "description": "Share token for the shared output."
           }
         },
         "allOf": [
@@ -23990,6 +23997,7 @@
             }
           }
         },
+        "description": "Base of share data",
         "x-abstract": true,
         "additionalProperties": false,
         "required": [
@@ -24009,6 +24017,7 @@
       },
       "ShareDataEmbed": {
         "type": "object",
+        "description": "Embed share data",
         "additionalProperties": false,
         "required": [
           "token"
@@ -24028,6 +24037,7 @@
       },
       "ShareDataBasic": {
         "type": "object",
+        "description": "Basic share data",
         "additionalProperties": false,
         "required": [
           "mailRecipients",
@@ -24061,6 +24071,7 @@
       },
       "MailRecipient": {
         "type": "object",
+        "description": "Share mail recipient",
         "additionalProperties": false,
         "required": [
           "userEmail"
@@ -24108,6 +24119,7 @@
       },
       "InternalRecipient": {
         "type": "object",
+        "description": "Internal share recipient",
         "additionalProperties": false,
         "required": [
           "recipient"
@@ -24255,6 +24267,7 @@
       },
       "ShareSearchResult": {
         "type": "object",
+        "description": "Result for share search operation",
         "additionalProperties": false,
         "allOf": [
           {
@@ -24312,15 +24325,21 @@
       },
       "Share": {
         "type": "object",
+        "description": "Share",
         "additionalProperties": false,
         "required": [
-          "contentIds",
           "id",
+          "contentIds",
           "audit",
           "shareType",
           "isReadOnly"
         ],
         "properties": {
+          "id": {
+            "type": "string",
+            "description": "Share ID.",
+            "minLength": 1
+          },
           "name": {
             "type": "string",
             "description": "Name of share."
@@ -24331,11 +24350,6 @@
             "items": {
               "type": "string"
             }
-          },
-          "id": {
-            "type": "string",
-            "description": "Share ID.",
-            "minLength": 1
           },
           "audit": {
             "description": "Audit information.",
@@ -24367,6 +24381,7 @@
       },
       "ShareSearchRequest": {
         "type": "object",
+        "description": "Request to search shares",
         "additionalProperties": false,
         "required": [
           "start",
@@ -24420,6 +24435,7 @@
       },
       "ShareAggregationRequest": {
         "type": "object",
+        "description": "Request to aggregate shares based on the specified aggregators",
         "additionalProperties": false,
         "properties": {
           "searchString": {
@@ -24466,10 +24482,12 @@
       },
       "CreateShareResult": {
         "type": "object",
+        "description": "Result of share creation",
         "additionalProperties": false,
         "properties": {
           "shareId": {
-            "type": "string"
+            "type": "string",
+            "description": "Share ID."
           }
         }
       },
@@ -24486,6 +24504,7 @@
             }
           }
         },
+        "description": "Base create request for share",
         "x-abstract": true,
         "additionalProperties": false,
         "required": [
@@ -24634,6 +24653,7 @@
       },
       "ShareEmbedCreateRequest": {
         "type": "object",
+        "description": "Create request for embed share",
         "additionalProperties": false,
         "allOf": [
           {
@@ -24654,6 +24674,7 @@
             }
           }
         },
+        "description": "Base of update request for share",
         "x-abstract": true,
         "additionalProperties": false,
         "required": [
@@ -24715,6 +24736,7 @@
       },
       "ShareBasicUpdateRequest": {
         "type": "object",
+        "description": "Update request for basic share",
         "additionalProperties": false,
         "allOf": [
           {
@@ -24724,6 +24746,7 @@
       },
       "ShareEmbedUpdateRequest": {
         "type": "object",
+        "description": "Update request for embed share",
         "additionalProperties": false,
         "allOf": [
           {
