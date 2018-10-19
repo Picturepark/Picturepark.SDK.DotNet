@@ -17738,14 +17738,14 @@
           "Completed",
           "Failed",
           "Skipped",
-          "SkippedLicensingConsideration"
+          "NoLicense"
         ],
         "enum": [
           "InProgress",
           "Completed",
           "Failed",
           "Skipped",
-          "SkippedLicensingConsideration"
+          "NoLicense"
         ]
       },
       "OutputDataBase": {
