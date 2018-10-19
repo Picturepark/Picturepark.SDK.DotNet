@@ -7539,7 +7539,8 @@
           "ManageTemplates",
           "ManageTermsOfService",
           "ManageLiveStream",
-          "ManageDocumentHistory"
+          "ManageDocumentHistory",
+          "ManageAllShares"
         ],
         "enum": [
           "ManageContent",
@@ -7558,7 +7559,8 @@
           "ManageTemplates",
           "ManageTermsOfService",
           "ManageLiveStream",
-          "ManageDocumentHistory"
+          "ManageDocumentHistory",
+          "ManageAllShares"
         ]
       },
       "PermissionSetNotFoundException": {
@@ -9714,15 +9716,6 @@
       "SnapshotCustomerSearchResult": {
         "type": "object",
         "additionalProperties": false,
-        "required": [
-          "elapsedMilliseconds"
-        ],
-        "properties": {
-          "elapsedMilliseconds": {
-            "type": "integer",
-            "format": "int64"
-          }
-        },
         "allOf": [
           {
             "$ref": "#/components/schemas/BaseResultOfSnapshot"
@@ -9734,7 +9727,8 @@
         "additionalProperties": false,
         "required": [
           "totalResults",
-          "results"
+          "results",
+          "elapsedMilliseconds"
         ],
         "properties": {
           "totalResults": {
@@ -9747,11 +9741,9 @@
               "$ref": "#/components/schemas/Snapshot"
             }
           },
-          "pageToken": {
-            "type": "string"
-          },
-          "queryDebugInformation": {
-            "$ref": "#/components/schemas/QueryDebugInformation"
+          "elapsedMilliseconds": {
+            "type": "integer",
+            "format": "int64"
           }
         }
       },
@@ -9866,20 +9858,6 @@
             "type": "string",
             "description": "The snapshot failure status."
           }
-        }
-      },
-      "QueryDebugInformation": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "general": {
-            "type": "string"
-          },
-          "auditTrail": {
-            "type": "string"
-          },
-          "request": {},
-          "response": {}
         }
       },
       "SnapshotCustomerSearchRequest": {
@@ -12108,7 +12086,8 @@
         "additionalProperties": false,
         "required": [
           "totalResults",
-          "results"
+          "results",
+          "elapsedMilliseconds"
         ],
         "properties": {
           "totalResults": {
@@ -12121,11 +12100,9 @@
               "$ref": "#/components/schemas/Customer"
             }
           },
-          "pageToken": {
-            "type": "string"
-          },
-          "queryDebugInformation": {
-            "$ref": "#/components/schemas/QueryDebugInformation"
+          "elapsedMilliseconds": {
+            "type": "integer",
+            "format": "int64"
           }
         }
       },
