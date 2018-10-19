@@ -17737,13 +17737,15 @@
           "InProgress",
           "Completed",
           "Failed",
-          "Skipped"
+          "Skipped",
+          "SkippedLicensingConsideration"
         ],
         "enum": [
           "InProgress",
           "Completed",
           "Failed",
-          "Skipped"
+          "Skipped",
+          "SkippedLicensingConsideration"
         ]
       },
       "OutputDataBase": {
