@@ -12,6 +12,8 @@
     "listItemRetentionTime": "30.00:00:00",
     "snapshotRetentionTime": "30.00:00:00",
     "SnapshotFullbackupScheduleTime": "13:00:00",
+    "documentHistoryRetentionTime": "30.00:00:00",
+    "liveStreamRetentionTime": "7.00:00:00",
     "baseUrl": "{baseurl}",
     "storagePath": "{storagepath}",
     "customerHosts": [],

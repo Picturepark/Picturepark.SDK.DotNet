@@ -2039,14 +2039,8 @@ namespace Picturepark.SDK.V1.Contract
     [Newtonsoft.Json.JsonObjectAttribute]
     public partial class ServiceProviderCreateException : PictureparkException
     {
-        [Newtonsoft.Json.JsonProperty("userId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string UserId { get; set; }
-    
         [Newtonsoft.Json.JsonProperty("externalId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ExternalId { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("virtualHost", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string VirtualHost { get; set; }
     
         [Newtonsoft.Json.JsonProperty("detailErrorMessage", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string DetailErrorMessage { get; set; }
@@ -5800,6 +5794,11 @@ namespace Picturepark.SDK.V1.Contract
         /// <summary>An optional list of search behaviors. All the passed behaviors will be applied.</summary>
         [Newtonsoft.Json.JsonProperty("searchBehaviors", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public System.Collections.Generic.ICollection<SearchBehavior> SearchBehaviors { get; set; }
+    
+        /// <summary>Enable debug mode: additional debug information regarding the query execution and reason of the matched documents are returned in the BusinessProcessSearchResult.
+        /// Warning! It severely affects performance.</summary>
+        [Newtonsoft.Json.JsonProperty("debugMode", Required = Newtonsoft.Json.Required.Always)]
+        public bool DebugMode { get; set; }
     
         public string ToJson() 
         {
@@ -14414,6 +14413,11 @@ namespace Picturepark.SDK.V1.Contract
         /// <summary>An optional search filter. Limits the document result set.</summary>
         [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public FilterBase Filter { get; set; }
+    
+        /// <summary>Enable debug mode: additional debug information regarding the query execution and reason of the matched documents are returned in the TransferSearchResult.
+        /// Warning! It severely affects performance.</summary>
+        [Newtonsoft.Json.JsonProperty("debugMode", Required = Newtonsoft.Json.Required.Always)]
+        public bool DebugMode { get; set; }
     
         public string ToJson() 
         {

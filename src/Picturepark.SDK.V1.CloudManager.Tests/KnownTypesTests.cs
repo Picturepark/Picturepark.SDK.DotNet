@@ -9,7 +9,7 @@ namespace Picturepark.SDK.V1.CloudManager.Tests
     public class KnownTypesTests
     {
         [Fact]
-        public void ShouldDeserializeContractsWithKnownTypesAttrbiteAndMultipleAbstractBaseClasses()
+        public void ShouldDeserializeContractsWithKnownTypesAttributeAndMultipleAbstractBaseClasses()
         {
             var customerCreateJson = System.IO.File.ReadAllText(@".\data\customer-create.json");
 

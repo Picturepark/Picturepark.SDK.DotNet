@@ -65,8 +65,7 @@ namespace Picturepark.SDK.V1.CloudManager.Tests.Fixtures
             {
                 ExternalId = $"acme-{randomId}",
                 Name = $"ACME 3.14 - {randomId}",
-                MessageQueueUser = $"acme-{randomId}",
-                MessageQueuePassword = randomId,
+                Secret = randomId,
                 BaseUrl = $"http://{randomId}"
             };
         }
