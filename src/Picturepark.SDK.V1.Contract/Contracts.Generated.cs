@@ -7400,6 +7400,9 @@ namespace Picturepark.SDK.V1.Contract
         [System.Runtime.Serialization.EnumMember(Value = "Skipped")]
         Skipped = 3,
     
+        [System.Runtime.Serialization.EnumMember(Value = "NoLicense")]
+        NoLicense = 4,
+    
     }
     
     /// <summary>Base class for the output detail dependent on the file format.</summary>
