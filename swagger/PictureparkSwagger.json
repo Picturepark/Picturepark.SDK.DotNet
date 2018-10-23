@@ -12765,6 +12765,9 @@
             "MaximumTransferSizeException": {
               "$ref": "#/components/schemas/MaximumTransferSizeException"
             },
+            "OnlyAccessibleToRecipientException": {
+              "$ref": "#/components/schemas/OnlyAccessibleToRecipientException"
+            },
             "EnvironmentNotAvailableException": {
               "$ref": "#/components/schemas/EnvironmentNotAvailableException"
             },
@@ -15944,6 +15947,15 @@
         "allOf": [
           {
             "$ref": "#/components/schemas/PictureparkException"
+          }
+        ]
+      },
+      "OnlyAccessibleToRecipientException": {
+        "type": "object",
+        "additionalProperties": false,
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
           }
         ]
       },
