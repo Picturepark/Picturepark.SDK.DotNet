@@ -6497,13 +6497,7 @@
         "type": "object",
         "additionalProperties": false,
         "properties": {
-          "userId": {
-            "type": "string"
-          },
           "externalId": {
-            "type": "string"
-          },
-          "virtualHost": {
             "type": "string"
           },
           "detailErrorMessage": {
@@ -13522,12 +13516,6 @@
           "name": {
             "type": "string"
           },
-          "applicationKey": {
-            "type": "string"
-          },
-          "virtualHost": {
-            "type": "string"
-          },
           "baseUrl": {
             "type": "string"
           }
@@ -13543,13 +13531,7 @@
           "name": {
             "type": "string"
           },
-          "applicationKey": {
-            "type": "string"
-          },
-          "messageQueueUser": {
-            "type": "string"
-          },
-          "messageQueuePassword": {
+          "secret": {
             "type": "string"
           },
           "baseUrl": {
