@@ -996,6 +996,44 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
         [Fact]
         [Trait("Stack", "Contents")]
+        public async Task ShouldDeleteContentManyByFilter()
+        {
+            // Arrange
+            string uniqueValue = $"{Guid.NewGuid():N}";
+
+            var content1 = await _client.Content.CreateAsync(new ContentCreateRequest
+            {
+                Content = JsonConvert.DeserializeObject($"{{ \"name\": \"{uniqueValue}_1\" }}"),
+                ContentSchemaId = "ContentItem",
+                Metadata = new DataDictionary()
+            }).ConfigureAwait(false);
+
+            var content2 = await _client.Content.CreateAsync(new ContentCreateRequest
+            {
+                Content = JsonConvert.DeserializeObject($"{{ \"name\": \"{uniqueValue}_2\" }}"),
+                ContentSchemaId = "ContentItem",
+                Metadata = new DataDictionary()
+            }).ConfigureAwait(false);
+
+            // Deactivate
+            var deactivationRequest = new ContentDeleteManyFilterRequest
+            {
+                FilterRequest = new ContentFilterRequest
+                {
+                    ChannelId = "rootChannel",
+                    SearchString = $"{uniqueValue}*"
+                }
+            };
+
+            var businessProcess = await _client.Content.DeleteManyByFilterAsync(deactivationRequest).ConfigureAwait(false);
+            await _client.BusinessProcess.WaitForCompletionAsync(businessProcess.Id).ConfigureAwait(false);
+
+            await Assert.ThrowsAsync<ContentNotFoundException>(async () => await _client.Content.GetAsync(content1.Id).ConfigureAwait(false)).ConfigureAwait(false);
+            await Assert.ThrowsAsync<ContentNotFoundException>(async () => await _client.Content.GetAsync(content2.Id).ConfigureAwait(false)).ConfigureAwait(false);
+        }
+
+        [Fact]
+        [Trait("Stack", "Contents")]
         public async Task ShouldUpdateFile()
         {
             string contentId = await _fixture.GetRandomContentIdAsync(".jpg -0030_JabLtzJl8bc", 20).ConfigureAwait(false);

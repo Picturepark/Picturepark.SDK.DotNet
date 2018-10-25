@@ -2070,11 +2070,106 @@
         "operationId": "Content_DeleteMany",
         "requestBody": {
           "x-name": "deleteManyRequest",
-          "description": "Delete many request",
+          "description": "Delete many request.",
           "content": {
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/ContentDeleteManyRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "x-nullable": false,
+            "description": "Business process",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BusinessProcess"
+                }
+              }
+            }
+          },
+          "500": {
+            "x-nullable": true,
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "x-nullable": true,
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "409": {
+            "x-nullable": true,
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "400": {
+            "x-nullable": true,
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "content_write"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/contents/many/delete/filter": {
+      "post": {
+        "tags": [
+          "Content"
+        ],
+        "summary": "Delete multiple contents - by filter",
+        "description": "Deletes multiple contents. A filter must be provided to limit the deletion to specific contents.\nThe lifecycle is changed to Inactive. After a customer instance specified time (default 30 days), the content and all files will be hard deleted.\nThe operation is executed asynchronously and is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.",
+        "operationId": "Content_DeleteManyByFilter",
+        "requestBody": {
+          "x-name": "deleteManyFilterRequest",
+          "description": "Delete many by filter request.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ContentDeleteManyFilterRequest"
               }
             }
           },
@@ -3273,7 +3368,7 @@
           "Content"
         ],
         "summary": "Batch update fields - by filter",
-        "description": "Updates metadata layers' fields of multiple contents. For file-less contents, the content's fields themselves can be updated as well.\n A filter must be provided to limit the update to specific contents. The same set of changes is applied to all the contents.\nThe operation is executed asynchronous and is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.",
+        "description": "Updates metadata layers' fields of multiple contents. For file-less contents, the content's fields themselves can be updated as well.\nA filter must be provided to limit the update to specific contents. The same set of changes is applied to all the contents.\nThe operation is executed asynchronous and is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.",
         "operationId": "Content_BatchUpdateFieldsByFilter",
         "requestBody": {
           "x-name": "updateRequest",
@@ -5320,6 +5415,101 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/ListItemDeleteManyRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "x-nullable": false,
+            "description": "Business process",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BusinessProcess"
+                }
+              }
+            }
+          },
+          "500": {
+            "x-nullable": true,
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "x-nullable": true,
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "409": {
+            "x-nullable": true,
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "400": {
+            "x-nullable": true,
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "listitem_write"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/listItems/many/delete/filter": {
+      "post": {
+        "tags": [
+          "ListItem"
+        ],
+        "summary": "Delete multiple list items - by filter",
+        "description": "Deletes multiple list items. A filter must be provided to limit the deletion to specific list items.\nThe lifecycle is changed to Inactive. After a customer instance specified time (default 30 days), the list item and all files will be hard deleted.\nThe operation is executed asynchronously and is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.",
+        "operationId": "ListItem_DeleteManyByFilter",
+        "requestBody": {
+          "x-name": "deleteManyFilterRequest",
+          "description": "Delete many by filter request.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ListItemDeleteManyFilterRequest"
               }
             }
           },
@@ -18960,6 +19150,104 @@
           }
         }
       },
+      "ContentDeleteManyFilterRequest": {
+        "type": "object",
+        "description": "Request to delete multiple contents based on a provided filter",
+        "additionalProperties": false,
+        "required": [
+          "filterRequest",
+          "forceReferenceRemoval",
+          "notifyProgress"
+        ],
+        "properties": {
+          "filterRequest": {
+            "description": "Filters the contents that need to be deleted.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ContentFilterRequest"
+              }
+            ]
+          },
+          "forceReferenceRemoval": {
+            "type": "boolean",
+            "description": "A value indicating whether references to the content items should be removed."
+          },
+          "notifyProgress": {
+            "type": "boolean",
+            "description": "Create a progress notification and notify on progress. Notifications are shown in the UI only to the same use who triggered the delete request."
+          }
+        }
+      },
+      "ContentFilterRequest": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "searchType",
+          "lifeCycleFilter",
+          "brokenDependenciesFilter"
+        ],
+        "properties": {
+          "channelId": {
+            "type": "string",
+            "description": "Limits the simple search fields to the fields available in the specified channel."
+          },
+          "searchLanguages": {
+            "type": "array",
+            "description": "Only searches the specified language values. Defaults to all metadata languages of the language configuration.",
+            "items": {
+              "type": "string"
+            }
+          },
+          "searchString": {
+            "type": "string",
+            "description": "Limits the search by using a query string filter. The Lucene query string syntax is supported. Defaults to *.",
+            "default": "*"
+          },
+          "searchType": {
+            "description": "Type of search to be performed: against metadata, extracted fulltext from documents or both. Default to Metadata.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ContentSearchType"
+              }
+            ]
+          },
+          "collectionId": {
+            "type": "string",
+            "description": "The collection id."
+          },
+          "filter": {
+            "description": "An optional search filter. Limits the content document result set.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/FilterBase"
+              }
+            ]
+          },
+          "lifeCycleFilter": {
+            "description": "Limits the content document result set to that life cycle state. Defaults to ActiveOnly.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/LifeCycleFilter"
+              }
+            ]
+          },
+          "brokenDependenciesFilter": {
+            "description": "Filter the content document result set to those that have or not have broken references",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/BrokenDependenciesFilter"
+              }
+            ]
+          },
+          "rightsFilter": {
+            "type": "array",
+            "description": "Limits the content document result set to specific ContentRights the user has",
+            "items": {
+              "$ref": "#/components/schemas/ContentRight"
+            }
+          }
+        }
+      },
       "ContentRestoreManyRequest": {
         "type": "object",
         "description": "Request to restore multiple contents",
@@ -19502,76 +19790,6 @@
             "$ref": "#/components/schemas/MetadataValuesChangeRequestBase"
           }
         ]
-      },
-      "ContentFilterRequest": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "searchType",
-          "lifeCycleFilter",
-          "brokenDependenciesFilter"
-        ],
-        "properties": {
-          "channelId": {
-            "type": "string",
-            "description": "Limits the simple search fields to the fields available in the specified channel."
-          },
-          "searchLanguages": {
-            "type": "array",
-            "description": "Only searches the specified language values. Defaults to all metadata languages of the language configuration.",
-            "items": {
-              "type": "string"
-            }
-          },
-          "searchString": {
-            "type": "string",
-            "description": "Limits the search by using a query string filter. The Lucene query string syntax is supported. Defaults to *.",
-            "default": "*"
-          },
-          "searchType": {
-            "description": "Type of search to be performed: against metadata, extracted fulltext from documents or both. Default to Metadata.",
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/ContentSearchType"
-              }
-            ]
-          },
-          "collectionId": {
-            "type": "string",
-            "description": "The collection id."
-          },
-          "filter": {
-            "description": "An optional search filter. Limits the content document result set.",
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/FilterBase"
-              }
-            ]
-          },
-          "lifeCycleFilter": {
-            "description": "Limits the content document result set to that life cycle state. Defaults to ActiveOnly.",
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/LifeCycleFilter"
-              }
-            ]
-          },
-          "brokenDependenciesFilter": {
-            "description": "Filter the content document result set to those that have or not have broken references",
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/BrokenDependenciesFilter"
-              }
-            ]
-          },
-          "rightsFilter": {
-            "type": "array",
-            "description": "Limits the content document result set to specific ContentRights the user has",
-            "items": {
-              "$ref": "#/components/schemas/ContentRight"
-            }
-          }
-        }
       },
       "PermissionSetSearchResult": {
         "type": "object",
@@ -20594,6 +20812,85 @@
           }
         }
       },
+      "ListItemDeleteManyFilterRequest": {
+        "type": "object",
+        "description": "Request to delete multiple list items based on a provided filter",
+        "additionalProperties": false,
+        "required": [
+          "filterRequest",
+          "forceReferenceRemoval",
+          "notifyProgress"
+        ],
+        "properties": {
+          "filterRequest": {
+            "description": "Filters the list items that need to be deleted.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ListItemFilterRequest"
+              }
+            ]
+          },
+          "forceReferenceRemoval": {
+            "type": "boolean",
+            "description": "A value indicating whether references to the list item should be removed."
+          },
+          "notifyProgress": {
+            "type": "boolean",
+            "description": "Create a progress notification and notify on progress. Notifications are shown in the UI only to the same use who triggered the delete request."
+          }
+        }
+      },
+      "ListItemFilterRequest": {
+        "type": "object",
+        "description": "Request to filter list items",
+        "additionalProperties": false,
+        "required": [
+          "includeAllSchemaChildren",
+          "brokenDependenciesFilter"
+        ],
+        "properties": {
+          "searchString": {
+            "type": "string",
+            "description": "The string used to query the data. The Lucene query string syntax is supported. Defaults to *.",
+            "default": "*"
+          },
+          "filter": {
+            "description": "An optional filter to limit the list items.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/FilterBase"
+              }
+            ]
+          },
+          "includeAllSchemaChildren": {
+            "type": "boolean",
+            "description": "Broadens the search to include all schema descendant list items."
+          },
+          "schemaIds": {
+            "type": "array",
+            "description": "Limits the search among the list items of the provided schemas.",
+            "items": {
+              "type": "string"
+            }
+          },
+          "searchLanguages": {
+            "type": "array",
+            "description": "When searching in multi language fields, limit the searchable fields to the ones corresponding to the specified languages.\nIf not specified, all metadata languages defined in the system are used.",
+            "items": {
+              "type": "string"
+            }
+          },
+          "brokenDependenciesFilter": {
+            "description": "Limits the search to the list items that have or not have broken references. By default it includes both.",
+            "default": "All",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/BrokenDependenciesFilter"
+              }
+            ]
+          }
+        }
+      },
       "ListItemRestoreManyRequest": {
         "type": "object",
         "description": "Request to restore multiple deleted list items",
@@ -20684,57 +20981,6 @@
           "notifyProgress": {
             "type": "boolean",
             "description": "Create a progress notification and notify on progress. Notifications are shown in the UI only to the same use who triggered the batch update."
-          }
-        }
-      },
-      "ListItemFilterRequest": {
-        "type": "object",
-        "description": "Request to filter list items",
-        "additionalProperties": false,
-        "required": [
-          "includeAllSchemaChildren",
-          "brokenDependenciesFilter"
-        ],
-        "properties": {
-          "searchString": {
-            "type": "string",
-            "description": "The string used to query the data. The Lucene query string syntax is supported. Defaults to *.",
-            "default": "*"
-          },
-          "filter": {
-            "description": "An optional filter to limit the list items.",
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/FilterBase"
-              }
-            ]
-          },
-          "includeAllSchemaChildren": {
-            "type": "boolean",
-            "description": "Broadens the search to include all schema descendant list items."
-          },
-          "schemaIds": {
-            "type": "array",
-            "description": "Limits the search among the list items of the provided schemas.",
-            "items": {
-              "type": "string"
-            }
-          },
-          "searchLanguages": {
-            "type": "array",
-            "description": "When searching in multi language fields, limit the searchable fields to the ones corresponding to the specified languages.\nIf not specified, all metadata languages defined in the system are used.",
-            "items": {
-              "type": "string"
-            }
-          },
-          "brokenDependenciesFilter": {
-            "description": "Limits the search to the list items that have or not have broken references. By default it includes both.",
-            "default": "All",
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/BrokenDependenciesFilter"
-              }
-            ]
           }
         }
       },
