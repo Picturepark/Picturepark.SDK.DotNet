@@ -12742,6 +12742,9 @@
             "RelationTypeMissingException": {
               "$ref": "#/components/schemas/RelationTypeMissingException"
             },
+            "ReferenceUpdateException": {
+              "$ref": "#/components/schemas/ReferenceUpdateException"
+            },
             "SchemaFieldOverwriteTypeMismatchException": {
               "$ref": "#/components/schemas/SchemaFieldOverwriteTypeMismatchException"
             },
@@ -14753,6 +14756,29 @@
       "RelationTypeMissingException": {
         "type": "object",
         "additionalProperties": false,
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkBusinessException"
+          }
+        ]
+      },
+      "ReferenceUpdateException": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "referenceItemId": {
+            "type": "string"
+          },
+          "referenceType": {
+            "type": "string"
+          },
+          "exceptions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PictureparkException"
+            }
+          }
+        },
         "allOf": [
           {
             "$ref": "#/components/schemas/PictureparkBusinessException"
@@ -19134,7 +19160,8 @@
         "additionalProperties": false,
         "required": [
           "contentIds",
-          "forceReferenceRemoval"
+          "forceReferenceRemoval",
+          "notifyProgress"
         ],
         "properties": {
           "contentIds": {
@@ -19147,6 +19174,10 @@
           "forceReferenceRemoval": {
             "type": "boolean",
             "description": "A value indicating whether references to the contents should be removed."
+          },
+          "notifyProgress": {
+            "type": "boolean",
+            "description": "Create a progress notification and notify on progress. Notifications are shown in the UI only to the same use who triggered the delete request."
           }
         }
       },
@@ -20796,7 +20827,8 @@
         "additionalProperties": false,
         "required": [
           "listItemIds",
-          "forceReferenceRemoval"
+          "forceReferenceRemoval",
+          "notifyProgress"
         ],
         "properties": {
           "listItemIds": {
@@ -20809,6 +20841,10 @@
           "forceReferenceRemoval": {
             "type": "boolean",
             "description": "A value indicating whether references to the list item should be removed."
+          },
+          "notifyProgress": {
+            "type": "boolean",
+            "description": "Create a progress notification and notify on progress. Notifications are shown in the UI only to the same use who triggered the delete request."
           }
         }
       },

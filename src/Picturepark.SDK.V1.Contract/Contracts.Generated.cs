@@ -1698,6 +1698,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("AggregationNameInvalidException", typeof(AggregationNameInvalidException))]
     [JsonInheritanceAttribute("AggregationSizeInvalidException", typeof(AggregationSizeInvalidException))]
     [JsonInheritanceAttribute("RelationTypeMissingException", typeof(RelationTypeMissingException))]
+    [JsonInheritanceAttribute("ReferenceUpdateException", typeof(ReferenceUpdateException))]
     [JsonInheritanceAttribute("SchemaFieldOverwriteTypeMismatchException", typeof(SchemaFieldOverwriteTypeMismatchException))]
     [JsonInheritanceAttribute("SchemaFieldOverwriteIdException", typeof(SchemaFieldOverwriteIdException))]
     [JsonInheritanceAttribute("SchemaFieldIdDuplicatedException", typeof(SchemaFieldIdDuplicatedException))]
@@ -4063,6 +4064,31 @@ namespace Picturepark.SDK.V1.Contract
         public static RelationTypeMissingException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<RelationTypeMissingException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class ReferenceUpdateException : PictureparkBusinessException
+    {
+        [Newtonsoft.Json.JsonProperty("referenceItemId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ReferenceItemId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("referenceType", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ReferenceType { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("exceptions", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<PictureparkException> Exceptions { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ReferenceUpdateException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ReferenceUpdateException>(data);
         }
     
     }
@@ -8620,6 +8646,10 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("forceReferenceRemoval", Required = Newtonsoft.Json.Required.Always)]
         public bool ForceReferenceRemoval { get; set; }
     
+        /// <summary>Create a progress notification and notify on progress. Notifications are shown in the UI only to the same use who triggered the delete request.</summary>
+        [Newtonsoft.Json.JsonProperty("notifyProgress", Required = Newtonsoft.Json.Required.Always)]
+        public bool NotifyProgress { get; set; }
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -10323,6 +10353,10 @@ namespace Picturepark.SDK.V1.Contract
         /// <summary>A value indicating whether references to the list item should be removed.</summary>
         [Newtonsoft.Json.JsonProperty("forceReferenceRemoval", Required = Newtonsoft.Json.Required.Always)]
         public bool ForceReferenceRemoval { get; set; }
+    
+        /// <summary>Create a progress notification and notify on progress. Notifications are shown in the UI only to the same use who triggered the delete request.</summary>
+        [Newtonsoft.Json.JsonProperty("notifyProgress", Required = Newtonsoft.Json.Required.Always)]
+        public bool NotifyProgress { get; set; }
     
         public string ToJson() 
         {
