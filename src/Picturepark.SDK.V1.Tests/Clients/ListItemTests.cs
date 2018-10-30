@@ -593,6 +593,43 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
         [Fact]
         [Trait("Stack", "ListItem")]
+        public async Task ShouldDeleteListItemManyByFilter()
+        {
+            // Arrange
+            string uniqueValue = $"{Guid.NewGuid():N}";
+
+            var listItem1 = await _client.ListItem.CreateAsync(new ListItemCreateRequest
+            {
+                ContentSchemaId = nameof(Tag),
+                Content = new Tag { Name = $"{uniqueValue}_1" }
+            }).ConfigureAwait(false);
+
+            var listItem2 = await _client.ListItem.CreateAsync(new ListItemCreateRequest
+            {
+                ContentSchemaId = nameof(Tag),
+                Content = new Tag { Name = $"{uniqueValue}_2" }
+            }).ConfigureAwait(false);
+
+            // Act
+            // Deactivate
+            var deactivateRequest = new ListItemDeleteManyFilterRequest()
+            {
+                FilterRequest = new ListItemFilterRequest
+                {
+                    SchemaIds = new[] { nameof(Tag) },
+                    SearchString = $"{uniqueValue}*"
+                }
+            };
+
+            var businessProcess = await _client.ListItem.DeleteManyByFilterAsync(deactivateRequest).ConfigureAwait(false);
+            await _client.BusinessProcess.WaitForCompletionAsync(businessProcess.Id).ConfigureAwait(false);
+
+            await Assert.ThrowsAsync<ListItemNotFoundException>(async () => await _client.ListItem.GetAsync(listItem1.Id).ConfigureAwait(false)).ConfigureAwait(false);
+            await Assert.ThrowsAsync<ListItemNotFoundException>(async () => await _client.ListItem.GetAsync(listItem2.Id).ConfigureAwait(false)).ConfigureAwait(false);
+        }
+
+        [Fact]
+        [Trait("Stack", "ListItem")]
         public async Task ShouldUseDisplayLanguageToResolveDisplayValues()
         {
             // Arange

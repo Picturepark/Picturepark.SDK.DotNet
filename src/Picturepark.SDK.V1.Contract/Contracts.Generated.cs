@@ -207,7 +207,7 @@ namespace Picturepark.SDK.V1.Contract
         System.Threading.Tasks.Task<FileResponse> DownloadThumbnailAsync(string contentId, ThumbnailSize size, int? width = null, int? height = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Delete multiple contents</summary>
-        /// <param name="deleteManyRequest">Delete many request</param>
+        /// <param name="deleteManyRequest">Delete many request.</param>
         /// <returns>Business process</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -216,6 +216,17 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         System.Threading.Tasks.Task<BusinessProcess> DeleteManyAsync(ContentDeleteManyRequest deleteManyRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <summary>Delete multiple contents - by filter</summary>
+        /// <param name="deleteManyFilterRequest">Delete many by filter request.</param>
+        /// <returns>Business process</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        System.Threading.Tasks.Task<BusinessProcess> DeleteManyByFilterAsync(ContentDeleteManyFilterRequest deleteManyFilterRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Restore content</summary>
         /// <param name="contentId">The content ID.</param>
@@ -518,6 +529,17 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         System.Threading.Tasks.Task<BusinessProcess> DeleteManyAsync(ListItemDeleteManyRequest deleteManyRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <summary>Delete multiple list items - by filter</summary>
+        /// <param name="deleteManyFilterRequest">Delete many by filter request.</param>
+        /// <returns>Business process</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        System.Threading.Tasks.Task<BusinessProcess> DeleteManyByFilterAsync(ListItemDeleteManyFilterRequest deleteManyFilterRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Restore list item</summary>
         /// <param name="listItemId">The list item ID.</param>
@@ -1676,6 +1698,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("AggregationNameInvalidException", typeof(AggregationNameInvalidException))]
     [JsonInheritanceAttribute("AggregationSizeInvalidException", typeof(AggregationSizeInvalidException))]
     [JsonInheritanceAttribute("RelationTypeMissingException", typeof(RelationTypeMissingException))]
+    [JsonInheritanceAttribute("ReferenceUpdateException", typeof(ReferenceUpdateException))]
     [JsonInheritanceAttribute("SchemaFieldOverwriteTypeMismatchException", typeof(SchemaFieldOverwriteTypeMismatchException))]
     [JsonInheritanceAttribute("SchemaFieldOverwriteIdException", typeof(SchemaFieldOverwriteIdException))]
     [JsonInheritanceAttribute("SchemaFieldIdDuplicatedException", typeof(SchemaFieldIdDuplicatedException))]
@@ -4041,6 +4064,31 @@ namespace Picturepark.SDK.V1.Contract
         public static RelationTypeMissingException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<RelationTypeMissingException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class ReferenceUpdateException : PictureparkBusinessException
+    {
+        [Newtonsoft.Json.JsonProperty("referenceItemId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ReferenceItemId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("referenceType", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ReferenceType { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("exceptions", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<PictureparkException> Exceptions { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ReferenceUpdateException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ReferenceUpdateException>(data);
         }
     
     }
@@ -8598,6 +8646,10 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("forceReferenceRemoval", Required = Newtonsoft.Json.Required.Always)]
         public bool ForceReferenceRemoval { get; set; }
     
+        /// <summary>Create a progress notification and notify on progress. Notifications are shown in the UI only to the same use who triggered the delete request.</summary>
+        [Newtonsoft.Json.JsonProperty("notifyProgress", Required = Newtonsoft.Json.Required.Always)]
+        public bool NotifyProgress { get; set; }
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -8606,6 +8658,92 @@ namespace Picturepark.SDK.V1.Contract
         public static ContentDeleteManyRequest FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentDeleteManyRequest>(data);
+        }
+    
+    }
+    
+    /// <summary>Request to delete multiple contents based on a provided filter</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class ContentDeleteManyFilterRequest 
+    {
+        /// <summary>Filters the contents that need to be deleted.</summary>
+        [Newtonsoft.Json.JsonProperty("filterRequest", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public ContentFilterRequest FilterRequest { get; set; } = new ContentFilterRequest();
+    
+        /// <summary>A value indicating whether references to the content items should be removed.</summary>
+        [Newtonsoft.Json.JsonProperty("forceReferenceRemoval", Required = Newtonsoft.Json.Required.Always)]
+        public bool ForceReferenceRemoval { get; set; }
+    
+        /// <summary>Create a progress notification and notify on progress. Notifications are shown in the UI only to the same use who triggered the delete request.</summary>
+        [Newtonsoft.Json.JsonProperty("notifyProgress", Required = Newtonsoft.Json.Required.Always)]
+        public bool NotifyProgress { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ContentDeleteManyFilterRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentDeleteManyFilterRequest>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class ContentFilterRequest 
+    {
+        /// <summary>Limits the simple search fields to the fields available in the specified channel.</summary>
+        [Newtonsoft.Json.JsonProperty("channelId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ChannelId { get; set; }
+    
+        /// <summary>Only searches the specified language values. Defaults to all metadata languages of the language configuration.</summary>
+        [Newtonsoft.Json.JsonProperty("searchLanguages", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> SearchLanguages { get; set; }
+    
+        /// <summary>Limits the search by using a query string filter. The Lucene query string syntax is supported. Defaults to *.</summary>
+        [Newtonsoft.Json.JsonProperty("searchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string SearchString { get; set; } = "*";
+    
+        /// <summary>Type of search to be performed: against metadata, extracted fulltext from documents or both. Default to Metadata.</summary>
+        [Newtonsoft.Json.JsonProperty("searchType", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public ContentSearchType SearchType { get; set; }
+    
+        /// <summary>The collection id.</summary>
+        [Newtonsoft.Json.JsonProperty("collectionId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string CollectionId { get; set; }
+    
+        /// <summary>An optional search filter. Limits the content document result set.</summary>
+        [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public FilterBase Filter { get; set; }
+    
+        /// <summary>Limits the content document result set to that life cycle state. Defaults to ActiveOnly.</summary>
+        [Newtonsoft.Json.JsonProperty("lifeCycleFilter", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public LifeCycleFilter LifeCycleFilter { get; set; }
+    
+        /// <summary>Filter the content document result set to those that have or not have broken references</summary>
+        [Newtonsoft.Json.JsonProperty("brokenDependenciesFilter", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public BrokenDependenciesFilter BrokenDependenciesFilter { get; set; }
+    
+        /// <summary>Limits the content document result set to specific ContentRights the user has</summary>
+        [Newtonsoft.Json.JsonProperty("rightsFilter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public System.Collections.Generic.ICollection<ContentRight> RightsFilter { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ContentFilterRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentFilterRequest>(data);
         }
     
     }
@@ -9160,63 +9298,6 @@ namespace Picturepark.SDK.V1.Contract
         public static ContentFieldsBatchUpdateFilterRequest FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentFieldsBatchUpdateFilterRequest>(data);
-        }
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class ContentFilterRequest 
-    {
-        /// <summary>Limits the simple search fields to the fields available in the specified channel.</summary>
-        [Newtonsoft.Json.JsonProperty("channelId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string ChannelId { get; set; }
-    
-        /// <summary>Only searches the specified language values. Defaults to all metadata languages of the language configuration.</summary>
-        [Newtonsoft.Json.JsonProperty("searchLanguages", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> SearchLanguages { get; set; }
-    
-        /// <summary>Limits the search by using a query string filter. The Lucene query string syntax is supported. Defaults to *.</summary>
-        [Newtonsoft.Json.JsonProperty("searchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string SearchString { get; set; } = "*";
-    
-        /// <summary>Type of search to be performed: against metadata, extracted fulltext from documents or both. Default to Metadata.</summary>
-        [Newtonsoft.Json.JsonProperty("searchType", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public ContentSearchType SearchType { get; set; }
-    
-        /// <summary>The collection id.</summary>
-        [Newtonsoft.Json.JsonProperty("collectionId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string CollectionId { get; set; }
-    
-        /// <summary>An optional search filter. Limits the content document result set.</summary>
-        [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public FilterBase Filter { get; set; }
-    
-        /// <summary>Limits the content document result set to that life cycle state. Defaults to ActiveOnly.</summary>
-        [Newtonsoft.Json.JsonProperty("lifeCycleFilter", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public LifeCycleFilter LifeCycleFilter { get; set; }
-    
-        /// <summary>Filter the content document result set to those that have or not have broken references</summary>
-        [Newtonsoft.Json.JsonProperty("brokenDependenciesFilter", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public BrokenDependenciesFilter BrokenDependenciesFilter { get; set; }
-    
-        /// <summary>Limits the content document result set to specific ContentRights the user has</summary>
-        [Newtonsoft.Json.JsonProperty("rightsFilter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public System.Collections.Generic.ICollection<ContentRight> RightsFilter { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static ContentFilterRequest FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentFilterRequest>(data);
         }
     
     }
@@ -10273,6 +10354,10 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("forceReferenceRemoval", Required = Newtonsoft.Json.Required.Always)]
         public bool ForceReferenceRemoval { get; set; }
     
+        /// <summary>Create a progress notification and notify on progress. Notifications are shown in the UI only to the same use who triggered the delete request.</summary>
+        [Newtonsoft.Json.JsonProperty("notifyProgress", Required = Newtonsoft.Json.Required.Always)]
+        public bool NotifyProgress { get; set; }
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -10281,6 +10366,78 @@ namespace Picturepark.SDK.V1.Contract
         public static ListItemDeleteManyRequest FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<ListItemDeleteManyRequest>(data);
+        }
+    
+    }
+    
+    /// <summary>Request to delete multiple list items based on a provided filter</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class ListItemDeleteManyFilterRequest 
+    {
+        /// <summary>Filters the list items that need to be deleted.</summary>
+        [Newtonsoft.Json.JsonProperty("filterRequest", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public ListItemFilterRequest FilterRequest { get; set; } = new ListItemFilterRequest();
+    
+        /// <summary>A value indicating whether references to the list item should be removed.</summary>
+        [Newtonsoft.Json.JsonProperty("forceReferenceRemoval", Required = Newtonsoft.Json.Required.Always)]
+        public bool ForceReferenceRemoval { get; set; }
+    
+        /// <summary>Create a progress notification and notify on progress. Notifications are shown in the UI only to the same use who triggered the delete request.</summary>
+        [Newtonsoft.Json.JsonProperty("notifyProgress", Required = Newtonsoft.Json.Required.Always)]
+        public bool NotifyProgress { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ListItemDeleteManyFilterRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ListItemDeleteManyFilterRequest>(data);
+        }
+    
+    }
+    
+    /// <summary>Request to filter list items</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class ListItemFilterRequest 
+    {
+        /// <summary>The string used to query the data. The Lucene query string syntax is supported. Defaults to *.</summary>
+        [Newtonsoft.Json.JsonProperty("searchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string SearchString { get; set; } = "*";
+    
+        /// <summary>An optional filter to limit the list items.</summary>
+        [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public FilterBase Filter { get; set; }
+    
+        /// <summary>Broadens the search to include all schema descendant list items.</summary>
+        [Newtonsoft.Json.JsonProperty("includeAllSchemaChildren", Required = Newtonsoft.Json.Required.Always)]
+        public bool IncludeAllSchemaChildren { get; set; }
+    
+        /// <summary>Limits the search among the list items of the provided schemas.</summary>
+        [Newtonsoft.Json.JsonProperty("schemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> SchemaIds { get; set; }
+    
+        /// <summary>When searching in multi language fields, limit the searchable fields to the ones corresponding to the specified languages.
+        /// If not specified, all metadata languages defined in the system are used.</summary>
+        [Newtonsoft.Json.JsonProperty("searchLanguages", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> SearchLanguages { get; set; }
+    
+        /// <summary>Limits the search to the list items that have or not have broken references. By default it includes both.</summary>
+        [Newtonsoft.Json.JsonProperty("brokenDependenciesFilter", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public BrokenDependenciesFilter BrokenDependenciesFilter { get; set; } = Picturepark.SDK.V1.Contract.BrokenDependenciesFilter.All;
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ListItemFilterRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ListItemFilterRequest>(data);
         }
     
     }
@@ -10374,49 +10531,6 @@ namespace Picturepark.SDK.V1.Contract
         public static ListItemFieldsBatchUpdateFilterRequest FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<ListItemFieldsBatchUpdateFilterRequest>(data);
-        }
-    
-    }
-    
-    /// <summary>Request to filter list items</summary>
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class ListItemFilterRequest 
-    {
-        /// <summary>The string used to query the data. The Lucene query string syntax is supported. Defaults to *.</summary>
-        [Newtonsoft.Json.JsonProperty("searchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string SearchString { get; set; } = "*";
-    
-        /// <summary>An optional filter to limit the list items.</summary>
-        [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public FilterBase Filter { get; set; }
-    
-        /// <summary>Broadens the search to include all schema descendant list items.</summary>
-        [Newtonsoft.Json.JsonProperty("includeAllSchemaChildren", Required = Newtonsoft.Json.Required.Always)]
-        public bool IncludeAllSchemaChildren { get; set; }
-    
-        /// <summary>Limits the search among the list items of the provided schemas.</summary>
-        [Newtonsoft.Json.JsonProperty("schemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> SchemaIds { get; set; }
-    
-        /// <summary>When searching in multi language fields, limit the searchable fields to the ones corresponding to the specified languages.
-        /// If not specified, all metadata languages defined in the system are used.</summary>
-        [Newtonsoft.Json.JsonProperty("searchLanguages", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> SearchLanguages { get; set; }
-    
-        /// <summary>Limits the search to the list items that have or not have broken references. By default it includes both.</summary>
-        [Newtonsoft.Json.JsonProperty("brokenDependenciesFilter", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public BrokenDependenciesFilter BrokenDependenciesFilter { get; set; } = Picturepark.SDK.V1.Contract.BrokenDependenciesFilter.All;
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static ListItemFilterRequest FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<ListItemFilterRequest>(data);
         }
     
     }

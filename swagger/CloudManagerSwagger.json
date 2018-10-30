@@ -6049,6 +6049,9 @@
             "RelationTypeMissingException": {
               "$ref": "#/components/schemas/RelationTypeMissingException"
             },
+            "ReferenceUpdateException": {
+              "$ref": "#/components/schemas/ReferenceUpdateException"
+            },
             "SchemaFieldOverwriteTypeMismatchException": {
               "$ref": "#/components/schemas/SchemaFieldOverwriteTypeMismatchException"
             },
@@ -8060,6 +8063,29 @@
       "RelationTypeMissingException": {
         "type": "object",
         "additionalProperties": false,
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkBusinessException"
+          }
+        ]
+      },
+      "ReferenceUpdateException": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "referenceItemId": {
+            "type": "string"
+          },
+          "referenceType": {
+            "type": "string"
+          },
+          "exceptions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PictureparkException"
+            }
+          }
+        },
         "allOf": [
           {
             "$ref": "#/components/schemas/PictureparkBusinessException"
