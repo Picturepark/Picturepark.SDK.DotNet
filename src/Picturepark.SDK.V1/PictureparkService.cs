@@ -1,10 +1,9 @@
-﻿using System;
-using Picturepark.SDK.V1.Contract;
+﻿using Picturepark.SDK.V1.Contract;
 using System.Net.Http;
 
 namespace Picturepark.SDK.V1
 {
-    public class PictureparkService : IDisposable, IPictureparkService
+    public class PictureparkService : IPictureparkService
     {
         private HttpClient _httpClient;
 
@@ -12,7 +11,7 @@ namespace Picturepark.SDK.V1
         /// <param name="settings">The service settings.</param>
         public PictureparkService(IPictureparkServiceSettings settings)
         {
-            _httpClient = new HttpClient { Timeout = settings.HttpTimeout };
+            _httpClient = new HttpClient(new PictureparkRetryHandler()) { Timeout = settings.HttpTimeout };
 
             Initialize(settings, _httpClient);
         }
@@ -45,8 +44,6 @@ namespace Picturepark.SDK.V1
 
         public ISchemaPermissionSetClient SchemaPermissionSet { get; private set; }
 
-        public IPublicAccessClient PublicAccess { get; private set; }
-
         public IShareClient Share { get; private set; }
 
         public ITransferClient Transfer { get; private set; }
@@ -59,13 +56,9 @@ namespace Picturepark.SDK.V1
 
         public ISchemaTransferClient SchemaTransfer { get; private set; }
 
-        public IServiceProviderClient ServiceProvider { get; private set; }
-
         public IInfoClient Info { get; private set; }
 
         public IChannelClient Channel { get; private set; }
-
-        public IShareAccessClient ShareAccess { get; private set; }
 
         public void Dispose()
         {
@@ -84,19 +77,16 @@ namespace Picturepark.SDK.V1
             JsonSchema = new JsonSchemaClient(settings, httpClient);
             ContentPermissionSet = new ContentPermissionSetClient(settings, httpClient);
             SchemaPermissionSet = new SchemaPermissionSetClient(settings, httpClient);
-            PublicAccess = new PublicAccessClient(settings, httpClient);
             Share = new ShareClient(settings, httpClient);
-            ShareAccess = new ShareAccessClient(settings, httpClient);
             User = new UserClient(settings, httpClient);
             UserRole = new UserRoleClient(settings, httpClient);
             Info = new InfoClient(settings, httpClient);
-            Schema = new SchemaClient((BusinessProcessClient)BusinessProcess, (InfoClient)Info, settings, httpClient);
+            Schema = new SchemaClient((InfoClient)Info, settings, httpClient);
             Transfer = new TransferClient((BusinessProcessClient)BusinessProcess, settings, httpClient);
             ListItem = new ListItemClient((BusinessProcessClient)BusinessProcess, settings, httpClient);
             LiveStream = new LiveStreamClient(settings, httpClient);
             Content = new ContentClient((BusinessProcessClient)BusinessProcess, settings, httpClient);
             Profile = new ProfileClient(settings, httpClient);
-            ServiceProvider = new ServiceProviderClient(settings, httpClient);
             SchemaTransfer = new SchemaTransferClient(settings, httpClient);
             Channel = new ChannelClient(settings, httpClient);
         }

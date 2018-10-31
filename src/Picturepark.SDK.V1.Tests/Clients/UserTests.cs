@@ -81,20 +81,20 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var activeUsers = await _fixture.CreateAndActivateUsers(count).ConfigureAwait(false);
             var activeUserIds = activeUsers.Select(u => u.Id).ToArray();
 
-            async Task CheckIfUsersAre(AuthorizationState auth) =>
-                (await _client.User.GetManyAsync(activeUserIds).ConfigureAwait(false)).Should().OnlyContain(u => u.AuthorizationState == auth);
+            async Task CheckIfUsersAreLocked(bool isLocked) =>
+                (await _client.User.GetManyAsync(activeUserIds).ConfigureAwait(false)).Should().OnlyContain(u => u.IsLocked == isLocked);
 
             // Act
             await LockUnlockCall(activeUserIds, true).ConfigureAwait(false);
 
             // Assert
-            await CheckIfUsersAre(AuthorizationState.Locked).ConfigureAwait(false);
+            await CheckIfUsersAreLocked(true).ConfigureAwait(false);
 
             // Act
             await LockUnlockCall(activeUserIds, false).ConfigureAwait(false);
 
             // Assert
-            await CheckIfUsersAre(AuthorizationState.Reviewed).ConfigureAwait(false);
+            await CheckIfUsersAreLocked(false).ConfigureAwait(false);
         }
 
         [Fact]

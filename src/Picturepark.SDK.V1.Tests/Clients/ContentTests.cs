@@ -336,7 +336,8 @@ namespace Picturepark.SDK.V1.Tests.Clients
             int maxNumberOfDownloadFiles = 3;
             string searchString = string.Empty;
 
-            ContentSearchResult result = await _fixture.GetRandomContentsAsync(searchString, maxNumberOfDownloadFiles).ConfigureAwait(false);
+            ContentSearchResult result = await _fixture.GetRandomContentsAsync(searchString, maxNumberOfDownloadFiles, new[] { ContentType.Bitmap, ContentType.TextDocument })
+                .ConfigureAwait(false);
             Assert.True(result.Results.Count > 0);
 
             await _client.Content.DownloadFilesAsync(
@@ -991,6 +992,44 @@ namespace Picturepark.SDK.V1.Tests.Clients
             // Assert
             Assert.NotNull(await _client.Content.GetAsync(contentIds[0]).ConfigureAwait(false));
             Assert.NotNull(await _client.Content.GetAsync(contentIds[1]).ConfigureAwait(false));
+        }
+
+        [Fact]
+        [Trait("Stack", "Contents")]
+        public async Task ShouldDeleteContentManyByFilter()
+        {
+            // Arrange
+            string uniqueValue = $"{Guid.NewGuid():N}";
+
+            var content1 = await _client.Content.CreateAsync(new ContentCreateRequest
+            {
+                Content = JsonConvert.DeserializeObject($"{{ \"name\": \"{uniqueValue}_1\" }}"),
+                ContentSchemaId = "ContentItem",
+                Metadata = new DataDictionary()
+            }).ConfigureAwait(false);
+
+            var content2 = await _client.Content.CreateAsync(new ContentCreateRequest
+            {
+                Content = JsonConvert.DeserializeObject($"{{ \"name\": \"{uniqueValue}_2\" }}"),
+                ContentSchemaId = "ContentItem",
+                Metadata = new DataDictionary()
+            }).ConfigureAwait(false);
+
+            // Deactivate
+            var deactivationRequest = new ContentDeleteManyFilterRequest
+            {
+                FilterRequest = new ContentFilterRequest
+                {
+                    ChannelId = "rootChannel",
+                    SearchString = $"{uniqueValue}*"
+                }
+            };
+
+            var businessProcess = await _client.Content.DeleteManyByFilterAsync(deactivationRequest).ConfigureAwait(false);
+            await _client.BusinessProcess.WaitForCompletionAsync(businessProcess.Id).ConfigureAwait(false);
+
+            await Assert.ThrowsAsync<ContentNotFoundException>(async () => await _client.Content.GetAsync(content1.Id).ConfigureAwait(false)).ConfigureAwait(false);
+            await Assert.ThrowsAsync<ContentNotFoundException>(async () => await _client.Content.GetAsync(content2.Id).ConfigureAwait(false)).ConfigureAwait(false);
         }
 
         [Fact]

@@ -1,7 +1,9 @@
 ﻿using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Net;
+using System.Net.Http;
 using System.Reflection;
 using System.Threading.Tasks;
 using Picturepark.SDK.V1.Authentication;
@@ -11,8 +13,15 @@ namespace Picturepark.SDK.V1.Tests.Fixtures
 {
     public class ClientFixture : IDisposable
     {
+        private static readonly ConnectionIssuesHandler s_httpHandler;
+
         private readonly IPictureparkService _client;
         private readonly TestConfiguration _configuration;
+
+        static ClientFixture()
+        {
+            s_httpHandler = new ConnectionIssuesHandler(new PictureparkRetryHandler());
+        }
 
         public ClientFixture()
         {
@@ -58,13 +67,13 @@ namespace Picturepark.SDK.V1.Tests.Fixtures
         public IPictureparkService Client => _client;
 
         public Lazy<CustomerInfo> CustomerInfo =>
-            new Lazy<CustomerInfo>(() => _client.Info.GetAsync().GetAwaiter().GetResult());
+            new Lazy<CustomerInfo>(() => _client.Info.GetInfoAsync().GetAwaiter().GetResult());
 
         public string DefaultLanguage => CustomerInfo.Value.LanguageConfiguration.DefaultLanguage;
 
-        public async Task<ContentSearchResult> GetRandomContentsAsync(string searchString, int limit)
+        public async Task<ContentSearchResult> GetRandomContentsAsync(string searchString, int limit, IReadOnlyList<ContentType> contentTypes = null)
         {
-            return await RandomHelper.GetRandomContentsAsync(_client, searchString, limit);
+            return await RandomHelper.GetRandomContentsAsync(_client, searchString, limit, contentTypes);
         }
 
         public async Task<string> GetRandomContentIdAsync(string searchString, int limit)
@@ -90,10 +99,16 @@ namespace Picturepark.SDK.V1.Tests.Fixtures
         public PictureparkService GetLocalizedPictureparkService(string language)
         {
             var authClient = new AccessTokenAuthClient(_configuration.Server, _configuration.AccessToken, _configuration.CustomerAlias);
-            return new PictureparkService(new PictureparkServiceSettings(authClient)
+
+            var settings = new PictureparkServiceSettings(authClient)
             {
-                DisplayLanguage = language
-            });
+                DisplayLanguage = language,
+                HttpTimeout = TimeSpan.FromMinutes(5)
+            };
+
+            var httpClient = new HttpClient(s_httpHandler) { Timeout = settings.HttpTimeout };
+
+            return new PictureparkService(settings, httpClient);
         }
     }
 }

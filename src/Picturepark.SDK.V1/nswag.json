@@ -35,7 +35,8 @@
         "ShareAccessClient.DownloadWithContentIdAsync",
         "ShareAccessClient.DownloadWithOutputFormatIdAsync",
         "SchemaClient.ExistsAsync",
-        "JsonSchemaClient.GetAsync"
+        "JsonSchemaClient.GetAsync",
+        "LiveStreamClient.GetMessageAsync"
       ],
       "generateExceptionClasses": true,
       "exceptionClass": "ApiException",

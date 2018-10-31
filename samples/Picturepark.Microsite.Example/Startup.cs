@@ -116,7 +116,6 @@ namespace Picturepark.Microsite.Example
 			if (env.IsDevelopment())
 			{
 				app.UseDeveloperExceptionPage();
-				app.UseBrowserLink();
 			}
 			else
 			{

@@ -3,8 +3,8 @@ using Picturepark.SDK.V1.Contract.Authentication;
 
 namespace Picturepark.SDK.V1.CloudManager
 {
-    /// <summary>The Picturepark client settings interface.</summary>
-    public interface ICloudManagerClientSettings
+    /// <summary>The Picturepark service settings interface.</summary>
+    public interface ICloudManagerServiceSettings
     {
         /// <summary>Gets the server URL of the Picturepark authentication server.</summary>
         string BaseUrl { get; }

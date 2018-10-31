@@ -12,6 +12,8 @@
     "listItemRetentionTime": "30.00:00:00",
     "snapshotRetentionTime": "30.00:00:00",
     "SnapshotFullbackupScheduleTime": "13:00:00",
+    "documentHistoryRetentionTime": "30.00:00:00",
+    "liveStreamRetentionTime": "7.00:00:00",
     "baseUrl": "{baseurl}",
     "storagePath": "{storagepath}",
     "customerHosts": [],
@@ -21,6 +23,8 @@
     "noReplyEmailAddress": "no-reply@picturepark.com",
     "createTransferBusinessProcess": "TransferMonitor",
     "contentBackupState": "Disabled",
+    "userRetentionTime": "01:00:00", 
+    "apiCallsPerMinute": 1000, 
     "languageConfiguration": {
         "systemLanguages": [ "en", "de" ],
         "metadataLanguages": [ "en", "tr", "nl", "fr", "de", "pt", "es", "fi", "it", "no", "bg", "da", "hu", "pl", "ro", "ru" ],

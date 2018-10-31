@@ -1,5 +1,5 @@
 ﻿{
-  "x-generator": "NSwag v11.18.7.0 (NJsonSchema v9.10.70.0 (Newtonsoft.Json v9.0.0.0))",
+  "x-generator": "NSwag v11.19.2.0 (NJsonSchema v9.10.73.0 (Newtonsoft.Json v9.0.0.0))",
   "openapi": "3.0.0",
   "info": {
     "title": "Picturepark CloudManager API V1",
@@ -1005,12 +1005,12 @@
         ]
       }
     },
-    "/backup/snapshot/cleanup": {
+    "/backup/repository/cleanup": {
       "post": {
         "tags": [
           "CloudBackup"
         ],
-        "operationId": "CloudBackup_Cleanup",
+        "operationId": "CloudBackup_CleanupRepositories",
         "responses": {
           "200": {
             "x-nullable": true,
@@ -1018,7 +1018,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/SnapshotsCleanupResult"
+                  "$ref": "#/components/schemas/SnapshotRepositoryCleanupResult"
                 }
               }
             }
@@ -1197,21 +1197,23 @@
         ]
       }
     },
-    "/backup/snapshot/{repositoryName}/archive": {
+    "/backup/repository/archive": {
       "put": {
         "tags": [
           "CloudBackup"
         ],
         "operationId": "CloudBackup_ArchiveRepository",
-        "parameters": [
-          {
-            "type": "string",
-            "name": "repositoryName",
-            "in": "path",
-            "required": true,
-            "nullable": false
-          }
-        ],
+        "requestBody": {
+          "x-name": "archiveRequest",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SnapshotRepositoryArchiveRequest"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "200": {
             "x-nullable": true,
@@ -1285,21 +1287,23 @@
         ]
       }
     },
-    "/backup/snapshot/{repositoryName}": {
-      "get": {
+    "/backup/repository/searchByName": {
+      "post": {
         "tags": [
           "CloudBackup"
         ],
         "operationId": "CloudBackup_GetRepository",
-        "parameters": [
-          {
-            "type": "string",
-            "name": "repositoryName",
-            "in": "path",
-            "required": true,
-            "nullable": false
-          }
-        ],
+        "requestBody": {
+          "x-name": "searchByNameRequest",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SnapshotRepositorySearchByNameRequest"
+              }
+            }
+          },
+          "required": true
+        },
         "responses": {
           "200": {
             "x-nullable": true,
@@ -5452,6 +5456,113 @@
           }
         ]
       }
+    },
+    "/maintenance/customer/{customerId}/schemas/touch": {
+      "post": {
+        "tags": [
+          "Maintenance"
+        ],
+        "operationId": "Maintenance_TouchSchemas",
+        "parameters": [
+          {
+            "type": "string",
+            "name": "customerId",
+            "in": "path",
+            "required": true,
+            "nullable": false
+          },
+          {
+            "type": "string",
+            "name": "timeout",
+            "in": "query",
+            "required": true,
+            "format": "time-span",
+            "nullable": false
+          }
+        ],
+        "requestBody": {
+          "x-name": "request",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TouchSchemasRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "x-nullable": true,
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BusinessProcess"
+                }
+              }
+            }
+          },
+          "500": {
+            "x-nullable": true,
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "x-nullable": true,
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "409": {
+            "x-nullable": true,
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "400": {
+            "x-nullable": true,
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
     }
   },
   "components": {
@@ -5459,15 +5570,13 @@
       "BusinessProcess": {
         "type": "object",
         "discriminator": {
-          "propertyName": "kind",
-          "mapping": {
-            "BusinessProcessBulkResponse": {
-              "$ref": "#/components/schemas/BusinessProcessBulkResponse"
-            }
-          }
+          "propertyName": "kind"
         },
+        "description": "Business process",
         "additionalProperties": false,
         "required": [
+          "id",
+          "processDefinitionId",
           "supportsCancellation",
           "businessProcessScope",
           "lifeCycle",
@@ -5478,48 +5587,72 @@
         ],
         "properties": {
           "id": {
-            "type": "string"
+            "type": "string",
+            "description": "ID of the business process.",
+            "minLength": 1
           },
           "processDefinitionId": {
-            "type": "string"
+            "type": "string",
+            "description": "ID of the business process definition associated to the business process.",
+            "minLength": 1
           },
           "referenceId": {
-            "type": "string"
+            "type": "string",
+            "description": "ID of the document that is modified by the running of the business process. Used during the cancellation of the business process."
           },
           "referenceDocType": {
-            "type": "string"
+            "type": "string",
+            "description": "Type of the document that is modified by the running of the business process. Used during the cancellation of the business process."
           },
           "supportsCancellation": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "True if the business process execution can be cancelled. False otherwise."
           },
           "businessProcessScope": {
-            "$ref": "#/components/schemas/BusinessProcessScope"
+            "description": "Scope of the business process.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/BusinessProcessScope"
+              }
+            ]
           },
           "lifeCycle": {
-            "$ref": "#/components/schemas/BusinessProcessLifeCycle"
+            "description": "Current life cycle of the business process.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/BusinessProcessLifeCycle"
+              }
+            ]
           },
           "startDate": {
             "type": "string",
+            "description": "When the business process started.",
             "format": "date-time"
           },
           "endDate": {
             "type": "string",
+            "description": "When the business process finished.",
             "format": "date-time"
           },
           "finished": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Is the business process finished."
           },
           "stateHistory": {
             "type": "array",
+            "description": "List containing the history of all the state transitions of the business process.",
             "items": {
               "$ref": "#/components/schemas/BusinessProcessState"
             }
           },
           "currentState": {
-            "type": "string"
+            "type": "string",
+            "description": "Current state of the business process."
           },
-          "processDefinitionName": {
-            "type": "string"
+          "lastReportedProgress": {
+            "type": "string",
+            "description": "Timestamp when the business process last reported progress.",
+            "format": "date-time"
           },
           "kind": {
             "type": "string"
@@ -5528,7 +5661,7 @@
       },
       "BusinessProcessScope": {
         "type": "string",
-        "description": "",
+        "description": "Scope of the business process",
         "x-enumNames": [
           "System",
           "User"
@@ -5540,7 +5673,7 @@
       },
       "BusinessProcessLifeCycle": {
         "type": "string",
-        "description": "",
+        "description": "Life cycle of the business process",
         "x-enumNames": [
           "Draft",
           "InProgress",
@@ -5562,89 +5695,49 @@
       },
       "BusinessProcessState": {
         "type": "object",
+        "description": "State transition information of a business process",
         "additionalProperties": false,
         "required": [
+          "state",
           "timestamp"
         ],
         "properties": {
           "state": {
-            "type": "string"
+            "type": "string",
+            "description": "State of the business process",
+            "minLength": 1
           },
           "timestamp": {
             "type": "string",
+            "description": "Date and time of when the state transition was performed.",
             "format": "date-time"
           },
           "error": {
-            "$ref": "#/components/schemas/ErrorResponse"
+            "description": "Eventual error associated to the state transition.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ErrorResponse"
+              }
+            ]
           }
         }
       },
       "ErrorResponse": {
         "type": "object",
+        "description": "Error information with serialized exception",
         "additionalProperties": false,
         "properties": {
           "exception": {
-            "type": "string"
+            "type": "string",
+            "description": "Serialized PictureparkBusinessException."
           },
           "traceId": {
-            "type": "string"
+            "type": "string",
+            "description": "Trace ID."
           },
           "traceJobId": {
-            "type": "string"
-          }
-        }
-      },
-      "BusinessProcessBulkResponse": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "response": {
-            "$ref": "#/components/schemas/BulkResponse"
-          }
-        },
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/BusinessProcess"
-          }
-        ]
-      },
-      "BulkResponse": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "rows": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/BulkResponseRow"
-            }
-          }
-        }
-      },
-      "BulkResponseRow": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "version",
-          "succeeded",
-          "status"
-        ],
-        "properties": {
-          "id": {
-            "type": "string"
-          },
-          "version": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "error": {
-            "type": "string"
-          },
-          "succeeded": {
-            "type": "boolean"
-          },
-          "status": {
-            "type": "integer",
-            "format": "int32"
+            "type": "string",
+            "description": "Trace job ID."
           }
         }
       },
@@ -5682,6 +5775,9 @@
             },
             "TermsOfServiceNotNewestException": {
               "$ref": "#/components/schemas/TermsOfServiceNotNewestException"
+            },
+            "IllegalAuthorizationStateTransitionException": {
+              "$ref": "#/components/schemas/IllegalAuthorizationStateTransitionException"
             },
             "RenderingException": {
               "$ref": "#/components/schemas/RenderingException"
@@ -5836,8 +5932,8 @@
             "IndexMappingException": {
               "$ref": "#/components/schemas/IndexMappingException"
             },
-            "DuplicatedSearchBehaviourException": {
-              "$ref": "#/components/schemas/DuplicatedSearchBehaviourException"
+            "DuplicatedSearchBehaviorException": {
+              "$ref": "#/components/schemas/DuplicatedSearchBehaviorException"
             },
             "SearchStringLeadingWildcardException": {
               "$ref": "#/components/schemas/SearchStringLeadingWildcardException"
@@ -5880,6 +5976,9 @@
             },
             "PermissionValidationException": {
               "$ref": "#/components/schemas/PermissionValidationException"
+            },
+            "PermissionSetInUseException": {
+              "$ref": "#/components/schemas/PermissionSetInUseException"
             },
             "UnsupportedListItemChangeCommandException": {
               "$ref": "#/components/schemas/UnsupportedListItemChangeCommandException"
@@ -5943,6 +6042,15 @@
             },
             "AggregationNameInvalidException": {
               "$ref": "#/components/schemas/AggregationNameInvalidException"
+            },
+            "AggregationSizeInvalidException": {
+              "$ref": "#/components/schemas/AggregationSizeInvalidException"
+            },
+            "RelationTypeMissingException": {
+              "$ref": "#/components/schemas/RelationTypeMissingException"
+            },
+            "ReferenceUpdateException": {
+              "$ref": "#/components/schemas/ReferenceUpdateException"
             },
             "SchemaFieldOverwriteTypeMismatchException": {
               "$ref": "#/components/schemas/SchemaFieldOverwriteTypeMismatchException"
@@ -6076,8 +6184,8 @@
             "MissingDisplayPatternForCustomerDefaultLanguageException": {
               "$ref": "#/components/schemas/MissingDisplayPatternForCustomerDefaultLanguageException"
             },
-            "DeleteContentsWithRelationsException": {
-              "$ref": "#/components/schemas/DeleteContentsWithRelationsException"
+            "DeleteContentsWithReferencesException": {
+              "$ref": "#/components/schemas/DeleteContentsWithReferencesException"
             },
             "ContentMetadataUpdateManyException": {
               "$ref": "#/components/schemas/ContentMetadataUpdateManyException"
@@ -6091,8 +6199,11 @@
             "ContentFileReplaceTypeMismatchException": {
               "$ref": "#/components/schemas/ContentFileReplaceTypeMismatchException"
             },
-            "BusinessProcessWaitTimeoutException": {
-              "$ref": "#/components/schemas/BusinessProcessWaitTimeoutException"
+            "ContentBackupFailedException": {
+              "$ref": "#/components/schemas/ContentBackupFailedException"
+            },
+            "ContentLayerSameRootException": {
+              "$ref": "#/components/schemas/ContentLayerSameRootException"
             },
             "BusinessProcessEngineRequestException": {
               "$ref": "#/components/schemas/BusinessProcessEngineRequestException"
@@ -6114,6 +6225,9 @@
             },
             "SchemaFieldImportTypeMismatchException": {
               "$ref": "#/components/schemas/SchemaFieldImportTypeMismatchException"
+            },
+            "SchemaFieldNotSupportedException": {
+              "$ref": "#/components/schemas/SchemaFieldNotSupportedException"
             },
             "SnapshotTimeoutException": {
               "$ref": "#/components/schemas/SnapshotTimeoutException"
@@ -6147,6 +6261,18 @@
             },
             "BusinessProcessLifeCycleNotHitException": {
               "$ref": "#/components/schemas/BusinessProcessLifeCycleNotHitException"
+            },
+            "MaximumTransferSizeException": {
+              "$ref": "#/components/schemas/MaximumTransferSizeException"
+            },
+            "OnlyAccessibleToRecipientException": {
+              "$ref": "#/components/schemas/OnlyAccessibleToRecipientException"
+            },
+            "EnvironmentNotAvailableException": {
+              "$ref": "#/components/schemas/EnvironmentNotAvailableException"
+            },
+            "CustomerNotAvailableException": {
+              "$ref": "#/components/schemas/CustomerNotAvailableException"
             }
           }
         },
@@ -6338,6 +6464,15 @@
           }
         ]
       },
+      "IllegalAuthorizationStateTransitionException": {
+        "type": "object",
+        "additionalProperties": false,
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          }
+        ]
+      },
       "RenderingException": {
         "type": "object",
         "additionalProperties": false,
@@ -6368,13 +6503,7 @@
         "type": "object",
         "additionalProperties": false,
         "properties": {
-          "userId": {
-            "type": "string"
-          },
           "externalId": {
-            "type": "string"
-          },
-          "virtualHost": {
             "type": "string"
           },
           "detailErrorMessage": {
@@ -6466,6 +6595,9 @@
             "type": "string"
           },
           "version": {
+            "type": "string"
+          },
+          "expectedVersion": {
             "type": "string"
           }
         },
@@ -7089,11 +7221,11 @@
           }
         ]
       },
-      "DuplicatedSearchBehaviourException": {
+      "DuplicatedSearchBehaviorException": {
         "type": "object",
         "additionalProperties": false,
         "properties": {
-          "duplicatedSearchBehaviours": {
+          "duplicatedSearchBehaviors": {
             "type": "string"
           }
         },
@@ -7405,7 +7537,10 @@
           "ManageServiceProviders",
           "ManageEmbeds",
           "ManageTemplates",
-          "ManageTermsOfService"
+          "ManageTermsOfService",
+          "ManageLiveStream",
+          "ManageDocumentHistory",
+          "ManageAllShares"
         ],
         "enum": [
           "ManageContent",
@@ -7422,7 +7557,10 @@
           "ManageServiceProviders",
           "ManageEmbeds",
           "ManageTemplates",
-          "ManageTermsOfService"
+          "ManageTermsOfService",
+          "ManageLiveStream",
+          "ManageDocumentHistory",
+          "ManageAllShares"
         ]
       },
       "PermissionSetNotFoundException": {
@@ -7465,6 +7603,24 @@
           },
           "operation": {
             "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          }
+        ]
+      },
+      "PermissionSetInUseException": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "referenceCount"
+        ],
+        "properties": {
+          "referenceCount": {
+            "type": "integer",
+            "format": "int64"
           }
         },
         "allOf": [
@@ -7538,15 +7694,13 @@
       "DeleteListItemsWithReferencesException": {
         "type": "object",
         "additionalProperties": false,
+        "required": [
+          "numberOfReferences"
+        ],
         "properties": {
-          "referencesList": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "references": {
-            "type": "string"
+          "numberOfReferences": {
+            "type": "integer",
+            "format": "int64"
           }
         },
         "allOf": [
@@ -7625,7 +7779,7 @@
       },
       "TransferType": {
         "type": "string",
-        "description": "",
+        "description": "Type of the transfer",
         "x-enumNames": [
           "FileUpload",
           "FileUploadAutoImport",
@@ -7879,6 +8033,62 @@
         "allOf": [
           {
             "$ref": "#/components/schemas/PictureparkValidationException"
+          }
+        ]
+      },
+      "AggregationSizeInvalidException": {
+        "type": "object",
+        "description": "Size of the aggregation is invalid.",
+        "additionalProperties": false,
+        "required": [
+          "aggregationSize"
+        ],
+        "properties": {
+          "aggregationName": {
+            "type": "string",
+            "description": "The name identifying the aggregation."
+          },
+          "aggregationSize": {
+            "type": "integer",
+            "description": "The invalid size of the aggregation: size must be equal or greater than 1.",
+            "format": "int32"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          }
+        ]
+      },
+      "RelationTypeMissingException": {
+        "type": "object",
+        "additionalProperties": false,
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkBusinessException"
+          }
+        ]
+      },
+      "ReferenceUpdateException": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "referenceItemId": {
+            "type": "string"
+          },
+          "referenceType": {
+            "type": "string"
+          },
+          "exceptions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PictureparkException"
+            }
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkBusinessException"
           }
         ]
       },
@@ -8510,7 +8720,7 @@
       },
       "SchemaType": {
         "type": "string",
-        "description": "",
+        "description": "Type of the schema",
         "x-enumNames": [
           "Content",
           "Layer",
@@ -8696,7 +8906,7 @@
       },
       "DisplayPatternType": {
         "type": "string",
-        "description": "",
+        "description": "The display pattern type",
         "x-enumNames": [
           "Thumbnail",
           "List",
@@ -8710,18 +8920,21 @@
           "Name"
         ]
       },
-      "DeleteContentsWithRelationsException": {
+      "DeleteContentsWithReferencesException": {
         "type": "object",
         "additionalProperties": false,
+        "required": [
+          "numberOfReferences",
+          "numberOfShares"
+        ],
         "properties": {
-          "relationList": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
+          "numberOfReferences": {
+            "type": "integer",
+            "format": "int64"
           },
-          "relations": {
-            "type": "string"
+          "numberOfShares": {
+            "type": "integer",
+            "format": "int64"
           }
         },
         "allOf": [
@@ -8813,7 +9026,7 @@
       },
       "ContentType": {
         "type": "string",
-        "description": "",
+        "description": "Content types",
         "x-enumNames": [
           "Unknown",
           "Bitmap",
@@ -8861,19 +9074,60 @@
           "ContentItem"
         ]
       },
-      "BusinessProcessWaitTimeoutException": {
+      "ContentBackupFailedException": {
         "type": "object",
         "additionalProperties": false,
         "properties": {
-          "businessProcessId": {
+          "contentId": {
+            "type": "string"
+          },
+          "outputFormatId": {
+            "type": "string"
+          },
+          "outputId": {
             "type": "string"
           }
         },
         "allOf": [
           {
-            "$ref": "#/components/schemas/PictureparkTimeoutException"
+            "$ref": "#/components/schemas/PictureparkBusinessException"
           }
         ]
+      },
+      "ContentLayerSameRootException": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "contentId": {
+            "type": "string"
+          },
+          "layerIdsByRootSchema": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LayerIdsByRootSchema"
+            }
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          }
+        ]
+      },
+      "LayerIdsByRootSchema": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "rootSchemaId": {
+            "type": "string"
+          },
+          "layerSchemaIds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
       },
       "BusinessProcessEngineRequestException": {
         "type": "object",
@@ -8994,6 +9248,26 @@
             "type": "string"
           },
           "existingFieldType": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          }
+        ]
+      },
+      "SchemaFieldNotSupportedException": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "fieldId": {
+            "type": "string"
+          },
+          "schemaId": {
+            "type": "string"
+          },
+          "fieldType": {
             "type": "string"
           }
         },
@@ -9173,36 +9447,63 @@
           }
         ]
       },
-      "SnapshotRepositoryCustomerCreateRequest": {
+      "MaximumTransferSizeException": {
         "type": "object",
         "additionalProperties": false,
+        "required": [
+          "transferSize",
+          "maximumTransferSize"
+        ],
         "properties": {
-          "customerAlias": {
+          "transferSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "maximumTransferSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "transferId": {
             "type": "string"
           }
         },
         "allOf": [
           {
-            "$ref": "#/components/schemas/SnapshotRepositoryBaseCreateRequest"
+            "$ref": "#/components/schemas/PictureparkException"
           }
         ]
       },
-      "SnapshotRepositoryBaseCreateRequest": {
+      "OnlyAccessibleToRecipientException": {
         "type": "object",
-        "x-abstract": true,
         "additionalProperties": false,
-        "required": [
-          "startTime"
-        ],
-        "properties": {
-          "repositoryName": {
-            "type": "string"
-          },
-          "startTime": {
-            "type": "string",
-            "format": "date-time"
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
           }
-        }
+        ]
+      },
+      "EnvironmentNotAvailableException": {
+        "type": "object",
+        "additionalProperties": false,
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkException"
+          }
+        ]
+      },
+      "CustomerNotAvailableException": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "customerId": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkException"
+          }
+        ]
       },
       "SnapshotRepository": {
         "type": "object",
@@ -9240,6 +9541,46 @@
           "Enviroment",
           "Customer"
         ]
+      },
+      "SnapshotRepositoryCustomerCreateRequest": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "customerAlias": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/SnapshotRepositoryBaseCreateRequest"
+          }
+        ]
+      },
+      "SnapshotRepositoryBaseCreateRequest": {
+        "type": "object",
+        "x-abstract": true,
+        "additionalProperties": false,
+        "required": [
+          "startTime"
+        ],
+        "properties": {
+          "repositoryName": {
+            "type": "string"
+          },
+          "startTime": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "SnapshotEnqueueResult": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "tokenId": {
+            "type": "string"
+          }
+        }
       },
       "SnapshotCustomerCreateRequest": {
         "type": "object",
@@ -9316,12 +9657,28 @@
           "Deletion"
         ]
       },
-      "SnapshotEnqueueResult": {
+      "SnapshotRestore": {
         "type": "object",
         "additionalProperties": false,
+        "required": [
+          "restoreDate"
+        ],
         "properties": {
-          "tokenId": {
+          "restoreDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "repositoryName": {
             "type": "string"
+          },
+          "snapshotName": {
+            "type": "string"
+          },
+          "indices": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           }
         }
       },
@@ -9361,31 +9718,6 @@
           }
         }
       },
-      "SnapshotRestore": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "restoreDate"
-        ],
-        "properties": {
-          "restoreDate": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "repositoryName": {
-            "type": "string"
-          },
-          "snapshotName": {
-            "type": "string"
-          },
-          "indices": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          }
-        }
-      },
       "SnapshotRepositoryEnvironmentCreateRequest": {
         "type": "object",
         "additionalProperties": false,
@@ -9413,51 +9745,9 @@
           }
         ]
       },
-      "SnapshotCustomerSearchRequest": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "start",
-          "limit"
-        ],
-        "properties": {
-          "searchString": {
-            "type": "string"
-          },
-          "start": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "limit": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "repositoryNames": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "customerAlias": {
-            "type": "string"
-          },
-          "customerId": {
-            "type": "string"
-          }
-        }
-      },
       "SnapshotCustomerSearchResult": {
         "type": "object",
         "additionalProperties": false,
-        "required": [
-          "elapsedMilliseconds"
-        ],
-        "properties": {
-          "elapsedMilliseconds": {
-            "type": "integer",
-            "format": "int64"
-          }
-        },
         "allOf": [
           {
             "$ref": "#/components/schemas/BaseResultOfSnapshot"
@@ -9469,7 +9759,8 @@
         "additionalProperties": false,
         "required": [
           "totalResults",
-          "results"
+          "results",
+          "elapsedMilliseconds"
         ],
         "properties": {
           "totalResults": {
@@ -9478,16 +9769,13 @@
           },
           "results": {
             "type": "array",
-            "minLength": 1,
             "items": {
               "$ref": "#/components/schemas/Snapshot"
             }
           },
-          "pageToken": {
-            "type": "string"
-          },
-          "queryDebugInformation": {
-            "$ref": "#/components/schemas/QueryDebugInformation"
+          "elapsedMilliseconds": {
+            "type": "integer",
+            "format": "int64"
           }
         }
       },
@@ -9604,31 +9892,60 @@
           }
         }
       },
-      "QueryDebugInformation": {
+      "SnapshotCustomerSearchRequest": {
         "type": "object",
         "additionalProperties": false,
+        "required": [
+          "start",
+          "limit"
+        ],
         "properties": {
-          "general": {
+          "searchString": {
             "type": "string"
           },
-          "auditTrail": {
-            "type": "string"
+          "start": {
+            "type": "integer",
+            "format": "int32"
           },
-          "request": {},
-          "response": {}
-        }
-      },
-      "SnapshotRepositoryCustomerSearchRequest": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "customerId": {
-            "type": "string"
+          "limit": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "repositoryNames": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
           "customerAlias": {
             "type": "string"
+          },
+          "customerId": {
+            "type": "string"
+          },
+          "snapshotDataType": {
+            "description": "Limits the returned snapshots to the ones containing data of the specified type (customer, export or history). This search criteria is applied only if no repository name\nis specified.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/SnapshotDataType"
+              }
+            ]
           }
         }
+      },
+      "SnapshotDataType": {
+        "type": "string",
+        "description": "Type of data that have been snapshot",
+        "x-enumNames": [
+          "Customer",
+          "History",
+          "Export"
+        ],
+        "enum": [
+          "Customer",
+          "History",
+          "Export"
+        ]
       },
       "SnapshotRepositorySearchResult": {
         "type": "object",
@@ -9649,53 +9966,31 @@
           }
         }
       },
-      "SnapshotRepositoryEnvironmentSearchRequest": {
+      "SnapshotRepositoryCustomerSearchRequest": {
         "type": "object",
         "additionalProperties": false,
         "properties": {
-          "environmentId": {
-            "type": "string"
-          }
-        }
-      },
-      "SnapshotCustomerCloneRequest": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "snapshotName": {
-            "type": "string"
-          },
-          "repositoryName": {
-            "type": "string"
-          },
-          "sourceCustomerAlias": {
-            "type": "string"
-          },
-          "customerName": {
+          "customerId": {
             "type": "string"
           },
           "customerAlias": {
             "type": "string"
           },
-          "customerHosts": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "corsAllowedHosts": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "storagePath": {
-            "type": "string"
-          },
-          "baseUrl": {
-            "type": "string"
-          },
-          "redirectUri": {
+          "snapshotDataType": {
+            "description": "Limits the returned snapshot repositories to the ones containing customer, history or export backups.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/SnapshotDataType"
+              }
+            ]
+          }
+        }
+      },
+      "SnapshotRepositoryEnvironmentSearchRequest": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "environmentId": {
             "type": "string"
           }
         }
@@ -9747,7 +10042,7 @@
       },
       "LifeCycle": {
         "type": "string",
-        "description": "",
+        "description": "Lifecycle",
         "x-enumNames": [
           "Draft",
           "Active",
@@ -9761,7 +10056,49 @@
           "Deleted"
         ]
       },
-      "SnapshotsCleanupResult": {
+      "SnapshotCustomerCloneRequest": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "snapshotName": {
+            "type": "string"
+          },
+          "repositoryName": {
+            "type": "string"
+          },
+          "sourceCustomerAlias": {
+            "type": "string"
+          },
+          "customerName": {
+            "type": "string"
+          },
+          "customerAlias": {
+            "type": "string"
+          },
+          "customerHosts": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "corsAllowedHosts": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "storagePath": {
+            "type": "string"
+          },
+          "baseUrl": {
+            "type": "string"
+          },
+          "redirectUri": {
+            "type": "string"
+          }
+        }
+      },
+      "SnapshotRepositoryCleanupResult": {
         "type": "object",
         "additionalProperties": false,
         "required": [
@@ -9780,6 +10117,21 @@
           }
         }
       },
+      "CustomerExportResult": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "customerId": {
+            "type": "string"
+          },
+          "repositoryName": {
+            "type": "string"
+          },
+          "snapshotName": {
+            "type": "string"
+          }
+        }
+      },
       "CustomerExportRequest": {
         "type": "object",
         "additionalProperties": false,
@@ -9795,17 +10147,26 @@
           }
         }
       },
-      "CustomerExportResult": {
+      "SnapshotRepositoryArchiveRequest": {
         "type": "object",
         "additionalProperties": false,
+        "required": [
+          "isArchived"
+        ],
         "properties": {
-          "customerId": {
-            "type": "string"
+          "isArchived": {
+            "type": "boolean"
           },
           "repositoryName": {
             "type": "string"
-          },
-          "snapshotName": {
+          }
+        }
+      },
+      "SnapshotRepositorySearchByNameRequest": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "repositoryName": {
             "type": "string"
           }
         }
@@ -9827,6 +10188,28 @@
           "businessProcessId": {
             "type": "string",
             "description": "Id of the business process tracking the output, if any (i.e. in case of ContentBackupRecovery mode)"
+          }
+        }
+      },
+      "ContentBackupSearchResult": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "totalResults"
+        ],
+        "properties": {
+          "totalResults": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "results": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "pageToken": {
+            "type": "string"
           }
         }
       },
@@ -9856,28 +10239,6 @@
           "pageToken": {
             "type": "string",
             "description": "To get a large amount of data, page token returned from the response can be used to get all data."
-          }
-        }
-      },
-      "ContentBackupSearchResult": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "totalResults"
-        ],
-        "properties": {
-          "totalResults": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "results": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "pageToken": {
-            "type": "string"
           }
         }
       },
@@ -9927,6 +10288,378 @@
           }
         }
       },
+      "CustomerConfiguration": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "useSsl",
+          "enableQueryDetails",
+          "elasticSearchNumberOfShards",
+          "elasticSearchNumberOfReplicas",
+          "elasticSearchNumberOfRoutingShards",
+          "rootContentSearchIndexNumberOfShards",
+          "rootContentSearchIndexNumberOfReplicas",
+          "rootContentSearchIndexNumberOfRoutingShards",
+          "rootListItemSearchIndexNumberOfShards",
+          "rootListItemSearchIndexNumberOfReplicas",
+          "rootListItemSearchIndexNumberOfRoutingShards",
+          "indexedFieldThreshold",
+          "sortableFieldThreshold",
+          "redisDatabaseIndex",
+          "lifeCycle",
+          "contentRetentionTime",
+          "listItemRetentionTime",
+          "snapshotRetentionTime",
+          "userRetentionTime",
+          "documentHistoryRetentionTime",
+          "liveStreamRetentionTime",
+          "snapshotFullbackupScheduleTime",
+          "contentBackupState",
+          "apiCallsPerMinute"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "lifelineId": {
+            "type": "string"
+          },
+          "namespace": {
+            "type": "string"
+          },
+          "alias": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "mainCatalog": {
+            "type": "string"
+          },
+          "userCatalog": {
+            "type": "string"
+          },
+          "mailCatalog": {
+            "type": "string"
+          },
+          "transferCatalog": {
+            "type": "string"
+          },
+          "shareCatalog": {
+            "type": "string"
+          },
+          "outputCatalog": {
+            "type": "string"
+          },
+          "outputFormatCatalog": {
+            "type": "string"
+          },
+          "channelCatalog": {
+            "type": "string"
+          },
+          "notificationCatalog": {
+            "type": "string"
+          },
+          "businessProcessCatalog": {
+            "type": "string"
+          },
+          "listItemCatalog": {
+            "type": "string"
+          },
+          "contentCatalog": {
+            "type": "string"
+          },
+          "displayValueCatalog": {
+            "type": "string"
+          },
+          "tokenCatalog": {
+            "type": "string"
+          },
+          "documentHistoryCatalog": {
+            "type": "string"
+          },
+          "liveStreamCatalog": {
+            "type": "string"
+          },
+          "cacheCatalog": {
+            "type": "string"
+          },
+          "schemaCatalog": {
+            "type": "string"
+          },
+          "referenceCatalog": {
+            "type": "string"
+          },
+          "watermarkPath": {
+            "type": "string"
+          },
+          "logoPath": {
+            "type": "string"
+          },
+          "storagePath": {
+            "type": "string"
+          },
+          "contractVersion": {
+            "type": "string"
+          },
+          "customerHosts": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "useSsl": {
+            "type": "boolean"
+          },
+          "enableQueryDetails": {
+            "type": "boolean"
+          },
+          "serviceProviders": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CustomerServiceProviderConfiguration"
+            }
+          },
+          "supportContactEmailAddress": {
+            "type": "string"
+          },
+          "baseUrl": {
+            "type": "string"
+          },
+          "cdnConfiguration": {
+            "$ref": "#/components/schemas/CdnConfigurationBase"
+          },
+          "elasticSearchNumberOfShards": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "elasticSearchNumberOfReplicas": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "elasticSearchNumberOfRoutingShards": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "rootContentSearchIndexNumberOfShards": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "rootContentSearchIndexNumberOfReplicas": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "rootContentSearchIndexNumberOfRoutingShards": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "rootListItemSearchIndexNumberOfShards": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "rootListItemSearchIndexNumberOfReplicas": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "rootListItemSearchIndexNumberOfRoutingShards": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "indexedFieldThreshold": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "sortableFieldThreshold": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "corsAllowedHosts": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "noReplyEmailAddress": {
+            "type": "string"
+          },
+          "languageConfiguration": {
+            "$ref": "#/components/schemas/LanguageConfiguration"
+          },
+          "businessProcessEngineConnectionString": {
+            "type": "string"
+          },
+          "createTransferBusinessProcess": {
+            "type": "string"
+          },
+          "redisDatabaseIndex": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "lifeCycle": {
+            "$ref": "#/components/schemas/LifeCycle"
+          },
+          "contentRetentionTime": {
+            "type": "string",
+            "format": "time-span"
+          },
+          "listItemRetentionTime": {
+            "type": "string",
+            "format": "time-span"
+          },
+          "snapshotRetentionTime": {
+            "type": "string",
+            "format": "time-span"
+          },
+          "userRetentionTime": {
+            "type": "string",
+            "format": "time-span"
+          },
+          "documentHistoryRetentionTime": {
+            "type": "string",
+            "format": "time-span"
+          },
+          "liveStreamRetentionTime": {
+            "type": "string",
+            "format": "time-span"
+          },
+          "snapshotFullbackupScheduleTime": {
+            "type": "string",
+            "format": "time-span"
+          },
+          "deactivationMessage": {
+            "$ref": "#/components/schemas/TranslatedStringDictionary"
+          },
+          "superAdminUserId": {
+            "type": "string"
+          },
+          "serviceAdminUserId": {
+            "type": "string"
+          },
+          "contentBackupState": {
+            "$ref": "#/components/schemas/ContentBackupState"
+          },
+          "apiCallsPerMinute": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "contentBackupStoragePath": {
+            "type": "string"
+          }
+        }
+      },
+      "CustomerServiceProviderConfiguration": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "serviceProviderId": {
+            "type": "string"
+          },
+          "customerId": {
+            "type": "string"
+          },
+          "userRoleIds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "settings": {
+            "type": "string"
+          }
+        }
+      },
+      "CdnConfigurationBase": {
+        "type": "object",
+        "discriminator": {
+          "propertyName": "kind",
+          "mapping": {
+            "FastlyCdnConfiguration": {
+              "$ref": "#/components/schemas/FastlyCdnConfiguration"
+            }
+          }
+        },
+        "x-abstract": true,
+        "additionalProperties": false,
+        "required": [
+          "kind"
+        ],
+        "properties": {
+          "url": {
+            "type": "string"
+          },
+          "kind": {
+            "type": "string"
+          }
+        }
+      },
+      "FastlyCdnConfiguration": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "apiToken": {
+            "type": "string"
+          },
+          "serviceId": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/CdnConfigurationBase"
+          }
+        ]
+      },
+      "LanguageConfiguration": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "systemLanguages": {
+            "type": "array",
+            "description": "A list of languages serving as system languages.",
+            "items": {
+              "type": "string"
+            }
+          },
+          "metadataLanguages": {
+            "type": "array",
+            "description": "A list of languages serving as metadata languages.",
+            "items": {
+              "type": "string"
+            }
+          },
+          "defaultLanguage": {
+            "type": "string",
+            "description": "The default language. Not the be confused with the metadata fallback language x-default."
+          }
+        }
+      },
+      "TranslatedStringDictionary": {
+        "type": "object",
+        "description": "A custom dictionary type to distinguish language specific class properties.",
+        "additionalProperties": false,
+        "allOf": [
+          {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          }
+        ]
+      },
+      "ContentBackupState": {
+        "type": "string",
+        "description": "",
+        "x-enumNames": [
+          "Disabled",
+          "Recovery",
+          "Enabled"
+        ],
+        "enum": [
+          "Disabled",
+          "Recovery",
+          "Enabled"
+        ]
+      },
       "CustomerCreateRequest": {
         "type": "object",
         "additionalProperties": false,
@@ -9944,8 +10677,12 @@
           "contentRetentionTime",
           "listItemRetentionTime",
           "snapshotRetentionTime",
+          "userRetentionTime",
+          "documentHistoryRetentionTime",
+          "liveStreamRetentionTime",
           "snapshotFullbackupScheduleTime",
-          "contentBackupState"
+          "contentBackupState",
+          "apiCallsPerMinute"
         ],
         "properties": {
           "alias": {
@@ -10064,6 +10801,18 @@
             "type": "string",
             "format": "time-span"
           },
+          "userRetentionTime": {
+            "type": "string",
+            "format": "time-span"
+          },
+          "documentHistoryRetentionTime": {
+            "type": "string",
+            "format": "time-span"
+          },
+          "liveStreamRetentionTime": {
+            "type": "string",
+            "format": "time-span"
+          },
           "snapshotFullbackupScheduleTime": {
             "type": "string",
             "format": "time-span"
@@ -10079,49 +10828,15 @@
           },
           "contentBackupState": {
             "$ref": "#/components/schemas/ContentBackupState"
-          }
-        }
-      },
-      "CdnConfigurationBase": {
-        "type": "object",
-        "discriminator": {
-          "propertyName": "kind",
-          "mapping": {
-            "FastlyCdnConfiguration": {
-              "$ref": "#/components/schemas/FastlyCdnConfiguration"
-            }
-          }
-        },
-        "x-abstract": true,
-        "additionalProperties": false,
-        "required": [
-          "kind"
-        ],
-        "properties": {
-          "url": {
-            "type": "string"
           },
-          "kind": {
+          "apiCallsPerMinute": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "contentBackupStoragePath": {
             "type": "string"
           }
         }
-      },
-      "FastlyCdnConfiguration": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "apiToken": {
-            "type": "string"
-          },
-          "serviceId": {
-            "type": "string"
-          }
-        },
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/CdnConfigurationBase"
-          }
-        ]
       },
       "IdentityServerProvider": {
         "type": "object",
@@ -10195,30 +10910,6 @@
           }
         }
       },
-      "LanguageConfiguration": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "systemLanguages": {
-            "type": "array",
-            "description": "A list of languages serving as system languages.",
-            "items": {
-              "type": "string"
-            }
-          },
-          "metadataLanguages": {
-            "type": "array",
-            "description": "A list of languages serving as metadata languages.",
-            "items": {
-              "type": "string"
-            }
-          },
-          "defaultLanguage": {
-            "type": "string",
-            "description": "The default language. Not the be confused with the metadata fallback language x-default."
-          }
-        }
-      },
       "OutputFormat": {
         "type": "object",
         "additionalProperties": false,
@@ -10262,19 +10953,6 @@
             "$ref": "#/components/schemas/FormatBase"
           }
         }
-      },
-      "TranslatedStringDictionary": {
-        "type": "object",
-        "description": "A custom dictionary type to distinguish language specific class properties.",
-        "additionalProperties": false,
-        "allOf": [
-          {
-            "type": "object",
-            "additionalProperties": {
-              "type": "string"
-            }
-          }
-        ]
       },
       "SourceOutputFormats": {
         "type": "object",
@@ -11289,289 +11967,26 @@
       "User": {
         "type": "object",
         "additionalProperties": false,
+        "required": [
+          "emailAddress"
+        ],
         "properties": {
           "id": {
-            "type": "string"
+            "type": "string",
+            "description": "User's Picturepark ID."
           },
           "firstName": {
-            "type": "string"
+            "type": "string",
+            "description": "User's first name."
           },
           "lastName": {
-            "type": "string"
+            "type": "string",
+            "description": "User's last name."
           },
           "emailAddress": {
-            "type": "string"
-          }
-        }
-      },
-      "ContentBackupState": {
-        "type": "string",
-        "description": "",
-        "x-enumNames": [
-          "Disabled",
-          "Recovery",
-          "Enabled"
-        ],
-        "enum": [
-          "Disabled",
-          "Recovery",
-          "Enabled"
-        ]
-      },
-      "CustomerConfiguration": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "useSsl",
-          "enableQueryDetails",
-          "elasticSearchNumberOfShards",
-          "elasticSearchNumberOfReplicas",
-          "elasticSearchNumberOfRoutingShards",
-          "rootContentSearchIndexNumberOfShards",
-          "rootContentSearchIndexNumberOfReplicas",
-          "rootContentSearchIndexNumberOfRoutingShards",
-          "rootListItemSearchIndexNumberOfShards",
-          "rootListItemSearchIndexNumberOfReplicas",
-          "rootListItemSearchIndexNumberOfRoutingShards",
-          "indexedFieldThreshold",
-          "sortableFieldThreshold",
-          "redisDatabaseIndex",
-          "lifeCycle",
-          "contentRetentionTime",
-          "listItemRetentionTime",
-          "snapshotRetentionTime",
-          "snapshotFullbackupScheduleTime",
-          "contentBackupState"
-        ],
-        "properties": {
-          "id": {
-            "type": "string"
-          },
-          "lifelineId": {
-            "type": "string"
-          },
-          "namespace": {
-            "type": "string"
-          },
-          "alias": {
-            "type": "string"
-          },
-          "name": {
-            "type": "string"
-          },
-          "mainCatalog": {
-            "type": "string"
-          },
-          "userCatalog": {
-            "type": "string"
-          },
-          "mailCatalog": {
-            "type": "string"
-          },
-          "transferCatalog": {
-            "type": "string"
-          },
-          "shareCatalog": {
-            "type": "string"
-          },
-          "outputCatalog": {
-            "type": "string"
-          },
-          "outputFormatCatalog": {
-            "type": "string"
-          },
-          "channelCatalog": {
-            "type": "string"
-          },
-          "notificationCatalog": {
-            "type": "string"
-          },
-          "businessProcessCatalog": {
-            "type": "string"
-          },
-          "listItemCatalog": {
-            "type": "string"
-          },
-          "contentCatalog": {
-            "type": "string"
-          },
-          "displayValueCatalog": {
-            "type": "string"
-          },
-          "tokenCatalog": {
-            "type": "string"
-          },
-          "documentHistoryCatalog": {
-            "type": "string"
-          },
-          "liveStreamCatalog": {
-            "type": "string"
-          },
-          "cacheCatalog": {
-            "type": "string"
-          },
-          "schemaCatalog": {
-            "type": "string"
-          },
-          "referenceCatalog": {
-            "type": "string"
-          },
-          "watermarkPath": {
-            "type": "string"
-          },
-          "logoPath": {
-            "type": "string"
-          },
-          "storagePath": {
-            "type": "string"
-          },
-          "contractVersion": {
-            "type": "string"
-          },
-          "customerHosts": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "useSsl": {
-            "type": "boolean"
-          },
-          "enableQueryDetails": {
-            "type": "boolean"
-          },
-          "serviceProviders": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/CustomerServiceProviderConfiguration"
-            }
-          },
-          "supportContactEmailAddress": {
-            "type": "string"
-          },
-          "baseUrl": {
-            "type": "string"
-          },
-          "cdnConfiguration": {
-            "$ref": "#/components/schemas/CdnConfigurationBase"
-          },
-          "elasticSearchNumberOfShards": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "elasticSearchNumberOfReplicas": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "elasticSearchNumberOfRoutingShards": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "rootContentSearchIndexNumberOfShards": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "rootContentSearchIndexNumberOfReplicas": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "rootContentSearchIndexNumberOfRoutingShards": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "rootListItemSearchIndexNumberOfShards": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "rootListItemSearchIndexNumberOfReplicas": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "rootListItemSearchIndexNumberOfRoutingShards": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "indexedFieldThreshold": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "sortableFieldThreshold": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "corsAllowedHosts": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "noReplyEmailAddress": {
-            "type": "string"
-          },
-          "languageConfiguration": {
-            "$ref": "#/components/schemas/LanguageConfiguration"
-          },
-          "businessProcessEngineConnectionString": {
-            "type": "string"
-          },
-          "createTransferBusinessProcess": {
-            "type": "string"
-          },
-          "redisDatabaseIndex": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "lifeCycle": {
-            "$ref": "#/components/schemas/LifeCycle"
-          },
-          "contentRetentionTime": {
             "type": "string",
-            "format": "time-span"
-          },
-          "listItemRetentionTime": {
-            "type": "string",
-            "format": "time-span"
-          },
-          "snapshotRetentionTime": {
-            "type": "string",
-            "format": "time-span"
-          },
-          "snapshotFullbackupScheduleTime": {
-            "type": "string",
-            "format": "time-span"
-          },
-          "deactivationMessage": {
-            "$ref": "#/components/schemas/TranslatedStringDictionary"
-          },
-          "superAdminUserId": {
-            "type": "string"
-          },
-          "serviceAdminUserId": {
-            "type": "string"
-          },
-          "contentBackupState": {
-            "$ref": "#/components/schemas/ContentBackupState"
-          }
-        }
-      },
-      "CustomerServiceProviderConfiguration": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "serviceProviderId": {
-            "type": "string"
-          },
-          "customerId": {
-            "type": "string"
-          },
-          "userRoleIds": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "settings": {
-            "type": "string"
+            "description": "Email address of the user (doubles as username).",
+            "minLength": 1
           }
         }
       },
@@ -11584,9 +11999,13 @@
           "contentRetentionTime",
           "listItemRetentionTime",
           "snapshotRetentionTime",
+          "userRetentionTime",
+          "documentHistoryRetentionTime",
+          "liveStreamRetentionTime",
           "snapshotFullbackupScheduleTime",
           "useSsl",
-          "enableQueryDetails"
+          "enableQueryDetails",
+          "apiCallsPerMinute"
         ],
         "properties": {
           "id": {
@@ -11622,6 +12041,18 @@
             "type": "string",
             "format": "time-span"
           },
+          "userRetentionTime": {
+            "type": "string",
+            "format": "time-span"
+          },
+          "documentHistoryRetentionTime": {
+            "type": "string",
+            "format": "time-span"
+          },
+          "liveStreamRetentionTime": {
+            "type": "string",
+            "format": "time-span"
+          },
           "snapshotFullbackupScheduleTime": {
             "type": "string",
             "format": "time-span"
@@ -11644,6 +12075,9 @@
           "logoPath": {
             "type": "string"
           },
+          "contentBackupStoragePath": {
+            "type": "string"
+          },
           "supportContactEmailAddress": {
             "type": "string"
           },
@@ -11663,6 +12097,10 @@
           "sortableFieldThreshold": {
             "type": "integer",
             "format": "int32"
+          },
+          "apiCallsPerMinute": {
+            "type": "integer",
+            "format": "int32"
           }
         }
       },
@@ -11680,7 +12118,8 @@
         "additionalProperties": false,
         "required": [
           "totalResults",
-          "results"
+          "results",
+          "elapsedMilliseconds"
         ],
         "properties": {
           "totalResults": {
@@ -11689,16 +12128,13 @@
           },
           "results": {
             "type": "array",
-            "minLength": 1,
             "items": {
               "$ref": "#/components/schemas/Customer"
             }
           },
-          "pageToken": {
-            "type": "string"
-          },
-          "queryDebugInformation": {
-            "$ref": "#/components/schemas/QueryDebugInformation"
+          "elapsedMilliseconds": {
+            "type": "integer",
+            "format": "int64"
           }
         }
       },
@@ -11778,7 +12214,7 @@
             }
           }
         },
-        "description": "The FilterBase is the base class for all filters.",
+        "description": "The filters' base class",
         "additionalProperties": false,
         "required": [
           "kind"
@@ -11791,12 +12227,12 @@
       },
       "AndFilter": {
         "type": "object",
-        "description": "The AndFilter&gt; is a compound filter and returns documents that match all of the specified filters.",
+        "description": "Used to put filters in \"and\"",
         "additionalProperties": false,
         "properties": {
           "filters": {
             "type": "array",
-            "description": "Accepts all filters.",
+            "description": "The filters to put in \"and\". All kinds of filters are accepted.",
             "items": {
               "$ref": "#/components/schemas/FilterBase"
             }
@@ -11810,12 +12246,12 @@
       },
       "OrFilter": {
         "type": "object",
-        "description": "The OrFilter is a compound filter and returns documents that match any of the specified filters.",
+        "description": "Put filters in \"or\"",
         "additionalProperties": false,
         "properties": {
           "filters": {
             "type": "array",
-            "description": "Accepts all filters.",
+            "description": "The filters to put in \"or\". All kinds of filters are accepted.",
             "items": {
               "$ref": "#/components/schemas/FilterBase"
             }
@@ -11829,11 +12265,14 @@
       },
       "NotFilter": {
         "type": "object",
-        "description": "The NotFilter is a compound filter and returns documents that do not match the specified filter.",
+        "description": "Negates the specified filter",
         "additionalProperties": false,
+        "required": [
+          "filter"
+        ],
         "properties": {
           "filter": {
-            "description": "Limits the result set.",
+            "description": "The filter to be negated.",
             "allOf": [
               {
                 "$ref": "#/components/schemas/FilterBase"
@@ -11849,15 +12288,20 @@
       },
       "DateRangeFilter": {
         "type": "object",
-        "description": "The DateRangeFilter returns documents with fields that have date values within a certain range.",
+        "description": "Filters over a range of date time values",
         "additionalProperties": false,
+        "required": [
+          "field",
+          "range"
+        ],
         "properties": {
           "field": {
             "type": "string",
-            "description": "The elastic search index field to execute the filter on."
+            "description": "The field's name to execute the filter on. It is composed by the field ids of the hierarchy joined with \".\"\n(i.e. personLayer.address.street).",
+            "minLength": 1
           },
           "range": {
-            "description": "The date range. Supported pattern: now(+-)(int)(YMDHm).",
+            "description": "The date time range.",
             "allOf": [
               {
                 "$ref": "#/components/schemas/DateRange"
@@ -11873,11 +12317,11 @@
       },
       "DateRange": {
         "type": "object",
-        "description": "The date range class used in aggregators and filters.",
+        "description": "The date time range class used in filters",
         "additionalProperties": false,
         "properties": {
           "names": {
-            "description": "Tranlsated range names.",
+            "description": "Language specific range names.",
             "allOf": [
               {
                 "$ref": "#/components/schemas/TranslatedStringDictionary"
@@ -11886,22 +12330,26 @@
           },
           "from": {
             "type": "string",
-            "description": "The from value can be a datetime string or a pattern now(+-)(int)(YMDHm)."
+            "description": "The from value: it can be a datetime string or a pattern now(+-)(int)(YMDHm)."
           },
           "to": {
             "type": "string",
-            "description": "The to value can be a datetime string or a pattern now(+-)(int)(YMDHm)."
+            "description": "The to value: it can be a datetime string or a pattern now(+-)(int)(YMDHm)."
           }
         }
       },
       "ExistsFilter": {
         "type": "object",
-        "description": "The ExistsFilter returns documents that have at least one non-null value in the original field.",
+        "description": "Filters over the existence of a field's value",
         "additionalProperties": false,
+        "required": [
+          "field"
+        ],
         "properties": {
           "field": {
             "type": "string",
-            "description": "The elastic search index field to execute the filter on."
+            "description": "The field's name to execute the filter on. It is composed by the field ids of the hierarchy joined with \".\"\n(i.e. personLayer.address.street).",
+            "minLength": 1
           }
         },
         "allOf": [
@@ -11912,15 +12360,21 @@
       },
       "GeoBoundingBoxFilter": {
         "type": "object",
-        "description": "The GeoBoundingBoxFilter returns documents that are found based on a point location using a bounding box.",
+        "description": "Filters geo point values based on a bounding box",
         "additionalProperties": false,
+        "required": [
+          "field",
+          "topLeft",
+          "bottomRight"
+        ],
         "properties": {
           "field": {
             "type": "string",
-            "description": "The elastic search index field to execute the filter on."
+            "description": "The field's name to execute the filter on. It is composed by the field ids of the hierarchy joined with \".\"\n(i.e. personLayer.address.street).",
+            "minLength": 1
           },
           "topLeft": {
-            "description": "The top left longitude/latitude configuration.",
+            "description": "The top left corner of the bounding box's geo location (latitude and longitude).",
             "allOf": [
               {
                 "$ref": "#/components/schemas/GeoLocation"
@@ -11928,7 +12382,7 @@
             ]
           },
           "bottomRight": {
-            "description": "The bottom right longitude/latitude configuration.",
+            "description": "The bottom right corner of the bounding box's geo location (latitude and longitude).",
             "allOf": [
               {
                 "$ref": "#/components/schemas/GeoLocation"
@@ -11944,6 +12398,7 @@
       },
       "GeoLocation": {
         "type": "object",
+        "description": "It stores geo location information (latitude and longitude)",
         "additionalProperties": false,
         "required": [
           "lat",
@@ -11952,28 +12407,33 @@
         "properties": {
           "lat": {
             "type": "number",
+            "description": "The latitude",
             "format": "double"
           },
           "lon": {
             "type": "number",
+            "description": "The longitude",
             "format": "double"
           }
         }
       },
       "GeoDistanceFilter": {
         "type": "object",
-        "description": "The GeoDistanceFilter returns documents that include only hits that exists within a specific distance from a geo point.",
+        "description": "Filters within the radius of the distance from a location",
         "additionalProperties": false,
         "required": [
+          "field",
+          "location",
           "distance"
         ],
         "properties": {
           "field": {
             "type": "string",
-            "description": "The elastic search index field to execute the filter on."
+            "description": "The field's name to execute the filter on. It is composed by the field ids of the hierarchy joined with \".\"\n(i.e. personLayer.address.street).",
+            "minLength": 1
           },
           "location": {
-            "description": "The longitude/latitude configuration for the point of origin.",
+            "description": "The point of origin to calculate the distance from (latitude/longitude).",
             "allOf": [
               {
                 "$ref": "#/components/schemas/GeoLocation"
@@ -11982,7 +12442,7 @@
           },
           "distance": {
             "type": "number",
-            "description": "The range distance in meters.",
+            "description": "The distance in meters from the point of origin.",
             "format": "double"
           }
         },
@@ -11994,15 +12454,20 @@
       },
       "NestedFilter": {
         "type": "object",
-        "description": "The NestedFilter is a joining filter and returns documents whose nested objects / documents (see nested mapping) match the specified filter.",
+        "description": "Filters on nested documents",
         "additionalProperties": false,
+        "required": [
+          "path",
+          "filter"
+        ],
         "properties": {
           "path": {
             "type": "string",
-            "description": "The path pointing to the nested object."
+            "description": "The path pointing to the nested document (i.e. personLayer.nestedAddress).",
+            "minLength": 1
           },
           "filter": {
-            "description": "Limits the result set.",
+            "description": "The filter to be applied on the nested documents.",
             "allOf": [
               {
                 "$ref": "#/components/schemas/FilterBase"
@@ -12018,15 +12483,20 @@
       },
       "NumericRangeFilter": {
         "type": "object",
-        "description": "The NumericRangeFilter returns documents with fields that have numeric values within a certain range.",
+        "description": "Filters over a range of numeric values",
         "additionalProperties": false,
+        "required": [
+          "field",
+          "range"
+        ],
         "properties": {
           "field": {
             "type": "string",
-            "description": "The elastic search index field to execute the filter on."
+            "description": "The field's name to execute the filter on. It is composed by the field ids of the hierarchy joined with \".\"\n(i.e. personLayer.address.street).",
+            "minLength": 1
           },
           "range": {
-            "description": "The numeric range with from and to properties.",
+            "description": "The numeric range on which filtering.",
             "allOf": [
               {
                 "$ref": "#/components/schemas/NumericRange"
@@ -12042,10 +12512,11 @@
       },
       "NumericRange": {
         "type": "object",
+        "description": "The numeric range class",
         "additionalProperties": false,
         "properties": {
           "names": {
-            "description": "Tranlsated range names.",
+            "description": "Language specific range names.",
             "allOf": [
               {
                 "$ref": "#/components/schemas/TranslatedStringDictionary"
@@ -12066,16 +12537,22 @@
       },
       "PrefixFilter": {
         "type": "object",
-        "description": "The PrefixFilter returns documents that have fields containing terms with a specified prefix (not analyzed).",
+        "description": "Filters field's values based on a prefix",
         "additionalProperties": false,
+        "required": [
+          "field",
+          "prefix"
+        ],
         "properties": {
           "field": {
             "type": "string",
-            "description": "The elastic search index field to execute the filter on."
+            "description": "The field's name to execute the filter on. It is composed by the field ids of the hierarchy joined with \".\"\n(i.e. personLayer.address.street).",
+            "minLength": 1
           },
           "prefix": {
             "type": "string",
-            "description": "The prefix term to filter on."
+            "description": "The value to be used as prefix.",
+            "minLength": 1
           }
         },
         "allOf": [
@@ -12086,16 +12563,22 @@
       },
       "TermFilter": {
         "type": "object",
-        "description": "The TermFilter returns documents that contain the exact term specified in the inverted index.",
+        "description": "Filters values exactly containing a term",
         "additionalProperties": false,
+        "required": [
+          "field",
+          "term"
+        ],
         "properties": {
           "field": {
             "type": "string",
-            "description": "The elastic search index field to execute the filter on."
+            "description": "The field's name to execute the filter on. It is composed by the field ids of the hierarchy joined with \".\"\n(i.e. personLayer.address.street).",
+            "minLength": 1
           },
           "term": {
             "type": "string",
-            "description": "The term to filter on."
+            "description": "The value to use to filter on.",
+            "minLength": 1
           }
         },
         "allOf": [
@@ -12106,16 +12589,21 @@
       },
       "TermsFilter": {
         "type": "object",
-        "description": "The TermsFilter returns documents that have fields that match any of the provided terms (not analyzed).",
+        "description": "Filters values containing at least one of the terms",
         "additionalProperties": false,
+        "required": [
+          "field",
+          "terms"
+        ],
         "properties": {
           "field": {
             "type": "string",
-            "description": "The elastic search index field to execute the filter on."
+            "description": "The field's name to execute the filter on. It is composed by the field ids of the hierarchy joined with \".\"\n(i.e. personLayer.address.street).",
+            "minLength": 1
           },
           "terms": {
             "type": "array",
-            "description": "A list of OR combined terms.",
+            "description": "The list of values to be filtered on. At least one must match to return results.",
             "items": {
               "type": "string"
             }
@@ -12129,7 +12617,7 @@
       },
       "AggregationFilter": {
         "type": "object",
-        "description": "An AggregationFilter is provided with each aggregated value. When selecting the aggregated value the aggregation filter is added to the search query and returns doucments meeting the aggregation condition.",
+        "description": "Filters aggregations",
         "additionalProperties": false,
         "properties": {
           "aggregationName": {
@@ -12137,7 +12625,7 @@
             "description": "The name of the aggregation this filter is connected to."
           },
           "filter": {
-            "description": "The aggregation filter property. Available filters are TermFilter, DateRangeFilter, NumericRangeFilter, GeoDistanceFilter and NestedFilter.",
+            "description": "The filter to be applied.",
             "allOf": [
               {
                 "$ref": "#/components/schemas/FilterBase"
@@ -12145,7 +12633,8 @@
             ]
           },
           "temporaryAggregatorRequestId": {
-            "type": "string"
+            "type": "string",
+            "description": "Autogenerated Guid at request time, for precise aggregation result mapping."
           }
         },
         "allOf": [
@@ -12156,15 +12645,20 @@
       },
       "ChildFilter": {
         "type": "object",
-        "description": "The ChildFilter allows to apply filters on child documents and returns documents that match the specified filter on the child document.",
+        "description": "Filters on child documents",
         "additionalProperties": false,
+        "required": [
+          "childType",
+          "filter"
+        ],
         "properties": {
           "childType": {
             "type": "string",
-            "description": "The elastic search index type to filter as a child."
+            "description": "The type of the child document.",
+            "minLength": 1
           },
           "filter": {
-            "description": "The filter to apply on the child entity. It accepts all filters.",
+            "description": "The filter to be applied on the child document. All kinds of filters are accepted.",
             "allOf": [
               {
                 "$ref": "#/components/schemas/FilterBase"
@@ -12180,15 +12674,20 @@
       },
       "ParentFilter": {
         "type": "object",
-        "description": "The ParentFilter allows to apply filters on parent documents and returns documents that match the specified filter on the parent document.",
+        "description": "Filters on parent documents",
         "additionalProperties": false,
+        "required": [
+          "parentType",
+          "filter"
+        ],
         "properties": {
           "parentType": {
             "type": "string",
-            "description": "The elastic search index type to filter as a parent."
+            "description": "The type of the parent document.",
+            "minLength": 1
           },
           "filter": {
-            "description": "The filter to apply on the child entity. It accepts all filters.",
+            "description": "The filter to be applied on the child document. All kinds of filters are accepted.",
             "allOf": [
               {
                 "$ref": "#/components/schemas/FilterBase"
@@ -12201,32 +12700,6 @@
             "$ref": "#/components/schemas/FilterBase"
           }
         ]
-      },
-      "SearchIndexReindexRequest": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "numberOfShards",
-          "numberOfReplicas",
-          "numberOfRoutingShards"
-        ],
-        "properties": {
-          "searchIndexId": {
-            "type": "string"
-          },
-          "numberOfShards": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "numberOfReplicas": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "numberOfRoutingShards": {
-            "type": "integer",
-            "format": "int32"
-          }
-        }
       },
       "Index": {
         "type": "object",
@@ -12345,11 +12818,31 @@
           "Cancelled"
         ]
       },
-      "CustomerMetadataLanguageCreateRequest": {
+      "SearchIndexReindexRequest": {
         "type": "object",
         "additionalProperties": false,
+        "required": [
+          "numberOfShards",
+          "numberOfReplicas",
+          "numberOfRoutingShards"
+        ],
         "properties": {
-          "language": {
+          "searchIndexId": {
+            "type": "string"
+          },
+          "numberOfShards": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "numberOfReplicas": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "numberOfRoutingShards": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "onBehalfOfUserId": {
             "type": "string"
           }
         }
@@ -12608,6 +13101,15 @@
           "Failed"
         ]
       },
+      "CustomerMetadataLanguageCreateRequest": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "language": {
+            "type": "string"
+          }
+        }
+      },
       "CustomerServiceProviderCreateRequest": {
         "type": "object",
         "additionalProperties": false,
@@ -12691,6 +13193,25 @@
           }
         }
       },
+      "EnvironmentProcessSearchResult": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "totalResults"
+        ],
+        "properties": {
+          "totalResults": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "results": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/EnvironmentProcess"
+            }
+          }
+        }
+      },
       "EnvironmentProcessSearchRequest": {
         "type": "object",
         "additionalProperties": false,
@@ -12713,25 +13234,6 @@
           },
           "filter": {
             "$ref": "#/components/schemas/FilterBase"
-          }
-        }
-      },
-      "EnvironmentProcessSearchResult": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "totalResults"
-        ],
-        "properties": {
-          "totalResults": {
-            "type": "integer",
-            "format": "int64"
-          },
-          "results": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/EnvironmentProcess"
-            }
           }
         }
       },
@@ -13042,30 +13544,6 @@
           }
         }
       },
-      "ServiceProviderCreateRequest": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "externalId": {
-            "type": "string"
-          },
-          "name": {
-            "type": "string"
-          },
-          "applicationKey": {
-            "type": "string"
-          },
-          "messageQueueUser": {
-            "type": "string"
-          },
-          "messageQueuePassword": {
-            "type": "string"
-          },
-          "baseUrl": {
-            "type": "string"
-          }
-        }
-      },
       "ServiceProvider": {
         "type": "object",
         "additionalProperties": false,
@@ -13079,10 +13557,22 @@
           "name": {
             "type": "string"
           },
-          "applicationKey": {
+          "baseUrl": {
+            "type": "string"
+          }
+        }
+      },
+      "ServiceProviderCreateRequest": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "externalId": {
             "type": "string"
           },
-          "virtualHost": {
+          "name": {
+            "type": "string"
+          },
+          "secret": {
             "type": "string"
           },
           "baseUrl": {
@@ -13219,6 +13709,18 @@
           },
           "isDeveloper": {
             "type": "boolean"
+          }
+        }
+      },
+      "TouchSchemasRequest": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "schemaIds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           }
         }
       }

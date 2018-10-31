@@ -28,8 +28,6 @@ namespace Picturepark.SDK.V1.Contract
 
         ISchemaTransferClient SchemaTransfer { get; }
 
-        IPublicAccessClient PublicAccess { get; }
-
         IShareClient Share { get; }
 
         ITransferClient Transfer { get; }
@@ -41,9 +39,5 @@ namespace Picturepark.SDK.V1.Contract
         IProfileClient Profile { get; }
 
         IChannelClient Channel { get; }
-
-        IServiceProviderClient ServiceProvider { get; }
-
-        IShareAccessClient ShareAccess { get; }
     }
 }

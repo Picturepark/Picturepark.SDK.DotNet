@@ -176,12 +176,6 @@ namespace Picturepark.SDK.V1
 
             BuildReferencedListItems(obj, referencedListItems);
 
-            // Assign Ids on ObjectCreation
-            foreach (var referencedObject in referencedListItems)
-            {
-                referencedObject.ListItemId = Guid.NewGuid().ToString("N");
-            }
-
             return referencedListItems;
         }
 
@@ -239,10 +233,15 @@ namespace Picturepark.SDK.V1
                                 // Add metadata object if it does not already exist
                                 if (referencedListItems.Where(i => i.ContentSchemaId == schemaId).Select(i => i.Content).All(i => i != value))
                                 {
+                                    var listItemId = Guid.NewGuid().ToString("N");
+                                    if (refObject != null)
+                                        refObject.RefId = listItemId;
+
                                     referencedListItems.Insert(0, new ListItemCreateRequest
                                     {
                                         ContentSchemaId = schemaId,
-                                        Content = value
+                                        Content = value,
+                                        ListItemId = listItemId
                                     });
                                 }
                             }
@@ -263,14 +262,18 @@ namespace Picturepark.SDK.V1
                             var hasValueBeenAdded = referencedListItems
                                 .Any(i => i.ContentSchemaId == schemaId && i.Content == value);
 
-                            if (!hasValueBeenAdded)
+                            if (hasValueBeenAdded)
+                                continue;
+
+                            var listItemId = Guid.NewGuid().ToString("N");
+                            if (refObject != null)
+                                refObject.RefId = listItemId;
+                            referencedListItems.Insert(0, new ListItemCreateRequest
                             {
-                                referencedListItems.Insert(0, new ListItemCreateRequest
-                                {
-                                    ContentSchemaId = schemaId,
-                                    Content = value
-                                });
-                            }
+                                ContentSchemaId = schemaId,
+                                Content = value,
+                                ListItemId = listItemId
+                            });
                         }
                     }
                 }
