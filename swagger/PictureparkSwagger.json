@@ -18512,17 +18512,17 @@
         "x-enumNames": [
           "View",
           "AccessOriginal",
-          "Edit",
-          "Update",
-          "Manage",
+          "EditMetadata",
+          "ReplaceFile",
+          "ManagePermissions",
           "Delete"
         ],
         "enum": [
           "View",
           "AccessOriginal",
-          "Edit",
-          "Update",
-          "Manage",
+          "EditMetadata",
+          "ReplaceFile",
+          "ManagePermissions",
           "Delete"
         ]
       },
@@ -23920,13 +23920,13 @@
         "description": "Metadata rights",
         "x-enumNames": [
           "View",
-          "Edit",
-          "Manage"
+          "ManageItems",
+          "ManageSchema"
         ],
         "enum": [
           "View",
-          "Edit",
-          "Manage"
+          "ManageItems",
+          "ManageSchema"
         ]
       },
       "Transfer": {

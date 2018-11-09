@@ -7973,14 +7973,14 @@ namespace Picturepark.SDK.V1.Contract
         [System.Runtime.Serialization.EnumMember(Value = "AccessOriginal")]
         AccessOriginal = 1,
     
-        [System.Runtime.Serialization.EnumMember(Value = "Edit")]
-        Edit = 2,
+        [System.Runtime.Serialization.EnumMember(Value = "EditMetadata")]
+        EditMetadata = 2,
     
-        [System.Runtime.Serialization.EnumMember(Value = "Update")]
-        Update = 3,
+        [System.Runtime.Serialization.EnumMember(Value = "ReplaceFile")]
+        ReplaceFile = 3,
     
-        [System.Runtime.Serialization.EnumMember(Value = "Manage")]
-        Manage = 4,
+        [System.Runtime.Serialization.EnumMember(Value = "ManagePermissions")]
+        ManagePermissions = 4,
     
         [System.Runtime.Serialization.EnumMember(Value = "Delete")]
         Delete = 5,
@@ -13265,11 +13265,11 @@ namespace Picturepark.SDK.V1.Contract
         [System.Runtime.Serialization.EnumMember(Value = "View")]
         View = 0,
     
-        [System.Runtime.Serialization.EnumMember(Value = "Edit")]
-        Edit = 1,
+        [System.Runtime.Serialization.EnumMember(Value = "ManageItems")]
+        ManageItems = 1,
     
-        [System.Runtime.Serialization.EnumMember(Value = "Manage")]
-        Manage = 2,
+        [System.Runtime.Serialization.EnumMember(Value = "ManageSchema")]
+        ManageSchema = 2,
     
     }
     
