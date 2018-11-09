@@ -12877,6 +12877,9 @@
             "MissingDisplayPatternForCustomerDefaultLanguageException": {
               "$ref": "#/components/schemas/MissingDisplayPatternForCustomerDefaultLanguageException"
             },
+            "SchemaViewForAllException": {
+              "$ref": "#/components/schemas/SchemaViewForAllException"
+            },
             "DeleteContentsWithReferencesException": {
               "$ref": "#/components/schemas/DeleteContentsWithReferencesException"
             },
@@ -15611,6 +15614,20 @@
           "List",
           "Detail",
           "Name"
+        ]
+      },
+      "SchemaViewForAllException": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "schemaId": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          }
         ]
       },
       "DeleteContentsWithReferencesException": {

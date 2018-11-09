@@ -8,6 +8,7 @@ using Picturepark.SDK.V1.Tests.Contracts;
 using Picturepark.SDK.V1.Tests.Fixtures;
 using System.Linq;
 using System.Threading.Tasks;
+using FluentAssertions;
 using Picturepark.SDK.V1.Builders;
 using Picturepark.SDK.V1.Contract.Attributes.Analyzer;
 using Picturepark.SDK.V1.Contract.Providers;
@@ -214,6 +215,19 @@ namespace Picturepark.SDK.V1.Tests.Conversion
         [PictureparkDisplayPattern(DisplayPatternType.Name, TemplateEngine.DotLiquid, "{{pattern}}", "en")]
         [PictureparkDisplayPattern(DisplayPatternType.Name, TemplateEngine.DotLiquid, "{{pattern}}", "en")]
         public class ClassWithMultipleDisplayPatternsForEnglishName
+        {
+        }
+
+        [Fact]
+        [Trait("Stack", "SchemaCreation")]
+        public async Task ShouldSetViewForAllForStructs()
+        {
+            var schema = await _client.Schema.GenerateSchemasAsync(typeof(ClassStruct)).ConfigureAwait(false);
+            schema.Single().Public.Should().BeTrue();
+        }
+
+        [PictureparkSchema(SchemaType.Struct)]
+        public class ClassStruct
         {
         }
     }
