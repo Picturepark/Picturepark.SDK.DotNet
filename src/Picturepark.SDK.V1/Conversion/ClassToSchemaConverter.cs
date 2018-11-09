@@ -129,7 +129,8 @@ namespace Picturepark.SDK.V1.Conversion
                 DisplayPatterns = new List<DisplayPattern>()
             };
 
-            if (schemaType == SchemaType.Struct)
+            if (schemaType == SchemaType.Struct ||
+                schemaType == SchemaType.Content)
                 schemaItem.Public = true;
 
             ApplyDisplayPatternAttributes(schemaItem, contractType);

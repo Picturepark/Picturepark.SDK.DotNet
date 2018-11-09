@@ -230,5 +230,18 @@ namespace Picturepark.SDK.V1.Tests.Conversion
         public class ClassStruct
         {
         }
+
+        [Fact]
+        [Trait("Stack", "SchemaCreation")]
+        public async Task ShouldSetViewForAllForContents()
+        {
+            var schema = await _client.Schema.GenerateSchemasAsync(typeof(ClassContent)).ConfigureAwait(false);
+            schema.Single().Public.Should().BeTrue();
+        }
+
+        [PictureparkSchema(SchemaType.Content)]
+        public class ClassContent
+        {
+        }
     }
 }
