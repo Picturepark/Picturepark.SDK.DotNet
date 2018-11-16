@@ -10546,9 +10546,6 @@
           "deactivationMessage": {
             "$ref": "#/components/schemas/TranslatedStringDictionary"
           },
-          "superAdminUserId": {
-            "type": "string"
-          },
           "serviceAdminUserId": {
             "type": "string"
           },
