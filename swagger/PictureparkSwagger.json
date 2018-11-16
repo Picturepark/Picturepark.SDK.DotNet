@@ -646,13 +646,13 @@
           },
           {
             "type": "array",
-            "name": "resolveBehaviours",
+            "name": "resolveBehaviors",
             "in": "query",
             "description": "List of enums that control which parts of the content are resolved and returned.",
             "collectionFormat": "multi",
             "nullable": true,
             "items": {
-              "$ref": "#/components/schemas/ContentResolveBehaviour"
+              "$ref": "#/components/schemas/ContentResolveBehavior"
             }
           }
         ],
@@ -881,13 +881,13 @@
           },
           {
             "type": "array",
-            "name": "resolveBehaviours",
+            "name": "resolveBehaviors",
             "in": "query",
             "description": "List of enums that control which parts of the content are resolved and returned.",
             "collectionFormat": "multi",
             "nullable": true,
             "items": {
-              "$ref": "#/components/schemas/ContentResolveBehaviour"
+              "$ref": "#/components/schemas/ContentResolveBehavior"
             }
           }
         ],
@@ -992,13 +992,13 @@
         "parameters": [
           {
             "type": "array",
-            "name": "resolveBehaviours",
+            "name": "resolveBehaviors",
             "in": "query",
             "description": "List of enums that control which parts of the content are resolved and returned.",
             "collectionFormat": "multi",
             "nullable": true,
             "items": {
-              "$ref": "#/components/schemas/ContentResolveBehaviour"
+              "$ref": "#/components/schemas/ContentResolveBehavior"
             }
           },
           {
@@ -2584,13 +2584,13 @@
           },
           {
             "type": "array",
-            "name": "resolveBehaviours",
+            "name": "resolveBehaviors",
             "in": "query",
             "description": "List of enums that control which parts of the content are resolved and returned.",
             "collectionFormat": "multi",
             "nullable": true,
             "items": {
-              "$ref": "#/components/schemas/ContentResolveBehaviour"
+              "$ref": "#/components/schemas/ContentResolveBehavior"
             }
           },
           {
@@ -2730,13 +2730,13 @@
           },
           {
             "type": "array",
-            "name": "resolveBehaviours",
+            "name": "resolveBehaviors",
             "in": "query",
             "description": "List of enums that control which parts of the content are resolved and returned.",
             "collectionFormat": "multi",
             "nullable": true,
             "items": {
-              "$ref": "#/components/schemas/ContentResolveBehaviour"
+              "$ref": "#/components/schemas/ContentResolveBehavior"
             }
           },
           {
@@ -4419,13 +4419,13 @@
           },
           {
             "type": "array",
-            "name": "resolveBehaviours",
+            "name": "resolveBehaviors",
             "in": "query",
             "description": "List of enums that control which parts of the list item are resolved and returned.",
             "collectionFormat": "multi",
             "nullable": true,
             "items": {
-              "$ref": "#/components/schemas/ListItemResolveBehaviour"
+              "$ref": "#/components/schemas/ListItemResolveBehavior"
             }
           }
         ],
@@ -4535,13 +4535,13 @@
           },
           {
             "type": "array",
-            "name": "resolveBehaviours",
+            "name": "resolveBehaviors",
             "in": "query",
             "description": "List of enums that control which parts of the list item are resolved and returned.",
             "collectionFormat": "multi",
             "nullable": true,
             "items": {
-              "$ref": "#/components/schemas/ListItemResolveBehaviour"
+              "$ref": "#/components/schemas/ListItemResolveBehavior"
             }
           },
           {
@@ -4784,13 +4784,13 @@
           },
           {
             "type": "array",
-            "name": "resolveBehaviours",
+            "name": "resolveBehaviors",
             "in": "query",
             "description": "List of enums that control which parts of the list items are resolved and returned.",
             "collectionFormat": "multi",
             "nullable": true,
             "items": {
-              "$ref": "#/components/schemas/ListItemResolveBehaviour"
+              "$ref": "#/components/schemas/ListItemResolveBehavior"
             }
           }
         ],
@@ -4895,13 +4895,13 @@
         "parameters": [
           {
             "type": "array",
-            "name": "resolveBehaviours",
+            "name": "resolveBehaviors",
             "in": "query",
             "description": "List of enums that control which parts of the list item are resolved and returned.",
             "collectionFormat": "multi",
             "nullable": true,
             "items": {
-              "$ref": "#/components/schemas/ListItemResolveBehaviour"
+              "$ref": "#/components/schemas/ListItemResolveBehavior"
             }
           },
           {
@@ -18230,7 +18230,7 @@
           "Deleted"
         ]
       },
-      "ContentResolveBehaviour": {
+      "ContentResolveBehavior": {
         "type": "string",
         "description": "",
         "x-enumNames": [
@@ -18533,7 +18533,7 @@
           },
           "rightsAggregations": {
             "type": "array",
-            "description": "Returns the aggregated document count the to the ones the user has the specified ContentRights.\nProduces the rightsAggregationCounts on the ContentSearchResult. View will be ignored as the totalResults already gives this information.",
+            "description": "Returns the aggregated document counts to the ones the user has the specified ContentRights.\nProduces the rightsAggregationCounts on the ContentSearchResult. View will be ignored as the totalResults already gives this information.",
             "items": {
               "$ref": "#/components/schemas/ContentRight"
             }
@@ -20517,7 +20517,7 @@
           }
         }
       },
-      "ListItemResolveBehaviour": {
+      "ListItemResolveBehavior": {
         "type": "string",
         "description": "",
         "x-enumNames": [

@@ -23,10 +23,10 @@ namespace Picturepark.SDK.V1.Contract.Results
 
         public static ListItemBatchOperationResult Empty => new ListItemBatchOperationResult(null, null, null, null);
 
-        public async Task<BatchOperationResultDetail<ListItemDetail>> FetchDetail(IEnumerable<ListItemResolveBehaviour> resolveBehaviours = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<BatchOperationResultDetail<ListItemDetail>> FetchDetail(IEnumerable<ListItemResolveBehavior> resolveBehaviors = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             return await FetchDetail(
-                async ids => await _listItemClient.GetManyAsync(ids, resolveBehaviours, cancellationToken).ConfigureAwait(false),
+                async ids => await _listItemClient.GetManyAsync(ids, resolveBehaviors, cancellationToken).ConfigureAwait(false),
                 cancellationToken);
         }
     }

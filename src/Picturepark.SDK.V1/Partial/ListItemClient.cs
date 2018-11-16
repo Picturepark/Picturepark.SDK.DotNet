@@ -97,7 +97,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="ApiException">A server side error occurred.</exception>
         public async Task<T> GetAndConvertToAsync<T>(string listItemId, string schemaId, CancellationToken cancellationToken = default(CancellationToken))
         {
-            var listItem = await GetAsync(listItemId, new ListItemResolveBehaviour[] { ListItemResolveBehaviour.Content, ListItemResolveBehaviour.LinkedListItems }, cancellationToken).ConfigureAwait(false);
+            var listItem = await GetAsync(listItemId, new ListItemResolveBehavior[] { ListItemResolveBehavior.Content, ListItemResolveBehavior.LinkedListItems }, cancellationToken).ConfigureAwait(false);
             return listItem.ConvertTo<T>();
         }
 
@@ -110,39 +110,39 @@ namespace Picturepark.SDK.V1
         /// <exception cref="ApiException">A server side error occurred.</exception>
         public async Task<ICollection<T>> GetManyAndConvertToAsync<T>(IEnumerable<string> listItemIds, string schemaId, CancellationToken cancellationToken = default(CancellationToken))
         {
-            var listItems = await GetManyAsync(listItemIds, new ListItemResolveBehaviour[] { ListItemResolveBehaviour.Content, ListItemResolveBehaviour.LinkedListItems }, cancellationToken).ConfigureAwait(false);
+            var listItems = await GetManyAsync(listItemIds, new ListItemResolveBehavior[] { ListItemResolveBehavior.Content, ListItemResolveBehavior.LinkedListItems }, cancellationToken).ConfigureAwait(false);
             return listItems.Select(li => li.ConvertTo<T>()).ToList();
         }
 
         /// <summary>Updates a list item by providing its content.</summary>
         /// <param name="listItemId">The list item ID.</param>
         /// <param name="content">The content which must match the item's schema ID.</param>
-        /// <param name="resolveBehaviours">List of enum that control which parts of the list item are resolved and returned.</param>
+        /// <param name="resolveBehaviors">List of enum that control which parts of the list item are resolved and returned.</param>
         /// <param name="allowMissingDependencies">Allow creating <see cref="ListItem"/>s that refer to list items or contents that don't exist in the system.</param>
         /// <param name="timeout">The timeout in milliseconds to wait for completion.</param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The updated <see cref="ListItemDetail"/>.</returns>
-        public async Task<ListItemDetail> UpdateAsync(string listItemId, object content, IEnumerable<ListItemResolveBehaviour> resolveBehaviours = null, bool allowMissingDependencies = false, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<ListItemDetail> UpdateAsync(string listItemId, object content, IEnumerable<ListItemResolveBehavior> resolveBehaviors = null, bool allowMissingDependencies = false, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             var updateRequest = new ListItemUpdateRequest()
             {
                 Content = content
             };
 
-            return await UpdateAsync(listItemId, updateRequest, resolveBehaviours, allowMissingDependencies, timeout, cancellationToken).ConfigureAwait(false);
+            return await UpdateAsync(listItemId, updateRequest, resolveBehaviors, allowMissingDependencies, timeout, cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>Updates a list item.</summary>
         /// <param name="listItemId">ID of the list item.</param>
         /// <param name="updateRequest">The update request.</param>
-        /// <param name="resolveBehaviours">List of enum that control which parts of the list item are resolved and returned.</param>
+        /// <param name="resolveBehaviors">List of enum that control which parts of the list item are resolved and returned.</param>
         /// <param name="allowMissingDependencies">Allow creating <see cref="ListItem"/>s that refer to list items or contents that don't exist in the system.</param>
         /// <param name="timeout">The timeout in milliseconds to wait for completion.</param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The updated <see cref="ListItemDetail"/>.</returns>
-        public async Task<ListItemDetail> UpdateAsync(string listItemId, ListItemUpdateRequest updateRequest, IEnumerable<ListItemResolveBehaviour> resolveBehaviours = null, bool allowMissingDependencies = false, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<ListItemDetail> UpdateAsync(string listItemId, ListItemUpdateRequest updateRequest, IEnumerable<ListItemResolveBehavior> resolveBehaviors = null, bool allowMissingDependencies = false, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
         {
-            return await UpdateCoreAsync(listItemId, updateRequest, resolveBehaviours, allowMissingDependencies, timeout, cancellationToken).ConfigureAwait(false);
+            return await UpdateCoreAsync(listItemId, updateRequest, resolveBehaviors, allowMissingDependencies, timeout, cancellationToken).ConfigureAwait(false);
         }
 
         /// <inheritdoc />

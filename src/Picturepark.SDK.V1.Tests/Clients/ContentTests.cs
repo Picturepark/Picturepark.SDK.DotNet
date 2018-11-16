@@ -357,7 +357,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         {
             string contentId = await _fixture.GetRandomContentIdAsync(".jpg", 20).ConfigureAwait(false);
             Assert.False(string.IsNullOrEmpty(contentId));
-            ContentDetail contentDetail = await _client.Content.GetAsync(contentId, new[] { ContentResolveBehaviour.Content }).ConfigureAwait(false);
+            ContentDetail contentDetail = await _client.Content.GetAsync(contentId, new[] { ContentResolveBehavior.Content }).ConfigureAwait(false);
 
             var fileMetadata = contentDetail.GetFileMetadata();
             var fileName = new Random().Next(0, 999999) + "-" + fileMetadata.FileName + ".jpg";
@@ -418,7 +418,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             };
 
             // Act
-            var response = await _client.Content.UpdateMetadataAsync(contentId, request, new[] { ContentResolveBehaviour.Metadata }).ConfigureAwait(false);
+            var response = await _client.Content.UpdateMetadataAsync(contentId, request, new[] { ContentResolveBehavior.Metadata }).ConfigureAwait(false);
 
             // Assert
             Assert.NotNull(response);
@@ -498,7 +498,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             };
 
             // Act
-            var response = await _client.Content.UpdateMetadataAsync(contentId, request, new[] { ContentResolveBehaviour.Metadata, ContentResolveBehaviour.InnerDisplayValueName }).ConfigureAwait(false);
+            var response = await _client.Content.UpdateMetadataAsync(contentId, request, new[] { ContentResolveBehavior.Metadata, ContentResolveBehavior.InnerDisplayValueName }).ConfigureAwait(false);
 
             // Assert
             Assert.Equal("test description", ((JObject)response.Metadata["personShot"])["displayValue"]["name"].ToString());
@@ -544,7 +544,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             };
 
             // Act
-            var response = await _client.Content.UpdateMetadataAsync(contentId, request, new[] { ContentResolveBehaviour.Metadata }).ConfigureAwait(false);
+            var response = await _client.Content.UpdateMetadataAsync(contentId, request, new[] { ContentResolveBehavior.Metadata }).ConfigureAwait(false);
 
             // Assert
             Assert.Equal("test description", ((JObject)response.Metadata["personShot"])["description"].ToString());
@@ -591,7 +591,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             };
 
             // Act
-            var response = await _client.Content.UpdateMetadataAsync(contentId, request, new[] { ContentResolveBehaviour.Metadata }).ConfigureAwait(false);
+            var response = await _client.Content.UpdateMetadataAsync(contentId, request, new[] { ContentResolveBehavior.Metadata }).ConfigureAwait(false);
 
             // Assert
             Assert.DoesNotContain("personShot", response.Metadata.Keys);
@@ -638,7 +638,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             };
 
             // Act
-            var response = await _client.Content.UpdateMetadataAsync(contentId, request, new[] { ContentResolveBehaviour.Metadata }).ConfigureAwait(false);
+            var response = await _client.Content.UpdateMetadataAsync(contentId, request, new[] { ContentResolveBehavior.Metadata }).ConfigureAwait(false);
 
             // Assert
             Assert.Equal(12345, ((JObject)response.Metadata["allDataTypesContract"])["integerField"].ToObject<int>());
@@ -685,7 +685,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             };
 
             // Act
-            var response = await _client.Content.UpdateMetadataAsync(contentId, request, new[] { ContentResolveBehaviour.Metadata }).ConfigureAwait(false);
+            var response = await _client.Content.UpdateMetadataAsync(contentId, request, new[] { ContentResolveBehavior.Metadata }).ConfigureAwait(false);
 
             // Assert
             Assert.Null(((JObject)response.Metadata["allDataTypesContract"])["integerField"]);
@@ -775,7 +775,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var contentId = await _fixture.GetRandomContentIdAsync(".jpg", 20).ConfigureAwait(false);
 
             Assert.False(string.IsNullOrEmpty(contentId));
-            ContentDetail contentDetail = await _client.Content.GetAsync(contentId, new[] { ContentResolveBehaviour.Content }).ConfigureAwait(false);
+            ContentDetail contentDetail = await _client.Content.GetAsync(contentId, new[] { ContentResolveBehavior.Content }).ConfigureAwait(false);
 
             var fileMetadata = contentDetail.GetFileMetadata();
             var fileName = new Random().Next(0, 999999) + "-" + fileMetadata.FileName + ".jpg";
@@ -821,7 +821,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var contentId = await _fixture.GetRandomContentIdAsync(".jpg", 20).ConfigureAwait(false);
             Assert.False(string.IsNullOrEmpty(contentId));
 
-            ContentDetail result = await _client.Content.GetAsync(contentId, new[] { ContentResolveBehaviour.InnerDisplayValueList }).ConfigureAwait(false);
+            ContentDetail result = await _client.Content.GetAsync(contentId, new[] { ContentResolveBehavior.InnerDisplayValueList }).ConfigureAwait(false);
             Assert.NotNull(result.Id);
         }
 
@@ -836,7 +836,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             Assert.False(string.IsNullOrEmpty(contentId));
 
-            ContentDetail result = await _client.Content.GetAsync(contentId, new[] { ContentResolveBehaviour.Content }).ConfigureAwait(false);
+            ContentDetail result = await _client.Content.GetAsync(contentId, new[] { ContentResolveBehavior.Content }).ConfigureAwait(false);
 
             FileMetadata fileMetadata = result.GetFileMetadata();
             Assert.False(string.IsNullOrEmpty(fileMetadata.FileName));
@@ -846,7 +846,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         [Trait("Stack", "Contents")]
         public async Task ShouldGetWithResolvedObjects()
         {
-            var contentDetail = await CreateContentReferencingSwitzerland(ContentResolveBehaviour.Content, ContentResolveBehaviour.LinkedListItems);
+            var contentDetail = await CreateContentReferencingSwitzerland(ContentResolveBehavior.Content, ContentResolveBehavior.LinkedListItems);
 
             // Assert
             var contentContent = (JObject)contentDetail.Content;
@@ -857,7 +857,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         [Trait("Stack", "Contents")]
         public async Task ShouldGetWithoutResolvedObjects()
         {
-            var contentDetail = await CreateContentReferencingSwitzerland(ContentResolveBehaviour.Content);
+            var contentDetail = await CreateContentReferencingSwitzerland(ContentResolveBehavior.Content);
 
             // Assert
             var contentContent = (JObject)contentDetail.Content;
@@ -1185,10 +1185,10 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             // Act
             var englishClient = _fixture.GetLocalizedPictureparkService("en");
-            var englishContent = await englishClient.Content.GetAsync(detail.Id, new[] { ContentResolveBehaviour.Content }).ConfigureAwait(false);
+            var englishContent = await englishClient.Content.GetAsync(detail.Id, new[] { ContentResolveBehavior.Content }).ConfigureAwait(false);
 
             var germanClient = _fixture.GetLocalizedPictureparkService("de");
-            var germanContent = await germanClient.Content.GetAsync(detail.Id, new[] { ContentResolveBehaviour.Content }).ConfigureAwait(false);
+            var germanContent = await germanClient.Content.GetAsync(detail.Id, new[] { ContentResolveBehavior.Content }).ConfigureAwait(false);
 
             // Assert
             englishContent.DisplayValues[DisplayPatternType.Name.ToString().ToLowerCamelCase()].Should().Be("value1");
@@ -1218,14 +1218,14 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 }).ConfigureAwait(false);
 
             // Act
-            var detail = await result.FetchDetail(new[] { ContentResolveBehaviour.Content }).ConfigureAwait(false);
+            var detail = await result.FetchDetail(new[] { ContentResolveBehavior.Content }).ConfigureAwait(false);
 
             // Assert
             detail.SucceededItems.Should().HaveCount(201);
             detail.SucceededItems.Select(i => ((dynamic)i.Content).name).ToArray().Distinct().Should().HaveCount(201);
         }
 
-        private async Task<ContentDetail> CreateContentReferencingSwitzerland(params ContentResolveBehaviour[] behaviours)
+        private async Task<ContentDetail> CreateContentReferencingSwitzerland(params ContentResolveBehavior[] behaviors)
         {
             // Arrange
             var countrySchemaId = SchemaFixture.CountrySchemaId;
@@ -1255,7 +1255,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             // Act
             var contentDetail = await _client.Content
-                .GetAsync(content.Id, behaviours)
+                .GetAsync(content.Id, behaviors)
                 .ConfigureAwait(false);
 
             contentDetail.Id.Should().Be(content.Id);
