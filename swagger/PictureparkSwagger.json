@@ -18258,10 +18258,63 @@
         "type": "object",
         "description": "Result for content search operation",
         "additionalProperties": false,
+        "properties": {
+          "rightsAggregationsCounts": {
+            "type": "array",
+            "description": "Result of rights aggregation count requested in rightsAggregations in the ContentSearchRequest.",
+            "items": {
+              "$ref": "#/components/schemas/ContentRightAggregationCount"
+            }
+          }
+        },
         "allOf": [
           {
             "$ref": "#/components/schemas/SearchBehaviorBaseResultOfContent"
           }
+        ]
+      },
+      "ContentRightAggregationCount": {
+        "type": "object",
+        "description": "Combination of ContentRight and found document count",
+        "additionalProperties": false,
+        "required": [
+          "contentRight",
+          "count"
+        ],
+        "properties": {
+          "contentRight": {
+            "description": "ContentRight.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ContentRight"
+              }
+            ]
+          },
+          "count": {
+            "type": "integer",
+            "description": "Found document count.",
+            "format": "int64"
+          }
+        }
+      },
+      "ContentRight": {
+        "type": "string",
+        "description": "Content rights",
+        "x-enumNames": [
+          "View",
+          "AccessOriginal",
+          "EditMetadata",
+          "ReplaceFile",
+          "ManagePermissions",
+          "Delete"
+        ],
+        "enum": [
+          "View",
+          "AccessOriginal",
+          "EditMetadata",
+          "ReplaceFile",
+          "ManagePermissions",
+          "Delete"
         ]
       },
       "SearchBehaviorBaseResultOfContent": {
@@ -18478,6 +18531,13 @@
               "$ref": "#/components/schemas/ContentRight"
             }
           },
+          "rightsAggregations": {
+            "type": "array",
+            "description": "Returns the aggregated document count the to the ones the user has the specified ContentRights.\nProduces the rightsAggregationCounts on the ContentSearchResult. View will be ignored as the totalResults already gives this information.",
+            "items": {
+              "$ref": "#/components/schemas/ContentRight"
+            }
+          },
           "searchType": {
             "description": "Type of search to be performed: search only in metadata, only in the extracted fulltext from the file or both. Default to Metadata.",
             "default": "Metadata",
@@ -18521,26 +18581,6 @@
           "All",
           "NotBrokenOnly",
           "BrokenOnly"
-        ]
-      },
-      "ContentRight": {
-        "type": "string",
-        "description": "Content rights",
-        "x-enumNames": [
-          "View",
-          "AccessOriginal",
-          "EditMetadata",
-          "ReplaceFile",
-          "ManagePermissions",
-          "Delete"
-        ],
-        "enum": [
-          "View",
-          "AccessOriginal",
-          "EditMetadata",
-          "ReplaceFile",
-          "ManagePermissions",
-          "Delete"
         ]
       },
       "ContentSearchType": {

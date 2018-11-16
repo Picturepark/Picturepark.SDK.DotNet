@@ -7801,6 +7801,10 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class ContentSearchResult : SearchBehaviorBaseResultOfContent
     {
+        /// <summary>Result of rights aggregation count requested in rightsAggregations in the ContentSearchRequest.</summary>
+        [Newtonsoft.Json.JsonProperty("rightsAggregationsCounts", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<ContentRightAggregationCount> RightsAggregationsCounts { get; set; }
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -7810,6 +7814,56 @@ namespace Picturepark.SDK.V1.Contract
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentSearchResult>(data);
         }
+    
+    }
+    
+    /// <summary>Combination of ContentRight and found document count</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class ContentRightAggregationCount 
+    {
+        /// <summary>ContentRight.</summary>
+        [Newtonsoft.Json.JsonProperty("contentRight", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public ContentRight ContentRight { get; set; }
+    
+        /// <summary>Found document count.</summary>
+        [Newtonsoft.Json.JsonProperty("count", Required = Newtonsoft.Json.Required.Always)]
+        public long Count { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ContentRightAggregationCount FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentRightAggregationCount>(data);
+        }
+    
+    }
+    
+    /// <summary>Content rights</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
+    public enum ContentRight
+    {
+        [System.Runtime.Serialization.EnumMember(Value = "View")]
+        View = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "AccessOriginal")]
+        AccessOriginal = 1,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "EditMetadata")]
+        EditMetadata = 2,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "ReplaceFile")]
+        ReplaceFile = 3,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "ManagePermissions")]
+        ManagePermissions = 4,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "Delete")]
+        Delete = 5,
     
     }
     
@@ -7928,6 +7982,11 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("rightsFilter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public System.Collections.Generic.ICollection<ContentRight> RightsFilter { get; set; }
     
+        /// <summary>Returns the aggregated document count the to the ones the user has the specified ContentRights.
+        /// Produces the rightsAggregationCounts on the ContentSearchResult. View will be ignored as the totalResults already gives this information.</summary>
+        [Newtonsoft.Json.JsonProperty("rightsAggregations", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public System.Collections.Generic.ICollection<ContentRight> RightsAggregations { get; set; }
+    
         /// <summary>Type of search to be performed: search only in metadata, only in the extracted fulltext from the file or both. Default to Metadata.</summary>
         [Newtonsoft.Json.JsonProperty("searchType", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
@@ -7980,30 +8039,6 @@ namespace Picturepark.SDK.V1.Contract
     
         [System.Runtime.Serialization.EnumMember(Value = "BrokenOnly")]
         BrokenOnly = 2,
-    
-    }
-    
-    /// <summary>Content rights</summary>
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
-    public enum ContentRight
-    {
-        [System.Runtime.Serialization.EnumMember(Value = "View")]
-        View = 0,
-    
-        [System.Runtime.Serialization.EnumMember(Value = "AccessOriginal")]
-        AccessOriginal = 1,
-    
-        [System.Runtime.Serialization.EnumMember(Value = "EditMetadata")]
-        EditMetadata = 2,
-    
-        [System.Runtime.Serialization.EnumMember(Value = "ReplaceFile")]
-        ReplaceFile = 3,
-    
-        [System.Runtime.Serialization.EnumMember(Value = "ManagePermissions")]
-        ManagePermissions = 4,
-    
-        [System.Runtime.Serialization.EnumMember(Value = "Delete")]
-        Delete = 5,
     
     }
     
