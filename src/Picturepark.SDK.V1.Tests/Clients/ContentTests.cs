@@ -1153,7 +1153,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                     new FieldString { Id = "value1" },
                     new FieldString { Id = "value2" }
                 },
-                Public = true,
+                ViewForAll = true,
                 DisplayPatterns = new List<DisplayPattern>
                 {
                     new DisplayPattern
