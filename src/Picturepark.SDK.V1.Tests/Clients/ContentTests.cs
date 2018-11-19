@@ -64,12 +64,15 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var contentIds = randomContents.Results.Select(i => i.Id).ToList();
 
             // Act
-            var contents = await _client.Content.GetManyAsync(contentIds).ConfigureAwait(false);
+            var contents = await _client.Content.GetManyAsync(contentIds, new[] { ContentResolveBehavior.Owner, ContentResolveBehavior.Permissions }).ConfigureAwait(false);
 
             // Assert
             Assert.Equal(2, contents.Count);
             Assert.Equal(contentIds[0], contents.ToList()[0].Id);
             Assert.Equal(contentIds[1], contents.ToList()[1].Id);
+
+            contents.Should().NotContainNulls(i => i.Owner);
+            contents.Should().NotContainNulls(i => i.ContentRights);
         }
 
         [Fact]
@@ -821,8 +824,17 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var contentId = await _fixture.GetRandomContentIdAsync(".jpg", 20).ConfigureAwait(false);
             Assert.False(string.IsNullOrEmpty(contentId));
 
-            ContentDetail result = await _client.Content.GetAsync(contentId, new[] { ContentResolveBehavior.InnerDisplayValueList }).ConfigureAwait(false);
-            Assert.NotNull(result.Id);
+            ContentDetail result = await _client.Content.GetAsync(contentId, new[]
+            {
+                ContentResolveBehavior.InnerDisplayValueList,
+                ContentResolveBehavior.Owner,
+                ContentResolveBehavior.Permissions
+            }).ConfigureAwait(false);
+
+            result.Id.Should().NotBeNullOrEmpty();
+            result.Owner.Should().NotBeNull();
+            result.ContentRights.Should().NotBeNull();
+            result.ContentRights.Should().NotBeEmpty();
         }
 
         [Fact]

@@ -7365,20 +7365,28 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("metadata", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public DataDictionary Metadata { get; set; }
     
-        /// <summary>A list of rendering ouputs for underlying digital file.</summary>
+        /// <summary>A list of rendering outputs for underlying digital file.</summary>
         [Newtonsoft.Json.JsonProperty("outputs", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<Output> Outputs { get; set; }
     
-        /// <summary>The id of a owner token. Defines the content owner.</summary>
+        /// <summary>The owner token ID. Defines the content owner.</summary>
         [Newtonsoft.Json.JsonProperty("ownerTokenId", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
         public string OwnerTokenId { get; set; }
+    
+        /// <summary>The resolved owner.</summary>
+        [Newtonsoft.Json.JsonProperty("owner", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public User Owner { get; set; }
     
         /// <summary>The lifecycle of the content.</summary>
         [Newtonsoft.Json.JsonProperty("lifeCycle", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public LifeCycle LifeCycle { get; set; }
+    
+        /// <summary>List of content rights the user has on this content</summary>
+        [Newtonsoft.Json.JsonProperty("contentRights", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public System.Collections.Generic.ICollection<ContentRight> ContentRights { get; set; }
     
         public string ToJson() 
         {
@@ -7701,6 +7709,38 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class User 
+    {
+        /// <summary>User's Picturepark ID.</summary>
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
+        /// <summary>User's first name.</summary>
+        [Newtonsoft.Json.JsonProperty("firstName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string FirstName { get; set; }
+    
+        /// <summary>User's last name.</summary>
+        [Newtonsoft.Json.JsonProperty("lastName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string LastName { get; set; }
+    
+        /// <summary>Email address of the user (doubles as username).</summary>
+        [Newtonsoft.Json.JsonProperty("emailAddress", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public string EmailAddress { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static User FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<User>(data);
+        }
+    
+    }
+    
     /// <summary>Lifecycle</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
     public enum LifeCycle
@@ -7716,6 +7756,30 @@ namespace Picturepark.SDK.V1.Contract
     
         [System.Runtime.Serialization.EnumMember(Value = "Deleted")]
         Deleted = 3,
+    
+    }
+    
+    /// <summary>Content rights</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
+    public enum ContentRight
+    {
+        [System.Runtime.Serialization.EnumMember(Value = "View")]
+        View = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "AccessOriginal")]
+        AccessOriginal = 1,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "EditMetadata")]
+        EditMetadata = 2,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "ReplaceFile")]
+        ReplaceFile = 3,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "ManagePermissions")]
+        ManagePermissions = 4,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "Delete")]
+        Delete = 5,
     
     }
     
@@ -7745,6 +7809,12 @@ namespace Picturepark.SDK.V1.Contract
     
         [System.Runtime.Serialization.EnumMember(Value = "InnerDisplayValueName")]
         InnerDisplayValueName = 7,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "Owner")]
+        Owner = 8,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "Permissions")]
+        Permissions = 9,
     
     }
     
@@ -7840,30 +7910,6 @@ namespace Picturepark.SDK.V1.Contract
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentRightAggregationCount>(data);
         }
-    
-    }
-    
-    /// <summary>Content rights</summary>
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
-    public enum ContentRight
-    {
-        [System.Runtime.Serialization.EnumMember(Value = "View")]
-        View = 0,
-    
-        [System.Runtime.Serialization.EnumMember(Value = "AccessOriginal")]
-        AccessOriginal = 1,
-    
-        [System.Runtime.Serialization.EnumMember(Value = "EditMetadata")]
-        EditMetadata = 2,
-    
-        [System.Runtime.Serialization.EnumMember(Value = "ReplaceFile")]
-        ReplaceFile = 3,
-    
-        [System.Runtime.Serialization.EnumMember(Value = "ManagePermissions")]
-        ManagePermissions = 4,
-    
-        [System.Runtime.Serialization.EnumMember(Value = "Delete")]
-        Delete = 5,
     
     }
     
@@ -13792,38 +13838,6 @@ namespace Picturepark.SDK.V1.Contract
         public static InternalRecipient FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<InternalRecipient>(data);
-        }
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class User 
-    {
-        /// <summary>User's Picturepark ID.</summary>
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Id { get; set; }
-    
-        /// <summary>User's first name.</summary>
-        [Newtonsoft.Json.JsonProperty("firstName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string FirstName { get; set; }
-    
-        /// <summary>User's last name.</summary>
-        [Newtonsoft.Json.JsonProperty("lastName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string LastName { get; set; }
-    
-        /// <summary>Email address of the user (doubles as username).</summary>
-        [Newtonsoft.Json.JsonProperty("emailAddress", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public string EmailAddress { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static User FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<User>(data);
         }
     
     }

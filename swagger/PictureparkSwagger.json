@@ -17869,15 +17869,23 @@
           },
           "outputs": {
             "type": "array",
-            "description": "A list of rendering ouputs for underlying digital file.",
+            "description": "A list of rendering outputs for underlying digital file.",
             "items": {
               "$ref": "#/components/schemas/Output"
             }
           },
           "ownerTokenId": {
             "type": "string",
-            "description": "The id of a owner token. Defines the content owner.",
+            "description": "The owner token ID. Defines the content owner.",
             "minLength": 1
+          },
+          "owner": {
+            "description": "The resolved owner.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/User"
+              }
+            ]
           },
           "lifeCycle": {
             "description": "The lifecycle of the content.",
@@ -17887,6 +17895,13 @@
                 "$ref": "#/components/schemas/LifeCycle"
               }
             ]
+          },
+          "contentRights": {
+            "type": "array",
+            "description": "List of content rights the user has on this content",
+            "items": {
+              "$ref": "#/components/schemas/ContentRight"
+            }
           }
         }
       },
@@ -18214,6 +18229,32 @@
           }
         ]
       },
+      "User": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "emailAddress"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "User's Picturepark ID."
+          },
+          "firstName": {
+            "type": "string",
+            "description": "User's first name."
+          },
+          "lastName": {
+            "type": "string",
+            "description": "User's last name."
+          },
+          "emailAddress": {
+            "type": "string",
+            "description": "Email address of the user (doubles as username).",
+            "minLength": 1
+          }
+        }
+      },
       "LifeCycle": {
         "type": "string",
         "description": "Lifecycle",
@@ -18230,6 +18271,26 @@
           "Deleted"
         ]
       },
+      "ContentRight": {
+        "type": "string",
+        "description": "Content rights",
+        "x-enumNames": [
+          "View",
+          "AccessOriginal",
+          "EditMetadata",
+          "ReplaceFile",
+          "ManagePermissions",
+          "Delete"
+        ],
+        "enum": [
+          "View",
+          "AccessOriginal",
+          "EditMetadata",
+          "ReplaceFile",
+          "ManagePermissions",
+          "Delete"
+        ]
+      },
       "ContentResolveBehavior": {
         "type": "string",
         "description": "",
@@ -18241,7 +18302,9 @@
           "InnerDisplayValueThumbnail",
           "InnerDisplayValueList",
           "InnerDisplayValueDetail",
-          "InnerDisplayValueName"
+          "InnerDisplayValueName",
+          "Owner",
+          "Permissions"
         ],
         "enum": [
           "Content",
@@ -18251,7 +18314,9 @@
           "InnerDisplayValueThumbnail",
           "InnerDisplayValueList",
           "InnerDisplayValueDetail",
-          "InnerDisplayValueName"
+          "InnerDisplayValueName",
+          "Owner",
+          "Permissions"
         ]
       },
       "ContentSearchResult": {
@@ -18296,26 +18361,6 @@
             "format": "int64"
           }
         }
-      },
-      "ContentRight": {
-        "type": "string",
-        "description": "Content rights",
-        "x-enumNames": [
-          "View",
-          "AccessOriginal",
-          "EditMetadata",
-          "ReplaceFile",
-          "ManagePermissions",
-          "Delete"
-        ],
-        "enum": [
-          "View",
-          "AccessOriginal",
-          "EditMetadata",
-          "ReplaceFile",
-          "ManagePermissions",
-          "Delete"
-        ]
       },
       "SearchBehaviorBaseResultOfContent": {
         "type": "object",
@@ -24492,32 +24537,6 @@
           "url": {
             "type": "string",
             "description": "URL to access the share for this recipient."
-          }
-        }
-      },
-      "User": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "emailAddress"
-        ],
-        "properties": {
-          "id": {
-            "type": "string",
-            "description": "User's Picturepark ID."
-          },
-          "firstName": {
-            "type": "string",
-            "description": "User's first name."
-          },
-          "lastName": {
-            "type": "string",
-            "description": "User's last name."
-          },
-          "emailAddress": {
-            "type": "string",
-            "description": "Email address of the user (doubles as username).",
-            "minLength": 1
           }
         }
       },
