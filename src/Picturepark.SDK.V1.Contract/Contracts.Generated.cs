@@ -55,7 +55,7 @@ namespace Picturepark.SDK.V1.Contract
     {
         /// <summary>Get content</summary>
         /// <param name="contentId">The content ID.</param>
-        /// <param name="resolveBehaviours">List of enums that control which parts of the content are resolved and returned.</param>
+        /// <param name="resolveBehaviors">List of enums that control which parts of the content are resolved and returned.</param>
         /// <returns>Content detail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="ContentNotFoundException">Content not found</exception>
@@ -64,7 +64,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<ContentDetail> GetAsync(string contentId, System.Collections.Generic.IEnumerable<ContentResolveBehaviour> resolveBehaviours = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ContentDetail> GetAsync(string contentId, System.Collections.Generic.IEnumerable<ContentResolveBehavior> resolveBehaviors = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Delete content</summary>
         /// <param name="contentId">The ID of the content to delete.</param>
@@ -83,7 +83,7 @@ namespace Picturepark.SDK.V1.Contract
     
         /// <summary>Get multiple contents</summary>
         /// <param name="ids">List of content IDs</param>
-        /// <param name="resolveBehaviours">List of enums that control which parts of the content are resolved and returned.</param>
+        /// <param name="resolveBehaviors">List of enums that control which parts of the content are resolved and returned.</param>
         /// <returns>List of Content detail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="ContentNotFoundException">One or more contents not found</exception>
@@ -92,11 +92,11 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<ContentDetail>> GetManyAsync(System.Collections.Generic.IEnumerable<string> ids, System.Collections.Generic.IEnumerable<ContentResolveBehaviour> resolveBehaviours = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<ContentDetail>> GetManyAsync(System.Collections.Generic.IEnumerable<string> ids, System.Collections.Generic.IEnumerable<ContentResolveBehavior> resolveBehaviors = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Create content</summary>
         /// <param name="contentCreateRequest">Content create request.</param>
-        /// <param name="resolveBehaviours">List of enums that control which parts of the content are resolved and returned.</param>
+        /// <param name="resolveBehaviors">List of enums that control which parts of the content are resolved and returned.</param>
         /// <param name="allowMissingDependencies">Allows creating contents that refer to list items or contents that don't exist in the system.</param>
         /// <param name="timeout">Maximum time to wait for the operation to complete. If timeout is exceeded, the operation is not aborted but continues anyhow.
         ///             Only the waiting is aborted, and the calls returned.</param>
@@ -108,7 +108,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<ContentDetail> CreateAsync(ContentCreateRequest contentCreateRequest, System.Collections.Generic.IEnumerable<ContentResolveBehaviour> resolveBehaviours = null, bool? allowMissingDependencies = null, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ContentDetail> CreateAsync(ContentCreateRequest contentCreateRequest, System.Collections.Generic.IEnumerable<ContentResolveBehavior> resolveBehaviors = null, bool? allowMissingDependencies = null, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Search contents</summary>
         /// <param name="contentSearchRequest">Content search request.</param>
@@ -269,7 +269,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <summary>Update content metadata</summary>
         /// <param name="contentId">The content ID.</param>
         /// <param name="updateRequest">Content metadata update request.</param>
-        /// <param name="resolveBehaviours">List of enums that control which parts of the content are resolved and returned.</param>
+        /// <param name="resolveBehaviors">List of enums that control which parts of the content are resolved and returned.</param>
         /// <param name="allowMissingDependencies">Allows storing references to list items or contents that don't exist in the system.</param>
         /// <param name="timeout">Maximum time to wait for the operation to complete. If timeout is exceeded, the operation is not aborted but continues anyhow.
         ///             Only the waiting is aborted, and the calls returned.</param>
@@ -281,12 +281,12 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<ContentDetail> UpdateMetadataAsync(string contentId, ContentMetadataUpdateRequest updateRequest, System.Collections.Generic.IEnumerable<ContentResolveBehaviour> resolveBehaviours = null, bool? allowMissingDependencies = null, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ContentDetail> UpdateMetadataAsync(string contentId, ContentMetadataUpdateRequest updateRequest, System.Collections.Generic.IEnumerable<ContentResolveBehavior> resolveBehaviors = null, bool? allowMissingDependencies = null, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Update content permissions</summary>
         /// <param name="contentId">The content ID.</param>
         /// <param name="updateRequest">Content permissions update request.</param>
-        /// <param name="resolveBehaviours">List of enums that control which parts of the content are resolved and returned.</param>
+        /// <param name="resolveBehaviors">List of enums that control which parts of the content are resolved and returned.</param>
         /// <param name="timeout">Maximum time to wait for the operation to complete. If timeout is exceeded, the operation is not aborted but continues anyhow.
         ///             Only the waiting is aborted, and the calls returned.</param>
         /// <returns>Content detail</returns>
@@ -297,7 +297,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<ContentDetail> UpdatePermissionsAsync(string contentId, ContentPermissionsUpdateRequest updateRequest, System.Collections.Generic.IEnumerable<ContentResolveBehaviour> resolveBehaviours = null, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ContentDetail> UpdatePermissionsAsync(string contentId, ContentPermissionsUpdateRequest updateRequest, System.Collections.Generic.IEnumerable<ContentResolveBehavior> resolveBehaviors = null, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Transfer content ownership</summary>
         /// <param name="contentId">The content ID.</param>
@@ -442,7 +442,7 @@ namespace Picturepark.SDK.V1.Contract
     {
         /// <summary>Get list item</summary>
         /// <param name="listItemId">The list item ID.</param>
-        /// <param name="resolveBehaviours">List of enums that control which parts of the list item are resolved and returned.</param>
+        /// <param name="resolveBehaviors">List of enums that control which parts of the list item are resolved and returned.</param>
         /// <returns>List item detail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="ListItemNotFoundException">List item not found</exception>
@@ -451,7 +451,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<ListItemDetail> GetAsync(string listItemId, System.Collections.Generic.IEnumerable<ListItemResolveBehaviour> resolveBehaviours = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ListItemDetail> GetAsync(string listItemId, System.Collections.Generic.IEnumerable<ListItemResolveBehavior> resolveBehaviors = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Delete list item</summary>
         /// <param name="listItemId">The ID of the list item to delete.</param>
@@ -470,7 +470,7 @@ namespace Picturepark.SDK.V1.Contract
     
         /// <summary>Get multiple list items</summary>
         /// <param name="ids">List of list item IDs.</param>
-        /// <param name="resolveBehaviours">List of enums that control which parts of the list items are resolved and returned.</param>
+        /// <param name="resolveBehaviors">List of enums that control which parts of the list items are resolved and returned.</param>
         /// <returns>List of list item details</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="ListItemNotFoundException">One or more list items not found</exception>
@@ -479,11 +479,11 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<ListItemDetail>> GetManyAsync(System.Collections.Generic.IEnumerable<string> ids, System.Collections.Generic.IEnumerable<ListItemResolveBehaviour> resolveBehaviours = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<ListItemDetail>> GetManyAsync(System.Collections.Generic.IEnumerable<string> ids, System.Collections.Generic.IEnumerable<ListItemResolveBehavior> resolveBehaviors = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Create list item</summary>
         /// <param name="listItemCreateRequest">List item create request.</param>
-        /// <param name="resolveBehaviours">List of enums that control which parts of the list item are resolved and returned.</param>
+        /// <param name="resolveBehaviors">List of enums that control which parts of the list item are resolved and returned.</param>
         /// <param name="allowMissingDependencies">Allows creating list items that refer to list items or contents that don't exist in the system.</param>
         /// <param name="timeout">Maximum time to wait for the operation to complete. If timeout is exceeded, the operation is not aborted but continues anyhow.
         ///             Only the waiting is aborted, and the calls returned.</param>
@@ -495,7 +495,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<ListItemDetail> CreateAsync(ListItemCreateRequest listItemCreateRequest, System.Collections.Generic.IEnumerable<ListItemResolveBehaviour> resolveBehaviours = null, bool? allowMissingDependencies = null, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ListItemDetail> CreateAsync(ListItemCreateRequest listItemCreateRequest, System.Collections.Generic.IEnumerable<ListItemResolveBehavior> resolveBehaviors = null, bool? allowMissingDependencies = null, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Search list items</summary>
         /// <param name="listItemSearchRequest">The list item search request.</param>
@@ -7365,20 +7365,28 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("metadata", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public DataDictionary Metadata { get; set; }
     
-        /// <summary>A list of rendering ouputs for underlying digital file.</summary>
+        /// <summary>A list of rendering outputs for underlying digital file.</summary>
         [Newtonsoft.Json.JsonProperty("outputs", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<Output> Outputs { get; set; }
     
-        /// <summary>The id of a owner token. Defines the content owner.</summary>
+        /// <summary>The owner token ID. Defines the content owner.</summary>
         [Newtonsoft.Json.JsonProperty("ownerTokenId", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
         public string OwnerTokenId { get; set; }
+    
+        /// <summary>The resolved owner.</summary>
+        [Newtonsoft.Json.JsonProperty("owner", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public User Owner { get; set; }
     
         /// <summary>The lifecycle of the content.</summary>
         [Newtonsoft.Json.JsonProperty("lifeCycle", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public LifeCycle LifeCycle { get; set; }
+    
+        /// <summary>List of content rights the user has on this content</summary>
+        [Newtonsoft.Json.JsonProperty("contentRights", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public System.Collections.Generic.ICollection<ContentRight> ContentRights { get; set; }
     
         public string ToJson() 
         {
@@ -7701,6 +7709,38 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class User 
+    {
+        /// <summary>User's Picturepark ID.</summary>
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
+        /// <summary>User's first name.</summary>
+        [Newtonsoft.Json.JsonProperty("firstName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string FirstName { get; set; }
+    
+        /// <summary>User's last name.</summary>
+        [Newtonsoft.Json.JsonProperty("lastName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string LastName { get; set; }
+    
+        /// <summary>Email address of the user (doubles as username).</summary>
+        [Newtonsoft.Json.JsonProperty("emailAddress", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public string EmailAddress { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static User FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<User>(data);
+        }
+    
+    }
+    
     /// <summary>Lifecycle</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
     public enum LifeCycle
@@ -7719,8 +7759,32 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>Content rights</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
-    public enum ContentResolveBehaviour
+    public enum ContentRight
+    {
+        [System.Runtime.Serialization.EnumMember(Value = "View")]
+        View = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "AccessOriginal")]
+        AccessOriginal = 1,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "EditMetadata")]
+        EditMetadata = 2,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "ReplaceFile")]
+        ReplaceFile = 3,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "ManagePermissions")]
+        ManagePermissions = 4,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "Delete")]
+        Delete = 5,
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
+    public enum ContentResolveBehavior
     {
         [System.Runtime.Serialization.EnumMember(Value = "Content")]
         Content = 0,
@@ -7745,6 +7809,12 @@ namespace Picturepark.SDK.V1.Contract
     
         [System.Runtime.Serialization.EnumMember(Value = "InnerDisplayValueName")]
         InnerDisplayValueName = 7,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "Owner")]
+        Owner = 8,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "Permissions")]
+        Permissions = 9,
     
     }
     
@@ -7801,6 +7871,10 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class ContentSearchResult : SearchBehaviorBaseResultOfContent
     {
+        /// <summary>Result of rights aggregation count requested in rightsAggregations in the ContentSearchRequest.</summary>
+        [Newtonsoft.Json.JsonProperty("rightsAggregationsCounts", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<ContentRightAggregationCount> RightsAggregationsCounts { get; set; }
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -7809,6 +7883,32 @@ namespace Picturepark.SDK.V1.Contract
         public static ContentSearchResult FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentSearchResult>(data);
+        }
+    
+    }
+    
+    /// <summary>Combination of ContentRight and found document count</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
+    public partial class ContentRightAggregationCount 
+    {
+        /// <summary>ContentRight.</summary>
+        [Newtonsoft.Json.JsonProperty("contentRight", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public ContentRight ContentRight { get; set; }
+    
+        /// <summary>Found document count.</summary>
+        [Newtonsoft.Json.JsonProperty("count", Required = Newtonsoft.Json.Required.Always)]
+        public long Count { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+        
+        public static ContentRightAggregationCount FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentRightAggregationCount>(data);
         }
     
     }
@@ -7928,6 +8028,11 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("rightsFilter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public System.Collections.Generic.ICollection<ContentRight> RightsFilter { get; set; }
     
+        /// <summary>Returns the aggregated document counts to the ones the user has the specified ContentRights.
+        /// Produces the rightsAggregationCounts on the ContentSearchResult. View will be ignored as the totalResults already gives this information.</summary>
+        [Newtonsoft.Json.JsonProperty("rightsAggregations", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public System.Collections.Generic.ICollection<ContentRight> RightsAggregations { get; set; }
+    
         /// <summary>Type of search to be performed: search only in metadata, only in the extracted fulltext from the file or both. Default to Metadata.</summary>
         [Newtonsoft.Json.JsonProperty("searchType", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
@@ -7980,30 +8085,6 @@ namespace Picturepark.SDK.V1.Contract
     
         [System.Runtime.Serialization.EnumMember(Value = "BrokenOnly")]
         BrokenOnly = 2,
-    
-    }
-    
-    /// <summary>Content rights</summary>
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
-    public enum ContentRight
-    {
-        [System.Runtime.Serialization.EnumMember(Value = "View")]
-        View = 0,
-    
-        [System.Runtime.Serialization.EnumMember(Value = "AccessOriginal")]
-        AccessOriginal = 1,
-    
-        [System.Runtime.Serialization.EnumMember(Value = "EditMetadata")]
-        EditMetadata = 2,
-    
-        [System.Runtime.Serialization.EnumMember(Value = "ReplaceFile")]
-        ReplaceFile = 3,
-    
-        [System.Runtime.Serialization.EnumMember(Value = "ManagePermissions")]
-        ManagePermissions = 4,
-    
-        [System.Runtime.Serialization.EnumMember(Value = "Delete")]
-        Delete = 5,
     
     }
     
@@ -10005,7 +10086,7 @@ namespace Picturepark.SDK.V1.Contract
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
-    public enum ListItemResolveBehaviour
+    public enum ListItemResolveBehavior
     {
         [System.Runtime.Serialization.EnumMember(Value = "Content")]
         Content = 0,
@@ -13757,38 +13838,6 @@ namespace Picturepark.SDK.V1.Contract
         public static InternalRecipient FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<InternalRecipient>(data);
-        }
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class User 
-    {
-        /// <summary>User's Picturepark ID.</summary>
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Id { get; set; }
-    
-        /// <summary>User's first name.</summary>
-        [Newtonsoft.Json.JsonProperty("firstName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string FirstName { get; set; }
-    
-        /// <summary>User's last name.</summary>
-        [Newtonsoft.Json.JsonProperty("lastName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string LastName { get; set; }
-    
-        /// <summary>Email address of the user (doubles as username).</summary>
-        [Newtonsoft.Json.JsonProperty("emailAddress", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public string EmailAddress { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static User FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<User>(data);
         }
     
     }

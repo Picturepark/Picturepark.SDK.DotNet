@@ -81,7 +81,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             await _client.ListItem.UpdateAsync(itemId, request).ConfigureAwait(false);
 
             // Assert
-            var newItem = await _client.ListItem.GetAsync(itemId, new[] { ListItemResolveBehaviour.Content }).ConfigureAwait(false);
+            var newItem = await _client.ListItem.GetAsync(itemId, new[] { ListItemResolveBehavior.Content }).ConfigureAwait(false);
             Assert.Equal("Foo", newItem.ConvertTo<Tag>().Name);
         }
 
@@ -139,7 +139,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             // Act
             await _client.ListItem.BatchUpdateFieldsByFilterAsync(updateRequest).ConfigureAwait(false);
-            ListItemDetail result = await _client.ListItem.GetAsync(listItemDetail.Id, new[] { ListItemResolveBehaviour.Content }).ConfigureAwait(false);
+            ListItemDetail result = await _client.ListItem.GetAsync(listItemDetail.Id, new[] { ListItemResolveBehavior.Content }).ConfigureAwait(false);
 
             // Assert
             Assert.Equal("Foo", result.ConvertTo<Tag>().Name);
@@ -258,7 +258,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 Content = originalPlayer
             };
 
-            var playerItem = await _client.ListItem.CreateAsync(createRequest, new[] { ListItemResolveBehaviour.Content }).ConfigureAwait(false);
+            var playerItem = await _client.ListItem.CreateAsync(createRequest, new[] { ListItemResolveBehavior.Content }).ConfigureAwait(false);
 
             // Assert
             Assert.NotNull(playerItem);
@@ -304,7 +304,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             chSearch.Results.Should().NotBeEmpty("Switzerland should exist");
 
             // Act
-            var listItem = await _client.ListItem.GetAsync(chSearch.Results.First().Id, new[] { ListItemResolveBehaviour.Content, ListItemResolveBehaviour.LinkedListItems }).ConfigureAwait(false);
+            var listItem = await _client.ListItem.GetAsync(chSearch.Results.First().Id, new[] { ListItemResolveBehavior.Content, ListItemResolveBehavior.LinkedListItems }).ConfigureAwait(false);
 
             // Assert
             listItem.ContentSchemaId.Should().Be(countrySchemaId);
@@ -343,7 +343,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var createdListItems = createDetail.SucceededItems.ToArray();
 
             // Act
-            var resultListItems = await _client.ListItem.GetManyAsync(createdListItems.Select(li => li.Id), new List<ListItemResolveBehaviour> { ListItemResolveBehaviour.Content }).ConfigureAwait(false);
+            var resultListItems = await _client.ListItem.GetManyAsync(createdListItems.Select(li => li.Id), new List<ListItemResolveBehavior> { ListItemResolveBehavior.Content }).ConfigureAwait(false);
 
             // Assert
             resultListItems.Should().NotBeNull().And.HaveCount(2);
@@ -466,7 +466,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             }).ConfigureAwait(false);
 
             var playerObjectId = players.Results.First().Id;
-            var playerItem = await _client.ListItem.GetAsync(playerObjectId, new[] { ListItemResolveBehaviour.Content }).ConfigureAwait(false);
+            var playerItem = await _client.ListItem.GetAsync(playerObjectId, new[] { ListItemResolveBehavior.Content }).ConfigureAwait(false);
 
             // Act
             var player = playerItem.ConvertTo<SoccerPlayer>();
@@ -500,7 +500,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 Content = originalPlayer
             };
 
-            var playerItem = await _client.ListItem.CreateAsync(createRequest, new[] { ListItemResolveBehaviour.Content }).ConfigureAwait(false);
+            var playerItem = await _client.ListItem.CreateAsync(createRequest, new[] { ListItemResolveBehavior.Content }).ConfigureAwait(false);
 
             // Act
             var player = playerItem.ConvertTo<SoccerPlayer>();
@@ -645,10 +645,10 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             // Act
             var englishClient = _fixture.GetLocalizedPictureparkService("en");
-            var receivedItem1 = await englishClient.ListItem.GetAsync(detail.Id, new[] { ListItemResolveBehaviour.Content }).ConfigureAwait(false);
+            var receivedItem1 = await englishClient.ListItem.GetAsync(detail.Id, new[] { ListItemResolveBehavior.Content }).ConfigureAwait(false);
 
             var germanClient = _fixture.GetLocalizedPictureparkService("de");
-            var receivedItem2 = await germanClient.ListItem.GetAsync(detail.Id, new[] { ListItemResolveBehaviour.Content }).ConfigureAwait(false);
+            var receivedItem2 = await germanClient.ListItem.GetAsync(detail.Id, new[] { ListItemResolveBehavior.Content }).ConfigureAwait(false);
 
             // Assert
             receivedItem1.DisplayValues[DisplayPatternType.Name.ToString().ToLowerCamelCase()].Should().Be("value2");
@@ -675,7 +675,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             var detail = await _client.ListItem.CreateFromObjectAsync(listItem1).ConfigureAwait(false);
 
-            var details = await detail.FetchDetail(new[] { ListItemResolveBehaviour.Content, ListItemResolveBehaviour.InnerDisplayValueName }).ConfigureAwait(false);
+            var details = await detail.FetchDetail(new[] { ListItemResolveBehavior.Content, ListItemResolveBehavior.InnerDisplayValueName }).ConfigureAwait(false);
             var items = details.SucceededItems;
 
             // Act
@@ -727,7 +727,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 }).ConfigureAwait(false);
 
             // Act
-            var detail = await result.FetchDetail(new[] { ListItemResolveBehaviour.Content }).ConfigureAwait(false);
+            var detail = await result.FetchDetail(new[] { ListItemResolveBehavior.Content }).ConfigureAwait(false);
 
             // Assert
             detail.SucceededItems.Should().HaveCount(201);
