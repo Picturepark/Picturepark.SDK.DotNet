@@ -334,6 +334,27 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 .Which.Format.Should().Be("YYYY-MM-DD hh:mm:ss");
         }
 
+        [Fact]
+        [Trait("Stack", "Schema")]
+        public async Task ShouldGetIndexedFields()
+        {
+            // Arrange
+            var schemas = await _client.Schema.GenerateSchemasAsync(typeof(Vehicle)).ConfigureAwait(false);
+            var createdSchemas = await _fixture.RandomizeSchemaIdsAndCreate(schemas).ConfigureAwait(false);
+            var firstSchemaId = createdSchemas.First(x => x.Id.StartsWith("Vehicle")).Id;
+
+            // Act
+            var indexedFields = await _client.Schema.GetIndexFieldsAsync(
+                new IndexFieldsSearchBySchemaIdsRequest
+                {
+                    SchemaIds = new[] { firstSchemaId },
+                    SearchMode = IndexFieldsSearchMode.SchemaAndParentFieldsOnly
+                }).ConfigureAwait(false);
+
+            // Assert
+            indexedFields.Count.Should().Be(2);
+        }
+
         private void AppendSchemaIdSuffix(SchemaDetail schema, int schemaSuffix)
             => _fixture.AppendSchemaIdSuffix(schema, schemaSuffix);
     }

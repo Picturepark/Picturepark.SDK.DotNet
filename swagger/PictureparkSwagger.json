@@ -21999,7 +21999,7 @@
           "displayPatterns",
           "system",
           "ownerTokenId",
-          "public"
+          "viewForAll"
         ],
         "properties": {
           "id": {
@@ -22090,13 +22090,13 @@
             "description": "The owner token ID. Defines the schema owner.",
             "minLength": 1
           },
-          "public": {
+          "viewForAll": {
             "type": "boolean",
-            "description": "Defines a schema as public. Everyone with ManageSchema user permission is able to see, use and modify the schema.\nIf the value is set true, the SchemaPermissionSetIds list must be empty."
+            "description": "Defines a schema as viewable by everyone. Everyone with ManageSchema user permission is able to see the schema."
           },
           "schemaPermissionSetIds": {
             "type": "array",
-            "description": "An optional list of schema permission set IDs which control schema permissions. If any value is set in the list, the Public property value must be false.",
+            "description": "An optional list of schema permission set IDs which control schema permissions.",
             "items": {
               "type": "string"
             }
@@ -23703,7 +23703,7 @@
         "required": [
           "id",
           "displayPatterns",
-          "public"
+          "viewForAll"
         ],
         "properties": {
           "id": {
@@ -23773,13 +23773,13 @@
               "$ref": "#/components/schemas/SortInfo"
             }
           },
-          "public": {
+          "viewForAll": {
             "type": "boolean",
-            "description": "Defines a schema as public. Everyone with ManageSchema user permission is able to see, use and modify the schema.\nIf the value is set true, the SchemaPermissionSetIds list must be empty."
+            "description": "Defines a schema as viewable by everyone. Everyone with ManageSchema user permission is able to see the schema."
           },
           "schemaPermissionSetIds": {
             "type": "array",
-            "description": "An optional list of schema permission set IDs which control schema permissions. If any value is set in the list, the Public property value must be false.",
+            "description": "An optional list of schema permission set IDs which control schema permissions.",
             "items": {
               "type": "string"
             }
@@ -23820,7 +23820,7 @@
         "description": "Request to update an existing schema",
         "additionalProperties": false,
         "required": [
-          "public"
+          "viewForAll"
         ],
         "properties": {
           "names": {
@@ -23874,13 +23874,13 @@
               "$ref": "#/components/schemas/SortInfo"
             }
           },
-          "public": {
+          "viewForAll": {
             "type": "boolean",
-            "description": "Defines a schema as public. Everyone with ManageSchema user permission is able to see, use and modify the schema.\nIf the value is set true, the SchemaPermissionSetIds list must be empty."
+            "description": "Defines a schema as viewable by everyone. Everyone with ManageSchema user permission is able to see the schema."
           },
           "schemaPermissionSetIds": {
             "type": "array",
-            "description": "An optional list of schema permission set IDs which control schema permissions. If any value is set in the list, the Public property value must be false.",
+            "description": "An optional list of schema permission set IDs which control schema permissions.",
             "items": {
               "type": "string"
             }

@@ -131,7 +131,7 @@ namespace Picturepark.SDK.V1.Conversion
 
             if (schemaType == SchemaType.Struct ||
                 schemaType == SchemaType.Content)
-                schemaItem.Public = true;
+                schemaItem.ViewForAll = true;
 
             ApplyDisplayPatternAttributes(schemaItem, contractType);
             ApplyNameTranslationAttributes(schemaItem, contractType);

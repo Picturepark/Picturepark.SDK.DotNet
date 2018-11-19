@@ -11604,12 +11604,11 @@ namespace Picturepark.SDK.V1.Contract
         [System.ComponentModel.DataAnnotations.Required]
         public string OwnerTokenId { get; set; }
     
-        /// <summary>Defines a schema as public. Everyone with ManageSchema user permission is able to see, use and modify the schema.
-        /// If the value is set true, the SchemaPermissionSetIds list must be empty.</summary>
-        [Newtonsoft.Json.JsonProperty("public", Required = Newtonsoft.Json.Required.Always)]
-        public bool Public { get; set; }
+        /// <summary>Defines a schema as viewable by everyone. Everyone with ManageSchema user permission is able to see the schema.</summary>
+        [Newtonsoft.Json.JsonProperty("viewForAll", Required = Newtonsoft.Json.Required.Always)]
+        public bool ViewForAll { get; set; }
     
-        /// <summary>An optional list of schema permission set IDs which control schema permissions. If any value is set in the list, the Public property value must be false.</summary>
+        /// <summary>An optional list of schema permission set IDs which control schema permissions.</summary>
         [Newtonsoft.Json.JsonProperty("schemaPermissionSetIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> SchemaPermissionSetIds { get; set; }
     
@@ -13107,12 +13106,11 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("sort", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<SortInfo> Sort { get; set; }
     
-        /// <summary>Defines a schema as public. Everyone with ManageSchema user permission is able to see, use and modify the schema.
-        /// If the value is set true, the SchemaPermissionSetIds list must be empty.</summary>
-        [Newtonsoft.Json.JsonProperty("public", Required = Newtonsoft.Json.Required.Always)]
-        public bool Public { get; set; }
+        /// <summary>Defines a schema as viewable by everyone. Everyone with ManageSchema user permission is able to see the schema.</summary>
+        [Newtonsoft.Json.JsonProperty("viewForAll", Required = Newtonsoft.Json.Required.Always)]
+        public bool ViewForAll { get; set; }
     
-        /// <summary>An optional list of schema permission set IDs which control schema permissions. If any value is set in the list, the Public property value must be false.</summary>
+        /// <summary>An optional list of schema permission set IDs which control schema permissions.</summary>
         [Newtonsoft.Json.JsonProperty("schemaPermissionSetIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> SchemaPermissionSetIds { get; set; }
     
@@ -13192,12 +13190,11 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("sort", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<SortInfo> Sort { get; set; }
     
-        /// <summary>Defines a schema as public. Everyone with ManageSchema user permission is able to see, use and modify the schema.
-        /// If the value is set true, the SchemaPermissionSetIds list must be empty.</summary>
-        [Newtonsoft.Json.JsonProperty("public", Required = Newtonsoft.Json.Required.Always)]
-        public bool Public { get; set; }
+        /// <summary>Defines a schema as viewable by everyone. Everyone with ManageSchema user permission is able to see the schema.</summary>
+        [Newtonsoft.Json.JsonProperty("viewForAll", Required = Newtonsoft.Json.Required.Always)]
+        public bool ViewForAll { get; set; }
     
-        /// <summary>An optional list of schema permission set IDs which control schema permissions. If any value is set in the list, the Public property value must be false.</summary>
+        /// <summary>An optional list of schema permission set IDs which control schema permissions.</summary>
         [Newtonsoft.Json.JsonProperty("schemaPermissionSetIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> SchemaPermissionSetIds { get; set; }
     
