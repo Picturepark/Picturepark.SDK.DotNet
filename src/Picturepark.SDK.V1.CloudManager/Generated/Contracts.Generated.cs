@@ -6642,11 +6642,9 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [JsonInheritanceAttribute("VideoFormatBase", typeof(VideoFormatBase))]
     [JsonInheritanceAttribute("AudioFormatBase", typeof(AudioFormatBase))]
     [JsonInheritanceAttribute("Mp4VideoFormat", typeof(Mp4VideoFormat))]
-    [JsonInheritanceAttribute("VideoPresetFormat", typeof(VideoPresetFormat))]
     [JsonInheritanceAttribute("VideoSpriteFormat", typeof(VideoSpriteFormat))]
     [JsonInheritanceAttribute("VideoStillFormat", typeof(VideoStillFormat))]
     [JsonInheritanceAttribute("AacAudioFormat", typeof(AacAudioFormat))]
-    [JsonInheritanceAttribute("AudioPresetFormat", typeof(AudioPresetFormat))]
     [JsonInheritanceAttribute("AudioStillFormat", typeof(AudioStillFormat))]
     [JsonInheritanceAttribute("Mp3AudioFormat", typeof(Mp3AudioFormat))]
     [JsonInheritanceAttribute("DocumentFormatBase", typeof(DocumentFormatBase))]
@@ -7271,35 +7269,6 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class VideoPresetFormat : VideoFormatBase
-    {
-        /// <summary>Id of Squeeze preset.</summary>
-        [Newtonsoft.Json.JsonProperty("videoPresetId", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public System.Guid VideoPresetId { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("customerId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string CustomerId { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("defaultOutputExtension", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string DefaultOutputExtension { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("allowedOutputExtensions", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> AllowedOutputExtensions { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static VideoPresetFormat FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<VideoPresetFormat>(data);
-        }
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
     public partial class VideoSpriteFormat : VideoFormatBase
     {
         [Newtonsoft.Json.JsonProperty("spriteResizeAction", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -7422,32 +7391,6 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
         [System.Runtime.Serialization.EnumMember(Value = "fast")]
         Fast = 2,
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class AudioPresetFormat : AudioFormatBase
-    {
-        /// <summary>Id of Squeeze preset.</summary>
-        [Newtonsoft.Json.JsonProperty("audioPresetId", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public System.Guid AudioPresetId { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("defaultOutputExtension", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string DefaultOutputExtension { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("allowedOutputExtensions", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> AllowedOutputExtensions { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static AudioPresetFormat FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<AudioPresetFormat>(data);
-        }
     
     }
     

@@ -11015,9 +11015,6 @@
             "Mp4VideoFormat": {
               "$ref": "#/components/schemas/Mp4VideoFormat"
             },
-            "VideoPresetFormat": {
-              "$ref": "#/components/schemas/VideoPresetFormat"
-            },
             "VideoSpriteFormat": {
               "$ref": "#/components/schemas/VideoSpriteFormat"
             },
@@ -11026,9 +11023,6 @@
             },
             "AacAudioFormat": {
               "$ref": "#/components/schemas/AacAudioFormat"
-            },
-            "AudioPresetFormat": {
-              "$ref": "#/components/schemas/AudioPresetFormat"
             },
             "AudioStillFormat": {
               "$ref": "#/components/schemas/AudioStillFormat"
@@ -11657,37 +11651,6 @@
           "slower"
         ]
       },
-      "VideoPresetFormat": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "videoPresetId"
-        ],
-        "properties": {
-          "videoPresetId": {
-            "type": "string",
-            "description": "Id of Squeeze preset.",
-            "format": "guid"
-          },
-          "customerId": {
-            "type": "string"
-          },
-          "defaultOutputExtension": {
-            "type": "string"
-          },
-          "allowedOutputExtensions": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          }
-        },
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/VideoFormatBase"
-          }
-        ]
-      },
       "VideoSpriteFormat": {
         "type": "object",
         "additionalProperties": false,
@@ -11828,34 +11791,6 @@
           "twoloop",
           "anmr",
           "fast"
-        ]
-      },
-      "AudioPresetFormat": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "audioPresetId"
-        ],
-        "properties": {
-          "audioPresetId": {
-            "type": "string",
-            "description": "Id of Squeeze preset.",
-            "format": "guid"
-          },
-          "defaultOutputExtension": {
-            "type": "string"
-          },
-          "allowedOutputExtensions": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          }
-        },
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/AudioFormatBase"
-          }
         ]
       },
       "AudioStillFormat": {
