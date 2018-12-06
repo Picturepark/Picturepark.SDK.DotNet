@@ -148,14 +148,6 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task CompleteOutputBackupAsync(ContentBackupCompleteByOutputRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-    
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">Internal server error</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
-        /// <exception cref="PictureparkConflictException">Version conflict</exception>
-        /// <exception cref="PictureparkValidationException">Validation exception</exception>
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         System.Threading.Tasks.Task<ContentBackupSearchResult> SearchMissingContentBackupsAsync(ContentBackupSearchRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
@@ -5804,35 +5796,6 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         public static SnapshotRepositorySearchByNameRequest FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<SnapshotRepositorySearchByNameRequest>(data);
-        }
-    
-    }
-    
-    /// <summary>Request to mark a backup of an Output completed</summary>
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class ContentBackupCompleteByOutputRequest 
-    {
-        [Newtonsoft.Json.JsonProperty("customerId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string CustomerId { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("outputId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string OutputId { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("contentId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string ContentId { get; set; }
-    
-        /// <summary>Id of the business process tracking the output, if any (i.e. in case of ContentBackupRecovery mode)</summary>
-        [Newtonsoft.Json.JsonProperty("businessProcessId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string BusinessProcessId { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static ContentBackupCompleteByOutputRequest FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentBackupCompleteByOutputRequest>(data);
         }
     
     }

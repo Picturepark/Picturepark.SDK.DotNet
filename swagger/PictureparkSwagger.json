@@ -21248,18 +21248,6 @@
             "ReindexEvent": {
               "$ref": "#/components/schemas/ReindexEvent"
             },
-            "OutputBackupEvent": {
-              "$ref": "#/components/schemas/OutputBackupEvent"
-            },
-            "OutputBackupMissingEvent": {
-              "$ref": "#/components/schemas/OutputBackupMissingEvent"
-            },
-            "OutputBackupRemoveEvent": {
-              "$ref": "#/components/schemas/OutputBackupRemoveEvent"
-            },
-            "ContentBackupRecoveryEvent": {
-              "$ref": "#/components/schemas/ContentBackupRecoveryEvent"
-            },
             "ContentDetailViewEvent": {
               "$ref": "#/components/schemas/ContentDetailViewEvent"
             },
@@ -21394,80 +21382,6 @@
           "Closed",
           "ReindexInProgress",
           "Cancelled"
-        ]
-      },
-      "OutputBackupEvent": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "outputId": {
-            "type": "string"
-          },
-          "contentId": {
-            "type": "string"
-          },
-          "outputFormatId": {
-            "type": "string"
-          }
-        },
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/ApplicationEvent"
-          }
-        ]
-      },
-      "OutputBackupMissingEvent": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "outputId": {
-            "type": "string"
-          },
-          "contentId": {
-            "type": "string"
-          },
-          "outputFormatId": {
-            "type": "string"
-          }
-        },
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/ApplicationEvent"
-          }
-        ]
-      },
-      "OutputBackupRemoveEvent": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "filePaths": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          }
-        },
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/ApplicationEvent"
-          }
-        ]
-      },
-      "ContentBackupRecoveryEvent": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "contentId": {
-            "type": "string"
-          },
-          "businessProcessId": {
-            "type": "string"
-          }
-        },
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/ApplicationEvent"
-          }
         ]
       },
       "ContentDetailViewEvent": {
