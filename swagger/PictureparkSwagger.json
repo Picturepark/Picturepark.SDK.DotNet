@@ -24338,7 +24338,11 @@
             "description": "Output format ID.",
             "minLength": 1
           },
-          "url": {
+          "viewUrl": {
+            "type": "string",
+            "description": "Url to directly view output. In case of BasicShare if not fetched using a token, a placeholder {token} is included which needs to be replaced with the recipient's token"
+          },
+          "downloadUrl": {
             "type": "string",
             "description": "Url to directly download output. In case of BasicShare if not fetched using a token, a placeholder {token} is included which needs to be replaced with the recipient's token"
           },
