@@ -1377,88 +1377,6 @@
         ]
       }
     },
-    "/contentBackup/outputs/complete": {
-      "post": {
-        "tags": [
-          "ContentBackup"
-        ],
-        "operationId": "ContentBackup_CompleteOutputBackup",
-        "requestBody": {
-          "x-name": "request",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ContentBackupCompleteByOutputRequest"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": ""
-          },
-          "500": {
-            "x-nullable": true,
-            "description": "Internal server error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkException"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Not authorized"
-          },
-          "405": {
-            "description": "Method not allowed"
-          },
-          "404": {
-            "x-nullable": true,
-            "description": "Entity not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkNotFoundException"
-                }
-              }
-            }
-          },
-          "409": {
-            "x-nullable": true,
-            "description": "Version conflict",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkConflictException"
-                }
-              }
-            }
-          },
-          "400": {
-            "x-nullable": true,
-            "description": "Validation exception",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkValidationException"
-                }
-              }
-            }
-          },
-          "429": {
-            "description": "Too many requests"
-          }
-        },
-        "security": [
-          {
-            "Bearer": []
-          }
-        ]
-      }
-    },
     "/contentBackup/contents/searchMissing": {
       "post": {
         "tags": [
@@ -10185,26 +10103,6 @@
         "properties": {
           "repositoryName": {
             "type": "string"
-          }
-        }
-      },
-      "ContentBackupCompleteByOutputRequest": {
-        "type": "object",
-        "description": "Request to mark a backup of an Output completed",
-        "additionalProperties": false,
-        "properties": {
-          "customerId": {
-            "type": "string"
-          },
-          "outputId": {
-            "type": "string"
-          },
-          "contentId": {
-            "type": "string"
-          },
-          "businessProcessId": {
-            "type": "string",
-            "description": "Id of the business process tracking the output, if any (i.e. in case of ContentBackupRecovery mode)"
           }
         }
       },

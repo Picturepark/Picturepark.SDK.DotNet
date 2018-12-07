@@ -10803,10 +10803,6 @@ namespace Picturepark.SDK.V1.Contract
     [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
     [JsonInheritanceAttribute("TransferEvent", typeof(TransferEvent))]
     [JsonInheritanceAttribute("ReindexEvent", typeof(ReindexEvent))]
-    [JsonInheritanceAttribute("OutputBackupEvent", typeof(OutputBackupEvent))]
-    [JsonInheritanceAttribute("OutputBackupMissingEvent", typeof(OutputBackupMissingEvent))]
-    [JsonInheritanceAttribute("OutputBackupRemoveEvent", typeof(OutputBackupRemoveEvent))]
-    [JsonInheritanceAttribute("ContentBackupRecoveryEvent", typeof(ContentBackupRecoveryEvent))]
     [JsonInheritanceAttribute("ContentDetailViewEvent", typeof(ContentDetailViewEvent))]
     [JsonInheritanceAttribute("ContentDownloadEvent", typeof(ContentDownloadEvent))]
     [JsonInheritanceAttribute("SessionRenewalEvent", typeof(SessionRenewalEvent))]
@@ -10950,93 +10946,6 @@ namespace Picturepark.SDK.V1.Contract
     
         [System.Runtime.Serialization.EnumMember(Value = "Cancelled")]
         Cancelled = 6,
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class OutputBackupEvent : ApplicationEvent
-    {
-        [Newtonsoft.Json.JsonProperty("outputId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string OutputId { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("contentId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string ContentId { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("outputFormatId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string OutputFormatId { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static OutputBackupEvent FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<OutputBackupEvent>(data);
-        }
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class OutputBackupMissingEvent : ApplicationEvent
-    {
-        [Newtonsoft.Json.JsonProperty("outputId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string OutputId { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("contentId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string ContentId { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("outputFormatId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string OutputFormatId { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static OutputBackupMissingEvent FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<OutputBackupMissingEvent>(data);
-        }
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class OutputBackupRemoveEvent : ApplicationEvent
-    {
-        [Newtonsoft.Json.JsonProperty("filePaths", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> FilePaths { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static OutputBackupRemoveEvent FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<OutputBackupRemoveEvent>(data);
-        }
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.10.73.0 (Newtonsoft.Json v9.0.0.0)")]
-    public partial class ContentBackupRecoveryEvent : ApplicationEvent
-    {
-        [Newtonsoft.Json.JsonProperty("contentId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string ContentId { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("businessProcessId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string BusinessProcessId { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-        
-        public static ContentBackupRecoveryEvent FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentBackupRecoveryEvent>(data);
-        }
     
     }
     
