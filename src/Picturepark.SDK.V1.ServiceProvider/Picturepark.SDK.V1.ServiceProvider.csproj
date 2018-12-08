@@ -1,45 +1,41 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-	<PropertyGroup>
-		<Description>Picturepark .NET SDK ServiceProvider</Description>
-		<AssemblyTitle>Picturepark.SDK.V1.ServiceProvider</AssemblyTitle>
-		<TargetFrameworks>netstandard1.6;net46</TargetFrameworks>
-		<NoWarn>$(NoWarn);CS1591;SA1600;SA1601</NoWarn>
-		<GenerateDocumentationFile>true</GenerateDocumentationFile>
-		<AssemblyName>Picturepark.SDK.V1.ServiceProvider</AssemblyName>
-		<PackageId>Picturepark.SDK.V1.ServiceProvider</PackageId>
-		<PackageIconUrl>https://bitbucket.vit.ch:8443/projects/PP9/repos/picturepark.public/browse/picturepark-240px.png?raw</PackageIconUrl>
-		<PackageLicenseUrl>https://github.com/Picturepark/Picturepark.SDK.DotNet/blob/master/LICENSE.md</PackageLicenseUrl>
-		<GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
-		<GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
-		<GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
-		<CodeAnalysisRuleSet>../Picturepark.SDK.DotNet.ruleset</CodeAnalysisRuleSet>
-		<Version>0.0.0</Version>
-		<PackageProjectUrl>https://github.com/Picturepark/Picturepark.SDK.DotNet</PackageProjectUrl>
-	</PropertyGroup>
-
-	<ItemGroup>
-		<PackageReference Include="Newtonsoft.Json" Version="9.0.1" />
-		<PackageReference Include="RabbitMQ.Client" Version="5.0.1" />
-		<PackageReference Include="System.Reactive.Linq" Version="3.1.1" />
-	  <PackageReference Include="Nerdbank.GitVersioning" Version="2.1.23">
-	    <PrivateAssets>All</PrivateAssets>
-	  </PackageReference>
-		<PackageReference Include="StyleCop.Analyzers" Version="1.0.2">
-			<PrivateAssets>All</PrivateAssets>
-		</PackageReference>
-	</ItemGroup>
-
-	<ItemGroup Condition=" '$(TargetFramework)' == 'netstandard1.6' ">
-		<PackageReference Include="System.ComponentModel.Annotations" Version="4.4.0" />
-	</ItemGroup>
-
-	<ItemGroup Condition=" '$(TargetFramework)' == 'net46' ">
-		<Reference Include="System" />
-		<Reference Include="Microsoft.CSharp" />
-		<Reference Include="System.ComponentModel.DataAnnotations" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <ProjectReference Include="..\Picturepark.SDK.V1.Contract\Picturepark.SDK.V1.Contract.csproj" />
-	</ItemGroup>
+  <PropertyGroup>
+    <Description>Picturepark .NET SDK ServiceProvider</Description>
+    <AssemblyTitle>Picturepark.SDK.V1.ServiceProvider</AssemblyTitle>
+    <TargetFrameworks>netstandard1.6;net46;netstandard2.0</TargetFrameworks>
+    <NoWarn>$(NoWarn);CS1591;SA1600;SA1601</NoWarn>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <AssemblyName>Picturepark.SDK.V1.ServiceProvider</AssemblyName>
+    <PackageId>Picturepark.SDK.V1.ServiceProvider</PackageId>
+    <PackageIconUrl>https://bitbucket.vit.ch:8443/projects/PP9/repos/picturepark.public/browse/picturepark-240px.png?raw</PackageIconUrl>
+    <PackageLicenseUrl>https://github.com/Picturepark/Picturepark.SDK.DotNet/blob/master/LICENSE.md</PackageLicenseUrl>
+    <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+    <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+    <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+    <CodeAnalysisRuleSet>../Picturepark.SDK.DotNet.ruleset</CodeAnalysisRuleSet>
+    <Version>0.0.0</Version>
+    <PackageProjectUrl>https://github.com/Picturepark/Picturepark.SDK.DotNet</PackageProjectUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="9.0.1" />
+    <PackageReference Include="RabbitMQ.Client" Version="5.0.1" />
+    <PackageReference Include="System.Reactive.Linq" Version="3.1.1" />
+    <PackageReference Include="Nerdbank.GitVersioning" Version="2.1.23">
+      <PrivateAssets>All</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="StyleCop.Analyzers" Version="1.0.2">
+      <PrivateAssets>All</PrivateAssets>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard1.6' ">
+    <PackageReference Include="System.ComponentModel.Annotations" Version="4.4.0" />
+  </ItemGroup>
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net46' ">
+    <Reference Include="System" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Picturepark.SDK.V1.Contract\Picturepark.SDK.V1.Contract.csproj" />
+  </ItemGroup>
 </Project>

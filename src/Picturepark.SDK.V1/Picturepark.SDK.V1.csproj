@@ -1,55 +1,51 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-	<PropertyGroup>
-		<Description>Picturepark .NET SDK: The client implementations to access the Picturepark backend.</Description>
-		<AssemblyTitle>Picturepark.SDK.V1</AssemblyTitle>
-		<TargetFrameworks>netstandard1.3;net45</TargetFrameworks>
-		<NoWarn>$(NoWarn);CS1591;SA1600;SA1601</NoWarn>
-		<GenerateDocumentationFile>true</GenerateDocumentationFile>
-		<AssemblyName>Picturepark.SDK.V1</AssemblyName>
-		<PackageId>Picturepark.SDK.V1</PackageId>
-		<PackageIconUrl>https://bitbucket.vit.ch:8443/projects/PP9/repos/picturepark.public/browse/picturepark-240px.png?raw</PackageIconUrl>
-		<PackageLicenseUrl>https://github.com/Picturepark/Picturepark.SDK.DotNet/blob/master/LICENSE.md</PackageLicenseUrl>
-		<GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
-		<GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
-		<GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
-		<CodeAnalysisRuleSet>../Picturepark.SDK.DotNet.ruleset</CodeAnalysisRuleSet>
-		<Version>0.0.0</Version>
-		<PackageProjectUrl>https://github.com/Picturepark/Picturepark.SDK.DotNet</PackageProjectUrl>
-	</PropertyGroup>
-
-	<ItemGroup>
-		<ProjectReference Include="..\Picturepark.SDK.V1.Contract\Picturepark.SDK.V1.Contract.csproj" />
-	</ItemGroup>
-
-	<ItemGroup>
-		<PackageReference Include="Microsoft.Net.Http.Headers" Version="1.0.0" />
-		<PackageReference Include="Newtonsoft.Json" Version="9.0.1" />
-		<PackageReference Include="Nerdbank.GitVersioning" Version="2.1.23">
-			<PrivateAssets>All</PrivateAssets>
-		</PackageReference>
-		<PackageReference Include="StyleCop.Analyzers" Version="1.0.2">
-			<PrivateAssets>All</PrivateAssets>
-		</PackageReference>
-	</ItemGroup>
-
-	<ItemGroup Condition=" '$(TargetFramework)' == 'netstandard1.3' ">
-		<PackageReference Include="System.Runtime" Version="4.3.0" />
-		<PackageReference Include="System.ComponentModel.Annotations" Version="4.4.0" />
-		<PackageReference Include="System.Threading" Version="4.3.0" />
-		<PackageReference Include="System.Threading.Tasks" Version="4.3.0" />
-		<PackageReference Include="System.Threading.Timer" Version="4.3.0" />
-		<PackageReference Include="System.Net.Primitives" Version="4.3.0" />
-		<PackageReference Include="System.IO" Version="4.3.0" />
-		<PackageReference Include="System.Reflection.TypeExtensions" Version="4.3.0" />
-		<PackageReference Include="System.Net.Http" Version="4.3.0" />
-		<PackageReference Include="System.Collections" Version="4.3.0" />
-		<PackageReference Include="System.IO.FileSystem" Version="4.3.0" />
-	</ItemGroup>
-
-	<ItemGroup Condition=" '$(TargetFramework)' == 'net45' ">
-		<PackageReference Include="System.Net.Http" Version="4.1.1" />
-		<Reference Include="System.ComponentModel.DataAnnotations" />
-		<Reference Include="System" />
-		<Reference Include="Microsoft.CSharp" />
-	</ItemGroup>
+  <PropertyGroup>
+    <Description>Picturepark .NET SDK: The client implementations to access the Picturepark backend.</Description>
+    <AssemblyTitle>Picturepark.SDK.V1</AssemblyTitle>
+    <TargetFrameworks>netstandard1.3;net45;netstandard2.0</TargetFrameworks>
+    <NoWarn>$(NoWarn);CS1591;SA1600;SA1601</NoWarn>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <AssemblyName>Picturepark.SDK.V1</AssemblyName>
+    <PackageId>Picturepark.SDK.V1</PackageId>
+    <PackageIconUrl>https://bitbucket.vit.ch:8443/projects/PP9/repos/picturepark.public/browse/picturepark-240px.png?raw</PackageIconUrl>
+    <PackageLicenseUrl>https://github.com/Picturepark/Picturepark.SDK.DotNet/blob/master/LICENSE.md</PackageLicenseUrl>
+    <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+    <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+    <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+    <CodeAnalysisRuleSet>../Picturepark.SDK.DotNet.ruleset</CodeAnalysisRuleSet>
+    <Version>0.0.0</Version>
+    <PackageProjectUrl>https://github.com/Picturepark/Picturepark.SDK.DotNet</PackageProjectUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Picturepark.SDK.V1.Contract\Picturepark.SDK.V1.Contract.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Net.Http.Headers" Version="1.0.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="9.0.1" />
+    <PackageReference Include="Nerdbank.GitVersioning" Version="2.1.23">
+      <PrivateAssets>All</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="StyleCop.Analyzers" Version="1.0.2">
+      <PrivateAssets>All</PrivateAssets>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard1.3' ">
+    <PackageReference Include="System.Runtime" Version="4.3.0" />
+    <PackageReference Include="System.ComponentModel.Annotations" Version="4.4.0" />
+    <PackageReference Include="System.Threading" Version="4.3.0" />
+    <PackageReference Include="System.Threading.Tasks" Version="4.3.0" />
+    <PackageReference Include="System.Threading.Timer" Version="4.3.0" />
+    <PackageReference Include="System.Net.Primitives" Version="4.3.0" />
+    <PackageReference Include="System.IO" Version="4.3.0" />
+    <PackageReference Include="System.Reflection.TypeExtensions" Version="4.3.0" />
+    <PackageReference Include="System.Net.Http" Version="4.3.0" />
+    <PackageReference Include="System.Collections" Version="4.3.0" />
+    <PackageReference Include="System.IO.FileSystem" Version="4.3.0" />
+  </ItemGroup>
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net45' ">
+    <PackageReference Include="System.Net.Http" Version="4.1.1" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="Microsoft.CSharp" />
+  </ItemGroup>
 </Project>
