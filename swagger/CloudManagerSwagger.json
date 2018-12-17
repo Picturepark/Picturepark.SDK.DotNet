@@ -5898,6 +5898,12 @@
             "PermissionSetInUseException": {
               "$ref": "#/components/schemas/PermissionSetInUseException"
             },
+            "ContentPermissionException": {
+              "$ref": "#/components/schemas/ContentPermissionException"
+            },
+            "ListItemPermissionException": {
+              "$ref": "#/components/schemas/ListItemPermissionException"
+            },
             "UnsupportedListItemChangeCommandException": {
               "$ref": "#/components/schemas/UnsupportedListItemChangeCommandException"
             },
@@ -5915,6 +5921,9 @@
             },
             "ListItemUpdateManyException": {
               "$ref": "#/components/schemas/ListItemUpdateManyException"
+            },
+            "ListItemSchemaMismatchException": {
+              "$ref": "#/components/schemas/ListItemSchemaMismatchException"
             },
             "TransferInfoNotFoundException": {
               "$ref": "#/components/schemas/TransferInfoNotFoundException"
@@ -5969,6 +5978,9 @@
             },
             "ReferenceUpdateException": {
               "$ref": "#/components/schemas/ReferenceUpdateException"
+            },
+            "DuplicatedItemAssignedException": {
+              "$ref": "#/components/schemas/DuplicatedItemAssignedException"
             },
             "SchemaFieldOverwriteTypeMismatchException": {
               "$ref": "#/components/schemas/SchemaFieldOverwriteTypeMismatchException"
@@ -7539,6 +7551,9 @@
           "referenceCount"
         ],
         "properties": {
+          "reference": {
+            "type": "string"
+          },
           "referenceCount": {
             "type": "integer",
             "format": "int64"
@@ -7548,6 +7563,80 @@
           {
             "$ref": "#/components/schemas/PictureparkValidationException"
           }
+        ]
+      },
+      "ContentPermissionException": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "contentRight"
+        ],
+        "properties": {
+          "contentId": {
+            "type": "string"
+          },
+          "contentRight": {
+            "$ref": "#/components/schemas/ContentRight"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          }
+        ]
+      },
+      "ContentRight": {
+        "type": "string",
+        "description": "Content rights",
+        "x-enumNames": [
+          "View",
+          "AccessOriginal",
+          "EditMetadata",
+          "ReplaceFile",
+          "ManagePermissions",
+          "Delete"
+        ],
+        "enum": [
+          "View",
+          "AccessOriginal",
+          "EditMetadata",
+          "ReplaceFile",
+          "ManagePermissions",
+          "Delete"
+        ]
+      },
+      "ListItemPermissionException": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "metadataRight"
+        ],
+        "properties": {
+          "listItemId": {
+            "type": "string"
+          },
+          "metadataRight": {
+            "$ref": "#/components/schemas/MetadataRight"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          }
+        ]
+      },
+      "MetadataRight": {
+        "type": "string",
+        "description": "Metadata rights",
+        "x-enumNames": [
+          "View",
+          "ManageItems",
+          "ManageSchema"
+        ],
+        "enum": [
+          "View",
+          "ManageItems",
+          "ManageSchema"
         ]
       },
       "UnsupportedListItemChangeCommandException": {
@@ -7650,6 +7739,26 @@
         "allOf": [
           {
             "$ref": "#/components/schemas/PictureparkBusinessException"
+          }
+        ]
+      },
+      "ListItemSchemaMismatchException": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "listItemId": {
+            "type": "string"
+          },
+          "listItemSchemaId": {
+            "type": "string"
+          },
+          "fieldSchemaId": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
           }
         ]
       },
@@ -7854,6 +7963,12 @@
             "items": {
               "$ref": "#/components/schemas/MetadataError"
             }
+          },
+          "validationErrors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PictureparkBusinessException"
+            }
           }
         },
         "allOf": [
@@ -8010,6 +8125,23 @@
         "allOf": [
           {
             "$ref": "#/components/schemas/PictureparkBusinessException"
+          }
+        ]
+      },
+      "DuplicatedItemAssignedException": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "itemId": {
+            "type": "string"
+          },
+          "itemPath": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
           }
         ]
       },
@@ -10456,6 +10588,12 @@
           },
           "contentBackupStoragePath": {
             "type": "string"
+          },
+          "defaultContentPermissionSetIds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           }
         }
       },
@@ -11948,6 +12086,12 @@
           "apiCallsPerMinute": {
             "type": "integer",
             "format": "int32"
+          },
+          "defaultContentPermissionSetIds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           }
         }
       },
