@@ -34,7 +34,7 @@ namespace Picturepark.Microsite.Example.Controllers
 			});
 
 			// Fetch details
-			var jobsData = await _client.Content.GetManyAsync(searchResult.Results.Select(i => i.Id), new[] { ContentResolveBehaviour.Content });
+			var jobsData = await _client.Content.GetManyAsync(searchResult.Results.Select(i => i.Id), new[] { ContentResolveBehavior.Content });
 
 			// Convert to C# poco
 			var jobsAtPicturepark = jobsData.AsContentItems<JobsAtPicturepark>().FirstOrDefault();

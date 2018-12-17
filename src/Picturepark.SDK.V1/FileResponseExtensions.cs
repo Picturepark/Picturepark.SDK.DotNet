@@ -1,7 +1,6 @@
-﻿using System.Linq;
-using System.Net;
-using Microsoft.Net.Http.Headers;
-using Picturepark.SDK.V1.Contract;
+﻿using Picturepark.SDK.V1.Contract;
+using System.IO;
+using System.Net.Http;
 
 namespace Picturepark.SDK.V1
 {
@@ -9,17 +8,14 @@ namespace Picturepark.SDK.V1
     {
         public static string GetFileName(this FileResponse response)
         {
-            var disposition = response.Headers["Content-Disposition"].FirstOrDefault();
-            if (disposition != null)
+            string fileName = null;
+            if (response.GetResponse() is HttpResponseMessage httpResponse)
             {
-                var composition = ContentDispositionHeaderValue.Parse(disposition);
-                if (composition != null)
-                {
-                    return WebUtility.UrlDecode(HeaderUtilities.RemoveQuotes(composition.FileName));
-                }
+                var contentDisposition = httpResponse.Content.Headers.ContentDisposition;
+                fileName = contentDisposition != null ? contentDisposition.FileNameStar : Path.GetFileName(httpResponse.RequestMessage.RequestUri.AbsolutePath);
             }
 
-            return null;
+            return fileName;
         }
     }
 }

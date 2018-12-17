@@ -21,6 +21,17 @@ namespace Picturepark.SDK.V1.Contract
             return new ContentItem<T>
             {
                 Id = Id,
+                ContentPermissionSetIds = ContentPermissionSetIds,
+                ContentRights = ContentRights,
+                ContentSchemaId = ContentSchemaId,
+                ContentType = ContentType,
+                DisplayValues = DisplayValues,
+                LayerSchemaIds = LayerSchemaIds,
+                LifeCycle = LifeCycle,
+                Metadata = Metadata,
+                Outputs = Outputs,
+                Owner = Owner,
+                OwnerTokenId = OwnerTokenId,
                 Audit = Audit,
                 Content = item
             };

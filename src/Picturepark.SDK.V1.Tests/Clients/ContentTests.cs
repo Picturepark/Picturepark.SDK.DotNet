@@ -371,6 +371,8 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             using (var response = await _client.Content.DownloadAsync(contentId, "Original", null, null, "bytes=0-20000000").ConfigureAwait(false))
             {
+                response.GetFileName().Should().Be(fileMetadata.FileName);
+
                 var stream = response.Stream;
                 Assert.True(stream.CanRead);
 
