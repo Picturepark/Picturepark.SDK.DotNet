@@ -53,7 +53,8 @@ namespace Picturepark.Microsite.Example.Repository
                 ? await _client.Content.GetManyAsync(searchResult.Results.Select(i => i.Id),
                     new[]
                     {
-                        ContentResolveBehavior.Content
+                        ContentResolveBehavior.Content,
+                        ContentResolveBehavior.Owner
                     })
                 : new List<ContentDetail>();
 
@@ -65,7 +66,7 @@ namespace Picturepark.Microsite.Example.Repository
 
         public async Task<ContentItem<PressRelease>> Get(string id)
         {
-            var content = await _client.Content.GetAsync(id, new[] { ContentResolveBehavior.Content });
+            var content = await _client.Content.GetAsync(id, new[] { ContentResolveBehavior.Content, ContentResolveBehavior.Owner });
 
             return content.AsContentItem<PressRelease>();
         }
