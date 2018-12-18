@@ -646,13 +646,13 @@
           },
           {
             "type": "array",
-            "name": "resolveBehaviours",
+            "name": "resolveBehaviors",
             "in": "query",
             "description": "List of enums that control which parts of the content are resolved and returned.",
             "collectionFormat": "multi",
             "nullable": true,
             "items": {
-              "$ref": "#/components/schemas/ContentResolveBehaviour"
+              "$ref": "#/components/schemas/ContentResolveBehavior"
             }
           }
         ],
@@ -881,13 +881,13 @@
           },
           {
             "type": "array",
-            "name": "resolveBehaviours",
+            "name": "resolveBehaviors",
             "in": "query",
             "description": "List of enums that control which parts of the content are resolved and returned.",
             "collectionFormat": "multi",
             "nullable": true,
             "items": {
-              "$ref": "#/components/schemas/ContentResolveBehaviour"
+              "$ref": "#/components/schemas/ContentResolveBehavior"
             }
           }
         ],
@@ -992,13 +992,13 @@
         "parameters": [
           {
             "type": "array",
-            "name": "resolveBehaviours",
+            "name": "resolveBehaviors",
             "in": "query",
             "description": "List of enums that control which parts of the content are resolved and returned.",
             "collectionFormat": "multi",
             "nullable": true,
             "items": {
-              "$ref": "#/components/schemas/ContentResolveBehaviour"
+              "$ref": "#/components/schemas/ContentResolveBehavior"
             }
           },
           {
@@ -2584,13 +2584,13 @@
           },
           {
             "type": "array",
-            "name": "resolveBehaviours",
+            "name": "resolveBehaviors",
             "in": "query",
             "description": "List of enums that control which parts of the content are resolved and returned.",
             "collectionFormat": "multi",
             "nullable": true,
             "items": {
-              "$ref": "#/components/schemas/ContentResolveBehaviour"
+              "$ref": "#/components/schemas/ContentResolveBehavior"
             }
           },
           {
@@ -2730,13 +2730,13 @@
           },
           {
             "type": "array",
-            "name": "resolveBehaviours",
+            "name": "resolveBehaviors",
             "in": "query",
             "description": "List of enums that control which parts of the content are resolved and returned.",
             "collectionFormat": "multi",
             "nullable": true,
             "items": {
-              "$ref": "#/components/schemas/ContentResolveBehaviour"
+              "$ref": "#/components/schemas/ContentResolveBehavior"
             }
           },
           {
@@ -4419,13 +4419,13 @@
           },
           {
             "type": "array",
-            "name": "resolveBehaviours",
+            "name": "resolveBehaviors",
             "in": "query",
             "description": "List of enums that control which parts of the list item are resolved and returned.",
             "collectionFormat": "multi",
             "nullable": true,
             "items": {
-              "$ref": "#/components/schemas/ListItemResolveBehaviour"
+              "$ref": "#/components/schemas/ListItemResolveBehavior"
             }
           }
         ],
@@ -4535,13 +4535,13 @@
           },
           {
             "type": "array",
-            "name": "resolveBehaviours",
+            "name": "resolveBehaviors",
             "in": "query",
             "description": "List of enums that control which parts of the list item are resolved and returned.",
             "collectionFormat": "multi",
             "nullable": true,
             "items": {
-              "$ref": "#/components/schemas/ListItemResolveBehaviour"
+              "$ref": "#/components/schemas/ListItemResolveBehavior"
             }
           },
           {
@@ -4784,13 +4784,13 @@
           },
           {
             "type": "array",
-            "name": "resolveBehaviours",
+            "name": "resolveBehaviors",
             "in": "query",
             "description": "List of enums that control which parts of the list items are resolved and returned.",
             "collectionFormat": "multi",
             "nullable": true,
             "items": {
-              "$ref": "#/components/schemas/ListItemResolveBehaviour"
+              "$ref": "#/components/schemas/ListItemResolveBehavior"
             }
           }
         ],
@@ -4895,13 +4895,13 @@
         "parameters": [
           {
             "type": "array",
-            "name": "resolveBehaviours",
+            "name": "resolveBehaviors",
             "in": "query",
             "description": "List of enums that control which parts of the list item are resolved and returned.",
             "collectionFormat": "multi",
             "nullable": true,
             "items": {
-              "$ref": "#/components/schemas/ListItemResolveBehaviour"
+              "$ref": "#/components/schemas/ListItemResolveBehavior"
             }
           },
           {
@@ -12673,6 +12673,12 @@
             "PermissionSetInUseException": {
               "$ref": "#/components/schemas/PermissionSetInUseException"
             },
+            "ContentPermissionException": {
+              "$ref": "#/components/schemas/ContentPermissionException"
+            },
+            "ListItemPermissionException": {
+              "$ref": "#/components/schemas/ListItemPermissionException"
+            },
             "UnsupportedListItemChangeCommandException": {
               "$ref": "#/components/schemas/UnsupportedListItemChangeCommandException"
             },
@@ -12690,6 +12696,9 @@
             },
             "ListItemUpdateManyException": {
               "$ref": "#/components/schemas/ListItemUpdateManyException"
+            },
+            "ListItemSchemaMismatchException": {
+              "$ref": "#/components/schemas/ListItemSchemaMismatchException"
             },
             "TransferInfoNotFoundException": {
               "$ref": "#/components/schemas/TransferInfoNotFoundException"
@@ -12744,6 +12753,9 @@
             },
             "ReferenceUpdateException": {
               "$ref": "#/components/schemas/ReferenceUpdateException"
+            },
+            "DuplicatedItemAssignedException": {
+              "$ref": "#/components/schemas/DuplicatedItemAssignedException"
             },
             "SchemaFieldOverwriteTypeMismatchException": {
               "$ref": "#/components/schemas/SchemaFieldOverwriteTypeMismatchException"
@@ -12876,6 +12888,9 @@
             },
             "MissingDisplayPatternForCustomerDefaultLanguageException": {
               "$ref": "#/components/schemas/MissingDisplayPatternForCustomerDefaultLanguageException"
+            },
+            "SchemaViewForAllException": {
+              "$ref": "#/components/schemas/SchemaViewForAllException"
             },
             "DeleteContentsWithReferencesException": {
               "$ref": "#/components/schemas/DeleteContentsWithReferencesException"
@@ -14311,6 +14326,9 @@
           "referenceCount"
         ],
         "properties": {
+          "reference": {
+            "type": "string"
+          },
           "referenceCount": {
             "type": "integer",
             "format": "int64"
@@ -14320,6 +14338,80 @@
           {
             "$ref": "#/components/schemas/PictureparkValidationException"
           }
+        ]
+      },
+      "ContentPermissionException": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "contentRight"
+        ],
+        "properties": {
+          "contentId": {
+            "type": "string"
+          },
+          "contentRight": {
+            "$ref": "#/components/schemas/ContentRight"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          }
+        ]
+      },
+      "ContentRight": {
+        "type": "string",
+        "description": "Content rights",
+        "x-enumNames": [
+          "View",
+          "AccessOriginal",
+          "EditMetadata",
+          "ReplaceFile",
+          "ManagePermissions",
+          "Delete"
+        ],
+        "enum": [
+          "View",
+          "AccessOriginal",
+          "EditMetadata",
+          "ReplaceFile",
+          "ManagePermissions",
+          "Delete"
+        ]
+      },
+      "ListItemPermissionException": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "metadataRight"
+        ],
+        "properties": {
+          "listItemId": {
+            "type": "string"
+          },
+          "metadataRight": {
+            "$ref": "#/components/schemas/MetadataRight"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          }
+        ]
+      },
+      "MetadataRight": {
+        "type": "string",
+        "description": "Metadata rights",
+        "x-enumNames": [
+          "View",
+          "ManageItems",
+          "ManageSchema"
+        ],
+        "enum": [
+          "View",
+          "ManageItems",
+          "ManageSchema"
         ]
       },
       "UnsupportedListItemChangeCommandException": {
@@ -14422,6 +14514,26 @@
         "allOf": [
           {
             "$ref": "#/components/schemas/PictureparkBusinessException"
+          }
+        ]
+      },
+      "ListItemSchemaMismatchException": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "listItemId": {
+            "type": "string"
+          },
+          "listItemSchemaId": {
+            "type": "string"
+          },
+          "fieldSchemaId": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
           }
         ]
       },
@@ -14626,6 +14738,12 @@
             "items": {
               "$ref": "#/components/schemas/MetadataError"
             }
+          },
+          "validationErrors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PictureparkBusinessException"
+            }
           }
         },
         "allOf": [
@@ -14782,6 +14900,23 @@
         "allOf": [
           {
             "$ref": "#/components/schemas/PictureparkBusinessException"
+          }
+        ]
+      },
+      "DuplicatedItemAssignedException": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "itemId": {
+            "type": "string"
+          },
+          "itemPath": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
           }
         ]
       },
@@ -15611,6 +15746,20 @@
           "List",
           "Detail",
           "Name"
+        ]
+      },
+      "SchemaViewForAllException": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "schemaId": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          }
         ]
       },
       "DeleteContentsWithReferencesException": {
@@ -17852,15 +18001,23 @@
           },
           "outputs": {
             "type": "array",
-            "description": "A list of rendering ouputs for underlying digital file.",
+            "description": "A list of rendering outputs for underlying digital file.",
             "items": {
               "$ref": "#/components/schemas/Output"
             }
           },
           "ownerTokenId": {
             "type": "string",
-            "description": "The id of a owner token. Defines the content owner.",
+            "description": "The owner token ID. Defines the content owner.",
             "minLength": 1
+          },
+          "owner": {
+            "description": "The resolved owner.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/User"
+              }
+            ]
           },
           "lifeCycle": {
             "description": "The lifecycle of the content.",
@@ -17870,6 +18027,13 @@
                 "$ref": "#/components/schemas/LifeCycle"
               }
             ]
+          },
+          "contentRights": {
+            "type": "array",
+            "description": "List of content rights the user has on this content",
+            "items": {
+              "$ref": "#/components/schemas/ContentRight"
+            }
           }
         }
       },
@@ -18197,6 +18361,32 @@
           }
         ]
       },
+      "User": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "emailAddress"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "User's Picturepark ID."
+          },
+          "firstName": {
+            "type": "string",
+            "description": "User's first name."
+          },
+          "lastName": {
+            "type": "string",
+            "description": "User's last name."
+          },
+          "emailAddress": {
+            "type": "string",
+            "description": "Email address of the user (doubles as username).",
+            "minLength": 1
+          }
+        }
+      },
       "LifeCycle": {
         "type": "string",
         "description": "Lifecycle",
@@ -18213,7 +18403,7 @@
           "Deleted"
         ]
       },
-      "ContentResolveBehaviour": {
+      "ContentResolveBehavior": {
         "type": "string",
         "description": "",
         "x-enumNames": [
@@ -18224,7 +18414,9 @@
           "InnerDisplayValueThumbnail",
           "InnerDisplayValueList",
           "InnerDisplayValueDetail",
-          "InnerDisplayValueName"
+          "InnerDisplayValueName",
+          "Owner",
+          "Permissions"
         ],
         "enum": [
           "Content",
@@ -18234,18 +18426,53 @@
           "InnerDisplayValueThumbnail",
           "InnerDisplayValueList",
           "InnerDisplayValueDetail",
-          "InnerDisplayValueName"
+          "InnerDisplayValueName",
+          "Owner",
+          "Permissions"
         ]
       },
       "ContentSearchResult": {
         "type": "object",
         "description": "Result for content search operation",
         "additionalProperties": false,
+        "properties": {
+          "rightsAggregationsCounts": {
+            "type": "array",
+            "description": "Result of rights aggregation count requested in rightsAggregations in the ContentSearchRequest.",
+            "items": {
+              "$ref": "#/components/schemas/ContentRightAggregationCount"
+            }
+          }
+        },
         "allOf": [
           {
             "$ref": "#/components/schemas/SearchBehaviorBaseResultOfContent"
           }
         ]
+      },
+      "ContentRightAggregationCount": {
+        "type": "object",
+        "description": "Combination of ContentRight and found document count",
+        "additionalProperties": false,
+        "required": [
+          "contentRight",
+          "count"
+        ],
+        "properties": {
+          "contentRight": {
+            "description": "ContentRight.",
+            "allOf": [
+              {
+                "$ref": "#/components/schemas/ContentRight"
+              }
+            ]
+          },
+          "count": {
+            "type": "integer",
+            "description": "Found document count.",
+            "format": "int64"
+          }
+        }
       },
       "SearchBehaviorBaseResultOfContent": {
         "type": "object",
@@ -18461,6 +18688,13 @@
               "$ref": "#/components/schemas/ContentRight"
             }
           },
+          "rightsAggregations": {
+            "type": "array",
+            "description": "Returns the aggregated document counts to the ones the user has the specified ContentRights.\nProduces the rightsAggregationCounts on the ContentSearchResult. View will be ignored as the totalResults already gives this information.",
+            "items": {
+              "$ref": "#/components/schemas/ContentRight"
+            }
+          },
           "searchType": {
             "description": "Type of search to be performed: search only in metadata, only in the extracted fulltext from the file or both. Default to Metadata.",
             "default": "Metadata",
@@ -18504,26 +18738,6 @@
           "All",
           "NotBrokenOnly",
           "BrokenOnly"
-        ]
-      },
-      "ContentRight": {
-        "type": "string",
-        "description": "Content rights",
-        "x-enumNames": [
-          "View",
-          "AccessOriginal",
-          "Edit",
-          "Update",
-          "Manage",
-          "Delete"
-        ],
-        "enum": [
-          "View",
-          "AccessOriginal",
-          "Edit",
-          "Update",
-          "Manage",
-          "Delete"
         ]
       },
       "ContentSearchType": {
@@ -20460,7 +20674,7 @@
           }
         }
       },
-      "ListItemResolveBehaviour": {
+      "ListItemResolveBehavior": {
         "type": "string",
         "description": "",
         "x-enumNames": [
@@ -21146,18 +21360,6 @@
             "ReindexEvent": {
               "$ref": "#/components/schemas/ReindexEvent"
             },
-            "OutputBackupEvent": {
-              "$ref": "#/components/schemas/OutputBackupEvent"
-            },
-            "OutputBackupMissingEvent": {
-              "$ref": "#/components/schemas/OutputBackupMissingEvent"
-            },
-            "OutputBackupRemoveEvent": {
-              "$ref": "#/components/schemas/OutputBackupRemoveEvent"
-            },
-            "ContentBackupRecoveryEvent": {
-              "$ref": "#/components/schemas/ContentBackupRecoveryEvent"
-            },
             "ContentDetailViewEvent": {
               "$ref": "#/components/schemas/ContentDetailViewEvent"
             },
@@ -21292,80 +21494,6 @@
           "Closed",
           "ReindexInProgress",
           "Cancelled"
-        ]
-      },
-      "OutputBackupEvent": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "outputId": {
-            "type": "string"
-          },
-          "contentId": {
-            "type": "string"
-          },
-          "outputFormatId": {
-            "type": "string"
-          }
-        },
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/ApplicationEvent"
-          }
-        ]
-      },
-      "OutputBackupMissingEvent": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "outputId": {
-            "type": "string"
-          },
-          "contentId": {
-            "type": "string"
-          },
-          "outputFormatId": {
-            "type": "string"
-          }
-        },
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/ApplicationEvent"
-          }
-        ]
-      },
-      "OutputBackupRemoveEvent": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "filePaths": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          }
-        },
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/ApplicationEvent"
-          }
-        ]
-      },
-      "ContentBackupRecoveryEvent": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "contentId": {
-            "type": "string"
-          },
-          "businessProcessId": {
-            "type": "string"
-          }
-        },
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/ApplicationEvent"
-          }
         ]
       },
       "ContentDetailViewEvent": {
@@ -21942,7 +22070,7 @@
           "displayPatterns",
           "system",
           "ownerTokenId",
-          "public"
+          "viewForAll"
         ],
         "properties": {
           "id": {
@@ -22033,13 +22161,13 @@
             "description": "The owner token ID. Defines the schema owner.",
             "minLength": 1
           },
-          "public": {
+          "viewForAll": {
             "type": "boolean",
-            "description": "Defines a schema as public. Everyone with ManageSchema user permission is able to see, use and modify the schema.\nIf the value is set true, the SchemaPermissionSetIds list must be empty."
+            "description": "Defines a schema as viewable by everyone. Everyone with ManageSchema user permission is able to see the schema."
           },
           "schemaPermissionSetIds": {
             "type": "array",
-            "description": "An optional list of schema permission set IDs which control schema permissions. If any value is set in the list, the Public property value must be false.",
+            "description": "An optional list of schema permission set IDs which control schema permissions.",
             "items": {
               "type": "string"
             }
@@ -23646,7 +23774,7 @@
         "required": [
           "id",
           "displayPatterns",
-          "public"
+          "viewForAll"
         ],
         "properties": {
           "id": {
@@ -23716,13 +23844,13 @@
               "$ref": "#/components/schemas/SortInfo"
             }
           },
-          "public": {
+          "viewForAll": {
             "type": "boolean",
-            "description": "Defines a schema as public. Everyone with ManageSchema user permission is able to see, use and modify the schema.\nIf the value is set true, the SchemaPermissionSetIds list must be empty."
+            "description": "Defines a schema as viewable by everyone. Everyone with ManageSchema user permission is able to see the schema."
           },
           "schemaPermissionSetIds": {
             "type": "array",
-            "description": "An optional list of schema permission set IDs which control schema permissions. If any value is set in the list, the Public property value must be false.",
+            "description": "An optional list of schema permission set IDs which control schema permissions.",
             "items": {
               "type": "string"
             }
@@ -23763,7 +23891,7 @@
         "description": "Request to update an existing schema",
         "additionalProperties": false,
         "required": [
-          "public"
+          "viewForAll"
         ],
         "properties": {
           "names": {
@@ -23817,13 +23945,13 @@
               "$ref": "#/components/schemas/SortInfo"
             }
           },
-          "public": {
+          "viewForAll": {
             "type": "boolean",
-            "description": "Defines a schema as public. Everyone with ManageSchema user permission is able to see, use and modify the schema.\nIf the value is set true, the SchemaPermissionSetIds list must be empty."
+            "description": "Defines a schema as viewable by everyone. Everyone with ManageSchema user permission is able to see the schema."
           },
           "schemaPermissionSetIds": {
             "type": "array",
-            "description": "An optional list of schema permission set IDs which control schema permissions. If any value is set in the list, the Public property value must be false.",
+            "description": "An optional list of schema permission set IDs which control schema permissions.",
             "items": {
               "type": "string"
             }
@@ -23914,20 +24042,6 @@
             }
           }
         }
-      },
-      "MetadataRight": {
-        "type": "string",
-        "description": "Metadata rights",
-        "x-enumNames": [
-          "View",
-          "Edit",
-          "Manage"
-        ],
-        "enum": [
-          "View",
-          "Edit",
-          "Manage"
-        ]
       },
       "Transfer": {
         "type": "object",
@@ -24236,7 +24350,11 @@
             "description": "Output format ID.",
             "minLength": 1
           },
-          "url": {
+          "viewUrl": {
+            "type": "string",
+            "description": "Url to directly view output. In case of BasicShare if not fetched using a token, a placeholder {token} is included which needs to be replaced with the recipient's token"
+          },
+          "downloadUrl": {
             "type": "string",
             "description": "Url to directly download output. In case of BasicShare if not fetched using a token, a placeholder {token} is included which needs to be replaced with the recipient's token"
           },
@@ -24435,32 +24553,6 @@
           "url": {
             "type": "string",
             "description": "URL to access the share for this recipient."
-          }
-        }
-      },
-      "User": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "emailAddress"
-        ],
-        "properties": {
-          "id": {
-            "type": "string",
-            "description": "User's Picturepark ID."
-          },
-          "firstName": {
-            "type": "string",
-            "description": "User's first name."
-          },
-          "lastName": {
-            "type": "string",
-            "description": "User's last name."
-          },
-          "emailAddress": {
-            "type": "string",
-            "description": "Email address of the user (doubles as username).",
-            "minLength": 1
           }
         }
       },

@@ -1377,88 +1377,6 @@
         ]
       }
     },
-    "/contentBackup/outputs/complete": {
-      "post": {
-        "tags": [
-          "ContentBackup"
-        ],
-        "operationId": "ContentBackup_CompleteOutputBackup",
-        "requestBody": {
-          "x-name": "request",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ContentBackupCompleteByOutputRequest"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": ""
-          },
-          "500": {
-            "x-nullable": true,
-            "description": "Internal server error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkException"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Not authorized"
-          },
-          "405": {
-            "description": "Method not allowed"
-          },
-          "404": {
-            "x-nullable": true,
-            "description": "Entity not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkNotFoundException"
-                }
-              }
-            }
-          },
-          "409": {
-            "x-nullable": true,
-            "description": "Version conflict",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkConflictException"
-                }
-              }
-            }
-          },
-          "400": {
-            "x-nullable": true,
-            "description": "Validation exception",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkValidationException"
-                }
-              }
-            }
-          },
-          "429": {
-            "description": "Too many requests"
-          }
-        },
-        "security": [
-          {
-            "Bearer": []
-          }
-        ]
-      }
-    },
     "/contentBackup/contents/searchMissing": {
       "post": {
         "tags": [
@@ -5980,6 +5898,12 @@
             "PermissionSetInUseException": {
               "$ref": "#/components/schemas/PermissionSetInUseException"
             },
+            "ContentPermissionException": {
+              "$ref": "#/components/schemas/ContentPermissionException"
+            },
+            "ListItemPermissionException": {
+              "$ref": "#/components/schemas/ListItemPermissionException"
+            },
             "UnsupportedListItemChangeCommandException": {
               "$ref": "#/components/schemas/UnsupportedListItemChangeCommandException"
             },
@@ -5997,6 +5921,9 @@
             },
             "ListItemUpdateManyException": {
               "$ref": "#/components/schemas/ListItemUpdateManyException"
+            },
+            "ListItemSchemaMismatchException": {
+              "$ref": "#/components/schemas/ListItemSchemaMismatchException"
             },
             "TransferInfoNotFoundException": {
               "$ref": "#/components/schemas/TransferInfoNotFoundException"
@@ -6051,6 +5978,9 @@
             },
             "ReferenceUpdateException": {
               "$ref": "#/components/schemas/ReferenceUpdateException"
+            },
+            "DuplicatedItemAssignedException": {
+              "$ref": "#/components/schemas/DuplicatedItemAssignedException"
             },
             "SchemaFieldOverwriteTypeMismatchException": {
               "$ref": "#/components/schemas/SchemaFieldOverwriteTypeMismatchException"
@@ -6183,6 +6113,9 @@
             },
             "MissingDisplayPatternForCustomerDefaultLanguageException": {
               "$ref": "#/components/schemas/MissingDisplayPatternForCustomerDefaultLanguageException"
+            },
+            "SchemaViewForAllException": {
+              "$ref": "#/components/schemas/SchemaViewForAllException"
             },
             "DeleteContentsWithReferencesException": {
               "$ref": "#/components/schemas/DeleteContentsWithReferencesException"
@@ -7618,6 +7551,9 @@
           "referenceCount"
         ],
         "properties": {
+          "reference": {
+            "type": "string"
+          },
           "referenceCount": {
             "type": "integer",
             "format": "int64"
@@ -7627,6 +7563,80 @@
           {
             "$ref": "#/components/schemas/PictureparkValidationException"
           }
+        ]
+      },
+      "ContentPermissionException": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "contentRight"
+        ],
+        "properties": {
+          "contentId": {
+            "type": "string"
+          },
+          "contentRight": {
+            "$ref": "#/components/schemas/ContentRight"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          }
+        ]
+      },
+      "ContentRight": {
+        "type": "string",
+        "description": "Content rights",
+        "x-enumNames": [
+          "View",
+          "AccessOriginal",
+          "EditMetadata",
+          "ReplaceFile",
+          "ManagePermissions",
+          "Delete"
+        ],
+        "enum": [
+          "View",
+          "AccessOriginal",
+          "EditMetadata",
+          "ReplaceFile",
+          "ManagePermissions",
+          "Delete"
+        ]
+      },
+      "ListItemPermissionException": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "metadataRight"
+        ],
+        "properties": {
+          "listItemId": {
+            "type": "string"
+          },
+          "metadataRight": {
+            "$ref": "#/components/schemas/MetadataRight"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          }
+        ]
+      },
+      "MetadataRight": {
+        "type": "string",
+        "description": "Metadata rights",
+        "x-enumNames": [
+          "View",
+          "ManageItems",
+          "ManageSchema"
+        ],
+        "enum": [
+          "View",
+          "ManageItems",
+          "ManageSchema"
         ]
       },
       "UnsupportedListItemChangeCommandException": {
@@ -7729,6 +7739,26 @@
         "allOf": [
           {
             "$ref": "#/components/schemas/PictureparkBusinessException"
+          }
+        ]
+      },
+      "ListItemSchemaMismatchException": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "listItemId": {
+            "type": "string"
+          },
+          "listItemSchemaId": {
+            "type": "string"
+          },
+          "fieldSchemaId": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
           }
         ]
       },
@@ -7933,6 +7963,12 @@
             "items": {
               "$ref": "#/components/schemas/MetadataError"
             }
+          },
+          "validationErrors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PictureparkBusinessException"
+            }
           }
         },
         "allOf": [
@@ -8089,6 +8125,23 @@
         "allOf": [
           {
             "$ref": "#/components/schemas/PictureparkBusinessException"
+          }
+        ]
+      },
+      "DuplicatedItemAssignedException": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "itemId": {
+            "type": "string"
+          },
+          "itemPath": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
           }
         ]
       },
@@ -8918,6 +8971,20 @@
           "List",
           "Detail",
           "Name"
+        ]
+      },
+      "SchemaViewForAllException": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "schemaId": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          }
         ]
       },
       "DeleteContentsWithReferencesException": {
@@ -10171,26 +10238,6 @@
           }
         }
       },
-      "ContentBackupCompleteByOutputRequest": {
-        "type": "object",
-        "description": "Request to mark a backup of an Output completed",
-        "additionalProperties": false,
-        "properties": {
-          "customerId": {
-            "type": "string"
-          },
-          "outputId": {
-            "type": "string"
-          },
-          "contentId": {
-            "type": "string"
-          },
-          "businessProcessId": {
-            "type": "string",
-            "description": "Id of the business process tracking the output, if any (i.e. in case of ContentBackupRecovery mode)"
-          }
-        }
-      },
       "ContentBackupSearchResult": {
         "type": "object",
         "additionalProperties": false,
@@ -10529,9 +10576,6 @@
           "deactivationMessage": {
             "$ref": "#/components/schemas/TranslatedStringDictionary"
           },
-          "superAdminUserId": {
-            "type": "string"
-          },
           "serviceAdminUserId": {
             "type": "string"
           },
@@ -10544,6 +10588,12 @@
           },
           "contentBackupStoragePath": {
             "type": "string"
+          },
+          "defaultContentPermissionSetIds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           }
         }
       },
@@ -11001,9 +11051,6 @@
             "Mp4VideoFormat": {
               "$ref": "#/components/schemas/Mp4VideoFormat"
             },
-            "VideoPresetFormat": {
-              "$ref": "#/components/schemas/VideoPresetFormat"
-            },
             "VideoSpriteFormat": {
               "$ref": "#/components/schemas/VideoSpriteFormat"
             },
@@ -11012,9 +11059,6 @@
             },
             "AacAudioFormat": {
               "$ref": "#/components/schemas/AacAudioFormat"
-            },
-            "AudioPresetFormat": {
-              "$ref": "#/components/schemas/AudioPresetFormat"
             },
             "AudioStillFormat": {
               "$ref": "#/components/schemas/AudioStillFormat"
@@ -11643,37 +11687,6 @@
           "slower"
         ]
       },
-      "VideoPresetFormat": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "videoPresetId"
-        ],
-        "properties": {
-          "videoPresetId": {
-            "type": "string",
-            "description": "Id of Squeeze preset.",
-            "format": "guid"
-          },
-          "customerId": {
-            "type": "string"
-          },
-          "defaultOutputExtension": {
-            "type": "string"
-          },
-          "allowedOutputExtensions": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          }
-        },
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/VideoFormatBase"
-          }
-        ]
-      },
       "VideoSpriteFormat": {
         "type": "object",
         "additionalProperties": false,
@@ -11814,34 +11827,6 @@
           "twoloop",
           "anmr",
           "fast"
-        ]
-      },
-      "AudioPresetFormat": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "audioPresetId"
-        ],
-        "properties": {
-          "audioPresetId": {
-            "type": "string",
-            "description": "Id of Squeeze preset.",
-            "format": "guid"
-          },
-          "defaultOutputExtension": {
-            "type": "string"
-          },
-          "allowedOutputExtensions": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          }
-        },
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/AudioFormatBase"
-          }
         ]
       },
       "AudioStillFormat": {
@@ -12101,6 +12086,12 @@
           "apiCallsPerMinute": {
             "type": "integer",
             "format": "int32"
+          },
+          "defaultContentPermissionSetIds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           }
         }
       },

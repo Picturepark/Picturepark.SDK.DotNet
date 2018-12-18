@@ -110,11 +110,12 @@ namespace Picturepark.SDK.V1.Conversion
                 .ToList();
 
             if (!typeAttributes.Any())
-                throw new Exception("No PictureparkSchemaTypeAttribute set on class: " + contractType.Name);
+                throw new Exception($"No PictureparkSchemaTypeAttribute set on class: {contractType.Name}");
 
-            var types = typeAttributes
-                .Select(typeAttribute => typeAttribute.Type)
-                .ToList();
+            if (typeAttributes.Count > 1)
+                throw new Exception($"Multiple schema types not allowed for class: {contractType.Name}");
+
+            var schemaType = typeAttributes.Single().Type;
 
             var schemaItem = new SchemaDetail
             {
@@ -124,9 +125,13 @@ namespace Picturepark.SDK.V1.Conversion
                 ParentSchemaId = parentSchemaId,
                 Names = new TranslatedStringDictionary { { _defaultLanguage, schemaId } },
                 Descriptions = new TranslatedStringDictionary(),
-                Types = types,
+                Types = new List<SchemaType> { schemaType },
                 DisplayPatterns = new List<DisplayPattern>()
             };
+
+            if (schemaType == SchemaType.Struct ||
+                schemaType == SchemaType.Content)
+                schemaItem.ViewForAll = true;
 
             ApplyDisplayPatternAttributes(schemaItem, contractType);
             ApplyNameTranslationAttributes(schemaItem, contractType);
