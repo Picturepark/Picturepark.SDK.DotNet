@@ -965,6 +965,9 @@ namespace Picturepark.SDK.V1
                     }
                 }
             }
+            else if (value is bool) {
+                return System.Convert.ToString(value, cultureInfo).ToLowerInvariant();
+            }
             else if (value is byte[])
             {
                 return System.Convert.ToBase64String((byte[]) value);
@@ -1193,6 +1196,9 @@ namespace Picturepark.SDK.V1
                         }
                     }
                 }
+            }
+            else if (value is bool) {
+                return System.Convert.ToString(value, cultureInfo).ToLowerInvariant();
             }
             else if (value is byte[])
             {
@@ -5956,6 +5962,9 @@ namespace Picturepark.SDK.V1
                     }
                 }
             }
+            else if (value is bool) {
+                return System.Convert.ToString(value, cultureInfo).ToLowerInvariant();
+            }
             else if (value is byte[])
             {
                 return System.Convert.ToBase64String((byte[]) value);
@@ -6365,6 +6374,9 @@ namespace Picturepark.SDK.V1
                         }
                     }
                 }
+            }
+            else if (value is bool) {
+                return System.Convert.ToString(value, cultureInfo).ToLowerInvariant();
             }
             else if (value is byte[])
             {
@@ -7327,6 +7339,9 @@ namespace Picturepark.SDK.V1
                     }
                 }
             }
+            else if (value is bool) {
+                return System.Convert.ToString(value, cultureInfo).ToLowerInvariant();
+            }
             else if (value is byte[])
             {
                 return System.Convert.ToBase64String((byte[]) value);
@@ -7728,6 +7743,9 @@ namespace Picturepark.SDK.V1
                     }
                 }
             }
+            else if (value is bool) {
+                return System.Convert.ToString(value, cultureInfo).ToLowerInvariant();
+            }
             else if (value is byte[])
             {
                 return System.Convert.ToBase64String((byte[]) value);
@@ -7961,6 +7979,9 @@ namespace Picturepark.SDK.V1
                         }
                     }
                 }
+            }
+            else if (value is bool) {
+                return System.Convert.ToString(value, cultureInfo).ToLowerInvariant();
             }
             else if (value is byte[])
             {
@@ -11072,6 +11093,9 @@ namespace Picturepark.SDK.V1
                     }
                 }
             }
+            else if (value is bool) {
+                return System.Convert.ToString(value, cultureInfo).ToLowerInvariant();
+            }
             else if (value is byte[])
             {
                 return System.Convert.ToBase64String((byte[]) value);
@@ -11301,6 +11325,9 @@ namespace Picturepark.SDK.V1
                         }
                     }
                 }
+            }
+            else if (value is bool) {
+                return System.Convert.ToString(value, cultureInfo).ToLowerInvariant();
             }
             else if (value is byte[])
             {
@@ -11712,6 +11739,9 @@ namespace Picturepark.SDK.V1
                         }
                     }
                 }
+            }
+            else if (value is bool) {
+                return System.Convert.ToString(value, cultureInfo).ToLowerInvariant();
             }
             else if (value is byte[])
             {
@@ -12276,6 +12306,9 @@ namespace Picturepark.SDK.V1
                         }
                     }
                 }
+            }
+            else if (value is bool) {
+                return System.Convert.ToString(value, cultureInfo).ToLowerInvariant();
             }
             else if (value is byte[])
             {
@@ -13791,6 +13824,9 @@ namespace Picturepark.SDK.V1
                     }
                 }
             }
+            else if (value is bool) {
+                return System.Convert.ToString(value, cultureInfo).ToLowerInvariant();
+            }
             else if (value is byte[])
             {
                 return System.Convert.ToBase64String((byte[]) value);
@@ -14201,6 +14237,9 @@ namespace Picturepark.SDK.V1
                     }
                 }
             }
+            else if (value is bool) {
+                return System.Convert.ToString(value, cultureInfo).ToLowerInvariant();
+            }
             else if (value is byte[])
             {
                 return System.Convert.ToBase64String((byte[]) value);
@@ -14435,6 +14474,9 @@ namespace Picturepark.SDK.V1
                         }
                     }
                 }
+            }
+            else if (value is bool) {
+                return System.Convert.ToString(value, cultureInfo).ToLowerInvariant();
             }
             else if (value is byte[])
             {
@@ -16364,6 +16406,9 @@ namespace Picturepark.SDK.V1
                         }
                     }
                 }
+            }
+            else if (value is bool) {
+                return System.Convert.ToString(value, cultureInfo).ToLowerInvariant();
             }
             else if (value is byte[])
             {
@@ -18529,6 +18574,9 @@ namespace Picturepark.SDK.V1
                         }
                     }
                 }
+            }
+            else if (value is bool) {
+                return System.Convert.ToString(value, cultureInfo).ToLowerInvariant();
             }
             else if (value is byte[])
             {
@@ -20989,6 +21037,9 @@ namespace Picturepark.SDK.V1
                     }
                 }
             }
+            else if (value is bool) {
+                return System.Convert.ToString(value, cultureInfo).ToLowerInvariant();
+            }
             else if (value is byte[])
             {
                 return System.Convert.ToBase64String((byte[]) value);
@@ -22275,6 +22326,9 @@ namespace Picturepark.SDK.V1
                     }
                 }
             }
+            else if (value is bool) {
+                return System.Convert.ToString(value, cultureInfo).ToLowerInvariant();
+            }
             else if (value is byte[])
             {
                 return System.Convert.ToBase64String((byte[]) value);
@@ -22443,4 +22497,6 @@ namespace Picturepark.SDK.V1
             }
         }
     }
+
+    #pragma warning restore
 }
