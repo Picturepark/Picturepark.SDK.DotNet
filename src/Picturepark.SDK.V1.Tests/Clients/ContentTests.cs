@@ -371,6 +371,8 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             using (var response = await _client.Content.DownloadAsync(contentId, "Original", null, null, "bytes=0-20000000").ConfigureAwait(false))
             {
+                response.GetFileName().Should().Be(fileMetadata.FileName);
+
                 var stream = response.Stream;
                 Assert.True(stream.CanRead);
 
@@ -858,22 +860,22 @@ namespace Picturepark.SDK.V1.Tests.Clients
         [Trait("Stack", "Contents")]
         public async Task ShouldGetWithResolvedObjects()
         {
-            var contentDetail = await CreateContentReferencingSwitzerland(ContentResolveBehavior.Content, ContentResolveBehavior.LinkedListItems);
+            var contentDetail = await CreateContentReferencingSimpleField(ContentResolveBehavior.Content, ContentResolveBehavior.LinkedListItems);
 
             // Assert
             var contentContent = (JObject)contentDetail.Content;
-            ((string)contentContent["object"]?["name"]?["en"]).Should().Be("Switzerland");
+            ((string)contentContent["object"]["nameField"]).Should().Be("simpleField");
         }
 
         [Fact]
         [Trait("Stack", "Contents")]
         public async Task ShouldGetWithoutResolvedObjects()
         {
-            var contentDetail = await CreateContentReferencingSwitzerland(ContentResolveBehavior.Content);
+            var contentDetail = await CreateContentReferencingSimpleField(ContentResolveBehavior.Content);
 
             // Assert
             var contentContent = (JObject)contentDetail.Content;
-            contentContent["object"]["name"].Should().BeNull();
+            contentContent["object"]["nameField"].Should().BeNull();
         }
 
         [Fact]
@@ -1237,18 +1239,21 @@ namespace Picturepark.SDK.V1.Tests.Clients
             detail.SucceededItems.Select(i => ((dynamic)i.Content).name).ToArray().Distinct().Should().HaveCount(201);
         }
 
-        private async Task<ContentDetail> CreateContentReferencingSwitzerland(params ContentResolveBehavior[] behaviors)
+        private async Task<ContentDetail> CreateContentReferencingSimpleField(params ContentResolveBehavior[] behaviors)
         {
             // Arrange
-            var countrySchemaId = SchemaFixture.CountrySchemaId;
-
-            var chSearch = await _client.ListItem.SearchAsync(new ListItemSearchRequest
-            {
-                Filter = FilterBase.FromExpression<Country>(c => c.Name, "Switzerland"),
-                SchemaIds = new[] { countrySchemaId }
-            });
-
             var contentSchema = await SchemaHelper.CreateSchemasIfNotExistentAsync<ContentItemWithTagBox>(_client).ConfigureAwait(false);
+
+            var listItemCreate = new ListItemCreateRequest
+            {
+                ContentSchemaId = nameof(SimpleReferenceObject),
+                Content = new SimpleReferenceObject
+                {
+                    NameField = "simpleField"
+                }
+            };
+
+            var listItem = await _client.ListItem.CreateAsync(listItemCreate).ConfigureAwait(false);
 
             var content = await _client.Content.CreateAsync(new ContentCreateRequest
             {
@@ -1258,8 +1263,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                     Name = "Jozef",
                     Object = new SimpleReferenceObject
                     {
-                        NameField = "Another Jozef",
-                        RefId = chSearch.Results.First().Id
+                        RefId = listItem.Id
                     }
                 },
                 Metadata = new DataDictionary()

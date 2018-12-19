@@ -5,7 +5,7 @@ namespace Picturepark.SDK.V1.Contract.Extensions
 {
     public static class ContentDetailExtensions
     {
-        /// <summary>Creates a typed enummarable of content items wrapped in a ContentItem container.</summary>
+        /// <summary>Creates a typed enumerable of content items wrapped in a ContentItem container.</summary>
         /// <typeparam name="T">The content item type.</typeparam>
         /// <param name="contents">The content details.</param>
         /// <returns>The enumerable of content item.</returns>
