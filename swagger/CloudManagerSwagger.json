@@ -10425,6 +10425,9 @@
           "documentHistoryCatalog": {
             "type": "string"
           },
+          "documentHistorySteadyCatalog": {
+            "type": "string"
+          },
           "liveStreamCatalog": {
             "type": "string"
           },
@@ -12760,7 +12763,8 @@
           "Schema",
           "OutputFormat",
           "Channel",
-          "Reference"
+          "Reference",
+          "DocumentHistorySteady"
         ],
         "enum": [
           "Configuration",
@@ -12784,7 +12788,8 @@
           "Schema",
           "OutputFormat",
           "Channel",
-          "Reference"
+          "Reference",
+          "DocumentHistorySteady"
         ]
       },
       "IndexState": {
