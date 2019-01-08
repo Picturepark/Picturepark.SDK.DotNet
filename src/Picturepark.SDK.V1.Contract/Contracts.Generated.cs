@@ -9950,7 +9950,7 @@ namespace Picturepark.SDK.V1.Contract
     
         /// <summary>Sorts the search results. Sorting on a not indexed field will throw an exception.</summary>
         [Newtonsoft.Json.JsonProperty("sort", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public SortInfo Sort { get; set; }
+        public System.Collections.Generic.ICollection<SortInfo> Sort { get; set; }
     
         public string ToJson() 
         {

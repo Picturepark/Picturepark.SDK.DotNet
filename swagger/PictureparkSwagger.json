@@ -20445,12 +20445,11 @@
             "description": "Limits the search to a specific document type."
           },
           "sort": {
+            "type": "array",
             "description": "Sorts the search results. Sorting on a not indexed field will throw an exception.",
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/SortInfo"
-              }
-            ]
+            "items": {
+              "$ref": "#/components/schemas/SortInfo"
+            }
           }
         }
       },
