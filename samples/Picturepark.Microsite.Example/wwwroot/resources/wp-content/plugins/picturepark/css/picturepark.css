@@ -109,3 +109,11 @@ sup{
 .media-new-php .media-upload-form .picturepark-media-buttons-wrapper {
     display:none;
 }
+
+svg#logo {
+    fill: white;
+}
+
+.et-fixed-header a svg#logo {
+    fill: black;
+}
