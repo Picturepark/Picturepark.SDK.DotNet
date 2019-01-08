@@ -20331,9 +20331,6 @@
           "action"
         ],
         "properties": {
-          "id": {
-            "type": "string"
-          },
           "documentId": {
             "type": "string"
           },
@@ -20415,12 +20412,12 @@
         "properties": {
           "from": {
             "type": "string",
-            "description": "Limits the start date of the search request. Default to last 1 year.",
+            "description": "Limits the start date of the search request. By default no limitation set.",
             "format": "date-time"
           },
           "to": {
             "type": "string",
-            "description": "Limits the end date of the search request. Default to now.",
+            "description": "Limits the end date of the search request. By default no limitation set.",
             "format": "date-time"
           },
           "limit": {
@@ -20448,12 +20445,11 @@
             "description": "Limits the search to a specific document type."
           },
           "sort": {
+            "type": "array",
             "description": "Sorts the search results. Sorting on a not indexed field will throw an exception.",
-            "allOf": [
-              {
-                "$ref": "#/components/schemas/SortInfo"
-              }
-            ]
+            "items": {
+              "$ref": "#/components/schemas/SortInfo"
+            }
           }
         }
       },
