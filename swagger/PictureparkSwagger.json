@@ -3651,11 +3651,11 @@
           "DocumentHistory"
         ],
         "summary": "Search",
-        "description": "Search the document history as specified in the search request",
+        "description": "Search the document history as specified in the search request.",
         "operationId": "DocumentHistory_Search",
         "requestBody": {
           "x-name": "documentHistorySearchRequest",
-          "description": "The document history search request",
+          "description": "The document history search request.",
           "content": {
             "application/json": {
               "schema": {
@@ -3668,7 +3668,7 @@
         "responses": {
           "200": {
             "x-nullable": false,
-            "description": "Document history search result",
+            "description": "Document history search result.",
             "content": {
               "application/json": {
                 "schema": {
@@ -3740,21 +3740,29 @@
         ]
       }
     },
-    "/v1/history/{id}": {
+    "/v1/history/{documentType}/{documentId}/current": {
       "get": {
         "tags": [
           "DocumentHistory"
         ],
-        "summary": "Get latest",
-        "description": "Gets the latest version of a document.",
-        "operationId": "DocumentHistory_Get",
+        "summary": "Get current",
+        "description": "Gets the current version of a document.",
+        "operationId": "DocumentHistory_GetCurrent",
         "parameters": [
           {
             "type": "string",
-            "name": "id",
+            "name": "documentType",
             "in": "path",
             "required": true,
-            "description": "The ID of the document (e.g. contentId)",
+            "description": "The type of the document (e.g. Content).",
+            "nullable": false
+          },
+          {
+            "type": "string",
+            "name": "documentId",
+            "in": "path",
+            "required": true,
+            "description": "The ID of the document (e.g. contentId).",
             "nullable": false
           }
         ],
@@ -3833,29 +3841,37 @@
         ]
       }
     },
-    "/v1/history/{id}/{version}": {
+    "/v1/history/{documentType}/{documentId}/{documentVersion}": {
       "get": {
         "tags": [
           "DocumentHistory"
         ],
-        "summary": "Get latest by version",
-        "description": "Gets the latest version of a document by specifying a specific document version.",
+        "summary": "Get version",
+        "description": "Gets a specific version of a document.",
         "operationId": "DocumentHistory_GetVersion",
         "parameters": [
           {
             "type": "string",
-            "name": "id",
+            "name": "documentType",
             "in": "path",
             "required": true,
-            "description": "The ID of the document (e.g. contentId)",
+            "description": "The type of the document (e.g. Content).",
             "nullable": false
           },
           {
             "type": "string",
-            "name": "version",
+            "name": "documentId",
             "in": "path",
             "required": true,
-            "description": "The version",
+            "description": "The ID of the document (e.g. contentId).",
+            "nullable": false
+          },
+          {
+            "type": "string",
+            "name": "documentVersion",
+            "in": "path",
+            "required": true,
+            "description": "The version of the document.",
             "nullable": false
           }
         ],
@@ -3934,29 +3950,37 @@
         ]
       }
     },
-    "/v1/history/{id}/difference/{oldVersion}": {
+    "/v1/history/{documentType}/{documentId}/current/compare": {
       "get": {
         "tags": [
           "DocumentHistory"
         ],
-        "summary": "Get latest difference",
-        "description": "Gets the difference on a document by comparing the provided version against the latest versions",
-        "operationId": "DocumentHistory_GetDifferenceLatest",
+        "summary": "Compare with current",
+        "description": "Compare the current version of a document with the requested version and get the differences.",
+        "operationId": "DocumentHistory_CompareWithCurrent",
         "parameters": [
           {
             "type": "string",
-            "name": "id",
+            "name": "documentType",
             "in": "path",
             "required": true,
-            "description": "The ID of the document (e.g. contentId)",
+            "description": "The type of the document (e.g. Content).",
+            "nullable": false
+          },
+          {
+            "type": "string",
+            "name": "documentId",
+            "in": "path",
+            "required": true,
+            "description": "The ID of the document (e.g. contentId).",
             "nullable": false
           },
           {
             "type": "integer",
-            "name": "oldVersion",
-            "in": "path",
+            "name": "version",
+            "in": "query",
             "required": true,
-            "description": "The old version",
+            "description": "The version of the document to compare with.",
             "format": "int64",
             "nullable": false
           }
@@ -3964,7 +3988,7 @@
         "responses": {
           "200": {
             "x-nullable": false,
-            "description": "Document history difference",
+            "description": "Document history difference.",
             "content": {
               "application/json": {
                 "schema": {
@@ -4036,38 +4060,46 @@
         ]
       }
     },
-    "/v1/history/{id}/difference/{oldVersion}/{newVersion}": {
+    "/v1/history/{documentType}/{documentId}/{documentVersion}/compare": {
       "get": {
         "tags": [
           "DocumentHistory"
         ],
-        "summary": "Get difference",
-        "description": "Gets the difference on a document by comparing two document versions",
-        "operationId": "DocumentHistory_GetDifference",
+        "summary": "Compare with version",
+        "description": "Compare a specific version of a document with another version and get the differences.",
+        "operationId": "DocumentHistory_CompareWithVersion",
         "parameters": [
           {
             "type": "string",
-            "name": "id",
+            "name": "documentType",
             "in": "path",
             "required": true,
-            "description": "The ID of the document (e.g. contentId)",
+            "description": "The type of the document (e.g. Content).",
+            "nullable": false
+          },
+          {
+            "type": "string",
+            "name": "documentId",
+            "in": "path",
+            "required": true,
+            "description": "The ID of the document (e.g. contentId).",
             "nullable": false
           },
           {
             "type": "integer",
-            "name": "oldVersion",
+            "name": "documentVersion",
             "in": "path",
             "required": true,
-            "description": "The old version",
+            "description": "The version of the document to use for the comparison.",
             "format": "int64",
             "nullable": false
           },
           {
             "type": "integer",
-            "name": "newVersion",
-            "in": "path",
+            "name": "version",
+            "in": "query",
             "required": true,
-            "description": "The new version",
+            "description": "The version of the document to compare with.",
             "format": "int64",
             "nullable": false
           }
@@ -13242,6 +13274,9 @@
         "type": "object",
         "additionalProperties": false,
         "properties": {
+          "documentType": {
+            "type": "string"
+          },
           "documentId": {
             "type": "string"
           },
@@ -27015,7 +27050,7 @@
     },
     {
       "name": "DocumentHistory",
-      "description": "Endpoints to work with history of documents.\r\n\r\nMost entities provide a history of changes. E.g. update metadata of a content. You can see and search the history of documents.\r\n\r\nYou can use a diff [GetDifferenceLatest](#operation/DocumentHistory_GetDifferenceLatest) and [GetDifference](#operation/DocumentHistory_GetDifference) to get a json diff and see what exactly has changed.\r\n\r\n[Code examples](https://github.com/Picturepark/Picturepark.SDK.DotNet/blob/master/src/Picturepark.SDK.V1.Tests/Clients/DocumentHistoryTests.cs)\r\n"
+      "description": "Endpoints to work with history of documents.\r\n\r\nMost entities provide a history of changes. E.g. update metadata of a content. You can see and search the history of documents.\r\n\r\nYou can use a diff [CompareWithCurrent](#operation/DocumentHistory_CompareWithCurrent) and [CompareWithVersion](#operation/DocumentHistory_CompareWithVersion) to get a json diff and see what exactly has changed.\r\n\r\n[Code examples](https://github.com/Picturepark/Picturepark.SDK.DotNet/blob/master/src/Picturepark.SDK.V1.Tests/Clients/DocumentHistoryTests.cs)\r\n"
     },
     {
       "name": "Info",
