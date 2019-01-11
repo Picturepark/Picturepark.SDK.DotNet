@@ -4381,11 +4381,11 @@
           "DocumentHistory"
         ],
         "summary": "Search",
-        "description": "Search the document history as specified in the search request",
+        "description": "Search the document history as specified in the search request.",
         "operationId": "DocumentHistory_Search",
         "requestBody": {
           "x-name": "documentHistorySearchRequest",
-          "description": "The document history search request",
+          "description": "The document history search request.",
           "content": {
             "application/json": {
               "schema": {
@@ -4398,7 +4398,7 @@
         },
         "responses": {
           "200": {
-            "description": "Document history search result",
+            "description": "Document history search result.",
             "content": {
               "application/json": {
                 "schema": {
@@ -4486,140 +4486,30 @@
         ]
       }
     },
-    "/v1/history/{id}": {
+    "/v1/history/{documentType}/{documentId}/current": {
       "get": {
         "tags": [
           "DocumentHistory"
         ],
-        "summary": "Get latest",
-        "description": "Gets the latest version of a document.",
-        "operationId": "DocumentHistory_Get",
+        "summary": "Get current",
+        "description": "Gets the current version of a document.",
+        "operationId": "DocumentHistory_GetCurrent",
         "parameters": [
           {
-            "name": "id",
+            "name": "documentType",
             "in": "path",
             "required": true,
-            "description": "The ID of the document (e.g. contentId)",
-            "schema": {
-              "type": "string"
-            },
-            "x-position": 1
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Document history item",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/DocumentHistory"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Internal server error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkException"
-                    }
-                  ]
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Not authorized"
-          },
-          "405": {
-            "description": "Method not allowed"
-          },
-          "404": {
-            "description": "Entity not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkNotFoundException"
-                    }
-                  ]
-                }
-              }
-            }
-          },
-          "409": {
-            "description": "Version conflict",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkConflictException"
-                    }
-                  ]
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Validation exception",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkValidationException"
-                    }
-                  ]
-                }
-              }
-            }
-          },
-          "429": {
-            "description": "Too many requests"
-          }
-        },
-        "security": [
-          {
-            "Bearer": [
-              "documenthistory_read"
-            ]
-          }
-        ]
-      }
-    },
-    "/v1/history/{id}/{version}": {
-      "get": {
-        "tags": [
-          "DocumentHistory"
-        ],
-        "summary": "Get latest by version",
-        "description": "Gets the latest version of a document by specifying a specific document version.",
-        "operationId": "DocumentHistory_GetVersion",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "description": "The ID of the document (e.g. contentId)",
+            "description": "The type of the document (e.g. Content).",
             "schema": {
               "type": "string"
             },
             "x-position": 1
           },
           {
-            "name": "version",
+            "name": "documentId",
             "in": "path",
             "required": true,
-            "description": "The version",
+            "description": "The ID of the document (e.g. contentId).",
             "schema": {
               "type": "string"
             },
@@ -4716,40 +4606,179 @@
         ]
       }
     },
-    "/v1/history/{id}/difference/{oldVersion}": {
+    "/v1/history/{documentType}/{documentId}/{documentVersion}": {
       "get": {
         "tags": [
           "DocumentHistory"
         ],
-        "summary": "Get latest difference",
-        "description": "Gets the difference on a document by comparing the provided version against the latest versions",
-        "operationId": "DocumentHistory_GetDifferenceLatest",
+        "summary": "Get version",
+        "description": "Gets a specific version of a document.",
+        "operationId": "DocumentHistory_GetVersion",
         "parameters": [
           {
-            "name": "id",
+            "name": "documentType",
             "in": "path",
             "required": true,
-            "description": "The ID of the document (e.g. contentId)",
+            "description": "The type of the document (e.g. Content).",
             "schema": {
               "type": "string"
             },
             "x-position": 1
           },
           {
-            "name": "oldVersion",
+            "name": "documentId",
             "in": "path",
             "required": true,
-            "description": "The old version",
+            "description": "The ID of the document (e.g. contentId).",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 2
+          },
+          {
+            "name": "documentVersion",
+            "in": "path",
+            "required": true,
+            "description": "The version of the document.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 3
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Document history item",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DocumentHistory"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkNotFoundException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkConflictException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkValidationException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "documenthistory_read"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/history/{documentType}/{documentId}/current/compare": {
+      "get": {
+        "tags": [
+          "DocumentHistory"
+        ],
+        "summary": "Compare with current",
+        "description": "Compare the current version of a document with the requested version and get the differences.",
+        "operationId": "DocumentHistory_CompareWithCurrent",
+        "parameters": [
+          {
+            "name": "documentType",
+            "in": "path",
+            "required": true,
+            "description": "The type of the document (e.g. Content).",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1
+          },
+          {
+            "name": "documentId",
+            "in": "path",
+            "required": true,
+            "description": "The ID of the document (e.g. contentId).",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 2
+          },
+          {
+            "name": "version",
+            "in": "query",
+            "description": "The version of the document to compare with.",
             "schema": {
               "type": "integer",
               "format": "int64"
             },
-            "x-position": 2
+            "x-position": 3
           }
         ],
         "responses": {
           "200": {
-            "description": "Document history difference",
+            "description": "Document history difference.",
             "content": {
               "application/json": {
                 "schema": {
@@ -4837,46 +4866,55 @@
         ]
       }
     },
-    "/v1/history/{id}/difference/{oldVersion}/{newVersion}": {
+    "/v1/history/{documentType}/{documentId}/{documentVersion}/compare": {
       "get": {
         "tags": [
           "DocumentHistory"
         ],
-        "summary": "Get difference",
-        "description": "Gets the difference on a document by comparing two document versions",
-        "operationId": "DocumentHistory_GetDifference",
+        "summary": "Compare with version",
+        "description": "Compare a specific version of a document with another version and get the differences.",
+        "operationId": "DocumentHistory_CompareWithVersion",
         "parameters": [
           {
-            "name": "id",
+            "name": "documentType",
             "in": "path",
             "required": true,
-            "description": "The ID of the document (e.g. contentId)",
+            "description": "The type of the document (e.g. Content).",
             "schema": {
               "type": "string"
             },
             "x-position": 1
           },
           {
-            "name": "oldVersion",
+            "name": "documentId",
             "in": "path",
             "required": true,
-            "description": "The old version",
+            "description": "The ID of the document (e.g. contentId).",
             "schema": {
-              "type": "integer",
-              "format": "int64"
+              "type": "string"
             },
             "x-position": 2
           },
           {
-            "name": "newVersion",
+            "name": "documentVersion",
             "in": "path",
             "required": true,
-            "description": "The new version",
+            "description": "The version of the document to use for the comparison.",
             "schema": {
               "type": "integer",
               "format": "int64"
             },
             "x-position": 3
+          },
+          {
+            "name": "version",
+            "in": "query",
+            "description": "The version of the document to compare with.",
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            },
+            "x-position": 4
           }
         ],
         "responses": {
@@ -15424,6 +15462,10 @@
             "type": "object",
             "additionalProperties": false,
             "properties": {
+              "documentType": {
+                "type": "string",
+                "nullable": true
+              },
               "documentId": {
                 "type": "string",
                 "nullable": true
@@ -23295,10 +23337,6 @@
           "action"
         ],
         "properties": {
-          "id": {
-            "type": "string",
-            "nullable": true
-          },
           "documentId": {
             "type": "string",
             "nullable": true
@@ -23390,12 +23428,12 @@
         "properties": {
           "from": {
             "type": "string",
-            "description": "Limits the start date of the search request. Default to last 1 year.",
+            "description": "Limits the start date of the search request. By default no limitation set.",
             "format": "date-time"
           },
           "to": {
             "type": "string",
-            "description": "Limits the end date of the search request. Default to now.",
+            "description": "Limits the end date of the search request. By default no limitation set.",
             "format": "date-time"
           },
           "limit": {
@@ -23426,13 +23464,12 @@
             "nullable": true
           },
           "sort": {
+            "type": "array",
             "description": "Sorts the search results. Sorting on a not indexed field will throw an exception.",
             "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/SortInfo"
-              }
-            ]
+            "items": {
+              "$ref": "#/components/schemas/SortInfo"
+            }
           }
         }
       },
@@ -30532,7 +30569,7 @@
     },
     {
       "name": "DocumentHistory",
-      "description": "Endpoints to work with history of documents.\r\n\r\nMost entities provide a history of changes. E.g. update metadata of a content. You can see and search the history of documents.\r\n\r\nYou can use a diff [GetDifferenceLatest](#operation/DocumentHistory_GetDifferenceLatest) and [GetDifference](#operation/DocumentHistory_GetDifference) to get a json diff and see what exactly has changed.\r\n\r\n[Code examples](https://github.com/Picturepark/Picturepark.SDK.DotNet/blob/master/src/Picturepark.SDK.V1.Tests/Clients/DocumentHistoryTests.cs)\r\n"
+      "description": "Endpoints to work with history of documents.\r\n\r\nMost entities provide a history of changes. E.g. update metadata of a content. You can see and search the history of documents.\r\n\r\nYou can use a diff [CompareWithCurrent](#operation/DocumentHistory_CompareWithCurrent) and [CompareWithVersion](#operation/DocumentHistory_CompareWithVersion) to get a json diff and see what exactly has changed.\r\n\r\n[Code examples](https://github.com/Picturepark/Picturepark.SDK.DotNet/blob/master/src/Picturepark.SDK.V1.Tests/Clients/DocumentHistoryTests.cs)\r\n"
     },
     {
       "name": "Info",

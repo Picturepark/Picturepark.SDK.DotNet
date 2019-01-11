@@ -7440,6 +7440,10 @@
             "type": "object",
             "additionalProperties": false,
             "properties": {
+              "documentType": {
+                "type": "string",
+                "nullable": true
+              },
               "documentId": {
                 "type": "string",
                 "nullable": true
@@ -12107,6 +12111,10 @@
             "type": "string",
             "nullable": true
           },
+          "documentHistorySteadyCatalog": {
+            "type": "string",
+            "nullable": true
+          },
           "liveStreamCatalog": {
             "type": "string",
             "nullable": true
@@ -14653,7 +14661,8 @@
           "Schema",
           "OutputFormat",
           "Channel",
-          "Reference"
+          "Reference",
+          "DocumentHistorySteady"
         ],
         "enum": [
           "Configuration",
@@ -14677,7 +14686,8 @@
           "Schema",
           "OutputFormat",
           "Channel",
-          "Reference"
+          "Reference",
+          "DocumentHistorySteady"
         ]
       },
       "IndexState": {

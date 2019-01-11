@@ -1283,6 +1283,9 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [Newtonsoft.Json.JsonObjectAttribute]
     public partial class DocumentVersionNotFoundException : PictureparkNotFoundException
     {
+        [Newtonsoft.Json.JsonProperty("documentType", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string DocumentType { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("documentId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string DocumentId { get; set; }
     
@@ -6145,6 +6148,9 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [Newtonsoft.Json.JsonProperty("documentHistoryCatalog", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string DocumentHistoryCatalog { get; set; }
     
+        [Newtonsoft.Json.JsonProperty("documentHistorySteadyCatalog", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string DocumentHistorySteadyCatalog { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("liveStreamCatalog", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string LiveStreamCatalog { get; set; }
     
@@ -8442,6 +8448,9 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
         [System.Runtime.Serialization.EnumMember(Value = "Reference")]
         Reference = 21,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "DocumentHistorySteady")]
+        DocumentHistorySteady = 22,
     
     }
     
