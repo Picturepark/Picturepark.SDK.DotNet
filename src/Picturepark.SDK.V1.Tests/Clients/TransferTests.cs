@@ -271,42 +271,24 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
         [Fact]
         [Trait("Stack", "Transfers")]
-        public async Task ShouldTransferWebDownloadAndPartialImportWithMetadata()
+        public async Task ShouldPartialImportWithMetadata()
         {
             // Arrange
-            await SetupSchema(typeof(PersonShot)).ConfigureAwait(false);
-            string personId = await CreatePerson().ConfigureAwait(false);
-            string uniqueValue = $"{Guid.NewGuid():N}";
-
-            var contentSearchResult = await RandomHelper.GetRandomContentsAsync(_client, string.Empty, 1, new[] { ContentType.Bitmap }).ConfigureAwait(false);
             var fileTransfers = new List<FileTransferCreateItem>();
             var timeout = TimeSpan.FromMinutes(2);
 
-            var urls = new List<string>();
+            await SetupSchema(typeof(PersonShot)).ConfigureAwait(false);
+            string personId = await CreatePerson().ConfigureAwait(false);
 
-            foreach (var content in contentSearchResult.Results)
-            {
-                var downloadRequest = new ContentDownloadLinkCreateRequest()
-                {
-                    Contents = new List<ContentDownloadRequestItem>
-                    {
-                        new ContentDownloadRequestItem
-                        {
-                            ContentId = content.Id,
-                            OutputFormatId = "Original",
-                        }
-                    }
-                };
-                var downloadResult = await _client.Content.CreateDownloadLinkAsync(downloadRequest).ConfigureAwait(false);
-                urls.Add(downloadResult.DownloadUrl);
-            }
+            var contentSearchResult = await RandomHelper.GetRandomContentsAsync(_client, string.Empty, 1, new[] { ContentType.Bitmap }).ConfigureAwait(false);
+            var urls = await GetContentsDownloadUrls(contentSearchResult).ConfigureAwait(false);
 
             var createTransferResult = await CreateWebTransferAsync(urls).ConfigureAwait(false);
             var files = await _client.Transfer.SearchFilesByTransferIdAsync(createTransferResult.Transfer.Id, 1).ConfigureAwait(false);
 
             foreach (FileTransfer file in files.Results)
             {
-                var tag = new DataDictionary
+                var personTag = new DataDictionary
                 {
                     { "_refId", personId }
                 };
@@ -316,12 +298,16 @@ namespace Picturepark.SDK.V1.Tests.Clients
                             nameof(PersonShot),
                             new DataDictionary
                             {
-                                { "persons", new[] { tag } },
-                                { "description", uniqueValue }
+                                { "persons", new[] { personTag } },
                             }
                         }
                     };
-                fileTransfers.Add(new FileTransferCreateItem() { FileId = file.Id, Metadata = metadata, LayerSchemaIds = new[] { nameof(PersonShot) } });
+                fileTransfers.Add(new FileTransferCreateItem
+                {
+                    FileId = file.Id,
+                    LayerSchemaIds = new[] { nameof(PersonShot) },
+                    Metadata = metadata
+                });
             }
 
             var partialRequest = new ImportTransferPartialRequest()
@@ -329,17 +315,18 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 Items = fileTransfers,
             };
 
+            // Act
             var importResult = await _client.Transfer.PartialImportAsync(createTransferResult.Transfer.Id, partialRequest).ConfigureAwait(false);
-            var result = await _client.BusinessProcess.WaitForCompletionAsync(importResult.BusinessProcessId, timeout).ConfigureAwait(false);
-            result.LifeCycleHit.Should().Be(BusinessProcessLifeCycle.Succeeded);
+            var waitResult = await _client.BusinessProcess.WaitForCompletionAsync(importResult.BusinessProcessId, timeout).ConfigureAwait(false);
 
-            var searchCreatedContents = await _client.Content.SearchAsync(new ContentSearchRequest
-            {
-                SearchString = uniqueValue
-            }).ConfigureAwait(false);
+            // Assert
+            waitResult.LifeCycleHit.Should().Be(BusinessProcessLifeCycle.Succeeded);
 
-            searchCreatedContents.TotalResults.Should().Be(1);
-            var createdContent = await _client.Content.GetAsync(searchCreatedContents.Results.First().Id, new[] { ContentResolveBehavior.Metadata }).ConfigureAwait(false);
+            var result = await _client.Transfer.SearchFilesByTransferIdAsync(createTransferResult.Transfer.Id).ConfigureAwait(false);
+            var contentIds = result.Results.Select(r => r.ContentId);
+            contentIds.Should().HaveCount(1);
+
+            var createdContent = await _client.Content.GetAsync(contentIds.First(), new[] { ContentResolveBehavior.Metadata }).ConfigureAwait(false);
             var jMetadata = JObject.FromObject(createdContent.Metadata);
             jMetadata[nameof(PersonShot).ToLowerCamelCase()]["persons"][0]["_refId"].Value<string>().Should().Be(personId);
         }
@@ -524,9 +511,32 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 Firstname = "FirstName",
                 LastName = "LastName",
                 BirthDate = DateTime.UtcNow.AddYears(-20),
-                EmailAddress = "first.last@test.com"
+                EmailAddress = "first.last@testyyy.com"
             }).ConfigureAwait(false);
             return (await operationResult.FetchDetail().ConfigureAwait(false)).SucceededIds.First();
+        }
+
+        private async Task<List<string>> GetContentsDownloadUrls(ContentSearchResult contentSearchResult)
+        {
+            var urls = new List<string>();
+            foreach (var content in contentSearchResult.Results)
+            {
+                var downloadRequest = new ContentDownloadLinkCreateRequest()
+                {
+                    Contents = new List<ContentDownloadRequestItem>
+                    {
+                        new ContentDownloadRequestItem
+                        {
+                            ContentId = content.Id,
+                            OutputFormatId = "Original",
+                        }
+                    }
+                };
+                var downloadResult = await _client.Content.CreateDownloadLinkAsync(downloadRequest).ConfigureAwait(false);
+                urls.Add(downloadResult.DownloadUrl);
+            }
+
+            return urls;
         }
     }
 }
