@@ -104,7 +104,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             // Assert
             Assert.True(result.LifeCycle == BusinessProcessLifeCycle.Succeeded);
             Assert.NotEqual(0, updatedHistory.DocumentVersion);
-            Assert.Contains(@"""name"": """ + location + @"""", difference.NewValues.ToString());
+            Assert.Contains(@"""name"": """ + location + @"""", difference.Patch.ToString());
         }
 
         [Fact]
