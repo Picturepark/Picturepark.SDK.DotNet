@@ -380,7 +380,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<DocumentHistory> GetVersionAsync(string documentType, string documentId, string documentVersion, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<DocumentHistory> GetVersionAsync(string documentType, string documentId, long documentVersion, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Compare with current</summary>
         /// <param name="documentType">The type of the document (e.g. Content).</param>
@@ -9983,11 +9983,8 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("newDocumentVersion", Required = Newtonsoft.Json.Required.Always)]
         public long NewDocumentVersion { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("oldValues", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public object OldValues { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("newValues", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public object NewValues { get; set; }
+        [Newtonsoft.Json.JsonProperty("patch", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public object Patch { get; set; }
     
         public string ToJson() 
         {
