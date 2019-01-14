@@ -23493,10 +23493,7 @@
             "type": "integer",
             "format": "int64"
           },
-          "oldValues": {
-            "nullable": true
-          },
-          "newValues": {
+          "patch": {
             "nullable": true
           }
         }

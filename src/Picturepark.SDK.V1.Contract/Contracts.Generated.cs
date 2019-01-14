@@ -9983,11 +9983,8 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("newDocumentVersion", Required = Newtonsoft.Json.Required.Always)]
         public long NewDocumentVersion { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("oldValues", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public object OldValues { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("newValues", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public object NewValues { get; set; }
+        [Newtonsoft.Json.JsonProperty("patch", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public object Patch { get; set; }
     
         public string ToJson() 
         {
