@@ -6,6 +6,8 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using FluentAssertions;
+using Newtonsoft.Json.Linq;
+using Picturepark.SDK.V1.Tests.Contracts;
 using Xunit;
 
 namespace Picturepark.SDK.V1.Tests.Clients
@@ -136,7 +138,13 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldDelete()
         {
             // Arrange
-            var result = await CreateWebTransferAsync().ConfigureAwait(false);
+            var urls = new List<string>
+            {
+                "https://picturepark.com/wp-content/uploads/2013/06/home-marquee.jpg",
+                "http://cdn1.spiegel.de/images/image-733178-900_breitwand_180x67-zgpe-733178.jpg",
+                "http://cdn3.spiegel.de/images/image-1046236-700_poster_16x9-ymle-1046236.jpg"
+            };
+            var result = await CreateWebTransferAsync(urls).ConfigureAwait(false);
 
             // Act
             var transferId = result.Transfer.Id;
@@ -154,7 +162,13 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldGet()
         {
             // Arrange
-            var result = await CreateWebTransferAsync().ConfigureAwait(false);
+            var urls = new List<string>
+            {
+                "https://picturepark.com/wp-content/uploads/2013/06/home-marquee.jpg",
+                "http://cdn1.spiegel.de/images/image-733178-900_breitwand_180x67-zgpe-733178.jpg",
+                "http://cdn3.spiegel.de/images/image-1046236-700_poster_16x9-ymle-1046236.jpg"
+            };
+            var result = await CreateWebTransferAsync(urls).ConfigureAwait(false);
 
             // Act
             TransferDetail transfer = await _client.Transfer.GetAsync(result.Transfer.Id).ConfigureAwait(false);
@@ -253,6 +267,81 @@ namespace Picturepark.SDK.V1.Tests.Clients
             // Assert
             var result = await _client.Transfer.SearchFilesByTransferIdAsync(transfer.Id).ConfigureAwait(false);
             Assert.Equal(importFilePaths.Count, result.Results.Count);
+        }
+
+        [Fact]
+        [Trait("Stack", "Transfers")]
+        public async Task ShouldTransferWebDownloadAndPartialImportWithMetadata()
+        {
+            // Arrange
+            await SetupSchema(typeof(PersonShot)).ConfigureAwait(false);
+            string personId = await CreatePerson().ConfigureAwait(false);
+            string uniqueValue = $"{Guid.NewGuid():N}";
+
+            var contentSearchResult = await RandomHelper.GetRandomContentsAsync(_client, string.Empty, 1, new[] { ContentType.Bitmap }).ConfigureAwait(false);
+            var fileTransfers = new List<FileTransferCreateItem>();
+            var timeout = TimeSpan.FromMinutes(2);
+
+            var urls = new List<string>();
+
+            foreach (var content in contentSearchResult.Results)
+            {
+                var downloadRequest = new ContentDownloadLinkCreateRequest()
+                {
+                    Contents = new List<ContentDownloadRequestItem>
+                    {
+                        new ContentDownloadRequestItem
+                        {
+                            ContentId = content.Id,
+                            OutputFormatId = "Original",
+                        }
+                    }
+                };
+                var downloadResult = await _client.Content.CreateDownloadLinkAsync(downloadRequest).ConfigureAwait(false);
+                urls.Add(downloadResult.DownloadUrl);
+            }
+
+            var createTransferResult = await CreateWebTransferAsync(urls).ConfigureAwait(false);
+            var files = await _client.Transfer.SearchFilesByTransferIdAsync(createTransferResult.Transfer.Id, 1).ConfigureAwait(false);
+
+            foreach (FileTransfer file in files.Results)
+            {
+                var tag = new DataDictionary
+                {
+                    { "_refId", personId }
+                };
+                var metadata = new DataDictionary
+                    {
+                        {
+                            nameof(PersonShot),
+                            new DataDictionary
+                            {
+                                { "persons", new[] { tag } },
+                                { "description", uniqueValue }
+                            }
+                        }
+                    };
+                fileTransfers.Add(new FileTransferCreateItem() { FileId = file.Id, Metadata = metadata, LayerSchemaIds = new[] { nameof(PersonShot) } });
+            }
+
+            var partialRequest = new ImportTransferPartialRequest()
+            {
+                Items = fileTransfers,
+            };
+
+            var importResult = await _client.Transfer.PartialImportAsync(createTransferResult.Transfer.Id, partialRequest).ConfigureAwait(false);
+            var result = await _client.BusinessProcess.WaitForCompletionAsync(importResult.BusinessProcessId, timeout).ConfigureAwait(false);
+            result.LifeCycleHit.Should().Be(BusinessProcessLifeCycle.Succeeded);
+
+            var searchCreatedContents = await _client.Content.SearchAsync(new ContentSearchRequest
+            {
+                SearchString = uniqueValue
+            }).ConfigureAwait(false);
+
+            searchCreatedContents.TotalResults.Should().Be(1);
+            var createdContent = await _client.Content.GetAsync(searchCreatedContents.Results.First().Id, new[] { ContentResolveBehavior.Metadata }).ConfigureAwait(false);
+            var jMetadata = JObject.FromObject(createdContent.Metadata);
+            jMetadata[nameof(PersonShot).ToLowerCamelCase()]["persons"][0]["_refId"].Value<string>().Should().Be(personId);
         }
 
         [Fact]
@@ -398,15 +487,9 @@ namespace Picturepark.SDK.V1.Tests.Clients
             return (createTransferResult, fileId);
         }
 
-        private async Task<CreateTransferResult> CreateWebTransferAsync()
+        private async Task<CreateTransferResult> CreateWebTransferAsync(List<string> urls)
         {
             var transferName = "UrlImport " + new Random().Next(1000, 9999);
-            var urls = new List<string>
-            {
-                "https://picturepark.com/wp-content/uploads/2013/06/home-marquee.jpg",
-                "http://cdn1.spiegel.de/images/image-733178-900_breitwand_180x67-zgpe-733178.jpg",
-                "http://cdn3.spiegel.de/images/image-1046236-700_poster_16x9-ymle-1046236.jpg"
-            };
 
             var request = new CreateTransferRequest
             {
@@ -420,6 +503,30 @@ namespace Picturepark.SDK.V1.Tests.Clients
             };
 
             return await _client.Transfer.CreateAndWaitForCompletionAsync(request).ConfigureAwait(false);
+        }
+
+        private async Task SetupSchema(Type type)
+        {
+            var schemas = await _client.Schema.GenerateSchemasAsync(type).ConfigureAwait(false);
+            foreach (var schema in schemas)
+            {
+                if (await _client.Schema.ExistsAsync(schema.Id).ConfigureAwait(false) == false)
+                {
+                    await _client.Schema.CreateAsync(schema, true, TimeSpan.FromMinutes(1)).ConfigureAwait(false);
+                }
+            }
+        }
+
+        private async Task<string> CreatePerson()
+        {
+            var operationResult = await _client.ListItem.CreateFromObjectAsync(new Person
+            {
+                Firstname = "FirstName",
+                LastName = "LastName",
+                BirthDate = DateTime.UtcNow.AddYears(-20),
+                EmailAddress = "first.last@test.com"
+            }).ConfigureAwait(false);
+            return (await operationResult.FetchDetail().ConfigureAwait(false)).SucceededIds.First();
         }
     }
 }
