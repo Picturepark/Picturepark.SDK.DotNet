@@ -56,13 +56,13 @@ namespace Picturepark.SDK.V1.Tests.Clients
         {
             // Arrange
             string documentId = await _fixture.GetRandomContentIdAsync(".jpg", 20).ConfigureAwait(false);
-            string versionId = "1";
+            long versionId = 1;
 
             // Act
             var result = await _client.DocumentHistory.GetVersionAsync(typeof(Content).Name, documentId, versionId).ConfigureAwait(false);
 
             // Assert
-            Assert.Equal(versionId, result.DocumentVersion.ToString());
+            Assert.Equal(versionId, result.DocumentVersion);
         }
 
         [Fact]
@@ -104,7 +104,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             // Assert
             Assert.True(result.LifeCycle == BusinessProcessLifeCycle.Succeeded);
             Assert.NotEqual(0, updatedHistory.DocumentVersion);
-            Assert.Contains(@"""name"": """ + location + @"""", difference.NewValues.ToString());
+            Assert.Contains(@"""name"": """ + location + @"""", difference.Patch.ToString());
         }
 
         [Fact]

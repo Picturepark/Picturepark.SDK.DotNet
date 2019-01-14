@@ -6785,7 +6785,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        public async System.Threading.Tasks.Task<DocumentHistory> GetVersionAsync(string documentType, string documentId, string documentVersion, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<DocumentHistory> GetVersionAsync(string documentType, string documentId, long documentVersion, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (documentType == null)
                 throw new System.ArgumentNullException("documentType");

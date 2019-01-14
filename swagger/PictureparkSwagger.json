@@ -4641,7 +4641,8 @@
             "required": true,
             "description": "The version of the document.",
             "schema": {
-              "type": "string"
+              "type": "integer",
+              "format": "int64"
             },
             "x-position": 3
           }
@@ -23493,10 +23494,7 @@
             "type": "integer",
             "format": "int64"
           },
-          "oldValues": {
-            "nullable": true
-          },
-          "newValues": {
+          "patch": {
             "nullable": true
           }
         }
