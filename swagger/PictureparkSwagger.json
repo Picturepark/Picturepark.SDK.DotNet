@@ -23495,6 +23495,7 @@
             "format": "int64"
           },
           "patch": {
+            "description": "Contains an RFC 6902 compatible patch that can be applied on the old document to get the new document.\nUse a library like jsondiffpatch.net (https://github.com/wbish/jsondiffpatch.net)\nor jsondiffpatch (https://github.com/benjamine/jsondiffpatch) to process this.",
             "nullable": true
           }
         }
