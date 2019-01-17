@@ -7058,6 +7058,10 @@ namespace Picturepark.SDK.V1.Contract
         [System.ComponentModel.DataAnnotations.Required]
         public UserAudit Audit { get; set; } = new UserAudit();
     
+        /// <summary>Grants rights to all the users to view the channel.</summary>
+        [Newtonsoft.Json.JsonProperty("viewForAll", Required = Newtonsoft.Json.Required.Always)]
+        public bool ViewForAll { get; set; }
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -9983,9 +9987,6 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("newDocumentVersion", Required = Newtonsoft.Json.Required.Always)]
         public long NewDocumentVersion { get; set; }
     
-        /// <summary>Contains an RFC 6902 compatible patch that can be applied on the old document to get the new document.
-        /// Use a library like jsondiffpatch.net (https://github.com/wbish/jsondiffpatch.net)
-        /// or jsondiffpatch (https://github.com/benjamine/jsondiffpatch) to process this.</summary>
         [Newtonsoft.Json.JsonProperty("patch", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public object Patch { get; set; }
     
