@@ -12182,6 +12182,8 @@
           "documentHistoryRetentionTime",
           "liveStreamRetentionTime",
           "snapshotFullbackupScheduleTime",
+          "successfulTransferRetentionTime",
+          "incompleteTransferRetentionTime",
           "contentBackupState",
           "apiCallsPerMinute"
         ],
@@ -12444,6 +12446,14 @@
             "type": "string",
             "format": "time-span"
           },
+          "successfulTransferRetentionTime": {
+            "type": "string",
+            "format": "time-span"
+          },
+          "incompleteTransferRetentionTime": {
+            "type": "string",
+            "format": "time-span"
+          },
           "deactivationMessage": {
             "nullable": true,
             "oneOf": [
@@ -12611,6 +12621,8 @@
           "listItemRetentionTime",
           "snapshotRetentionTime",
           "userRetentionTime",
+          "successfulTransferRetentionTime",
+          "incompleteTransferRetentionTime",
           "documentHistoryRetentionTime",
           "liveStreamRetentionTime",
           "snapshotFullbackupScheduleTime",
@@ -12760,6 +12772,14 @@
             "format": "time-span"
           },
           "userRetentionTime": {
+            "type": "string",
+            "format": "time-span"
+          },
+          "successfulTransferRetentionTime": {
+            "type": "string",
+            "format": "time-span"
+          },
+          "incompleteTransferRetentionTime": {
             "type": "string",
             "format": "time-span"
           },
@@ -13998,6 +14018,8 @@
           "documentHistoryRetentionTime",
           "liveStreamRetentionTime",
           "snapshotFullbackupScheduleTime",
+          "successfulTransferRetentionTime",
+          "incompleteTransferRetentionTime",
           "useSsl",
           "enableQueryDetails",
           "apiCallsPerMinute"
@@ -14057,6 +14079,14 @@
             "format": "time-span"
           },
           "snapshotFullbackupScheduleTime": {
+            "type": "string",
+            "format": "time-span"
+          },
+          "successfulTransferRetentionTime": {
+            "type": "string",
+            "format": "time-span"
+          },
+          "incompleteTransferRetentionTime": {
             "type": "string",
             "format": "time-span"
           },
