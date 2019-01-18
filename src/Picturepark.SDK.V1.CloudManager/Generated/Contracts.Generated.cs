@@ -127,14 +127,6 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<Customer> ImportAsync(CustomerImportRequest customerImportRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-    
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">Internal server error</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
-        /// <exception cref="PictureparkConflictException">Version conflict</exception>
-        /// <exception cref="PictureparkValidationException">Validation exception</exception>
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         System.Threading.Tasks.Task<SnapshotRepository> ArchiveRepositoryAsync(SnapshotRepositoryArchiveRequest archiveRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <exception cref="ApiException">A server side error occurred.</exception>
@@ -5912,50 +5904,6 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         public static CustomerExportRequest FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<CustomerExportRequest>(data);
-        }
-    
-    }
-    
-    /// <summary>Request to import the ElasticSearch repository of a customer from another cloud</summary>
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
-    public partial class CustomerImportRequest 
-    {
-        /// <summary>The customer id</summary>
-        [Newtonsoft.Json.JsonProperty("customerId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string CustomerId { get; set; }
-    
-        /// <summary>Name of the ElasticSearch repository</summary>
-        [Newtonsoft.Json.JsonProperty("repositoryName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string RepositoryName { get; set; }
-    
-        /// <summary>Name of the snapshot within the ElasticSearch repository if available</summary>
-        [Newtonsoft.Json.JsonProperty("snapshotName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string SnapshotName { get; set; }
-    
-        /// <summary>Storage path of the originals and outputs, path shall not include the customer id</summary>
-        [Newtonsoft.Json.JsonProperty("storagePath", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string StoragePath { get; set; }
-    
-        /// <summary>Set to true if the customer was configured against another IDS instance</summary>
-        [Newtonsoft.Json.JsonProperty("resetExternalUserIds", Required = Newtonsoft.Json.Required.Always)]
-        public bool ResetExternalUserIds { get; set; }
-    
-        /// <summary>Provide email address of an admin user</summary>
-        [Newtonsoft.Json.JsonProperty("adminUserEmail", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string AdminUserEmail { get; set; }
-    
-        /// <summary>Provide password for the admin user</summary>
-        [Newtonsoft.Json.JsonProperty("adminUserPassword", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string AdminUserPassword { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-    
-        public static CustomerImportRequest FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<CustomerImportRequest>(data);
         }
     
     }
