@@ -14769,6 +14769,10 @@
           "elapsedMilliseconds": {
             "type": "integer",
             "format": "int64"
+          },
+          "pageToken": {
+            "type": "string",
+            "nullable": true
           }
         }
       },
@@ -19175,22 +19179,20 @@
         "description": "Search request to search for business processes",
         "additionalProperties": false,
         "required": [
-          "start",
           "limit",
           "debugMode"
         ],
         "properties": {
-          "start": {
-            "type": "integer",
-            "description": "Defines the offset from the first result you want to fetch. Defaults to 0.",
-            "format": "int32",
-            "default": 0
-          },
           "limit": {
             "type": "integer",
             "description": "Limits the document count of the result set.",
             "format": "int32",
             "default": 30
+          },
+          "pageToken": {
+            "type": "string",
+            "description": "The token used to retrieve the next page of results. It must be null on first request and only filled with the returned pageToken to request next page of results.",
+            "nullable": true
           },
           "filter": {
             "description": "An optional search filter. Limits the document result set.",
@@ -21409,6 +21411,10 @@
           "elapsedMilliseconds": {
             "type": "integer",
             "format": "int64"
+          },
+          "pageToken": {
+            "type": "string",
+            "nullable": true
           }
         }
       },
@@ -21494,7 +21500,6 @@
         "description": "Request to search contents",
         "additionalProperties": false,
         "required": [
-          "start",
           "limit",
           "lifeCycleFilter",
           "brokenDependenciesFilter",
@@ -21549,17 +21554,16 @@
               "$ref": "#/components/schemas/SortInfo"
             }
           },
-          "start": {
-            "type": "integer",
-            "description": "Defines the offset from the first matching document. Defaults to 0.",
-            "format": "int32",
-            "default": 0
-          },
           "limit": {
             "type": "integer",
             "description": "Limits the number of the returned schemas. Defaults to 30.",
             "format": "int32",
             "default": 30
+          },
+          "pageToken": {
+            "type": "string",
+            "description": "The token used to retrieve the next page of results. It must be null on first request and only filled with the returned pageToken to request next page of results.",
+            "nullable": true
           },
           "filter": {
             "description": "An optional filter to limit the contents.",
@@ -21955,6 +21959,10 @@
           "elapsedMilliseconds": {
             "type": "integer",
             "format": "int64"
+          },
+          "pageToken": {
+            "type": "string",
+            "nullable": true
           }
         }
       },
@@ -22022,6 +22030,10 @@
           "elapsedMilliseconds": {
             "type": "integer",
             "format": "int64"
+          },
+          "pageToken": {
+            "type": "string",
+            "nullable": true
           }
         }
       },
@@ -22130,19 +22142,18 @@
         "description": "Request to page data",
         "additionalProperties": false,
         "required": [
-          "start",
           "limit"
         ],
         "properties": {
-          "start": {
-            "type": "integer",
-            "description": "Defines the offset from the first matching document. Defaults to 0.",
-            "format": "int32"
-          },
           "limit": {
             "type": "integer",
             "description": "Limits the number of the returned schemas. Defaults to 0.",
             "format": "int32"
+          },
+          "pageToken": {
+            "type": "string",
+            "description": "The token used to retrieve the next page of results. It must be null on first request and only filled with the returned pageToken to request next page of results.",
+            "nullable": true
           }
         }
       },
@@ -23066,6 +23077,10 @@
           "elapsedMilliseconds": {
             "type": "integer",
             "format": "int64"
+          },
+          "pageToken": {
+            "type": "string",
+            "nullable": true
           }
         }
       },
@@ -23103,7 +23118,6 @@
         "description": "Request to search permission sets",
         "additionalProperties": false,
         "required": [
-          "start",
           "limit",
           "debugMode"
         ],
@@ -23128,17 +23142,16 @@
               "$ref": "#/components/schemas/SortInfo"
             }
           },
-          "start": {
-            "type": "integer",
-            "description": "Defines the offset from the first matching document. Defaults to 0.",
-            "format": "int32",
-            "default": 0
-          },
           "limit": {
             "type": "integer",
             "description": "Limits the number of the returned schemas. Defaults to 30.",
             "format": "int32",
             "default": 30
+          },
+          "pageToken": {
+            "type": "string",
+            "description": "The token used to retrieve the next page of results. It must be null on first request and only filled with the returned pageToken to request next page of results.",
+            "nullable": true
           },
           "filter": {
             "nullable": true,
@@ -23297,13 +23310,7 @@
           },
           {
             "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "pageToken": {
-                "type": "string",
-                "nullable": true
-              }
-            }
+            "additionalProperties": false
           }
         ]
       },
@@ -23329,6 +23336,10 @@
           "elapsedMilliseconds": {
             "type": "integer",
             "format": "int64"
+          },
+          "pageToken": {
+            "type": "string",
+            "nullable": true
           }
         }
       },
@@ -23500,6 +23511,7 @@
             "format": "int64"
           },
           "patch": {
+            "description": "Contains an RFC 6902 compatible patch that can be applied on the old document to get the new document.\nUse a library like jsondiffpatch.net (https://github.com/wbish/jsondiffpatch.net)\nor jsondiffpatch (https://github.com/benjamine/jsondiffpatch) to process this.",
             "nullable": true
           }
         }
@@ -23766,6 +23778,10 @@
           "elapsedMilliseconds": {
             "type": "integer",
             "format": "int64"
+          },
+          "pageToken": {
+            "type": "string",
+            "nullable": true
           }
         }
       },
@@ -23804,7 +23820,6 @@
         "description": "Request to search list items",
         "additionalProperties": false,
         "required": [
-          "start",
           "limit",
           "includeAllSchemaChildren",
           "brokenDependenciesFilter",
@@ -23834,17 +23849,16 @@
               "$ref": "#/components/schemas/SortInfo"
             }
           },
-          "start": {
-            "type": "integer",
-            "description": "Defines the offset from the first matching document. Defaults to 0.",
-            "format": "int32",
-            "default": 0
-          },
           "limit": {
             "type": "integer",
             "description": "Limits the number of the returned schemas. Defaults to 30.",
             "format": "int32",
             "default": 30
+          },
+          "pageToken": {
+            "type": "string",
+            "description": "The token used to retrieve the next page of results. It must be null on first request and only filled with the returned pageToken to request next page of results.",
+            "nullable": true
           },
           "filter": {
             "description": "An optional filter to limit the list items.",
@@ -25012,6 +25026,10 @@
           "elapsedMilliseconds": {
             "type": "integer",
             "format": "int64"
+          },
+          "pageToken": {
+            "type": "string",
+            "nullable": true
           }
         }
       },
@@ -25019,21 +25037,19 @@
         "type": "object",
         "additionalProperties": false,
         "required": [
-          "start",
           "limit"
         ],
         "properties": {
-          "start": {
-            "type": "integer",
-            "description": "Defines the offset from the first result you want to fetch. Defaults to 0.",
-            "format": "int32",
-            "default": 0
-          },
           "limit": {
             "type": "integer",
             "description": "Limits the document count of the result set. Defaults to 30.",
             "format": "int32",
             "default": 30
+          },
+          "pageToken": {
+            "type": "string",
+            "description": "The token used to retrieve the next page of results. It must be null on first request and only filled with the returned pageToken to request next page of results.",
+            "nullable": true
           },
           "contentIds": {
             "type": "array",
@@ -26796,6 +26812,10 @@
           "elapsedMilliseconds": {
             "type": "integer",
             "format": "int64"
+          },
+          "pageToken": {
+            "type": "string",
+            "nullable": true
           }
         }
       },
@@ -26880,7 +26900,6 @@
         "description": "Request to search schemas",
         "additionalProperties": false,
         "required": [
-          "start",
           "limit",
           "debugMode"
         ],
@@ -26906,17 +26925,16 @@
               "$ref": "#/components/schemas/SortInfo"
             }
           },
-          "start": {
-            "type": "integer",
-            "description": "Defines the offset from the first matching document. Defaults to 0.",
-            "format": "int32",
-            "default": 0
-          },
           "limit": {
             "type": "integer",
             "description": "Limits the number of the returned schemas. Defaults to 30.",
             "format": "int32",
             "default": 30
+          },
+          "pageToken": {
+            "type": "string",
+            "description": "The token used to retrieve the next page of results. It must be null on first request and only filled with the returned pageToken to request next page of results.",
+            "nullable": true
           },
           "filter": {
             "description": "An optional filter to limit the schemas.",
@@ -28086,6 +28104,10 @@
           "elapsedMilliseconds": {
             "type": "integer",
             "format": "int64"
+          },
+          "pageToken": {
+            "type": "string",
+            "nullable": true
           }
         }
       },
@@ -28152,7 +28174,6 @@
         "description": "Request to search shares",
         "additionalProperties": false,
         "required": [
-          "start",
           "limit",
           "debugMode"
         ],
@@ -28178,17 +28199,16 @@
               "$ref": "#/components/schemas/SortInfo"
             }
           },
-          "start": {
-            "type": "integer",
-            "description": "Defines the offset from the first result you want to fetch. Defaults to 0.",
-            "format": "int32",
-            "default": 0
-          },
           "limit": {
             "type": "integer",
             "description": "Limits the document count of the result set.",
             "format": "int32",
             "default": 30
+          },
+          "pageToken": {
+            "type": "string",
+            "description": "The token used to retrieve the next page of results. It must be null on first request and only filled with the returned pageToken to request next page of results.",
+            "nullable": true
           },
           "filter": {
             "description": "An optional search filter. Limits the document result set.",
@@ -28754,6 +28774,10 @@
           "elapsedMilliseconds": {
             "type": "integer",
             "format": "int64"
+          },
+          "pageToken": {
+            "type": "string",
+            "nullable": true
           }
         }
       },
@@ -28762,7 +28786,6 @@
         "description": "Request to search for transfers.",
         "additionalProperties": false,
         "required": [
-          "start",
           "limit",
           "debugMode"
         ],
@@ -28780,17 +28803,16 @@
               "$ref": "#/components/schemas/SearchBehavior"
             }
           },
-          "start": {
-            "type": "integer",
-            "description": "Defines the offset from the first result you want to fetch. Defaults to 0.",
-            "format": "int32",
-            "default": 0
-          },
           "limit": {
             "type": "integer",
             "description": "Limits the document count of the result set.",
             "format": "int32",
             "default": 30
+          },
+          "pageToken": {
+            "type": "string",
+            "description": "The token used to retrieve the next page of results. It must be null on first request and only filled with the returned pageToken to request next page of results.",
+            "nullable": true
           },
           "filter": {
             "description": "An optional search filter. Limits the document result set.",
@@ -29659,6 +29681,10 @@
           "elapsedMilliseconds": {
             "type": "integer",
             "format": "int64"
+          },
+          "pageToken": {
+            "type": "string",
+            "nullable": true
           }
         }
       },
@@ -29667,7 +29693,6 @@
         "description": "Request to search for file transfers.",
         "additionalProperties": false,
         "required": [
-          "start",
           "limit"
         ],
         "properties": {
@@ -29684,17 +29709,16 @@
               "$ref": "#/components/schemas/SearchBehavior"
             }
           },
-          "start": {
-            "type": "integer",
-            "description": "Defines the offset from the first result you want to fetch. Defaults to 0.",
-            "format": "int32",
-            "default": 0
-          },
           "limit": {
             "type": "integer",
             "description": "Limits the document count of the result set.",
             "format": "int32",
             "default": 30
+          },
+          "pageToken": {
+            "type": "string",
+            "description": "The token used to retrieve the next page of results. It must be null on first request and only filled with the returned pageToken to request next page of results.",
+            "nullable": true
           },
           "filter": {
             "description": "An optional search filter. Limits the document result set.",
@@ -30071,6 +30095,10 @@
           "elapsedMilliseconds": {
             "type": "integer",
             "format": "int64"
+          },
+          "pageToken": {
+            "type": "string",
+            "nullable": true
           }
         }
       },
@@ -30145,7 +30173,6 @@
         "description": "Represents user search request.",
         "additionalProperties": false,
         "required": [
-          "start",
           "limit",
           "lifeCycleFilter",
           "debugMode",
@@ -30173,17 +30200,16 @@
               "$ref": "#/components/schemas/SortInfo"
             }
           },
-          "start": {
-            "type": "integer",
-            "description": "Defines the offset from the first result you want to fetch. Defaults to 0.",
-            "format": "int32",
-            "default": 0
-          },
           "limit": {
             "type": "integer",
             "description": "Limits the document count of the result set. Defaults to 30.",
             "format": "int32",
             "default": 30
+          },
+          "pageToken": {
+            "type": "string",
+            "description": "The token used to retrieve the next page of results. It must be null on first request and only filled with the returned pageToken to request next page of results.",
+            "nullable": true
           },
           "filter": {
             "description": "Filter applied to users.",
@@ -30376,6 +30402,10 @@
           "elapsedMilliseconds": {
             "type": "integer",
             "format": "int64"
+          },
+          "pageToken": {
+            "type": "string",
+            "nullable": true
           }
         }
       },
@@ -30383,7 +30413,6 @@
         "type": "object",
         "additionalProperties": false,
         "required": [
-          "start",
           "limit",
           "debugMode",
           "includeAdministratorSystemUserRole"
@@ -30410,17 +30439,16 @@
               "$ref": "#/components/schemas/SortInfo"
             }
           },
-          "start": {
-            "type": "integer",
-            "description": "Defines the offset from the first result you want to fetch. Defaults to 0.",
-            "format": "int32",
-            "default": 0
-          },
           "limit": {
             "type": "integer",
             "description": "Limits the document count of the result set. Defaults to 30.",
             "format": "int32",
             "default": 30
+          },
+          "pageToken": {
+            "type": "string",
+            "description": "The token used to retrieve the next page of results. It must be null on first request and only filled with the returned pageToken to request next page of results.",
+            "nullable": true
           },
           "filter": {
             "description": "Filter applied to user roles.",

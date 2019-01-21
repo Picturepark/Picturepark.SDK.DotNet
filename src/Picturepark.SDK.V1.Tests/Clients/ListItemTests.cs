@@ -389,7 +389,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
         [Fact]
         [Trait("Stack", "ListItem")]
-        public async Task ShouldSearchListItems()
+        public async Task ShouldSearchListItemsAndScrollThroughResults()
         {
             // Arrange
             // ---------------------------------------------------------------------------
@@ -397,7 +397,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
             // ---------------------------------------------------------------------------
             var searchRequestSchema = new SchemaSearchRequest
             {
-                Start = 0,
                 Limit = 2,
                 Filter = FilterBase.FromExpression<Schema>(i => i.Types, SchemaType.List.ToString())
             };
@@ -410,7 +409,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 .OrderBy(i => i)
                 .ToList();
 
-            var searchRequestObject = new ListItemSearchRequest() { Start = 0, Limit = 100 };
+            var searchRequestObject = new ListItemSearchRequest() { Limit = 100 };
             var items = new List<ListItem>();
             List<string> failedMetadataSchemaIds = new List<string>();
 
@@ -421,14 +420,22 @@ namespace Picturepark.SDK.V1.Tests.Clients
             foreach (var metadataSchemaId in metadataSchemaIds)
             {
                 searchRequestObject.SchemaIds = new List<string> { metadataSchemaId };
+                searchRequestObject.PageToken = null;
 
                 try
                 {
-                    var searchResultObject = await _client.ListItem.SearchAsync(searchRequestObject).ConfigureAwait(false);
-                    if (searchResultObject.Results.Any())
+                    int i = 0;
+                    ListItemSearchResult searchResultObject;
+
+                    do
                     {
-                        items.AddRange(searchResultObject.Results);
+                        searchResultObject = await _client.ListItem.SearchAsync(searchRequestObject).ConfigureAwait(false);
+                        if (searchResultObject.Results.Any())
+                        {
+                            items.AddRange(searchResultObject.Results);
+                        }
                     }
+                    while (++i < 3 && ((searchRequestObject.PageToken = searchResultObject.PageToken) != null));
                 }
                 catch (Exception)
                 {
