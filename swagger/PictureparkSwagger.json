@@ -4154,34 +4154,33 @@
         ]
       }
     },
-    "/v1/contentPermissionSets/search": {
-      "post": {
+    "/v1/contentPermissionSets/{permissionSetId}": {
+      "get": {
         "tags": [
           "ContentPermissionSet"
         ],
-        "summary": "Search content permissions sets",
-        "description": "Searches content permission sets as specified in the search request.",
-        "operationId": "ContentPermissionSet_Search",
-        "requestBody": {
-          "x-name": "request",
-          "description": "The permission set search request.",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/PermissionSetSearchRequest"
-              }
-            }
-          },
-          "required": true,
-          "x-position": 1
-        },
+        "summary": "Get content permission set",
+        "description": "Gets the content permission set detail information by the content permission set ID.",
+        "operationId": "ContentPermissionSet_Get",
+        "parameters": [
+          {
+            "name": "permissionSetId",
+            "in": "path",
+            "required": true,
+            "description": "The content permission set ID.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1
+          }
+        ],
         "responses": {
           "200": {
-            "description": "Permission set search result",
+            "description": "Content permission set detail",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/PermissionSetSearchResult"
+                  "$ref": "#/components/schemas/ContentPermissionSetDetail"
                 }
               }
             }
@@ -4265,24 +4264,61 @@
         ]
       }
     },
-    "/v1/contentPermissionSets/{permissionSetId}": {
-      "get": {
+    "/v1/contentPermissionSets": {
+      "post": {
         "tags": [
           "ContentPermissionSet"
         ],
-        "summary": "Get permission set",
-        "description": "Gets the content permission set detail information by the content permission set ID.",
-        "operationId": "ContentPermissionSet_Get",
+        "summary": "Create content permission set",
+        "description": "Creates new content permission set based on supplied request.",
+        "operationId": "ContentPermissionSet_Create",
         "parameters": [
           {
-            "name": "permissionSetId",
-            "in": "path",
-            "required": true,
-            "description": "The content permission set ID.",
+            "name": "Names",
+            "in": "query",
             "schema": {
-              "type": "string"
+              "nullable": true,
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/TranslatedStringDictionary"
+                }
+              ]
             },
             "x-position": 1
+          },
+          {
+            "name": "UserRolesRights",
+            "in": "query",
+            "collectionFormat": "multi",
+            "schema": {
+              "type": "array",
+              "nullable": true,
+              "items": {
+                "$ref": "#/components/schemas/UserRoleRightsOfContentRight"
+              }
+            },
+            "x-position": 2
+          },
+          {
+            "name": "UserRolesPermissionSetRights",
+            "in": "query",
+            "collectionFormat": "multi",
+            "schema": {
+              "type": "array",
+              "nullable": true,
+              "items": {
+                "$ref": "#/components/schemas/UserRoleRightsOfPermissionSetRight"
+              }
+            },
+            "x-position": 3
+          },
+          {
+            "name": "Exclusive",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "x-position": 4
           }
         ],
         "responses": {
@@ -4292,6 +4328,1274 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ContentPermissionSetDetail"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkNotFoundException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkConflictException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkValidationException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "permission_write"
+            ]
+          }
+        ]
+      },
+      "get": {
+        "tags": [
+          "ContentPermissionSet"
+        ],
+        "summary": "Get multiple permission sets",
+        "description": "Gets multiple content permission set details by the content permission set IDs.",
+        "operationId": "ContentPermissionSet_GetMany",
+        "parameters": [
+          {
+            "name": "ids",
+            "in": "query",
+            "description": "Permission set IDs to get information about",
+            "collectionFormat": "multi",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Content permission set details",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ContentPermissionSetDetail"
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkNotFoundException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkConflictException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkValidationException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "permission_read"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/contentPermissionSets/{id}": {
+      "put": {
+        "tags": [
+          "ContentPermissionSet"
+        ],
+        "summary": "Update content permission set",
+        "description": "Updates the content permission set specified by the ID and based on supplied request.",
+        "operationId": "ContentPermissionSet_Update",
+        "parameters": [
+          {
+            "name": "Id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 1
+          },
+          {
+            "name": "Names",
+            "in": "query",
+            "schema": {
+              "nullable": true,
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/TranslatedStringDictionary"
+                }
+              ]
+            },
+            "x-position": 2
+          },
+          {
+            "name": "UserRolesRights",
+            "in": "query",
+            "collectionFormat": "multi",
+            "schema": {
+              "type": "array",
+              "nullable": true,
+              "items": {
+                "$ref": "#/components/schemas/PermissionUserRoleRightsOfContentRight"
+              }
+            },
+            "x-position": 3
+          },
+          {
+            "name": "UserRolesPermissionSetRights",
+            "in": "query",
+            "collectionFormat": "multi",
+            "schema": {
+              "type": "array",
+              "nullable": true,
+              "items": {
+                "$ref": "#/components/schemas/PermissionUserRoleRightsOfPermissionSetRight"
+              }
+            },
+            "x-position": 4
+          },
+          {
+            "name": "Exclusive",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "x-position": 5
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Content permission set detail",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContentPermissionSetDetail"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkNotFoundException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkConflictException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkValidationException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "permission_write"
+            ]
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "ContentPermissionSet"
+        ],
+        "summary": "Delete content permission set",
+        "description": "Deletes the content permission set specified by the ID.",
+        "operationId": "ContentPermissionSet_Delete",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "ID of the permission set that should be deleted.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkNotFoundException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkConflictException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkValidationException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "permission_write"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/contentPermissionSets/{id}/ownership": {
+      "put": {
+        "tags": [
+          "ContentPermissionSet"
+        ],
+        "summary": "Transfer ownership of content permission set",
+        "description": "Transfers ownership of content permission set to supplied user.",
+        "operationId": "ContentPermissionSet_TransferOwnership",
+        "parameters": [
+          {
+            "name": "TransferUserId",
+            "in": "query",
+            "description": "The ID of the user to whom the permission set ownership should be transferred to.",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 1
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 2
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkNotFoundException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkConflictException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkValidationException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "permission_write"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/contentPermissionSets/{id}/permissions": {
+      "put": {
+        "tags": [
+          "ContentPermissionSet"
+        ],
+        "summary": "Get permissions for the permission set",
+        "description": "Returns permissions for the permission set for the current user.",
+        "operationId": "ContentPermissionSet_GetPermissions",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "ID of the permission set to view permissions of.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of permissions",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PermissionSetRight"
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkNotFoundException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkConflictException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkValidationException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "permission_read"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/contentPermissionSets/many": {
+      "post": {
+        "tags": [
+          "ContentPermissionSet"
+        ],
+        "summary": "Create multiple content permission sets",
+        "description": "Creates new content permission sets based on supplied requests.",
+        "operationId": "ContentPermissionSet_CreateMany",
+        "parameters": [
+          {
+            "name": "Items",
+            "in": "query",
+            "collectionFormat": "multi",
+            "schema": {
+              "type": "array",
+              "nullable": true,
+              "items": {
+                "$ref": "#/components/schemas/ContentPermissionSetCreateRequest"
+              }
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Bulk response with information about created permission sets",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BulkResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkNotFoundException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkConflictException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkValidationException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "permission_write"
+            ]
+          }
+        ]
+      },
+      "put": {
+        "tags": [
+          "ContentPermissionSet"
+        ],
+        "summary": "Update multiple content permission sets",
+        "description": "Updates the content permission sets specified by the IDs and based on supplied request.",
+        "operationId": "ContentPermissionSet_UpdateMany",
+        "parameters": [
+          {
+            "name": "Items",
+            "in": "query",
+            "description": "Content permission sets update requests.",
+            "collectionFormat": "multi",
+            "schema": {
+              "type": "array",
+              "nullable": true,
+              "items": {
+                "$ref": "#/components/schemas/ContentPermissionSetUpdateRequest"
+              }
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Bulk response with information about updated permission sets",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BulkResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkNotFoundException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkConflictException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkValidationException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "permission_write"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/contentPermissionSets/many/delete": {
+      "post": {
+        "tags": [
+          "ContentPermissionSet"
+        ],
+        "summary": "Delete multiple content permission sets",
+        "description": "Deletes the content permission sets specified by the IDs.",
+        "operationId": "ContentPermissionSet_DeleteMany",
+        "parameters": [
+          {
+            "name": "PermissionSetIds",
+            "in": "query",
+            "collectionFormat": "multi",
+            "schema": {
+              "type": "array",
+              "nullable": true,
+              "items": {
+                "type": "string"
+              }
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Bulk response with information about success or failure",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BulkResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkNotFoundException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkConflictException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkValidationException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "permission_write"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/contentPermissionSets/many/ownership": {
+      "put": {
+        "tags": [
+          "ContentPermissionSet"
+        ],
+        "summary": "Transfer ownership of multiple content permission sets",
+        "description": "Transfers ownership of multiple content permission set to respective supplied users.",
+        "operationId": "ContentPermissionSet_TransferOwnershipMany",
+        "parameters": [
+          {
+            "name": "Items",
+            "in": "query",
+            "collectionFormat": "multi",
+            "schema": {
+              "type": "array",
+              "nullable": true,
+              "items": {
+                "$ref": "#/components/schemas/PermissionSetOwnershipTransferItem"
+              }
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkNotFoundException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkConflictException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkValidationException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "permission_write"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/contentPermissionSets/many/permissions": {
+      "put": {
+        "tags": [
+          "ContentPermissionSet"
+        ],
+        "summary": "Get permissions for multiple permission sets",
+        "description": "Returns permissions for multiple permission sets for the current user.",
+        "operationId": "ContentPermissionSet_GetPermissionsMany",
+        "parameters": [
+          {
+            "name": "ids",
+            "in": "query",
+            "description": "IDs of the permission sets to view permissions of.",
+            "collectionFormat": "multi",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of permissions",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PermissionSetUserPermissionRights"
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkNotFoundException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkConflictException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkValidationException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "permission_read"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/contentPermissionSets/search": {
+      "post": {
+        "tags": [
+          "ContentPermissionSet"
+        ],
+        "summary": "Search content permission sets",
+        "description": "Searches content permission sets as specified in the search request.",
+        "operationId": "ContentPermissionSet_Search",
+        "requestBody": {
+          "x-name": "request",
+          "description": "The permission set search request.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PermissionSetSearchRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "Permission set search result",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PermissionSetSearchResult"
                 }
               }
             }
@@ -9259,34 +10563,33 @@
         ]
       }
     },
-    "/v1/schemaPermissionSets/search": {
-      "post": {
+    "/v1/schemaPermissionSets/{permissionSetId}": {
+      "get": {
         "tags": [
           "SchemaPermissionSet"
         ],
-        "summary": "Search schema permission sets",
-        "description": "Searches schema permission sets as specified in the search request.",
-        "operationId": "SchemaPermissionSet_Search",
-        "requestBody": {
-          "x-name": "request",
-          "description": "The permission set search request.",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/PermissionSetSearchRequest"
-              }
-            }
-          },
-          "required": true,
-          "x-position": 1
-        },
+        "summary": "Get schema permission set",
+        "description": "Gets the schema permission set detail information by the schema permission set ID.",
+        "operationId": "SchemaPermissionSet_Get",
+        "parameters": [
+          {
+            "name": "permissionSetId",
+            "in": "path",
+            "required": true,
+            "description": "The schema permission set ID.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1
+          }
+        ],
         "responses": {
           "200": {
-            "description": "Permission set search result",
+            "description": "Schema permission set detail",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/PermissionSetSearchResult"
+                  "$ref": "#/components/schemas/SchemaPermissionSetDetail"
                 }
               }
             }
@@ -9370,24 +10673,61 @@
         ]
       }
     },
-    "/v1/schemaPermissionSets/{permissionSetId}": {
-      "get": {
+    "/v1/schemaPermissionSets": {
+      "post": {
         "tags": [
           "SchemaPermissionSet"
         ],
-        "summary": "Get schema permission set",
-        "description": "Gets the schema permission set detail information by the schema permission set ID.",
-        "operationId": "SchemaPermissionSet_Get",
+        "summary": "Create schema permission set",
+        "description": "Creates new schema permission set based on supplied request.",
+        "operationId": "SchemaPermissionSet_Create",
         "parameters": [
           {
-            "name": "permissionSetId",
-            "in": "path",
-            "required": true,
-            "description": "The schema permission set ID.",
+            "name": "Names",
+            "in": "query",
             "schema": {
-              "type": "string"
+              "nullable": true,
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/TranslatedStringDictionary"
+                }
+              ]
             },
             "x-position": 1
+          },
+          {
+            "name": "UserRolesRights",
+            "in": "query",
+            "collectionFormat": "multi",
+            "schema": {
+              "type": "array",
+              "nullable": true,
+              "items": {
+                "$ref": "#/components/schemas/UserRoleRightsOfMetadataRight"
+              }
+            },
+            "x-position": 2
+          },
+          {
+            "name": "UserRolesPermissionSetRights",
+            "in": "query",
+            "collectionFormat": "multi",
+            "schema": {
+              "type": "array",
+              "nullable": true,
+              "items": {
+                "$ref": "#/components/schemas/UserRoleRightsOfPermissionSetRight"
+              }
+            },
+            "x-position": 3
+          },
+          {
+            "name": "Exclusive",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "x-position": 4
           }
         ],
         "responses": {
@@ -9397,6 +10737,1274 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/SchemaPermissionSetDetail"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkNotFoundException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkConflictException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkValidationException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "permission_write"
+            ]
+          }
+        ]
+      },
+      "get": {
+        "tags": [
+          "SchemaPermissionSet"
+        ],
+        "summary": "Get multiple permission sets",
+        "description": "Gets multiple schema permission set details by the schema permission set IDs.",
+        "operationId": "SchemaPermissionSet_GetMany",
+        "parameters": [
+          {
+            "name": "ids",
+            "in": "query",
+            "description": "Permission set IDs to get information about",
+            "collectionFormat": "multi",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Schema permission set details",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SchemaPermissionSetDetail"
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkNotFoundException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkConflictException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkValidationException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "permission_read"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/schemaPermissionSets/{id}": {
+      "put": {
+        "tags": [
+          "SchemaPermissionSet"
+        ],
+        "summary": "Update schema permission set",
+        "description": "Updates the schema permission set specified by the ID and based on supplied request.",
+        "operationId": "SchemaPermissionSet_Update",
+        "parameters": [
+          {
+            "name": "Id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 1
+          },
+          {
+            "name": "Names",
+            "in": "query",
+            "schema": {
+              "nullable": true,
+              "oneOf": [
+                {
+                  "$ref": "#/components/schemas/TranslatedStringDictionary"
+                }
+              ]
+            },
+            "x-position": 2
+          },
+          {
+            "name": "UserRolesRights",
+            "in": "query",
+            "collectionFormat": "multi",
+            "schema": {
+              "type": "array",
+              "nullable": true,
+              "items": {
+                "$ref": "#/components/schemas/PermissionUserRoleRightsOfMetadataRight"
+              }
+            },
+            "x-position": 3
+          },
+          {
+            "name": "UserRolesPermissionSetRights",
+            "in": "query",
+            "collectionFormat": "multi",
+            "schema": {
+              "type": "array",
+              "nullable": true,
+              "items": {
+                "$ref": "#/components/schemas/PermissionUserRoleRightsOfPermissionSetRight"
+              }
+            },
+            "x-position": 4
+          },
+          {
+            "name": "Exclusive",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "x-position": 5
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Schema permission set detail",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SchemaPermissionSetDetail"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkNotFoundException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkConflictException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkValidationException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "permission_write"
+            ]
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "SchemaPermissionSet"
+        ],
+        "summary": "Delete schema permission set",
+        "description": "Deletes the schema permission set specified by the ID.",
+        "operationId": "SchemaPermissionSet_Delete",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "ID of the permission set that should be deleted.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkNotFoundException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkConflictException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkValidationException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "permission_write"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/schemaPermissionSets/{id}/ownership": {
+      "put": {
+        "tags": [
+          "SchemaPermissionSet"
+        ],
+        "summary": "Transfer ownership of schema permission set",
+        "description": "Transfers ownership of schema permission set to supplied user.",
+        "operationId": "SchemaPermissionSet_TransferOwnership",
+        "parameters": [
+          {
+            "name": "TransferUserId",
+            "in": "query",
+            "description": "The ID of the user to whom the permission set ownership should be transferred to.",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 1
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 2
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkNotFoundException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkConflictException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkValidationException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "permission_write"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/schemaPermissionSets/{id}/permissions": {
+      "put": {
+        "tags": [
+          "SchemaPermissionSet"
+        ],
+        "summary": "Get permissions for the permission set",
+        "description": "Returns permissions for the permission set for the current user.",
+        "operationId": "SchemaPermissionSet_GetPermissions",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "ID of the permission set to view permissions of.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of permissions",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PermissionSetRight"
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkNotFoundException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkConflictException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkValidationException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "permission_read"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/schemaPermissionSets/many": {
+      "post": {
+        "tags": [
+          "SchemaPermissionSet"
+        ],
+        "summary": "Create multiple schema permission sets",
+        "description": "Creates new schema permission sets based on supplied requests.",
+        "operationId": "SchemaPermissionSet_CreateMany",
+        "parameters": [
+          {
+            "name": "Items",
+            "in": "query",
+            "collectionFormat": "multi",
+            "schema": {
+              "type": "array",
+              "nullable": true,
+              "items": {
+                "$ref": "#/components/schemas/SchemaPermissionSetCreateRequest"
+              }
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Bulk response with information about created permission sets",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BulkResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkNotFoundException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkConflictException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkValidationException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "permission_write"
+            ]
+          }
+        ]
+      },
+      "put": {
+        "tags": [
+          "SchemaPermissionSet"
+        ],
+        "summary": "Update multiple schema permission sets",
+        "description": "Updates the schema permission sets specified by the IDs and based on supplied request.",
+        "operationId": "SchemaPermissionSet_UpdateMany",
+        "parameters": [
+          {
+            "name": "Items",
+            "in": "query",
+            "description": "Schema permission sets update requests.",
+            "collectionFormat": "multi",
+            "schema": {
+              "type": "array",
+              "nullable": true,
+              "items": {
+                "$ref": "#/components/schemas/SchemaPermissionSetUpdateRequest"
+              }
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Bulk response with information about updated permission sets",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BulkResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkNotFoundException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkConflictException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkValidationException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "permission_write"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/schemaPermissionSets/many/delete": {
+      "post": {
+        "tags": [
+          "SchemaPermissionSet"
+        ],
+        "summary": "Delete multiple schema permission sets",
+        "description": "Deletes the schema permission sets specified by the IDs.",
+        "operationId": "SchemaPermissionSet_DeleteMany",
+        "parameters": [
+          {
+            "name": "PermissionSetIds",
+            "in": "query",
+            "collectionFormat": "multi",
+            "schema": {
+              "type": "array",
+              "nullable": true,
+              "items": {
+                "type": "string"
+              }
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Bulk response with information about success or failure",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BulkResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkNotFoundException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkConflictException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkValidationException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "permission_write"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/schemaPermissionSets/many/ownership": {
+      "put": {
+        "tags": [
+          "SchemaPermissionSet"
+        ],
+        "summary": "Transfer ownership of multiple schema permission sets",
+        "description": "Transfers ownership of multiple schema permission set to respective supplied users.",
+        "operationId": "SchemaPermissionSet_TransferOwnershipMany",
+        "parameters": [
+          {
+            "name": "Items",
+            "in": "query",
+            "collectionFormat": "multi",
+            "schema": {
+              "type": "array",
+              "nullable": true,
+              "items": {
+                "$ref": "#/components/schemas/PermissionSetOwnershipTransferItem"
+              }
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkNotFoundException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkConflictException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkValidationException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "permission_write"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/schemaPermissionSets/many/permissions": {
+      "put": {
+        "tags": [
+          "SchemaPermissionSet"
+        ],
+        "summary": "Get permissions for multiple permission sets",
+        "description": "Returns permissions for multiple permission sets for the current user.",
+        "operationId": "SchemaPermissionSet_GetPermissionsMany",
+        "parameters": [
+          {
+            "name": "ids",
+            "in": "query",
+            "description": "IDs of the permission sets to view permissions of.",
+            "collectionFormat": "multi",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of permissions",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PermissionSetUserPermissionRights"
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkNotFoundException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkConflictException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkValidationException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "permission_read"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/schemaPermissionSets/search": {
+      "post": {
+        "tags": [
+          "SchemaPermissionSet"
+        ],
+        "summary": "Search schema permission sets",
+        "description": "Searches schema permission sets as specified in the search request.",
+        "operationId": "SchemaPermissionSet_Search",
+        "requestBody": {
+          "x-name": "request",
+          "description": "The permission set search request.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PermissionSetSearchRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "Permission set search result",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PermissionSetSearchResult"
                 }
               }
             }
@@ -23001,6 +25609,358 @@
           }
         ]
       },
+      "ContentPermissionSetDetail": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PermissionSetDetailOfContentRight"
+          },
+          {
+            "type": "object",
+            "description": "Detail of a content permission set",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "PermissionSetDetailOfContentRight": {
+        "type": "object",
+        "x-abstract": true,
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "exclusive",
+          "ownerTokenId"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "names": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/TranslatedStringDictionary"
+              }
+            ]
+          },
+          "userRolesRights": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/PermissionUserRoleRightsOfContentRight"
+            }
+          },
+          "userRolesPermissionSetRights": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/PermissionUserRoleRightsOfPermissionSetRight"
+            }
+          },
+          "exclusive": {
+            "type": "boolean"
+          },
+          "ownerTokenId": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      },
+      "PermissionUserRoleRightsOfContentRight": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "userRoleId": {
+            "type": "string",
+            "nullable": true
+          },
+          "names": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/TranslatedStringDictionary"
+              }
+            ]
+          },
+          "rights": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/ContentRight"
+            }
+          }
+        }
+      },
+      "PermissionUserRoleRightsOfPermissionSetRight": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "userRoleId": {
+            "type": "string",
+            "nullable": true
+          },
+          "names": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/TranslatedStringDictionary"
+              }
+            ]
+          },
+          "rights": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/PermissionSetRight"
+            }
+          }
+        }
+      },
+      "PermissionSetRight": {
+        "type": "string",
+        "description": "Permission set rights",
+        "x-enumNames": [
+          "Apply",
+          "Manage"
+        ],
+        "enum": [
+          "Apply",
+          "Manage"
+        ]
+      },
+      "UserRoleRightsOfContentRight": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "userRoleId": {
+            "type": "string",
+            "nullable": true
+          },
+          "rights": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/ContentRight"
+            }
+          }
+        }
+      },
+      "UserRoleRightsOfPermissionSetRight": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "userRoleId": {
+            "type": "string",
+            "nullable": true
+          },
+          "rights": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/PermissionSetRight"
+            }
+          }
+        }
+      },
+      "BulkResponse": {
+        "type": "object",
+        "description": "Response to a bulk operation",
+        "additionalProperties": false,
+        "properties": {
+          "rows": {
+            "type": "array",
+            "description": "Rows of the bulk response.",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/BulkResponseRow"
+            }
+          }
+        }
+      },
+      "BulkResponseRow": {
+        "type": "object",
+        "description": "Row information of a bulk response",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "version",
+          "succeeded",
+          "status"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "ID of the document.",
+            "minLength": 1
+          },
+          "version": {
+            "type": "integer",
+            "description": "Version of the document.",
+            "format": "int64"
+          },
+          "error": {
+            "type": "string",
+            "description": "Eventual error.",
+            "nullable": true
+          },
+          "succeeded": {
+            "type": "boolean",
+            "description": "True if item successfully saved. False otherwise."
+          },
+          "status": {
+            "type": "integer",
+            "description": "Returned status code.",
+            "format": "int32"
+          }
+        }
+      },
+      "ContentPermissionSetCreateRequest": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PermissionSetCreateRequestOfContentRight"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "PermissionSetCreateRequestOfContentRight": {
+        "type": "object",
+        "x-abstract": true,
+        "additionalProperties": false,
+        "required": [
+          "exclusive"
+        ],
+        "properties": {
+          "names": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/TranslatedStringDictionary"
+              }
+            ]
+          },
+          "userRolesRights": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/UserRoleRightsOfContentRight"
+            }
+          },
+          "userRolesPermissionSetRights": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/UserRoleRightsOfPermissionSetRight"
+            }
+          },
+          "exclusive": {
+            "type": "boolean"
+          }
+        }
+      },
+      "ContentPermissionSetUpdateRequest": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PermissionSetUpdateRequestOfContentRight"
+          },
+          {
+            "type": "object",
+            "description": "Request to update a content permission set",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "PermissionSetUpdateRequestOfContentRight": {
+        "type": "object",
+        "x-abstract": true,
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "exclusive"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "names": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/TranslatedStringDictionary"
+              }
+            ]
+          },
+          "userRolesRights": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/PermissionUserRoleRightsOfContentRight"
+            }
+          },
+          "userRolesPermissionSetRights": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/PermissionUserRoleRightsOfPermissionSetRight"
+            }
+          },
+          "exclusive": {
+            "type": "boolean"
+          }
+        }
+      },
+      "PermissionSetOwnershipTransferItem": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PermissionSetOwnershipTransferRequest"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "permissionSetId": {
+                "type": "string",
+                "description": "The permission set ID.",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "PermissionSetOwnershipTransferRequest": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "transferUserId"
+        ],
+        "properties": {
+          "transferUserId": {
+            "type": "string",
+            "description": "The ID of the user to whom the permission set ownership should be transferred to.",
+            "minLength": 1
+          }
+        }
+      },
+      "PermissionSetUserPermissionRights": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "permissionSetId": {
+            "type": "string",
+            "nullable": true
+          },
+          "permissionSetRights": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/PermissionSetRight"
+            }
+          }
+        }
+      },
       "PermissionSetSearchResult": {
         "allOf": [
           {
@@ -23167,125 +26127,6 @@
             "nullable": true,
             "items": {
               "type": "string"
-            }
-          }
-        }
-      },
-      "PermissionSetRight": {
-        "type": "string",
-        "description": "Permission set rights",
-        "x-enumNames": [
-          "Apply",
-          "Manage"
-        ],
-        "enum": [
-          "Apply",
-          "Manage"
-        ]
-      },
-      "ContentPermissionSetDetail": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/PermissionSetDetailOfContentRight"
-          },
-          {
-            "type": "object",
-            "description": "Detail of a content permission set",
-            "additionalProperties": false
-          }
-        ]
-      },
-      "PermissionSetDetailOfContentRight": {
-        "type": "object",
-        "x-abstract": true,
-        "additionalProperties": false,
-        "required": [
-          "id",
-          "exclusive",
-          "ownerTokenId"
-        ],
-        "properties": {
-          "id": {
-            "type": "string",
-            "minLength": 1
-          },
-          "names": {
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/TranslatedStringDictionary"
-              }
-            ]
-          },
-          "userRolesRights": {
-            "type": "array",
-            "nullable": true,
-            "items": {
-              "$ref": "#/components/schemas/PermissionUserRoleRightsOfContentRight"
-            }
-          },
-          "userRolesPermissionSetRights": {
-            "type": "array",
-            "nullable": true,
-            "items": {
-              "$ref": "#/components/schemas/PermissionUserRoleRightsOfPermissionSetRight"
-            }
-          },
-          "exclusive": {
-            "type": "boolean"
-          },
-          "ownerTokenId": {
-            "type": "string",
-            "minLength": 1
-          }
-        }
-      },
-      "PermissionUserRoleRightsOfContentRight": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "userRoleId": {
-            "type": "string",
-            "nullable": true
-          },
-          "names": {
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/TranslatedStringDictionary"
-              }
-            ]
-          },
-          "rights": {
-            "type": "array",
-            "nullable": true,
-            "items": {
-              "$ref": "#/components/schemas/ContentRight"
-            }
-          }
-        }
-      },
-      "PermissionUserRoleRightsOfPermissionSetRight": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "userRoleId": {
-            "type": "string",
-            "nullable": true
-          },
-          "names": {
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/TranslatedStringDictionary"
-              }
-            ]
-          },
-          "rights": {
-            "type": "array",
-            "nullable": true,
-            "items": {
-              "$ref": "#/components/schemas/PermissionSetRight"
             }
           }
         }
@@ -23500,6 +26341,7 @@
             "format": "int64"
           },
           "patch": {
+            "description": "Contains an RFC 6902 compatible patch that can be applied on the old document to get the new document.\nUse a library like jsondiffpatch.net (https://github.com/wbish/jsondiffpatch.net)\nor jsondiffpatch (https://github.com/benjamine/jsondiffpatch) to process this.",
             "nullable": true
           }
         }
@@ -24454,9 +27296,7 @@
             "SharePageViewEvent": "#/components/schemas/SharePageViewEvent",
             "ApiStatisticsEvent": "#/components/schemas/ApiStatisticsEvent",
             "BusinessProcessEvent": "#/components/schemas/BusinessProcessEvent",
-            "OutputRenderedEvent": "#/components/schemas/OutputRenderedEvent",
-            "ConfigurationChangeEvent": "#/components/schemas/ConfigurationChangeEvent",
-            "CustomerChangeEvent": "#/components/schemas/CustomerChangeEvent"
+            "OutputRenderedEvent": "#/components/schemas/OutputRenderedEvent"
           }
         },
         "additionalProperties": false,
@@ -24797,49 +27637,6 @@
               "outputFormatId": {
                 "type": "string",
                 "nullable": true
-              }
-            }
-          }
-        ]
-      },
-      "ConfigurationChangeEvent": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/ApplicationEvent"
-          },
-          {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "documentType": {
-                "type": "string",
-                "nullable": true
-              },
-              "documentIds": {
-                "type": "array",
-                "nullable": true,
-                "items": {
-                  "type": "string"
-                }
-              }
-            }
-          }
-        ]
-      },
-      "CustomerChangeEvent": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/ApplicationEvent"
-          },
-          {
-            "type": "object",
-            "additionalProperties": false,
-            "required": [
-              "lifeCycle"
-            ],
-            "properties": {
-              "lifeCycle": {
-                "$ref": "#/components/schemas/LifeCycle"
               }
             }
           }
@@ -27390,6 +30187,121 @@
           }
         }
       },
+      "UserRoleRightsOfMetadataRight": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "userRoleId": {
+            "type": "string",
+            "nullable": true
+          },
+          "rights": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/MetadataRight"
+            }
+          }
+        }
+      },
+      "SchemaPermissionSetCreateRequest": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PermissionSetCreateRequestOfMetadataRight"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "PermissionSetCreateRequestOfMetadataRight": {
+        "type": "object",
+        "x-abstract": true,
+        "additionalProperties": false,
+        "required": [
+          "exclusive"
+        ],
+        "properties": {
+          "names": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/TranslatedStringDictionary"
+              }
+            ]
+          },
+          "userRolesRights": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/UserRoleRightsOfMetadataRight"
+            }
+          },
+          "userRolesPermissionSetRights": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/UserRoleRightsOfPermissionSetRight"
+            }
+          },
+          "exclusive": {
+            "type": "boolean"
+          }
+        }
+      },
+      "SchemaPermissionSetUpdateRequest": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PermissionSetUpdateRequestOfMetadataRight"
+          },
+          {
+            "type": "object",
+            "description": "Request to update a schema permission set",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "PermissionSetUpdateRequestOfMetadataRight": {
+        "type": "object",
+        "x-abstract": true,
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "exclusive"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "names": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/TranslatedStringDictionary"
+              }
+            ]
+          },
+          "userRolesRights": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/PermissionUserRoleRightsOfMetadataRight"
+            }
+          },
+          "userRolesPermissionSetRights": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/PermissionUserRoleRightsOfPermissionSetRight"
+            }
+          },
+          "exclusive": {
+            "type": "boolean"
+          }
+        }
+      },
       "Transfer": {
         "type": "object",
         "description": "Represents a transfer.",
@@ -28547,58 +31459,6 @@
             "additionalProperties": false
           }
         ]
-      },
-      "BulkResponse": {
-        "type": "object",
-        "description": "Response to a bulk operation",
-        "additionalProperties": false,
-        "properties": {
-          "rows": {
-            "type": "array",
-            "description": "Rows of the bulk response.",
-            "nullable": true,
-            "items": {
-              "$ref": "#/components/schemas/BulkResponseRow"
-            }
-          }
-        }
-      },
-      "BulkResponseRow": {
-        "type": "object",
-        "description": "Row information of a bulk response",
-        "additionalProperties": false,
-        "required": [
-          "id",
-          "version",
-          "succeeded",
-          "status"
-        ],
-        "properties": {
-          "id": {
-            "type": "string",
-            "description": "ID of the document.",
-            "minLength": 1
-          },
-          "version": {
-            "type": "integer",
-            "description": "Version of the document.",
-            "format": "int64"
-          },
-          "error": {
-            "type": "string",
-            "description": "Eventual error.",
-            "nullable": true
-          },
-          "succeeded": {
-            "type": "boolean",
-            "description": "True if item successfully saved. False otherwise."
-          },
-          "status": {
-            "type": "integer",
-            "description": "Returned status code.",
-            "format": "int32"
-          }
-        }
       },
       "ShareDeleteManyRequest": {
         "type": "object",
