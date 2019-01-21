@@ -4436,9 +4436,9 @@ div.lgx-logo-item {
 	}
 	#pplogo, .et_pb_svg_logo #logo {
 		height: 36px !important;
-		width: 175px !important;
+		width: 300px !important;
 		max-height: 36px !important;
-		max-width: 175px !important;
+		max-width: 300px !important;
 	}
 	.textSlider .soliloquy-html-content h2,
 	.textSlider .soliloquy-html-content p {
