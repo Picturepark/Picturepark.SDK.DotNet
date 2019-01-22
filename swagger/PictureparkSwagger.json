@@ -27228,7 +27228,9 @@
             "SharePageViewEvent": "#/components/schemas/SharePageViewEvent",
             "ApiStatisticsEvent": "#/components/schemas/ApiStatisticsEvent",
             "BusinessProcessEvent": "#/components/schemas/BusinessProcessEvent",
-            "OutputRenderedEvent": "#/components/schemas/OutputRenderedEvent"
+            "OutputRenderedEvent": "#/components/schemas/OutputRenderedEvent",
+            "ConfigurationChangeEvent": "#/components/schemas/ConfigurationChangeEvent",
+            "CustomerChangeEvent": "#/components/schemas/CustomerChangeEvent"
           }
         },
         "additionalProperties": false,
@@ -27569,6 +27571,49 @@
               "outputFormatId": {
                 "type": "string",
                 "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "ConfigurationChangeEvent": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ApplicationEvent"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "documentType": {
+                "type": "string",
+                "nullable": true
+              },
+              "documentIds": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "CustomerChangeEvent": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ApplicationEvent"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "lifeCycle"
+            ],
+            "properties": {
+              "lifeCycle": {
+                "$ref": "#/components/schemas/LifeCycle"
               }
             }
           }
