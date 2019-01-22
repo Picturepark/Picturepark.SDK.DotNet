@@ -4272,55 +4272,19 @@
         "summary": "Create content permission set",
         "description": "Creates new content permission set based on supplied request.",
         "operationId": "ContentPermissionSet_Create",
-        "parameters": [
-          {
-            "name": "Names",
-            "in": "query",
-            "schema": {
-              "nullable": true,
-              "oneOf": [
-                {
-                  "$ref": "#/components/schemas/TranslatedStringDictionary"
-                }
-              ]
-            },
-            "x-position": 1
-          },
-          {
-            "name": "UserRolesRights",
-            "in": "query",
-            "collectionFormat": "multi",
-            "schema": {
-              "type": "array",
-              "nullable": true,
-              "items": {
-                "$ref": "#/components/schemas/UserRoleRightsOfContentRight"
+        "requestBody": {
+          "x-name": "request",
+          "description": "The request containing information needed to create new permission set.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ContentPermissionSetCreateRequest"
               }
-            },
-            "x-position": 2
+            }
           },
-          {
-            "name": "UserRolesPermissionSetRights",
-            "in": "query",
-            "collectionFormat": "multi",
-            "schema": {
-              "type": "array",
-              "nullable": true,
-              "items": {
-                "$ref": "#/components/schemas/UserRoleRightsOfPermissionSetRight"
-              }
-            },
-            "x-position": 3
-          },
-          {
-            "name": "Exclusive",
-            "in": "query",
-            "schema": {
-              "type": "boolean"
-            },
-            "x-position": 4
-          }
-        ],
+          "required": true,
+          "x-position": 1
+        },
         "responses": {
           "200": {
             "description": "Content permission set detail",
@@ -4535,63 +4499,29 @@
         "operationId": "ContentPermissionSet_Update",
         "parameters": [
           {
-            "name": "Id",
+            "name": "id",
             "in": "path",
             "required": true,
+            "description": "ID of permission set to update",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
-          },
-          {
-            "name": "Names",
-            "in": "query",
-            "schema": {
-              "nullable": true,
-              "oneOf": [
-                {
-                  "$ref": "#/components/schemas/TranslatedStringDictionary"
-                }
-              ]
-            },
-            "x-position": 2
-          },
-          {
-            "name": "UserRolesRights",
-            "in": "query",
-            "collectionFormat": "multi",
-            "schema": {
-              "type": "array",
-              "nullable": true,
-              "items": {
-                "$ref": "#/components/schemas/PermissionUserRoleRightsOfContentRight"
-              }
-            },
-            "x-position": 3
-          },
-          {
-            "name": "UserRolesPermissionSetRights",
-            "in": "query",
-            "collectionFormat": "multi",
-            "schema": {
-              "type": "array",
-              "nullable": true,
-              "items": {
-                "$ref": "#/components/schemas/PermissionUserRoleRightsOfPermissionSetRight"
-              }
-            },
-            "x-position": 4
-          },
-          {
-            "name": "Exclusive",
-            "in": "query",
-            "schema": {
-              "type": "boolean"
-            },
-            "x-position": 5
           }
         ],
+        "requestBody": {
+          "x-name": "request",
+          "description": "The request containing information needed to update the permission set.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ContentPermissionSetUpdateRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 2
+        },
         "responses": {
           "200": {
             "description": "Content permission set detail",
@@ -4793,25 +4723,29 @@
         "operationId": "ContentPermissionSet_TransferOwnership",
         "parameters": [
           {
-            "name": "TransferUserId",
-            "in": "query",
-            "description": "The ID of the user to whom the permission set ownership should be transferred to.",
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 1
-          },
-          {
             "name": "id",
             "in": "path",
             "required": true,
+            "description": "ID of the permission set to transfer",
             "schema": {
               "type": "string"
             },
-            "x-position": 2
+            "x-position": 1
           }
         ],
+        "requestBody": {
+          "x-name": "request",
+          "description": "The request containing user who should be the new owner.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PermissionSetOwnershipTransferRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 2
+        },
         "responses": {
           "200": {
             "description": "OK"
@@ -5016,21 +4950,19 @@
         "summary": "Create multiple content permission sets",
         "description": "Creates new content permission sets based on supplied requests.",
         "operationId": "ContentPermissionSet_CreateMany",
-        "parameters": [
-          {
-            "name": "Items",
-            "in": "query",
-            "collectionFormat": "multi",
-            "schema": {
-              "type": "array",
-              "nullable": true,
-              "items": {
-                "$ref": "#/components/schemas/ContentPermissionSetCreateRequest"
+        "requestBody": {
+          "x-name": "request",
+          "description": "The request containing information needed to create new permission sets.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ContentPermissionSetCreateManyRequest"
               }
-            },
-            "x-position": 1
-          }
-        ],
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
         "responses": {
           "200": {
             "description": "Bulk response with information about created permission sets",
@@ -5127,22 +5059,19 @@
         "summary": "Update multiple content permission sets",
         "description": "Updates the content permission sets specified by the IDs and based on supplied request.",
         "operationId": "ContentPermissionSet_UpdateMany",
-        "parameters": [
-          {
-            "name": "Items",
-            "in": "query",
-            "description": "Content permission sets update requests.",
-            "collectionFormat": "multi",
-            "schema": {
-              "type": "array",
-              "nullable": true,
-              "items": {
-                "$ref": "#/components/schemas/ContentPermissionSetUpdateRequest"
+        "requestBody": {
+          "x-name": "request",
+          "description": "The request containing information needed to update the permission set.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ContentPermissionSetUpdateManyRequest"
               }
-            },
-            "x-position": 1
-          }
-        ],
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
         "responses": {
           "200": {
             "description": "Bulk response with information about updated permission sets",
@@ -5241,21 +5170,19 @@
         "summary": "Delete multiple content permission sets",
         "description": "Deletes the content permission sets specified by the IDs.",
         "operationId": "ContentPermissionSet_DeleteMany",
-        "parameters": [
-          {
-            "name": "PermissionSetIds",
-            "in": "query",
-            "collectionFormat": "multi",
-            "schema": {
-              "type": "array",
-              "nullable": true,
-              "items": {
-                "type": "string"
+        "requestBody": {
+          "x-name": "request",
+          "description": "The request with permission IDs to delete.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PermissionSetDeleteManyRequest"
               }
-            },
-            "x-position": 1
-          }
-        ],
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
         "responses": {
           "200": {
             "description": "Bulk response with information about success or failure",
@@ -5354,21 +5281,19 @@
         "summary": "Transfer ownership of multiple content permission sets",
         "description": "Transfers ownership of multiple content permission set to respective supplied users.",
         "operationId": "ContentPermissionSet_TransferOwnershipMany",
-        "parameters": [
-          {
-            "name": "Items",
-            "in": "query",
-            "collectionFormat": "multi",
-            "schema": {
-              "type": "array",
-              "nullable": true,
-              "items": {
-                "$ref": "#/components/schemas/PermissionSetOwnershipTransferItem"
+        "requestBody": {
+          "x-name": "request",
+          "description": "The request containing information on which permission set to transfer to which user.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PermissionSetOwnershipTransferManyRequest"
               }
-            },
-            "x-position": 1
-          }
-        ],
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
         "responses": {
           "200": {
             "description": "OK"
@@ -10681,55 +10606,19 @@
         "summary": "Create schema permission set",
         "description": "Creates new schema permission set based on supplied request.",
         "operationId": "SchemaPermissionSet_Create",
-        "parameters": [
-          {
-            "name": "Names",
-            "in": "query",
-            "schema": {
-              "nullable": true,
-              "oneOf": [
-                {
-                  "$ref": "#/components/schemas/TranslatedStringDictionary"
-                }
-              ]
-            },
-            "x-position": 1
-          },
-          {
-            "name": "UserRolesRights",
-            "in": "query",
-            "collectionFormat": "multi",
-            "schema": {
-              "type": "array",
-              "nullable": true,
-              "items": {
-                "$ref": "#/components/schemas/UserRoleRightsOfMetadataRight"
+        "requestBody": {
+          "x-name": "request",
+          "description": "The request containing information needed to create new permission set.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SchemaPermissionSetCreateRequest"
               }
-            },
-            "x-position": 2
+            }
           },
-          {
-            "name": "UserRolesPermissionSetRights",
-            "in": "query",
-            "collectionFormat": "multi",
-            "schema": {
-              "type": "array",
-              "nullable": true,
-              "items": {
-                "$ref": "#/components/schemas/UserRoleRightsOfPermissionSetRight"
-              }
-            },
-            "x-position": 3
-          },
-          {
-            "name": "Exclusive",
-            "in": "query",
-            "schema": {
-              "type": "boolean"
-            },
-            "x-position": 4
-          }
-        ],
+          "required": true,
+          "x-position": 1
+        },
         "responses": {
           "200": {
             "description": "Schema permission set detail",
@@ -10944,63 +10833,29 @@
         "operationId": "SchemaPermissionSet_Update",
         "parameters": [
           {
-            "name": "Id",
+            "name": "id",
             "in": "path",
             "required": true,
+            "description": "ID of permission set to update",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 1
-          },
-          {
-            "name": "Names",
-            "in": "query",
-            "schema": {
-              "nullable": true,
-              "oneOf": [
-                {
-                  "$ref": "#/components/schemas/TranslatedStringDictionary"
-                }
-              ]
-            },
-            "x-position": 2
-          },
-          {
-            "name": "UserRolesRights",
-            "in": "query",
-            "collectionFormat": "multi",
-            "schema": {
-              "type": "array",
-              "nullable": true,
-              "items": {
-                "$ref": "#/components/schemas/PermissionUserRoleRightsOfMetadataRight"
-              }
-            },
-            "x-position": 3
-          },
-          {
-            "name": "UserRolesPermissionSetRights",
-            "in": "query",
-            "collectionFormat": "multi",
-            "schema": {
-              "type": "array",
-              "nullable": true,
-              "items": {
-                "$ref": "#/components/schemas/PermissionUserRoleRightsOfPermissionSetRight"
-              }
-            },
-            "x-position": 4
-          },
-          {
-            "name": "Exclusive",
-            "in": "query",
-            "schema": {
-              "type": "boolean"
-            },
-            "x-position": 5
           }
         ],
+        "requestBody": {
+          "x-name": "request",
+          "description": "The request containing information needed to update the permission set.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SchemaPermissionSetUpdateRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 2
+        },
         "responses": {
           "200": {
             "description": "Schema permission set detail",
@@ -11202,25 +11057,29 @@
         "operationId": "SchemaPermissionSet_TransferOwnership",
         "parameters": [
           {
-            "name": "TransferUserId",
-            "in": "query",
-            "description": "The ID of the user to whom the permission set ownership should be transferred to.",
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 1
-          },
-          {
             "name": "id",
             "in": "path",
             "required": true,
+            "description": "ID of the permission set to transfer",
             "schema": {
               "type": "string"
             },
-            "x-position": 2
+            "x-position": 1
           }
         ],
+        "requestBody": {
+          "x-name": "request",
+          "description": "The request containing user who should be the new owner.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PermissionSetOwnershipTransferRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 2
+        },
         "responses": {
           "200": {
             "description": "OK"
@@ -11305,7 +11164,7 @@
       }
     },
     "/v1/schemaPermissionSets/{id}/permissions": {
-      "put": {
+      "get": {
         "tags": [
           "SchemaPermissionSet"
         ],
@@ -11425,21 +11284,19 @@
         "summary": "Create multiple schema permission sets",
         "description": "Creates new schema permission sets based on supplied requests.",
         "operationId": "SchemaPermissionSet_CreateMany",
-        "parameters": [
-          {
-            "name": "Items",
-            "in": "query",
-            "collectionFormat": "multi",
-            "schema": {
-              "type": "array",
-              "nullable": true,
-              "items": {
-                "$ref": "#/components/schemas/SchemaPermissionSetCreateRequest"
+        "requestBody": {
+          "x-name": "request",
+          "description": "The request containing information needed to create new permission sets.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SchemaPermissionSetCreateManyRequest"
               }
-            },
-            "x-position": 1
-          }
-        ],
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
         "responses": {
           "200": {
             "description": "Bulk response with information about created permission sets",
@@ -11536,22 +11393,19 @@
         "summary": "Update multiple schema permission sets",
         "description": "Updates the schema permission sets specified by the IDs and based on supplied request.",
         "operationId": "SchemaPermissionSet_UpdateMany",
-        "parameters": [
-          {
-            "name": "Items",
-            "in": "query",
-            "description": "Schema permission sets update requests.",
-            "collectionFormat": "multi",
-            "schema": {
-              "type": "array",
-              "nullable": true,
-              "items": {
-                "$ref": "#/components/schemas/SchemaPermissionSetUpdateRequest"
+        "requestBody": {
+          "x-name": "request",
+          "description": "The request containing information needed to update the permission set.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SchemaPermissionSetUpdateManyRequest"
               }
-            },
-            "x-position": 1
-          }
-        ],
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
         "responses": {
           "200": {
             "description": "Bulk response with information about updated permission sets",
@@ -11650,21 +11504,19 @@
         "summary": "Delete multiple schema permission sets",
         "description": "Deletes the schema permission sets specified by the IDs.",
         "operationId": "SchemaPermissionSet_DeleteMany",
-        "parameters": [
-          {
-            "name": "PermissionSetIds",
-            "in": "query",
-            "collectionFormat": "multi",
-            "schema": {
-              "type": "array",
-              "nullable": true,
-              "items": {
-                "type": "string"
+        "requestBody": {
+          "x-name": "request",
+          "description": "The request with permission IDs to delete.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PermissionSetDeleteManyRequest"
               }
-            },
-            "x-position": 1
-          }
-        ],
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
         "responses": {
           "200": {
             "description": "Bulk response with information about success or failure",
@@ -11763,21 +11615,19 @@
         "summary": "Transfer ownership of multiple schema permission sets",
         "description": "Transfers ownership of multiple schema permission set to respective supplied users.",
         "operationId": "SchemaPermissionSet_TransferOwnershipMany",
-        "parameters": [
-          {
-            "name": "Items",
-            "in": "query",
-            "collectionFormat": "multi",
-            "schema": {
-              "type": "array",
-              "nullable": true,
-              "items": {
-                "$ref": "#/components/schemas/PermissionSetOwnershipTransferItem"
+        "requestBody": {
+          "x-name": "request",
+          "description": "The request containing information on which permission set to transfer to which user.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PermissionSetOwnershipTransferManyRequest"
               }
-            },
-            "x-position": 1
-          }
-        ],
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
         "responses": {
           "200": {
             "description": "OK"
@@ -11862,7 +11712,7 @@
       }
     },
     "/v1/schemaPermissionSets/many/permissions": {
-      "put": {
+      "get": {
         "tags": [
           "SchemaPermissionSet"
         ],
@@ -25728,6 +25578,52 @@
           "Manage"
         ]
       },
+      "ContentPermissionSetCreateRequest": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PermissionSetCreateRequestOfContentRight"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "PermissionSetCreateRequestOfContentRight": {
+        "type": "object",
+        "x-abstract": true,
+        "additionalProperties": false,
+        "required": [
+          "exclusive"
+        ],
+        "properties": {
+          "names": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/TranslatedStringDictionary"
+              }
+            ]
+          },
+          "userRolesRights": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/UserRoleRightsOfContentRight"
+            }
+          },
+          "userRolesPermissionSetRights": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/UserRoleRightsOfPermissionSetRight"
+            }
+          },
+          "exclusive": {
+            "type": "boolean"
+          }
+        }
+      },
       "UserRoleRightsOfContentRight": {
         "type": "object",
         "additionalProperties": false,
@@ -25759,6 +25655,67 @@
             "items": {
               "$ref": "#/components/schemas/PermissionSetRight"
             }
+          }
+        }
+      },
+      "ContentPermissionSetUpdateRequest": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PermissionSetUpdateRequestOfContentRight"
+          },
+          {
+            "type": "object",
+            "description": "Request to update a content permission set",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "PermissionSetUpdateRequestOfContentRight": {
+        "type": "object",
+        "x-abstract": true,
+        "additionalProperties": false,
+        "required": [
+          "exclusive"
+        ],
+        "properties": {
+          "names": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/TranslatedStringDictionary"
+              }
+            ]
+          },
+          "userRolesRights": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/PermissionUserRoleRightsOfContentRight"
+            }
+          },
+          "userRolesPermissionSetRights": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/PermissionUserRoleRightsOfPermissionSetRight"
+            }
+          },
+          "exclusive": {
+            "type": "boolean"
+          }
+        }
+      },
+      "PermissionSetOwnershipTransferRequest": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "transferUserId"
+        ],
+        "properties": {
+          "transferUserId": {
+            "type": "string",
+            "description": "The ID of the user to whom the permission set ownership should be transferred to.",
+            "minLength": 1
           }
         }
       },
@@ -25814,56 +25771,38 @@
           }
         }
       },
-      "ContentPermissionSetCreateRequest": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/PermissionSetCreateRequestOfContentRight"
-          },
-          {
-            "type": "object",
-            "additionalProperties": false
-          }
-        ]
-      },
-      "PermissionSetCreateRequestOfContentRight": {
+      "ContentPermissionSetCreateManyRequest": {
         "type": "object",
-        "x-abstract": true,
         "additionalProperties": false,
-        "required": [
-          "exclusive"
-        ],
         "properties": {
-          "names": {
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/TranslatedStringDictionary"
-              }
-            ]
-          },
-          "userRolesRights": {
+          "items": {
             "type": "array",
             "nullable": true,
             "items": {
-              "$ref": "#/components/schemas/UserRoleRightsOfContentRight"
+              "$ref": "#/components/schemas/ContentPermissionSetCreateRequest"
             }
-          },
-          "userRolesPermissionSetRights": {
-            "type": "array",
-            "nullable": true,
-            "items": {
-              "$ref": "#/components/schemas/UserRoleRightsOfPermissionSetRight"
-            }
-          },
-          "exclusive": {
-            "type": "boolean"
           }
         }
       },
-      "ContentPermissionSetUpdateRequest": {
+      "ContentPermissionSetUpdateManyRequest": {
+        "type": "object",
+        "description": "Request to update multiple content permission sets",
+        "additionalProperties": false,
+        "properties": {
+          "items": {
+            "type": "array",
+            "description": "Content permission sets update requests.",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/ContentPermissionSetUpdateRequestItem"
+            }
+          }
+        }
+      },
+      "ContentPermissionSetUpdateRequestItem": {
         "allOf": [
           {
-            "$ref": "#/components/schemas/PermissionSetUpdateRequestOfContentRight"
+            "$ref": "#/components/schemas/PermissionSetUpdateRequestItemOfContentRight"
           },
           {
             "type": "object",
@@ -25872,43 +25811,50 @@
           }
         ]
       },
-      "PermissionSetUpdateRequestOfContentRight": {
-        "type": "object",
-        "x-abstract": true,
-        "additionalProperties": false,
-        "required": [
-          "id",
-          "exclusive"
-        ],
-        "properties": {
-          "id": {
-            "type": "string",
-            "minLength": 1
+      "PermissionSetUpdateRequestItemOfContentRight": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PermissionSetUpdateRequestOfContentRight"
           },
-          "names": {
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/TranslatedStringDictionary"
+          {
+            "type": "object",
+            "x-abstract": true,
+            "additionalProperties": false,
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1
               }
-            ]
-          },
-          "userRolesRights": {
+            }
+          }
+        ]
+      },
+      "PermissionSetDeleteManyRequest": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "permissionSetIds": {
             "type": "array",
             "nullable": true,
             "items": {
-              "$ref": "#/components/schemas/PermissionUserRoleRightsOfContentRight"
+              "type": "string"
             }
-          },
-          "userRolesPermissionSetRights": {
+          }
+        }
+      },
+      "PermissionSetOwnershipTransferManyRequest": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "items": {
             "type": "array",
             "nullable": true,
             "items": {
-              "$ref": "#/components/schemas/PermissionUserRoleRightsOfPermissionSetRight"
+              "$ref": "#/components/schemas/PermissionSetOwnershipTransferItem"
             }
-          },
-          "exclusive": {
-            "type": "boolean"
           }
         }
       },
@@ -25929,20 +25875,6 @@
             }
           }
         ]
-      },
-      "PermissionSetOwnershipTransferRequest": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "transferUserId"
-        ],
-        "properties": {
-          "transferUserId": {
-            "type": "string",
-            "description": "The ID of the user to whom the permission set ownership should be transferred to.",
-            "minLength": 1
-          }
-        }
       },
       "PermissionSetUserPermissionRights": {
         "type": "object",
@@ -30187,23 +30119,6 @@
           }
         }
       },
-      "UserRoleRightsOfMetadataRight": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "userRoleId": {
-            "type": "string",
-            "nullable": true
-          },
-          "rights": {
-            "type": "array",
-            "nullable": true,
-            "items": {
-              "$ref": "#/components/schemas/MetadataRight"
-            }
-          }
-        }
-      },
       "SchemaPermissionSetCreateRequest": {
         "allOf": [
           {
@@ -30250,6 +30165,23 @@
           }
         }
       },
+      "UserRoleRightsOfMetadataRight": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "userRoleId": {
+            "type": "string",
+            "nullable": true
+          },
+          "rights": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/MetadataRight"
+            }
+          }
+        }
+      },
       "SchemaPermissionSetUpdateRequest": {
         "allOf": [
           {
@@ -30267,14 +30199,9 @@
         "x-abstract": true,
         "additionalProperties": false,
         "required": [
-          "id",
           "exclusive"
         ],
         "properties": {
-          "id": {
-            "type": "string",
-            "minLength": 1
-          },
           "names": {
             "nullable": true,
             "oneOf": [
@@ -30301,6 +30228,67 @@
             "type": "boolean"
           }
         }
+      },
+      "SchemaPermissionSetCreateManyRequest": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "items": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/SchemaPermissionSetCreateRequest"
+            }
+          }
+        }
+      },
+      "SchemaPermissionSetUpdateManyRequest": {
+        "type": "object",
+        "description": "Request to update multiple schema permissions sets",
+        "additionalProperties": false,
+        "properties": {
+          "items": {
+            "type": "array",
+            "description": "Schema permission sets update requests.",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/SchemaPermissionSetUpdateRequestItem"
+            }
+          }
+        }
+      },
+      "SchemaPermissionSetUpdateRequestItem": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PermissionSetUpdateRequestItemOfMetadataRight"
+          },
+          {
+            "type": "object",
+            "description": "Request to update a schema permission set",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "PermissionSetUpdateRequestItemOfMetadataRight": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PermissionSetUpdateRequestOfMetadataRight"
+          },
+          {
+            "type": "object",
+            "x-abstract": true,
+            "additionalProperties": false,
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        ]
       },
       "Transfer": {
         "type": "object",

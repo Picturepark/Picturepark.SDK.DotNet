@@ -331,6 +331,7 @@ namespace Picturepark.SDK.V1.Contract
         System.Threading.Tasks.Task<ContentPermissionSetDetail> GetAsync(string permissionSetId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Create content permission set</summary>
+        /// <param name="request">The request containing information needed to create new permission set.</param>
         /// <returns>Content permission set detail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -338,7 +339,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<ContentPermissionSetDetail> CreateAsync(TranslatedStringDictionary names = null, System.Collections.Generic.IEnumerable<UserRoleRightsOfContentRight> userRolesRights = null, System.Collections.Generic.IEnumerable<UserRoleRightsOfPermissionSetRight> userRolesPermissionSetRights = null, bool? exclusive = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ContentPermissionSetDetail> CreateAsync(ContentPermissionSetCreateRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Get multiple permission sets</summary>
         /// <param name="ids">Permission set IDs to get information about</param>
@@ -352,6 +353,8 @@ namespace Picturepark.SDK.V1.Contract
         System.Threading.Tasks.Task<System.Collections.Generic.ICollection<ContentPermissionSetDetail>> GetManyAsync(System.Collections.Generic.IEnumerable<string> ids = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Update content permission set</summary>
+        /// <param name="id">ID of permission set to update</param>
+        /// <param name="request">The request containing information needed to update the permission set.</param>
         /// <returns>Content permission set detail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -359,7 +362,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<ContentPermissionSetDetail> UpdateAsync(string id, TranslatedStringDictionary names = null, System.Collections.Generic.IEnumerable<PermissionUserRoleRightsOfContentRight> userRolesRights = null, System.Collections.Generic.IEnumerable<PermissionUserRoleRightsOfPermissionSetRight> userRolesPermissionSetRights = null, bool? exclusive = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ContentPermissionSetDetail> UpdateAsync(string id, ContentPermissionSetUpdateRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Delete content permission set</summary>
         /// <param name="id">ID of the permission set that should be deleted.</param>
@@ -373,7 +376,8 @@ namespace Picturepark.SDK.V1.Contract
         System.Threading.Tasks.Task DeleteAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Transfer ownership of content permission set</summary>
-        /// <param name="transferUserId">The ID of the user to whom the permission set ownership should be transferred to.</param>
+        /// <param name="id">ID of the permission set to transfer</param>
+        /// <param name="request">The request containing user who should be the new owner.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -381,7 +385,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task TransferOwnershipAsync(string id, string transferUserId = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task TransferOwnershipAsync(string id, PermissionSetOwnershipTransferRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Get permissions for the permission set</summary>
         /// <param name="id">ID of the permission set to view permissions of.</param>
@@ -395,6 +399,7 @@ namespace Picturepark.SDK.V1.Contract
         System.Threading.Tasks.Task<System.Collections.Generic.ICollection<PermissionSetRight>> GetPermissionsAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Create multiple content permission sets</summary>
+        /// <param name="request">The request containing information needed to create new permission sets.</param>
         /// <returns>Bulk response with information about created permission sets</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -402,10 +407,10 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<BulkResponse> CreateManyAsync(System.Collections.Generic.IEnumerable<ContentPermissionSetCreateRequest> items = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<BulkResponse> CreateManyAsync(ContentPermissionSetCreateManyRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Update multiple content permission sets</summary>
-        /// <param name="items">Content permission sets update requests.</param>
+        /// <param name="request">The request containing information needed to update the permission set.</param>
         /// <returns>Bulk response with information about updated permission sets</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -413,9 +418,10 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<BulkResponse> UpdateManyAsync(System.Collections.Generic.IEnumerable<ContentPermissionSetUpdateRequest> items = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<BulkResponse> UpdateManyAsync(ContentPermissionSetUpdateManyRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Delete multiple content permission sets</summary>
+        /// <param name="request">The request with permission IDs to delete.</param>
         /// <returns>Bulk response with information about success or failure</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -423,9 +429,10 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<BulkResponse> DeleteManyAsync(System.Collections.Generic.IEnumerable<string> permissionSetIds = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<BulkResponse> DeleteManyAsync(PermissionSetDeleteManyRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Transfer ownership of multiple content permission sets</summary>
+        /// <param name="request">The request containing information on which permission set to transfer to which user.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -433,7 +440,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task TransferOwnershipManyAsync(System.Collections.Generic.IEnumerable<PermissionSetOwnershipTransferItem> items = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task TransferOwnershipManyAsync(PermissionSetOwnershipTransferManyRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Get permissions for multiple permission sets</summary>
         /// <param name="ids">IDs of the permission sets to view permissions of.</param>
@@ -896,6 +903,7 @@ namespace Picturepark.SDK.V1.Contract
         System.Threading.Tasks.Task<SchemaPermissionSetDetail> GetAsync(string permissionSetId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Create schema permission set</summary>
+        /// <param name="request">The request containing information needed to create new permission set.</param>
         /// <returns>Schema permission set detail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -903,7 +911,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<SchemaPermissionSetDetail> CreateAsync(TranslatedStringDictionary names = null, System.Collections.Generic.IEnumerable<UserRoleRightsOfMetadataRight> userRolesRights = null, System.Collections.Generic.IEnumerable<UserRoleRightsOfPermissionSetRight> userRolesPermissionSetRights = null, bool? exclusive = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<SchemaPermissionSetDetail> CreateAsync(SchemaPermissionSetCreateRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Get multiple permission sets</summary>
         /// <param name="ids">Permission set IDs to get information about</param>
@@ -917,6 +925,8 @@ namespace Picturepark.SDK.V1.Contract
         System.Threading.Tasks.Task<System.Collections.Generic.ICollection<SchemaPermissionSetDetail>> GetManyAsync(System.Collections.Generic.IEnumerable<string> ids = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Update schema permission set</summary>
+        /// <param name="id">ID of permission set to update</param>
+        /// <param name="request">The request containing information needed to update the permission set.</param>
         /// <returns>Schema permission set detail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -924,7 +934,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<SchemaPermissionSetDetail> UpdateAsync(string id, TranslatedStringDictionary names = null, System.Collections.Generic.IEnumerable<PermissionUserRoleRightsOfMetadataRight> userRolesRights = null, System.Collections.Generic.IEnumerable<PermissionUserRoleRightsOfPermissionSetRight> userRolesPermissionSetRights = null, bool? exclusive = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<SchemaPermissionSetDetail> UpdateAsync(string id, SchemaPermissionSetUpdateRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Delete schema permission set</summary>
         /// <param name="id">ID of the permission set that should be deleted.</param>
@@ -938,7 +948,8 @@ namespace Picturepark.SDK.V1.Contract
         System.Threading.Tasks.Task DeleteAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Transfer ownership of schema permission set</summary>
-        /// <param name="transferUserId">The ID of the user to whom the permission set ownership should be transferred to.</param>
+        /// <param name="id">ID of the permission set to transfer</param>
+        /// <param name="request">The request containing user who should be the new owner.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -946,7 +957,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task TransferOwnershipAsync(string id, string transferUserId = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task TransferOwnershipAsync(string id, PermissionSetOwnershipTransferRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Get permissions for the permission set</summary>
         /// <param name="id">ID of the permission set to view permissions of.</param>
@@ -960,6 +971,7 @@ namespace Picturepark.SDK.V1.Contract
         System.Threading.Tasks.Task<System.Collections.Generic.ICollection<PermissionSetRight>> GetPermissionsAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Create multiple schema permission sets</summary>
+        /// <param name="request">The request containing information needed to create new permission sets.</param>
         /// <returns>Bulk response with information about created permission sets</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -967,10 +979,10 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<BulkResponse> CreateManyAsync(System.Collections.Generic.IEnumerable<SchemaPermissionSetCreateRequest> items = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<BulkResponse> CreateManyAsync(SchemaPermissionSetCreateManyRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Update multiple schema permission sets</summary>
-        /// <param name="items">Schema permission sets update requests.</param>
+        /// <param name="request">The request containing information needed to update the permission set.</param>
         /// <returns>Bulk response with information about updated permission sets</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -978,9 +990,10 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<BulkResponse> UpdateManyAsync(System.Collections.Generic.IEnumerable<SchemaPermissionSetUpdateRequest> items = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<BulkResponse> UpdateManyAsync(SchemaPermissionSetUpdateManyRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Delete multiple schema permission sets</summary>
+        /// <param name="request">The request with permission IDs to delete.</param>
         /// <returns>Bulk response with information about success or failure</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -988,9 +1001,10 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<BulkResponse> DeleteManyAsync(System.Collections.Generic.IEnumerable<string> permissionSetIds = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<BulkResponse> DeleteManyAsync(PermissionSetDeleteManyRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Transfer ownership of multiple schema permission sets</summary>
+        /// <param name="request">The request containing information on which permission set to transfer to which user.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -998,7 +1012,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task TransferOwnershipManyAsync(System.Collections.Generic.IEnumerable<PermissionSetOwnershipTransferItem> items = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task TransferOwnershipManyAsync(PermissionSetOwnershipTransferManyRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Get permissions for multiple permission sets</summary>
         /// <param name="ids">IDs of the permission sets to view permissions of.</param>
@@ -9878,6 +9892,48 @@ namespace Picturepark.SDK.V1.Contract
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
+    public abstract partial class PermissionSetCreateRequestOfContentRight 
+    {
+        [Newtonsoft.Json.JsonProperty("names", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public TranslatedStringDictionary Names { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("userRolesRights", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<UserRoleRightsOfContentRight> UserRolesRights { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("userRolesPermissionSetRights", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<UserRoleRightsOfPermissionSetRight> UserRolesPermissionSetRights { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("exclusive", Required = Newtonsoft.Json.Required.Always)]
+        public bool Exclusive { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static PermissionSetCreateRequestOfContentRight FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<PermissionSetCreateRequestOfContentRight>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class ContentPermissionSetCreateRequest : PermissionSetCreateRequestOfContentRight
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static ContentPermissionSetCreateRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentPermissionSetCreateRequest>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class UserRoleRightsOfContentRight 
     {
         [Newtonsoft.Json.JsonProperty("userRoleId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -9915,6 +9971,69 @@ namespace Picturepark.SDK.V1.Contract
         public static UserRoleRightsOfPermissionSetRight FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<UserRoleRightsOfPermissionSetRight>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
+    public abstract partial class PermissionSetUpdateRequestOfContentRight 
+    {
+        [Newtonsoft.Json.JsonProperty("names", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public TranslatedStringDictionary Names { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("userRolesRights", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<PermissionUserRoleRightsOfContentRight> UserRolesRights { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("userRolesPermissionSetRights", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<PermissionUserRoleRightsOfPermissionSetRight> UserRolesPermissionSetRights { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("exclusive", Required = Newtonsoft.Json.Required.Always)]
+        public bool Exclusive { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static PermissionSetUpdateRequestOfContentRight FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<PermissionSetUpdateRequestOfContentRight>(data);
+        }
+    
+    }
+    
+    /// <summary>Request to update a content permission set</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class ContentPermissionSetUpdateRequest : PermissionSetUpdateRequestOfContentRight
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static ContentPermissionSetUpdateRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentPermissionSetUpdateRequest>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class PermissionSetOwnershipTransferRequest 
+    {
+        /// <summary>The ID of the user to whom the permission set ownership should be transferred to.</summary>
+        [Newtonsoft.Json.JsonProperty("transferUserId", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public string TransferUserId { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static PermissionSetOwnershipTransferRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<PermissionSetOwnershipTransferRequest>(data);
         }
     
     }
@@ -9977,110 +10096,110 @@ namespace Picturepark.SDK.V1.Contract
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
-    public abstract partial class PermissionSetCreateRequestOfContentRight 
+    public partial class ContentPermissionSetCreateManyRequest 
     {
-        [Newtonsoft.Json.JsonProperty("names", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public TranslatedStringDictionary Names { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("userRolesRights", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<UserRoleRightsOfContentRight> UserRolesRights { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("userRolesPermissionSetRights", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<UserRoleRightsOfPermissionSetRight> UserRolesPermissionSetRights { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("exclusive", Required = Newtonsoft.Json.Required.Always)]
-        public bool Exclusive { get; set; }
+        [Newtonsoft.Json.JsonProperty("items", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<ContentPermissionSetCreateRequest> Items { get; set; }
     
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
         }
     
-        public static PermissionSetCreateRequestOfContentRight FromJson(string data)
+        public static ContentPermissionSetCreateManyRequest FromJson(string data)
         {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<PermissionSetCreateRequestOfContentRight>(data);
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentPermissionSetCreateManyRequest>(data);
         }
     
     }
     
+    /// <summary>Request to update multiple content permission sets</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
-    public partial class ContentPermissionSetCreateRequest : PermissionSetCreateRequestOfContentRight
+    public partial class ContentPermissionSetUpdateManyRequest 
     {
+        /// <summary>Content permission sets update requests.</summary>
+        [Newtonsoft.Json.JsonProperty("items", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<ContentPermissionSetUpdateRequestItem> Items { get; set; }
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
         }
     
-        public static ContentPermissionSetCreateRequest FromJson(string data)
+        public static ContentPermissionSetUpdateManyRequest FromJson(string data)
         {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentPermissionSetCreateRequest>(data);
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentPermissionSetUpdateManyRequest>(data);
         }
     
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
-    public abstract partial class PermissionSetUpdateRequestOfContentRight 
+    public abstract partial class PermissionSetUpdateRequestItemOfContentRight : PermissionSetUpdateRequestOfContentRight
     {
         [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
         public string Id { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("names", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public TranslatedStringDictionary Names { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("userRolesRights", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<PermissionUserRoleRightsOfContentRight> UserRolesRights { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("userRolesPermissionSetRights", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<PermissionUserRoleRightsOfPermissionSetRight> UserRolesPermissionSetRights { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("exclusive", Required = Newtonsoft.Json.Required.Always)]
-        public bool Exclusive { get; set; }
-    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
         }
     
-        public static PermissionSetUpdateRequestOfContentRight FromJson(string data)
+        public static PermissionSetUpdateRequestItemOfContentRight FromJson(string data)
         {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<PermissionSetUpdateRequestOfContentRight>(data);
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<PermissionSetUpdateRequestItemOfContentRight>(data);
         }
     
     }
     
     /// <summary>Request to update a content permission set</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
-    public partial class ContentPermissionSetUpdateRequest : PermissionSetUpdateRequestOfContentRight
+    public partial class ContentPermissionSetUpdateRequestItem : PermissionSetUpdateRequestItemOfContentRight
     {
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
         }
     
-        public static ContentPermissionSetUpdateRequest FromJson(string data)
+        public static ContentPermissionSetUpdateRequestItem FromJson(string data)
         {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentPermissionSetUpdateRequest>(data);
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentPermissionSetUpdateRequestItem>(data);
         }
     
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
-    public partial class PermissionSetOwnershipTransferRequest 
+    public partial class PermissionSetDeleteManyRequest 
     {
-        /// <summary>The ID of the user to whom the permission set ownership should be transferred to.</summary>
-        [Newtonsoft.Json.JsonProperty("transferUserId", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public string TransferUserId { get; set; }
+        [Newtonsoft.Json.JsonProperty("permissionSetIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> PermissionSetIds { get; set; }
     
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
         }
     
-        public static PermissionSetOwnershipTransferRequest FromJson(string data)
+        public static PermissionSetDeleteManyRequest FromJson(string data)
         {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<PermissionSetOwnershipTransferRequest>(data);
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<PermissionSetDeleteManyRequest>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class PermissionSetOwnershipTransferManyRequest 
+    {
+        [Newtonsoft.Json.JsonProperty("items", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<PermissionSetOwnershipTransferItem> Items { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static PermissionSetOwnershipTransferManyRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<PermissionSetOwnershipTransferManyRequest>(data);
         }
     
     }
@@ -13874,27 +13993,6 @@ namespace Picturepark.SDK.V1.Contract
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
-    public partial class UserRoleRightsOfMetadataRight 
-    {
-        [Newtonsoft.Json.JsonProperty("userRoleId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string UserRoleId { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("rights", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public System.Collections.Generic.ICollection<MetadataRight> Rights { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-    
-        public static UserRoleRightsOfMetadataRight FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<UserRoleRightsOfMetadataRight>(data);
-        }
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
     public abstract partial class PermissionSetCreateRequestOfMetadataRight 
     {
         [Newtonsoft.Json.JsonProperty("names", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -13937,12 +14035,29 @@ namespace Picturepark.SDK.V1.Contract
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class UserRoleRightsOfMetadataRight 
+    {
+        [Newtonsoft.Json.JsonProperty("userRoleId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string UserRoleId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("rights", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public System.Collections.Generic.ICollection<MetadataRight> Rights { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static UserRoleRightsOfMetadataRight FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<UserRoleRightsOfMetadataRight>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
     public abstract partial class PermissionSetUpdateRequestOfMetadataRight 
     {
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public string Id { get; set; }
-    
         [Newtonsoft.Json.JsonProperty("names", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public TranslatedStringDictionary Names { get; set; }
     
@@ -13979,6 +14094,79 @@ namespace Picturepark.SDK.V1.Contract
         public static SchemaPermissionSetUpdateRequest FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaPermissionSetUpdateRequest>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class SchemaPermissionSetCreateManyRequest 
+    {
+        [Newtonsoft.Json.JsonProperty("items", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<SchemaPermissionSetCreateRequest> Items { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static SchemaPermissionSetCreateManyRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaPermissionSetCreateManyRequest>(data);
+        }
+    
+    }
+    
+    /// <summary>Request to update multiple schema permissions sets</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class SchemaPermissionSetUpdateManyRequest 
+    {
+        /// <summary>Schema permission sets update requests.</summary>
+        [Newtonsoft.Json.JsonProperty("items", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<SchemaPermissionSetUpdateRequestItem> Items { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static SchemaPermissionSetUpdateManyRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaPermissionSetUpdateManyRequest>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
+    public abstract partial class PermissionSetUpdateRequestItemOfMetadataRight : PermissionSetUpdateRequestOfMetadataRight
+    {
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public string Id { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static PermissionSetUpdateRequestItemOfMetadataRight FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<PermissionSetUpdateRequestItemOfMetadataRight>(data);
+        }
+    
+    }
+    
+    /// <summary>Request to update a schema permission set</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class SchemaPermissionSetUpdateRequestItem : PermissionSetUpdateRequestItemOfMetadataRight
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static SchemaPermissionSetUpdateRequestItem FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaPermissionSetUpdateRequestItem>(data);
         }
     
     }
