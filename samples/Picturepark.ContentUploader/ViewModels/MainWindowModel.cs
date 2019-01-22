@@ -125,10 +125,18 @@ namespace Picturepark.ContentUploader.ViewModels
 
                     var accessToken = await GetAccessTokenAsync();
                     var authClient = new AccessTokenAuthClient(ApiServer, accessToken, CustomerAlias);
-                    using (var client = new PictureparkClient(new PictureparkClientSettings(authClient)))
+                    using (var client = new PictureparkService(new PictureparkServiceSettings(authClient)))
                     {
-                        await client.Transfers.UploadFilesAsync(fileName, new[] { FilePath }, new UploadOptions { ChunkSize = 1024 * 1024 });
-                        MessageBox.Show("The image has been successfully uploaded.", "Image uploaded");
+                        try
+                        {
+                            await client.Transfer.UploadFilesAsync(fileName, new[] { (FileLocations) FilePath },
+                                new UploadOptions { ChunkSize = 1024 * 1024 });
+                            MessageBox.Show("The image has been successfully uploaded.", "Image uploaded");
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Error occurred while uploading your file", "Error");
+                        }
                     }
                 }
             });

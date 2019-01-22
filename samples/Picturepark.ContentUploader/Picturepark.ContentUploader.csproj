@@ -83,14 +83,14 @@
       <HintPath>..\packages\MyToolkit.Extended.2.5.16\lib\net45\MyToolkit.Extended.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="Picturepark.SDK.V1, Version=0.53.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Picturepark.SDK.V1.0.53.34\lib\net45\Picturepark.SDK.V1.dll</HintPath>
+    <Reference Include="Picturepark.SDK.V1, Version=0.64.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Picturepark.SDK.V1.0.64.19\lib\net45\Picturepark.SDK.V1.dll</HintPath>
     </Reference>
-    <Reference Include="Picturepark.SDK.V1.Contract, Version=0.53.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Picturepark.SDK.V1.Contract.0.53.34\lib\net45\Picturepark.SDK.V1.Contract.dll</HintPath>
+    <Reference Include="Picturepark.SDK.V1.Contract, Version=0.64.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Picturepark.SDK.V1.Contract.0.64.19\lib\net45\Picturepark.SDK.V1.Contract.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Buffers, Version=4.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
@@ -121,6 +121,9 @@
     </Reference>
     <Reference Include="System.Security.Cryptography.X509Certificates, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Security.Cryptography.X509Certificates.4.1.0\lib\net46\System.Security.Cryptography.X509Certificates.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\netstandard1.0\System.ValueTuple.dll</HintPath>
     </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
