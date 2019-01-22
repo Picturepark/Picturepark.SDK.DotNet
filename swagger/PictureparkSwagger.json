@@ -4830,7 +4830,7 @@
       }
     },
     "/v1/contentPermissionSets/{id}/permissions": {
-      "put": {
+      "get": {
         "tags": [
           "ContentPermissionSet"
         ],
@@ -5378,7 +5378,7 @@
       }
     },
     "/v1/contentPermissionSets/many/permissions": {
-      "put": {
+      "get": {
         "tags": [
           "ContentPermissionSet"
         ],
