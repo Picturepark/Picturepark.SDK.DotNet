@@ -1483,6 +1483,117 @@
         ]
       }
     },
+    "/backup/customer/import": {
+      "post": {
+        "tags": [
+          "CloudBackup"
+        ],
+        "operationId": "CloudBackup_Import",
+        "requestBody": {
+          "x-name": "customerImportRequest",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CustomerImportRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/Customer"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkNotFoundException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkConflictException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkValidationException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
     "/backup/repository/archive": {
       "put": {
         "tags": [
@@ -11865,6 +11976,50 @@
           },
           "keepRepository": {
             "type": "boolean"
+          }
+        }
+      },
+      "CustomerImportRequest": {
+        "type": "object",
+        "description": "Request to import the ElasticSearch repository of a customer from another cloud",
+        "additionalProperties": false,
+        "required": [
+          "resetExternalUserIds"
+        ],
+        "properties": {
+          "customerId": {
+            "type": "string",
+            "description": "The customer id",
+            "nullable": true
+          },
+          "repositoryName": {
+            "type": "string",
+            "description": "Name of the ElasticSearch repository",
+            "nullable": true
+          },
+          "snapshotName": {
+            "type": "string",
+            "description": "Name of the snapshot within the ElasticSearch repository if available",
+            "nullable": true
+          },
+          "storagePath": {
+            "type": "string",
+            "description": "Storage path of the originals and outputs, path shall not include the customer id",
+            "nullable": true
+          },
+          "resetExternalUserIds": {
+            "type": "boolean",
+            "description": "Set to true if the customer was configured against another IDS instance"
+          },
+          "adminUserEmail": {
+            "type": "string",
+            "description": "Provide email address of an admin user",
+            "nullable": true
+          },
+          "adminUserPassword": {
+            "type": "string",
+            "description": "Provide password for the admin user",
+            "nullable": true
           }
         }
       },
