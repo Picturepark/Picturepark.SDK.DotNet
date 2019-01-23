@@ -129,9 +129,15 @@ namespace Picturepark.ContentUploader.ViewModels
                     {
                         try
                         {
-                            await client.Transfer.UploadFilesAsync(fileName, new[] { (FileLocations) FilePath },
-                                new UploadOptions { ChunkSize = 1024 * 1024 });
-                            MessageBox.Show("The image has been successfully uploaded.", "Image uploaded");
+                            // Uploading
+                            var transfer = await client.Transfer.UploadFilesAsync(fileName, new[] { (FileLocations) FilePath },
+                                new UploadOptions { ChunkSize = 1024 * 1024, WaitForTransferCompletion = true });
+                            
+                            // Importing
+                            await client.Transfer.ImportAndWaitForCompletionAsync(transfer.Transfer,
+                                new ImportTransferRequest());
+
+                            MessageBox.Show("The image has been successfully uploaded and imported.", "Image uploaded");
                         }
                         catch (Exception ex)
                         {
@@ -199,11 +205,18 @@ namespace Picturepark.ContentUploader.ViewModels
         {
             await RunTaskAsync(() =>
             {
-                using (var key = Registry.ClassesRoot.CreateSubKey(@"*\shell\PictureparkContentUploader"))
-                    key.SetValue("", "Upload to Picturepark server");
+                try
+                {
+                    using (var key = Registry.ClassesRoot.CreateSubKey(@"*\shell\PictureparkContentUploader"))
+                        key.SetValue("", "Upload to Picturepark server");
 
-                using (var key = Registry.ClassesRoot.CreateSubKey(@"*\shell\PictureparkContentUploader\command"))
-                    key.SetValue("", "\"" + Assembly.GetEntryAssembly().Location + "\" %1");
+                    using (var key = Registry.ClassesRoot.CreateSubKey(@"*\shell\PictureparkContentUploader\command"))
+                        key.SetValue("", "\"" + Assembly.GetEntryAssembly().Location + "\" %1");
+                }
+                catch (UnauthorizedAccessException ex)
+                {
+                    MessageBox.Show("Unable to register context menu, please run ContentUploader as administrator.", "Elevated rights required", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
             });
         }
 
@@ -211,7 +224,23 @@ namespace Picturepark.ContentUploader.ViewModels
         {
             await RunTaskAsync(() =>
             {
-                Registry.ClassesRoot.DeleteSubKeyTree(@"*\shell\PictureparkContentUploader");
+                try
+                {
+                    Registry.ClassesRoot.DeleteSubKeyTree(@"*\shell\PictureparkContentUploader");
+                }
+                catch (ArgumentException ex)
+                {
+                    if (ex.Message.Contains("Cannot delete a subkey tree because the subkey does not exist."))
+                        MessageBox.Show(
+                            "Unable to unregister context menu because it either doesn't exist or you don't have enough rights. Try running ContentUploader as administrator.",
+                            "Context menu not found", MessageBoxButton.OK, MessageBoxImage.Error);
+                    else
+                        throw;
+                }
+                catch (UnauthorizedAccessException ex)
+                {
+                    MessageBox.Show("Unable to unregister context menu, please run ContentUploader as administrator.", "Elevated rights required", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
             });
         }
     }
