@@ -801,6 +801,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [JsonInheritanceAttribute("PictureparkOperationCanceledException", typeof(PictureparkOperationCanceledException))]
     [JsonInheritanceAttribute("PictureparkApplicationException", typeof(PictureparkApplicationException))]
     [JsonInheritanceAttribute("MissingCustomerDefaultLanguageException", typeof(MissingCustomerDefaultLanguageException))]
+    [JsonInheritanceAttribute("PartialOperationNotSupportedException", typeof(PartialOperationNotSupportedException))]
     [JsonInheritanceAttribute("InvalidArgumentException", typeof(InvalidArgumentException))]
     [JsonInheritanceAttribute("UnknownException", typeof(UnknownException))]
     [JsonInheritanceAttribute("OwnerTokenInUseException", typeof(OwnerTokenInUseException))]
@@ -1777,6 +1778,22 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         public static MissingCustomerDefaultLanguageException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<MissingCustomerDefaultLanguageException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class PartialOperationNotSupportedException : PictureparkBusinessException
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static PartialOperationNotSupportedException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<PartialOperationNotSupportedException>(data);
         }
     
     }

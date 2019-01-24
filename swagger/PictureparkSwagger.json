@@ -17467,6 +17467,7 @@
                 "PictureparkOperationCanceledException": "#/components/schemas/PictureparkOperationCanceledException",
                 "PictureparkApplicationException": "#/components/schemas/PictureparkApplicationException",
                 "MissingCustomerDefaultLanguageException": "#/components/schemas/MissingCustomerDefaultLanguageException",
+                "PartialOperationNotSupportedException": "#/components/schemas/PartialOperationNotSupportedException",
                 "InvalidArgumentException": "#/components/schemas/InvalidArgumentException",
                 "UnknownException": "#/components/schemas/UnknownException",
                 "OwnerTokenInUseException": "#/components/schemas/OwnerTokenInUseException",
@@ -18374,6 +18375,17 @@
                 "nullable": true
               }
             }
+          }
+        ]
+      },
+      "PartialOperationNotSupportedException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkBusinessException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
           }
         ]
       },
