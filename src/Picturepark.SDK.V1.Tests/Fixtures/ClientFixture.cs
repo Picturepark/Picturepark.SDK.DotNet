@@ -1,11 +1,14 @@
 ﻿using Newtonsoft.Json;
 using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Reflection;
 using System.Threading.Tasks;
+using FluentAssertions;
 using Picturepark.SDK.V1.Authentication;
 using Picturepark.SDK.V1.Contract;
 
@@ -17,6 +20,7 @@ namespace Picturepark.SDK.V1.Tests.Fixtures
 
         private readonly IPictureparkService _client;
         private readonly TestConfiguration _configuration;
+        private readonly ConcurrentQueue<string> _createdUserIds = new ConcurrentQueue<string>();
 
         static ClientFixture()
         {
@@ -93,6 +97,14 @@ namespace Picturepark.SDK.V1.Tests.Fixtures
 
         public virtual void Dispose()
         {
+            if (!_createdUserIds.IsEmpty)
+            {
+                foreach (var createdUserId in _createdUserIds)
+                {
+                    Client.User.DeleteAsync(createdUserId, new UserDeleteRequest()).GetAwaiter().GetResult();
+                }
+            }
+
             _client.Dispose();
         }
 
@@ -109,6 +121,59 @@ namespace Picturepark.SDK.V1.Tests.Fixtures
             var httpClient = new HttpClient(s_httpHandler) { Timeout = settings.HttpTimeout };
 
             return new PictureparkService(settings, httpClient);
+        }
+
+        public async Task<IReadOnlyList<UserDetail>> CreateAndActivateUsers(int userCount)
+        {
+            var usersToCreate = Enumerable.Range(0, userCount).Select(_ =>
+                new UserCreateRequest
+                {
+                    FirstName = "Test",
+                    LastName = "User",
+                    EmailAddress = $"test.user_{Guid.NewGuid()}@test.picturepark.com",
+                    LanguageCode = "en"
+                }).ToArray();
+
+            var userCreationTasks = usersToCreate.Select(userRequest => Client.User.CreateAsync(userRequest));
+
+            var createdUsers = await Task.WhenAll(userCreationTasks);
+
+            var searchRes = await Client.User.SearchAsync(new UserSearchRequest
+            {
+                Filter = FilterBase.FromExpression<User>(u => u.EmailAddress, usersToCreate.Select(u => u.EmailAddress).ToArray())
+            });
+
+            searchRes.Results.Select(e => e.EmailAddress).Should()
+                .BeEquivalentTo(usersToCreate.Select(e => e.EmailAddress), "all users should have been created");
+
+            foreach (var createdUser in createdUsers)
+            {
+                await Client.User.ReviewAsync(createdUser.Id, new UserReviewRequest
+                {
+                    Reviewed = true
+                });
+            }
+
+            var createdUserIds = createdUsers.Select(u => u.Id);
+            var reviewedUsers = (await Client.User.GetManyAsync(createdUserIds)).ToArray();
+
+            reviewedUsers.Should()
+                .HaveCount(createdUsers.Length, "all previously created users should have been retrieved");
+
+            reviewedUsers.Should().OnlyContain(
+                u => u.AuthorizationState == AuthorizationState.Reviewed, "all invited users should be reviewed after review");
+
+            foreach (var reviewedUser in reviewedUsers)
+            {
+                _createdUserIds.Enqueue(reviewedUser.Id);
+            }
+
+            return reviewedUsers;
+        }
+
+        public async Task<UserDetail> CreateAndActivateUser()
+        {
+            return (await CreateAndActivateUsers(1)).Single();
         }
     }
 }
