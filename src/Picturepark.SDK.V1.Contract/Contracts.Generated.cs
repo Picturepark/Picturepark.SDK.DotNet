@@ -1927,6 +1927,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("PermissionSetInUseException", typeof(PermissionSetInUseException))]
     [JsonInheritanceAttribute("ContentPermissionException", typeof(ContentPermissionException))]
     [JsonInheritanceAttribute("ListItemPermissionException", typeof(ListItemPermissionException))]
+    [JsonInheritanceAttribute("SchemaPermissionException", typeof(SchemaPermissionException))]
     [JsonInheritanceAttribute("UnsupportedListItemChangeCommandException", typeof(UnsupportedListItemChangeCommandException))]
     [JsonInheritanceAttribute("ListItemLayerException", typeof(ListItemLayerException))]
     [JsonInheritanceAttribute("ListItemNotFoundException", typeof(ListItemNotFoundException))]
@@ -1987,7 +1988,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("SchemaNoContentException", typeof(SchemaNoContentException))]
     [JsonInheritanceAttribute("SchemaParentChangeException", typeof(SchemaParentChangeException))]
     [JsonInheritanceAttribute("SchemaMissingTypeException", typeof(SchemaMissingTypeException))]
-    [JsonInheritanceAttribute("SchemaPermissionException", typeof(SchemaPermissionException))]
+    [JsonInheritanceAttribute("SchemaPermissionConfigurationException", typeof(SchemaPermissionConfigurationException))]
     [JsonInheritanceAttribute("SchemaNoLayerException", typeof(SchemaNoLayerException))]
     [JsonInheritanceAttribute("SchemaIdException", typeof(SchemaIdException))]
     [JsonInheritanceAttribute("SchemaInUseException", typeof(SchemaInUseException))]
@@ -3886,6 +3887,30 @@ namespace Picturepark.SDK.V1.Contract
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
     [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class SchemaPermissionException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("schemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string SchemaId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("metadataRight", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public MetadataRight MetadataRight { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static SchemaPermissionException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaPermissionException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
     public partial class UnsupportedListItemChangeCommandException : PictureparkValidationException
     {
         [Newtonsoft.Json.JsonProperty("commandType", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -5268,7 +5293,7 @@ namespace Picturepark.SDK.V1.Contract
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
     [Newtonsoft.Json.JsonObjectAttribute]
-    public partial class SchemaPermissionException : PictureparkValidationException
+    public partial class SchemaPermissionConfigurationException : PictureparkValidationException
     {
         [Newtonsoft.Json.JsonProperty("schemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string SchemaId { get; set; }
@@ -5278,9 +5303,9 @@ namespace Picturepark.SDK.V1.Contract
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
         }
     
-        public static SchemaPermissionException FromJson(string data)
+        public static SchemaPermissionConfigurationException FromJson(string data)
         {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaPermissionException>(data);
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaPermissionConfigurationException>(data);
         }
     
     }
@@ -13637,6 +13662,10 @@ namespace Picturepark.SDK.V1.Contract
         /// If not specified, all metadata languages in the system are used.</summary>
         [Newtonsoft.Json.JsonProperty("searchLanguages", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> SearchLanguages { get; set; }
+    
+        /// <summary>Limits the schemas to the ones the user has the specified MetadataRights.</summary>
+        [Newtonsoft.Json.JsonProperty("rightsFilter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public System.Collections.Generic.ICollection<MetadataRight> RightsFilter { get; set; }
     
         public string ToJson() 
         {
