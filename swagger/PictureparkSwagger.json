@@ -27974,9 +27974,9 @@
             "description": "Sets the end date and time for results based on Timestamp attribute.",
             "format": "date-time"
           },
-          "documentType": {
+          "scopeType": {
             "type": "string",
-            "description": "Optionally limits the result to only the specified document type.",
+            "description": "Optionally limits the result to only the specified scope type.",
             "nullable": true
           },
           "filter": {

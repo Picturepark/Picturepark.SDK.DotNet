@@ -12135,9 +12135,9 @@ namespace Picturepark.SDK.V1.Contract
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.DateTime To { get; set; }
     
-        /// <summary>Optionally limits the result to only the specified document type.</summary>
-        [Newtonsoft.Json.JsonProperty("documentType", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string DocumentType { get; set; }
+        /// <summary>Optionally limits the result to only the specified scope type.</summary>
+        [Newtonsoft.Json.JsonProperty("scopeType", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ScopeType { get; set; }
     
         /// <summary>An optional search filter. Limits the document result set.</summary>
         [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
