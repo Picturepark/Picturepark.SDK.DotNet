@@ -20,7 +20,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
         [Fact]
         [Trait("Stack", "LiveStream")]
-        public async Task Should_return_search_results_correctly()
+        public async Task ShouldReturnSearchResultsCorrectly()
         {
             // Arrange
             var time = DateTime.Now;
