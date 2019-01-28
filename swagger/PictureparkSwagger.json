@@ -23350,10 +23350,6 @@
             "type": "string",
             "nullable": true
           },
-          "documentTypeContract": {
-            "type": "string",
-            "nullable": true
-          },
           "documentDate": {
             "type": "string",
             "format": "date-time"
