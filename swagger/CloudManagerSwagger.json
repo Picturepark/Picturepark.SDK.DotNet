@@ -11586,6 +11586,10 @@
           "elapsedMilliseconds": {
             "type": "integer",
             "format": "int64"
+          },
+          "pageToken": {
+            "type": "string",
+            "nullable": true
           }
         }
       },
@@ -14215,6 +14219,10 @@
           "elapsedMilliseconds": {
             "type": "integer",
             "format": "int64"
+          },
+          "pageToken": {
+            "type": "string",
+            "nullable": true
           }
         }
       },
