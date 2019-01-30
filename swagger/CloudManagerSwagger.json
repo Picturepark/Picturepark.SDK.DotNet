@@ -7137,6 +7137,7 @@
                 "PermissionSetInUseException": "#/components/schemas/PermissionSetInUseException",
                 "ContentPermissionException": "#/components/schemas/ContentPermissionException",
                 "ListItemPermissionException": "#/components/schemas/ListItemPermissionException",
+                "SchemaPermissionException": "#/components/schemas/SchemaPermissionException",
                 "UnsupportedListItemChangeCommandException": "#/components/schemas/UnsupportedListItemChangeCommandException",
                 "ListItemLayerException": "#/components/schemas/ListItemLayerException",
                 "ListItemNotFoundException": "#/components/schemas/ListItemNotFoundException",
@@ -7197,7 +7198,7 @@
                 "SchemaNoContentException": "#/components/schemas/SchemaNoContentException",
                 "SchemaParentChangeException": "#/components/schemas/SchemaParentChangeException",
                 "SchemaMissingTypeException": "#/components/schemas/SchemaMissingTypeException",
-                "SchemaPermissionException": "#/components/schemas/SchemaPermissionException",
+                "SchemaPermissionConfigurationException": "#/components/schemas/SchemaPermissionConfigurationException",
                 "SchemaNoLayerException": "#/components/schemas/SchemaNoLayerException",
                 "SchemaIdException": "#/components/schemas/SchemaIdException",
                 "SchemaInUseException": "#/components/schemas/SchemaInUseException",
@@ -8971,6 +8972,29 @@
           "ManageSchema"
         ]
       },
+      "SchemaPermissionException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "metadataRight"
+            ],
+            "properties": {
+              "schemaId": {
+                "type": "string",
+                "nullable": true
+              },
+              "metadataRight": {
+                "$ref": "#/components/schemas/MetadataRight"
+              }
+            }
+          }
+        ]
+      },
       "UnsupportedListItemChangeCommandException": {
         "allOf": [
           {
@@ -10344,7 +10368,7 @@
           "Struct"
         ]
       },
-      "SchemaPermissionException": {
+      "SchemaPermissionConfigurationException": {
         "allOf": [
           {
             "$ref": "#/components/schemas/PictureparkValidationException"
@@ -11574,6 +11598,10 @@
           "elapsedMilliseconds": {
             "type": "integer",
             "format": "int64"
+          },
+          "pageToken": {
+            "type": "string",
+            "nullable": true
           }
         }
       },
@@ -14203,6 +14231,10 @@
           "elapsedMilliseconds": {
             "type": "integer",
             "format": "int64"
+          },
+          "pageToken": {
+            "type": "string",
+            "nullable": true
           }
         }
       },

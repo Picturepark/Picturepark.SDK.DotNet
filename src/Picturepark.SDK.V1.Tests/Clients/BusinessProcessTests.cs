@@ -26,7 +26,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
             // Arrange
             var request = new BusinessProcessSearchRequest
             {
-                Start = 0,
                 Limit = 20
             };
 

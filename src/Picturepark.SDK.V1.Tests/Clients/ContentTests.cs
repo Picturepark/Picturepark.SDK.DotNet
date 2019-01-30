@@ -900,7 +900,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 SearchString = "*",
                 Sort = sortInfos,
                 Filter = filter,
-                Start = 0
             };
 
             // Act
@@ -912,10 +911,9 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
         [Fact]
         [Trait("Stack", "Contents")]
-        public async Task ShouldSearchByChannel()
+        public async Task ShouldSearchByChannelAndScrollThroughResults()
         {
             string channelId = "rootChannel";
-            string searchString = "*";
 
             var sortInfos = new List<SortInfo>
             {
@@ -925,14 +923,19 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var request = new ContentSearchRequest
             {
                 ChannelId = channelId,
-                SearchString = searchString,
                 Sort = sortInfos,
-                Start = 0,
-                Limit = 8
+                Limit = 5
             };
 
-            ContentSearchResult result = await _client.Content.SearchAsync(request).ConfigureAwait(false);
-            Assert.True(result.Results.Count > 0);
+            int i = 0;
+            ContentSearchResult result;
+
+            do
+            {
+                result = await _client.Content.SearchAsync(request).ConfigureAwait(false);
+                result.Results.Should().NotBeEmpty();
+            }
+            while (++i < 3 && ((result.PageToken = result.PageToken) != null));
         }
 
         [Fact]

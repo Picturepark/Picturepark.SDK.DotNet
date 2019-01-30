@@ -229,7 +229,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
             // Act
             var request = new ShareSearchRequest
             {
-                Start = 0,
                 Limit = 100,
                 Filter = new AndFilter
                 {
