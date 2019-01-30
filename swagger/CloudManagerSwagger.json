@@ -8012,7 +8012,7 @@
       "PartialOperationNotSupportedException": {
         "allOf": [
           {
-            "$ref": "#/components/schemas/PictureparkBusinessException"
+            "$ref": "#/components/schemas/PictureparkValidationException"
           },
           {
             "type": "object",
@@ -9792,9 +9792,12 @@
               "indexedFieldThreshold"
             ],
             "properties": {
-              "schemaId": {
-                "type": "string",
-                "nullable": true
+              "schemaIds": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "type": "string"
+                }
               },
               "indexedFieldCount": {
                 "type": "number",
@@ -9821,9 +9824,12 @@
               "sortableFieldThreshold"
             ],
             "properties": {
-              "schemaId": {
-                "type": "string",
-                "nullable": true
+              "schemaIds": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "type": "string"
+                }
               },
               "sortableFieldCount": {
                 "type": "number",

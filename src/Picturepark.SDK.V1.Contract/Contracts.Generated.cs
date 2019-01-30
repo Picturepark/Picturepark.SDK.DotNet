@@ -2875,7 +2875,7 @@ namespace Picturepark.SDK.V1.Contract
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
     [Newtonsoft.Json.JsonObjectAttribute]
-    public partial class PartialOperationNotSupportedException : PictureparkBusinessException
+    public partial class PartialOperationNotSupportedException : PictureparkValidationException
     {
         public string ToJson() 
         {
@@ -4728,8 +4728,8 @@ namespace Picturepark.SDK.V1.Contract
     [Newtonsoft.Json.JsonObjectAttribute]
     public partial class IndexedFieldThresholdExceededException : PictureparkValidationException
     {
-        [Newtonsoft.Json.JsonProperty("schemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string SchemaId { get; set; }
+        [Newtonsoft.Json.JsonProperty("schemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> SchemaIds { get; set; }
     
         [Newtonsoft.Json.JsonProperty("indexedFieldCount", Required = Newtonsoft.Json.Required.Always)]
         public double IndexedFieldCount { get; set; }
@@ -4753,8 +4753,8 @@ namespace Picturepark.SDK.V1.Contract
     [Newtonsoft.Json.JsonObjectAttribute]
     public partial class SortableFieldThresholdExceededException : PictureparkValidationException
     {
-        [Newtonsoft.Json.JsonProperty("schemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string SchemaId { get; set; }
+        [Newtonsoft.Json.JsonProperty("schemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> SchemaIds { get; set; }
     
         [Newtonsoft.Json.JsonProperty("sortableFieldCount", Required = Newtonsoft.Json.Required.Always)]
         public double SortableFieldCount { get; set; }
