@@ -1,21 +1,19 @@
-﻿using Picturepark.SDK.V1.Contract.Attributes;
-using Picturepark.SDK.V1.Contract;
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using Picturepark.SDK.V1.Contract.Attributes.Analyzer;
-using Newtonsoft.Json;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
+using Picturepark.SDK.V1.Contract;
+using Picturepark.SDK.V1.Contract.Attributes;
+using Picturepark.SDK.V1.Contract.Attributes.Analyzer;
 using Picturepark.SDK.V1.Contract.SystemTypes;
-using ReferenceObject = Picturepark.SDK.V1.Contract.ReferenceObject;
 
 namespace Picturepark.SDK.V1.Conversion
 {
-    /// <summary>Converts .NET types to Picturepark schemas.</summary>
-    public class ClassToSchemaConverter
+    internal class ClassToSchemaConverter
     {
         private readonly string _defaultLanguage;
         private readonly IContractResolver _contractResolver;
@@ -49,271 +47,79 @@ namespace Picturepark.SDK.V1.Conversion
 
         /// <summary>Converts a .NET type and its dependencies to a list of Picturepark schema definitions.</summary>
         /// <param name="type">The type to generate definitions for.</param>
-        /// <param name="schemaDetails">Existing list of schemas. Pass if you need to convert several pocos and they reference the same dependant schemas (used to exclude existing schemas).</param>
+        /// <param name="schemaDetails">Existing list of schemas. Pass if you need to convert several pocos and they reference the same dependent schemas (used to exclude existing schemas).</param>
         /// <param name="generateRelatedSchemas">Generates related schemas as well. E.g. referenced pocos in lists.</param>
         /// <returns>List of schemas</returns>
         public Task<ICollection<SchemaDetail>> GenerateAsync(Type type, IEnumerable<SchemaDetail> schemaDetails, bool generateRelatedSchemas = true)
         {
             var properties = GetProperties(type);
-
-            var schemaList = schemaDetails.ToList();
-            CreateSchemas(type, properties, schemaList, 0, generateRelatedSchemas);
-
-            var sortedList = new List<SchemaDetail>();
-            foreach (var schemaItem in schemaList)
+            if (!generateRelatedSchemas)
             {
-                var dependencyList = schemaList.FindAll(s => s.Dependencies.Any(d => d.Id == schemaItem.Id));
-
-                int? index = null;
-                if (dependencyList.Any())
-                {
-                    foreach (var dependency in dependencyList)
-                    {
-                        var dependencyIndex = sortedList.FindIndex(s => s.Id == dependency.Id);
-                        if (dependencyIndex == -1)
-                            continue;
-
-                        if (!index.HasValue || index.Value > dependencyIndex)
-                            index = dependencyIndex;
-                    }
-                }
-
-                if (index.HasValue)
-                    sortedList.Insert(index.Value, schemaItem);
-                else
-                    sortedList.Add(schemaItem);
+                // only generated schema for current type
+                properties = new List<ContractTypeInfo> { properties.Single(x => x.Type == type) };
             }
 
-            return Task.FromResult((ICollection<SchemaDetail>)sortedList);
+            // sort by dependencies
+            try
+            {
+                var propertiesByType = properties.ToDictionary(x => x.Type, x => x);
+
+                var sorted = properties.TopoSort(s => s.Dependencies.Select(x => propertiesByType[x])).ToArray();
+                properties = sorted;
+            }
+            catch
+            {
+                // ignored
+            }
+
+            var schemas = GenerateSchemas(properties, schemaDetails);
+
+            return Task.FromResult(schemas);
         }
 
-        private SchemaDetail CreateSchemas(Type contractType, List<ContractPropertyInfo> properties, List<SchemaDetail> schemaList, int levelOfCall = 0, bool generateDependencySchema = true)
+        private IReadOnlyList<ContractTypeInfo> GetProperties(Type type)
         {
-            var schemaId = ResolveSchemaName(contractType);
-            if (schemaList.Any(s => s.Id == schemaId))
-                return null;
+            var result = new List<ContractTypeInfo>();
 
-            // Create schema for base class
-            var parentSchemaId = string.Empty;
-            var baseType = contractType.GetTypeInfo().BaseType;
-            if (baseType != null &&
-                baseType != typeof(object) &&
-                baseType != typeof(Relation) &&
-                baseType != typeof(ReferenceObject))
+            var typesToReflect = new VisitedTypesStack();
+            typesToReflect.Push(type);
+
+            while (typesToReflect.HasMore())
             {
-                CreateSchemas(baseType, GetProperties(baseType), schemaList);
-                parentSchemaId = ResolveSchemaName(baseType);
-            }
+                var typeToReflect = typesToReflect.Pop();
 
-            var typeAttributes = contractType.GetTypeInfo()
-                .GetCustomAttributes<PictureparkSchemaAttribute>(true)
-                .ToList();
-
-            if (!typeAttributes.Any())
-                throw new Exception($"No PictureparkSchemaTypeAttribute set on class: {contractType.Name}");
-
-            if (typeAttributes.Count > 1)
-                throw new Exception($"Multiple schema types not allowed for class: {contractType.Name}");
-
-            var schemaType = typeAttributes.Single().Type;
-
-            var schemaItem = new SchemaDetail
-            {
-                Id = schemaId,
-                Fields = new List<FieldBase>(),
-                FieldsOverwrite = new List<FieldOverwriteBase>(),
-                ParentSchemaId = parentSchemaId,
-                Names = new TranslatedStringDictionary { { _defaultLanguage, schemaId } },
-                Descriptions = new TranslatedStringDictionary(),
-                Types = new List<SchemaType> { schemaType },
-                DisplayPatterns = new List<DisplayPattern>()
-            };
-
-            if (schemaType == SchemaType.Struct ||
-                schemaType == SchemaType.Content)
-                schemaItem.ViewForAll = true;
-
-            ApplyDisplayPatternAttributes(schemaItem, contractType);
-            ApplyNameTranslationAttributes(schemaItem, contractType);
-            ApplyDescriptionTranslationAttributes(schemaItem, contractType);
-
-            var customTypes = properties.FindAll(c => c.IsCustomType);
-            if (customTypes.Any())
-            {
-                foreach (var customType in customTypes)
+                foreach (var knownType in typeToReflect.GetKnownTypes())
                 {
-                    var referencedSchemaId = customType.TypeName;
-                    if (schemaList.Any(d => d.Id == referencedSchemaId))
-                        continue;
-
-                    // Exclusion, if the customType is the contractType (it would create itself again with zero fields)
-                    if (customType.FullName == contractType.FullName)
-                        continue;
-
-                    var type = Type.GetType($"{customType.FullName}, {customType.AssemblyFullName}");
-
-                    var isSystemSchema = type.GetTypeInfo().GetCustomAttributes(typeof(PictureparkSystemSchemaAttribute), true).Any();
-                    if (isSystemSchema == false)
-                    {
-                        var subLevelOfcall = levelOfCall + 1;
-                        var dependencySchema = CreateSchemas(type, customType.TypeProperties, schemaList, subLevelOfcall, generateDependencySchema);
-
-                        // the schema can be alredy added as dependency
-                        if (schemaItem.Dependencies.Any(d => d.Id == referencedSchemaId) == false)
-                            schemaItem.Dependencies.Add(dependencySchema);
-
-                        // the schema can be alredy created
-                        if (schemaList.Any(d => d.Id == referencedSchemaId) == false && generateDependencySchema)
-                            schemaList.Add(dependencySchema);
-                    }
-                }
-            }
-
-            foreach (var property in properties)
-            {
-                if (property.IsOverwritten)
-                {
-                    var fieldOverwrite = GetFieldOverwrite(property);
-                    schemaItem.FieldsOverwrite.Add(fieldOverwrite);
-                }
-                else
-                {
-                    var field = GetField(property);
-                    schemaItem.Fields.Add(field);
-                }
-            }
-
-            if (generateDependencySchema || levelOfCall == 0)
-            {
-                // the schema can be already created
-                if (schemaList.Find(s => s.Id == schemaItem.Id) == null)
-                    schemaList.Add(schemaItem);
-            }
-
-            // Create schemas for all related known types
-            foreach (var knownType in contractType.GetKnownTypes())
-                CreateSchemas(knownType, GetProperties(knownType), schemaList);
-
-            return schemaItem;
-        }
-
-        private FieldOverwriteBase GetFieldOverwrite(ContractPropertyInfo property)
-        {
-            var tagboxAttribute = property.PictureparkAttributes
-                .OfType<PictureparkTagboxAttribute>()
-                .SingleOrDefault();
-
-            var listItemCreateTemplateAttribute = property.PictureparkAttributes
-                .OfType<PictureparkListItemCreateTemplateAttribute>()
-                .SingleOrDefault();
-
-            if (property.IsArray)
-            {
-                if (property.IsReference)
-                {
-                    return new FieldOverwriteMultiTagbox
-                    {
-                        Id = property.Name,
-                        Filter = tagboxAttribute?.Filter,
-                        Required = property.PictureparkAttributes.OfType<PictureparkRequiredAttribute>().Any(),
-                        ListItemCreateTemplate = listItemCreateTemplateAttribute?.ListItemCreateTemplate,
-                        OverwriteListItemCreateTemplate = !string.IsNullOrEmpty(listItemCreateTemplateAttribute?.ListItemCreateTemplate)
-                    };
-                }
-                else
-                {
-                    throw new InvalidOperationException("Only Tagbox properties can be overriden.");
-                }
-            }
-            else
-            {
-                if (property.IsReference)
-                {
-                    return new FieldOverwriteSingleTagbox
-                    {
-                        Id = property.Name,
-                        Filter = tagboxAttribute?.Filter,
-                        Required = property.PictureparkAttributes.OfType<PictureparkRequiredAttribute>().Any(),
-                        ListItemCreateTemplate = listItemCreateTemplateAttribute?.ListItemCreateTemplate,
-                        OverwriteListItemCreateTemplate = !string.IsNullOrEmpty(listItemCreateTemplateAttribute?.ListItemCreateTemplate)
-                    };
-                }
-                else
-                {
-                    throw new InvalidOperationException("Only Tagbox properties can be overriden.");
-                }
-            }
-        }
-
-        private void ApplyDescriptionTranslationAttributes(SchemaDetail schemaDetail, Type type)
-        {
-            var descriptionTranslationAttributes = type.GetTypeInfo()
-                .GetCustomAttributes(typeof(PictureparkDescriptionTranslationAttribute), true)
-                .Select(i => i as PictureparkDescriptionTranslationAttribute)
-                .ToList();
-
-            foreach (var translationAttribute in descriptionTranslationAttributes)
-            {
-                var language = string.IsNullOrEmpty(translationAttribute.LanguageAbbreviation)
-                    ? _defaultLanguage
-                    : translationAttribute.LanguageAbbreviation;
-                schemaDetail.Descriptions[language] = translationAttribute.Translation;
-            }
-        }
-
-        private void ApplyNameTranslationAttributes(SchemaDetail schemaDetail, Type type)
-        {
-            var nameTranslationAttributes = type.GetTypeInfo()
-                .GetCustomAttributes(typeof(PictureparkNameTranslationAttribute), true)
-                .Select(i => i as PictureparkNameTranslationAttribute)
-                .ToList();
-
-            foreach (var translationAttribute in nameTranslationAttributes)
-            {
-                var language = string.IsNullOrEmpty(translationAttribute.LanguageAbbreviation)
-                    ? _defaultLanguage
-                    : translationAttribute.LanguageAbbreviation;
-                schemaDetail.Names[language] = translationAttribute.Translation;
-            }
-        }
-
-        private void ApplyDisplayPatternAttributes(SchemaDetail schemaDetail, Type contractType)
-        {
-            var displayPatternAttributes = contractType.GetTypeInfo()
-                .GetCustomAttributes<PictureparkDisplayPatternAttribute>(true);
-
-            foreach (var displayPatternAttribute in displayPatternAttributes.GroupBy(g => new { g.Type, g.TemplateEngine }))
-            {
-                if (displayPatternAttribute.GroupBy(x => x.Language).Any(i => i.Count() > 1))
-                {
-                    throw new InvalidOperationException("Multiple display patterns for the same language are defined.");
+                    typesToReflect.Push(knownType);
                 }
 
-                // If no type is specified, set for all the types.
-                var types = displayPatternAttribute.Key.Type.HasValue
-                    ? new[] { displayPatternAttribute.Key.Type.Value }
-                    : Enum.GetValues(typeof(DisplayPatternType)).OfType<DisplayPatternType>();
-
-                foreach (var type in types)
+                var objectContract = _contractResolver.ResolveContract(typeToReflect) as JsonObjectContract;
+                if (objectContract == null)
                 {
-                    schemaDetail.DisplayPatterns.Add(new DisplayPattern
-                    {
-                        DisplayPatternType = type,
-                        TemplateEngine = displayPatternAttribute.Key.TemplateEngine,
-                        Templates = new TranslatedStringDictionary(displayPatternAttribute.ToDictionary(x => string.IsNullOrEmpty(x.Language) ? _defaultLanguage : x.Language, x => x.DisplayPattern))
-                    });
+                    continue;
                 }
-            }
-        }
 
-        private List<ContractPropertyInfo> GetProperties(Type type)
-        {
-            var contactPropertiesInfo = new List<ContractPropertyInfo>();
+                var contractTypeInfo = new ContractTypeInfo()
+                {
+                    Type = typeToReflect
+                };
 
-            var objectContract = _contractResolver.ResolveContract(type) as JsonObjectContract;
-            if (objectContract != null)
-            {
-                foreach (var property in objectContract.Properties.Where(p => p.DeclaringType == type))
+                var baseType = typeToReflect.GetTypeInfo().BaseType;
+                var parentSchemaId = string.Empty;
+
+                if (baseType != null &&
+                    baseType != typeof(object) &&
+                    baseType != typeof(Relation) &&
+                    baseType != typeof(ReferenceObject))
+                {
+                    typesToReflect.Push(baseType);
+                    contractTypeInfo.Dependencies.Add(baseType);
+                    parentSchemaId = ResolveSchemaName(baseType);
+                }
+
+                contractTypeInfo.ParentTypeName = parentSchemaId;
+
+                foreach (var property in objectContract.Properties.Where(p => p.DeclaringType == typeToReflect))
                 {
                     var typeInfo = property.PropertyType.GetTypeInfo();
                     var name = property.PropertyName;
@@ -331,7 +137,7 @@ namespace Picturepark.SDK.V1.Conversion
                     var propertyInfo = new ContractPropertyInfo()
                     {
                         Name = name,
-                        IsOverwritten = type.GetTypeInfo().BaseType?.GetRuntimeProperty(property.UnderlyingName) != null
+                        IsOverwritten = typeToReflect.GetTypeInfo().BaseType?.GetRuntimeProperty(property.UnderlyingName) != null
                     };
 
                     if (IsSimpleType(property.PropertyType))
@@ -360,17 +166,9 @@ namespace Picturepark.SDK.V1.Conversion
                                 }
                                 else
                                 {
-                                    propertyInfo.IsCustomType = true;
                                     propertyInfo.TypeName = propertyGenericArg.Name;
-                                    propertyInfo.FullName = propertyGenericArg.FullName;
-                                    propertyInfo.AssemblyFullName = propertyGenericArg.GetTypeInfo().Assembly.FullName;
-
-                                    // Check for prevention of an infinite loop
-                                    if (propertyGenericArg.FullName != type.FullName)
-                                    {
-                                        propertyInfo.TypeProperties.AddRange(
-                                            GetProperties(propertyGenericArg));
-                                    }
+                                    contractTypeInfo.Dependencies.Add(propertyGenericArg);
+                                    typesToReflect.Push(propertyGenericArg);
                                 }
 
                                 propertyInfo.IsArray = true;
@@ -384,22 +182,14 @@ namespace Picturepark.SDK.V1.Conversion
                         }
                         else
                         {
-                            propertyInfo.IsCustomType = true;
                             propertyInfo.TypeName = property.PropertyType.Name;
-                            propertyInfo.FullName = property.PropertyType.FullName;
-                            propertyInfo.AssemblyFullName = typeInfo.Assembly.FullName;
-
                             if (typeInfo.GetCustomAttribute<PictureparkReferenceAttribute>() != null)
                             {
                                 propertyInfo.IsReference = true;
                             }
 
-                            // Check for prevention of an infinite loop
-                            if (property.PropertyType.FullName != type.FullName)
-                            {
-                                propertyInfo.TypeProperties.AddRange(
-                                    GetProperties(property.PropertyType));
-                            }
+                            contractTypeInfo.Dependencies.Add(property.PropertyType);
+                            typesToReflect.Push(property.PropertyType);
                         }
                     }
 
@@ -409,11 +199,16 @@ namespace Picturepark.SDK.V1.Conversion
                         .Where(i => i != null)
                         .ToList();
 
-                    contactPropertiesInfo.Add(propertyInfo);
+                    contractTypeInfo.Properties.Add(propertyInfo);
                 }
+
+                // dependencies on the same type need to be removed
+                contractTypeInfo.Dependencies.Remove(contractTypeInfo.Type);
+
+                result.Add(contractTypeInfo);
             }
 
-            return contactPropertiesInfo;
+            return result;
         }
 
         private void HandleSimpleTypes(JsonProperty property, ContractPropertyInfo propertyInfo)
@@ -427,9 +222,6 @@ namespace Picturepark.SDK.V1.Conversion
                 var propertyGenericArg = property.PropertyType.GenericTypeArguments.First();
                 var underlyingType = Nullable.GetUnderlyingType(propertyGenericArg);
                 propertyGenericArg = underlyingType ?? propertyGenericArg;
-
-                propertyInfo.FullName = propertyGenericArg.FullName;
-                propertyInfo.AssemblyFullName = propertyGenericArg.GetTypeInfo().Assembly.FullName;
 
                 if (propertyGenericArg.GetTypeInfo().IsEnum)
                 {
@@ -465,15 +257,206 @@ namespace Picturepark.SDK.V1.Conversion
                         .Invoke(null, new object[] { property.PropertyType })
                         .ToString();
                 }
-
-                propertyInfo.FullName = property.PropertyType.FullName;
-                propertyInfo.AssemblyFullName = typeInfo.Assembly.FullName;
             }
+        }
+
+        private bool IsSimpleType(Type type)
+        {
+            return
+                type.GetTypeInfo().IsValueType ||
+                type.GetTypeInfo().IsPrimitive ||
+                new[]
+                {
+                    typeof(string),
+                    typeof(decimal),
+                    typeof(DateTime),
+                    typeof(DateTimeOffset),
+                    typeof(TimeSpan),
+                    typeof(Guid)
+                }.Contains(type) ||
+                Convert.GetTypeCode(type) != TypeCode.Object;
+        }
+
+        private ICollection<SchemaDetail> GenerateSchemas(IReadOnlyList<ContractTypeInfo> schemaInfos, IEnumerable<SchemaDetail> existingSchemas)
+        {
+            var result = new List<SchemaDetail>();
+
+            foreach (var schemaInfo in schemaInfos)
+            {
+                var type = schemaInfo.Type;
+                var properties = schemaInfo.Properties;
+
+                // ignore system schemas
+                var isSystemSchema = type.GetTypeInfo().GetCustomAttributes(typeof(PictureparkSystemSchemaAttribute), true).Any();
+                if (isSystemSchema)
+                {
+                    continue;
+                }
+
+                var schemaId = ResolveSchemaName(type);
+                if (existingSchemas.Any(s => s.Id == schemaId))
+                {
+                    continue;
+                }
+
+                var typeAttributes = type.GetTypeInfo()
+                    .GetCustomAttributes<PictureparkSchemaAttribute>(true)
+                    .ToList();
+
+                if (!typeAttributes.Any())
+                    throw new Exception($"No PictureparkSchemaTypeAttribute set on class: {type.Name}");
+
+                if (typeAttributes.Count > 1)
+                    throw new Exception($"Multiple schema types not allowed for class: {type.Name}");
+
+                var schemaType = typeAttributes.Single().Type;
+
+                var schema = new SchemaDetail()
+                {
+                    Id = schemaId,
+                    Fields = new List<FieldBase>(),
+                    FieldsOverwrite = new List<FieldOverwriteBase>(),
+                    ParentSchemaId = schemaInfo.ParentTypeName,
+                    Names = new TranslatedStringDictionary { { _defaultLanguage, schemaId } },
+                    Descriptions = new TranslatedStringDictionary(),
+                    Types = new List<SchemaType> { schemaType },
+                    DisplayPatterns = new List<DisplayPattern>()
+                };
+
+                if (schemaType == SchemaType.Struct ||
+                    schemaType == SchemaType.Content)
+                    schema.ViewForAll = true;
+
+                ApplyDisplayPatternAttributes(schema, type);
+                ApplyNameTranslationAttributes(schema, type);
+                ApplyDescriptionTranslationAttributes(schema, type);
+
+                foreach (var property in properties)
+                {
+                    if (property.IsOverwritten)
+                    {
+                        var fieldOverwrite = GetFieldOverwrite(property);
+                        schema.FieldsOverwrite.Add(fieldOverwrite);
+                    }
+                    else
+                    {
+                        var field = GetField(property);
+                        schema.Fields.Add(field);
+                    }
+                }
+
+                result.Add(schema);
+            }
+
+            return result;
+        }
+
+        private void ApplyDisplayPatternAttributes(SchemaDetail schemaDetail, Type contractType)
+        {
+            var displayPatternAttributes = contractType.GetTypeInfo()
+                .GetCustomAttributes<PictureparkDisplayPatternAttribute>(true);
+
+            foreach (var displayPatternAttribute in displayPatternAttributes.GroupBy(g => new { g.Type, g.TemplateEngine }))
+            {
+                if (displayPatternAttribute.GroupBy(x => x.Language).Any(i => i.Count() > 1))
+                {
+                    throw new InvalidOperationException("Multiple display patterns for the same language are defined.");
+                }
+
+                // If no type is specified, set for all the types.
+                var types = displayPatternAttribute.Key.Type.HasValue
+                    ? new[] { displayPatternAttribute.Key.Type.Value }
+                    : Enum.GetValues(typeof(DisplayPatternType)).OfType<DisplayPatternType>();
+
+                foreach (var type in types)
+                {
+                    schemaDetail.DisplayPatterns.Add(new DisplayPattern
+                    {
+                        DisplayPatternType = type,
+                        TemplateEngine = displayPatternAttribute.Key.TemplateEngine,
+                        Templates = new TranslatedStringDictionary(displayPatternAttribute.ToDictionary(x => string.IsNullOrEmpty(x.Language) ? _defaultLanguage : x.Language, x => x.DisplayPattern))
+                    });
+                }
+            }
+        }
+
+        private void ApplyNameTranslationAttributes(SchemaDetail schemaDetail, Type type)
+        {
+            var nameTranslationAttributes = type.GetTypeInfo()
+                .GetCustomAttributes(typeof(PictureparkNameTranslationAttribute), true)
+                .Select(i => i as PictureparkNameTranslationAttribute)
+                .ToList();
+
+            foreach (var translationAttribute in nameTranslationAttributes)
+            {
+                var language = string.IsNullOrEmpty(translationAttribute.LanguageAbbreviation)
+                    ? _defaultLanguage
+                    : translationAttribute.LanguageAbbreviation;
+                schemaDetail.Names[language] = translationAttribute.Translation;
+            }
+        }
+
+        private void ApplyDescriptionTranslationAttributes(SchemaDetail schemaDetail, Type type)
+        {
+            var descriptionTranslationAttributes = type.GetTypeInfo()
+                .GetCustomAttributes(typeof(PictureparkDescriptionTranslationAttribute), true)
+                .Select(i => i as PictureparkDescriptionTranslationAttribute)
+                .ToList();
+
+            foreach (var translationAttribute in descriptionTranslationAttributes)
+            {
+                var language = string.IsNullOrEmpty(translationAttribute.LanguageAbbreviation)
+                    ? _defaultLanguage
+                    : translationAttribute.LanguageAbbreviation;
+                schemaDetail.Descriptions[language] = translationAttribute.Translation;
+            }
+        }
+
+        private FieldOverwriteBase GetFieldOverwrite(ContractPropertyInfo property)
+        {
+            var tagboxAttribute = property.PictureparkAttributes
+                .OfType<PictureparkTagboxAttribute>()
+                .SingleOrDefault();
+
+            var listItemCreateTemplateAttribute = property.PictureparkAttributes
+                .OfType<PictureparkListItemCreateTemplateAttribute>()
+                .SingleOrDefault();
+
+            if (property.IsArray)
+            {
+                if (property.IsReference)
+                {
+                    return new FieldOverwriteMultiTagbox
+                    {
+                        Id = property.Name,
+                        Filter = tagboxAttribute?.Filter,
+                        Required = property.PictureparkAttributes.OfType<PictureparkRequiredAttribute>().Any(),
+                        ListItemCreateTemplate = listItemCreateTemplateAttribute?.ListItemCreateTemplate,
+                        OverwriteListItemCreateTemplate = !string.IsNullOrEmpty(listItemCreateTemplateAttribute?.ListItemCreateTemplate)
+                    };
+                }
+
+                throw new InvalidOperationException("Only Tagbox properties can be overriden.");
+            }
+
+            if (property.IsReference)
+            {
+                return new FieldOverwriteSingleTagbox
+                {
+                    Id = property.Name,
+                    Filter = tagboxAttribute?.Filter,
+                    Required = property.PictureparkAttributes.OfType<PictureparkRequiredAttribute>().Any(),
+                    ListItemCreateTemplate = listItemCreateTemplateAttribute?.ListItemCreateTemplate,
+                    OverwriteListItemCreateTemplate = !string.IsNullOrEmpty(listItemCreateTemplateAttribute?.ListItemCreateTemplate)
+                };
+            }
+
+            throw new InvalidOperationException("Only Tagbox properties can be overriden.");
         }
 
         private FieldBase GetField(ContractPropertyInfo property)
         {
-            FieldBase field = null;
+            FieldBase field;
 
             if (property.IsDictionary)
             {
@@ -508,13 +491,13 @@ namespace Picturepark.SDK.V1.Conversion
             }
             else if (property.IsEnum)
             {
-                throw new NotSupportedException("Enum types are not supported in Class to Schema convertion");
+                throw new NotSupportedException("Enum types are not supported in Class to Schema conversion");
             }
             else if (property.IsSimpleType)
             {
                 if (!Enum.TryParse(property.TypeName, out TypeCode typeCode))
                 {
-                    throw new Exception($"Parsing to TypeCode enumarated object failed for string value: {property.TypeName}.");
+                    throw new Exception($"Parsing to TypeCode enumerated object failed for string value: {property.TypeName}.");
                 }
 
                 if (property.IsArray)
@@ -804,27 +787,34 @@ namespace Picturepark.SDK.V1.Conversion
                 property.PictureparkAttributes.OfType<PictureparkDateTypeAttribute>().FirstOrDefault();
             var format = dateAttribute?.Format;
 
-            if (dateAttribute == null || dateAttribute.ContainsTimePortion)
-                return new FieldDateTime { Index = true, Format = format };
-            else
-                return new FieldDate { Index = true, Format = format };
+            return dateAttribute == null || dateAttribute.ContainsTimePortion
+                ? (FieldBase)new FieldDateTime { Index = true, Format = format }
+                : new FieldDate { Index = true, Format = format };
         }
 
-        private bool IsSimpleType(Type type)
+        private class VisitedTypesStack
         {
-            return
-                type.GetTypeInfo().IsValueType ||
-                type.GetTypeInfo().IsPrimitive ||
-                new[]
+            private readonly HashSet<Type> _seenTypes = new HashSet<Type>();
+            private readonly Stack<Type> _backingStack = new Stack<Type>();
+
+            public void Push(Type t)
+            {
+                if (!_seenTypes.Contains(t))
                 {
-                    typeof(string),
-                    typeof(decimal),
-                    typeof(DateTime),
-                    typeof(DateTimeOffset),
-                    typeof(TimeSpan),
-                    typeof(Guid)
-                }.Contains(type) ||
-                Convert.GetTypeCode(type) != TypeCode.Object;
+                    _seenTypes.Add(t);
+                    _backingStack.Push(t);
+                }
+            }
+
+            public Type Pop()
+            {
+                return _backingStack.Pop();
+            }
+
+            public bool HasMore()
+            {
+                return _backingStack.Count > 0;
+            }
         }
     }
 }

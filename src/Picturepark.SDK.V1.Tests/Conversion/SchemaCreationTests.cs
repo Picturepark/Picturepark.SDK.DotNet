@@ -243,5 +243,32 @@ namespace Picturepark.SDK.V1.Tests.Conversion
         public class ClassContent
         {
         }
+
+        [Fact]
+        [Trait("Stack", "SchemaCreation")]
+        public async Task ShouldSupportCyclicDependencies()
+        {
+            var schemas = await _client.Schema.GenerateSchemasAsync(typeof(Employee)).ConfigureAwait(false);
+            schemas.Count.Should().Be(2);
+
+            var employeeSchema = schemas.Single(x => x.Id == nameof(Employee));
+            var departmentReference = employeeSchema.Fields.Single(x => x.Id.ToLower() == nameof(Employee.MemberOf).ToLower());
+
+            departmentReference.Should().BeOfType<FieldSingleTagbox>();
+        }
+
+        [PictureparkSchema(SchemaType.List)]
+        [PictureparkReference]
+        public class Employee
+        {
+            public Department MemberOf { get; set; }
+        }
+
+        [PictureparkSchema(SchemaType.List)]
+        [PictureparkReference]
+        public class Department
+        {
+            public Employee Supervisor { get; set; }
+        }
     }
 }
