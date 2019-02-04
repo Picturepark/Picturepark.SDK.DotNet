@@ -37,6 +37,19 @@ namespace Picturepark.SDK.V1.Tests.Fixtures
             return createdSchemas;
         }
 
+        public async Task<IReadOnlyList<SchemaDetail>> RandomizeSchemaIdsAndCreateMany(IEnumerable<SchemaDetail> schemas)
+        {
+            var schemaSuffix = new Random().Next(0, 1000000);
+
+            foreach (var schema in schemas)
+            {
+                AppendSchemaIdSuffix(schema, schemaSuffix);
+            }
+
+            var result = await Client.Schema.CreateManyAsync(schemas, true, TimeSpan.FromMinutes(1)).ConfigureAwait(false);
+            return result.ToArray();
+        }
+
         public override void Dispose()
         {
             lock (_disposeSync)

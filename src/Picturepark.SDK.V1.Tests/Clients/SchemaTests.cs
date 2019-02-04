@@ -8,6 +8,7 @@ using Picturepark.SDK.V1.Tests.Contracts;
 using Picturepark.SDK.V1.Contract;
 using Picturepark.SDK.V1.Tests.Fixtures;
 using Newtonsoft.Json;
+using Picturepark.SDK.V1.Contract.Attributes;
 
 namespace Picturepark.SDK.V1.Tests.Clients
 {
@@ -355,7 +356,39 @@ namespace Picturepark.SDK.V1.Tests.Clients
             indexedFields.Count.Should().Be(2);
         }
 
+        [Fact]
+        [Trait("Stack", "Schema")]
+        public async Task ShouldCreateSimpleCyclicDependency()
+        {
+            // Arrange
+            var schemas = await _client.Schema.GenerateSchemasAsync(typeof(Employee)).ConfigureAwait(false);
+
+            // act
+            var result = await _fixture.RandomizeSchemaIdsAndCreateMany(schemas).ConfigureAwait(false);
+
+            // assert
+            result.Should().HaveCount(2);
+        }
+
         private void AppendSchemaIdSuffix(SchemaDetail schema, int schemaSuffix)
             => _fixture.AppendSchemaIdSuffix(schema, schemaSuffix);
+
+        [PictureparkReference]
+        [PictureparkSchema(SchemaType.List)]
+        public class Employee
+        {
+            public string Name { get; set; }
+
+            public Department MemberOf { get; set; }
+        }
+
+        [PictureparkReference]
+        [PictureparkSchema(SchemaType.List)]
+        public class Department
+        {
+            public string Name { get; set; }
+
+            public IList<Employee> Supervisors { get; set; }
+        }
     }
 }

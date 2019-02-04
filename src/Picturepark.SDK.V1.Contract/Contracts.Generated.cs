@@ -885,22 +885,6 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         System.Threading.Tasks.Task<System.Collections.Generic.ICollection<IndexField>> GetIndexFieldsAsync(IndexFieldsSearchBySchemaIdsRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
-        /// <summary>Create schema</summary>
-        /// <param name="schemas">The schema create many request.</param>
-        /// <param name="timeout">Maximum time to wait for the operation to complete. If timeout is exceeded, the operation is not aborted but continues anyhow.
-        ///             Only the waiting is aborted, and the calls returned.</param>
-        /// <returns>Schema create result, containing the created schemas</returns>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="DuplicateSchemaException">One or more schemas in the request already exist</exception>
-        /// <exception cref="PictureparkArgumentNullException">Argument must not be null</exception>
-        /// <exception cref="SchemaValidationException">One or more schemas failed to validate</exception>
-        /// <exception cref="PictureparkValidationException">Validation exception</exception>
-        /// <exception cref="PictureparkException">Internal server error</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
-        /// <exception cref="PictureparkConflictException">Version conflict</exception>
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<SchemaCreateResult> CreateManyAsync(SchemaCreateManyRequest schemas, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-    
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "12.0.9.0 (NJsonSchema v9.13.10.0 (Newtonsoft.Json v11.0.0.0))")]
@@ -10518,9 +10502,6 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("documentType", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string DocumentType { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("documentTypeContract", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string DocumentTypeContract { get; set; }
-    
         [Newtonsoft.Json.JsonProperty("documentDate", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.DateTime DocumentDate { get; set; }
@@ -13941,6 +13922,26 @@ namespace Picturepark.SDK.V1.Contract
         public static SchemaCreateRequest FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaCreateRequest>(data);
+        }
+    
+    }
+    
+    /// <summary>Result of a schema create many operation</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class SchemaCreateManyResult 
+    {
+        /// <summary>The details of the created schemas.</summary>
+        [Newtonsoft.Json.JsonProperty("schemas", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<SchemaDetail> Schemas { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static SchemaCreateManyResult FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaCreateManyResult>(data);
         }
     
     }

@@ -15753,7 +15753,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        public async System.Threading.Tasks.Task<SchemaCreateResult> CreateManyAsync(SchemaCreateManyRequest schemas, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        protected async System.Threading.Tasks.Task<SchemaCreateManyResult> CreateManyCoreAsync(SchemaCreateManyRequest schemas, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/schemas/many?");
@@ -15795,10 +15795,10 @@ namespace Picturepark.SDK.V1
                         if (status_ == "200") 
                         {
                             var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            var result_ = default(SchemaCreateResult); 
+                            var result_ = default(SchemaCreateManyResult); 
                             try
                             {
-                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaCreateResult>(responseData_, _settings.Value);
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaCreateManyResult>(responseData_, _settings.Value);
                                 return result_; 
                             } 
                             catch (System.Exception exception_) 
@@ -15911,7 +15911,7 @@ namespace Picturepark.SDK.V1
                             throw new ApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", (int)response_.StatusCode, responseData_, headers_, null);
                         }
             
-                        return default(SchemaCreateResult);
+                        return default(SchemaCreateManyResult);
                     }
                     finally
                     {

@@ -80,16 +80,18 @@ namespace Picturepark.SDK.V1
             return await CreateAsync(schemaDetail, timeout, cancellationToken).ConfigureAwait(false);
         }
 
-        public async Task CreateManyAsync(ICollection<SchemaDetail> schemaDetails, bool enableForBinaryFiles, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<ICollection<SchemaDetail>> CreateManyAsync(IEnumerable<SchemaDetail> schemaDetails, bool enableForBinaryFiles, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
         {
+            if (!schemaDetails.Any())
+            {
+                return new List<SchemaDetail>();
+            }
+
             var request = new SchemaCreateManyRequest();
 
             // Map schema to binary schemas
             foreach (var schemaDetail in schemaDetails)
             {
-                if (await ExistsAsync(schemaDetail.Id, null, cancellationToken).ConfigureAwait(false))
-                    continue;
-
                 if (enableForBinaryFiles && schemaDetail.Types.Contains(SchemaType.Layer))
                 {
                     var binarySchemas = new List<string>
@@ -104,28 +106,12 @@ namespace Picturepark.SDK.V1
                     schemaDetail.ReferencedInContentSchemaIds = binarySchemas;
                 }
 
-                var createRequest = new SchemaCreateRequest
-                {
-                    Aggregations = schemaDetail.Aggregations,
-                    Descriptions = schemaDetail.Descriptions,
-                    DisplayPatterns = schemaDetail.DisplayPatterns,
-                    Fields = schemaDetail.Fields,
-                    Id = schemaDetail.Id,
-                    SchemaPermissionSetIds = schemaDetail.SchemaPermissionSetIds,
-                    Names = schemaDetail.Names,
-                    ParentSchemaId = schemaDetail.ParentSchemaId,
-                    ViewForAll = schemaDetail.ViewForAll,
-                    ReferencedInContentSchemaIds = schemaDetail.ReferencedInContentSchemaIds,
-                    Sort = schemaDetail.Sort,
-                    Types = schemaDetail.Types,
-                    LayerSchemaIds = schemaDetail.LayerSchemaIds
-                };
-
+                var createRequest = MapSchemaDetailToCreateRequest(schemaDetail);
                 request.Schemas.Add(createRequest);
             }
 
-            if (request.Schemas.Any())
-                await CreateManyAsync(request, timeout, cancellationToken).ConfigureAwait(false);
+            var result = await CreateManyCoreAsync(request, timeout, cancellationToken).ConfigureAwait(false);
+            return result.Schemas;
         }
 
         /// <summary>Creates the given <see cref="SchemaDetail"/>.</summary>
@@ -136,22 +122,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="ApiException">A server side error occurred.</exception>
         public async Task<SchemaCreateResult> CreateAsync(SchemaDetail schemaDetail, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
         {
-            var createRequest = new SchemaCreateRequest
-            {
-                Aggregations = schemaDetail.Aggregations,
-                Descriptions = schemaDetail.Descriptions,
-                DisplayPatterns = schemaDetail.DisplayPatterns,
-                Fields = schemaDetail.Fields,
-                Id = schemaDetail.Id,
-                SchemaPermissionSetIds = schemaDetail.SchemaPermissionSetIds,
-                Names = schemaDetail.Names,
-                ParentSchemaId = schemaDetail.ParentSchemaId,
-                ViewForAll = schemaDetail.ViewForAll,
-                ReferencedInContentSchemaIds = schemaDetail.ReferencedInContentSchemaIds,
-                Sort = schemaDetail.Sort,
-                Types = schemaDetail.Types,
-                LayerSchemaIds = schemaDetail.LayerSchemaIds
-            };
+            var createRequest = MapSchemaDetailToCreateRequest(schemaDetail);
 
             return await CreateAsync(createRequest, timeout, cancellationToken).ConfigureAwait(false);
         }
@@ -206,6 +177,28 @@ namespace Picturepark.SDK.V1
         public async Task<bool> ExistsAsync(string schemaId, string fieldId = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             return (await ExistsCoreAsync(schemaId, null, cancellationToken).ConfigureAwait(false)).Exists;
+        }
+
+        private SchemaCreateRequest MapSchemaDetailToCreateRequest(SchemaDetail schemaDetail)
+        {
+            var createRequest = new SchemaCreateRequest
+            {
+                Aggregations = schemaDetail.Aggregations,
+                Descriptions = schemaDetail.Descriptions,
+                DisplayPatterns = schemaDetail.DisplayPatterns,
+                Fields = schemaDetail.Fields,
+                Id = schemaDetail.Id,
+                SchemaPermissionSetIds = schemaDetail.SchemaPermissionSetIds,
+                Names = schemaDetail.Names,
+                ParentSchemaId = schemaDetail.ParentSchemaId,
+                ViewForAll = schemaDetail.ViewForAll,
+                ReferencedInContentSchemaIds = schemaDetail.ReferencedInContentSchemaIds,
+                Sort = schemaDetail.Sort,
+                Types = schemaDetail.Types,
+                LayerSchemaIds = schemaDetail.LayerSchemaIds
+            };
+
+            return createRequest;
         }
     }
 }

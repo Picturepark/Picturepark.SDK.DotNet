@@ -10517,7 +10517,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/SchemaCreateResult"
+                  "$ref": "#/components/schemas/SchemaCreateManyResult"
                 }
               }
             }
@@ -26340,10 +26340,6 @@
             "type": "string",
             "nullable": true
           },
-          "documentTypeContract": {
-            "type": "string",
-            "nullable": true
-          },
           "documentDate": {
             "type": "string",
             "format": "date-time"
@@ -30187,6 +30183,21 @@
             "nullable": true,
             "items": {
               "type": "string"
+            }
+          }
+        }
+      },
+      "SchemaCreateManyResult": {
+        "type": "object",
+        "description": "Result of a schema create many operation",
+        "additionalProperties": false,
+        "properties": {
+          "schemas": {
+            "type": "array",
+            "description": "The details of the created schemas.",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/SchemaDetail"
             }
           }
         }

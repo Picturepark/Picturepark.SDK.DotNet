@@ -270,5 +270,52 @@ namespace Picturepark.SDK.V1.Tests.Conversion
         {
             public Employee Supervisor { get; set; }
         }
+
+        [Fact]
+        [Trait("Stack", "SchemaCreation")]
+        public async Task ShouldSupportCyclicDependenciesWithIndirectCycle()
+        {
+            var schemas = await _client.Schema.GenerateSchemasAsync(typeof(Country)).ConfigureAwait(false);
+            schemas.Count.Should().Be(3);
+
+            var countrySchema = schemas.Single(x => x.Id == nameof(Country));
+            countrySchema.Fields.Should().HaveCount(2);
+            countrySchema.Fields.OfType<FieldSingleTagbox>().Single().SchemaId.Should().Be(nameof(City));
+
+            var stateSchema = schemas.Single(x => x.Id == nameof(State));
+            stateSchema.Fields.Should().HaveCount(2);
+            stateSchema.Fields.OfType<FieldSingleTagbox>().Single().SchemaId.Should().Be(nameof(Country));
+
+            var citySchema = schemas.Single(x => x.Id == nameof(City));
+            citySchema.Fields.Should().HaveCount(2);
+            citySchema.Fields.OfType<FieldSingleTagbox>().Single().SchemaId.Should().Be(nameof(State));
+        }
+
+        [PictureparkSchema(SchemaType.List)]
+        [PictureparkReference]
+        public class Country
+        {
+            public string Name { get; set; }
+
+            public City Capital { get; set; }
+        }
+
+        [PictureparkSchema(SchemaType.List)]
+        [PictureparkReference]
+        public class State
+        {
+            public string Name { get; set; }
+
+            public Country Country { get; set; }
+        }
+
+        [PictureparkSchema(SchemaType.List)]
+        [PictureparkReference]
+        public class City
+        {
+            public string Name { get; set; }
+
+            public State State { get; set; }
+        }
     }
 }
