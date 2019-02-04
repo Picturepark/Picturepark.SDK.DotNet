@@ -31,6 +31,14 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>The task.</returns>
         Task<SchemaCreateResult> CreateAsync(SchemaDetail schemaDetail, bool enableForBinaryFiles, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken));
 
+        /// <summary>
+        /// Create the given enumerable of <see cref="SchemaDetail"/>.
+        /// </summary>
+        /// <param name="schemaDetails">The schema details.</param>
+        /// <param name="enableForBinaryFiles">Specifies whether to enable the schemas for binary files.</param>
+        /// <param name="timeout">Maximum time to wait for the operation to complete.</param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>The collection of created schemas.</returns>
         Task<ICollection<SchemaDetail>> CreateManyAsync(IEnumerable<SchemaDetail> schemaDetails, bool enableForBinaryFiles, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>Creates the given <see cref="SchemaDetail"/>.</summary>

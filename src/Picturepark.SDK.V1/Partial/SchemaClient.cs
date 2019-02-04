@@ -20,6 +20,7 @@ namespace Picturepark.SDK.V1
         }
 
         /// <summary>Generates the <see cref="SchemaDetail"/>s for the given type and the referenced types.</summary>
+        /// <remarks>Note: When generating multiple schemas or schemas for types with dependencies, please use the CreateMany method to create them at the server to avoid dependency problems.</remarks>
         /// <param name="type">The type.</param>
         /// <param name="schemaDetails">The existing schema details.</param>
         /// <param name="generateDependencySchema">Specifies whether to generate dependent schemas.</param>
@@ -80,6 +81,7 @@ namespace Picturepark.SDK.V1
             return await CreateAsync(schemaDetail, timeout, cancellationToken).ConfigureAwait(false);
         }
 
+        /// <inheritdoc />
         public async Task<ICollection<SchemaDetail>> CreateManyAsync(IEnumerable<SchemaDetail> schemaDetails, bool enableForBinaryFiles, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (!schemaDetails.Any())
@@ -110,7 +112,7 @@ namespace Picturepark.SDK.V1
                 request.Schemas.Add(createRequest);
             }
 
-            var result = await CreateManyCoreAsync(request, timeout, cancellationToken).ConfigureAwait(false);
+            var result = await CreateManyAsync(request, timeout, cancellationToken).ConfigureAwait(false);
             return result.Schemas;
         }
 

@@ -885,6 +885,22 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         System.Threading.Tasks.Task<System.Collections.Generic.ICollection<IndexField>> GetIndexFieldsAsync(IndexFieldsSearchBySchemaIdsRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
+        /// <summary>Create schema</summary>
+        /// <param name="schemas">The schema create many request.</param>
+        /// <param name="timeout">Maximum time to wait for the operation to complete. If timeout is exceeded, the operation is not aborted but continues anyhow.
+        ///             Only the waiting is aborted, and the calls returned.</param>
+        /// <returns>Schema create result, containing the created schemas</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="DuplicateSchemaException">One or more schemas in the request already exist</exception>
+        /// <exception cref="PictureparkArgumentNullException">Argument must not be null</exception>
+        /// <exception cref="SchemaValidationException">One or more schemas failed to validate</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        System.Threading.Tasks.Task<SchemaCreateManyResult> CreateManyAsync(SchemaCreateManyRequest schemas, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "12.0.9.0 (NJsonSchema v9.13.10.0 (Newtonsoft.Json v11.0.0.0))")]

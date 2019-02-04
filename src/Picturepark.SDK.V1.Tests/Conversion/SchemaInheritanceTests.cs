@@ -31,14 +31,14 @@ namespace Picturepark.SDK.V1.Tests.Conversion
             Assert.Equal(2, schemas.Count);
 
             // check person
-            var person = schemas.First();
+            var person = schemas.First(x => x.Id == "Person");
             Assert.Equal(3, person.Fields.Count);
             Assert.Equal(0, person.FieldsOverwrite.Count);
 
             Assert.False(person.Fields.First(f => f.Id == "parent").Required);
 
             // check teacher
-            var teacher = schemas.Last();
+            var teacher = schemas.Last(x => x.Id == "Teacher");
             Assert.Equal(0, teacher.Fields.Count);
             Assert.Equal(1, teacher.FieldsOverwrite.Count);
 

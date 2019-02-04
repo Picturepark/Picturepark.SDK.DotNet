@@ -17,7 +17,7 @@ namespace Picturepark.SDK.V1.Conversion
     {
         private readonly string _defaultLanguage;
         private readonly IContractResolver _contractResolver;
-        private readonly HashSet<string> _ignoredProperties = new HashSet<string> { "_refId", "_relationType", "_targetDocType", "_targetId" };
+        private readonly HashSet<string> _ignoredProperties = new HashSet<string> { "_refId", "_relationType", "_targetDocType", "_targetId", "_sourceDocType" };
 
         public ClassToSchemaConverter(string defaultLanguage)
             : this(new CamelCasePropertyNamesContractResolver())
@@ -59,21 +59,7 @@ namespace Picturepark.SDK.V1.Conversion
                 properties = new List<ContractTypeInfo> { properties.Single(x => x.Type == type) };
             }
 
-            // sort by dependencies
-            try
-            {
-                var propertiesByType = properties.ToDictionary(x => x.Type, x => x);
-
-                var sorted = properties.TopoSort(s => s.Dependencies.Select(x => propertiesByType[x])).ToArray();
-                properties = sorted;
-            }
-            catch
-            {
-                // ignored
-            }
-
             var schemas = GenerateSchemas(properties, schemaDetails);
-
             return Task.FromResult(schemas);
         }
 
