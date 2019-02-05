@@ -29,7 +29,8 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var request = new LiveStreamSearchRequest
             {
                 Limit = 10,
-                From = time
+                From = time,
+                ScopeType = "DocumentChange"
             };
 
             // Act

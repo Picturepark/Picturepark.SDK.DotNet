@@ -17621,6 +17621,7 @@
                 "PermissionSetInUseException": "#/components/schemas/PermissionSetInUseException",
                 "ContentPermissionException": "#/components/schemas/ContentPermissionException",
                 "ListItemPermissionException": "#/components/schemas/ListItemPermissionException",
+                "SchemaPermissionException": "#/components/schemas/SchemaPermissionException",
                 "UnsupportedListItemChangeCommandException": "#/components/schemas/UnsupportedListItemChangeCommandException",
                 "ListItemLayerException": "#/components/schemas/ListItemLayerException",
                 "ListItemNotFoundException": "#/components/schemas/ListItemNotFoundException",
@@ -17681,7 +17682,7 @@
                 "SchemaNoContentException": "#/components/schemas/SchemaNoContentException",
                 "SchemaParentChangeException": "#/components/schemas/SchemaParentChangeException",
                 "SchemaMissingTypeException": "#/components/schemas/SchemaMissingTypeException",
-                "SchemaPermissionException": "#/components/schemas/SchemaPermissionException",
+                "SchemaPermissionConfigurationException": "#/components/schemas/SchemaPermissionConfigurationException",
                 "SchemaNoLayerException": "#/components/schemas/SchemaNoLayerException",
                 "SchemaIdException": "#/components/schemas/SchemaIdException",
                 "SchemaInUseException": "#/components/schemas/SchemaInUseException",
@@ -19444,6 +19445,29 @@
           "ManageSchema"
         ]
       },
+      "SchemaPermissionException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "metadataRight"
+            ],
+            "properties": {
+              "schemaId": {
+                "type": "string",
+                "nullable": true
+              },
+              "metadataRight": {
+                "$ref": "#/components/schemas/MetadataRight"
+              }
+            }
+          }
+        ]
+      },
       "UnsupportedListItemChangeCommandException": {
         "allOf": [
           {
@@ -20817,7 +20841,7 @@
           "Struct"
         ]
       },
-      "SchemaPermissionException": {
+      "SchemaPermissionConfigurationException": {
         "allOf": [
           {
             "$ref": "#/components/schemas/PictureparkValidationException"
@@ -26250,10 +26274,6 @@
             "type": "string",
             "nullable": true
           },
-          "documentTypeContract": {
-            "type": "string",
-            "nullable": true
-          },
           "documentDate": {
             "type": "string",
             "format": "date-time"
@@ -27929,21 +27949,25 @@
             "type": "string",
             "nullable": true
           },
-          "rev": {
-            "type": "string",
-            "nullable": true
-          },
           "document": {
             "type": "string",
             "nullable": true
           },
-          "documentType": {
+          "scopeType": {
             "type": "string",
             "nullable": true
           },
           "timestamp": {
             "type": "string",
             "format": "date-time"
+          },
+          "traceJob": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/LiveStreamTraceJob"
+              }
+            ]
           },
           "audit": {
             "nullable": true,
@@ -27952,6 +27976,28 @@
                 "$ref": "#/components/schemas/UserAudit"
               }
             ]
+          }
+        }
+      },
+      "LiveStreamTraceJob": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "traceJobId": {
+            "type": "string",
+            "nullable": true
+          },
+          "ipAddress": {
+            "type": "string",
+            "nullable": true
+          },
+          "userId": {
+            "type": "string",
+            "nullable": true
+          },
+          "apiClientId": {
+            "type": "string",
+            "nullable": true
           }
         }
       },
@@ -29963,6 +30009,14 @@
             "nullable": true,
             "items": {
               "type": "string"
+            }
+          },
+          "rightsFilter": {
+            "type": "array",
+            "description": "Limits the schemas to the ones the user has the specified MetadataRights.",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/MetadataRight"
             }
           }
         }
@@ -33727,10 +33781,10 @@
               "content_read": "Read content",
               "content_write": "Write content",
               "documenthistory_read": "Read document history",
-              "documenthistory_write": "Write document history",
               "jsonschema_read": "Read json schemas",
               "listitem_read": "Read list items",
               "listitem_write": "Write list items",
+              "livestream_read": "Read live stream",
               "output_read": "Read outputs",
               "output_write": "Write outputs",
               "permission_read": "Read permission sets",
@@ -33788,7 +33842,7 @@
     },
     {
       "name": "LiveStream",
-      "description": "Endpoints to access with live stream information.\r\n\r\nYou can also use [ServiceProviders](https://www.nuget.org/packages/Picturepark.SDK.V1.ServiceProvider/) to get a live stream of messages.\r\n\r\n[Code examples](https://github.com/Picturepark/Picturepark.SDK.DotNet/tree/master/samples/Picturepark.ServiceProvider.Example)\r\n"
+      "description": "Endpoints to access live stream information.\r\n\r\nYou can also use [ServiceProviders](https://www.nuget.org/packages/Picturepark.SDK.V1.ServiceProvider/) to get a live stream of messages.\r\n\r\n[Code examples](https://github.com/Picturepark/Picturepark.SDK.DotNet/tree/master/samples/Picturepark.ServiceProvider.Example)\r\n"
     },
     {
       "name": "Output",
