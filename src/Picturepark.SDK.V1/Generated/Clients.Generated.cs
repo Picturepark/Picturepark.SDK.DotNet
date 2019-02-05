@@ -15739,7 +15739,7 @@ namespace Picturepark.SDK.V1
             }
         }
     
-        /// <summary>Create schemas</summary>
+        /// <summary>Create multiple schemas</summary>
         /// <param name="schemas">The schema create many request.</param>
         /// <returns>BusinessProcess which can be awaited.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>

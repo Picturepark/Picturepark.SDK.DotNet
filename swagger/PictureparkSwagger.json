@@ -10482,7 +10482,7 @@
         "tags": [
           "Schema"
         ],
-        "summary": "Create schemas",
+        "summary": "Create multiple schemas",
         "description": "Creates new schemas.",
         "operationId": "Schema_CreateMany",
         "requestBody": {
