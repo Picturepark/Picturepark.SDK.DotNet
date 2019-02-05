@@ -75,10 +75,11 @@ namespace Picturepark.SDK.V1.Tests.Clients
             }
 
             var createdSchemas = await _client.Schema.CreateManyAsync(schemas, true, TimeSpan.FromMinutes(1)).ConfigureAwait(false);
+            var detail = await createdSchemas.FetchDetail();
 
             // Assert
-            createdSchemas.Should().HaveSameCount(schemas);
-            createdSchemas.Select(s => s.Id).Should().BeEquivalentTo(schemas.Select(s => s.Id));
+            detail.SucceededItems.Should().HaveSameCount(schemas);
+            detail.SucceededItems.Select(s => s.Id).Should().BeEquivalentTo(schemas.Select(s => s.Id));
         }
 
         [Fact]
@@ -94,10 +95,11 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 AppendSchemaIdSuffix(schema, schemaSuffix);
             }
 
-            var createdSchemas = await _client.Schema.CreateManyAsync(schemas, true, TimeSpan.FromMinutes(1)).ConfigureAwait(false);
+            var result = await _client.Schema.CreateManyAsync(schemas, true, TimeSpan.FromMinutes(1)).ConfigureAwait(false);
+            var detail = await result.FetchDetail().ConfigureAwait(false);
 
             // Add a new text field to the first created schema
-            var createdSchema = createdSchemas.First();
+            var createdSchema = detail.SucceededItems.First();
             var fieldName = "newField" + createdSchema.Id;
             createdSchema.Fields.Add(new FieldString
             {

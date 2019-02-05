@@ -15739,11 +15739,9 @@ namespace Picturepark.SDK.V1
             }
         }
     
-        /// <summary>Create schema</summary>
+        /// <summary>Create schemas</summary>
         /// <param name="schemas">The schema create many request.</param>
-        /// <param name="timeout">Maximum time to wait for the operation to complete. If timeout is exceeded, the operation is not aborted but continues anyhow.
-        ///             Only the waiting is aborted, and the calls returned.</param>
-        /// <returns>Schema create result, containing the created schemas</returns>
+        /// <returns>BusinessProcess which can be awaited.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="DuplicateSchemaException">One or more schemas in the request already exist</exception>
         /// <exception cref="PictureparkArgumentNullException">Argument must not be null</exception>
@@ -15753,15 +15751,10 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        public async System.Threading.Tasks.Task<SchemaCreateManyResult> CreateManyAsync(SchemaCreateManyRequest schemas, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        protected async System.Threading.Tasks.Task<BusinessProcess> CreateManyCoreAsync(SchemaCreateManyRequest schemas, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/schemas/many?");
-            if (timeout != null) 
-            {
-                urlBuilder_.Append("timeout=").Append(System.Uri.EscapeDataString(ConvertToString(timeout, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
-            }
-            urlBuilder_.Length--;
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/schemas/many");
     
             var client_ = _httpClient;
             try
@@ -15795,10 +15788,10 @@ namespace Picturepark.SDK.V1
                         if (status_ == "200") 
                         {
                             var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            var result_ = default(SchemaCreateManyResult); 
+                            var result_ = default(BusinessProcess); 
                             try
                             {
-                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaCreateManyResult>(responseData_, _settings.Value);
+                                result_ = Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessProcess>(responseData_, _settings.Value);
                                 return result_; 
                             } 
                             catch (System.Exception exception_) 
@@ -15911,7 +15904,7 @@ namespace Picturepark.SDK.V1
                             throw new ApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", (int)response_.StatusCode, responseData_, headers_, null);
                         }
             
-                        return default(SchemaCreateManyResult);
+                        return default(BusinessProcess);
                     }
                     finally
                     {

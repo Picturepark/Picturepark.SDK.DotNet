@@ -6,17 +6,20 @@ using Picturepark.SDK.V1.Contract;
 using Picturepark.SDK.V1.Conversion;
 using System.Net.Http;
 using System.Threading;
+using Picturepark.SDK.V1.Contract.Results;
 
 namespace Picturepark.SDK.V1
 {
     public partial class SchemaClient
     {
-        private readonly InfoClient _infoClient;
+        private readonly IInfoClient _infoClient;
+        private readonly IBusinessProcessClient _businessProcessClient;
 
-        public SchemaClient(InfoClient infoClient, IPictureparkServiceSettings settings, HttpClient httpClient)
+        public SchemaClient(IInfoClient infoClient, IBusinessProcessClient businessProcessClient, IPictureparkServiceSettings settings, HttpClient httpClient)
             : this(settings, httpClient)
         {
             _infoClient = infoClient;
+            _businessProcessClient = businessProcessClient;
         }
 
         /// <summary>Generates the <see cref="SchemaDetail"/>s for the given type and the referenced types.</summary>
@@ -82,11 +85,11 @@ namespace Picturepark.SDK.V1
         }
 
         /// <inheritdoc />
-        public async Task<ICollection<SchemaDetail>> CreateManyAsync(IEnumerable<SchemaDetail> schemaDetails, bool enableForBinaryFiles, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<SchemaBatchOperationResult> CreateManyAsync(IEnumerable<SchemaDetail> schemaDetails, bool enableForBinaryFiles, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (!schemaDetails.Any())
             {
-                return new List<SchemaDetail>();
+                return SchemaBatchOperationResult.Empty;
             }
 
             var request = new SchemaCreateManyRequest();
@@ -112,8 +115,14 @@ namespace Picturepark.SDK.V1
                 request.Schemas.Add(createRequest);
             }
 
-            var result = await CreateManyAsync(request, timeout, cancellationToken).ConfigureAwait(false);
-            return result.Schemas;
+            return await CreateManyAsync(request, timeout, cancellationToken).ConfigureAwait(false);
+        }
+
+        /// <inheritdoc />
+        public async Task<SchemaBatchOperationResult> CreateManyAsync(SchemaCreateManyRequest request, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var businessProcess = await CreateManyCoreAsync(request, cancellationToken).ConfigureAwait(false);
+            return await WaitForBusinessProcessAndReturnResult(businessProcess.Id, timeout, cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>Creates the given <see cref="SchemaDetail"/>.</summary>
@@ -179,6 +188,14 @@ namespace Picturepark.SDK.V1
         public async Task<bool> ExistsAsync(string schemaId, string fieldId = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             return (await ExistsCoreAsync(schemaId, null, cancellationToken).ConfigureAwait(false)).Exists;
+        }
+
+        /// <inheritdoc />
+        public async Task<SchemaBatchOperationResult> WaitForBusinessProcessAndReturnResult(string businessProcessId, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var result = await _businessProcessClient.WaitForCompletionAsync(businessProcessId, timeout, cancellationToken).ConfigureAwait(false);
+
+            return new SchemaBatchOperationResult(this, businessProcessId, result.LifeCycleHit, _businessProcessClient);
         }
 
         private SchemaCreateRequest MapSchemaDetailToCreateRequest(SchemaDetail schemaDetail)

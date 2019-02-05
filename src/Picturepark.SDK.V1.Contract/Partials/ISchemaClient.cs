@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
+using Picturepark.SDK.V1.Contract.Results;
 
 namespace Picturepark.SDK.V1.Contract
 {
@@ -36,10 +37,19 @@ namespace Picturepark.SDK.V1.Contract
         /// </summary>
         /// <param name="schemaDetails">The schema details.</param>
         /// <param name="enableForBinaryFiles">Specifies whether to enable the schemas for binary files.</param>
-        /// <param name="timeout">Maximum time to wait for the operation to complete.</param>
+        /// <param name="timeout">Maximum time to wait for the underlying business process to complete.</param>
         /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>The collection of created schemas.</returns>
-        Task<ICollection<SchemaDetail>> CreateManyAsync(IEnumerable<SchemaDetail> schemaDetails, bool enableForBinaryFiles, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <returns>The <see cref="SchemaBatchOperationResult"/>.</returns>
+        Task<SchemaBatchOperationResult> CreateManyAsync(IEnumerable<SchemaDetail> schemaDetails, bool enableForBinaryFiles, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Creates schemas using the given request.
+        /// </summary>
+        /// <param name="request">The <see cref="SchemaCreateManyRequest"/>.</param>
+        /// <param name="timeout">Maximum time to wait for the underlying business process to complete.</param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>The <see cref="SchemaBatchOperationResult"/>.</returns>
+        Task<SchemaBatchOperationResult> CreateManyAsync(SchemaCreateManyRequest request, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>Creates the given <see cref="SchemaDetail"/>.</summary>
         /// <param name="schemaDetail">The schema detail.</param>
@@ -65,5 +75,14 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>The task.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         Task<bool> ExistsAsync(string schemaId, string fieldId = null, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Waits for a business process and returns a <see cref="SchemaBatchOperationResult"/>.
+        /// </summary>
+        /// <param name="businessProcessId">The business process id.</param>
+        /// <param name="timeout">The timeout to wait on the business process.</param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>The <see cref="SchemaBatchOperationResult"/>.</returns>
+        Task<SchemaBatchOperationResult> WaitForBusinessProcessAndReturnResult(string businessProcessId, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

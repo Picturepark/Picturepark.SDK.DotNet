@@ -10482,22 +10482,9 @@
         "tags": [
           "Schema"
         ],
-        "summary": "Create schema",
-        "description": "Create a new schema.",
+        "summary": "Create schemas",
+        "description": "Creates new schemas.",
         "operationId": "Schema_CreateMany",
-        "parameters": [
-          {
-            "name": "timeout",
-            "in": "query",
-            "description": "Maximum time to wait for the operation to complete. If timeout is exceeded, the operation is not aborted but continues anyhow.\n            Only the waiting is aborted, and the calls returned.",
-            "schema": {
-              "type": "string",
-              "format": "time-span",
-              "nullable": true
-            },
-            "x-position": 2
-          }
-        ],
         "requestBody": {
           "x-name": "schemas",
           "description": "The schema create many request.",
@@ -10513,11 +10500,11 @@
         },
         "responses": {
           "200": {
-            "description": "Schema create result, containing the created schemas",
+            "description": "BusinessProcess which can be awaited.",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/SchemaCreateManyResult"
+                  "$ref": "#/components/schemas/BusinessProcess"
                 }
               }
             }
@@ -30183,21 +30170,6 @@
             "nullable": true,
             "items": {
               "type": "string"
-            }
-          }
-        }
-      },
-      "SchemaCreateManyResult": {
-        "type": "object",
-        "description": "Result of a schema create many operation",
-        "additionalProperties": false,
-        "properties": {
-          "schemas": {
-            "type": "array",
-            "description": "The details of the created schemas.",
-            "nullable": true,
-            "items": {
-              "$ref": "#/components/schemas/SchemaDetail"
             }
           }
         }

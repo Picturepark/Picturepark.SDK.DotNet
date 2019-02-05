@@ -26,7 +26,9 @@ namespace Picturepark.SDK.V1.Tests.Fixtures
             }
 
             var result = await Client.Schema.CreateManyAsync(schemas, true, TimeSpan.FromMinutes(1)).ConfigureAwait(false);
-            return result.ToArray();
+            var detail = await result.FetchDetail().ConfigureAwait(false);
+
+            return detail.SucceededItems.ToArray();
         }
 
         public override void Dispose()

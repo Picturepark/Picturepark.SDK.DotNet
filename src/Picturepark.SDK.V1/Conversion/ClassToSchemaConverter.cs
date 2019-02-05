@@ -99,7 +99,6 @@ namespace Picturepark.SDK.V1.Conversion
                     baseType != typeof(ReferenceObject))
                 {
                     typesToReflect.Push(baseType);
-                    contractTypeInfo.Dependencies.Add(baseType);
                     parentSchemaId = ResolveSchemaName(baseType);
                 }
 
@@ -153,7 +152,6 @@ namespace Picturepark.SDK.V1.Conversion
                                 else
                                 {
                                     propertyInfo.TypeName = propertyGenericArg.Name;
-                                    contractTypeInfo.Dependencies.Add(propertyGenericArg);
                                     typesToReflect.Push(propertyGenericArg);
                                 }
 
@@ -174,7 +172,6 @@ namespace Picturepark.SDK.V1.Conversion
                                 propertyInfo.IsReference = true;
                             }
 
-                            contractTypeInfo.Dependencies.Add(property.PropertyType);
                             typesToReflect.Push(property.PropertyType);
                         }
                     }
@@ -187,9 +184,6 @@ namespace Picturepark.SDK.V1.Conversion
 
                     contractTypeInfo.Properties.Add(propertyInfo);
                 }
-
-                // dependencies on the same type need to be removed
-                contractTypeInfo.Dependencies.Remove(contractTypeInfo.Type);
 
                 result.Add(contractTypeInfo);
             }

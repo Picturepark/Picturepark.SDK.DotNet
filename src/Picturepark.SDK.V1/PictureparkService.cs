@@ -81,7 +81,7 @@ namespace Picturepark.SDK.V1
             User = new UserClient(settings, httpClient);
             UserRole = new UserRoleClient(settings, httpClient);
             Info = new InfoClient(settings, httpClient);
-            Schema = new SchemaClient((InfoClient)Info, settings, httpClient);
+            Schema = new SchemaClient(Info, BusinessProcess, settings, httpClient);
             Transfer = new TransferClient((BusinessProcessClient)BusinessProcess, settings, httpClient);
             ListItem = new ListItemClient((BusinessProcessClient)BusinessProcess, settings, httpClient);
             LiveStream = new LiveStreamClient(settings, httpClient);
