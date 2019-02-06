@@ -722,6 +722,17 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "12.0.9.0 (NJsonSchema v9.13.10.0 (Newtonsoft.Json v11.0.0.0))")]
     public partial interface ILiveStreamClient
     {
+        /// <summary>Search</summary>
+        /// <param name="request">Parameters for the search</param>
+        /// <returns>Resulting live stream events</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        System.Threading.Tasks.Task<LiveStreamSearchResult> SearchAsync(LiveStreamSearchRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "12.0.9.0 (NJsonSchema v9.13.10.0 (Newtonsoft.Json v11.0.0.0))")]
@@ -10486,9 +10497,6 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("documentType", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string DocumentType { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("documentTypeContract", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string DocumentTypeContract { get; set; }
-    
         [Newtonsoft.Json.JsonProperty("documentDate", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.DateTime DocumentDate { get; set; }
@@ -12054,6 +12062,152 @@ namespace Picturepark.SDK.V1.Contract
         public static NodeInfoMessage FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<NodeInfoMessage>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class BaseResultOfLiveStream 
+    {
+        [Newtonsoft.Json.JsonProperty("totalResults", Required = Newtonsoft.Json.Required.Always)]
+        public long TotalResults { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("results", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.Collections.Generic.ICollection<LiveStream> Results { get; set; } = new System.Collections.Generic.List<LiveStream>();
+    
+        [Newtonsoft.Json.JsonProperty("elapsedMilliseconds", Required = Newtonsoft.Json.Required.Always)]
+        public long ElapsedMilliseconds { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("pageToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string PageToken { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static BaseResultOfLiveStream FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BaseResultOfLiveStream>(data);
+        }
+    
+    }
+    
+    /// <summary>Results of live stream search.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class LiveStreamSearchResult : BaseResultOfLiveStream
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static LiveStreamSearchResult FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<LiveStreamSearchResult>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class LiveStream 
+    {
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("document", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Document { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("scopeType", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ScopeType { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("timestamp", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public System.DateTime Timestamp { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("traceJob", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public LiveStreamTraceJob TraceJob { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("audit", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public UserAudit Audit { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static LiveStream FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<LiveStream>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class LiveStreamTraceJob 
+    {
+        [Newtonsoft.Json.JsonProperty("traceJobId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string TraceJobId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("ipAddress", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string IpAddress { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("userId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string UserId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("apiClientId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ApiClientId { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static LiveStreamTraceJob FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<LiveStreamTraceJob>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class LiveStreamSearchRequest 
+    {
+        /// <summary>Sets the start date and time for results based on Timestamp attribute.</summary>
+        [Newtonsoft.Json.JsonProperty("from", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public System.DateTime From { get; set; }
+    
+        /// <summary>Sets the end date and time for results based on Timestamp attribute.</summary>
+        [Newtonsoft.Json.JsonProperty("to", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public System.DateTime To { get; set; }
+    
+        /// <summary>Optionally limits the result to only the specified scope type.</summary>
+        [Newtonsoft.Json.JsonProperty("scopeType", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ScopeType { get; set; }
+    
+        /// <summary>An optional search filter. Limits the document result set.</summary>
+        [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public FilterBase Filter { get; set; }
+    
+        /// <summary>Limits the document count of the result set. Defaults to 30.</summary>
+        [Newtonsoft.Json.JsonProperty("limit", Required = Newtonsoft.Json.Required.Always)]
+        public int Limit { get; set; } = 30;
+    
+        /// <summary>To get a large amount of data, page token returned from the response can be used to get all data.</summary>
+        [Newtonsoft.Json.JsonProperty("pageToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string PageToken { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static LiveStreamSearchRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<LiveStreamSearchRequest>(data);
         }
     
     }
