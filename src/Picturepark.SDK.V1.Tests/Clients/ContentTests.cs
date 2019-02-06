@@ -149,7 +149,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             await _client.Content.AggregateAsync(request).ConfigureAwait(false);
         }
 
-        [Fact]
+        [Fact(Skip = "Re-enable once PP9-7573 is resolved")]
         [Trait("Stack", "Contents")]
         public async Task ShouldAggregateByChannel()
         {
