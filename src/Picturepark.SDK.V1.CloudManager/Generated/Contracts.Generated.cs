@@ -889,7 +889,6 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [JsonInheritanceAttribute("DuplicateSchemaException", typeof(DuplicateSchemaException))]
     [JsonInheritanceAttribute("SchemaImportEmptyException", typeof(SchemaImportEmptyException))]
     [JsonInheritanceAttribute("SchemaImportVersionMismatchException", typeof(SchemaImportVersionMismatchException))]
-    [JsonInheritanceAttribute("SchemaCyclicDependencyException", typeof(SchemaCyclicDependencyException))]
     [JsonInheritanceAttribute("SchemaInheritanceFieldIndexDeviationException", typeof(SchemaInheritanceFieldIndexDeviationException))]
     [JsonInheritanceAttribute("SchemaInheritanceTypeDeviationException", typeof(SchemaInheritanceTypeDeviationException))]
     [JsonInheritanceAttribute("SchemaValidationException", typeof(SchemaValidationException))]
@@ -3916,25 +3915,6 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         public static SchemaImportVersionMismatchException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaImportVersionMismatchException>(data);
-        }
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
-    [Newtonsoft.Json.JsonObjectAttribute]
-    public partial class SchemaCyclicDependencyException : PictureparkValidationException
-    {
-        [Newtonsoft.Json.JsonProperty("schemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> SchemaIds { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-    
-        public static SchemaCyclicDependencyException FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaCyclicDependencyException>(data);
         }
     
     }
