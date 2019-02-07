@@ -7185,7 +7185,6 @@
                 "DuplicateSchemaException": "#/components/schemas/DuplicateSchemaException",
                 "SchemaImportEmptyException": "#/components/schemas/SchemaImportEmptyException",
                 "SchemaImportVersionMismatchException": "#/components/schemas/SchemaImportVersionMismatchException",
-                "SchemaCyclicDependencyException": "#/components/schemas/SchemaCyclicDependencyException",
                 "SchemaInheritanceFieldIndexDeviationException": "#/components/schemas/SchemaInheritanceFieldIndexDeviationException",
                 "SchemaInheritanceTypeDeviationException": "#/components/schemas/SchemaInheritanceTypeDeviationException",
                 "SchemaValidationException": "#/components/schemas/SchemaValidationException",
@@ -10075,26 +10074,6 @@
               "expectedVersion": {
                 "type": "string",
                 "nullable": true
-              }
-            }
-          }
-        ]
-      },
-      "SchemaCyclicDependencyException": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/PictureparkValidationException"
-          },
-          {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "schemaIds": {
-                "type": "array",
-                "nullable": true,
-                "items": {
-                  "type": "string"
-                }
               }
             }
           }
