@@ -8,6 +8,7 @@ using Picturepark.SDK.V1.Tests.Contracts;
 using Picturepark.SDK.V1.Contract;
 using Picturepark.SDK.V1.Tests.Fixtures;
 using Newtonsoft.Json;
+using Picturepark.SDK.V1.Contract.Attributes;
 
 namespace Picturepark.SDK.V1.Tests.Clients
 {
@@ -28,10 +29,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         {
             // Act
             var allTypes = await _client.Schema.GenerateSchemasAsync(typeof(AllDataTypesContract)).ConfigureAwait(false);
-            foreach (var schema in allTypes)
-            {
-                await _client.Schema.CreateOrUpdateAsync(schema, true, TimeSpan.FromMinutes(1)).ConfigureAwait(false);
-            }
+            await _fixture.RandomizeSchemaIdsAndCreateMany(allTypes).ConfigureAwait(false);
         }
 
         [Fact]
@@ -70,17 +68,18 @@ namespace Picturepark.SDK.V1.Tests.Clients
             // Act
             var schemaSuffix = new Random().Next(0, 999999);
             var schemas = await _client.Schema.GenerateSchemasAsync(typeof(PersonShot)).ConfigureAwait(false);
-            IList<SchemaDetail> createdSchemas = new List<SchemaDetail>();
+
             foreach (var schema in schemas)
             {
                 AppendSchemaIdSuffix(schema, schemaSuffix);
-                var result = await _client.Schema.CreateAsync(schema, true, TimeSpan.FromMinutes(1)).ConfigureAwait(false);
-                createdSchemas.Add(result.Schema);
             }
 
+            var createdSchemas = await _client.Schema.CreateManyAsync(schemas, true, TimeSpan.FromMinutes(1)).ConfigureAwait(false);
+            var detail = await createdSchemas.FetchDetail();
+
             // Assert
-            createdSchemas.Should().HaveSameCount(schemas);
-            createdSchemas.Select(s => s.Id).Should().BeEquivalentTo(schemas.Select(s => s.Id));
+            detail.SucceededItems.Should().HaveSameCount(schemas);
+            detail.SucceededItems.Select(s => s.Id).Should().BeEquivalentTo(schemas.Select(s => s.Id));
         }
 
         [Fact]
@@ -91,16 +90,16 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var schemaSuffix = new Random().Next(0, 999999);
             var schemas = await _client.Schema.GenerateSchemasAsync(typeof(Person)).ConfigureAwait(false);
 
-            IList<SchemaDetail> createdSchemas = new List<SchemaDetail>();
             foreach (var schema in schemas)
             {
                 AppendSchemaIdSuffix(schema, schemaSuffix);
-                var result = await _client.Schema.CreateAsync(schema, true, TimeSpan.FromMinutes(1)).ConfigureAwait(false);
-                createdSchemas.Add(result.Schema);
             }
 
+            var result = await _client.Schema.CreateManyAsync(schemas, true, TimeSpan.FromMinutes(1)).ConfigureAwait(false);
+            var detail = await result.FetchDetail().ConfigureAwait(false);
+
             // Add a new text field to the first created schema
-            var createdSchema = createdSchemas.First();
+            var createdSchema = detail.SucceededItems.First();
             var fieldName = "newField" + createdSchema.Id;
             createdSchema.Fields.Add(new FieldString
             {
@@ -320,7 +319,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             // Act
             var schemas = await _client.Schema.GenerateSchemasAsync(typeof(Vehicle)).ConfigureAwait(false);
 
-            var createdSchemas = await _fixture.RandomizeSchemaIdsAndCreate(schemas).ConfigureAwait(false);
+            var createdSchemas = await _fixture.RandomizeSchemaIdsAndCreateMany(schemas).ConfigureAwait(false);
 
             // Assert
             createdSchemas.Should().HaveSameCount(schemas);
@@ -340,7 +339,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         {
             // Arrange
             var schemas = await _client.Schema.GenerateSchemasAsync(typeof(Vehicle)).ConfigureAwait(false);
-            var createdSchemas = await _fixture.RandomizeSchemaIdsAndCreate(schemas).ConfigureAwait(false);
+            var createdSchemas = await _fixture.RandomizeSchemaIdsAndCreateMany(schemas).ConfigureAwait(false);
             var firstSchemaId = createdSchemas.First(x => x.Id.StartsWith("Vehicle")).Id;
 
             // Act
@@ -355,7 +354,39 @@ namespace Picturepark.SDK.V1.Tests.Clients
             indexedFields.Count.Should().Be(2);
         }
 
+        [Fact]
+        [Trait("Stack", "Schema")]
+        public async Task ShouldCreateSimpleCyclicDependency()
+        {
+            // Arrange
+            var schemas = await _client.Schema.GenerateSchemasAsync(typeof(Employee)).ConfigureAwait(false);
+
+            // act
+            var result = await _fixture.RandomizeSchemaIdsAndCreateMany(schemas).ConfigureAwait(false);
+
+            // assert
+            result.Should().HaveCount(2);
+        }
+
         private void AppendSchemaIdSuffix(SchemaDetail schema, int schemaSuffix)
             => _fixture.AppendSchemaIdSuffix(schema, schemaSuffix);
+
+        [PictureparkReference]
+        [PictureparkSchema(SchemaType.List)]
+        public class Employee
+        {
+            public string Name { get; set; }
+
+            public Department MemberOf { get; set; }
+        }
+
+        [PictureparkReference]
+        [PictureparkSchema(SchemaType.List)]
+        public class Department
+        {
+            public string Name { get; set; }
+
+            public IList<Employee> Supervisors { get; set; }
+        }
     }
 }

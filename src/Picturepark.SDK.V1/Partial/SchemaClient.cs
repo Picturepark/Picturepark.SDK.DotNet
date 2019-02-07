@@ -1,24 +1,29 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Picturepark.SDK.V1.Contract;
 using Picturepark.SDK.V1.Conversion;
 using System.Net.Http;
 using System.Threading;
+using Picturepark.SDK.V1.Contract.Results;
 
 namespace Picturepark.SDK.V1
 {
     public partial class SchemaClient
     {
-        private readonly InfoClient _infoClient;
+        private readonly IInfoClient _infoClient;
+        private readonly IBusinessProcessClient _businessProcessClient;
 
-        public SchemaClient(InfoClient infoClient, IPictureparkServiceSettings settings, HttpClient httpClient)
+        public SchemaClient(IInfoClient infoClient, IBusinessProcessClient businessProcessClient, IPictureparkServiceSettings settings, HttpClient httpClient)
             : this(settings, httpClient)
         {
             _infoClient = infoClient;
+            _businessProcessClient = businessProcessClient;
         }
 
         /// <summary>Generates the <see cref="SchemaDetail"/>s for the given type and the referenced types.</summary>
+        /// <remarks>Note: When generating multiple schemas or schemas for types with dependencies, please use the CreateMany method to create them at the server to avoid dependency problems.</remarks>
         /// <param name="type">The type.</param>
         /// <param name="schemaDetails">The existing schema details.</param>
         /// <param name="generateDependencySchema">Specifies whether to generate dependent schemas.</param>
@@ -79,6 +84,47 @@ namespace Picturepark.SDK.V1
             return await CreateAsync(schemaDetail, timeout, cancellationToken).ConfigureAwait(false);
         }
 
+        /// <inheritdoc />
+        public async Task<SchemaBatchOperationResult> CreateManyAsync(IEnumerable<SchemaDetail> schemaDetails, bool enableForBinaryFiles, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            if (!schemaDetails.Any())
+            {
+                return SchemaBatchOperationResult.Empty;
+            }
+
+            var request = new SchemaCreateManyRequest();
+
+            // Map schema to binary schemas
+            foreach (var schemaDetail in schemaDetails)
+            {
+                if (enableForBinaryFiles && schemaDetail.Types.Contains(SchemaType.Layer))
+                {
+                    var binarySchemas = new List<string>
+                    {
+                        nameof(FileMetadata),
+                        nameof(AudioMetadata),
+                        nameof(DocumentMetadata),
+                        nameof(ImageMetadata),
+                        nameof(VideoMetadata),
+                    };
+
+                    schemaDetail.ReferencedInContentSchemaIds = binarySchemas;
+                }
+
+                var createRequest = MapSchemaDetailToCreateRequest(schemaDetail);
+                request.Schemas.Add(createRequest);
+            }
+
+            return await CreateManyAsync(request, timeout, cancellationToken).ConfigureAwait(false);
+        }
+
+        /// <inheritdoc />
+        public async Task<SchemaBatchOperationResult> CreateManyAsync(SchemaCreateManyRequest request, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var businessProcess = await CreateManyCoreAsync(request, cancellationToken).ConfigureAwait(false);
+            return await WaitForBusinessProcessAndReturnResult(businessProcess.Id, timeout, cancellationToken).ConfigureAwait(false);
+        }
+
         /// <summary>Creates the given <see cref="SchemaDetail"/>.</summary>
         /// <param name="schemaDetail">The schema detail.</param>
         /// <param name="timeout">Maximum time to wait for the operation to complete.</param>
@@ -87,22 +133,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="ApiException">A server side error occurred.</exception>
         public async Task<SchemaCreateResult> CreateAsync(SchemaDetail schemaDetail, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
         {
-            var createRequest = new SchemaCreateRequest
-            {
-                Aggregations = schemaDetail.Aggregations,
-                Descriptions = schemaDetail.Descriptions,
-                DisplayPatterns = schemaDetail.DisplayPatterns,
-                Fields = schemaDetail.Fields,
-                Id = schemaDetail.Id,
-                SchemaPermissionSetIds = schemaDetail.SchemaPermissionSetIds,
-                Names = schemaDetail.Names,
-                ParentSchemaId = schemaDetail.ParentSchemaId,
-                ViewForAll = schemaDetail.ViewForAll,
-                ReferencedInContentSchemaIds = schemaDetail.ReferencedInContentSchemaIds,
-                Sort = schemaDetail.Sort,
-                Types = schemaDetail.Types,
-                LayerSchemaIds = schemaDetail.LayerSchemaIds
-            };
+            var createRequest = MapSchemaDetailToCreateRequest(schemaDetail);
 
             return await CreateAsync(createRequest, timeout, cancellationToken).ConfigureAwait(false);
         }
@@ -157,6 +188,36 @@ namespace Picturepark.SDK.V1
         public async Task<bool> ExistsAsync(string schemaId, string fieldId = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             return (await ExistsCoreAsync(schemaId, null, cancellationToken).ConfigureAwait(false)).Exists;
+        }
+
+        /// <inheritdoc />
+        public async Task<SchemaBatchOperationResult> WaitForBusinessProcessAndReturnResult(string businessProcessId, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var result = await _businessProcessClient.WaitForCompletionAsync(businessProcessId, timeout, cancellationToken).ConfigureAwait(false);
+
+            return new SchemaBatchOperationResult(this, businessProcessId, result.LifeCycleHit, _businessProcessClient);
+        }
+
+        private SchemaCreateRequest MapSchemaDetailToCreateRequest(SchemaDetail schemaDetail)
+        {
+            var createRequest = new SchemaCreateRequest
+            {
+                Aggregations = schemaDetail.Aggregations,
+                Descriptions = schemaDetail.Descriptions,
+                DisplayPatterns = schemaDetail.DisplayPatterns,
+                Fields = schemaDetail.Fields,
+                Id = schemaDetail.Id,
+                SchemaPermissionSetIds = schemaDetail.SchemaPermissionSetIds,
+                Names = schemaDetail.Names,
+                ParentSchemaId = schemaDetail.ParentSchemaId,
+                ViewForAll = schemaDetail.ViewForAll,
+                ReferencedInContentSchemaIds = schemaDetail.ReferencedInContentSchemaIds,
+                Sort = schemaDetail.Sort,
+                Types = schemaDetail.Types,
+                LayerSchemaIds = schemaDetail.LayerSchemaIds
+            };
+
+            return createRequest;
         }
     }
 }
