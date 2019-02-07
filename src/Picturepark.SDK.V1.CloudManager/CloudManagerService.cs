@@ -34,8 +34,6 @@ namespace Picturepark.SDK.V1.CloudManager
 
         public IUpdateClient Update { get; private set; }
 
-        public ISampleDataClient SampleData { get; private set; }
-
         public ICloudBackupClient CloudBackup { get; private set; }
 
         public IServiceProviderClient ServiceProvider { get; private set; }
@@ -64,7 +62,6 @@ namespace Picturepark.SDK.V1.CloudManager
             Customer = new CustomerClient(settings, httpClient);
             Service = new ServiceClient(settings, httpClient);
             Update = new UpdateClient(settings, httpClient);
-            SampleData = new SampleDataClient(settings, httpClient);
             CloudBackup = new CloudBackupClient(settings, httpClient);
             EnvironmentProcess = new EnvironmentProcessClient(settings, httpClient);
             Environment = new EnvironmentClient(settings, httpClient);

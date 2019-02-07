@@ -8698,7 +8698,7 @@
         "tags": [
           "LiveStream"
         ],
-        "summary": "This endpoint cannot be used. It is kept to generate LiveStream message contracts",
+        "summary": "This endpoint cannot be used. It is kept to generate LiveStream message contracts.",
         "operationId": "LiveStream_GetMessage",
         "responses": {
           "200": {
@@ -8785,6 +8785,117 @@
         "security": [
           {
             "Bearer": []
+          }
+        ]
+      }
+    },
+    "/v1/liveStream/search": {
+      "post": {
+        "tags": [
+          "LiveStream"
+        ],
+        "summary": "Search",
+        "description": "Search for live stream events with optional parameters to limit time, document type or use more complex filtering.",
+        "operationId": "LiveStream_Search",
+        "requestBody": {
+          "x-name": "request",
+          "description": "Parameters for the search",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LiveStreamSearchRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "Resulting live stream events",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LiveStreamSearchResult"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkNotFoundException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkConflictException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkValidationException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "livestream_read"
+            ]
           }
         ]
       }
@@ -27918,6 +28029,156 @@
           }
         ]
       },
+      "LiveStreamSearchResult": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BaseResultOfLiveStream"
+          },
+          {
+            "type": "object",
+            "description": "Results of live stream search.",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "BaseResultOfLiveStream": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "totalResults",
+          "results",
+          "elapsedMilliseconds"
+        ],
+        "properties": {
+          "totalResults": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "results": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LiveStream"
+            }
+          },
+          "elapsedMilliseconds": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "pageToken": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "LiveStream": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "timestamp"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "document": {
+            "type": "string",
+            "nullable": true
+          },
+          "scopeType": {
+            "type": "string",
+            "nullable": true
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "traceJob": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/LiveStreamTraceJob"
+              }
+            ]
+          },
+          "audit": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/UserAudit"
+              }
+            ]
+          }
+        }
+      },
+      "LiveStreamTraceJob": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "traceJobId": {
+            "type": "string",
+            "nullable": true
+          },
+          "ipAddress": {
+            "type": "string",
+            "nullable": true
+          },
+          "userId": {
+            "type": "string",
+            "nullable": true
+          },
+          "apiClientId": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "LiveStreamSearchRequest": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "from",
+          "to",
+          "limit"
+        ],
+        "properties": {
+          "from": {
+            "type": "string",
+            "description": "Sets the start date and time for results based on Timestamp attribute.",
+            "format": "date-time"
+          },
+          "to": {
+            "type": "string",
+            "description": "Sets the end date and time for results based on Timestamp attribute.",
+            "format": "date-time"
+          },
+          "scopeType": {
+            "type": "string",
+            "description": "Optionally limits the result to only the specified scope type.",
+            "nullable": true
+          },
+          "filter": {
+            "description": "An optional search filter. Limits the document result set.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/FilterBase"
+              }
+            ]
+          },
+          "limit": {
+            "type": "integer",
+            "description": "Limits the document count of the result set. Defaults to 30.",
+            "format": "int32",
+            "default": 30
+          },
+          "pageToken": {
+            "type": "string",
+            "description": "To get a large amount of data, page token returned from the response can be used to get all data.",
+            "nullable": true
+          }
+        }
+      },
       "OutputSearchResult": {
         "allOf": [
           {
@@ -33669,10 +33930,10 @@
               "content_read": "Read content",
               "content_write": "Write content",
               "documenthistory_read": "Read document history",
-              "documenthistory_write": "Write document history",
               "jsonschema_read": "Read json schemas",
               "listitem_read": "Read list items",
               "listitem_write": "Write list items",
+              "livestream_read": "Read live stream",
               "output_read": "Read outputs",
               "output_write": "Write outputs",
               "permission_read": "Read permission sets",
@@ -33730,7 +33991,7 @@
     },
     {
       "name": "LiveStream",
-      "description": "Endpoints to work with live stream.\r\n\r\nENDPOINT CURRENTLY NOT EXPOSED. Use [ServiceProviders](https://www.nuget.org/packages/Picturepark.SDK.V1.ServiceProvider/) to get a live stream of messages.\r\n\r\n[Code examples](https://github.com/Picturepark/Picturepark.SDK.DotNet/tree/master/samples/Picturepark.ServiceProvider.Example)\r\n"
+      "description": "Endpoints to access live stream information.\r\n\r\nYou can also use [ServiceProviders](https://www.nuget.org/packages/Picturepark.SDK.V1.ServiceProvider/) to get a live stream of messages.\r\n\r\n[Code examples](https://github.com/Picturepark/Picturepark.SDK.DotNet/tree/master/samples/Picturepark.ServiceProvider.Example)\r\n"
     },
     {
       "name": "Output",
