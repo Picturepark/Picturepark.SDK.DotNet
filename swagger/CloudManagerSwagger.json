@@ -6975,6 +6975,7 @@
                 "ShareExpiredException": "#/components/schemas/ShareExpiredException",
                 "OutputIdNotFoundException": "#/components/schemas/OutputIdNotFoundException",
                 "OutputNotFoundException": "#/components/schemas/OutputNotFoundException",
+                "UnableToCreateOrModifyStaticOutputFormatException": "#/components/schemas/UnableToCreateOrModifyStaticOutputFormatException",
                 "LeaseNotAcquiredException": "#/components/schemas/LeaseNotAcquiredException",
                 "OperationInProgressException": "#/components/schemas/OperationInProgressException",
                 "RetryException": "#/components/schemas/RetryException",
@@ -6987,9 +6988,11 @@
                 "PictureparkOperationCanceledException": "#/components/schemas/PictureparkOperationCanceledException",
                 "PictureparkApplicationException": "#/components/schemas/PictureparkApplicationException",
                 "MissingCustomerDefaultLanguageException": "#/components/schemas/MissingCustomerDefaultLanguageException",
+                "PartialOperationNotSupportedException": "#/components/schemas/PartialOperationNotSupportedException",
                 "InvalidArgumentException": "#/components/schemas/InvalidArgumentException",
                 "UnknownException": "#/components/schemas/UnknownException",
                 "OwnerTokenInUseException": "#/components/schemas/OwnerTokenInUseException",
+                "InvalidValueFormatException": "#/components/schemas/InvalidValueFormatException",
                 "CustomerViolationException": "#/components/schemas/CustomerViolationException",
                 "CustomerAliasNotFoundException": "#/components/schemas/CustomerAliasNotFoundException",
                 "CustomerAliasInUseException": "#/components/schemas/CustomerAliasInUseException",
@@ -7074,7 +7077,6 @@
                 "DuplicateSchemaException": "#/components/schemas/DuplicateSchemaException",
                 "SchemaImportEmptyException": "#/components/schemas/SchemaImportEmptyException",
                 "SchemaImportVersionMismatchException": "#/components/schemas/SchemaImportVersionMismatchException",
-                "SchemaCyclicDependencyException": "#/components/schemas/SchemaCyclicDependencyException",
                 "SchemaInheritanceFieldIndexDeviationException": "#/components/schemas/SchemaInheritanceFieldIndexDeviationException",
                 "SchemaInheritanceTypeDeviationException": "#/components/schemas/SchemaInheritanceTypeDeviationException",
                 "SchemaValidationException": "#/components/schemas/SchemaValidationException",
@@ -7680,6 +7682,17 @@
           }
         ]
       },
+      "UnableToCreateOrModifyStaticOutputFormatException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
       "LeaseNotAcquiredException": {
         "allOf": [
           {
@@ -7898,6 +7911,17 @@
           }
         ]
       },
+      "PartialOperationNotSupportedException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
       "InvalidArgumentException": {
         "allOf": [
           {
@@ -7950,6 +7974,17 @@
                 "nullable": true
               }
             }
+          }
+        ]
+      },
+      "InvalidValueFormatException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
           }
         ]
       },
@@ -8665,7 +8700,8 @@
           "ManageTermsOfService",
           "ManageLiveStream",
           "ManageDocumentHistory",
-          "ManageAllShares"
+          "ManageAllShares",
+          "ManageOutputFormats"
         ],
         "enum": [
           "ManageContent",
@@ -8685,7 +8721,8 @@
           "ManageTermsOfService",
           "ManageLiveStream",
           "ManageDocumentHistory",
-          "ManageAllShares"
+          "ManageAllShares",
+          "ManageOutputFormats"
         ]
       },
       "PermissionSetNotFoundException": {
@@ -9670,9 +9707,12 @@
               "indexedFieldThreshold"
             ],
             "properties": {
-              "schemaId": {
-                "type": "string",
-                "nullable": true
+              "schemaIds": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "type": "string"
+                }
               },
               "indexedFieldCount": {
                 "type": "number",
@@ -9699,9 +9739,12 @@
               "sortableFieldThreshold"
             ],
             "properties": {
-              "schemaId": {
-                "type": "string",
-                "nullable": true
+              "schemaIds": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "type": "string"
+                }
               },
               "sortableFieldCount": {
                 "type": "number",
@@ -9947,26 +9990,6 @@
               "expectedVersion": {
                 "type": "string",
                 "nullable": true
-              }
-            }
-          }
-        ]
-      },
-      "SchemaCyclicDependencyException": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/PictureparkValidationException"
-          },
-          {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "schemaIds": {
-                "type": "array",
-                "nullable": true,
-                "items": {
-                  "type": "string"
-                }
               }
             }
           }
@@ -12827,22 +12850,56 @@
         }
       },
       "OutputFormat": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/OutputFormatEditable"
+          },
+          {
+            "type": "object",
+            "description": "Represents an output format.",
+            "additionalProperties": false,
+            "required": [
+              "system",
+              "dynamic",
+              "dataExtraction",
+              "temporary"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "description": "Output format ID.",
+                "nullable": true
+              },
+              "system": {
+                "type": "boolean",
+                "description": "Marks if this is a system output format."
+              },
+              "dynamic": {
+                "type": "boolean",
+                "description": "A dynamic output format is not rendered automatically, but only on demand."
+              },
+              "dataExtraction": {
+                "type": "boolean",
+                "description": "Specifies if output format should be taken into account during data extraction."
+              },
+              "temporary": {
+                "type": "boolean",
+                "description": "Temporary outputs will not be backed up."
+              }
+            }
+          }
+        ]
+      },
+      "OutputFormatEditable": {
         "type": "object",
+        "description": "Represents the editable part of the output format.",
         "additionalProperties": false,
         "required": [
-          "static",
-          "system",
-          "dynamic",
-          "dataExtraction",
-          "temporary",
-          "render"
+          "retentionTime"
         ],
         "properties": {
-          "id": {
-            "type": "string",
-            "nullable": true
-          },
           "names": {
+            "description": "Language specific names.",
             "nullable": true,
             "oneOf": [
               {
@@ -12850,22 +12907,8 @@
               }
             ]
           },
-          "static": {
-            "type": "boolean"
-          },
-          "system": {
-            "type": "boolean"
-          },
-          "dynamic": {
-            "type": "boolean"
-          },
-          "dataExtraction": {
-            "type": "boolean"
-          },
-          "temporary": {
-            "type": "boolean"
-          },
           "sourceOutputFormats": {
+            "description": "Which output format should be used as a source of data.",
             "nullable": true,
             "oneOf": [
               {
@@ -12873,16 +12916,19 @@
               }
             ]
           },
-          "render": {
-            "type": "boolean"
-          },
           "format": {
+            "description": "Information about the technical format of the data, e.g. JPEG, AAC or video still.",
             "nullable": true,
             "oneOf": [
               {
                 "$ref": "#/components/schemas/FormatBase"
               }
             ]
+          },
+          "retentionTime": {
+            "type": "string",
+            "description": "How long should the dynamic outputs created from this format be kept.",
+            "format": "time-span"
           }
         }
       },
@@ -13333,16 +13379,9 @@
             "type": "object",
             "additionalProperties": false,
             "properties": {
-              "defaultOutputExtension": {
+              "extension": {
                 "type": "string",
                 "nullable": true
-              },
-              "allowedOutputExtensions": {
-                "type": "array",
-                "nullable": true,
-                "items": {
-                  "type": "string"
-                }
               }
             }
           }
@@ -13372,16 +13411,9 @@
               "chromaSubsamplingEnabled": {
                 "type": "boolean"
               },
-              "defaultOutputExtension": {
+              "extension": {
                 "type": "string",
                 "nullable": true
-              },
-              "allowedOutputExtensions": {
-                "type": "array",
-                "nullable": true,
-                "items": {
-                  "type": "string"
-                }
               }
             }
           }
@@ -13402,16 +13434,9 @@
               "interlaced": {
                 "type": "boolean"
               },
-              "defaultOutputExtension": {
+              "extension": {
                 "type": "string",
                 "nullable": true
-              },
-              "allowedOutputExtensions": {
-                "type": "array",
-                "nullable": true,
-                "items": {
-                  "type": "string"
-                }
               }
             }
           }
@@ -13440,16 +13465,9 @@
               "includeUnspecifiedTiffExtraChannels": {
                 "type": "boolean"
               },
-              "defaultOutputExtension": {
+              "extension": {
                 "type": "string",
                 "nullable": true
-              },
-              "allowedOutputExtensions": {
-                "type": "array",
-                "nullable": true,
-                "items": {
-                  "type": "string"
-                }
               }
             }
           }
@@ -13520,16 +13538,9 @@
                   }
                 ]
               },
-              "defaultOutputExtension": {
+              "extension": {
                 "type": "string",
                 "nullable": true
-              },
-              "allowedOutputExtensions": {
-                "type": "array",
-                "nullable": true,
-                "items": {
-                  "type": "string"
-                }
               }
             }
           }
@@ -13622,16 +13633,9 @@
                 "type": "integer",
                 "format": "int32"
               },
-              "defaultOutputExtension": {
+              "extension": {
                 "type": "string",
                 "nullable": true
-              },
-              "allowedOutputExtensions": {
-                "type": "array",
-                "nullable": true,
-                "items": {
-                  "type": "string"
-                }
               }
             }
           }
@@ -13649,16 +13653,9 @@
               "positionInSeconds"
             ],
             "properties": {
-              "defaultOutputExtension": {
+              "extension": {
                 "type": "string",
                 "nullable": true
-              },
-              "allowedOutputExtensions": {
-                "type": "array",
-                "nullable": true,
-                "items": {
-                  "type": "string"
-                }
               },
               "positionInSeconds": {
                 "type": "integer",
@@ -13681,16 +13678,9 @@
               "coder"
             ],
             "properties": {
-              "defaultOutputExtension": {
+              "extension": {
                 "type": "string",
                 "nullable": true
-              },
-              "allowedOutputExtensions": {
-                "type": "array",
-                "nullable": true,
-                "items": {
-                  "type": "string"
-                }
               },
               "profile": {
                 "description": "Gets or sets the encoding profile.",
@@ -13763,16 +13753,9 @@
             "type": "object",
             "additionalProperties": false,
             "properties": {
-              "defaultOutputExtension": {
+              "extension": {
                 "type": "string",
                 "nullable": true
-              },
-              "allowedOutputExtensions": {
-                "type": "array",
-                "nullable": true,
-                "items": {
-                  "type": "string"
-                }
               }
             }
           }
@@ -13787,16 +13770,9 @@
             "type": "object",
             "additionalProperties": false,
             "properties": {
-              "defaultOutputExtension": {
+              "extension": {
                 "type": "string",
                 "nullable": true
-              },
-              "allowedOutputExtensions": {
-                "type": "array",
-                "nullable": true,
-                "items": {
-                  "type": "string"
-                }
               },
               "bitrate": {
                 "type": "integer",
@@ -13835,16 +13811,9 @@
             "type": "object",
             "additionalProperties": false,
             "properties": {
-              "defaultOutputExtension": {
+              "extension": {
                 "type": "string",
                 "nullable": true
-              },
-              "allowedOutputExtensions": {
-                "type": "array",
-                "nullable": true,
-                "items": {
-                  "type": "string"
-                }
               }
             }
           }
@@ -13876,16 +13845,9 @@
               "reduceFileSize": {
                 "type": "boolean"
               },
-              "defaultOutputExtension": {
+              "extension": {
                 "type": "string",
                 "nullable": true
-              },
-              "allowedOutputExtensions": {
-                "type": "array",
-                "nullable": true,
-                "items": {
-                  "type": "string"
-                }
               },
               "extractFullText": {
                 "type": "boolean"
@@ -15560,6 +15522,8 @@
               "livestream_read": "Read live stream",
               "output_read": "Read outputs",
               "output_write": "Write outputs",
+              "outputformat_read": "Read output formats",
+              "outputformat_write": "Write output formats",
               "permission_read": "Read permission sets",
               "permission_write": "Write permission sets",
               "profile_read": "Read profile",

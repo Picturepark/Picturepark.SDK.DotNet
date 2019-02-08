@@ -421,7 +421,7 @@ namespace Picturepark.SDK.V1.Contract
         System.Threading.Tasks.Task<BulkResponse> UpdateManyAsync(ContentPermissionSetUpdateManyRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Delete multiple content permission sets</summary>
-        /// <param name="request">The request with permission IDs to delete.</param>
+        /// <param name="request">The request with permission set IDs to delete.</param>
         /// <returns>Bulk response with information about success or failure</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -764,6 +764,100 @@ namespace Picturepark.SDK.V1.Contract
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "12.0.9.0 (NJsonSchema v9.13.10.0 (Newtonsoft.Json v11.0.0.0))")]
+    public partial interface IOutputFormatClient
+    {
+        /// <summary>Get output format</summary>
+        /// <param name="id">The output format ID.</param>
+        /// <returns>Output format</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        System.Threading.Tasks.Task<OutputFormat> GetAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <summary>Update output format</summary>
+        /// <param name="id">ID of output format to update</param>
+        /// <param name="request">The request containing information needed to update the output format.</param>
+        /// <returns>Updated output format</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        System.Threading.Tasks.Task<OutputFormat> UpdateAsync(string id, OutputFormatEditable request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <summary>Delete output format</summary>
+        /// <param name="id">ID of the output format that should be deleted.</param>
+        /// <returns>OK</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        System.Threading.Tasks.Task DeleteAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <summary>Create output format</summary>
+        /// <param name="request">The request containing information needed to create new output format.</param>
+        /// <returns>Output format</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        System.Threading.Tasks.Task<OutputFormat> CreateAsync(OutputFormat request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <summary>Get multiple output formats</summary>
+        /// <param name="ids">Output format IDs to get information about</param>
+        /// <returns>Output formats</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<OutputFormat>> GetManyAsync(System.Collections.Generic.IEnumerable<string> ids = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <summary>Create multiple output formats</summary>
+        /// <param name="request">The request containing information needed to create new output formats.</param>
+        /// <returns>Bulk response with information about created output formats</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        System.Threading.Tasks.Task<BulkResponse> CreateManyAsync(OutputFormatCreateManyRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <summary>Update multiple output formats</summary>
+        /// <param name="request">The request containing information needed to update the output format.</param>
+        /// <returns>Bulk response with information about updated output formats</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        System.Threading.Tasks.Task<BulkResponse> UpdateManyAsync(OutputFormatUpdateManyRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <summary>Delete multiple output formats</summary>
+        /// <param name="request">The request with output formats IDs to delete.</param>
+        /// <returns>Bulk response with information about success or failure</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        System.Threading.Tasks.Task<BulkResponse> DeleteManyAsync(OutputFormatDeleteManyRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NSwag", "12.0.9.0 (NJsonSchema v9.13.10.0 (Newtonsoft.Json v11.0.0.0))")]
     public partial interface IProfileClient
     {
         /// <summary>Get</summary>
@@ -824,7 +918,6 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkArgumentNullException">Argument must not be null</exception>
         /// <exception cref="SchemaValidationException">The validation exception of schema creation</exception>
-        /// <exception cref="SchemaCyclicDependencyException">Schema cannot have cyclic dependencies</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
@@ -867,7 +960,6 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="DuplicateSchemaException">Schema with this name already exists</exception>
         /// <exception cref="PictureparkArgumentNullException">Argument must not be null</exception>
         /// <exception cref="SchemaValidationException">The validation exception of schema creation</exception>
-        /// <exception cref="SchemaCyclicDependencyException">Schema cannot have cyclic dependencies</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -896,6 +988,20 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         System.Threading.Tasks.Task<System.Collections.Generic.ICollection<IndexField>> GetIndexFieldsAsync(IndexFieldsSearchBySchemaIdsRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <summary>Create multiple schemas</summary>
+        /// <param name="schemas">The schema create many request.</param>
+        /// <returns>BusinessProcess which can be awaited.</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="DuplicateSchemaException">One or more schemas in the request already exist</exception>
+        /// <exception cref="PictureparkArgumentNullException">Argument must not be null</exception>
+        /// <exception cref="SchemaValidationException">One or more schemas failed to validate</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        System.Threading.Tasks.Task<BusinessProcess> CreateManyAsync(SchemaCreateManyRequest schemas, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
     }
     
@@ -1004,7 +1110,7 @@ namespace Picturepark.SDK.V1.Contract
         System.Threading.Tasks.Task<BulkResponse> UpdateManyAsync(SchemaPermissionSetUpdateManyRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Delete multiple schema permission sets</summary>
-        /// <param name="request">The request with permission IDs to delete.</param>
+        /// <param name="request">The request with permission set IDs to delete.</param>
         /// <returns>Bulk response with information about success or failure</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -1890,6 +1996,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("ShareExpiredException", typeof(ShareExpiredException))]
     [JsonInheritanceAttribute("OutputIdNotFoundException", typeof(OutputIdNotFoundException))]
     [JsonInheritanceAttribute("OutputNotFoundException", typeof(OutputNotFoundException))]
+    [JsonInheritanceAttribute("UnableToCreateOrModifyStaticOutputFormatException", typeof(UnableToCreateOrModifyStaticOutputFormatException))]
     [JsonInheritanceAttribute("LeaseNotAcquiredException", typeof(LeaseNotAcquiredException))]
     [JsonInheritanceAttribute("OperationInProgressException", typeof(OperationInProgressException))]
     [JsonInheritanceAttribute("RetryException", typeof(RetryException))]
@@ -1902,9 +2009,11 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("PictureparkOperationCanceledException", typeof(PictureparkOperationCanceledException))]
     [JsonInheritanceAttribute("PictureparkApplicationException", typeof(PictureparkApplicationException))]
     [JsonInheritanceAttribute("MissingCustomerDefaultLanguageException", typeof(MissingCustomerDefaultLanguageException))]
+    [JsonInheritanceAttribute("PartialOperationNotSupportedException", typeof(PartialOperationNotSupportedException))]
     [JsonInheritanceAttribute("InvalidArgumentException", typeof(InvalidArgumentException))]
     [JsonInheritanceAttribute("UnknownException", typeof(UnknownException))]
     [JsonInheritanceAttribute("OwnerTokenInUseException", typeof(OwnerTokenInUseException))]
+    [JsonInheritanceAttribute("InvalidValueFormatException", typeof(InvalidValueFormatException))]
     [JsonInheritanceAttribute("CustomerViolationException", typeof(CustomerViolationException))]
     [JsonInheritanceAttribute("CustomerAliasNotFoundException", typeof(CustomerAliasNotFoundException))]
     [JsonInheritanceAttribute("CustomerAliasInUseException", typeof(CustomerAliasInUseException))]
@@ -1989,7 +2098,6 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("DuplicateSchemaException", typeof(DuplicateSchemaException))]
     [JsonInheritanceAttribute("SchemaImportEmptyException", typeof(SchemaImportEmptyException))]
     [JsonInheritanceAttribute("SchemaImportVersionMismatchException", typeof(SchemaImportVersionMismatchException))]
-    [JsonInheritanceAttribute("SchemaCyclicDependencyException", typeof(SchemaCyclicDependencyException))]
     [JsonInheritanceAttribute("SchemaInheritanceFieldIndexDeviationException", typeof(SchemaInheritanceFieldIndexDeviationException))]
     [JsonInheritanceAttribute("SchemaInheritanceTypeDeviationException", typeof(SchemaInheritanceTypeDeviationException))]
     [JsonInheritanceAttribute("SchemaValidationException", typeof(SchemaValidationException))]
@@ -2647,6 +2755,22 @@ namespace Picturepark.SDK.V1.Contract
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
     [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class UnableToCreateOrModifyStaticOutputFormatException : PictureparkValidationException
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static UnableToCreateOrModifyStaticOutputFormatException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<UnableToCreateOrModifyStaticOutputFormatException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
     public partial class LeaseNotAcquiredException : PictureparkBusinessException
     {
         [Newtonsoft.Json.JsonProperty("resourceId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -2885,6 +3009,22 @@ namespace Picturepark.SDK.V1.Contract
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
     [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class PartialOperationNotSupportedException : PictureparkValidationException
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static PartialOperationNotSupportedException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<PartialOperationNotSupportedException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
     public partial class InvalidArgumentException : PictureparkValidationException
     {
         [Newtonsoft.Json.JsonProperty("argumentName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -2939,6 +3079,22 @@ namespace Picturepark.SDK.V1.Contract
         public static OwnerTokenInUseException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<OwnerTokenInUseException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class InvalidValueFormatException : PictureparkValidationException
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static InvalidValueFormatException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<InvalidValueFormatException>(data);
         }
     
     }
@@ -3727,6 +3883,9 @@ namespace Picturepark.SDK.V1.Contract
     
         [System.Runtime.Serialization.EnumMember(Value = "ManageAllShares")]
         ManageAllShares = 17,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "ManageOutputFormats")]
+        ManageOutputFormats = 18,
     
     }
     
@@ -4722,8 +4881,8 @@ namespace Picturepark.SDK.V1.Contract
     [Newtonsoft.Json.JsonObjectAttribute]
     public partial class IndexedFieldThresholdExceededException : PictureparkValidationException
     {
-        [Newtonsoft.Json.JsonProperty("schemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string SchemaId { get; set; }
+        [Newtonsoft.Json.JsonProperty("schemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> SchemaIds { get; set; }
     
         [Newtonsoft.Json.JsonProperty("indexedFieldCount", Required = Newtonsoft.Json.Required.Always)]
         public double IndexedFieldCount { get; set; }
@@ -4747,8 +4906,8 @@ namespace Picturepark.SDK.V1.Contract
     [Newtonsoft.Json.JsonObjectAttribute]
     public partial class SortableFieldThresholdExceededException : PictureparkValidationException
     {
-        [Newtonsoft.Json.JsonProperty("schemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string SchemaId { get; set; }
+        [Newtonsoft.Json.JsonProperty("schemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> SchemaIds { get; set; }
     
         [Newtonsoft.Json.JsonProperty("sortableFieldCount", Required = Newtonsoft.Json.Required.Always)]
         public double SortableFieldCount { get; set; }
@@ -5000,25 +5159,6 @@ namespace Picturepark.SDK.V1.Contract
         public static SchemaImportVersionMismatchException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaImportVersionMismatchException>(data);
-        }
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
-    [Newtonsoft.Json.JsonObjectAttribute]
-    public partial class SchemaCyclicDependencyException : PictureparkValidationException
-    {
-        [Newtonsoft.Json.JsonProperty("schemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> SchemaIds { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-    
-        public static SchemaCyclicDependencyException FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaCyclicDependencyException>(data);
         }
     
     }
@@ -12294,6 +12434,1028 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>Represents the editable part of the output format.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class OutputFormatEditable 
+    {
+        /// <summary>Language specific names.</summary>
+        [Newtonsoft.Json.JsonProperty("names", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public TranslatedStringDictionary Names { get; set; }
+    
+        /// <summary>Which output format should be used as a source of data.</summary>
+        [Newtonsoft.Json.JsonProperty("sourceOutputFormats", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public SourceOutputFormats SourceOutputFormats { get; set; }
+    
+        /// <summary>Information about the technical format of the data, e.g. JPEG, AAC or video still.</summary>
+        [Newtonsoft.Json.JsonProperty("format", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public FormatBase Format { get; set; }
+    
+        /// <summary>How long should the dynamic outputs created from this format be kept.</summary>
+        [Newtonsoft.Json.JsonProperty("retentionTime", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public System.TimeSpan RetentionTime { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static OutputFormatEditable FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<OutputFormatEditable>(data);
+        }
+    
+    }
+    
+    /// <summary>Represents an output format.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class OutputFormat : OutputFormatEditable
+    {
+        /// <summary>Output format ID.</summary>
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
+        /// <summary>Marks if this is a system output format.</summary>
+        [Newtonsoft.Json.JsonProperty("system", Required = Newtonsoft.Json.Required.Always)]
+        public bool System { get; set; }
+    
+        /// <summary>A dynamic output format is not rendered automatically, but only on demand.</summary>
+        [Newtonsoft.Json.JsonProperty("dynamic", Required = Newtonsoft.Json.Required.Always)]
+        public bool Dynamic { get; set; }
+    
+        /// <summary>Specifies if output format should be taken into account during data extraction.</summary>
+        [Newtonsoft.Json.JsonProperty("dataExtraction", Required = Newtonsoft.Json.Required.Always)]
+        public bool DataExtraction { get; set; }
+    
+        /// <summary>Temporary outputs will not be backed up.</summary>
+        [Newtonsoft.Json.JsonProperty("temporary", Required = Newtonsoft.Json.Required.Always)]
+        public bool Temporary { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static OutputFormat FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<OutputFormat>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class SourceOutputFormats 
+    {
+        [Newtonsoft.Json.JsonProperty("image", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Image { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("video", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Video { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("document", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Document { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("audio", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Audio { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static SourceOutputFormats FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SourceOutputFormats>(data);
+        }
+    
+    }
+    
+    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
+    [JsonInheritanceAttribute("ImageFormatBase", typeof(ImageFormatBase))]
+    [JsonInheritanceAttribute("OriginalFormat", typeof(OriginalFormat))]
+    [JsonInheritanceAttribute("JpegFormat", typeof(JpegFormat))]
+    [JsonInheritanceAttribute("PngFormat", typeof(PngFormat))]
+    [JsonInheritanceAttribute("TiffFormat", typeof(TiffFormat))]
+    [JsonInheritanceAttribute("VideoFormatBase", typeof(VideoFormatBase))]
+    [JsonInheritanceAttribute("AudioFormatBase", typeof(AudioFormatBase))]
+    [JsonInheritanceAttribute("Mp4VideoFormat", typeof(Mp4VideoFormat))]
+    [JsonInheritanceAttribute("VideoSpriteFormat", typeof(VideoSpriteFormat))]
+    [JsonInheritanceAttribute("VideoStillFormat", typeof(VideoStillFormat))]
+    [JsonInheritanceAttribute("AacAudioFormat", typeof(AacAudioFormat))]
+    [JsonInheritanceAttribute("AudioStillFormat", typeof(AudioStillFormat))]
+    [JsonInheritanceAttribute("Mp3AudioFormat", typeof(Mp3AudioFormat))]
+    [JsonInheritanceAttribute("DocumentFormatBase", typeof(DocumentFormatBase))]
+    [JsonInheritanceAttribute("DocumentStillFormat", typeof(DocumentStillFormat))]
+    [JsonInheritanceAttribute("PdfFormat", typeof(PdfFormat))]
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
+    public abstract partial class FormatBase 
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static FormatBase FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<FormatBase>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
+    public abstract partial class ImageFormatBase : FormatBase
+    {
+        [Newtonsoft.Json.JsonProperty("colorProfile", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public ColorProfile ColorProfile { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("colorTransformationIntent", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public ColorTransformationIntent ColorTransformationIntent { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("horizontalResolution", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public double? HorizontalResolution { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("verticalResolution", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public double? VerticalResolution { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("renderFirstFrameOnly", Required = Newtonsoft.Json.Required.Always)]
+        public bool RenderFirstFrameOnly { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("keepClippingPath", Required = Newtonsoft.Json.Required.Always)]
+        public bool KeepClippingPath { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("cloneExif", Required = Newtonsoft.Json.Required.Always)]
+        public bool CloneExif { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("cloneIptc", Required = Newtonsoft.Json.Required.Always)]
+        public bool CloneIptc { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("cloneAdobeResources", Required = Newtonsoft.Json.Required.Always)]
+        public bool CloneAdobeResources { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("cloneXmp", Required = Newtonsoft.Json.Required.Always)]
+        public bool CloneXmp { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("resizeAction", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public ResizeAction ResizeAction { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("actions", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<ImageActionBase> Actions { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static ImageFormatBase FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ImageFormatBase>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
+    public enum ColorProfile
+    {
+        [System.Runtime.Serialization.EnumMember(Value = "AdobeRgb1998")]
+        AdobeRgb1998 = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "AppleRgb")]
+        AppleRgb = 1,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "ColorMatchRgb")]
+        ColorMatchRgb = 2,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "EciRgbV1")]
+        EciRgbV1 = 3,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "EciRgbV2")]
+        EciRgbV2 = 4,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "Srgb")]
+        Srgb = 5,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "SrgbColorSpaceProfile")]
+        SrgbColorSpaceProfile = 6,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "EuropeIsoCoatedFogra27")]
+        EuropeIsoCoatedFogra27 = 7,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "EuroscaleCoated")]
+        EuroscaleCoated = 8,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "EuroscaleUncoated")]
+        EuroscaleUncoated = 9,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "IsoCoated")]
+        IsoCoated = 10,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "IsoCoatedEciV2")]
+        IsoCoatedEciV2 = 11,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "JapanColor2001Coated")]
+        JapanColor2001Coated = 12,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "JapanColor2001Uncoated")]
+        JapanColor2001Uncoated = 13,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "JapanColor2002Newspaper")]
+        JapanColor2002Newspaper = 14,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "JapanWebCoated")]
+        JapanWebCoated = 15,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "UsSheetfedCoated")]
+        UsSheetfedCoated = 16,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "UsSheetfedUncoated")]
+        UsSheetfedUncoated = 17,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "UsWebCoatedSwop")]
+        UsWebCoatedSwop = 18,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "UsWebUncoated")]
+        UsWebUncoated = 19,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "IsoCoatedV2Grey1cBas")]
+        IsoCoatedV2Grey1cBas = 20,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "IsoCoated300EciV2")]
+        IsoCoated300EciV2 = 21,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "CoatedFogra27")]
+        CoatedFogra27 = 22,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "CoatedFogra39")]
+        CoatedFogra39 = 23,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "UncoatedFogra29")]
+        UncoatedFogra29 = 24,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "WebCoatedFogra28")]
+        WebCoatedFogra28 = 25,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "WebCoatedSwop2006Grade3")]
+        WebCoatedSwop2006Grade3 = 26,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "WebCoatedSwop2006Grade5")]
+        WebCoatedSwop2006Grade5 = 27,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "Isonewspaper26v4")]
+        Isonewspaper26v4 = 28,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "Isonewspaper26v4Grey")]
+        Isonewspaper26v4Grey = 29,
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
+    public enum ColorTransformationIntent
+    {
+        [System.Runtime.Serialization.EnumMember(Value = "RelativeColorimetricBpc")]
+        RelativeColorimetricBpc = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "AbsoluteColorimetric")]
+        AbsoluteColorimetric = 1,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "Perceptual")]
+        Perceptual = 2,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "RelativeColorimetric")]
+        RelativeColorimetric = 3,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "Saturation")]
+        Saturation = 4,
+    
+    }
+    
+    /// <summary>Does not implement the IImageAction interface. The ResizeAction is directly exposed within ImageFormat.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class ResizeAction 
+    {
+        [Newtonsoft.Json.JsonProperty("width", Required = Newtonsoft.Json.Required.Always)]
+        public int Width { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("height", Required = Newtonsoft.Json.Required.Always)]
+        public int Height { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("resizeMode", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public ResizeMode ResizeMode { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static ResizeAction FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ResizeAction>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
+    public enum ResizeMode
+    {
+        [System.Runtime.Serialization.EnumMember(Value = "Fit")]
+        Fit = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "Shrink")]
+        Shrink = 1,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "Resize")]
+        Resize = 2,
+    
+    }
+    
+    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
+    [JsonInheritanceAttribute("AlphaHandlingAction", typeof(AlphaHandlingAction))]
+    [JsonInheritanceAttribute("CropAction", typeof(CropAction))]
+    [JsonInheritanceAttribute("UnsharpenMaskAction", typeof(UnsharpenMaskAction))]
+    [JsonInheritanceAttribute("WatermarkAction", typeof(WatermarkAction))]
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
+    public abstract partial class ImageActionBase 
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static ImageActionBase FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ImageActionBase>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class AlphaHandlingAction : ImageActionBase
+    {
+        [Newtonsoft.Json.JsonProperty("alphaHandling", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public AlphaHandling AlphaHandling { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("replacementRgbColorHexCode", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ReplacementRgbColorHexCode { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static AlphaHandlingAction FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<AlphaHandlingAction>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
+    public enum AlphaHandling
+    {
+        [System.Runtime.Serialization.EnumMember(Value = "DiscardAlpha")]
+        DiscardAlpha = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "ReplaceAlpha")]
+        ReplaceAlpha = 1,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "ReplaceInvertedAlpha")]
+        ReplaceInvertedAlpha = 2,
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class CropAction : ImageActionBase
+    {
+        [Newtonsoft.Json.JsonProperty("x", Required = Newtonsoft.Json.Required.Always)]
+        public int X { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("y", Required = Newtonsoft.Json.Required.Always)]
+        public int Y { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("width", Required = Newtonsoft.Json.Required.Always)]
+        public int Width { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("height", Required = Newtonsoft.Json.Required.Always)]
+        public int Height { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static CropAction FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<CropAction>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class UnsharpenMaskAction : ImageActionBase
+    {
+        [Newtonsoft.Json.JsonProperty("amount", Required = Newtonsoft.Json.Required.Always)]
+        public double Amount { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("radius", Required = Newtonsoft.Json.Required.Always)]
+        public double Radius { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("threshold", Required = Newtonsoft.Json.Required.Always)]
+        public double Threshold { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static UnsharpenMaskAction FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<UnsharpenMaskAction>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class WatermarkAction : ImageActionBase
+    {
+        [Newtonsoft.Json.JsonProperty("watermarkFilePath", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string WatermarkFilePath { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("watermarkText", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string WatermarkText { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("marginLeft", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int? MarginLeft { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("marginTop", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int? MarginTop { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("marginRight", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int? MarginRight { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("marginBottom", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int? MarginBottom { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("opacity", Required = Newtonsoft.Json.Required.Always)]
+        public double Opacity { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("widthRatio", Required = Newtonsoft.Json.Required.Always)]
+        public double WidthRatio { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("heightRatio", Required = Newtonsoft.Json.Required.Always)]
+        public double HeightRatio { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static WatermarkAction FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<WatermarkAction>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class OriginalFormat : FormatBase
+    {
+        [Newtonsoft.Json.JsonProperty("extension", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Extension { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static OriginalFormat FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<OriginalFormat>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class JpegFormat : ImageFormatBase
+    {
+        [Newtonsoft.Json.JsonProperty("quality", Required = Newtonsoft.Json.Required.Always)]
+        public int Quality { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("isProgressive", Required = Newtonsoft.Json.Required.Always)]
+        public bool IsProgressive { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("chromaSubsamplingEnabled", Required = Newtonsoft.Json.Required.Always)]
+        public bool ChromaSubsamplingEnabled { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("extension", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Extension { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static JpegFormat FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<JpegFormat>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class PngFormat : ImageFormatBase
+    {
+        [Newtonsoft.Json.JsonProperty("interlaced", Required = Newtonsoft.Json.Required.Always)]
+        public bool Interlaced { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("extension", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Extension { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static PngFormat FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<PngFormat>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class TiffFormat : ImageFormatBase
+    {
+        [Newtonsoft.Json.JsonProperty("alphaPremultiplied", Required = Newtonsoft.Json.Required.Always)]
+        public bool AlphaPremultiplied { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("compressionType", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public CompressionType CompressionType { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("includeUnspecifiedTiffExtraChannels", Required = Newtonsoft.Json.Required.Always)]
+        public bool IncludeUnspecifiedTiffExtraChannels { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("extension", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Extension { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static TiffFormat FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<TiffFormat>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
+    public enum CompressionType
+    {
+        [System.Runtime.Serialization.EnumMember(Value = "None")]
+        None = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "Lzw")]
+        Lzw = 1,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "Rle")]
+        Rle = 2,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "Zip")]
+        Zip = 3,
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
+    public abstract partial class VideoFormatBase : FormatBase
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static VideoFormatBase FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<VideoFormatBase>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class Mp4VideoFormat : VideoFormatBase
+    {
+        [Newtonsoft.Json.JsonProperty("resizeAction", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public ResizeAction2 ResizeAction { get; set; }
+    
+        /// <summary>Gets or sets the encoding audio codec.</summary>
+        [Newtonsoft.Json.JsonProperty("audioCodec", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public AudioFormatBase AudioCodec { get; set; }
+    
+        /// <summary>Gets or sets the encoding codec preset.</summary>
+        [Newtonsoft.Json.JsonProperty("preset", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public Preset Preset { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("extension", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Extension { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static Mp4VideoFormat FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<Mp4VideoFormat>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class ResizeAction2 
+    {
+        [Newtonsoft.Json.JsonProperty("width", Required = Newtonsoft.Json.Required.Always)]
+        public int Width { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("height", Required = Newtonsoft.Json.Required.Always)]
+        public int Height { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("resizeMode", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public ResizeMode ResizeMode { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static ResizeAction2 FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ResizeAction2>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
+    public abstract partial class AudioFormatBase : FormatBase
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static AudioFormatBase FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<AudioFormatBase>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
+    public enum Preset
+    {
+        [System.Runtime.Serialization.EnumMember(Value = "ultrafast")]
+        Ultrafast = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "superfast")]
+        Superfast = 1,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "veryfast")]
+        Veryfast = 2,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "faster")]
+        Faster = 3,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "fast")]
+        Fast = 4,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "medium")]
+        Medium = 5,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "slow")]
+        Slow = 6,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "slower")]
+        Slower = 7,
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class VideoSpriteFormat : VideoFormatBase
+    {
+        [Newtonsoft.Json.JsonProperty("spriteResizeAction", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public ResizeAction2 SpriteResizeAction { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("maxNumberOfSprites", Required = Newtonsoft.Json.Required.Always)]
+        public int MaxNumberOfSprites { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("quality", Required = Newtonsoft.Json.Required.Always)]
+        public int Quality { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("extension", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Extension { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static VideoSpriteFormat FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<VideoSpriteFormat>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class VideoStillFormat : VideoFormatBase
+    {
+        [Newtonsoft.Json.JsonProperty("extension", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Extension { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("positionInSeconds", Required = Newtonsoft.Json.Required.Always)]
+        public int PositionInSeconds { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static VideoStillFormat FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<VideoStillFormat>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class AacAudioFormat : AudioFormatBase
+    {
+        [Newtonsoft.Json.JsonProperty("extension", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Extension { get; set; }
+    
+        /// <summary>Gets or sets the encoding profile.</summary>
+        [Newtonsoft.Json.JsonProperty("profile", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public Profile Profile { get; set; }
+    
+        /// <summary>Gets or sets the encoding coder.</summary>
+        [Newtonsoft.Json.JsonProperty("coder", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public Coder Coder { get; set; }
+    
+        /// <summary>Gets or sets the bitrate of the encoding.</summary>
+        [Newtonsoft.Json.JsonProperty("bitrate", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int? Bitrate { get; set; }
+    
+        /// <summary>Gets or sets the encoding variable bit rate (VBR) - 1 is lowest quality and 5 is highest quality.</summary>
+        [Newtonsoft.Json.JsonProperty("variableBitRate", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int? VariableBitRate { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static AacAudioFormat FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<AacAudioFormat>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
+    public enum Profile
+    {
+        [System.Runtime.Serialization.EnumMember(Value = "aac_low")]
+        Aac_low = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "mpeg2_aac_low")]
+        Mpeg2_aac_low = 1,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "aac_ltp")]
+        Aac_ltp = 2,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "aac_main")]
+        Aac_main = 3,
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
+    public enum Coder
+    {
+        [System.Runtime.Serialization.EnumMember(Value = "twoloop")]
+        Twoloop = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "anmr")]
+        Anmr = 1,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "fast")]
+        Fast = 2,
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class AudioStillFormat : AudioFormatBase
+    {
+        [Newtonsoft.Json.JsonProperty("extension", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Extension { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static AudioStillFormat FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<AudioStillFormat>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class Mp3AudioFormat : AudioFormatBase
+    {
+        [Newtonsoft.Json.JsonProperty("extension", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Extension { get; set; }
+    
+        /// <summary>Gets or sets the encoding bitrate.</summary>
+        [Newtonsoft.Json.JsonProperty("bitrate", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int? Bitrate { get; set; }
+    
+        /// <summary>Gets or sets the encoding quality.
+        /// Values can be set it range of 0 to 9, where a lower value is a higher quality.</summary>
+        [Newtonsoft.Json.JsonProperty("quality", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int? Quality { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static Mp3AudioFormat FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<Mp3AudioFormat>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
+    public abstract partial class DocumentFormatBase : FormatBase
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static DocumentFormatBase FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<DocumentFormatBase>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class DocumentStillFormat : DocumentFormatBase
+    {
+        [Newtonsoft.Json.JsonProperty("extension", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Extension { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static DocumentStillFormat FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<DocumentStillFormat>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class PdfFormat : DocumentFormatBase
+    {
+        /// <summary>JpegQuality parameter value must be between 0 and 100.</summary>
+        [Newtonsoft.Json.JsonProperty("jpegQuality", Required = Newtonsoft.Json.Required.Always)]
+        public int JpegQuality { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("fastWebView", Required = Newtonsoft.Json.Required.Always)]
+        public bool FastWebView { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("reduceFileSize", Required = Newtonsoft.Json.Required.Always)]
+        public bool ReduceFileSize { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("extension", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Extension { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("extractFullText", Required = Newtonsoft.Json.Required.Always)]
+        public bool ExtractFullText { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static PdfFormat FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<PdfFormat>(data);
+        }
+    
+    }
+    
+    /// <summary>Used to create multiple new output formats at once.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class OutputFormatCreateManyRequest 
+    {
+        /// <summary>Output format items to be created.</summary>
+        [Newtonsoft.Json.JsonProperty("items", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<OutputFormat> Items { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static OutputFormatCreateManyRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<OutputFormatCreateManyRequest>(data);
+        }
+    
+    }
+    
+    /// <summary>Used to modify multiple output formats at once.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class OutputFormatUpdateManyRequest 
+    {
+        /// <summary>Output format items to be modified.</summary>
+        [Newtonsoft.Json.JsonProperty("items", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<OutputFormatUpdateManyRequestItem> Items { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static OutputFormatUpdateManyRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<OutputFormatUpdateManyRequest>(data);
+        }
+    
+    }
+    
+    /// <summary>Represents one item to be modified in a bulk update operation on output formats.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class OutputFormatUpdateManyRequestItem : OutputFormatEditable
+    {
+        /// <summary>ID of the output format to modify.</summary>
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static OutputFormatUpdateManyRequestItem FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<OutputFormatUpdateManyRequestItem>(data);
+        }
+    
+    }
+    
+    /// <summary>Used to remove multiple output formats at once.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class OutputFormatDeleteManyRequest 
+    {
+        /// <summary>List of IDs of output formats to remove.</summary>
+        [Newtonsoft.Json.JsonProperty("items", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> Items { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static OutputFormatDeleteManyRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<OutputFormatDeleteManyRequest>(data);
+        }
+    
+    }
+    
     /// <summary>User profile.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class UserProfile 
@@ -14063,6 +15225,28 @@ namespace Picturepark.SDK.V1.Contract
         public static SchemaCreateRequest FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaCreateRequest>(data);
+        }
+    
+    }
+    
+    /// <summary>Request to create multiple schemas</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class SchemaCreateManyRequest 
+    {
+        /// <summary>The schemas to create. Cyclic dependencies between schemas are supported, if the
+        /// are all in the same request.</summary>
+        [Newtonsoft.Json.JsonProperty("schemas", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.Collections.Generic.ICollection<SchemaCreateRequest> Schemas { get; set; } = new System.Collections.Generic.List<SchemaCreateRequest>();
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static SchemaCreateManyRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaCreateManyRequest>(data);
         }
     
     }
