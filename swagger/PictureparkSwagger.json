@@ -9671,7 +9671,7 @@
             ]
           },
           "400": {
-            "description": "Argument must not be null\nor\nThe validation exception of schema creation\nor\nSchema cannot have cyclic dependencies\nor\nValidation exception",
+            "description": "Argument must not be null\nor\nThe validation exception of schema creation\nor\nValidation exception",
             "content": {
               "application/json": {
                 "schema": {
@@ -9703,17 +9703,6 @@
                   "oneOf": [
                     {
                       "$ref": "#/components/schemas/SchemaValidationException"
-                    }
-                  ]
-                }
-              },
-              {
-                "description": "Schema cannot have cyclic dependencies",
-                "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/SchemaCyclicDependencyException"
                     }
                   ]
                 }
@@ -10119,7 +10108,7 @@
             }
           },
           "400": {
-            "description": "Schema with this name already exists\nor\nArgument must not be null\nor\nThe validation exception of schema creation\nor\nSchema cannot have cyclic dependencies\nor\nValidation exception",
+            "description": "Schema with this name already exists\nor\nArgument must not be null\nor\nThe validation exception of schema creation\nor\nValidation exception",
             "content": {
               "application/json": {
                 "schema": {
@@ -10162,17 +10151,6 @@
                   "oneOf": [
                     {
                       "$ref": "#/components/schemas/SchemaValidationException"
-                    }
-                  ]
-                }
-              },
-              {
-                "description": "Schema cannot have cyclic dependencies",
-                "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/SchemaCyclicDependencyException"
                     }
                   ]
                 }
@@ -10594,6 +10572,163 @@
           {
             "Bearer": [
               "schema_read"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/schemas/many": {
+      "post": {
+        "tags": [
+          "Schema"
+        ],
+        "summary": "Create multiple schemas",
+        "description": "Creates new schemas.",
+        "operationId": "Schema_CreateMany",
+        "requestBody": {
+          "x-name": "schemas",
+          "description": "The schema create many request.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SchemaCreateManyRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "BusinessProcess which can be awaited.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BusinessProcess"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "One or more schemas in the request already exist\nor\nArgument must not be null\nor\nOne or more schemas failed to validate\nor\nValidation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkValidationException"
+                    }
+                  ]
+                }
+              }
+            },
+            "x-expectedSchemas": [
+              {
+                "description": "One or more schemas in the request already exist",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/DuplicateSchemaException"
+                    }
+                  ]
+                }
+              },
+              {
+                "description": "Argument must not be null",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkArgumentNullException"
+                    }
+                  ]
+                }
+              },
+              {
+                "description": "One or more schemas failed to validate",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/SchemaValidationException"
+                    }
+                  ]
+                }
+              },
+              {
+                "description": "Validation exception",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkValidationException"
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkNotFoundException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkConflictException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "schema_write"
             ]
           }
         ]
@@ -17582,6 +17717,7 @@
                 "PictureparkOperationCanceledException": "#/components/schemas/PictureparkOperationCanceledException",
                 "PictureparkApplicationException": "#/components/schemas/PictureparkApplicationException",
                 "MissingCustomerDefaultLanguageException": "#/components/schemas/MissingCustomerDefaultLanguageException",
+                "PartialOperationNotSupportedException": "#/components/schemas/PartialOperationNotSupportedException",
                 "InvalidArgumentException": "#/components/schemas/InvalidArgumentException",
                 "UnknownException": "#/components/schemas/UnknownException",
                 "OwnerTokenInUseException": "#/components/schemas/OwnerTokenInUseException",
@@ -17669,7 +17805,6 @@
                 "DuplicateSchemaException": "#/components/schemas/DuplicateSchemaException",
                 "SchemaImportEmptyException": "#/components/schemas/SchemaImportEmptyException",
                 "SchemaImportVersionMismatchException": "#/components/schemas/SchemaImportVersionMismatchException",
-                "SchemaCyclicDependencyException": "#/components/schemas/SchemaCyclicDependencyException",
                 "SchemaInheritanceFieldIndexDeviationException": "#/components/schemas/SchemaInheritanceFieldIndexDeviationException",
                 "SchemaInheritanceTypeDeviationException": "#/components/schemas/SchemaInheritanceTypeDeviationException",
                 "SchemaValidationException": "#/components/schemas/SchemaValidationException",
@@ -18490,6 +18625,17 @@
                 "nullable": true
               }
             }
+          }
+        ]
+      },
+      "PartialOperationNotSupportedException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
           }
         ]
       },
@@ -20265,9 +20411,12 @@
               "indexedFieldThreshold"
             ],
             "properties": {
-              "schemaId": {
-                "type": "string",
-                "nullable": true
+              "schemaIds": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "type": "string"
+                }
               },
               "indexedFieldCount": {
                 "type": "number",
@@ -20294,9 +20443,12 @@
               "sortableFieldThreshold"
             ],
             "properties": {
-              "schemaId": {
-                "type": "string",
-                "nullable": true
+              "schemaIds": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "type": "string"
+                }
               },
               "sortableFieldCount": {
                 "type": "number",
@@ -20542,26 +20694,6 @@
               "expectedVersion": {
                 "type": "string",
                 "nullable": true
-              }
-            }
-          }
-        ]
-      },
-      "SchemaCyclicDependencyException": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/PictureparkValidationException"
-          },
-          {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "schemaIds": {
-                "type": "array",
-                "nullable": true,
-                "items": {
-                  "type": "string"
-                }
               }
             }
           }
@@ -30267,6 +30399,23 @@
             "nullable": true,
             "items": {
               "type": "string"
+            }
+          }
+        }
+      },
+      "SchemaCreateManyRequest": {
+        "type": "object",
+        "description": "Request to create multiple schemas",
+        "additionalProperties": false,
+        "required": [
+          "schemas"
+        ],
+        "properties": {
+          "schemas": {
+            "type": "array",
+            "description": "The schemas to create. Cyclic dependencies between schemas are supported, if the\nare all in the same request.",
+            "items": {
+              "$ref": "#/components/schemas/SchemaCreateRequest"
             }
           }
         }

@@ -6987,6 +6987,7 @@
                 "PictureparkOperationCanceledException": "#/components/schemas/PictureparkOperationCanceledException",
                 "PictureparkApplicationException": "#/components/schemas/PictureparkApplicationException",
                 "MissingCustomerDefaultLanguageException": "#/components/schemas/MissingCustomerDefaultLanguageException",
+                "PartialOperationNotSupportedException": "#/components/schemas/PartialOperationNotSupportedException",
                 "InvalidArgumentException": "#/components/schemas/InvalidArgumentException",
                 "UnknownException": "#/components/schemas/UnknownException",
                 "OwnerTokenInUseException": "#/components/schemas/OwnerTokenInUseException",
@@ -7074,7 +7075,6 @@
                 "DuplicateSchemaException": "#/components/schemas/DuplicateSchemaException",
                 "SchemaImportEmptyException": "#/components/schemas/SchemaImportEmptyException",
                 "SchemaImportVersionMismatchException": "#/components/schemas/SchemaImportVersionMismatchException",
-                "SchemaCyclicDependencyException": "#/components/schemas/SchemaCyclicDependencyException",
                 "SchemaInheritanceFieldIndexDeviationException": "#/components/schemas/SchemaInheritanceFieldIndexDeviationException",
                 "SchemaInheritanceTypeDeviationException": "#/components/schemas/SchemaInheritanceTypeDeviationException",
                 "SchemaValidationException": "#/components/schemas/SchemaValidationException",
@@ -7895,6 +7895,17 @@
                 "nullable": true
               }
             }
+          }
+        ]
+      },
+      "PartialOperationNotSupportedException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
           }
         ]
       },
@@ -9670,9 +9681,12 @@
               "indexedFieldThreshold"
             ],
             "properties": {
-              "schemaId": {
-                "type": "string",
-                "nullable": true
+              "schemaIds": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "type": "string"
+                }
               },
               "indexedFieldCount": {
                 "type": "number",
@@ -9699,9 +9713,12 @@
               "sortableFieldThreshold"
             ],
             "properties": {
-              "schemaId": {
-                "type": "string",
-                "nullable": true
+              "schemaIds": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "type": "string"
+                }
               },
               "sortableFieldCount": {
                 "type": "number",
@@ -9947,26 +9964,6 @@
               "expectedVersion": {
                 "type": "string",
                 "nullable": true
-              }
-            }
-          }
-        ]
-      },
-      "SchemaCyclicDependencyException": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/PictureparkValidationException"
-          },
-          {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "schemaIds": {
-                "type": "array",
-                "nullable": true,
-                "items": {
-                  "type": "string"
-                }
               }
             }
           }

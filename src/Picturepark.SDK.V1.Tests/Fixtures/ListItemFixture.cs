@@ -14,7 +14,7 @@ namespace Picturepark.SDK.V1.Tests.Fixtures
 
         public async Task Setup()
         {
-            if (await Client.Schema.ExistsAsync(nameof(Tag)).ConfigureAwait(false) == false)
+            if (!await Client.Schema.ExistsAsync(nameof(Tag)).ConfigureAwait(false))
             {
                 var schema = await Client.Schema.GenerateSchemasAsync(typeof(Tag)).ConfigureAwait(false);
                 await Client.Schema.CreateAsync(schema.First(), true, TimeSpan.FromMinutes(1)).ConfigureAwait(false);
