@@ -5172,7 +5172,7 @@
         "operationId": "ContentPermissionSet_DeleteMany",
         "requestBody": {
           "x-name": "request",
-          "description": "The request with permission IDs to delete.",
+          "description": "The request with permission set IDs to delete.",
           "content": {
             "application/json": {
               "schema": {
@@ -9147,6 +9147,894 @@
         ]
       }
     },
+    "/v1/outputFormats/{id}": {
+      "get": {
+        "tags": [
+          "OutputFormat"
+        ],
+        "summary": "Get output format",
+        "description": "Gets the output format information by the output format ID.",
+        "operationId": "OutputFormat_Get",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "The output format ID.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Output format",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OutputFormat"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkNotFoundException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkConflictException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkValidationException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "outputformat_read"
+            ]
+          }
+        ]
+      },
+      "put": {
+        "tags": [
+          "OutputFormat"
+        ],
+        "summary": "Update output format",
+        "description": "Updates the output format specified by the ID and based on supplied request.",
+        "operationId": "OutputFormat_Update",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "ID of output format to update",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1
+          }
+        ],
+        "requestBody": {
+          "x-name": "request",
+          "description": "The request containing information needed to update the output format.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OutputFormatEditable"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 2
+        },
+        "responses": {
+          "200": {
+            "description": "Updated output format",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OutputFormat"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkNotFoundException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkConflictException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkValidationException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "outputformat_write"
+            ]
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "OutputFormat"
+        ],
+        "summary": "Delete output format",
+        "description": "Deletes the output format specified by the ID.",
+        "operationId": "OutputFormat_Delete",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "ID of the output format that should be deleted.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkNotFoundException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkConflictException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkValidationException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "outputformat_write"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/outputFormats": {
+      "post": {
+        "tags": [
+          "OutputFormat"
+        ],
+        "summary": "Create output format",
+        "description": "Creates new output format based on supplied request.",
+        "operationId": "OutputFormat_Create",
+        "requestBody": {
+          "x-name": "request",
+          "description": "The request containing information needed to create new output format.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OutputFormat"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "Output format",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OutputFormat"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkNotFoundException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkConflictException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkValidationException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "outputformat_write"
+            ]
+          }
+        ]
+      },
+      "get": {
+        "tags": [
+          "OutputFormat"
+        ],
+        "summary": "Get multiple output formats",
+        "description": "Gets multiple output format details by the output format IDs.",
+        "operationId": "OutputFormat_GetMany",
+        "parameters": [
+          {
+            "name": "ids",
+            "in": "query",
+            "description": "Output format IDs to get information about",
+            "collectionFormat": "multi",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Output formats",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/OutputFormat"
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkNotFoundException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkConflictException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkValidationException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "outputformat_read"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/outputFormats/many": {
+      "post": {
+        "tags": [
+          "OutputFormat"
+        ],
+        "summary": "Create multiple output formats",
+        "description": "Creates new output formats based on supplied requests.",
+        "operationId": "OutputFormat_CreateMany",
+        "requestBody": {
+          "x-name": "request",
+          "description": "The request containing information needed to create new output formats.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OutputFormatCreateManyRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "Bulk response with information about created output formats",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BulkResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkNotFoundException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkConflictException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkValidationException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "outputformat_write"
+            ]
+          }
+        ]
+      },
+      "put": {
+        "tags": [
+          "OutputFormat"
+        ],
+        "summary": "Update multiple output formats",
+        "description": "Updates the output formats specified by the IDs and based on supplied request.",
+        "operationId": "OutputFormat_UpdateMany",
+        "requestBody": {
+          "x-name": "request",
+          "description": "The request containing information needed to update the output format.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OutputFormatUpdateManyRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "Bulk response with information about updated output formats",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BulkResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkNotFoundException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkConflictException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkValidationException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "outputformat_write"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/outputFormats/many/delete": {
+      "post": {
+        "tags": [
+          "OutputFormat"
+        ],
+        "summary": "Delete multiple output formats",
+        "description": "Deletes the output formats specified by the IDs.",
+        "operationId": "OutputFormat_DeleteMany",
+        "requestBody": {
+          "x-name": "request",
+          "description": "The request with output formats IDs to delete.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OutputFormatDeleteManyRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "Bulk response with information about success or failure",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BulkResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkNotFoundException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkConflictException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkValidationException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "outputformat_write"
+            ]
+          }
+        ]
+      }
+    },
     "/v1/profile": {
       "get": {
         "tags": [
@@ -11752,7 +12640,7 @@
         "operationId": "SchemaPermissionSet_DeleteMany",
         "requestBody": {
           "x-name": "request",
-          "description": "The request with permission IDs to delete.",
+          "description": "The request with permission set IDs to delete.",
           "content": {
             "application/json": {
               "schema": {
@@ -17705,6 +18593,7 @@
                 "ShareExpiredException": "#/components/schemas/ShareExpiredException",
                 "OutputIdNotFoundException": "#/components/schemas/OutputIdNotFoundException",
                 "OutputNotFoundException": "#/components/schemas/OutputNotFoundException",
+                "UnableToCreateOrModifyStaticOutputFormatException": "#/components/schemas/UnableToCreateOrModifyStaticOutputFormatException",
                 "LeaseNotAcquiredException": "#/components/schemas/LeaseNotAcquiredException",
                 "OperationInProgressException": "#/components/schemas/OperationInProgressException",
                 "RetryException": "#/components/schemas/RetryException",
@@ -17721,6 +18610,7 @@
                 "InvalidArgumentException": "#/components/schemas/InvalidArgumentException",
                 "UnknownException": "#/components/schemas/UnknownException",
                 "OwnerTokenInUseException": "#/components/schemas/OwnerTokenInUseException",
+                "InvalidValueFormatException": "#/components/schemas/InvalidValueFormatException",
                 "CustomerViolationException": "#/components/schemas/CustomerViolationException",
                 "CustomerAliasNotFoundException": "#/components/schemas/CustomerAliasNotFoundException",
                 "CustomerAliasInUseException": "#/components/schemas/CustomerAliasInUseException",
@@ -18410,6 +19300,17 @@
           }
         ]
       },
+      "UnableToCreateOrModifyStaticOutputFormatException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
       "LeaseNotAcquiredException": {
         "allOf": [
           {
@@ -18691,6 +19592,17 @@
                 "nullable": true
               }
             }
+          }
+        ]
+      },
+      "InvalidValueFormatException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
           }
         ]
       },
@@ -19406,7 +20318,8 @@
           "ManageTermsOfService",
           "ManageLiveStream",
           "ManageDocumentHistory",
-          "ManageAllShares"
+          "ManageAllShares",
+          "ManageOutputFormats"
         ],
         "enum": [
           "ManageContent",
@@ -19426,7 +20339,8 @@
           "ManageTermsOfService",
           "ManageLiveStream",
           "ManageDocumentHistory",
-          "ManageAllShares"
+          "ManageAllShares",
+          "ManageOutputFormats"
         ]
       },
       "PermissionSetNotFoundException": {
@@ -28271,6 +29185,1077 @@
           }
         }
       },
+      "OutputFormat": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/OutputFormatEditable"
+          },
+          {
+            "type": "object",
+            "description": "Represents an output format.",
+            "additionalProperties": false,
+            "required": [
+              "system",
+              "dynamic",
+              "dataExtraction",
+              "temporary"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "description": "Output format ID.",
+                "nullable": true
+              },
+              "system": {
+                "type": "boolean",
+                "description": "Marks if this is a system output format."
+              },
+              "dynamic": {
+                "type": "boolean",
+                "description": "A dynamic output format is not rendered automatically, but only on demand."
+              },
+              "dataExtraction": {
+                "type": "boolean",
+                "description": "Specifies if output format should be taken into account during data extraction."
+              },
+              "temporary": {
+                "type": "boolean",
+                "description": "Temporary outputs will not be backed up."
+              }
+            }
+          }
+        ]
+      },
+      "OutputFormatEditable": {
+        "type": "object",
+        "description": "Represents the editable part of the output format.",
+        "additionalProperties": false,
+        "required": [
+          "retentionTime"
+        ],
+        "properties": {
+          "names": {
+            "description": "Language specific names.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/TranslatedStringDictionary"
+              }
+            ]
+          },
+          "sourceOutputFormats": {
+            "description": "Which output format should be used as a source of data.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/SourceOutputFormats"
+              }
+            ]
+          },
+          "format": {
+            "description": "Information about the technical format of the data, e.g. JPEG, AAC or video still.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/FormatBase"
+              }
+            ]
+          },
+          "retentionTime": {
+            "type": "string",
+            "description": "How long should the dynamic outputs created from this format be kept.",
+            "format": "time-span"
+          }
+        }
+      },
+      "SourceOutputFormats": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "image": {
+            "type": "string",
+            "nullable": true
+          },
+          "video": {
+            "type": "string",
+            "nullable": true
+          },
+          "document": {
+            "type": "string",
+            "nullable": true
+          },
+          "audio": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "FormatBase": {
+        "type": "object",
+        "discriminator": {
+          "propertyName": "kind",
+          "mapping": {
+            "ImageFormatBase": "#/components/schemas/ImageFormatBase",
+            "OriginalFormat": "#/components/schemas/OriginalFormat",
+            "JpegFormat": "#/components/schemas/JpegFormat",
+            "PngFormat": "#/components/schemas/PngFormat",
+            "TiffFormat": "#/components/schemas/TiffFormat",
+            "VideoFormatBase": "#/components/schemas/VideoFormatBase",
+            "AudioFormatBase": "#/components/schemas/AudioFormatBase",
+            "Mp4VideoFormat": "#/components/schemas/Mp4VideoFormat",
+            "VideoSpriteFormat": "#/components/schemas/VideoSpriteFormat",
+            "VideoStillFormat": "#/components/schemas/VideoStillFormat",
+            "AacAudioFormat": "#/components/schemas/AacAudioFormat",
+            "AudioStillFormat": "#/components/schemas/AudioStillFormat",
+            "Mp3AudioFormat": "#/components/schemas/Mp3AudioFormat",
+            "DocumentFormatBase": "#/components/schemas/DocumentFormatBase",
+            "DocumentStillFormat": "#/components/schemas/DocumentStillFormat",
+            "PdfFormat": "#/components/schemas/PdfFormat"
+          }
+        },
+        "x-abstract": true,
+        "additionalProperties": false,
+        "required": [
+          "kind"
+        ],
+        "properties": {
+          "kind": {
+            "type": "string"
+          }
+        }
+      },
+      "ImageFormatBase": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/FormatBase"
+          },
+          {
+            "type": "object",
+            "x-abstract": true,
+            "additionalProperties": false,
+            "required": [
+              "colorTransformationIntent",
+              "renderFirstFrameOnly",
+              "keepClippingPath",
+              "cloneExif",
+              "cloneIptc",
+              "cloneAdobeResources",
+              "cloneXmp"
+            ],
+            "properties": {
+              "colorProfile": {
+                "nullable": true,
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/ColorProfile"
+                  }
+                ]
+              },
+              "colorTransformationIntent": {
+                "$ref": "#/components/schemas/ColorTransformationIntent"
+              },
+              "horizontalResolution": {
+                "type": "number",
+                "format": "double",
+                "nullable": true
+              },
+              "verticalResolution": {
+                "type": "number",
+                "format": "double",
+                "nullable": true
+              },
+              "renderFirstFrameOnly": {
+                "type": "boolean"
+              },
+              "keepClippingPath": {
+                "type": "boolean"
+              },
+              "cloneExif": {
+                "type": "boolean"
+              },
+              "cloneIptc": {
+                "type": "boolean"
+              },
+              "cloneAdobeResources": {
+                "type": "boolean"
+              },
+              "cloneXmp": {
+                "type": "boolean"
+              },
+              "resizeAction": {
+                "nullable": true,
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/ResizeAction"
+                  }
+                ]
+              },
+              "actions": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/ImageActionBase"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "ColorProfile": {
+        "type": "string",
+        "description": "",
+        "x-enumNames": [
+          "AdobeRgb1998",
+          "AppleRgb",
+          "ColorMatchRgb",
+          "EciRgbV1",
+          "EciRgbV2",
+          "Srgb",
+          "SrgbColorSpaceProfile",
+          "EuropeIsoCoatedFogra27",
+          "EuroscaleCoated",
+          "EuroscaleUncoated",
+          "IsoCoated",
+          "IsoCoatedEciV2",
+          "JapanColor2001Coated",
+          "JapanColor2001Uncoated",
+          "JapanColor2002Newspaper",
+          "JapanWebCoated",
+          "UsSheetfedCoated",
+          "UsSheetfedUncoated",
+          "UsWebCoatedSwop",
+          "UsWebUncoated",
+          "IsoCoatedV2Grey1cBas",
+          "IsoCoated300EciV2",
+          "CoatedFogra27",
+          "CoatedFogra39",
+          "UncoatedFogra29",
+          "WebCoatedFogra28",
+          "WebCoatedSwop2006Grade3",
+          "WebCoatedSwop2006Grade5",
+          "Isonewspaper26v4",
+          "Isonewspaper26v4Grey"
+        ],
+        "enum": [
+          "AdobeRgb1998",
+          "AppleRgb",
+          "ColorMatchRgb",
+          "EciRgbV1",
+          "EciRgbV2",
+          "Srgb",
+          "SrgbColorSpaceProfile",
+          "EuropeIsoCoatedFogra27",
+          "EuroscaleCoated",
+          "EuroscaleUncoated",
+          "IsoCoated",
+          "IsoCoatedEciV2",
+          "JapanColor2001Coated",
+          "JapanColor2001Uncoated",
+          "JapanColor2002Newspaper",
+          "JapanWebCoated",
+          "UsSheetfedCoated",
+          "UsSheetfedUncoated",
+          "UsWebCoatedSwop",
+          "UsWebUncoated",
+          "IsoCoatedV2Grey1cBas",
+          "IsoCoated300EciV2",
+          "CoatedFogra27",
+          "CoatedFogra39",
+          "UncoatedFogra29",
+          "WebCoatedFogra28",
+          "WebCoatedSwop2006Grade3",
+          "WebCoatedSwop2006Grade5",
+          "Isonewspaper26v4",
+          "Isonewspaper26v4Grey"
+        ]
+      },
+      "ColorTransformationIntent": {
+        "type": "string",
+        "description": "",
+        "x-enumNames": [
+          "RelativeColorimetricBpc",
+          "AbsoluteColorimetric",
+          "Perceptual",
+          "RelativeColorimetric",
+          "Saturation"
+        ],
+        "enum": [
+          "RelativeColorimetricBpc",
+          "AbsoluteColorimetric",
+          "Perceptual",
+          "RelativeColorimetric",
+          "Saturation"
+        ]
+      },
+      "ResizeAction": {
+        "type": "object",
+        "description": "Does not implement the IImageAction interface. The ResizeAction is directly exposed within ImageFormat.",
+        "additionalProperties": false,
+        "required": [
+          "width",
+          "height",
+          "resizeMode"
+        ],
+        "properties": {
+          "width": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "height": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "resizeMode": {
+            "$ref": "#/components/schemas/ResizeMode"
+          }
+        }
+      },
+      "ResizeMode": {
+        "type": "string",
+        "description": "",
+        "x-enumNames": [
+          "Fit",
+          "Shrink",
+          "Resize"
+        ],
+        "enum": [
+          "Fit",
+          "Shrink",
+          "Resize"
+        ]
+      },
+      "ImageActionBase": {
+        "type": "object",
+        "discriminator": {
+          "propertyName": "kind",
+          "mapping": {
+            "AlphaHandlingAction": "#/components/schemas/AlphaHandlingAction",
+            "CropAction": "#/components/schemas/CropAction",
+            "UnsharpenMaskAction": "#/components/schemas/UnsharpenMaskAction",
+            "WatermarkAction": "#/components/schemas/WatermarkAction"
+          }
+        },
+        "x-abstract": true,
+        "additionalProperties": false,
+        "required": [
+          "kind"
+        ],
+        "properties": {
+          "kind": {
+            "type": "string"
+          }
+        }
+      },
+      "AlphaHandlingAction": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ImageActionBase"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "alphaHandling"
+            ],
+            "properties": {
+              "alphaHandling": {
+                "$ref": "#/components/schemas/AlphaHandling"
+              },
+              "replacementRgbColorHexCode": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "AlphaHandling": {
+        "type": "string",
+        "description": "",
+        "x-enumNames": [
+          "DiscardAlpha",
+          "ReplaceAlpha",
+          "ReplaceInvertedAlpha"
+        ],
+        "enum": [
+          "DiscardAlpha",
+          "ReplaceAlpha",
+          "ReplaceInvertedAlpha"
+        ]
+      },
+      "CropAction": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ImageActionBase"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "x",
+              "y",
+              "width",
+              "height"
+            ],
+            "properties": {
+              "x": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "y": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "width": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "height": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          }
+        ]
+      },
+      "UnsharpenMaskAction": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ImageActionBase"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "amount",
+              "radius",
+              "threshold"
+            ],
+            "properties": {
+              "amount": {
+                "type": "number",
+                "format": "double"
+              },
+              "radius": {
+                "type": "number",
+                "format": "double"
+              },
+              "threshold": {
+                "type": "number",
+                "format": "double"
+              }
+            }
+          }
+        ]
+      },
+      "WatermarkAction": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ImageActionBase"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "opacity",
+              "widthRatio",
+              "heightRatio"
+            ],
+            "properties": {
+              "watermarkFilePath": {
+                "type": "string",
+                "nullable": true
+              },
+              "watermarkText": {
+                "type": "string",
+                "nullable": true
+              },
+              "marginLeft": {
+                "type": "integer",
+                "format": "int32",
+                "nullable": true
+              },
+              "marginTop": {
+                "type": "integer",
+                "format": "int32",
+                "nullable": true
+              },
+              "marginRight": {
+                "type": "integer",
+                "format": "int32",
+                "nullable": true
+              },
+              "marginBottom": {
+                "type": "integer",
+                "format": "int32",
+                "nullable": true
+              },
+              "opacity": {
+                "type": "number",
+                "format": "double"
+              },
+              "widthRatio": {
+                "type": "number",
+                "format": "double"
+              },
+              "heightRatio": {
+                "type": "number",
+                "format": "double"
+              }
+            }
+          }
+        ]
+      },
+      "OriginalFormat": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/FormatBase"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "extension": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "JpegFormat": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ImageFormatBase"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "quality",
+              "isProgressive",
+              "chromaSubsamplingEnabled"
+            ],
+            "properties": {
+              "quality": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "isProgressive": {
+                "type": "boolean"
+              },
+              "chromaSubsamplingEnabled": {
+                "type": "boolean"
+              },
+              "extension": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "PngFormat": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ImageFormatBase"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "interlaced"
+            ],
+            "properties": {
+              "interlaced": {
+                "type": "boolean"
+              },
+              "extension": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "TiffFormat": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ImageFormatBase"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "alphaPremultiplied",
+              "compressionType",
+              "includeUnspecifiedTiffExtraChannels"
+            ],
+            "properties": {
+              "alphaPremultiplied": {
+                "type": "boolean"
+              },
+              "compressionType": {
+                "$ref": "#/components/schemas/CompressionType"
+              },
+              "includeUnspecifiedTiffExtraChannels": {
+                "type": "boolean"
+              },
+              "extension": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "CompressionType": {
+        "type": "string",
+        "description": "",
+        "x-enumNames": [
+          "None",
+          "Lzw",
+          "Rle",
+          "Zip"
+        ],
+        "enum": [
+          "None",
+          "Lzw",
+          "Rle",
+          "Zip"
+        ]
+      },
+      "VideoFormatBase": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/FormatBase"
+          },
+          {
+            "type": "object",
+            "x-abstract": true,
+            "additionalProperties": false
+          }
+        ]
+      },
+      "Mp4VideoFormat": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/VideoFormatBase"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "preset"
+            ],
+            "properties": {
+              "resizeAction": {
+                "nullable": true,
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/ResizeAction2"
+                  }
+                ]
+              },
+              "audioCodec": {
+                "description": "Gets or sets the encoding audio codec.",
+                "nullable": true,
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/AudioFormatBase"
+                  }
+                ]
+              },
+              "preset": {
+                "description": "Gets or sets the encoding codec preset.",
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/Preset"
+                  }
+                ]
+              },
+              "extension": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "ResizeAction2": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "width",
+          "height",
+          "resizeMode"
+        ],
+        "properties": {
+          "width": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "height": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "resizeMode": {
+            "$ref": "#/components/schemas/ResizeMode"
+          }
+        }
+      },
+      "AudioFormatBase": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/FormatBase"
+          },
+          {
+            "type": "object",
+            "x-abstract": true,
+            "additionalProperties": false
+          }
+        ]
+      },
+      "Preset": {
+        "type": "string",
+        "description": "",
+        "x-enumNames": [
+          "ultrafast",
+          "superfast",
+          "veryfast",
+          "faster",
+          "fast",
+          "medium",
+          "slow",
+          "slower"
+        ],
+        "enum": [
+          "ultrafast",
+          "superfast",
+          "veryfast",
+          "faster",
+          "fast",
+          "medium",
+          "slow",
+          "slower"
+        ]
+      },
+      "VideoSpriteFormat": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/VideoFormatBase"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "maxNumberOfSprites",
+              "quality"
+            ],
+            "properties": {
+              "spriteResizeAction": {
+                "nullable": true,
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/ResizeAction2"
+                  }
+                ]
+              },
+              "maxNumberOfSprites": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "quality": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "extension": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "VideoStillFormat": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/VideoFormatBase"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "positionInSeconds"
+            ],
+            "properties": {
+              "extension": {
+                "type": "string",
+                "nullable": true
+              },
+              "positionInSeconds": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          }
+        ]
+      },
+      "AacAudioFormat": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/AudioFormatBase"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "profile",
+              "coder"
+            ],
+            "properties": {
+              "extension": {
+                "type": "string",
+                "nullable": true
+              },
+              "profile": {
+                "description": "Gets or sets the encoding profile.",
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/Profile"
+                  }
+                ]
+              },
+              "coder": {
+                "description": "Gets or sets the encoding coder.",
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/Coder"
+                  }
+                ]
+              },
+              "bitrate": {
+                "type": "integer",
+                "description": "Gets or sets the bitrate of the encoding.",
+                "format": "int32",
+                "nullable": true
+              },
+              "variableBitRate": {
+                "type": "integer",
+                "description": "Gets or sets the encoding variable bit rate (VBR) - 1 is lowest quality and 5 is highest quality.",
+                "format": "int32",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "Profile": {
+        "type": "string",
+        "description": "",
+        "x-enumNames": [
+          "aac_low",
+          "mpeg2_aac_low",
+          "aac_ltp",
+          "aac_main"
+        ],
+        "enum": [
+          "aac_low",
+          "mpeg2_aac_low",
+          "aac_ltp",
+          "aac_main"
+        ]
+      },
+      "Coder": {
+        "type": "string",
+        "description": "",
+        "x-enumNames": [
+          "twoloop",
+          "anmr",
+          "fast"
+        ],
+        "enum": [
+          "twoloop",
+          "anmr",
+          "fast"
+        ]
+      },
+      "AudioStillFormat": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/AudioFormatBase"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "extension": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "Mp3AudioFormat": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/AudioFormatBase"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "extension": {
+                "type": "string",
+                "nullable": true
+              },
+              "bitrate": {
+                "type": "integer",
+                "description": "Gets or sets the encoding bitrate.",
+                "format": "int32",
+                "nullable": true
+              },
+              "quality": {
+                "type": "integer",
+                "description": "Gets or sets the encoding quality.\nValues can be set it range of 0 to 9, where a lower value is a higher quality.",
+                "format": "int32",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "DocumentFormatBase": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/FormatBase"
+          },
+          {
+            "type": "object",
+            "x-abstract": true,
+            "additionalProperties": false
+          }
+        ]
+      },
+      "DocumentStillFormat": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/DocumentFormatBase"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "extension": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "PdfFormat": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/DocumentFormatBase"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "jpegQuality",
+              "fastWebView",
+              "reduceFileSize",
+              "extractFullText"
+            ],
+            "properties": {
+              "jpegQuality": {
+                "type": "integer",
+                "description": "JpegQuality parameter value must be between 0 and 100.",
+                "format": "int32"
+              },
+              "fastWebView": {
+                "type": "boolean"
+              },
+              "reduceFileSize": {
+                "type": "boolean"
+              },
+              "extension": {
+                "type": "string",
+                "nullable": true
+              },
+              "extractFullText": {
+                "type": "boolean"
+              }
+            }
+          }
+        ]
+      },
+      "OutputFormatCreateManyRequest": {
+        "type": "object",
+        "description": "Used to create multiple new output formats at once.",
+        "additionalProperties": false,
+        "properties": {
+          "items": {
+            "type": "array",
+            "description": "Output format items to be created.",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/OutputFormat"
+            }
+          }
+        }
+      },
+      "OutputFormatUpdateManyRequest": {
+        "type": "object",
+        "description": "Used to modify multiple output formats at once.",
+        "additionalProperties": false,
+        "properties": {
+          "items": {
+            "type": "array",
+            "description": "Output format items to be modified.",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/OutputFormatUpdateManyRequestItem"
+            }
+          }
+        }
+      },
+      "OutputFormatUpdateManyRequestItem": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/OutputFormatEditable"
+          },
+          {
+            "type": "object",
+            "description": "Represents one item to be modified in a bulk update operation on output formats.",
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string",
+                "description": "ID of the output format to modify.",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "OutputFormatDeleteManyRequest": {
+        "type": "object",
+        "description": "Used to remove multiple output formats at once.",
+        "additionalProperties": false,
+        "properties": {
+          "items": {
+            "type": "array",
+            "description": "List of IDs of output formats to remove.",
+            "nullable": true,
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
       "UserProfile": {
         "type": "object",
         "description": "User profile.",
@@ -33936,6 +35921,8 @@
               "livestream_read": "Read live stream",
               "output_read": "Read outputs",
               "output_write": "Write outputs",
+              "outputformat_read": "Read output formats",
+              "outputformat_write": "Write output formats",
               "permission_read": "Read permission sets",
               "permission_write": "Write permission sets",
               "profile_read": "Read profile",
@@ -33996,6 +35983,10 @@
     {
       "name": "Output",
       "description": "Endpoints to work with content outputs.\r\n\r\nOutputs for contents are created on the import process. There are predefined outputs for each file-based content.\r\n\r\n- Original: The original file uploaded (exists always)\r\n- Preview: A preview of the file (1600*1600px in JPEG Format for previewing, exists if preview of format is supported)\r\n- ThumbnailSmall: A small preview of the file (120*90px in JPEG Format for previewing, exists if preview of format is supported)\r\n- ThumbnailSmall: A small preview of the file (240*240px in JPEG Format for previewing, exists if preview of format is supported)\r\n- ThumbnailSmall: A small preview of the file (320*320px in JPEG Format for previewing, exists if preview of format is supported)\r\n\r\n[Code examples](https://github.com/Picturepark/Picturepark.SDK.DotNet/blob/master/src/Picturepark.SDK.V1.Tests/Clients/OutputTests.cs)\r\n"
+    },
+    {
+      "name": "OutputFormat",
+      "description": "Endpoints to access and manipulate with output formats.\r\n\r\n[Code examples](https://github.com/Picturepark/Picturepark.SDK.DotNet/blob/master/src/Picturepark.SDK.V1.Tests/Clients/OutputFormatTests.cs)\r\n"
     },
     {
       "name": "Profile",

@@ -10,6 +10,8 @@ namespace Picturepark.SDK.V1.Contract
 
         IOutputClient Output { get; }
 
+        IOutputFormatClient OutputFormat { get; }
+
         IBusinessProcessClient BusinessProcess { get; }
 
         IDocumentHistoryClient DocumentHistory { get; }
