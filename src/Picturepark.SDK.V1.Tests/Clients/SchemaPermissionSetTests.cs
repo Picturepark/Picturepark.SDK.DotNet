@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Runtime.CompilerServices;
 using Picturepark.SDK.V1.Contract;
 using System.Threading.Tasks;
@@ -77,9 +78,9 @@ namespace Picturepark.SDK.V1.Tests.Clients
             await _client.SchemaPermissionSet.DeleteAsync(permissionSet.Id).ConfigureAwait(false);
 
             // Assert
-            var verifyPermissionSet = await _client.SchemaPermissionSet.GetAsync(permissionSet.Id).ConfigureAwait(false);
+            Action verifyPermissionSet = () => _client.SchemaPermissionSet.GetAsync(permissionSet.Id).GetAwaiter().GetResult();
 
-            verifyPermissionSet.Should().BeNull();
+            verifyPermissionSet.Should().Throw<PermissionSetNotFoundException>();
         }
 
         [Fact]
