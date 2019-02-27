@@ -6957,6 +6957,7 @@
                 "UserInactiveOrDeletedException": "#/components/schemas/UserInactiveOrDeletedException",
                 "TermsOfServiceNotNewestException": "#/components/schemas/TermsOfServiceNotNewestException",
                 "IllegalAuthorizationStateTransitionException": "#/components/schemas/IllegalAuthorizationStateTransitionException",
+                "TermsOfServiceConsentRequiredException": "#/components/schemas/TermsOfServiceConsentRequiredException",
                 "RenderingException": "#/components/schemas/RenderingException",
                 "ServiceProviderDeleteException": "#/components/schemas/ServiceProviderDeleteException",
                 "ServiceProviderCreateException": "#/components/schemas/ServiceProviderCreateException",
@@ -7030,6 +7031,7 @@
                 "ContentPermissionException": "#/components/schemas/ContentPermissionException",
                 "ListItemPermissionException": "#/components/schemas/ListItemPermissionException",
                 "SchemaPermissionException": "#/components/schemas/SchemaPermissionException",
+                "PermissionSetInvalidRightCombinationException": "#/components/schemas/PermissionSetInvalidRightCombinationException",
                 "UnsupportedListItemChangeCommandException": "#/components/schemas/UnsupportedListItemChangeCommandException",
                 "ListItemLayerException": "#/components/schemas/ListItemLayerException",
                 "ListItemNotFoundException": "#/components/schemas/ListItemNotFoundException",
@@ -7053,6 +7055,7 @@
                 "RelationTypeTargetDocTypeMismatchException": "#/components/schemas/RelationTypeTargetDocTypeMismatchException",
                 "AggregationNameInvalidException": "#/components/schemas/AggregationNameInvalidException",
                 "AggregationSizeInvalidException": "#/components/schemas/AggregationSizeInvalidException",
+                "AggregationFilterNotSupportedException": "#/components/schemas/AggregationFilterNotSupportedException",
                 "RelationTypeMissingException": "#/components/schemas/RelationTypeMissingException",
                 "ReferenceUpdateException": "#/components/schemas/ReferenceUpdateException",
                 "DuplicatedItemAssignedException": "#/components/schemas/DuplicatedItemAssignedException",
@@ -7358,6 +7361,17 @@
         "allOf": [
           {
             "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "TermsOfServiceConsentRequiredException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkForbiddenException"
           },
           {
             "type": "object",
@@ -8910,6 +8924,17 @@
           }
         ]
       },
+      "PermissionSetInvalidRightCombinationException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
       "UnsupportedListItemChangeCommandException": {
         "allOf": [
           {
@@ -9445,6 +9470,34 @@
                 "type": "integer",
                 "description": "The invalid size of the aggregation: size must be equal or greater than 1.",
                 "format": "int32"
+              }
+            }
+          }
+        ]
+      },
+      "AggregationFilterNotSupportedException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "aggregationName": {
+                "type": "string",
+                "nullable": true
+              },
+              "notSupportedFilterType": {
+                "type": "string",
+                "nullable": true
+              },
+              "supportedFilterTypes": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "type": "string"
+                }
               }
             }
           }

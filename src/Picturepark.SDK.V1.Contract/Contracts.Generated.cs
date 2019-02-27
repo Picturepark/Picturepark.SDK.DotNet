@@ -1964,6 +1964,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("UserInactiveOrDeletedException", typeof(UserInactiveOrDeletedException))]
     [JsonInheritanceAttribute("TermsOfServiceNotNewestException", typeof(TermsOfServiceNotNewestException))]
     [JsonInheritanceAttribute("IllegalAuthorizationStateTransitionException", typeof(IllegalAuthorizationStateTransitionException))]
+    [JsonInheritanceAttribute("TermsOfServiceConsentRequiredException", typeof(TermsOfServiceConsentRequiredException))]
     [JsonInheritanceAttribute("RenderingException", typeof(RenderingException))]
     [JsonInheritanceAttribute("ServiceProviderDeleteException", typeof(ServiceProviderDeleteException))]
     [JsonInheritanceAttribute("ServiceProviderCreateException", typeof(ServiceProviderCreateException))]
@@ -2037,6 +2038,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("ContentPermissionException", typeof(ContentPermissionException))]
     [JsonInheritanceAttribute("ListItemPermissionException", typeof(ListItemPermissionException))]
     [JsonInheritanceAttribute("SchemaPermissionException", typeof(SchemaPermissionException))]
+    [JsonInheritanceAttribute("PermissionSetInvalidRightCombinationException", typeof(PermissionSetInvalidRightCombinationException))]
     [JsonInheritanceAttribute("UnsupportedListItemChangeCommandException", typeof(UnsupportedListItemChangeCommandException))]
     [JsonInheritanceAttribute("ListItemLayerException", typeof(ListItemLayerException))]
     [JsonInheritanceAttribute("ListItemNotFoundException", typeof(ListItemNotFoundException))]
@@ -2060,6 +2062,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("RelationTypeTargetDocTypeMismatchException", typeof(RelationTypeTargetDocTypeMismatchException))]
     [JsonInheritanceAttribute("AggregationNameInvalidException", typeof(AggregationNameInvalidException))]
     [JsonInheritanceAttribute("AggregationSizeInvalidException", typeof(AggregationSizeInvalidException))]
+    [JsonInheritanceAttribute("AggregationFilterNotSupportedException", typeof(AggregationFilterNotSupportedException))]
     [JsonInheritanceAttribute("RelationTypeMissingException", typeof(RelationTypeMissingException))]
     [JsonInheritanceAttribute("ReferenceUpdateException", typeof(ReferenceUpdateException))]
     [JsonInheritanceAttribute("DuplicatedItemAssignedException", typeof(DuplicatedItemAssignedException))]
@@ -2381,6 +2384,22 @@ namespace Picturepark.SDK.V1.Contract
         public static IllegalAuthorizationStateTransitionException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<IllegalAuthorizationStateTransitionException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class TermsOfServiceConsentRequiredException : PictureparkForbiddenException
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static TermsOfServiceConsentRequiredException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<TermsOfServiceConsentRequiredException>(data);
         }
     
     }
@@ -4070,6 +4089,22 @@ namespace Picturepark.SDK.V1.Contract
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
     [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class PermissionSetInvalidRightCombinationException : PictureparkValidationException
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static PermissionSetInvalidRightCombinationException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<PermissionSetInvalidRightCombinationException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
     public partial class UnsupportedListItemChangeCommandException : PictureparkValidationException
     {
         [Newtonsoft.Json.JsonProperty("commandType", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -4608,6 +4643,31 @@ namespace Picturepark.SDK.V1.Contract
         public static AggregationSizeInvalidException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<AggregationSizeInvalidException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class AggregationFilterNotSupportedException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("aggregationName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string AggregationName { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("notSupportedFilterType", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string NotSupportedFilterType { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("supportedFilterTypes", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> SupportedFilterTypes { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static AggregationFilterNotSupportedException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<AggregationFilterNotSupportedException>(data);
         }
     
     }
