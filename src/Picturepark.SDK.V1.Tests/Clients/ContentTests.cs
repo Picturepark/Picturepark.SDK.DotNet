@@ -555,7 +555,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             Assert.Equal(12345, ((JObject)response.Metadata["allDataTypesContract"])["integerField"].ToObject<int>());
         }
 
-        [Fact]
+        [Fact(Skip = "TODO PP9-7729 re-enable once fixed")]
         [Trait("Stack", "Contents")]
         public async Task ShouldReplaceLayersOnMetadataUpdate()
         {
