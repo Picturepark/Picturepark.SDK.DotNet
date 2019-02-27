@@ -555,7 +555,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             Assert.Equal(12345, ((JObject)response.Metadata["allDataTypesContract"])["integerField"].ToObject<int>());
         }
 
-        [Fact(Skip = "TODO PP9-7729 re-enable once fixed")]
+        [Fact]
         [Trait("Stack", "Contents")]
         public async Task ShouldReplaceLayersOnMetadataUpdate()
         {
@@ -576,11 +576,14 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 }
             };
 
-            await _client.Content.UpdateMetadataAsync(contentId, request).ConfigureAwait(false);
+            var contentDetail = await _client.Content.UpdateMetadataAsync(contentId, request).ConfigureAwait(false);
+            var layerIds = contentDetail.LayerSchemaIds.ToList();
+            layerIds.Remove(nameof(PersonShot));
+            layerIds.Add(nameof(AllDataTypesContract));
 
             request = new ContentMetadataUpdateRequest
             {
-                LayerSchemaIds = new List<string> { nameof(AllDataTypesContract) },
+                LayerSchemaIds = layerIds,
                 Metadata = new DataDictionary
                 {
                     {
