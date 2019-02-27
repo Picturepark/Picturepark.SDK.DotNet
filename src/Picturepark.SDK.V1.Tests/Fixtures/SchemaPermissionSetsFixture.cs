@@ -45,7 +45,14 @@ namespace Picturepark.SDK.V1.Tests.Fixtures
             {
                 foreach (var id in _createdPermissionSetIds)
                 {
-                    Client.SchemaPermissionSet.DeleteAsync(id).GetAwaiter().GetResult();
+                    try
+                    {
+                        Client.SchemaPermissionSet.DeleteAsync(id).GetAwaiter().GetResult();
+                    }
+                    catch (PermissionSetNotFoundException)
+                    {
+                        // ignored
+                    }
                 }
             }
 
