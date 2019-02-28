@@ -7075,7 +7075,6 @@
                 "SchemaInUseListItemException": "#/components/schemas/SchemaInUseListItemException",
                 "SchemaInUseContentException": "#/components/schemas/SchemaInUseContentException",
                 "SchemaInUseFieldException": "#/components/schemas/SchemaInUseFieldException",
-                "SchemaNotFoundInSearchIndexException": "#/components/schemas/SchemaNotFoundInSearchIndexException",
                 "DuplicateMetadataDisplayPatternException": "#/components/schemas/DuplicateMetadataDisplayPatternException",
                 "DuplicateSchemaException": "#/components/schemas/DuplicateSchemaException",
                 "SchemaImportEmptyException": "#/components/schemas/SchemaImportEmptyException",
@@ -7089,6 +7088,7 @@
                 "SchemaFieldIndexException": "#/components/schemas/SchemaFieldIndexException",
                 "SchemaFieldNotSortableException": "#/components/schemas/SchemaFieldNotSortableException",
                 "SchemaFieldNotSearchableException": "#/components/schemas/SchemaFieldNotSearchableException",
+                "SchemaFieldInvalidBoostException": "#/components/schemas/SchemaFieldInvalidBoostException",
                 "SchemaNoContentException": "#/components/schemas/SchemaNoContentException",
                 "SchemaParentChangeException": "#/components/schemas/SchemaParentChangeException",
                 "SchemaMissingTypeException": "#/components/schemas/SchemaMissingTypeException",
@@ -9957,27 +9957,6 @@
           }
         ]
       },
-      "SchemaNotFoundInSearchIndexException": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/PictureparkValidationException"
-          },
-          {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "searchIndexId": {
-                "type": "string",
-                "nullable": true
-              },
-              "schemaId": {
-                "type": "string",
-                "nullable": true
-              }
-            }
-          }
-        ]
-      },
       "DuplicateMetadataDisplayPatternException": {
         "allOf": [
           {
@@ -10235,6 +10214,42 @@
               "schemaId": {
                 "type": "string",
                 "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "SchemaFieldInvalidBoostException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "boost"
+            ],
+            "properties": {
+              "fieldId": {
+                "type": "string",
+                "nullable": true
+              },
+              "schemaId": {
+                "type": "string",
+                "nullable": true
+              },
+              "boost": {
+                "type": "number",
+                "format": "double"
+              },
+              "allowedBoostValues": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "type": "number",
+                  "format": "double"
+                }
               }
             }
           }
@@ -12477,6 +12492,14 @@
             "items": {
               "type": "string"
             }
+          },
+          "boostValues": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "type": "number",
+              "format": "double"
+            }
           }
         }
       },
@@ -12815,6 +12838,14 @@
           "contentBackupStoragePath": {
             "type": "string",
             "nullable": true
+          },
+          "boostValues": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "type": "number",
+              "format": "double"
+            }
           }
         }
       },

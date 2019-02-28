@@ -876,7 +876,6 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [JsonInheritanceAttribute("SchemaInUseListItemException", typeof(SchemaInUseListItemException))]
     [JsonInheritanceAttribute("SchemaInUseContentException", typeof(SchemaInUseContentException))]
     [JsonInheritanceAttribute("SchemaInUseFieldException", typeof(SchemaInUseFieldException))]
-    [JsonInheritanceAttribute("SchemaNotFoundInSearchIndexException", typeof(SchemaNotFoundInSearchIndexException))]
     [JsonInheritanceAttribute("DuplicateMetadataDisplayPatternException", typeof(DuplicateMetadataDisplayPatternException))]
     [JsonInheritanceAttribute("DuplicateSchemaException", typeof(DuplicateSchemaException))]
     [JsonInheritanceAttribute("SchemaImportEmptyException", typeof(SchemaImportEmptyException))]
@@ -890,6 +889,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [JsonInheritanceAttribute("SchemaFieldIndexException", typeof(SchemaFieldIndexException))]
     [JsonInheritanceAttribute("SchemaFieldNotSortableException", typeof(SchemaFieldNotSortableException))]
     [JsonInheritanceAttribute("SchemaFieldNotSearchableException", typeof(SchemaFieldNotSearchableException))]
+    [JsonInheritanceAttribute("SchemaFieldInvalidBoostException", typeof(SchemaFieldInvalidBoostException))]
     [JsonInheritanceAttribute("SchemaNoContentException", typeof(SchemaNoContentException))]
     [JsonInheritanceAttribute("SchemaParentChangeException", typeof(SchemaParentChangeException))]
     [JsonInheritanceAttribute("SchemaMissingTypeException", typeof(SchemaMissingTypeException))]
@@ -3904,28 +3904,6 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
     [Newtonsoft.Json.JsonObjectAttribute]
-    public partial class SchemaNotFoundInSearchIndexException : PictureparkValidationException
-    {
-        [Newtonsoft.Json.JsonProperty("searchIndexId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string SearchIndexId { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("schemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string SchemaId { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-    
-        public static SchemaNotFoundInSearchIndexException FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaNotFoundInSearchIndexException>(data);
-        }
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
-    [Newtonsoft.Json.JsonObjectAttribute]
     public partial class DuplicateMetadataDisplayPatternException : PictureparkValidationException
     {
         [Newtonsoft.Json.JsonProperty("schemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -4197,6 +4175,34 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         public static SchemaFieldNotSearchableException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaFieldNotSearchableException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class SchemaFieldInvalidBoostException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("fieldId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string FieldId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("schemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string SchemaId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("boost", Required = Newtonsoft.Json.Required.Always)]
+        public double Boost { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("allowedBoostValues", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<double> AllowedBoostValues { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static SchemaFieldInvalidBoostException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaFieldInvalidBoostException>(data);
         }
     
     }
@@ -6469,6 +6475,9 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [Newtonsoft.Json.JsonProperty("defaultContentPermissionSetIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> DefaultContentPermissionSetIds { get; set; }
     
+        [Newtonsoft.Json.JsonProperty("boostValues", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<double> BoostValues { get; set; }
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -6745,6 +6754,9 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
         [Newtonsoft.Json.JsonProperty("contentBackupStoragePath", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ContentBackupStoragePath { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("boostValues", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<double> BoostValues { get; set; }
     
         public string ToJson() 
         {

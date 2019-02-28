@@ -18693,7 +18693,6 @@
                 "SchemaInUseListItemException": "#/components/schemas/SchemaInUseListItemException",
                 "SchemaInUseContentException": "#/components/schemas/SchemaInUseContentException",
                 "SchemaInUseFieldException": "#/components/schemas/SchemaInUseFieldException",
-                "SchemaNotFoundInSearchIndexException": "#/components/schemas/SchemaNotFoundInSearchIndexException",
                 "DuplicateMetadataDisplayPatternException": "#/components/schemas/DuplicateMetadataDisplayPatternException",
                 "DuplicateSchemaException": "#/components/schemas/DuplicateSchemaException",
                 "SchemaImportEmptyException": "#/components/schemas/SchemaImportEmptyException",
@@ -18707,6 +18706,7 @@
                 "SchemaFieldIndexException": "#/components/schemas/SchemaFieldIndexException",
                 "SchemaFieldNotSortableException": "#/components/schemas/SchemaFieldNotSortableException",
                 "SchemaFieldNotSearchableException": "#/components/schemas/SchemaFieldNotSearchableException",
+                "SchemaFieldInvalidBoostException": "#/components/schemas/SchemaFieldInvalidBoostException",
                 "SchemaNoContentException": "#/components/schemas/SchemaNoContentException",
                 "SchemaParentChangeException": "#/components/schemas/SchemaParentChangeException",
                 "SchemaMissingTypeException": "#/components/schemas/SchemaMissingTypeException",
@@ -21575,27 +21575,6 @@
           }
         ]
       },
-      "SchemaNotFoundInSearchIndexException": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/PictureparkValidationException"
-          },
-          {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "searchIndexId": {
-                "type": "string",
-                "nullable": true
-              },
-              "schemaId": {
-                "type": "string",
-                "nullable": true
-              }
-            }
-          }
-        ]
-      },
       "DuplicateMetadataDisplayPatternException": {
         "allOf": [
           {
@@ -21853,6 +21832,42 @@
               "schemaId": {
                 "type": "string",
                 "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "SchemaFieldInvalidBoostException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "boost"
+            ],
+            "properties": {
+              "fieldId": {
+                "type": "string",
+                "nullable": true
+              },
+              "schemaId": {
+                "type": "string",
+                "nullable": true
+              },
+              "boost": {
+                "type": "number",
+                "format": "double"
+              },
+              "allowedBoostValues": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "type": "number",
+                  "format": "double"
+                }
               }
             }
           }
@@ -23954,7 +23969,6 @@
           "id",
           "sortOrder",
           "searchIndexId",
-          "schemaIds",
           "names",
           "sort",
           "aggregations",
@@ -23979,13 +23993,6 @@
             "type": "string",
             "description": "The search index ID where the channel requests the content from. Only RootContentSearchIndex is supported.",
             "minLength": 1
-          },
-          "schemaIds": {
-            "type": "array",
-            "description": "An ID list of schemas with schema type content whose content documents should be found by the simple search.\nThe search by filters and aggregations are unaffected.",
-            "items": {
-              "type": "string"
-            }
           },
           "filter": {
             "description": "An optional search filter. Limits the content document result set on each search and aggregation request.",
@@ -27531,7 +27538,8 @@
           "enableQueryDetails",
           "languageConfiguration",
           "languages",
-          "outputFormats"
+          "outputFormats",
+          "boostValues"
         ],
         "properties": {
           "customerId": {
@@ -27578,6 +27586,14 @@
             "description": "Configured rendering outputs including translations for the customer instance.",
             "items": {
               "$ref": "#/components/schemas/OutputFormatInfo"
+            }
+          },
+          "boostValues": {
+            "type": "array",
+            "description": "Boost levels that can be applied to a metadata field to boost the the significance of the field in a search operation.",
+            "items": {
+              "type": "number",
+              "format": "double"
             }
           }
         }
