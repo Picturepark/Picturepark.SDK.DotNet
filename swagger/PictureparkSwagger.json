@@ -9147,6 +9147,118 @@
         ]
       }
     },
+    "/v1/outputs/resetRetryAttempts": {
+      "post": {
+        "tags": [
+          "Output"
+        ],
+        "summary": "Resets retry attempts counter on failed (optionally also completed) outputs and they will be subsequently picked up for re-rendering.",
+        "description": "The number the counters are reset to is determined by a global configuration value. If OutputIds are specified, the rest of the fields are ignored.",
+        "operationId": "Output_ResetRetryAttempts",
+        "requestBody": {
+          "x-name": "request",
+          "description": "Request containing options to filter which outputs should be reset.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OutputResetRetryAttemptsRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "Business process tracking the resetting",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BusinessProcess"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkNotFoundException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkConflictException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkValidationException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "output_write",
+              "read"
+            ]
+          }
+        ]
+      }
+    },
     "/v1/outputFormats/{id}": {
       "get": {
         "tags": [
@@ -24635,6 +24747,7 @@
           "outputFormatId",
           "contentId",
           "renderingState",
+          "attemptsLeft",
           "kind"
         ],
         "properties": {
@@ -24677,6 +24790,11 @@
             "format": "date-time",
             "nullable": true
           },
+          "attemptsLeft": {
+            "type": "integer",
+            "description": "Number of rendering retry attempts left",
+            "format": "byte"
+          },
           "kind": {
             "type": "string"
           }
@@ -24690,14 +24808,16 @@
           "Completed",
           "Failed",
           "Skipped",
-          "NoLicense"
+          "NoLicense",
+          "RerenderRequested"
         ],
         "enum": [
           "InProgress",
           "Completed",
           "Failed",
           "Skipped",
-          "NoLicense"
+          "NoLicense",
+          "RerenderRequested"
         ]
       },
       "OutputDataBase": {
@@ -29235,6 +29355,51 @@
             "items": {
               "type": "string"
             }
+          }
+        }
+      },
+      "OutputResetRetryAttemptsRequest": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "includeCompleted"
+        ],
+        "properties": {
+          "outputIds": {
+            "type": "array",
+            "description": "List of output IDs you want to filter on. If this field is not empty, the other will be ignored.",
+            "nullable": true,
+            "items": {
+              "type": "string"
+            }
+          },
+          "contentIds": {
+            "type": "array",
+            "description": "List of Content IDs you want to filter on.",
+            "nullable": true,
+            "items": {
+              "type": "string"
+            }
+          },
+          "fileExtensions": {
+            "type": "array",
+            "description": "The file extension of the outputs you want to filter on.",
+            "nullable": true,
+            "items": {
+              "type": "string"
+            }
+          },
+          "outputFormatIds": {
+            "type": "array",
+            "description": "The IDs of the output formats you want to filter on.",
+            "nullable": true,
+            "items": {
+              "type": "string"
+            }
+          },
+          "includeCompleted": {
+            "type": "boolean",
+            "description": "Should the successful filter results also be reset (and subsequently re-rendered)?"
           }
         }
       },
