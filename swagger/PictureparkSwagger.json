@@ -24793,7 +24793,7 @@
           "attemptsLeft": {
             "type": "integer",
             "description": "Number of rendering retry attempts left",
-            "format": "byte"
+            "format": "int32"
           },
           "kind": {
             "type": "string"

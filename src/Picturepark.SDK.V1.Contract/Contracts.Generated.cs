@@ -8104,7 +8104,7 @@ namespace Picturepark.SDK.V1.Contract
     
         /// <summary>Number of rendering retry attempts left</summary>
         [Newtonsoft.Json.JsonProperty("attemptsLeft", Required = Newtonsoft.Json.Required.Always)]
-        public byte AttemptsLeft { get; set; }
+        public int AttemptsLeft { get; set; }
     
         public string ToJson() 
         {
