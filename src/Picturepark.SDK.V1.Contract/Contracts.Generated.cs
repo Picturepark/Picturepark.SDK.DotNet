@@ -8816,9 +8816,9 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class ContentAggregationOnChannelRequest 
     {
-        /// <summary>The string used to query the list items to aggregate. The Lucene query string syntax is supported. Defaults to *.</summary>
+        /// <summary>The string used to query the list items to aggregate. The Lucene query string syntax is supported.</summary>
         [Newtonsoft.Json.JsonProperty("searchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string SearchString { get; set; } = "*";
+        public string SearchString { get; set; }
     
         /// <summary>An optional list of search behaviors. All the passed behaviors will be applied in the specified order.</summary>
         [Newtonsoft.Json.JsonProperty("searchBehaviors", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
@@ -9414,9 +9414,9 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("searchLanguages", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> SearchLanguages { get; set; }
     
-        /// <summary>Limits the search by using a query string filter. The Lucene query string syntax is supported. Defaults to *.</summary>
+        /// <summary>Limits the search by using a query string filter. The Lucene query string syntax is supported.</summary>
         [Newtonsoft.Json.JsonProperty("searchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string SearchString { get; set; } = "*";
+        public string SearchString { get; set; }
     
         /// <summary>Type of search to be performed: against metadata, extracted fulltext from documents or both. Default to Metadata.</summary>
         [Newtonsoft.Json.JsonProperty("searchType", Required = Newtonsoft.Json.Required.Always)]
@@ -11236,9 +11236,9 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class ListItemAggregationRequest 
     {
-        /// <summary>The string used to query the list items to aggregate. The Lucene query string syntax is supported. Defaults to *.</summary>
+        /// <summary>The string used to query the list items to aggregate. The Lucene query string syntax is supported.</summary>
         [Newtonsoft.Json.JsonProperty("searchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string SearchString { get; set; } = "*";
+        public string SearchString { get; set; }
     
         /// <summary>An optional list of search behaviors. All the passed behaviors will be applied in the specified order.</summary>
         [Newtonsoft.Json.JsonProperty("searchBehaviors", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
@@ -11473,9 +11473,9 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class ListItemFilterRequest 
     {
-        /// <summary>The string used to query the data. The Lucene query string syntax is supported. Defaults to *.</summary>
+        /// <summary>The string used to query the data. The Lucene query string syntax is supported.</summary>
         [Newtonsoft.Json.JsonProperty("searchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string SearchString { get; set; } = "*";
+        public string SearchString { get; set; }
     
         /// <summary>An optional filter to limit the list items.</summary>
         [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -13903,7 +13903,7 @@ namespace Picturepark.SDK.V1.Contract
     {
         /// <summary>Value to prioritize search results. Set to 1 by default. Ignored if SimpleSearch not set to true.</summary>
         [Newtonsoft.Json.JsonProperty("boost", Required = Newtonsoft.Json.Required.Always)]
-        public double Boost { get; set; }
+        public double Boost { get; set; } = 1D;
     
         public string ToJson() 
         {
@@ -13927,7 +13927,7 @@ namespace Picturepark.SDK.V1.Contract
     
         /// <summary>Value to prioritize search results. Set to 1 by default. Ignored if SimpleSearch not set to true.</summary>
         [Newtonsoft.Json.JsonProperty("boost", Required = Newtonsoft.Json.Required.Always)]
-        public double Boost { get; set; }
+        public double Boost { get; set; } = 1D;
     
         public string ToJson() 
         {
@@ -13951,7 +13951,7 @@ namespace Picturepark.SDK.V1.Contract
     
         /// <summary>Value to prioritize search results. Set to 1 by default. Ignored if SimpleSearch not set to true.</summary>
         [Newtonsoft.Json.JsonProperty("boost", Required = Newtonsoft.Json.Required.Always)]
-        public double Boost { get; set; }
+        public double Boost { get; set; } = 1D;
     
         public string ToJson() 
         {
@@ -14007,7 +14007,7 @@ namespace Picturepark.SDK.V1.Contract
     
         /// <summary>Value to prioritize search results. Set to 1 by default. Ignored if SimpleSearch not set to true.</summary>
         [Newtonsoft.Json.JsonProperty("boost", Required = Newtonsoft.Json.Required.Always)]
-        public double Boost { get; set; }
+        public double Boost { get; set; } = 1D;
     
         public string ToJson() 
         {
@@ -14027,7 +14027,7 @@ namespace Picturepark.SDK.V1.Contract
     {
         /// <summary>Value to prioritize search results. Set to 1 by default. Ignored if SimpleSearch not set to true.</summary>
         [Newtonsoft.Json.JsonProperty("boost", Required = Newtonsoft.Json.Required.Always)]
-        public double Boost { get; set; }
+        public double Boost { get; set; } = 1D;
     
         public string ToJson() 
         {
@@ -14071,7 +14071,7 @@ namespace Picturepark.SDK.V1.Contract
     {
         /// <summary>Value to prioritize search results. Set to 1 by default. Ignored if SimpleSearch not set to true.</summary>
         [Newtonsoft.Json.JsonProperty("boost", Required = Newtonsoft.Json.Required.Always)]
-        public double Boost { get; set; }
+        public double Boost { get; set; } = 1D;
     
         public string ToJson() 
         {
@@ -14103,7 +14103,7 @@ namespace Picturepark.SDK.V1.Contract
     
         /// <summary>Value to prioritize search results. Set to 1 by default. Ignored if SimpleSearch not set to true.</summary>
         [Newtonsoft.Json.JsonProperty("boost", Required = Newtonsoft.Json.Required.Always)]
-        public double Boost { get; set; }
+        public double Boost { get; set; } = 1D;
     
         public string ToJson() 
         {
@@ -14209,7 +14209,7 @@ namespace Picturepark.SDK.V1.Contract
     
         /// <summary>Value to prioritize search results. Set to 1 by default. Ignored if SimpleSearch not set to true.</summary>
         [Newtonsoft.Json.JsonProperty("boost", Required = Newtonsoft.Json.Required.Always)]
-        public double Boost { get; set; }
+        public double Boost { get; set; } = 1D;
     
         /// <summary>Indexing information of schema's fields related to this field (if existing).</summary>
         [Newtonsoft.Json.JsonProperty("relatedSchemaIndexing", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -14374,7 +14374,7 @@ namespace Picturepark.SDK.V1.Contract
     
         /// <summary>Value to prioritize search results. Set to 1 by default. Ignored if SimpleSearch not set to true.</summary>
         [Newtonsoft.Json.JsonProperty("boost", Required = Newtonsoft.Json.Required.Always)]
-        public double Boost { get; set; }
+        public double Boost { get; set; } = 1D;
     
         public string ToJson() 
         {
@@ -14630,7 +14630,7 @@ namespace Picturepark.SDK.V1.Contract
     
         /// <summary>Value to prioritize search results. Set to 1 by default. Ignored if SimpleSearch not set to true.</summary>
         [Newtonsoft.Json.JsonProperty("boost", Required = Newtonsoft.Json.Required.Always)]
-        public double Boost { get; set; }
+        public double Boost { get; set; } = 1D;
     
         public string ToJson() 
         {

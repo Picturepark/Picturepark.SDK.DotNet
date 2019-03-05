@@ -25516,8 +25516,7 @@
         "properties": {
           "searchString": {
             "type": "string",
-            "description": "The string used to query the list items to aggregate. The Lucene query string syntax is supported. Defaults to *.",
-            "default": "*",
+            "description": "The string used to query the list items to aggregate. The Lucene query string syntax is supported.",
             "nullable": true
           },
           "searchBehaviors": {
@@ -26106,8 +26105,7 @@
           },
           "searchString": {
             "type": "string",
-            "description": "Limits the search by using a query string filter. The Lucene query string syntax is supported. Defaults to *.",
-            "default": "*",
+            "description": "Limits the search by using a query string filter. The Lucene query string syntax is supported.",
             "nullable": true
           },
           "searchType": {
@@ -27965,8 +27963,7 @@
         "properties": {
           "searchString": {
             "type": "string",
-            "description": "The string used to query the list items to aggregate. The Lucene query string syntax is supported. Defaults to *.",
-            "default": "*",
+            "description": "The string used to query the list items to aggregate. The Lucene query string syntax is supported.",
             "nullable": true
           },
           "searchBehaviors": {
@@ -28201,8 +28198,7 @@
         "properties": {
           "searchString": {
             "type": "string",
-            "description": "The string used to query the data. The Lucene query string syntax is supported. Defaults to *.",
-            "default": "*",
+            "description": "The string used to query the data. The Lucene query string syntax is supported.",
             "nullable": true
           },
           "filter": {
@@ -30831,7 +30827,8 @@
               "boost": {
                 "type": "number",
                 "description": "Value to prioritize search results. Set to 1 by default. Ignored if SimpleSearch not set to true.",
-                "format": "double"
+                "format": "double",
+                "default": 1
               }
             }
           }
@@ -30858,7 +30855,8 @@
               "boost": {
                 "type": "number",
                 "description": "Value to prioritize search results. Set to 1 by default. Ignored if SimpleSearch not set to true.",
-                "format": "double"
+                "format": "double",
+                "default": 1
               }
             }
           }
@@ -30885,7 +30883,8 @@
               "boost": {
                 "type": "number",
                 "description": "Value to prioritize search results. Set to 1 by default. Ignored if SimpleSearch not set to true.",
-                "format": "double"
+                "format": "double",
+                "default": 1
               }
             }
           }
@@ -30950,7 +30949,8 @@
               "boost": {
                 "type": "number",
                 "description": "Value to prioritize search results. Set to 1 by default. Ignored if SimpleSearch not set to true.",
-                "format": "double"
+                "format": "double",
+                "default": 1
               }
             }
           }
@@ -30972,7 +30972,8 @@
               "boost": {
                 "type": "number",
                 "description": "Value to prioritize search results. Set to 1 by default. Ignored if SimpleSearch not set to true.",
-                "format": "double"
+                "format": "double",
+                "default": 1
               }
             }
           }
@@ -31020,7 +31021,8 @@
               "boost": {
                 "type": "number",
                 "description": "Value to prioritize search results. Set to 1 by default. Ignored if SimpleSearch not set to true.",
-                "format": "double"
+                "format": "double",
+                "default": 1
               }
             }
           }
@@ -31059,7 +31061,8 @@
               "boost": {
                 "type": "number",
                 "description": "Value to prioritize search results. Set to 1 by default. Ignored if SimpleSearch not set to true.",
-                "format": "double"
+                "format": "double",
+                "default": 1
               }
             }
           }
@@ -31169,7 +31172,8 @@
           "boost": {
             "type": "number",
             "description": "Value to prioritize search results. Set to 1 by default. Ignored if SimpleSearch not set to true.",
-            "format": "double"
+            "format": "double",
+            "default": 1
           },
           "relatedSchemaIndexing": {
             "description": "Indexing information of schema's fields related to this field (if existing).",
@@ -31394,7 +31398,8 @@
               "boost": {
                 "type": "number",
                 "description": "Value to prioritize search results. Set to 1 by default. Ignored if SimpleSearch not set to true.",
-                "format": "double"
+                "format": "double",
+                "default": 1
               }
             }
           }
@@ -31687,7 +31692,8 @@
               "boost": {
                 "type": "number",
                 "description": "Value to prioritize search results. Set to 1 by default. Ignored if SimpleSearch not set to true.",
-                "format": "double"
+                "format": "double",
+                "default": 1
               }
             }
           }
