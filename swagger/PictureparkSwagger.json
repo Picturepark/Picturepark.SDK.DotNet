@@ -9716,6 +9716,7 @@
             "collectionFormat": "multi",
             "schema": {
               "type": "array",
+              "nullable": true,
               "items": {
                 "type": "string"
               }
