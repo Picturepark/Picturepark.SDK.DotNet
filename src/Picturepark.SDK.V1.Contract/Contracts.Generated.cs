@@ -1976,11 +1976,12 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("TermsOfServiceNotNewestException", typeof(TermsOfServiceNotNewestException))]
     [JsonInheritanceAttribute("IllegalAuthorizationStateTransitionException", typeof(IllegalAuthorizationStateTransitionException))]
     [JsonInheritanceAttribute("TermsOfServiceConsentRequiredException", typeof(TermsOfServiceConsentRequiredException))]
+    [JsonInheritanceAttribute("PictureparkNotFoundException", typeof(PictureparkNotFoundException))]
+    [JsonInheritanceAttribute("UserRolesNotFoundException", typeof(UserRolesNotFoundException))]
     [JsonInheritanceAttribute("RenderingException", typeof(RenderingException))]
     [JsonInheritanceAttribute("ServiceProviderDeleteException", typeof(ServiceProviderDeleteException))]
     [JsonInheritanceAttribute("ServiceProviderCreateException", typeof(ServiceProviderCreateException))]
     [JsonInheritanceAttribute("ServiceProviderNotFoundException", typeof(ServiceProviderNotFoundException))]
-    [JsonInheritanceAttribute("PictureparkNotFoundException", typeof(PictureparkNotFoundException))]
     [JsonInheritanceAttribute("DocumentVersionNotFoundException", typeof(DocumentVersionNotFoundException))]
     [JsonInheritanceAttribute("DefaultChannelDeleteException", typeof(DefaultChannelDeleteException))]
     [JsonInheritanceAttribute("ElasticVersionUpdateException", typeof(ElasticVersionUpdateException))]
@@ -2049,6 +2050,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("ContentPermissionException", typeof(ContentPermissionException))]
     [JsonInheritanceAttribute("ListItemPermissionException", typeof(ListItemPermissionException))]
     [JsonInheritanceAttribute("SchemaPermissionException", typeof(SchemaPermissionException))]
+    [JsonInheritanceAttribute("PermissionSetValidationException", typeof(PermissionSetValidationException))]
     [JsonInheritanceAttribute("PermissionSetInvalidRightCombinationException", typeof(PermissionSetInvalidRightCombinationException))]
     [JsonInheritanceAttribute("UnsupportedListItemChangeCommandException", typeof(UnsupportedListItemChangeCommandException))]
     [JsonInheritanceAttribute("ListItemLayerException", typeof(ListItemLayerException))]
@@ -2417,6 +2419,44 @@ namespace Picturepark.SDK.V1.Contract
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
     [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class PictureparkNotFoundException : PictureparkBusinessException
+    {
+        [Newtonsoft.Json.JsonProperty("reference", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Reference { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static PictureparkNotFoundException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<PictureparkNotFoundException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class UserRolesNotFoundException : PictureparkNotFoundException
+    {
+        [Newtonsoft.Json.JsonProperty("userRoleIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> UserRoleIds { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static UserRolesNotFoundException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<UserRolesNotFoundException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
     public partial class RenderingException : PictureparkBusinessException
     {
         public string ToJson() 
@@ -2490,25 +2530,6 @@ namespace Picturepark.SDK.V1.Contract
         public static ServiceProviderNotFoundException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<ServiceProviderNotFoundException>(data);
-        }
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
-    [Newtonsoft.Json.JsonObjectAttribute]
-    public partial class PictureparkNotFoundException : PictureparkBusinessException
-    {
-        [Newtonsoft.Json.JsonProperty("reference", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Reference { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-    
-        public static PictureparkNotFoundException FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<PictureparkNotFoundException>(data);
         }
     
     }
@@ -4098,9 +4119,26 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>This exception is an abstract base for permission set validation.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
     [Newtonsoft.Json.JsonObjectAttribute]
-    public partial class PermissionSetInvalidRightCombinationException : PictureparkValidationException
+    public partial class PermissionSetValidationException : PictureparkValidationException
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static PermissionSetValidationException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<PermissionSetValidationException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class PermissionSetInvalidRightCombinationException : PermissionSetValidationException
     {
         public string ToJson() 
         {
