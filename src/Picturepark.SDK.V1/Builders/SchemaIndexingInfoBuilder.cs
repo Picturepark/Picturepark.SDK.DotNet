@@ -134,7 +134,7 @@ namespace Picturepark.SDK.V1.Builders
                         Id = property.PropertyName,
                         SimpleSearch = searchAttribute?.SimpleSearch ?? false,
                         Index = searchAttribute?.Index ?? false,
-                        Boost = searchAttribute?.Boost ?? 0.0,
+                        Boost = searchAttribute?.Boost ?? 1,
                     };
                     fields.Add(field);
 

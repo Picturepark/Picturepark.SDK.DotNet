@@ -34,7 +34,7 @@ namespace Picturepark.SDK.V1.Tests.Contracts
         [PictureparkRequired]
         public string EmailAddress { get; set; }
 
-        [PictureparkSearch(Index = true, SimpleSearch = false, Boost = 0)]
+        [PictureparkSearch(Index = true, SimpleSearch = false, Boost = 1)]
         public DateTime BirthDate { get; set; }
 
         // Usage for recursions

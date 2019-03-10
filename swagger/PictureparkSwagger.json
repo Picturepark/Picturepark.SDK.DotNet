@@ -18689,11 +18689,12 @@
                 "TermsOfServiceNotNewestException": "#/components/schemas/TermsOfServiceNotNewestException",
                 "IllegalAuthorizationStateTransitionException": "#/components/schemas/IllegalAuthorizationStateTransitionException",
                 "TermsOfServiceConsentRequiredException": "#/components/schemas/TermsOfServiceConsentRequiredException",
+                "PictureparkNotFoundException": "#/components/schemas/PictureparkNotFoundException",
+                "UserRolesNotFoundException": "#/components/schemas/UserRolesNotFoundException",
                 "RenderingException": "#/components/schemas/RenderingException",
                 "ServiceProviderDeleteException": "#/components/schemas/ServiceProviderDeleteException",
                 "ServiceProviderCreateException": "#/components/schemas/ServiceProviderCreateException",
                 "ServiceProviderNotFoundException": "#/components/schemas/ServiceProviderNotFoundException",
-                "PictureparkNotFoundException": "#/components/schemas/PictureparkNotFoundException",
                 "DocumentVersionNotFoundException": "#/components/schemas/DocumentVersionNotFoundException",
                 "DefaultChannelDeleteException": "#/components/schemas/DefaultChannelDeleteException",
                 "ElasticVersionUpdateException": "#/components/schemas/ElasticVersionUpdateException",
@@ -18762,6 +18763,7 @@
                 "ContentPermissionException": "#/components/schemas/ContentPermissionException",
                 "ListItemPermissionException": "#/components/schemas/ListItemPermissionException",
                 "SchemaPermissionException": "#/components/schemas/SchemaPermissionException",
+                "PermissionSetValidationException": "#/components/schemas/PermissionSetValidationException",
                 "PermissionSetInvalidRightCombinationException": "#/components/schemas/PermissionSetInvalidRightCombinationException",
                 "UnsupportedListItemChangeCommandException": "#/components/schemas/UnsupportedListItemChangeCommandException",
                 "ListItemLayerException": "#/components/schemas/ListItemLayerException",
@@ -19110,6 +19112,43 @@
           }
         ]
       },
+      "UserRolesNotFoundException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkNotFoundException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "userRoleIds": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "PictureparkNotFoundException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkBusinessException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "reference": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
       "RenderingException": {
         "allOf": [
           {
@@ -19198,23 +19237,6 @@
                 "nullable": true
               },
               "documentVersion": {
-                "type": "string",
-                "nullable": true
-              }
-            }
-          }
-        ]
-      },
-      "PictureparkNotFoundException": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/PictureparkBusinessException"
-          },
-          {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "reference": {
                 "type": "string",
                 "nullable": true
               }
@@ -20658,10 +20680,22 @@
       "PermissionSetInvalidRightCombinationException": {
         "allOf": [
           {
+            "$ref": "#/components/schemas/PermissionSetValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "PermissionSetValidationException": {
+        "allOf": [
+          {
             "$ref": "#/components/schemas/PictureparkValidationException"
           },
           {
             "type": "object",
+            "description": "This exception is an abstract base for permission set validation.",
             "additionalProperties": false
           }
         ]
