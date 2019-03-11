@@ -24287,6 +24287,15 @@
               "$ref": "#/components/schemas/AggregatorBase"
             }
           },
+          "filter": {
+            "description": "An optional filter to limit the data set the aggregation is operation on.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/FilterBase"
+              }
+            ]
+          },
           "kind": {
             "type": "string"
           }

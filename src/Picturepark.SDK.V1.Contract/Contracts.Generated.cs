@@ -7657,6 +7657,10 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("aggregators", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<AggregatorBase> Aggregators { get; set; }
     
+        /// <summary>An optional filter to limit the data set the aggregation is operation on.</summary>
+        [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public FilterBase Filter { get; set; }
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
