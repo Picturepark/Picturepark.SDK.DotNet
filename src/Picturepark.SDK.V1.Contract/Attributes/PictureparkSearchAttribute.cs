@@ -9,6 +9,6 @@ namespace Picturepark.SDK.V1.Contract.Attributes
 
         public bool SimpleSearch { get; set; }
 
-        public double Boost { get; set; }
+        public double Boost { get; set; } = 1;
     }
 }

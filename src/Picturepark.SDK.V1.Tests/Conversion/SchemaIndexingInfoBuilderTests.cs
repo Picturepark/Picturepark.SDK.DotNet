@@ -140,10 +140,10 @@ namespace Picturepark.SDK.V1.Tests.Conversion
         [PictureparkSchema(SchemaType.Struct)]
         public class Child : Relation
         {
-            [PictureparkSearch(Index = true, Boost = 1.2, SimpleSearch = true)]
+            [PictureparkSearch(Index = true, Boost = 5, SimpleSearch = true)]
             public string FirstName { get; set; }
 
-            [PictureparkSearch(Index = true, Boost = 1.3, SimpleSearch = true)]
+            [PictureparkSearch(Index = true, Boost = 10, SimpleSearch = true)]
             public string LastName { get; set; }
 
             public DateTime DateOfBirth { get; set; }
