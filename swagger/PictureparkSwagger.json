@@ -35881,7 +35881,7 @@
           },
           "aggregationFilters": {
             "type": "array",
-            "description": "List of aggregation filters, which are added to the search query and return documents meeting the aggregation condition.",
+            "description": "Special filters used to filter down the aggregations' values on specific conditions. The behavior is different when\nfiltering an aggregation that matches the same AggregationName or another aggregation.\nIn the first case, the filter is put in \"or\" with (eventual) other existing filters. In the second case it is put in \"and\".",
             "nullable": true,
             "items": {
               "$ref": "#/components/schemas/AggregationFilter"
