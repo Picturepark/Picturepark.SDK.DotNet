@@ -947,6 +947,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [JsonInheritanceAttribute("SchemaFieldNotSupportedException", typeof(SchemaFieldNotSupportedException))]
     [JsonInheritanceAttribute("SnapshotTimeoutException", typeof(SnapshotTimeoutException))]
     [JsonInheritanceAttribute("SnapshotFailedException", typeof(SnapshotFailedException))]
+    [JsonInheritanceAttribute("SnapshotSkippedException", typeof(SnapshotSkippedException))]
     [JsonInheritanceAttribute("AddMetadataLanguageTimeoutException", typeof(AddMetadataLanguageTimeoutException))]
     [JsonInheritanceAttribute("EnvironmentProcessAlreadyRunningException", typeof(EnvironmentProcessAlreadyRunningException))]
     [JsonInheritanceAttribute("EnvironmentProcessNotFoundException", typeof(EnvironmentProcessNotFoundException))]
@@ -5071,6 +5072,22 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
     [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class SnapshotSkippedException : PictureparkBusinessException
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static SnapshotSkippedException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SnapshotSkippedException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
     public partial class AddMetadataLanguageTimeoutException : PictureparkTimeoutException
     {
         [Newtonsoft.Json.JsonProperty("environmentProcessId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -6481,6 +6498,17 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public LifeCycle LifeCycle { get; set; }
     
+        [Newtonsoft.Json.JsonProperty("snapshotEnabled", Required = Newtonsoft.Json.Required.Always)]
+        public bool SnapshotEnabled { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("snapshotRetentionTime", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public System.TimeSpan SnapshotRetentionTime { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("snapshotFullbackupScheduleTime", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public System.TimeSpan SnapshotFullbackupScheduleTime { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("contentRetentionTime", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.TimeSpan ContentRetentionTime { get; set; }
@@ -6488,10 +6516,6 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [Newtonsoft.Json.JsonProperty("listItemRetentionTime", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.TimeSpan ListItemRetentionTime { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("snapshotRetentionTime", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public System.TimeSpan SnapshotRetentionTime { get; set; }
     
         [Newtonsoft.Json.JsonProperty("userRetentionTime", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
@@ -6504,10 +6528,6 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [Newtonsoft.Json.JsonProperty("liveStreamRetentionTime", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.TimeSpan LiveStreamRetentionTime { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("snapshotFullbackupScheduleTime", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public System.TimeSpan SnapshotFullbackupScheduleTime { get; set; }
     
         [Newtonsoft.Json.JsonProperty("successfulTransferRetentionTime", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
@@ -6769,10 +6789,6 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.TimeSpan ListItemRetentionTime { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("snapshotRetentionTime", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public System.TimeSpan SnapshotRetentionTime { get; set; }
-    
         [Newtonsoft.Json.JsonProperty("userRetentionTime", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.TimeSpan UserRetentionTime { get; set; }
@@ -6793,9 +6809,16 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.TimeSpan LiveStreamRetentionTime { get; set; }
     
+        [Newtonsoft.Json.JsonProperty("snapshotEnabled", Required = Newtonsoft.Json.Required.Always)]
+        public bool SnapshotEnabled { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("snapshotFullbackupScheduleTime", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.TimeSpan SnapshotFullbackupScheduleTime { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("snapshotRetentionTime", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public System.TimeSpan SnapshotRetentionTime { get; set; }
     
         [Newtonsoft.Json.JsonProperty("createTransferBusinessProcess", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string CreateTransferBusinessProcess { get; set; }
@@ -7919,8 +7942,16 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [Newtonsoft.Json.JsonProperty("deactivationMessage", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public TranslatedStringDictionary DeactivationMessage { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("backupEnabled", Required = Newtonsoft.Json.Required.Always)]
-        public bool BackupEnabled { get; set; }
+        [Newtonsoft.Json.JsonProperty("snapshotEnabled", Required = Newtonsoft.Json.Required.Always)]
+        public bool SnapshotEnabled { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("liveStreamRetentionTime", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public System.TimeSpan LiveStreamRetentionTime { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("snapshotFullbackupScheduleTime", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public System.TimeSpan SnapshotFullbackupScheduleTime { get; set; }
     
         [Newtonsoft.Json.JsonProperty("customerHosts", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> CustomerHosts { get; set; }
@@ -7933,10 +7964,6 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.TimeSpan ListItemRetentionTime { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("snapshotRetentionTime", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public System.TimeSpan SnapshotRetentionTime { get; set; }
-    
         [Newtonsoft.Json.JsonProperty("userRetentionTime", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.TimeSpan UserRetentionTime { get; set; }
@@ -7945,13 +7972,9 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.TimeSpan DocumentHistoryRetentionTime { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("liveStreamRetentionTime", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("snapshotRetentionTime", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public System.TimeSpan LiveStreamRetentionTime { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("snapshotFullbackupScheduleTime", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public System.TimeSpan SnapshotFullbackupScheduleTime { get; set; }
+        public System.TimeSpan SnapshotRetentionTime { get; set; }
     
         [Newtonsoft.Json.JsonProperty("successfulTransferRetentionTime", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]

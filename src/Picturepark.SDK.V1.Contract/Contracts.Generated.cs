@@ -2140,6 +2140,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("SchemaFieldNotSupportedException", typeof(SchemaFieldNotSupportedException))]
     [JsonInheritanceAttribute("SnapshotTimeoutException", typeof(SnapshotTimeoutException))]
     [JsonInheritanceAttribute("SnapshotFailedException", typeof(SnapshotFailedException))]
+    [JsonInheritanceAttribute("SnapshotSkippedException", typeof(SnapshotSkippedException))]
     [JsonInheritanceAttribute("AddMetadataLanguageTimeoutException", typeof(AddMetadataLanguageTimeoutException))]
     [JsonInheritanceAttribute("EnvironmentProcessAlreadyRunningException", typeof(EnvironmentProcessAlreadyRunningException))]
     [JsonInheritanceAttribute("EnvironmentProcessNotFoundException", typeof(EnvironmentProcessNotFoundException))]
@@ -6258,6 +6259,22 @@ namespace Picturepark.SDK.V1.Contract
         public static SnapshotFailedException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<SnapshotFailedException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class SnapshotSkippedException : PictureparkBusinessException
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static SnapshotSkippedException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SnapshotSkippedException>(data);
         }
     
     }

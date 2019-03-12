@@ -18853,6 +18853,7 @@
                 "SchemaFieldNotSupportedException": "#/components/schemas/SchemaFieldNotSupportedException",
                 "SnapshotTimeoutException": "#/components/schemas/SnapshotTimeoutException",
                 "SnapshotFailedException": "#/components/schemas/SnapshotFailedException",
+                "SnapshotSkippedException": "#/components/schemas/SnapshotSkippedException",
                 "AddMetadataLanguageTimeoutException": "#/components/schemas/AddMetadataLanguageTimeoutException",
                 "EnvironmentProcessAlreadyRunningException": "#/components/schemas/EnvironmentProcessAlreadyRunningException",
                 "EnvironmentProcessNotFoundException": "#/components/schemas/EnvironmentProcessNotFoundException",
@@ -22771,6 +22772,17 @@
         ]
       },
       "SnapshotFailedException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkBusinessException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "SnapshotSkippedException": {
         "allOf": [
           {
             "$ref": "#/components/schemas/PictureparkBusinessException"
