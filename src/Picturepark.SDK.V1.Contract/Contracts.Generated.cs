@@ -7674,6 +7674,10 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("aggregators", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<AggregatorBase> Aggregators { get; set; }
     
+        /// <summary>An optional filter to limit the data set the aggregation is operation on.</summary>
+        [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public FilterBase Filter { get; set; }
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -18223,7 +18227,9 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public FilterBase Filter { get; set; }
     
-        /// <summary>List of aggregation filters, which are added to the search query and return documents meeting the aggregation condition.</summary>
+        /// <summary>Special filters used to filter down the aggregations' values on specific conditions. The behavior is different when
+        /// filtering an aggregation that matches the same AggregationName or another aggregation.
+        /// In the first case, the filter is put in "or" with (eventual) other existing filters. In the second case it is put in "and".</summary>
         [Newtonsoft.Json.JsonProperty("aggregationFilters", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<AggregationFilter> AggregationFilters { get; set; }
     
