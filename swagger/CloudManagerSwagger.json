@@ -7436,6 +7436,7 @@
                 "SchemaFieldNotSupportedException": "#/components/schemas/SchemaFieldNotSupportedException",
                 "SnapshotTimeoutException": "#/components/schemas/SnapshotTimeoutException",
                 "SnapshotFailedException": "#/components/schemas/SnapshotFailedException",
+                "SnapshotSkippedException": "#/components/schemas/SnapshotSkippedException",
                 "AddMetadataLanguageTimeoutException": "#/components/schemas/AddMetadataLanguageTimeoutException",
                 "EnvironmentProcessAlreadyRunningException": "#/components/schemas/EnvironmentProcessAlreadyRunningException",
                 "EnvironmentProcessNotFoundException": "#/components/schemas/EnvironmentProcessNotFoundException",
@@ -11364,6 +11365,17 @@
           }
         ]
       },
+      "SnapshotSkippedException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkBusinessException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
       "AddMetadataLanguageTimeoutException": {
         "allOf": [
           {
@@ -12532,13 +12544,14 @@
           "sortableFieldThreshold",
           "redisDatabaseIndex",
           "lifeCycle",
+          "snapshotEnabled",
+          "snapshotRetentionTime",
+          "snapshotFullbackupScheduleTime",
           "contentRetentionTime",
           "listItemRetentionTime",
-          "snapshotRetentionTime",
           "userRetentionTime",
           "documentHistoryRetentionTime",
           "liveStreamRetentionTime",
-          "snapshotFullbackupScheduleTime",
           "successfulTransferRetentionTime",
           "incompleteTransferRetentionTime",
           "contentBackupState",
@@ -12775,15 +12788,22 @@
           "lifeCycle": {
             "$ref": "#/components/schemas/LifeCycle"
           },
+          "snapshotEnabled": {
+            "type": "boolean"
+          },
+          "snapshotRetentionTime": {
+            "type": "string",
+            "format": "time-span"
+          },
+          "snapshotFullbackupScheduleTime": {
+            "type": "string",
+            "format": "time-span"
+          },
           "contentRetentionTime": {
             "type": "string",
             "format": "time-span"
           },
           "listItemRetentionTime": {
-            "type": "string",
-            "format": "time-span"
-          },
-          "snapshotRetentionTime": {
             "type": "string",
             "format": "time-span"
           },
@@ -12796,10 +12816,6 @@
             "format": "time-span"
           },
           "liveStreamRetentionTime": {
-            "type": "string",
-            "format": "time-span"
-          },
-          "snapshotFullbackupScheduleTime": {
             "type": "string",
             "format": "time-span"
           },
@@ -12984,13 +13000,14 @@
           "sortableFieldThreshold",
           "contentRetentionTime",
           "listItemRetentionTime",
-          "snapshotRetentionTime",
           "userRetentionTime",
           "successfulTransferRetentionTime",
           "incompleteTransferRetentionTime",
           "documentHistoryRetentionTime",
           "liveStreamRetentionTime",
+          "snapshotEnabled",
           "snapshotFullbackupScheduleTime",
+          "snapshotRetentionTime",
           "contentBackupState",
           "apiCallsPerMinute"
         ],
@@ -13132,10 +13149,6 @@
             "type": "string",
             "format": "time-span"
           },
-          "snapshotRetentionTime": {
-            "type": "string",
-            "format": "time-span"
-          },
           "userRetentionTime": {
             "type": "string",
             "format": "time-span"
@@ -13156,7 +13169,14 @@
             "type": "string",
             "format": "time-span"
           },
+          "snapshotEnabled": {
+            "type": "boolean"
+          },
           "snapshotFullbackupScheduleTime": {
+            "type": "string",
+            "format": "time-span"
+          },
+          "snapshotRetentionTime": {
             "type": "string",
             "format": "time-span"
           },
@@ -14322,14 +14342,14 @@
         "additionalProperties": false,
         "required": [
           "lifeCycle",
-          "backupEnabled",
-          "contentRetentionTime",
-          "listItemRetentionTime",
-          "snapshotRetentionTime",
-          "userRetentionTime",
-          "documentHistoryRetentionTime",
+          "snapshotEnabled",
           "liveStreamRetentionTime",
           "snapshotFullbackupScheduleTime",
+          "contentRetentionTime",
+          "listItemRetentionTime",
+          "userRetentionTime",
+          "documentHistoryRetentionTime",
+          "snapshotRetentionTime",
           "successfulTransferRetentionTime",
           "incompleteTransferRetentionTime",
           "useSsl",
@@ -14356,8 +14376,16 @@
               }
             ]
           },
-          "backupEnabled": {
+          "snapshotEnabled": {
             "type": "boolean"
+          },
+          "liveStreamRetentionTime": {
+            "type": "string",
+            "format": "time-span"
+          },
+          "snapshotFullbackupScheduleTime": {
+            "type": "string",
+            "format": "time-span"
           },
           "customerHosts": {
             "type": "array",
@@ -14374,10 +14402,6 @@
             "type": "string",
             "format": "time-span"
           },
-          "snapshotRetentionTime": {
-            "type": "string",
-            "format": "time-span"
-          },
           "userRetentionTime": {
             "type": "string",
             "format": "time-span"
@@ -14386,11 +14410,7 @@
             "type": "string",
             "format": "time-span"
           },
-          "liveStreamRetentionTime": {
-            "type": "string",
-            "format": "time-span"
-          },
-          "snapshotFullbackupScheduleTime": {
+          "snapshotRetentionTime": {
             "type": "string",
             "format": "time-span"
           },
