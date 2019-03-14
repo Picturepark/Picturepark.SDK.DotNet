@@ -666,17 +666,17 @@ namespace Picturepark.SDK.V1.Tests.Clients
         [Trait("Stack", "ListItem")]
         public async Task ShouldUseLocalDateForDisplayValue()
         {
-            // Arange
+            // Arrange
             await SchemaHelper.CreateSchemasIfNotExistentAsync<LocalDateTestItem>(_client).ConfigureAwait(false);
 
-            var date = new DateTime(2012, 12, 12, 1, 1, 1).ToUniversalTime();
+            var date = new DateTime(2012, 12, 12, 1, 1, 1, DateTimeKind.Utc);
 
             var listItem1 = new LocalDateTestItem
             {
                 DateTimeField = date,
                 Child = new LocalDateTestItem
                 {
-                    DateTimeField = new DateTime(2010, 1, 1, 12, 1, 1)
+                    DateTimeField = new DateTime(2010, 1, 1, 12, 1, 1, DateTimeKind.Local)
                 }
             };
 
@@ -690,7 +690,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var dateValue = item.ConvertTo<LocalDateTestItem>().DateTimeField;
 
             const string quote = "\"";
-            var shouldBeValue = $"{{{{ {quote}{dateValue:s}Z{quote} | date: {quote}%d.%m.%Y %H:%M:%S{quote} }}}}";
+            var shouldBeValue = $"{{{{ {quote}{dateValue:O}{quote} | date: {quote}%d.%m.%Y %H:%M:%S{quote} }}}}";
 
             // Assert
             item.DisplayValues[DisplayPatternType.Name.ToString().ToLowerCamelCase()]
