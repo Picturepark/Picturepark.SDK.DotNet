@@ -247,7 +247,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var uploadOptions = new UploadOptions
             {
                 ConcurrentUploads = 4,
-                ChunkSize = 20 * 1024,
+                ChunkSize = 1024 * 1024,
                 SuccessDelegate = Console.WriteLine,
                 ErrorDelegate = Console.WriteLine
             };
@@ -357,7 +357,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var uploadOptions = new UploadOptions
             {
                 ConcurrentUploads = 4,
-                ChunkSize = 20 * 1024,
+                ChunkSize = 1024 * 1024,
                 SuccessDelegate = Console.WriteLine,
                 ErrorDelegate = Console.WriteLine
             };
