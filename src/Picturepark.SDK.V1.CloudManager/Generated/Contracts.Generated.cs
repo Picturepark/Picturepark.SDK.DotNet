@@ -880,6 +880,8 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [JsonInheritanceAttribute("InvalidTransferTypeException", typeof(InvalidTransferTypeException))]
     [JsonInheritanceAttribute("TransferNotFoundException", typeof(TransferNotFoundException))]
     [JsonInheritanceAttribute("WrongChunkSizeException", typeof(WrongChunkSizeException))]
+    [JsonInheritanceAttribute("ChunkSizeOutOfRangeException", typeof(ChunkSizeOutOfRangeException))]
+    [JsonInheritanceAttribute("MaximumTransferSizeException", typeof(MaximumTransferSizeException))]
     [JsonInheritanceAttribute("MissingDependenciesException", typeof(MissingDependenciesException))]
     [JsonInheritanceAttribute("RelationSelfReferencingException", typeof(RelationSelfReferencingException))]
     [JsonInheritanceAttribute("InvalidChangeCommandFieldTypeInvalidException", typeof(InvalidChangeCommandFieldTypeInvalidException))]
@@ -966,10 +968,10 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [JsonInheritanceAttribute("ForbiddenHtmlElementsUsedException", typeof(ForbiddenHtmlElementsUsedException))]
     [JsonInheritanceAttribute("BusinessProcessStateNotHitException", typeof(BusinessProcessStateNotHitException))]
     [JsonInheritanceAttribute("BusinessProcessLifeCycleNotHitException", typeof(BusinessProcessLifeCycleNotHitException))]
-    [JsonInheritanceAttribute("MaximumTransferSizeException", typeof(MaximumTransferSizeException))]
     [JsonInheritanceAttribute("OnlyAccessibleToRecipientException", typeof(OnlyAccessibleToRecipientException))]
     [JsonInheritanceAttribute("EnvironmentNotAvailableException", typeof(EnvironmentNotAvailableException))]
     [JsonInheritanceAttribute("CustomerNotAvailableException", typeof(CustomerNotAvailableException))]
+    [JsonInheritanceAttribute("CustomerAliasHeaderMissingException", typeof(CustomerAliasHeaderMissingException))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
     [Newtonsoft.Json.JsonObjectAttribute]
     public partial class PictureparkException : System.Exception
@@ -3247,6 +3249,56 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
     [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class ChunkSizeOutOfRangeException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("actual", Required = Newtonsoft.Json.Required.Always)]
+        public long Actual { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("minimum", Required = Newtonsoft.Json.Required.Always)]
+        public long Minimum { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("maximum", Required = Newtonsoft.Json.Required.Always)]
+        public long Maximum { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static ChunkSizeOutOfRangeException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ChunkSizeOutOfRangeException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class MaximumTransferSizeException : PictureparkException
+    {
+        [Newtonsoft.Json.JsonProperty("transferSize", Required = Newtonsoft.Json.Required.Always)]
+        public int TransferSize { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("maximumTransferSize", Required = Newtonsoft.Json.Required.Always)]
+        public int MaximumTransferSize { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("transferId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string TransferId { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static MaximumTransferSizeException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<MaximumTransferSizeException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
     public partial class MissingDependenciesException : PictureparkValidationException
     {
         [Newtonsoft.Json.JsonProperty("itemIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -5308,31 +5360,6 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
     [Newtonsoft.Json.JsonObjectAttribute]
-    public partial class MaximumTransferSizeException : PictureparkException
-    {
-        [Newtonsoft.Json.JsonProperty("transferSize", Required = Newtonsoft.Json.Required.Always)]
-        public int TransferSize { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("maximumTransferSize", Required = Newtonsoft.Json.Required.Always)]
-        public int MaximumTransferSize { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("transferId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string TransferId { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-    
-        public static MaximumTransferSizeException FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<MaximumTransferSizeException>(data);
-        }
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
-    [Newtonsoft.Json.JsonObjectAttribute]
     public partial class OnlyAccessibleToRecipientException : PictureparkValidationException
     {
         public string ToJson() 
@@ -5378,6 +5405,22 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         public static CustomerNotAvailableException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<CustomerNotAvailableException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class CustomerAliasHeaderMissingException : PictureparkValidationException
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static CustomerAliasHeaderMissingException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<CustomerAliasHeaderMissingException>(data);
         }
     
     }

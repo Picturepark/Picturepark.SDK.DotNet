@@ -6,7 +6,7 @@ namespace Picturepark.SDK.V1.Tests.Contracts
 {
     [PictureparkReference]
     [PictureparkSchema(SchemaType.List)]
-    [PictureparkDisplayPattern(DisplayPatternType.Name, TemplateEngine.DotLiquid, "{{data.localDateTestItem.dateTimeField  | localDate :\"%d.%m.%Y %H:%M:%S\"}}")]
+    [PictureparkDisplayPattern(DisplayPatternType.Name, TemplateEngine.DotLiquid, "{{data.localDateTestItem.dateTimeField  | local_date :\"%d.%m.%Y %H:%M:%S\"}}")]
     public class LocalDateTestItem : ReferenceObject
     {
         public DateTime DateTimeField { get; set; }
