@@ -18734,6 +18734,7 @@
                 "CustomerHostNotFoundException": "#/components/schemas/CustomerHostNotFoundException",
                 "CustomerNotFoundException": "#/components/schemas/CustomerNotFoundException",
                 "CustomerNotActiveException": "#/components/schemas/CustomerNotActiveException",
+                "CustomerBoostValuesInvalidException": "#/components/schemas/CustomerBoostValuesInvalidException",
                 "ConfigurationIndexNotFoundException": "#/components/schemas/ConfigurationIndexNotFoundException",
                 "DuplicateSearchIndexDocException": "#/components/schemas/DuplicateSearchIndexDocException",
                 "SearchIndexDocNotFoundException": "#/components/schemas/SearchIndexDocNotFoundException",
@@ -19901,6 +19902,17 @@
                 "nullable": true
               }
             }
+          }
+        ]
+      },
+      "CustomerBoostValuesInvalidException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
           }
         ]
       },
