@@ -17,9 +17,6 @@ namespace Picturepark.SDK.V1.Tests.Fixtures
     public class ClientFixture : IDisposable
     {
         private static readonly ConnectionIssuesHandler s_httpHandler;
-
-        private readonly IPictureparkService _client;
-        private readonly TestConfiguration _configuration;
         private readonly ConcurrentQueue<string> _createdUserIds = new ConcurrentQueue<string>();
 
         static ClientFixture()
@@ -53,9 +50,8 @@ namespace Picturepark.SDK.V1.Tests.Fixtures
                 Directory.CreateDirectory(TempDirectory);
 
             var configurationJson = File.ReadAllText(ProjectDirectory + "Configuration.json");
-            _configuration = JsonConvert.DeserializeObject<TestConfiguration>(configurationJson);
-
-            _client = GetLocalizedPictureparkService("en");
+            Configuration = JsonConvert.DeserializeObject<TestConfiguration>(configurationJson);
+            Client = GetLocalizedPictureparkService("en");
         }
 
         public string ProjectDirectory { get; }
@@ -66,33 +62,33 @@ namespace Picturepark.SDK.V1.Tests.Fixtures
 
         public string ExampleSchemaBasePath => ProjectDirectory + "/ExampleData/Schema";
 
-        public TestConfiguration Configuration => _configuration;
+        public TestConfiguration Configuration { get; }
 
-        public IPictureparkService Client => _client;
+        public IPictureparkService Client { get; }
 
         public Lazy<CustomerInfo> CustomerInfo =>
-            new Lazy<CustomerInfo>(() => _client.Info.GetInfoAsync().GetAwaiter().GetResult());
+            new Lazy<CustomerInfo>(() => Client.Info.GetInfoAsync().GetAwaiter().GetResult());
 
         public string DefaultLanguage => CustomerInfo.Value.LanguageConfiguration.DefaultLanguage;
 
         public async Task<ContentSearchResult> GetRandomContentsAsync(string searchString, int limit, IReadOnlyList<ContentType> contentTypes = null)
         {
-            return await RandomHelper.GetRandomContentsAsync(_client, searchString, limit, contentTypes);
+            return await RandomHelper.GetRandomContentsAsync(Client, searchString, limit, contentTypes);
         }
 
         public async Task<string> GetRandomContentIdAsync(string searchString, int limit)
         {
-            return await RandomHelper.GetRandomContentIdAsync(_client, searchString, limit);
+            return await RandomHelper.GetRandomContentIdAsync(Client, searchString, limit);
         }
 
         public async Task<string> GetRandomContentPermissionSetIdAsync(int limit)
         {
-            return await RandomHelper.GetRandomContentPermissionSetIdAsync(_client, limit);
+            return await RandomHelper.GetRandomContentPermissionSetIdAsync(Client, limit);
         }
 
         public async Task<string> GetRandomSchemaPermissionSetIdAsync(int limit)
         {
-            return await RandomHelper.GetRandomSchemaPermissionSetIdAsync(_client, limit);
+            return await RandomHelper.GetRandomSchemaPermissionSetIdAsync(Client, limit);
         }
 
         public virtual void Dispose()
@@ -101,16 +97,16 @@ namespace Picturepark.SDK.V1.Tests.Fixtures
             {
                 foreach (var createdUserId in _createdUserIds)
                 {
-                    _client.User.DeleteAsync(createdUserId, new UserDeleteRequest()).GetAwaiter().GetResult();
+                    Client.User.DeleteAsync(createdUserId, new UserDeleteRequest()).GetAwaiter().GetResult();
                 }
             }
 
-            _client.Dispose();
+            Client.Dispose();
         }
 
         public PictureparkService GetLocalizedPictureparkService(string language)
         {
-            var authClient = new AccessTokenAuthClient(_configuration.Server, _configuration.AccessToken, _configuration.CustomerAlias);
+            var authClient = new AccessTokenAuthClient(Configuration.Server, Configuration.AccessToken, Configuration.CustomerAlias);
 
             var settings = new PictureparkServiceSettings(authClient)
             {
