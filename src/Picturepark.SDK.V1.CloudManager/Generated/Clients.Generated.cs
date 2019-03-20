@@ -5533,6 +5533,9 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         public async System.Threading.Tasks.Task<EnvironmentProcess> UpdateBoostValuesAsync(string customerAlias, CustomerBoostValuesUpdateRequest request, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (customerAlias == null)
+                throw new System.ArgumentNullException("customerAlias");
+    
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/customer/{customerAlias}/boostValues?");
             urlBuilder_.Replace("{customerAlias}", System.Uri.EscapeDataString(ConvertToString(customerAlias, System.Globalization.CultureInfo.InvariantCulture)));

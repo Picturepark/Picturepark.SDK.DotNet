@@ -18861,6 +18861,7 @@
                 "EnvironmentProcessAlreadyRunningException": "#/components/schemas/EnvironmentProcessAlreadyRunningException",
                 "EnvironmentProcessNotFoundException": "#/components/schemas/EnvironmentProcessNotFoundException",
                 "EnvironmentProcessWaitTimeoutException": "#/components/schemas/EnvironmentProcessWaitTimeoutException",
+                "CustomerBoostValuesUpdateTimeoutException": "#/components/schemas/CustomerBoostValuesUpdateTimeoutException",
                 "NoTermsOfServiceDefinedException": "#/components/schemas/NoTermsOfServiceDefinedException",
                 "AtLeastOneActiveTermsOfServiceMustExistException": "#/components/schemas/AtLeastOneActiveTermsOfServiceMustExistException",
                 "ForbiddenHtmlElementsUsedException": "#/components/schemas/ForbiddenHtmlElementsUsedException",
@@ -22908,12 +22909,14 @@
         "x-enumNames": [
           "AddMetadataLanguage",
           "CustomerUpdate",
-          "EnvironmentUpdate"
+          "EnvironmentUpdate",
+          "CustomerBoostValuesUpdate"
         ],
         "enum": [
           "AddMetadataLanguage",
           "CustomerUpdate",
-          "EnvironmentUpdate"
+          "EnvironmentUpdate",
+          "CustomerBoostValuesUpdate"
         ]
       },
       "EnvironmentProcessNotFoundException": {
@@ -22947,6 +22950,23 @@
                 "nullable": true
               },
               "waitedLifecycles": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "CustomerBoostValuesUpdateTimeoutException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkTimeoutException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "environmentProcessId": {
                 "type": "string",
                 "nullable": true
               }
