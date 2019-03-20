@@ -2084,6 +2084,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("SchemaFieldOverwriteTypeMismatchException", typeof(SchemaFieldOverwriteTypeMismatchException))]
     [JsonInheritanceAttribute("SchemaFieldOverwriteIdException", typeof(SchemaFieldOverwriteIdException))]
     [JsonInheritanceAttribute("SchemaFieldIdDuplicatedException", typeof(SchemaFieldIdDuplicatedException))]
+    [JsonInheritanceAttribute("SchemaFieldIdPreviouslyUsedException", typeof(SchemaFieldIdPreviouslyUsedException))]
     [JsonInheritanceAttribute("SchemaFieldSchemaIndexInfoSimpleSearchNestingException", typeof(SchemaFieldSchemaIndexInfoSimpleSearchNestingException))]
     [JsonInheritanceAttribute("SchemaFieldSchemaIndexInfoNestingException", typeof(SchemaFieldSchemaIndexInfoNestingException))]
     [JsonInheritanceAttribute("SchemaFieldIdUppercaseException", typeof(SchemaFieldIdUppercaseException))]
@@ -4905,6 +4906,28 @@ namespace Picturepark.SDK.V1.Contract
         public static SchemaFieldIdDuplicatedException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaFieldIdDuplicatedException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class SchemaFieldIdPreviouslyUsedException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("schemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string SchemaId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("fieldId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string FieldId { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static SchemaFieldIdPreviouslyUsedException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaFieldIdPreviouslyUsedException>(data);
         }
     
     }
@@ -15319,7 +15342,7 @@ namespace Picturepark.SDK.V1.Contract
     
     /// <summary>Exists response</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
-    public partial class ExistsResponse 
+    public partial class SchemaExistsResponse 
     {
         /// <summary>It indicates if it exists.</summary>
         [Newtonsoft.Json.JsonProperty("exists", Required = Newtonsoft.Json.Required.Always)]
@@ -15330,9 +15353,34 @@ namespace Picturepark.SDK.V1.Contract
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
         }
     
-        public static ExistsResponse FromJson(string data)
+        public static SchemaExistsResponse FromJson(string data)
         {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<ExistsResponse>(data);
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaExistsResponse>(data);
+        }
+    
+    }
+    
+    /// <summary>Response for a query if a field exists</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class FieldExistsResponse 
+    {
+        /// <summary>Indicates if a field with the specified ID currently exists.</summary>
+        [Newtonsoft.Json.JsonProperty("exists", Required = Newtonsoft.Json.Required.Always)]
+        public bool Exists { get; set; }
+    
+        /// <summary>Indicates if a field with the specified ID was previously used.
+        /// A field ID that was previously in use cannot be used again.</summary>
+        [Newtonsoft.Json.JsonProperty("previouslyUsed", Required = Newtonsoft.Json.Required.Always)]
+        public bool PreviouslyUsed { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static FieldExistsResponse FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<FieldExistsResponse>(data);
         }
     
     }

@@ -35,6 +35,7 @@
         "ShareAccessClient.DownloadWithContentIdAsync",
         "ShareAccessClient.DownloadWithOutputFormatIdAsync",
         "SchemaClient.ExistsAsync",
+        "SchemaClient.FieldExistsAsync",
         "SchemaClient.CreateManyAsync",
         "JsonSchemaClient.GetAsync",
         "LiveStreamClient.GetMessageAsync"
