@@ -2855,8 +2855,8 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [System.Runtime.Serialization.EnumMember(Value = "EditMetadata")]
         EditMetadata = 2,
     
-        [System.Runtime.Serialization.EnumMember(Value = "ReplaceFile")]
-        ReplaceFile = 3,
+        [System.Runtime.Serialization.EnumMember(Value = "EditContent")]
+        EditContent = 3,
     
         [System.Runtime.Serialization.EnumMember(Value = "ManagePermissions")]
         ManagePermissions = 4,
