@@ -2021,6 +2021,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("CustomerHostNotFoundException", typeof(CustomerHostNotFoundException))]
     [JsonInheritanceAttribute("CustomerNotFoundException", typeof(CustomerNotFoundException))]
     [JsonInheritanceAttribute("CustomerNotActiveException", typeof(CustomerNotActiveException))]
+    [JsonInheritanceAttribute("CustomerBoostValuesInvalidException", typeof(CustomerBoostValuesInvalidException))]
     [JsonInheritanceAttribute("ConfigurationIndexNotFoundException", typeof(ConfigurationIndexNotFoundException))]
     [JsonInheritanceAttribute("DuplicateSearchIndexDocException", typeof(DuplicateSearchIndexDocException))]
     [JsonInheritanceAttribute("SearchIndexDocNotFoundException", typeof(SearchIndexDocNotFoundException))]
@@ -2148,6 +2149,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("EnvironmentProcessAlreadyRunningException", typeof(EnvironmentProcessAlreadyRunningException))]
     [JsonInheritanceAttribute("EnvironmentProcessNotFoundException", typeof(EnvironmentProcessNotFoundException))]
     [JsonInheritanceAttribute("EnvironmentProcessWaitTimeoutException", typeof(EnvironmentProcessWaitTimeoutException))]
+    [JsonInheritanceAttribute("CustomerBoostValuesUpdateTimeoutException", typeof(CustomerBoostValuesUpdateTimeoutException))]
     [JsonInheritanceAttribute("NoTermsOfServiceDefinedException", typeof(NoTermsOfServiceDefinedException))]
     [JsonInheritanceAttribute("AtLeastOneActiveTermsOfServiceMustExistException", typeof(AtLeastOneActiveTermsOfServiceMustExistException))]
     [JsonInheritanceAttribute("ForbiddenHtmlElementsUsedException", typeof(ForbiddenHtmlElementsUsedException))]
@@ -3297,6 +3299,22 @@ namespace Picturepark.SDK.V1.Contract
         public static CustomerNotActiveException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<CustomerNotActiveException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class CustomerBoostValuesInvalidException : PictureparkValidationException
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static CustomerBoostValuesInvalidException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<CustomerBoostValuesInvalidException>(data);
         }
     
     }
@@ -6406,6 +6424,9 @@ namespace Picturepark.SDK.V1.Contract
         [System.Runtime.Serialization.EnumMember(Value = "EnvironmentUpdate")]
         EnvironmentUpdate = 2,
     
+        [System.Runtime.Serialization.EnumMember(Value = "CustomerBoostValuesUpdate")]
+        CustomerBoostValuesUpdate = 3,
+    
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
@@ -6445,6 +6466,25 @@ namespace Picturepark.SDK.V1.Contract
         public static EnvironmentProcessWaitTimeoutException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<EnvironmentProcessWaitTimeoutException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class CustomerBoostValuesUpdateTimeoutException : PictureparkTimeoutException
+    {
+        [Newtonsoft.Json.JsonProperty("environmentProcessId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string EnvironmentProcessId { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static CustomerBoostValuesUpdateTimeoutException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<CustomerBoostValuesUpdateTimeoutException>(data);
         }
     
     }

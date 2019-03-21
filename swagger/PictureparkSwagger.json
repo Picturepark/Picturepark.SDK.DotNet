@@ -18844,6 +18844,7 @@
                 "CustomerHostNotFoundException": "#/components/schemas/CustomerHostNotFoundException",
                 "CustomerNotFoundException": "#/components/schemas/CustomerNotFoundException",
                 "CustomerNotActiveException": "#/components/schemas/CustomerNotActiveException",
+                "CustomerBoostValuesInvalidException": "#/components/schemas/CustomerBoostValuesInvalidException",
                 "ConfigurationIndexNotFoundException": "#/components/schemas/ConfigurationIndexNotFoundException",
                 "DuplicateSearchIndexDocException": "#/components/schemas/DuplicateSearchIndexDocException",
                 "SearchIndexDocNotFoundException": "#/components/schemas/SearchIndexDocNotFoundException",
@@ -18971,6 +18972,7 @@
                 "EnvironmentProcessAlreadyRunningException": "#/components/schemas/EnvironmentProcessAlreadyRunningException",
                 "EnvironmentProcessNotFoundException": "#/components/schemas/EnvironmentProcessNotFoundException",
                 "EnvironmentProcessWaitTimeoutException": "#/components/schemas/EnvironmentProcessWaitTimeoutException",
+                "CustomerBoostValuesUpdateTimeoutException": "#/components/schemas/CustomerBoostValuesUpdateTimeoutException",
                 "NoTermsOfServiceDefinedException": "#/components/schemas/NoTermsOfServiceDefinedException",
                 "AtLeastOneActiveTermsOfServiceMustExistException": "#/components/schemas/AtLeastOneActiveTermsOfServiceMustExistException",
                 "ForbiddenHtmlElementsUsedException": "#/components/schemas/ForbiddenHtmlElementsUsedException",
@@ -20014,6 +20016,17 @@
                 "nullable": true
               }
             }
+          }
+        ]
+      },
+      "CustomerBoostValuesInvalidException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
           }
         ]
       },
@@ -23028,12 +23041,14 @@
         "x-enumNames": [
           "AddMetadataLanguage",
           "CustomerUpdate",
-          "EnvironmentUpdate"
+          "EnvironmentUpdate",
+          "CustomerBoostValuesUpdate"
         ],
         "enum": [
           "AddMetadataLanguage",
           "CustomerUpdate",
-          "EnvironmentUpdate"
+          "EnvironmentUpdate",
+          "CustomerBoostValuesUpdate"
         ]
       },
       "EnvironmentProcessNotFoundException": {
@@ -23067,6 +23082,23 @@
                 "nullable": true
               },
               "waitedLifecycles": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "CustomerBoostValuesUpdateTimeoutException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkTimeoutException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "environmentProcessId": {
                 "type": "string",
                 "nullable": true
               }
