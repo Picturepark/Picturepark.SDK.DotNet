@@ -190,18 +190,6 @@ namespace Picturepark.SDK.V1
         }
 
         /// <inheritdoc />
-        public async Task<FieldExistsResponse> FieldExistsAsync(string schemaId, string fieldId, CancellationToken cancellationToken = default(CancellationToken))
-        {
-            if (string.IsNullOrEmpty(schemaId))
-                throw new ArgumentNullException(nameof(schemaId));
-
-            if (string.IsNullOrEmpty(fieldId))
-                throw new ArgumentNullException(nameof(fieldId));
-
-            return await FieldExistsCoreAsync(schemaId, fieldId, cancellationToken).ConfigureAwait(false);
-        }
-
-        /// <inheritdoc />
         public async Task<SchemaBatchOperationResult> WaitForBusinessProcessAndReturnResult(string businessProcessId, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             var result = await _businessProcessClient.WaitForCompletionAsync(businessProcessId, timeout, cancellationToken).ConfigureAwait(false);

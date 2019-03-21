@@ -17558,7 +17558,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        protected async System.Threading.Tasks.Task<FieldExistsResponse> FieldExistsCoreAsync(string schemaId, string fieldId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<FieldExistsResponse> FieldExistsAsync(string schemaId, string fieldId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (schemaId == null)
                 throw new System.ArgumentNullException("schemaId");

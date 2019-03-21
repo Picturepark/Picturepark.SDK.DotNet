@@ -76,15 +76,6 @@ namespace Picturepark.SDK.V1.Contract
         Task<bool> ExistsAsync(string schemaId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
-        /// Check whether a field in a schema already exists or has been previously used and then deleted.
-        /// </summary>
-        /// <param name="schemaId">The schema ID.</param>
-        /// <param name="fieldId">The field ID.</param>
-        /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>The <see cref="FieldExistsResponse"/>.</returns>
-        Task<FieldExistsResponse> FieldExistsAsync(string schemaId, string fieldId, CancellationToken cancellationToken = default(CancellationToken));
-
-        /// <summary>
         /// Waits for a business process and returns a <see cref="SchemaBatchOperationResult"/>.
         /// </summary>
         /// <param name="businessProcessId">The business process id.</param>
