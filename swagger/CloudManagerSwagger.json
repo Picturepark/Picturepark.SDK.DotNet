@@ -7514,6 +7514,7 @@
                 "SchemaFieldOverwriteIdException": "#/components/schemas/SchemaFieldOverwriteIdException",
                 "SchemaFieldIdDuplicatedException": "#/components/schemas/SchemaFieldIdDuplicatedException",
                 "SchemaFieldIdPreviouslyUsedException": "#/components/schemas/SchemaFieldIdPreviouslyUsedException",
+                "SchemaFieldIdAlreadyExistsInSchemaHierarchyException": "#/components/schemas/SchemaFieldIdAlreadyExistsInSchemaHierarchyException",
                 "SchemaFieldSchemaIndexInfoSimpleSearchNestingException": "#/components/schemas/SchemaFieldSchemaIndexInfoSimpleSearchNestingException",
                 "SchemaFieldSchemaIndexInfoNestingException": "#/components/schemas/SchemaFieldSchemaIndexInfoNestingException",
                 "SchemaFieldIdUppercaseException": "#/components/schemas/SchemaFieldIdUppercaseException",
@@ -9336,7 +9337,7 @@
           "View",
           "AccessOriginal",
           "EditMetadata",
-          "ReplaceFile",
+          "EditContent",
           "ManagePermissions",
           "Delete"
         ],
@@ -9344,7 +9345,7 @@
           "View",
           "AccessOriginal",
           "EditMetadata",
-          "ReplaceFile",
+          "EditContent",
           "ManagePermissions",
           "Delete"
         ]
@@ -10204,6 +10205,35 @@
                 "nullable": true
               },
               "fieldId": {
+                "type": "string",
+                "nullable": true
+              },
+              "usedInSchemaId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "SchemaFieldIdAlreadyExistsInSchemaHierarchyException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "schemaId": {
+                "type": "string",
+                "nullable": true
+              },
+              "fieldId": {
+                "type": "string",
+                "nullable": true
+              },
+              "existingInSchemaId": {
                 "type": "string",
                 "nullable": true
               }
