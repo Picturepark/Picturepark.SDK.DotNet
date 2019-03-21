@@ -1098,7 +1098,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             // Arrange
             var contentId = await _fixture.GetRandomContentIdAsync(".jpg", 20).ConfigureAwait(false);
             var contentDetail = await _client.Content.GetAsync(contentId).ConfigureAwait(false);
-            var permissionSetId = await _fixture.GetRandomContentPermissionSetIdAsync(20).ConfigureAwait(false);
+            var permissionSetId = (await _fixture.ContentPermissions.Create().ConfigureAwait(false)).Id;
 
             var contentPermissionSetIds = new List<string>
             {
@@ -1128,7 +1128,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             // Arrange
             var contentId = await _fixture.GetRandomContentIdAsync(".jpg", 20).ConfigureAwait(false);
             var contentDetail = await _client.Content.GetAsync(contentId).ConfigureAwait(false);
-            var permissionSetId = await _fixture.GetRandomContentPermissionSetIdAsync(20).ConfigureAwait(false);
+            var permissionSetId = (await _fixture.ContentPermissions.Create().ConfigureAwait(false)).Id;
 
             var contentPermissionSetIds = new List<string>
             {

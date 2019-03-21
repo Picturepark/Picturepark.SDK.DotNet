@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using FluentAssertions;
 using Picturepark.SDK.V1.Authentication;
 using Picturepark.SDK.V1.Contract;
+using Picturepark.SDK.V1.Tests.Helpers;
 
 namespace Picturepark.SDK.V1.Tests.Fixtures
 {
@@ -19,6 +20,7 @@ namespace Picturepark.SDK.V1.Tests.Fixtures
         private static readonly ConnectionIssuesHandler s_httpHandler;
 
         private readonly IPictureparkService _client;
+        private readonly Lazy<ContentPermissionSetsHelper> _contentPermissions;
         private readonly TestConfiguration _configuration;
         private readonly ConcurrentQueue<string> _createdUserIds = new ConcurrentQueue<string>();
 
@@ -56,6 +58,7 @@ namespace Picturepark.SDK.V1.Tests.Fixtures
             _configuration = JsonConvert.DeserializeObject<TestConfiguration>(configurationJson);
 
             _client = GetLocalizedPictureparkService("en");
+            _contentPermissions = new Lazy<ContentPermissionSetsHelper>(() => new ContentPermissionSetsHelper(_client));
         }
 
         public string ProjectDirectory { get; }
@@ -74,6 +77,8 @@ namespace Picturepark.SDK.V1.Tests.Fixtures
             new Lazy<CustomerInfo>(() => _client.Info.GetInfoAsync().GetAwaiter().GetResult());
 
         public string DefaultLanguage => CustomerInfo.Value.LanguageConfiguration.DefaultLanguage;
+
+        public ContentPermissionSetsHelper ContentPermissions => _contentPermissions.Value;
 
         public async Task<ContentSearchResult> GetRandomContentsAsync(string searchString, int limit, IReadOnlyList<ContentType> contentTypes = null)
         {
