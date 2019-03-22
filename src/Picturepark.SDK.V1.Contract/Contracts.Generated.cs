@@ -7325,6 +7325,9 @@ namespace Picturepark.SDK.V1.Contract
         [System.Runtime.Serialization.EnumMember(Value = "WildcardOnSingleTerm")]
         WildcardOnSingleTerm = 1,
     
+        [System.Runtime.Serialization.EnumMember(Value = "SimplifiedSearch")]
+        SimplifiedSearch = 2,
+    
     }
     
     /// <summary>Result from waiting for life cycle(s) on a business process</summary>

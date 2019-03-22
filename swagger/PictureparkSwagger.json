@@ -24340,11 +24340,13 @@
         "description": "Search behaviors",
         "x-enumNames": [
           "DropInvalidCharactersOnFailure",
-          "WildcardOnSingleTerm"
+          "WildcardOnSingleTerm",
+          "SimplifiedSearch"
         ],
         "enum": [
           "DropInvalidCharactersOnFailure",
-          "WildcardOnSingleTerm"
+          "WildcardOnSingleTerm",
+          "SimplifiedSearch"
         ]
       },
       "BusinessProcessWaitForLifeCycleResult": {
