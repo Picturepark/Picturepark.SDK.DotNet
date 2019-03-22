@@ -20620,7 +20620,7 @@
           "View",
           "AccessOriginal",
           "EditMetadata",
-          "ReplaceFile",
+          "EditContent",
           "ManagePermissions",
           "Delete"
         ],
@@ -20628,7 +20628,7 @@
           "View",
           "AccessOriginal",
           "EditMetadata",
-          "ReplaceFile",
+          "EditContent",
           "ManagePermissions",
           "Delete"
         ]
