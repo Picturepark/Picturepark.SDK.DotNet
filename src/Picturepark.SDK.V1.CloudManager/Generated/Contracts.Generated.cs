@@ -281,6 +281,14 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        System.Threading.Tasks.Task<EnvironmentProcess> UpdateBoostValuesAsync(string customerAlias, CustomerBoostValuesUpdateRequest request, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         System.Threading.Tasks.Task InvalidateAsync(string customerAlias, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
     }
@@ -828,6 +836,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [JsonInheritanceAttribute("CustomerHostNotFoundException", typeof(CustomerHostNotFoundException))]
     [JsonInheritanceAttribute("CustomerNotFoundException", typeof(CustomerNotFoundException))]
     [JsonInheritanceAttribute("CustomerNotActiveException", typeof(CustomerNotActiveException))]
+    [JsonInheritanceAttribute("CustomerBoostValuesInvalidException", typeof(CustomerBoostValuesInvalidException))]
     [JsonInheritanceAttribute("ConfigurationIndexNotFoundException", typeof(ConfigurationIndexNotFoundException))]
     [JsonInheritanceAttribute("DuplicateSearchIndexDocException", typeof(DuplicateSearchIndexDocException))]
     [JsonInheritanceAttribute("SearchIndexDocNotFoundException", typeof(SearchIndexDocNotFoundException))]
@@ -889,6 +898,8 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [JsonInheritanceAttribute("SchemaFieldOverwriteTypeMismatchException", typeof(SchemaFieldOverwriteTypeMismatchException))]
     [JsonInheritanceAttribute("SchemaFieldOverwriteIdException", typeof(SchemaFieldOverwriteIdException))]
     [JsonInheritanceAttribute("SchemaFieldIdDuplicatedException", typeof(SchemaFieldIdDuplicatedException))]
+    [JsonInheritanceAttribute("SchemaFieldIdPreviouslyUsedException", typeof(SchemaFieldIdPreviouslyUsedException))]
+    [JsonInheritanceAttribute("SchemaFieldIdAlreadyExistsInSchemaHierarchyException", typeof(SchemaFieldIdAlreadyExistsInSchemaHierarchyException))]
     [JsonInheritanceAttribute("SchemaFieldSchemaIndexInfoSimpleSearchNestingException", typeof(SchemaFieldSchemaIndexInfoSimpleSearchNestingException))]
     [JsonInheritanceAttribute("SchemaFieldSchemaIndexInfoNestingException", typeof(SchemaFieldSchemaIndexInfoNestingException))]
     [JsonInheritanceAttribute("SchemaFieldIdUppercaseException", typeof(SchemaFieldIdUppercaseException))]
@@ -952,6 +963,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [JsonInheritanceAttribute("EnvironmentProcessAlreadyRunningException", typeof(EnvironmentProcessAlreadyRunningException))]
     [JsonInheritanceAttribute("EnvironmentProcessNotFoundException", typeof(EnvironmentProcessNotFoundException))]
     [JsonInheritanceAttribute("EnvironmentProcessWaitTimeoutException", typeof(EnvironmentProcessWaitTimeoutException))]
+    [JsonInheritanceAttribute("CustomerBoostValuesUpdateTimeoutException", typeof(CustomerBoostValuesUpdateTimeoutException))]
     [JsonInheritanceAttribute("NoTermsOfServiceDefinedException", typeof(NoTermsOfServiceDefinedException))]
     [JsonInheritanceAttribute("AtLeastOneActiveTermsOfServiceMustExistException", typeof(AtLeastOneActiveTermsOfServiceMustExistException))]
     [JsonInheritanceAttribute("ForbiddenHtmlElementsUsedException", typeof(ForbiddenHtmlElementsUsedException))]
@@ -2108,6 +2120,22 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
     [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class CustomerBoostValuesInvalidException : PictureparkValidationException
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static CustomerBoostValuesInvalidException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<CustomerBoostValuesInvalidException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
     public partial class ConfigurationIndexNotFoundException : PictureparkException
     {
         [Newtonsoft.Json.JsonProperty("configurationIndex", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -2854,8 +2882,8 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [System.Runtime.Serialization.EnumMember(Value = "EditMetadata")]
         EditMetadata = 2,
     
-        [System.Runtime.Serialization.EnumMember(Value = "ReplaceFile")]
-        ReplaceFile = 3,
+        [System.Runtime.Serialization.EnumMember(Value = "EditContent")]
+        EditContent = 3,
     
         [System.Runtime.Serialization.EnumMember(Value = "ManagePermissions")]
         ManagePermissions = 4,
@@ -3661,6 +3689,56 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         public static SchemaFieldIdDuplicatedException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaFieldIdDuplicatedException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class SchemaFieldIdPreviouslyUsedException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("schemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string SchemaId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("fieldId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string FieldId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("usedInSchemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string UsedInSchemaId { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static SchemaFieldIdPreviouslyUsedException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaFieldIdPreviouslyUsedException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class SchemaFieldIdAlreadyExistsInSchemaHierarchyException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("schemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string SchemaId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("fieldId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string FieldId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("existingInSchemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ExistingInSchemaId { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static SchemaFieldIdAlreadyExistsInSchemaHierarchyException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaFieldIdAlreadyExistsInSchemaHierarchyException>(data);
         }
     
     }
@@ -5139,6 +5217,9 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [System.Runtime.Serialization.EnumMember(Value = "EnvironmentUpdate")]
         EnvironmentUpdate = 2,
     
+        [System.Runtime.Serialization.EnumMember(Value = "CustomerBoostValuesUpdate")]
+        CustomerBoostValuesUpdate = 3,
+    
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
@@ -5178,6 +5259,25 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         public static EnvironmentProcessWaitTimeoutException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<EnvironmentProcessWaitTimeoutException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class CustomerBoostValuesUpdateTimeoutException : PictureparkTimeoutException
+    {
+        [Newtonsoft.Json.JsonProperty("environmentProcessId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string EnvironmentProcessId { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static CustomerBoostValuesUpdateTimeoutException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<CustomerBoostValuesUpdateTimeoutException>(data);
         }
     
     }
@@ -8875,6 +8975,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [JsonInheritanceAttribute("EnvironmentProcessAddMetadataLanguageData", typeof(EnvironmentProcessAddMetadataLanguageData))]
     [JsonInheritanceAttribute("EnvironmentProcessCustomerUpdateData", typeof(EnvironmentProcessCustomerUpdateData))]
     [JsonInheritanceAttribute("EnvironmentProcessEnvironmentUpdateData", typeof(EnvironmentProcessEnvironmentUpdateData))]
+    [JsonInheritanceAttribute("EnvironmentProcessCustomerBoostValuesUpdateData", typeof(EnvironmentProcessCustomerBoostValuesUpdateData))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
     public abstract partial class EnvironmentProcessDataViewItemBase 
     {
@@ -9078,6 +9179,93 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class EnvironmentProcessCustomerBoostValuesUpdateData : EnvironmentProcessDataViewItemBase
+    {
+        [Newtonsoft.Json.JsonProperty("state", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public CustomerBoostValuesUpdateState State { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("addedBoostValues", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<double> AddedBoostValues { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("removedBoostValues", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<CustomerBoostValueRemoveInfo> RemovedBoostValues { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("stateHistory", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<EnvironmentProcessState> StateHistory { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static EnvironmentProcessCustomerBoostValuesUpdateData FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<EnvironmentProcessCustomerBoostValuesUpdateData>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
+    public enum CustomerBoostValuesUpdateState
+    {
+        [System.Runtime.Serialization.EnumMember(Value = "Draft")]
+        Draft = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "InProgress")]
+        InProgress = 1,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "BoostValuesAdded")]
+        BoostValuesAdded = 2,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "SearchIndexesMappingUpdated")]
+        SearchIndexesMappingUpdated = 3,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "ExistingBoostValuesUpdated")]
+        ExistingBoostValuesUpdated = 4,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "BoostValuesRemoved")]
+        BoostValuesRemoved = 5,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "SearchIndexesReindexed")]
+        SearchIndexesReindexed = 6,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "Succeeded")]
+        Succeeded = 7,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "Cancelled")]
+        Cancelled = 8,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "Failed")]
+        Failed = 9,
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class CustomerBoostValueRemoveInfo 
+    {
+        /// <summary>Existing boost value that is going to be removed.</summary>
+        [Newtonsoft.Json.JsonProperty("valueToRemove", Required = Newtonsoft.Json.Required.Always)]
+        public double ValueToRemove { get; set; }
+    
+        /// <summary>Boost value that is going to replace the removed one where it was used.</summary>
+        [Newtonsoft.Json.JsonProperty("valueToReplaceWith", Required = Newtonsoft.Json.Required.Always)]
+        public double ValueToReplaceWith { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static CustomerBoostValueRemoveInfo FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<CustomerBoostValueRemoveInfo>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class CustomerMetadataLanguageCreateRequest 
     {
         [Newtonsoft.Json.JsonProperty("language", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -9091,6 +9279,29 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         public static CustomerMetadataLanguageCreateRequest FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<CustomerMetadataLanguageCreateRequest>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class CustomerBoostValuesUpdateRequest 
+    {
+        /// <summary>List of boost values that need to be added to the existing ones.</summary>
+        [Newtonsoft.Json.JsonProperty("boostValuesToAdd", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<double> BoostValuesToAdd { get; set; }
+    
+        /// <summary>List of existing boost values that need to be removed.</summary>
+        [Newtonsoft.Json.JsonProperty("boostValuesToRemove", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<CustomerBoostValueRemoveInfo> BoostValuesToRemove { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static CustomerBoostValuesUpdateRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<CustomerBoostValuesUpdateRequest>(data);
         }
     
     }

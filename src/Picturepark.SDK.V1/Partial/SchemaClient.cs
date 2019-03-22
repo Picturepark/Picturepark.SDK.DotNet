@@ -48,7 +48,7 @@ namespace Picturepark.SDK.V1
         /// <returns>The task.</returns>
         public async Task<ISchemaResult> CreateOrUpdateAsync(SchemaDetail schemaDetail, bool enableForBinaryFiles, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
         {
-            if (await ExistsAsync(schemaDetail.Id, null, cancellationToken).ConfigureAwait(false))
+            if (await ExistsAsync(schemaDetail.Id, cancellationToken).ConfigureAwait(false))
             {
                 return await UpdateAsync(schemaDetail, enableForBinaryFiles, timeout, cancellationToken).ConfigureAwait(false);
             }
@@ -181,13 +181,12 @@ namespace Picturepark.SDK.V1
 
         /// <summary>Checks whether a schema ID already exists.</summary>
         /// <param name="schemaId">The schema ID.</param>
-        /// <param name="fieldId">The optional field ID.</param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The task.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        public async Task<bool> ExistsAsync(string schemaId, string fieldId = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<bool> ExistsAsync(string schemaId, CancellationToken cancellationToken = default(CancellationToken))
         {
-            return (await ExistsCoreAsync(schemaId, null, cancellationToken).ConfigureAwait(false)).Exists;
+            return (await ExistsCoreAsync(schemaId, cancellationToken).ConfigureAwait(false)).Exists;
         }
 
         /// <inheritdoc />

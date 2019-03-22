@@ -11905,8 +11905,118 @@
           "Schema"
         ],
         "summary": "Exists schema",
-        "description": "Checks if the schema and optionally the schema's field already exists within this schema.",
+        "description": "Checks if the schema already exists.",
         "operationId": "Schema_Exists",
+        "parameters": [
+          {
+            "name": "schemaId",
+            "in": "path",
+            "required": true,
+            "description": "The schema ID.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Schema Exists response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SchemaExistsResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkNotFoundException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkConflictException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkValidationException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "schema_read"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/schemas/{schemaId}/{fieldId}/exists": {
+      "get": {
+        "tags": [
+          "Schema"
+        ],
+        "summary": "Exists field in schema",
+        "description": "Checks if the field in the specified schema already exists.\nAlso returns a flag indicating if the field was previously deleted and the ID can therefore not be reused.",
+        "operationId": "Schema_FieldExists",
         "parameters": [
           {
             "name": "schemaId",
@@ -11920,22 +12030,22 @@
           },
           {
             "name": "fieldId",
-            "in": "query",
-            "description": "The optional field ID.",
+            "in": "path",
+            "required": true,
+            "description": "The field ID.",
             "schema": {
-              "type": "string",
-              "nullable": true
+              "type": "string"
             },
             "x-position": 2
           }
         ],
         "responses": {
           "200": {
-            "description": "Exists response",
+            "description": "Field Exists response",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ExistsResponse"
+                  "$ref": "#/components/schemas/FieldExistsResponse"
                 }
               }
             }
@@ -19175,6 +19285,7 @@
                 "CustomerHostNotFoundException": "#/components/schemas/CustomerHostNotFoundException",
                 "CustomerNotFoundException": "#/components/schemas/CustomerNotFoundException",
                 "CustomerNotActiveException": "#/components/schemas/CustomerNotActiveException",
+                "CustomerBoostValuesInvalidException": "#/components/schemas/CustomerBoostValuesInvalidException",
                 "ConfigurationIndexNotFoundException": "#/components/schemas/ConfigurationIndexNotFoundException",
                 "DuplicateSearchIndexDocException": "#/components/schemas/DuplicateSearchIndexDocException",
                 "SearchIndexDocNotFoundException": "#/components/schemas/SearchIndexDocNotFoundException",
@@ -19236,6 +19347,8 @@
                 "SchemaFieldOverwriteTypeMismatchException": "#/components/schemas/SchemaFieldOverwriteTypeMismatchException",
                 "SchemaFieldOverwriteIdException": "#/components/schemas/SchemaFieldOverwriteIdException",
                 "SchemaFieldIdDuplicatedException": "#/components/schemas/SchemaFieldIdDuplicatedException",
+                "SchemaFieldIdPreviouslyUsedException": "#/components/schemas/SchemaFieldIdPreviouslyUsedException",
+                "SchemaFieldIdAlreadyExistsInSchemaHierarchyException": "#/components/schemas/SchemaFieldIdAlreadyExistsInSchemaHierarchyException",
                 "SchemaFieldSchemaIndexInfoSimpleSearchNestingException": "#/components/schemas/SchemaFieldSchemaIndexInfoSimpleSearchNestingException",
                 "SchemaFieldSchemaIndexInfoNestingException": "#/components/schemas/SchemaFieldSchemaIndexInfoNestingException",
                 "SchemaFieldIdUppercaseException": "#/components/schemas/SchemaFieldIdUppercaseException",
@@ -19299,6 +19412,7 @@
                 "EnvironmentProcessAlreadyRunningException": "#/components/schemas/EnvironmentProcessAlreadyRunningException",
                 "EnvironmentProcessNotFoundException": "#/components/schemas/EnvironmentProcessNotFoundException",
                 "EnvironmentProcessWaitTimeoutException": "#/components/schemas/EnvironmentProcessWaitTimeoutException",
+                "CustomerBoostValuesUpdateTimeoutException": "#/components/schemas/CustomerBoostValuesUpdateTimeoutException",
                 "NoTermsOfServiceDefinedException": "#/components/schemas/NoTermsOfServiceDefinedException",
                 "AtLeastOneActiveTermsOfServiceMustExistException": "#/components/schemas/AtLeastOneActiveTermsOfServiceMustExistException",
                 "ForbiddenHtmlElementsUsedException": "#/components/schemas/ForbiddenHtmlElementsUsedException",
@@ -20346,6 +20460,17 @@
           }
         ]
       },
+      "CustomerBoostValuesInvalidException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
       "ConfigurationIndexNotFoundException": {
         "allOf": [
           {
@@ -21047,7 +21172,7 @@
           "View",
           "AccessOriginal",
           "EditMetadata",
-          "ReplaceFile",
+          "EditContent",
           "ManagePermissions",
           "Delete"
         ],
@@ -21055,7 +21180,7 @@
           "View",
           "AccessOriginal",
           "EditMetadata",
-          "ReplaceFile",
+          "EditContent",
           "ManagePermissions",
           "Delete"
         ]
@@ -21835,6 +21960,56 @@
                 "nullable": true
               },
               "fieldId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "SchemaFieldIdPreviouslyUsedException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "schemaId": {
+                "type": "string",
+                "nullable": true
+              },
+              "fieldId": {
+                "type": "string",
+                "nullable": true
+              },
+              "usedInSchemaId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "SchemaFieldIdAlreadyExistsInSchemaHierarchyException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "schemaId": {
+                "type": "string",
+                "nullable": true
+              },
+              "fieldId": {
+                "type": "string",
+                "nullable": true
+              },
+              "existingInSchemaId": {
                 "type": "string",
                 "nullable": true
               }
@@ -23277,12 +23452,14 @@
         "x-enumNames": [
           "AddMetadataLanguage",
           "CustomerUpdate",
-          "EnvironmentUpdate"
+          "EnvironmentUpdate",
+          "CustomerBoostValuesUpdate"
         ],
         "enum": [
           "AddMetadataLanguage",
           "CustomerUpdate",
-          "EnvironmentUpdate"
+          "EnvironmentUpdate",
+          "CustomerBoostValuesUpdate"
         ]
       },
       "EnvironmentProcessNotFoundException": {
@@ -23316,6 +23493,23 @@
                 "nullable": true
               },
               "waitedLifecycles": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "CustomerBoostValuesUpdateTimeoutException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkTimeoutException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "environmentProcessId": {
                 "type": "string",
                 "nullable": true
               }
@@ -33167,7 +33361,7 @@
           "SchemaAndParentFieldsOnly"
         ]
       },
-      "ExistsResponse": {
+      "SchemaExistsResponse": {
         "type": "object",
         "description": "Exists response",
         "additionalProperties": false,
@@ -33178,6 +33372,30 @@
           "exists": {
             "type": "boolean",
             "description": "It indicates if it exists."
+          }
+        }
+      },
+      "FieldExistsResponse": {
+        "type": "object",
+        "description": "Response for a query if a field exists",
+        "additionalProperties": false,
+        "required": [
+          "exists",
+          "previouslyUsed"
+        ],
+        "properties": {
+          "exists": {
+            "type": "boolean",
+            "description": "Indicates if a field with the specified ID currently exists."
+          },
+          "previouslyUsed": {
+            "type": "boolean",
+            "description": "Indicates if a field with the specified ID was previously used.\nA field ID that was previously in use cannot be used again."
+          },
+          "schemaId": {
+            "type": "string",
+            "description": "If the field does already exist or has already existed, this will contain the ID\nof the schema containing it. It case of parent-child schemas, a field ID\nhas to be unique across the schema hierarchy.",
+            "nullable": true
           }
         }
       },

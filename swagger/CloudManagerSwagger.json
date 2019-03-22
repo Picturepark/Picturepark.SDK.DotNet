@@ -3429,6 +3429,138 @@
         ]
       }
     },
+    "/customer/{customerAlias}/boostValues": {
+      "put": {
+        "tags": [
+          "Customer"
+        ],
+        "operationId": "Customer_UpdateBoostValues",
+        "parameters": [
+          {
+            "name": "customerAlias",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1
+          },
+          {
+            "name": "timeout",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "time-span",
+              "nullable": true
+            },
+            "x-position": 3
+          }
+        ],
+        "requestBody": {
+          "x-name": "request",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CustomerBoostValuesUpdateRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 2
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/EnvironmentProcess"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkNotFoundException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkConflictException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkValidationException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
     "/customer/{customerAlias}/invalidate": {
       "post": {
         "tags": [
@@ -7317,6 +7449,7 @@
                 "CustomerHostNotFoundException": "#/components/schemas/CustomerHostNotFoundException",
                 "CustomerNotFoundException": "#/components/schemas/CustomerNotFoundException",
                 "CustomerNotActiveException": "#/components/schemas/CustomerNotActiveException",
+                "CustomerBoostValuesInvalidException": "#/components/schemas/CustomerBoostValuesInvalidException",
                 "ConfigurationIndexNotFoundException": "#/components/schemas/ConfigurationIndexNotFoundException",
                 "DuplicateSearchIndexDocException": "#/components/schemas/DuplicateSearchIndexDocException",
                 "SearchIndexDocNotFoundException": "#/components/schemas/SearchIndexDocNotFoundException",
@@ -7378,6 +7511,8 @@
                 "SchemaFieldOverwriteTypeMismatchException": "#/components/schemas/SchemaFieldOverwriteTypeMismatchException",
                 "SchemaFieldOverwriteIdException": "#/components/schemas/SchemaFieldOverwriteIdException",
                 "SchemaFieldIdDuplicatedException": "#/components/schemas/SchemaFieldIdDuplicatedException",
+                "SchemaFieldIdPreviouslyUsedException": "#/components/schemas/SchemaFieldIdPreviouslyUsedException",
+                "SchemaFieldIdAlreadyExistsInSchemaHierarchyException": "#/components/schemas/SchemaFieldIdAlreadyExistsInSchemaHierarchyException",
                 "SchemaFieldSchemaIndexInfoSimpleSearchNestingException": "#/components/schemas/SchemaFieldSchemaIndexInfoSimpleSearchNestingException",
                 "SchemaFieldSchemaIndexInfoNestingException": "#/components/schemas/SchemaFieldSchemaIndexInfoNestingException",
                 "SchemaFieldIdUppercaseException": "#/components/schemas/SchemaFieldIdUppercaseException",
@@ -7441,6 +7576,7 @@
                 "EnvironmentProcessAlreadyRunningException": "#/components/schemas/EnvironmentProcessAlreadyRunningException",
                 "EnvironmentProcessNotFoundException": "#/components/schemas/EnvironmentProcessNotFoundException",
                 "EnvironmentProcessWaitTimeoutException": "#/components/schemas/EnvironmentProcessWaitTimeoutException",
+                "CustomerBoostValuesUpdateTimeoutException": "#/components/schemas/CustomerBoostValuesUpdateTimeoutException",
                 "NoTermsOfServiceDefinedException": "#/components/schemas/NoTermsOfServiceDefinedException",
                 "AtLeastOneActiveTermsOfServiceMustExistException": "#/components/schemas/AtLeastOneActiveTermsOfServiceMustExistException",
                 "ForbiddenHtmlElementsUsedException": "#/components/schemas/ForbiddenHtmlElementsUsedException",
@@ -8488,6 +8624,17 @@
           }
         ]
       },
+      "CustomerBoostValuesInvalidException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
       "ConfigurationIndexNotFoundException": {
         "allOf": [
           {
@@ -9189,7 +9336,7 @@
           "View",
           "AccessOriginal",
           "EditMetadata",
-          "ReplaceFile",
+          "EditContent",
           "ManagePermissions",
           "Delete"
         ],
@@ -9197,7 +9344,7 @@
           "View",
           "AccessOriginal",
           "EditMetadata",
-          "ReplaceFile",
+          "EditContent",
           "ManagePermissions",
           "Delete"
         ]
@@ -9977,6 +10124,56 @@
                 "nullable": true
               },
               "fieldId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "SchemaFieldIdPreviouslyUsedException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "schemaId": {
+                "type": "string",
+                "nullable": true
+              },
+              "fieldId": {
+                "type": "string",
+                "nullable": true
+              },
+              "usedInSchemaId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "SchemaFieldIdAlreadyExistsInSchemaHierarchyException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "schemaId": {
+                "type": "string",
+                "nullable": true
+              },
+              "fieldId": {
+                "type": "string",
+                "nullable": true
+              },
+              "existingInSchemaId": {
                 "type": "string",
                 "nullable": true
               }
@@ -11419,12 +11616,14 @@
         "x-enumNames": [
           "AddMetadataLanguage",
           "CustomerUpdate",
-          "EnvironmentUpdate"
+          "EnvironmentUpdate",
+          "CustomerBoostValuesUpdate"
         ],
         "enum": [
           "AddMetadataLanguage",
           "CustomerUpdate",
-          "EnvironmentUpdate"
+          "EnvironmentUpdate",
+          "CustomerBoostValuesUpdate"
         ]
       },
       "EnvironmentProcessNotFoundException": {
@@ -11458,6 +11657,23 @@
                 "nullable": true
               },
               "waitedLifecycles": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "CustomerBoostValuesUpdateTimeoutException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkTimeoutException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "environmentProcessId": {
                 "type": "string",
                 "nullable": true
               }
@@ -15355,7 +15571,8 @@
           "mapping": {
             "EnvironmentProcessAddMetadataLanguageData": "#/components/schemas/EnvironmentProcessAddMetadataLanguageData",
             "EnvironmentProcessCustomerUpdateData": "#/components/schemas/EnvironmentProcessCustomerUpdateData",
-            "EnvironmentProcessEnvironmentUpdateData": "#/components/schemas/EnvironmentProcessEnvironmentUpdateData"
+            "EnvironmentProcessEnvironmentUpdateData": "#/components/schemas/EnvironmentProcessEnvironmentUpdateData",
+            "EnvironmentProcessCustomerBoostValuesUpdateData": "#/components/schemas/EnvironmentProcessCustomerBoostValuesUpdateData"
           }
         },
         "x-abstract": true,
@@ -15550,6 +15767,95 @@
           "Failed"
         ]
       },
+      "EnvironmentProcessCustomerBoostValuesUpdateData": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/EnvironmentProcessDataViewItemBase"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "state"
+            ],
+            "properties": {
+              "state": {
+                "$ref": "#/components/schemas/CustomerBoostValuesUpdateState"
+              },
+              "addedBoostValues": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "type": "number",
+                  "format": "double"
+                }
+              },
+              "removedBoostValues": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/CustomerBoostValueRemoveInfo"
+                }
+              },
+              "stateHistory": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/EnvironmentProcessState"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "CustomerBoostValuesUpdateState": {
+        "type": "string",
+        "description": "",
+        "x-enumNames": [
+          "Draft",
+          "InProgress",
+          "BoostValuesAdded",
+          "SearchIndexesMappingUpdated",
+          "ExistingBoostValuesUpdated",
+          "BoostValuesRemoved",
+          "SearchIndexesReindexed",
+          "Succeeded",
+          "Cancelled",
+          "Failed"
+        ],
+        "enum": [
+          "Draft",
+          "InProgress",
+          "BoostValuesAdded",
+          "SearchIndexesMappingUpdated",
+          "ExistingBoostValuesUpdated",
+          "BoostValuesRemoved",
+          "SearchIndexesReindexed",
+          "Succeeded",
+          "Cancelled",
+          "Failed"
+        ]
+      },
+      "CustomerBoostValueRemoveInfo": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "valueToRemove",
+          "valueToReplaceWith"
+        ],
+        "properties": {
+          "valueToRemove": {
+            "type": "number",
+            "description": "Existing boost value that is going to be removed.",
+            "format": "double"
+          },
+          "valueToReplaceWith": {
+            "type": "number",
+            "description": "Boost value that is going to replace the removed one where it was used.",
+            "format": "double"
+          }
+        }
+      },
       "CustomerMetadataLanguageCreateRequest": {
         "type": "object",
         "additionalProperties": false,
@@ -15557,6 +15863,29 @@
           "language": {
             "type": "string",
             "nullable": true
+          }
+        }
+      },
+      "CustomerBoostValuesUpdateRequest": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "boostValuesToAdd": {
+            "type": "array",
+            "description": "List of boost values that need to be added to the existing ones.",
+            "nullable": true,
+            "items": {
+              "type": "number",
+              "format": "double"
+            }
+          },
+          "boostValuesToRemove": {
+            "type": "array",
+            "description": "List of existing boost values that need to be removed.",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/CustomerBoostValueRemoveInfo"
+            }
           }
         }
       },

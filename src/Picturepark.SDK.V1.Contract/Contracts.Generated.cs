@@ -1045,6 +1045,18 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         System.Threading.Tasks.Task<System.Collections.Generic.ICollection<IndexField>> GetIndexFieldsAsync(IndexFieldsSearchBySchemaIdsRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
+        /// <summary>Exists field in schema</summary>
+        /// <param name="schemaId">The schema ID.</param>
+        /// <param name="fieldId">The field ID.</param>
+        /// <returns>Field Exists response</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        System.Threading.Tasks.Task<FieldExistsResponse> FieldExistsAsync(string schemaId, string fieldId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "12.0.9.0 (NJsonSchema v9.13.10.0 (Newtonsoft.Json v11.0.0.0))")]
@@ -2066,6 +2078,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("CustomerHostNotFoundException", typeof(CustomerHostNotFoundException))]
     [JsonInheritanceAttribute("CustomerNotFoundException", typeof(CustomerNotFoundException))]
     [JsonInheritanceAttribute("CustomerNotActiveException", typeof(CustomerNotActiveException))]
+    [JsonInheritanceAttribute("CustomerBoostValuesInvalidException", typeof(CustomerBoostValuesInvalidException))]
     [JsonInheritanceAttribute("ConfigurationIndexNotFoundException", typeof(ConfigurationIndexNotFoundException))]
     [JsonInheritanceAttribute("DuplicateSearchIndexDocException", typeof(DuplicateSearchIndexDocException))]
     [JsonInheritanceAttribute("SearchIndexDocNotFoundException", typeof(SearchIndexDocNotFoundException))]
@@ -2127,6 +2140,8 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("SchemaFieldOverwriteTypeMismatchException", typeof(SchemaFieldOverwriteTypeMismatchException))]
     [JsonInheritanceAttribute("SchemaFieldOverwriteIdException", typeof(SchemaFieldOverwriteIdException))]
     [JsonInheritanceAttribute("SchemaFieldIdDuplicatedException", typeof(SchemaFieldIdDuplicatedException))]
+    [JsonInheritanceAttribute("SchemaFieldIdPreviouslyUsedException", typeof(SchemaFieldIdPreviouslyUsedException))]
+    [JsonInheritanceAttribute("SchemaFieldIdAlreadyExistsInSchemaHierarchyException", typeof(SchemaFieldIdAlreadyExistsInSchemaHierarchyException))]
     [JsonInheritanceAttribute("SchemaFieldSchemaIndexInfoSimpleSearchNestingException", typeof(SchemaFieldSchemaIndexInfoSimpleSearchNestingException))]
     [JsonInheritanceAttribute("SchemaFieldSchemaIndexInfoNestingException", typeof(SchemaFieldSchemaIndexInfoNestingException))]
     [JsonInheritanceAttribute("SchemaFieldIdUppercaseException", typeof(SchemaFieldIdUppercaseException))]
@@ -2190,6 +2205,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("EnvironmentProcessAlreadyRunningException", typeof(EnvironmentProcessAlreadyRunningException))]
     [JsonInheritanceAttribute("EnvironmentProcessNotFoundException", typeof(EnvironmentProcessNotFoundException))]
     [JsonInheritanceAttribute("EnvironmentProcessWaitTimeoutException", typeof(EnvironmentProcessWaitTimeoutException))]
+    [JsonInheritanceAttribute("CustomerBoostValuesUpdateTimeoutException", typeof(CustomerBoostValuesUpdateTimeoutException))]
     [JsonInheritanceAttribute("NoTermsOfServiceDefinedException", typeof(NoTermsOfServiceDefinedException))]
     [JsonInheritanceAttribute("AtLeastOneActiveTermsOfServiceMustExistException", typeof(AtLeastOneActiveTermsOfServiceMustExistException))]
     [JsonInheritanceAttribute("ForbiddenHtmlElementsUsedException", typeof(ForbiddenHtmlElementsUsedException))]
@@ -3346,6 +3362,22 @@ namespace Picturepark.SDK.V1.Contract
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
     [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class CustomerBoostValuesInvalidException : PictureparkValidationException
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static CustomerBoostValuesInvalidException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<CustomerBoostValuesInvalidException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
     public partial class ConfigurationIndexNotFoundException : PictureparkException
     {
         [Newtonsoft.Json.JsonProperty("configurationIndex", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -4092,8 +4124,8 @@ namespace Picturepark.SDK.V1.Contract
         [System.Runtime.Serialization.EnumMember(Value = "EditMetadata")]
         EditMetadata = 2,
     
-        [System.Runtime.Serialization.EnumMember(Value = "ReplaceFile")]
-        ReplaceFile = 3,
+        [System.Runtime.Serialization.EnumMember(Value = "EditContent")]
+        EditContent = 3,
     
         [System.Runtime.Serialization.EnumMember(Value = "ManagePermissions")]
         ManagePermissions = 4,
@@ -4899,6 +4931,56 @@ namespace Picturepark.SDK.V1.Contract
         public static SchemaFieldIdDuplicatedException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaFieldIdDuplicatedException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class SchemaFieldIdPreviouslyUsedException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("schemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string SchemaId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("fieldId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string FieldId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("usedInSchemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string UsedInSchemaId { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static SchemaFieldIdPreviouslyUsedException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaFieldIdPreviouslyUsedException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class SchemaFieldIdAlreadyExistsInSchemaHierarchyException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("schemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string SchemaId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("fieldId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string FieldId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("existingInSchemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ExistingInSchemaId { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static SchemaFieldIdAlreadyExistsInSchemaHierarchyException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaFieldIdAlreadyExistsInSchemaHierarchyException>(data);
         }
     
     }
@@ -6377,6 +6459,9 @@ namespace Picturepark.SDK.V1.Contract
         [System.Runtime.Serialization.EnumMember(Value = "EnvironmentUpdate")]
         EnvironmentUpdate = 2,
     
+        [System.Runtime.Serialization.EnumMember(Value = "CustomerBoostValuesUpdate")]
+        CustomerBoostValuesUpdate = 3,
+    
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
@@ -6416,6 +6501,25 @@ namespace Picturepark.SDK.V1.Contract
         public static EnvironmentProcessWaitTimeoutException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<EnvironmentProcessWaitTimeoutException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class CustomerBoostValuesUpdateTimeoutException : PictureparkTimeoutException
+    {
+        [Newtonsoft.Json.JsonProperty("environmentProcessId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string EnvironmentProcessId { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static CustomerBoostValuesUpdateTimeoutException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<CustomerBoostValuesUpdateTimeoutException>(data);
         }
     
     }
@@ -15451,7 +15555,7 @@ namespace Picturepark.SDK.V1.Contract
     
     /// <summary>Exists response</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
-    public partial class ExistsResponse 
+    public partial class SchemaExistsResponse 
     {
         /// <summary>It indicates if it exists.</summary>
         [Newtonsoft.Json.JsonProperty("exists", Required = Newtonsoft.Json.Required.Always)]
@@ -15462,9 +15566,40 @@ namespace Picturepark.SDK.V1.Contract
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
         }
     
-        public static ExistsResponse FromJson(string data)
+        public static SchemaExistsResponse FromJson(string data)
         {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<ExistsResponse>(data);
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaExistsResponse>(data);
+        }
+    
+    }
+    
+    /// <summary>Response for a query if a field exists</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class FieldExistsResponse 
+    {
+        /// <summary>Indicates if a field with the specified ID currently exists.</summary>
+        [Newtonsoft.Json.JsonProperty("exists", Required = Newtonsoft.Json.Required.Always)]
+        public bool Exists { get; set; }
+    
+        /// <summary>Indicates if a field with the specified ID was previously used.
+        /// A field ID that was previously in use cannot be used again.</summary>
+        [Newtonsoft.Json.JsonProperty("previouslyUsed", Required = Newtonsoft.Json.Required.Always)]
+        public bool PreviouslyUsed { get; set; }
+    
+        /// <summary>If the field does already exist or has already existed, this will contain the ID
+        /// of the schema containing it. It case of parent-child schemas, a field ID
+        /// has to be unique across the schema hierarchy.</summary>
+        [Newtonsoft.Json.JsonProperty("schemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string SchemaId { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static FieldExistsResponse FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<FieldExistsResponse>(data);
         }
     
     }
