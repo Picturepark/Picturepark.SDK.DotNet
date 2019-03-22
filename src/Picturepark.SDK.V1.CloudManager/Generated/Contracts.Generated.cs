@@ -799,6 +799,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [JsonInheritanceAttribute("ServiceProviderNotFoundException", typeof(ServiceProviderNotFoundException))]
     [JsonInheritanceAttribute("DocumentVersionNotFoundException", typeof(DocumentVersionNotFoundException))]
     [JsonInheritanceAttribute("DefaultChannelDeleteException", typeof(DefaultChannelDeleteException))]
+    [JsonInheritanceAttribute("ChannelsNotFoundException", typeof(ChannelsNotFoundException))]
     [JsonInheritanceAttribute("ElasticVersionUpdateException", typeof(ElasticVersionUpdateException))]
     [JsonInheritanceAttribute("InvalidVersionException", typeof(InvalidVersionException))]
     [JsonInheritanceAttribute("EnvironmentNotDeactivatedException", typeof(EnvironmentNotDeactivatedException))]
@@ -1393,6 +1394,22 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         public static DefaultChannelDeleteException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<DefaultChannelDeleteException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class ChannelsNotFoundException : PictureparkNotFoundException
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static ChannelsNotFoundException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ChannelsNotFoundException>(data);
         }
     
     }

@@ -7412,6 +7412,7 @@
                 "ServiceProviderNotFoundException": "#/components/schemas/ServiceProviderNotFoundException",
                 "DocumentVersionNotFoundException": "#/components/schemas/DocumentVersionNotFoundException",
                 "DefaultChannelDeleteException": "#/components/schemas/DefaultChannelDeleteException",
+                "ChannelsNotFoundException": "#/components/schemas/ChannelsNotFoundException",
                 "ElasticVersionUpdateException": "#/components/schemas/ElasticVersionUpdateException",
                 "InvalidVersionException": "#/components/schemas/InvalidVersionException",
                 "EnvironmentNotDeactivatedException": "#/components/schemas/EnvironmentNotDeactivatedException",
@@ -7970,6 +7971,17 @@
         "allOf": [
           {
             "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "ChannelsNotFoundException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkNotFoundException"
           },
           {
             "type": "object",
@@ -16396,6 +16408,8 @@
               "picturepark_account": "Have no idea.",
               "businessprocess_read": "Read business processes",
               "businessprocess_write": "Write business processes",
+              "channel_read": "Read channels",
+              "channel_write": "Write channels",
               "content_read": "Read content",
               "content_write": "Write content",
               "documenthistory_read": "Read document history",

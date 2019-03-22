@@ -645,9 +645,9 @@
         "tags": [
           "Channel"
         ],
-        "summary": "Get channels",
+        "summary": "Get all channels",
         "description": "Get all channels available for the current user.",
-        "operationId": "Channel_GetChannels",
+        "operationId": "Channel_GetAll",
         "responses": {
           "200": {
             "description": "List of channel",
@@ -735,7 +735,448 @@
         "security": [
           {
             "Bearer": [
-              "content_read"
+              "channel_read"
+            ]
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "Channel"
+        ],
+        "summary": "Create channel",
+        "description": "Creates new channel based on supplied request.",
+        "operationId": "Channel_Create",
+        "requestBody": {
+          "x-name": "request",
+          "description": "The request containing information needed to create new channel.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ChannelCreateRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "Channel",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Channel"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkNotFoundException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkConflictException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkValidationException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "channel_write"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/channels/{id}": {
+      "get": {
+        "tags": [
+          "Channel"
+        ],
+        "summary": "Get channel",
+        "description": "Gets the channel information by the output format ID.",
+        "operationId": "Channel_Get",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "The channel ID.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Channel",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Channel"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkNotFoundException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkConflictException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkValidationException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "channel_read"
+            ]
+          }
+        ]
+      },
+      "put": {
+        "tags": [
+          "Channel"
+        ],
+        "summary": "Update channel",
+        "description": "Updates the channel specified by the ID and based on supplied request.",
+        "operationId": "Channel_Update",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "ID of channel to update",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1
+          }
+        ],
+        "requestBody": {
+          "x-name": "request",
+          "description": "The request containing information needed to update the channel.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ChannelUpdateRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 2
+        },
+        "responses": {
+          "200": {
+            "description": "Updated channel",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Channel"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkNotFoundException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkConflictException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkValidationException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "channel_write"
+            ]
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "Channel"
+        ],
+        "summary": "Delete channel",
+        "description": "Deletes the channel specified by the ID.",
+        "operationId": "Channel_Delete",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "ID of the channel that should be deleted.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkNotFoundException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkConflictException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkValidationException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "channel_write"
             ]
           }
         ]
@@ -18807,6 +19248,7 @@
                 "ServiceProviderNotFoundException": "#/components/schemas/ServiceProviderNotFoundException",
                 "DocumentVersionNotFoundException": "#/components/schemas/DocumentVersionNotFoundException",
                 "DefaultChannelDeleteException": "#/components/schemas/DefaultChannelDeleteException",
+                "ChannelsNotFoundException": "#/components/schemas/ChannelsNotFoundException",
                 "ElasticVersionUpdateException": "#/components/schemas/ElasticVersionUpdateException",
                 "InvalidVersionException": "#/components/schemas/InvalidVersionException",
                 "EnvironmentNotDeactivatedException": "#/components/schemas/EnvironmentNotDeactivatedException",
@@ -19365,6 +19807,17 @@
         "allOf": [
           {
             "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "ChannelsNotFoundException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkNotFoundException"
           },
           {
             "type": "object",
@@ -24900,6 +25353,181 @@
             "type": "string",
             "description": "ID of the last user who modified the document.",
             "nullable": true
+          }
+        }
+      },
+      "ChannelCreateRequest": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "sortOrder"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "sort": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/SortInfo"
+            }
+          },
+          "sortOrder": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "names": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/TranslatedStringDictionary"
+              }
+            ]
+          },
+          "searchIndexId": {
+            "type": "string",
+            "description": "Language specific names.",
+            "nullable": true
+          },
+          "schemaIds": {
+            "type": "array",
+            "description": "An id list of schemas with schema type content whose content documents should be found by the simple search.\nThe search by filters and aggregations are unaffected.",
+            "nullable": true,
+            "items": {
+              "type": "string"
+            }
+          },
+          "grantedUserRoleIds": {
+            "type": "array",
+            "description": "User roles granted access to the channel.",
+            "nullable": true,
+            "items": {
+              "type": "string"
+            }
+          },
+          "aggregations": {
+            "type": "array",
+            "description": "An optional list of aggregators. These aggregations are added by default on each aggregation requests.",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/AggregatorBase"
+            }
+          },
+          "filter": {
+            "description": "An optional search filter. Limits the content document result set on each search and aggregation request.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/FilterBase"
+              }
+            ]
+          },
+          "extendedSimpleSearchFields": {
+            "type": "array",
+            "description": "An Optional list of fields. These fields extend the list of simple search fields outside the bounds of any schema field configuration.",
+            "nullable": true,
+            "items": {
+              "type": "string"
+            }
+          },
+          "missingResultsDisplayPatterns": {
+            "description": "Display pattern to use for rendering details when 0 results are returned",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/TranslatedStringDictionary"
+              }
+            ]
+          }
+        }
+      },
+      "ChannelUpdateRequest": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "sortOrder",
+          "viewForAll"
+        ],
+        "properties": {
+          "sort": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/SortInfo"
+            }
+          },
+          "sortOrder": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "names": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/TranslatedStringDictionary"
+              }
+            ]
+          },
+          "searchIndexId": {
+            "type": "string",
+            "description": "Language specific names.",
+            "nullable": true
+          },
+          "schemaIds": {
+            "type": "array",
+            "description": "An id list of schemas with schema type content whose content documents should be found by the simple search.\nThe search by filters and aggregations are unaffected.",
+            "nullable": true,
+            "items": {
+              "type": "string"
+            }
+          },
+          "grantedUserRoleIds": {
+            "type": "array",
+            "description": "User roles granted access to the channel.",
+            "nullable": true,
+            "items": {
+              "type": "string"
+            }
+          },
+          "aggregations": {
+            "type": "array",
+            "description": "An optional list of aggregators. These aggregations are added by default on each aggregation requests.",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/AggregatorBase"
+            }
+          },
+          "filter": {
+            "description": "An optional search filter. Limits the content document result set on each search and aggregation request.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/FilterBase"
+              }
+            ]
+          },
+          "extendedSimpleSearchFields": {
+            "type": "array",
+            "description": "An Optional list of fields. These fields extend the list of simple search fields outside the bounds of any schema field configuration.",
+            "nullable": true,
+            "items": {
+              "type": "string"
+            }
+          },
+          "missingResultsDisplayPatterns": {
+            "description": "Display pattern to use for rendering details when 0 results are returned",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/TranslatedStringDictionary"
+              }
+            ]
+          },
+          "viewForAll": {
+            "type": "boolean",
+            "description": "Grants rights to all the users to view the channel."
           }
         }
       },
@@ -36469,6 +37097,8 @@
               "picturepark_account": "Have no idea.",
               "businessprocess_read": "Read business processes",
               "businessprocess_write": "Write business processes",
+              "channel_read": "Read channels",
+              "channel_write": "Write channels",
               "content_read": "Read content",
               "content_write": "Write content",
               "documenthistory_read": "Read document history",
