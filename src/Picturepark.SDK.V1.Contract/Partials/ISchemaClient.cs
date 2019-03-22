@@ -70,11 +70,10 @@ namespace Picturepark.SDK.V1.Contract
 
         /// <summary>Checks whether a schema ID already exists.</summary>
         /// <param name="schemaId">The schema ID.</param>
-        /// <param name="fieldId">The optional field ID.</param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The task.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        Task<bool> ExistsAsync(string schemaId, string fieldId = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<bool> ExistsAsync(string schemaId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Waits for a business process and returns a <see cref="SchemaBatchOperationResult"/>.
