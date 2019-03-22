@@ -19248,6 +19248,7 @@
                 "ServiceProviderNotFoundException": "#/components/schemas/ServiceProviderNotFoundException",
                 "DocumentVersionNotFoundException": "#/components/schemas/DocumentVersionNotFoundException",
                 "DefaultChannelDeleteException": "#/components/schemas/DefaultChannelDeleteException",
+                "ChannelsNotFoundException": "#/components/schemas/ChannelsNotFoundException",
                 "ElasticVersionUpdateException": "#/components/schemas/ElasticVersionUpdateException",
                 "InvalidVersionException": "#/components/schemas/InvalidVersionException",
                 "EnvironmentNotDeactivatedException": "#/components/schemas/EnvironmentNotDeactivatedException",
@@ -19329,6 +19330,8 @@
                 "InvalidTransferTypeException": "#/components/schemas/InvalidTransferTypeException",
                 "TransferNotFoundException": "#/components/schemas/TransferNotFoundException",
                 "WrongChunkSizeException": "#/components/schemas/WrongChunkSizeException",
+                "ChunkSizeOutOfRangeException": "#/components/schemas/ChunkSizeOutOfRangeException",
+                "MaximumTransferSizeException": "#/components/schemas/MaximumTransferSizeException",
                 "MissingDependenciesException": "#/components/schemas/MissingDependenciesException",
                 "RelationSelfReferencingException": "#/components/schemas/RelationSelfReferencingException",
                 "InvalidChangeCommandFieldTypeInvalidException": "#/components/schemas/InvalidChangeCommandFieldTypeInvalidException",
@@ -19418,7 +19421,6 @@
                 "ForbiddenHtmlElementsUsedException": "#/components/schemas/ForbiddenHtmlElementsUsedException",
                 "BusinessProcessStateNotHitException": "#/components/schemas/BusinessProcessStateNotHitException",
                 "BusinessProcessLifeCycleNotHitException": "#/components/schemas/BusinessProcessLifeCycleNotHitException",
-                "MaximumTransferSizeException": "#/components/schemas/MaximumTransferSizeException",
                 "OnlyAccessibleToRecipientException": "#/components/schemas/OnlyAccessibleToRecipientException",
                 "EnvironmentNotAvailableException": "#/components/schemas/EnvironmentNotAvailableException",
                 "CustomerNotAvailableException": "#/components/schemas/CustomerNotAvailableException",
@@ -19805,6 +19807,17 @@
         "allOf": [
           {
             "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "ChannelsNotFoundException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkNotFoundException"
           },
           {
             "type": "object",
@@ -21518,6 +21531,65 @@
               "expected": {
                 "type": "integer",
                 "format": "int64"
+              }
+            }
+          }
+        ]
+      },
+      "ChunkSizeOutOfRangeException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "actual",
+              "minimum",
+              "maximum"
+            ],
+            "properties": {
+              "actual": {
+                "type": "integer",
+                "format": "int64"
+              },
+              "minimum": {
+                "type": "integer",
+                "format": "int64"
+              },
+              "maximum": {
+                "type": "integer",
+                "format": "int64"
+              }
+            }
+          }
+        ]
+      },
+      "MaximumTransferSizeException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "transferSize",
+              "maximumTransferSize"
+            ],
+            "properties": {
+              "transferSize": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "maximumTransferSize": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "transferId": {
+                "type": "string",
+                "nullable": true
               }
             }
           }
@@ -23603,35 +23675,6 @@
               },
               "actual": {
                 "$ref": "#/components/schemas/BusinessProcessLifeCycle"
-              }
-            }
-          }
-        ]
-      },
-      "MaximumTransferSizeException": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/PictureparkException"
-          },
-          {
-            "type": "object",
-            "additionalProperties": false,
-            "required": [
-              "transferSize",
-              "maximumTransferSize"
-            ],
-            "properties": {
-              "transferSize": {
-                "type": "integer",
-                "format": "int32"
-              },
-              "maximumTransferSize": {
-                "type": "integer",
-                "format": "int32"
-              },
-              "transferId": {
-                "type": "string",
-                "nullable": true
               }
             }
           }
