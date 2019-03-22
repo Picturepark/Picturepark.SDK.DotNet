@@ -114,7 +114,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             // Arrange
             var permissionSet = await _fixture.CreatePermissionSet().ConfigureAwait(false);
             var userRole = await CreateUserRole(UserRight.ManagePermissions).ConfigureAwait(false);
-            var user = await _fixture.CreateAndActivateUser().ConfigureAwait(false);
+            var user = await _fixture.Users.Create().ConfigureAwait(false);
             user.UserRoles.Add(userRole);
             await _client.User.UpdateAsync(user.Id, user);
             var sessionUser = (await _client.Profile.GetAsync().ConfigureAwait(false)).Id;

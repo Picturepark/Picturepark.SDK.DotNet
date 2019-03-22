@@ -24,7 +24,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         {
             // Arrange
             var time = DateTime.Now;
-            await _fixture.CreateAndActivateUser().ConfigureAwait(false);
+            await _fixture.Users.Create().ConfigureAwait(false);
 
             var request = new LiveStreamSearchRequest
             {
