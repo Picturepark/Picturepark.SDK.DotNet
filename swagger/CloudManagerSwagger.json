@@ -7425,6 +7425,9 @@
                 "OutputIdNotFoundException": "#/components/schemas/OutputIdNotFoundException",
                 "OutputNotFoundException": "#/components/schemas/OutputNotFoundException",
                 "UnableToCreateOrModifyStaticOutputFormatException": "#/components/schemas/UnableToCreateOrModifyStaticOutputFormatException",
+                "NotSupportedFileMappingException": "#/components/schemas/NotSupportedFileMappingException",
+                "NotSupportedFileExtensionException": "#/components/schemas/NotSupportedFileExtensionException",
+                "DuplicateOutputFormatIdException": "#/components/schemas/DuplicateOutputFormatIdException",
                 "LeaseNotAcquiredException": "#/components/schemas/LeaseNotAcquiredException",
                 "OperationInProgressException": "#/components/schemas/OperationInProgressException",
                 "RetryException": "#/components/schemas/RetryException",
@@ -8184,6 +8187,39 @@
         ]
       },
       "UnableToCreateOrModifyStaticOutputFormatException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "NotSupportedFileMappingException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "NotSupportedFileExtensionException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "DuplicateOutputFormatIdException": {
         "allOf": [
           {
             "$ref": "#/components/schemas/PictureparkValidationException"

@@ -2054,6 +2054,9 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("OutputIdNotFoundException", typeof(OutputIdNotFoundException))]
     [JsonInheritanceAttribute("OutputNotFoundException", typeof(OutputNotFoundException))]
     [JsonInheritanceAttribute("UnableToCreateOrModifyStaticOutputFormatException", typeof(UnableToCreateOrModifyStaticOutputFormatException))]
+    [JsonInheritanceAttribute("NotSupportedFileMappingException", typeof(NotSupportedFileMappingException))]
+    [JsonInheritanceAttribute("NotSupportedFileExtensionException", typeof(NotSupportedFileExtensionException))]
+    [JsonInheritanceAttribute("DuplicateOutputFormatIdException", typeof(DuplicateOutputFormatIdException))]
     [JsonInheritanceAttribute("LeaseNotAcquiredException", typeof(LeaseNotAcquiredException))]
     [JsonInheritanceAttribute("OperationInProgressException", typeof(OperationInProgressException))]
     [JsonInheritanceAttribute("RetryException", typeof(RetryException))]
@@ -2883,6 +2886,54 @@ namespace Picturepark.SDK.V1.Contract
         public static UnableToCreateOrModifyStaticOutputFormatException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<UnableToCreateOrModifyStaticOutputFormatException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class NotSupportedFileMappingException : PictureparkValidationException
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static NotSupportedFileMappingException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<NotSupportedFileMappingException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class NotSupportedFileExtensionException : PictureparkValidationException
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static NotSupportedFileExtensionException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<NotSupportedFileExtensionException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class DuplicateOutputFormatIdException : PictureparkValidationException
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static DuplicateOutputFormatIdException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<DuplicateOutputFormatIdException>(data);
         }
     
     }
@@ -7324,6 +7375,9 @@ namespace Picturepark.SDK.V1.Contract
     
         [System.Runtime.Serialization.EnumMember(Value = "WildcardOnSingleTerm")]
         WildcardOnSingleTerm = 1,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "SimplifiedSearch")]
+        SimplifiedSearch = 2,
     
     }
     
