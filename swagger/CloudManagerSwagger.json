@@ -7560,6 +7560,7 @@
                 "SchemaMultipleTypesException": "#/components/schemas/SchemaMultipleTypesException",
                 "MissingDisplayPatternForCustomerDefaultLanguageException": "#/components/schemas/MissingDisplayPatternForCustomerDefaultLanguageException",
                 "SchemaViewForAllException": "#/components/schemas/SchemaViewForAllException",
+                "SystemLayerReferenceInvalidModificationException": "#/components/schemas/SystemLayerReferenceInvalidModificationException",
                 "DeleteContentsWithReferencesException": "#/components/schemas/DeleteContentsWithReferencesException",
                 "ContentMetadataUpdateManyException": "#/components/schemas/ContentMetadataUpdateManyException",
                 "ContentNotFoundException": "#/components/schemas/ContentNotFoundException",
@@ -11216,6 +11217,23 @@
         ]
       },
       "SchemaViewForAllException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "schemaId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "SystemLayerReferenceInvalidModificationException": {
         "allOf": [
           {
             "$ref": "#/components/schemas/PictureparkValidationException"

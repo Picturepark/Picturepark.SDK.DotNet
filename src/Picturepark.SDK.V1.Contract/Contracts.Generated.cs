@@ -2189,6 +2189,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("SchemaMultipleTypesException", typeof(SchemaMultipleTypesException))]
     [JsonInheritanceAttribute("MissingDisplayPatternForCustomerDefaultLanguageException", typeof(MissingDisplayPatternForCustomerDefaultLanguageException))]
     [JsonInheritanceAttribute("SchemaViewForAllException", typeof(SchemaViewForAllException))]
+    [JsonInheritanceAttribute("SystemLayerReferenceInvalidModificationException", typeof(SystemLayerReferenceInvalidModificationException))]
     [JsonInheritanceAttribute("DeleteContentsWithReferencesException", typeof(DeleteContentsWithReferencesException))]
     [JsonInheritanceAttribute("ContentMetadataUpdateManyException", typeof(ContentMetadataUpdateManyException))]
     [JsonInheritanceAttribute("ContentNotFoundException", typeof(ContentNotFoundException))]
@@ -6038,6 +6039,25 @@ namespace Picturepark.SDK.V1.Contract
         public static SchemaViewForAllException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaViewForAllException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class SystemLayerReferenceInvalidModificationException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("schemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string SchemaId { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static SystemLayerReferenceInvalidModificationException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SystemLayerReferenceInvalidModificationException>(data);
         }
     
     }
