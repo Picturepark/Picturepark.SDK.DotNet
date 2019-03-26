@@ -24395,12 +24395,14 @@
         "x-enumNames": [
           "DropInvalidCharactersOnFailure",
           "WildcardOnSingleTerm",
-          "SimplifiedSearch"
+          "SimplifiedSearch",
+          "WildcardOnEveryTerm"
         ],
         "enum": [
           "DropInvalidCharactersOnFailure",
           "WildcardOnSingleTerm",
-          "SimplifiedSearch"
+          "SimplifiedSearch",
+          "WildcardOnEveryTerm"
         ]
       },
       "BusinessProcessWaitForLifeCycleResult": {
