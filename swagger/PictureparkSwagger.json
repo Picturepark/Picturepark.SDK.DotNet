@@ -19349,6 +19349,7 @@
                 "AggregationFilterNotSupportedException": "#/components/schemas/AggregationFilterNotSupportedException",
                 "RelationTypeMissingException": "#/components/schemas/RelationTypeMissingException",
                 "ReferenceUpdateException": "#/components/schemas/ReferenceUpdateException",
+                "ReferencesUpdateException": "#/components/schemas/ReferencesUpdateException",
                 "DuplicatedItemAssignedException": "#/components/schemas/DuplicatedItemAssignedException",
                 "SchemaFieldOverwriteTypeMismatchException": "#/components/schemas/SchemaFieldOverwriteTypeMismatchException",
                 "SchemaFieldOverwriteIdException": "#/components/schemas/SchemaFieldOverwriteIdException",
@@ -21953,6 +21954,26 @@
           {
             "type": "object",
             "additionalProperties": false
+          }
+        ]
+      },
+      "ReferencesUpdateException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkBusinessException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "exceptions": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/ReferenceUpdateException"
+                }
+              }
+            }
           }
         ]
       },
