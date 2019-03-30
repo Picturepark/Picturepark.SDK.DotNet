@@ -2191,6 +2191,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("MissingDisplayPatternForCustomerDefaultLanguageException", typeof(MissingDisplayPatternForCustomerDefaultLanguageException))]
     [JsonInheritanceAttribute("SchemaViewForAllException", typeof(SchemaViewForAllException))]
     [JsonInheritanceAttribute("SystemLayerReferenceInvalidModificationException", typeof(SystemLayerReferenceInvalidModificationException))]
+    [JsonInheritanceAttribute("SchemaFieldAnalyzerInvalidException", typeof(SchemaFieldAnalyzerInvalidException))]
     [JsonInheritanceAttribute("DeleteContentsWithReferencesException", typeof(DeleteContentsWithReferencesException))]
     [JsonInheritanceAttribute("ContentMetadataUpdateManyException", typeof(ContentMetadataUpdateManyException))]
     [JsonInheritanceAttribute("ContentNotFoundException", typeof(ContentNotFoundException))]
@@ -6079,6 +6080,57 @@ namespace Picturepark.SDK.V1.Contract
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<SystemLayerReferenceInvalidModificationException>(data);
         }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class SchemaFieldAnalyzerInvalidException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("fieldId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string FieldId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("schemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string SchemaId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("analyzers", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public System.Collections.Generic.ICollection<Analyzer> Analyzers { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("allowedAnalyzers", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public System.Collections.Generic.ICollection<Analyzer> AllowedAnalyzers { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static SchemaFieldAnalyzerInvalidException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaFieldAnalyzerInvalidException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
+    public enum Analyzer
+    {
+        [System.Runtime.Serialization.EnumMember(Value = "None")]
+        None = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "Simple")]
+        Simple = 1,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "Language")]
+        Language = 2,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "PathHierarchy")]
+        PathHierarchy = 3,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "EdgeNGram")]
+        EdgeNGram = 4,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "NGram")]
+        NGram = 5,
     
     }
     
@@ -14964,29 +15016,6 @@ namespace Picturepark.SDK.V1.Contract
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<EdgeNGramAnalyzer>(data);
         }
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
-    public enum Analyzer
-    {
-        [System.Runtime.Serialization.EnumMember(Value = "None")]
-        None = 0,
-    
-        [System.Runtime.Serialization.EnumMember(Value = "Simple")]
-        Simple = 1,
-    
-        [System.Runtime.Serialization.EnumMember(Value = "Language")]
-        Language = 2,
-    
-        [System.Runtime.Serialization.EnumMember(Value = "PathHierarchy")]
-        PathHierarchy = 3,
-    
-        [System.Runtime.Serialization.EnumMember(Value = "EdgeNGram")]
-        EdgeNGram = 4,
-    
-        [System.Runtime.Serialization.EnumMember(Value = "NGram")]
-        NGram = 5,
     
     }
     
