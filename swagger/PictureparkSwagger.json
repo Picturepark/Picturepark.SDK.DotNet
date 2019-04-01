@@ -19398,6 +19398,7 @@
                 "MissingDisplayPatternForCustomerDefaultLanguageException": "#/components/schemas/MissingDisplayPatternForCustomerDefaultLanguageException",
                 "SchemaViewForAllException": "#/components/schemas/SchemaViewForAllException",
                 "SystemLayerReferenceInvalidModificationException": "#/components/schemas/SystemLayerReferenceInvalidModificationException",
+                "SchemaFieldAnalyzerInvalidException": "#/components/schemas/SchemaFieldAnalyzerInvalidException",
                 "DeleteContentsWithReferencesException": "#/components/schemas/DeleteContentsWithReferencesException",
                 "ContentMetadataUpdateManyException": "#/components/schemas/ContentMetadataUpdateManyException",
                 "ContentNotFoundException": "#/components/schemas/ContentNotFoundException",
@@ -23107,6 +23108,61 @@
           }
         ]
       },
+      "SchemaFieldAnalyzerInvalidException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "fieldId": {
+                "type": "string",
+                "nullable": true
+              },
+              "schemaId": {
+                "type": "string",
+                "nullable": true
+              },
+              "analyzers": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/Analyzer"
+                }
+              },
+              "allowedAnalyzers": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/Analyzer"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "Analyzer": {
+        "type": "string",
+        "description": "",
+        "x-enumNames": [
+          "None",
+          "Simple",
+          "Language",
+          "PathHierarchy",
+          "EdgeNGram",
+          "NGram"
+        ],
+        "enum": [
+          "None",
+          "Simple",
+          "Language",
+          "PathHierarchy",
+          "EdgeNGram",
+          "NGram"
+        ]
+      },
       "DeleteContentsWithReferencesException": {
         "allOf": [
           {
@@ -24416,12 +24472,14 @@
         "x-enumNames": [
           "DropInvalidCharactersOnFailure",
           "WildcardOnSingleTerm",
-          "SimplifiedSearch"
+          "SimplifiedSearch",
+          "WildcardOnEveryTerm"
         ],
         "enum": [
           "DropInvalidCharactersOnFailure",
           "WildcardOnSingleTerm",
-          "SimplifiedSearch"
+          "SimplifiedSearch",
+          "WildcardOnEveryTerm"
         ]
       },
       "BusinessProcessWaitForLifeCycleResult": {
@@ -32609,26 +32667,6 @@
               }
             }
           }
-        ]
-      },
-      "Analyzer": {
-        "type": "string",
-        "description": "",
-        "x-enumNames": [
-          "None",
-          "Simple",
-          "Language",
-          "PathHierarchy",
-          "EdgeNGram",
-          "NGram"
-        ],
-        "enum": [
-          "None",
-          "Simple",
-          "Language",
-          "PathHierarchy",
-          "EdgeNGram",
-          "NGram"
         ]
       },
       "LanguageAnalyzer": {

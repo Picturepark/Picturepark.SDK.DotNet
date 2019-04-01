@@ -62,10 +62,9 @@
 					"multiLine": false,
 					"boost": 1,
 					"requiredMetadataLanguages": [],
-					"analyzers": [
+					"simpleSearchAnalyzers": [
 						{
-							"typeName": "LanguageAnalyzer",
-							"simpleSearch": true
+							"typeName": "LanguageAnalyzer"
 						}
 					]
 				}

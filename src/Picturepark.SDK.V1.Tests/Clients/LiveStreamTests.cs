@@ -33,6 +33,9 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 ScopeType = "DocumentChange"
             };
 
+            // Give some time for the live stream event to be processed
+            await Task.Delay(TimeSpan.FromSeconds(5)).ConfigureAwait(false);
+
             // Act
             var result = await _client.LiveStream.SearchAsync(request).ConfigureAwait(false);
 
