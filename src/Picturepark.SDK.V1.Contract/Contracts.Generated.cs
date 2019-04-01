@@ -8336,11 +8336,6 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("searchIndexId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string SearchIndexId { get; set; }
     
-        /// <summary>An id list of schemas with schema type content whose content documents should be found by the simple search.
-        /// The search by filters and aggregations are unaffected.</summary>
-        [Newtonsoft.Json.JsonProperty("schemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> SchemaIds { get; set; }
-    
         /// <summary>User roles granted access to the channel.</summary>
         [Newtonsoft.Json.JsonProperty("grantedUserRoleIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> GrantedUserRoleIds { get; set; }
@@ -8360,6 +8355,10 @@ namespace Picturepark.SDK.V1.Contract
         /// <summary>Display pattern to use for rendering details when 0 results are returned</summary>
         [Newtonsoft.Json.JsonProperty("missingResultsDisplayPatterns", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public TranslatedStringDictionary MissingResultsDisplayPatterns { get; set; }
+    
+        /// <summary>Grants rights to all the users to view the channel.</summary>
+        [Newtonsoft.Json.JsonProperty("viewForAll", Required = Newtonsoft.Json.Required.Always)]
+        public bool ViewForAll { get; set; }
     
         public string ToJson() 
         {
@@ -8388,11 +8387,6 @@ namespace Picturepark.SDK.V1.Contract
         /// <summary>Language specific names.</summary>
         [Newtonsoft.Json.JsonProperty("searchIndexId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string SearchIndexId { get; set; }
-    
-        /// <summary>An id list of schemas with schema type content whose content documents should be found by the simple search.
-        /// The search by filters and aggregations are unaffected.</summary>
-        [Newtonsoft.Json.JsonProperty("schemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> SchemaIds { get; set; }
     
         /// <summary>User roles granted access to the channel.</summary>
         [Newtonsoft.Json.JsonProperty("grantedUserRoleIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]

@@ -25437,7 +25437,8 @@
         "type": "object",
         "additionalProperties": false,
         "required": [
-          "sortOrder"
+          "sortOrder",
+          "viewForAll"
         ],
         "properties": {
           "id": {
@@ -25467,14 +25468,6 @@
             "type": "string",
             "description": "Language specific names.",
             "nullable": true
-          },
-          "schemaIds": {
-            "type": "array",
-            "description": "An id list of schemas with schema type content whose content documents should be found by the simple search.\nThe search by filters and aggregations are unaffected.",
-            "nullable": true,
-            "items": {
-              "type": "string"
-            }
           },
           "grantedUserRoleIds": {
             "type": "array",
@@ -25517,6 +25510,10 @@
                 "$ref": "#/components/schemas/TranslatedStringDictionary"
               }
             ]
+          },
+          "viewForAll": {
+            "type": "boolean",
+            "description": "Grants rights to all the users to view the channel."
           }
         }
       },
@@ -25551,14 +25548,6 @@
             "type": "string",
             "description": "Language specific names.",
             "nullable": true
-          },
-          "schemaIds": {
-            "type": "array",
-            "description": "An id list of schemas with schema type content whose content documents should be found by the simple search.\nThe search by filters and aggregations are unaffected.",
-            "nullable": true,
-            "items": {
-              "type": "string"
-            }
           },
           "grantedUserRoleIds": {
             "type": "array",

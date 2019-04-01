@@ -20,7 +20,8 @@ namespace Picturepark.SDK.V1.Tests.Fixtures
                     {
                         { "en", $"Channel_test_{Guid.NewGuid()}" }
                     },
-                    SearchIndexId = "RootContentSearchIndex"
+                    SearchIndexId = "RootContentSearchIndex",
+                    ViewForAll = false
                 }).ToArray();
 
             var tasks = createRequests.Select(r => Client.Channel.CreateAsync(r));
