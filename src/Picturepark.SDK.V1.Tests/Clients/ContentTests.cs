@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Dynamic;
 using System.Linq;
 using System.Threading.Tasks;
 using Xunit;
@@ -149,7 +148,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             await _client.Content.AggregateAsync(request).ConfigureAwait(false);
         }
 
-        [Fact]
+        [Fact(Skip = "Re-enable once PP9-7573 is resolved")]
         [Trait("Stack", "Contents")]
         public async Task ShouldAggregateByChannel()
         {
@@ -577,11 +576,14 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 }
             };
 
-            await _client.Content.UpdateMetadataAsync(contentId, request).ConfigureAwait(false);
+            var contentDetail = await _client.Content.UpdateMetadataAsync(contentId, request).ConfigureAwait(false);
+            var layerIds = contentDetail.LayerSchemaIds.ToList();
+            layerIds.Remove(nameof(PersonShot));
+            layerIds.Add(nameof(AllDataTypesContract));
 
             request = new ContentMetadataUpdateRequest
             {
-                LayerSchemaIds = new List<string> { nameof(AllDataTypesContract) },
+                LayerSchemaIds = layerIds,
                 Metadata = new DataDictionary
                 {
                     {
@@ -900,7 +902,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 SearchString = "*",
                 Sort = sortInfos,
                 Filter = filter,
-                Start = 0
             };
 
             // Act
@@ -912,10 +913,9 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
         [Fact]
         [Trait("Stack", "Contents")]
-        public async Task ShouldSearchByChannel()
+        public async Task ShouldSearchByChannelAndScrollThroughResults()
         {
             string channelId = "rootChannel";
-            string searchString = "*";
 
             var sortInfos = new List<SortInfo>
             {
@@ -925,14 +925,19 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var request = new ContentSearchRequest
             {
                 ChannelId = channelId,
-                SearchString = searchString,
                 Sort = sortInfos,
-                Start = 0,
-                Limit = 8
+                Limit = 5
             };
 
-            ContentSearchResult result = await _client.Content.SearchAsync(request).ConfigureAwait(false);
-            Assert.True(result.Results.Count > 0);
+            int i = 0;
+            ContentSearchResult result;
+
+            do
+            {
+                result = await _client.Content.SearchAsync(request).ConfigureAwait(false);
+                result.Results.Should().NotBeEmpty();
+            }
+            while (++i < 3 && ((result.PageToken = result.PageToken) != null));
         }
 
         [Fact]
@@ -1093,7 +1098,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             // Arrange
             var contentId = await _fixture.GetRandomContentIdAsync(".jpg", 20).ConfigureAwait(false);
             var contentDetail = await _client.Content.GetAsync(contentId).ConfigureAwait(false);
-            var permissionSetId = await _fixture.GetRandomContentPermissionSetIdAsync(20).ConfigureAwait(false);
+            var permissionSetId = (await _fixture.ContentPermissions.Create().ConfigureAwait(false)).Id;
 
             var contentPermissionSetIds = new List<string>
             {
@@ -1123,7 +1128,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             // Arrange
             var contentId = await _fixture.GetRandomContentIdAsync(".jpg", 20).ConfigureAwait(false);
             var contentDetail = await _client.Content.GetAsync(contentId).ConfigureAwait(false);
-            var permissionSetId = await _fixture.GetRandomContentPermissionSetIdAsync(20).ConfigureAwait(false);
+            var permissionSetId = (await _fixture.ContentPermissions.Create().ConfigureAwait(false)).Id;
 
             var contentPermissionSetIds = new List<string>
             {

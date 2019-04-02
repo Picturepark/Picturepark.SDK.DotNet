@@ -3429,6 +3429,236 @@
         ]
       }
     },
+    "/customer/{customerAlias}/boostValues": {
+      "put": {
+        "tags": [
+          "Customer"
+        ],
+        "operationId": "Customer_UpdateBoostValues",
+        "parameters": [
+          {
+            "name": "customerAlias",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1
+          },
+          {
+            "name": "timeout",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "time-span",
+              "nullable": true
+            },
+            "x-position": 3
+          }
+        ],
+        "requestBody": {
+          "x-name": "request",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CustomerBoostValuesUpdateRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 2
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/EnvironmentProcess"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkNotFoundException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkConflictException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkValidationException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/customer/{customerAlias}/invalidate": {
+      "post": {
+        "tags": [
+          "Customer"
+        ],
+        "operationId": "Customer_Invalidate",
+        "parameters": [
+          {
+            "name": "customerAlias",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkNotFoundException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkConflictException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkValidationException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
     "/service/customer/serviceProvider": {
       "post": {
         "tags": [
@@ -4591,38 +4821,45 @@
         ]
       }
     },
-    "/customer/{customerAlias}/sampleData": {
-      "put": {
+    "/maintenance/customer/{customerId}/outputs/resetRetryAttempts": {
+      "post": {
         "tags": [
-          "SampleData"
+          "Maintenance"
         ],
-        "operationId": "SampleData_Create",
+        "operationId": "Maintenance_ResetOutputRetryAttempts",
         "parameters": [
           {
-            "name": "customerAlias",
+            "name": "customerId",
             "in": "path",
             "required": true,
             "schema": {
               "type": "string"
             },
-            "x-position": 1
+            "x-position": 2
           }
         ],
         "requestBody": {
-          "x-name": "dataGenerationCreateRequest",
+          "x-name": "request",
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/DataGenerationCreateRequest"
+                "$ref": "#/components/schemas/OutputResetRetryAttemptsRequest"
               }
             }
           },
           "required": true,
-          "x-position": 2
+          "x-position": 1
         },
         "responses": {
           "200": {
-            "description": ""
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BusinessProcess"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -5178,6 +5415,105 @@
                 }
               }
             }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkNotFoundException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkConflictException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkValidationException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/services/setLogLevel": {
+      "post": {
+        "tags": [
+          "Service"
+        ],
+        "operationId": "Service_SetLogLevel",
+        "requestBody": {
+          "x-name": "request",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SetServiceLogLevelRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": ""
           },
           "500": {
             "description": "Internal server error",
@@ -7067,13 +7403,16 @@
                 "UserInactiveOrDeletedException": "#/components/schemas/UserInactiveOrDeletedException",
                 "TermsOfServiceNotNewestException": "#/components/schemas/TermsOfServiceNotNewestException",
                 "IllegalAuthorizationStateTransitionException": "#/components/schemas/IllegalAuthorizationStateTransitionException",
+                "TermsOfServiceConsentRequiredException": "#/components/schemas/TermsOfServiceConsentRequiredException",
+                "PictureparkNotFoundException": "#/components/schemas/PictureparkNotFoundException",
+                "UserRolesNotFoundException": "#/components/schemas/UserRolesNotFoundException",
                 "RenderingException": "#/components/schemas/RenderingException",
                 "ServiceProviderDeleteException": "#/components/schemas/ServiceProviderDeleteException",
                 "ServiceProviderCreateException": "#/components/schemas/ServiceProviderCreateException",
                 "ServiceProviderNotFoundException": "#/components/schemas/ServiceProviderNotFoundException",
-                "PictureparkNotFoundException": "#/components/schemas/PictureparkNotFoundException",
                 "DocumentVersionNotFoundException": "#/components/schemas/DocumentVersionNotFoundException",
                 "DefaultChannelDeleteException": "#/components/schemas/DefaultChannelDeleteException",
+                "ChannelsNotFoundException": "#/components/schemas/ChannelsNotFoundException",
                 "ElasticVersionUpdateException": "#/components/schemas/ElasticVersionUpdateException",
                 "InvalidVersionException": "#/components/schemas/InvalidVersionException",
                 "EnvironmentNotDeactivatedException": "#/components/schemas/EnvironmentNotDeactivatedException",
@@ -7085,6 +7424,10 @@
                 "ShareExpiredException": "#/components/schemas/ShareExpiredException",
                 "OutputIdNotFoundException": "#/components/schemas/OutputIdNotFoundException",
                 "OutputNotFoundException": "#/components/schemas/OutputNotFoundException",
+                "UnableToCreateOrModifyStaticOutputFormatException": "#/components/schemas/UnableToCreateOrModifyStaticOutputFormatException",
+                "NotSupportedFileMappingException": "#/components/schemas/NotSupportedFileMappingException",
+                "NotSupportedFileExtensionException": "#/components/schemas/NotSupportedFileExtensionException",
+                "DuplicateOutputFormatIdException": "#/components/schemas/DuplicateOutputFormatIdException",
                 "LeaseNotAcquiredException": "#/components/schemas/LeaseNotAcquiredException",
                 "OperationInProgressException": "#/components/schemas/OperationInProgressException",
                 "RetryException": "#/components/schemas/RetryException",
@@ -7097,9 +7440,11 @@
                 "PictureparkOperationCanceledException": "#/components/schemas/PictureparkOperationCanceledException",
                 "PictureparkApplicationException": "#/components/schemas/PictureparkApplicationException",
                 "MissingCustomerDefaultLanguageException": "#/components/schemas/MissingCustomerDefaultLanguageException",
+                "PartialOperationNotSupportedException": "#/components/schemas/PartialOperationNotSupportedException",
                 "InvalidArgumentException": "#/components/schemas/InvalidArgumentException",
                 "UnknownException": "#/components/schemas/UnknownException",
                 "OwnerTokenInUseException": "#/components/schemas/OwnerTokenInUseException",
+                "InvalidValueFormatException": "#/components/schemas/InvalidValueFormatException",
                 "CustomerViolationException": "#/components/schemas/CustomerViolationException",
                 "CustomerAliasNotFoundException": "#/components/schemas/CustomerAliasNotFoundException",
                 "CustomerAliasInUseException": "#/components/schemas/CustomerAliasInUseException",
@@ -7108,6 +7453,7 @@
                 "CustomerHostNotFoundException": "#/components/schemas/CustomerHostNotFoundException",
                 "CustomerNotFoundException": "#/components/schemas/CustomerNotFoundException",
                 "CustomerNotActiveException": "#/components/schemas/CustomerNotActiveException",
+                "CustomerBoostValuesInvalidException": "#/components/schemas/CustomerBoostValuesInvalidException",
                 "ConfigurationIndexNotFoundException": "#/components/schemas/ConfigurationIndexNotFoundException",
                 "DuplicateSearchIndexDocException": "#/components/schemas/DuplicateSearchIndexDocException",
                 "SearchIndexDocNotFoundException": "#/components/schemas/SearchIndexDocNotFoundException",
@@ -7136,6 +7482,9 @@
                 "PermissionSetInUseException": "#/components/schemas/PermissionSetInUseException",
                 "ContentPermissionException": "#/components/schemas/ContentPermissionException",
                 "ListItemPermissionException": "#/components/schemas/ListItemPermissionException",
+                "SchemaPermissionException": "#/components/schemas/SchemaPermissionException",
+                "PermissionSetValidationException": "#/components/schemas/PermissionSetValidationException",
+                "PermissionSetInvalidRightCombinationException": "#/components/schemas/PermissionSetInvalidRightCombinationException",
                 "UnsupportedListItemChangeCommandException": "#/components/schemas/UnsupportedListItemChangeCommandException",
                 "ListItemLayerException": "#/components/schemas/ListItemLayerException",
                 "ListItemNotFoundException": "#/components/schemas/ListItemNotFoundException",
@@ -7148,6 +7497,8 @@
                 "InvalidTransferTypeException": "#/components/schemas/InvalidTransferTypeException",
                 "TransferNotFoundException": "#/components/schemas/TransferNotFoundException",
                 "WrongChunkSizeException": "#/components/schemas/WrongChunkSizeException",
+                "ChunkSizeOutOfRangeException": "#/components/schemas/ChunkSizeOutOfRangeException",
+                "MaximumTransferSizeException": "#/components/schemas/MaximumTransferSizeException",
                 "MissingDependenciesException": "#/components/schemas/MissingDependenciesException",
                 "RelationSelfReferencingException": "#/components/schemas/RelationSelfReferencingException",
                 "InvalidChangeCommandFieldTypeInvalidException": "#/components/schemas/InvalidChangeCommandFieldTypeInvalidException",
@@ -7159,12 +7510,16 @@
                 "RelationTypeTargetDocTypeMismatchException": "#/components/schemas/RelationTypeTargetDocTypeMismatchException",
                 "AggregationNameInvalidException": "#/components/schemas/AggregationNameInvalidException",
                 "AggregationSizeInvalidException": "#/components/schemas/AggregationSizeInvalidException",
+                "AggregationFilterNotSupportedException": "#/components/schemas/AggregationFilterNotSupportedException",
                 "RelationTypeMissingException": "#/components/schemas/RelationTypeMissingException",
                 "ReferenceUpdateException": "#/components/schemas/ReferenceUpdateException",
+                "ReferencesUpdateException": "#/components/schemas/ReferencesUpdateException",
                 "DuplicatedItemAssignedException": "#/components/schemas/DuplicatedItemAssignedException",
                 "SchemaFieldOverwriteTypeMismatchException": "#/components/schemas/SchemaFieldOverwriteTypeMismatchException",
                 "SchemaFieldOverwriteIdException": "#/components/schemas/SchemaFieldOverwriteIdException",
                 "SchemaFieldIdDuplicatedException": "#/components/schemas/SchemaFieldIdDuplicatedException",
+                "SchemaFieldIdPreviouslyUsedException": "#/components/schemas/SchemaFieldIdPreviouslyUsedException",
+                "SchemaFieldIdAlreadyExistsInSchemaHierarchyException": "#/components/schemas/SchemaFieldIdAlreadyExistsInSchemaHierarchyException",
                 "SchemaFieldSchemaIndexInfoSimpleSearchNestingException": "#/components/schemas/SchemaFieldSchemaIndexInfoSimpleSearchNestingException",
                 "SchemaFieldSchemaIndexInfoNestingException": "#/components/schemas/SchemaFieldSchemaIndexInfoNestingException",
                 "SchemaFieldIdUppercaseException": "#/components/schemas/SchemaFieldIdUppercaseException",
@@ -7178,12 +7533,10 @@
                 "SchemaInUseListItemException": "#/components/schemas/SchemaInUseListItemException",
                 "SchemaInUseContentException": "#/components/schemas/SchemaInUseContentException",
                 "SchemaInUseFieldException": "#/components/schemas/SchemaInUseFieldException",
-                "SchemaNotFoundInSearchIndexException": "#/components/schemas/SchemaNotFoundInSearchIndexException",
                 "DuplicateMetadataDisplayPatternException": "#/components/schemas/DuplicateMetadataDisplayPatternException",
                 "DuplicateSchemaException": "#/components/schemas/DuplicateSchemaException",
                 "SchemaImportEmptyException": "#/components/schemas/SchemaImportEmptyException",
                 "SchemaImportVersionMismatchException": "#/components/schemas/SchemaImportVersionMismatchException",
-                "SchemaCyclicDependencyException": "#/components/schemas/SchemaCyclicDependencyException",
                 "SchemaInheritanceFieldIndexDeviationException": "#/components/schemas/SchemaInheritanceFieldIndexDeviationException",
                 "SchemaInheritanceTypeDeviationException": "#/components/schemas/SchemaInheritanceTypeDeviationException",
                 "SchemaValidationException": "#/components/schemas/SchemaValidationException",
@@ -7193,10 +7546,11 @@
                 "SchemaFieldIndexException": "#/components/schemas/SchemaFieldIndexException",
                 "SchemaFieldNotSortableException": "#/components/schemas/SchemaFieldNotSortableException",
                 "SchemaFieldNotSearchableException": "#/components/schemas/SchemaFieldNotSearchableException",
+                "SchemaFieldInvalidBoostException": "#/components/schemas/SchemaFieldInvalidBoostException",
                 "SchemaNoContentException": "#/components/schemas/SchemaNoContentException",
                 "SchemaParentChangeException": "#/components/schemas/SchemaParentChangeException",
                 "SchemaMissingTypeException": "#/components/schemas/SchemaMissingTypeException",
-                "SchemaPermissionException": "#/components/schemas/SchemaPermissionException",
+                "SchemaPermissionConfigurationException": "#/components/schemas/SchemaPermissionConfigurationException",
                 "SchemaNoLayerException": "#/components/schemas/SchemaNoLayerException",
                 "SchemaIdException": "#/components/schemas/SchemaIdException",
                 "SchemaInUseException": "#/components/schemas/SchemaInUseException",
@@ -7207,6 +7561,8 @@
                 "SchemaMultipleTypesException": "#/components/schemas/SchemaMultipleTypesException",
                 "MissingDisplayPatternForCustomerDefaultLanguageException": "#/components/schemas/MissingDisplayPatternForCustomerDefaultLanguageException",
                 "SchemaViewForAllException": "#/components/schemas/SchemaViewForAllException",
+                "SystemLayerReferenceInvalidModificationException": "#/components/schemas/SystemLayerReferenceInvalidModificationException",
+                "SchemaFieldAnalyzerInvalidException": "#/components/schemas/SchemaFieldAnalyzerInvalidException",
                 "DeleteContentsWithReferencesException": "#/components/schemas/DeleteContentsWithReferencesException",
                 "ContentMetadataUpdateManyException": "#/components/schemas/ContentMetadataUpdateManyException",
                 "ContentNotFoundException": "#/components/schemas/ContentNotFoundException",
@@ -7224,19 +7580,21 @@
                 "SchemaFieldNotSupportedException": "#/components/schemas/SchemaFieldNotSupportedException",
                 "SnapshotTimeoutException": "#/components/schemas/SnapshotTimeoutException",
                 "SnapshotFailedException": "#/components/schemas/SnapshotFailedException",
+                "SnapshotSkippedException": "#/components/schemas/SnapshotSkippedException",
                 "AddMetadataLanguageTimeoutException": "#/components/schemas/AddMetadataLanguageTimeoutException",
                 "EnvironmentProcessAlreadyRunningException": "#/components/schemas/EnvironmentProcessAlreadyRunningException",
                 "EnvironmentProcessNotFoundException": "#/components/schemas/EnvironmentProcessNotFoundException",
                 "EnvironmentProcessWaitTimeoutException": "#/components/schemas/EnvironmentProcessWaitTimeoutException",
+                "CustomerBoostValuesUpdateTimeoutException": "#/components/schemas/CustomerBoostValuesUpdateTimeoutException",
                 "NoTermsOfServiceDefinedException": "#/components/schemas/NoTermsOfServiceDefinedException",
                 "AtLeastOneActiveTermsOfServiceMustExistException": "#/components/schemas/AtLeastOneActiveTermsOfServiceMustExistException",
                 "ForbiddenHtmlElementsUsedException": "#/components/schemas/ForbiddenHtmlElementsUsedException",
                 "BusinessProcessStateNotHitException": "#/components/schemas/BusinessProcessStateNotHitException",
                 "BusinessProcessLifeCycleNotHitException": "#/components/schemas/BusinessProcessLifeCycleNotHitException",
-                "MaximumTransferSizeException": "#/components/schemas/MaximumTransferSizeException",
                 "OnlyAccessibleToRecipientException": "#/components/schemas/OnlyAccessibleToRecipientException",
                 "EnvironmentNotAvailableException": "#/components/schemas/EnvironmentNotAvailableException",
-                "CustomerNotAvailableException": "#/components/schemas/CustomerNotAvailableException"
+                "CustomerNotAvailableException": "#/components/schemas/CustomerNotAvailableException",
+                "CustomerAliasHeaderMissingException": "#/components/schemas/CustomerAliasHeaderMissingException"
               }
             },
             "additionalProperties": false,
@@ -7472,6 +7830,54 @@
           }
         ]
       },
+      "TermsOfServiceConsentRequiredException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkForbiddenException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "UserRolesNotFoundException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkNotFoundException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "userRoleIds": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "PictureparkNotFoundException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkBusinessException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "reference": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
       "RenderingException": {
         "allOf": [
           {
@@ -7567,27 +7973,21 @@
           }
         ]
       },
-      "PictureparkNotFoundException": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/PictureparkBusinessException"
-          },
-          {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "reference": {
-                "type": "string",
-                "nullable": true
-              }
-            }
-          }
-        ]
-      },
       "DefaultChannelDeleteException": {
         "allOf": [
           {
             "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "ChannelsNotFoundException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkNotFoundException"
           },
           {
             "type": "object",
@@ -7786,6 +8186,50 @@
                 "nullable": true
               }
             }
+          }
+        ]
+      },
+      "UnableToCreateOrModifyStaticOutputFormatException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "NotSupportedFileMappingException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "NotSupportedFileExtensionException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "DuplicateOutputFormatIdException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
           }
         ]
       },
@@ -8007,6 +8451,17 @@
           }
         ]
       },
+      "PartialOperationNotSupportedException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
       "InvalidArgumentException": {
         "allOf": [
           {
@@ -8059,6 +8514,17 @@
                 "nullable": true
               }
             }
+          }
+        ]
+      },
+      "InvalidValueFormatException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
           }
         ]
       },
@@ -8207,6 +8673,17 @@
                 "nullable": true
               }
             }
+          }
+        ]
+      },
+      "CustomerBoostValuesInvalidException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
           }
         ]
       },
@@ -8774,7 +9251,8 @@
           "ManageTermsOfService",
           "ManageLiveStream",
           "ManageDocumentHistory",
-          "ManageAllShares"
+          "ManageAllShares",
+          "ManageOutputFormats"
         ],
         "enum": [
           "ManageContent",
@@ -8794,7 +9272,8 @@
           "ManageTermsOfService",
           "ManageLiveStream",
           "ManageDocumentHistory",
-          "ManageAllShares"
+          "ManageAllShares",
+          "ManageOutputFormats"
         ]
       },
       "PermissionSetNotFoundException": {
@@ -8909,7 +9388,7 @@
           "View",
           "AccessOriginal",
           "EditMetadata",
-          "ReplaceFile",
+          "EditContent",
           "ManagePermissions",
           "Delete"
         ],
@@ -8917,7 +9396,7 @@
           "View",
           "AccessOriginal",
           "EditMetadata",
-          "ReplaceFile",
+          "EditContent",
           "ManagePermissions",
           "Delete"
         ]
@@ -8957,6 +9436,52 @@
           "View",
           "ManageItems",
           "ManageSchema"
+        ]
+      },
+      "SchemaPermissionException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "metadataRight"
+            ],
+            "properties": {
+              "schemaId": {
+                "type": "string",
+                "nullable": true
+              },
+              "metadataRight": {
+                "$ref": "#/components/schemas/MetadataRight"
+              }
+            }
+          }
+        ]
+      },
+      "PermissionSetInvalidRightCombinationException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PermissionSetValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "PermissionSetValidationException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "description": "This exception is an abstract base for permission set validation.",
+            "additionalProperties": false
+          }
         ]
       },
       "UnsupportedListItemChangeCommandException": {
@@ -9209,6 +9734,65 @@
               "expected": {
                 "type": "integer",
                 "format": "int64"
+              }
+            }
+          }
+        ]
+      },
+      "ChunkSizeOutOfRangeException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "actual",
+              "minimum",
+              "maximum"
+            ],
+            "properties": {
+              "actual": {
+                "type": "integer",
+                "format": "int64"
+              },
+              "minimum": {
+                "type": "integer",
+                "format": "int64"
+              },
+              "maximum": {
+                "type": "integer",
+                "format": "int64"
+              }
+            }
+          }
+        ]
+      },
+      "MaximumTransferSizeException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "transferSize",
+              "maximumTransferSize"
+            ],
+            "properties": {
+              "transferSize": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "maximumTransferSize": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "transferId": {
+                "type": "string",
+                "nullable": true
               }
             }
           }
@@ -9499,6 +10083,34 @@
           }
         ]
       },
+      "AggregationFilterNotSupportedException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "aggregationName": {
+                "type": "string",
+                "nullable": true
+              },
+              "notSupportedFilterType": {
+                "type": "string",
+                "nullable": true
+              },
+              "supportedFilterTypes": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ]
+      },
       "RelationTypeMissingException": {
         "allOf": [
           {
@@ -9507,6 +10119,26 @@
           {
             "type": "object",
             "additionalProperties": false
+          }
+        ]
+      },
+      "ReferencesUpdateException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkBusinessException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "exceptions": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/ReferenceUpdateException"
+                }
+              }
+            }
           }
         ]
       },
@@ -9623,6 +10255,56 @@
                 "nullable": true
               },
               "fieldId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "SchemaFieldIdPreviouslyUsedException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "schemaId": {
+                "type": "string",
+                "nullable": true
+              },
+              "fieldId": {
+                "type": "string",
+                "nullable": true
+              },
+              "usedInSchemaId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "SchemaFieldIdAlreadyExistsInSchemaHierarchyException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "schemaId": {
+                "type": "string",
+                "nullable": true
+              },
+              "fieldId": {
+                "type": "string",
+                "nullable": true
+              },
+              "existingInSchemaId": {
                 "type": "string",
                 "nullable": true
               }
@@ -9756,9 +10438,12 @@
               "indexedFieldThreshold"
             ],
             "properties": {
-              "schemaId": {
-                "type": "string",
-                "nullable": true
+              "schemaIds": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "type": "string"
+                }
               },
               "indexedFieldCount": {
                 "type": "number",
@@ -9785,9 +10470,12 @@
               "sortableFieldThreshold"
             ],
             "properties": {
-              "schemaId": {
-                "type": "string",
-                "nullable": true
+              "schemaIds": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "type": "string"
+                }
               },
               "sortableFieldCount": {
                 "type": "number",
@@ -9947,27 +10635,6 @@
           }
         ]
       },
-      "SchemaNotFoundInSearchIndexException": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/PictureparkValidationException"
-          },
-          {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "searchIndexId": {
-                "type": "string",
-                "nullable": true
-              },
-              "schemaId": {
-                "type": "string",
-                "nullable": true
-              }
-            }
-          }
-        ]
-      },
       "DuplicateMetadataDisplayPatternException": {
         "allOf": [
           {
@@ -10033,26 +10700,6 @@
               "expectedVersion": {
                 "type": "string",
                 "nullable": true
-              }
-            }
-          }
-        ]
-      },
-      "SchemaCyclicDependencyException": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/PictureparkValidationException"
-          },
-          {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "schemaIds": {
-                "type": "array",
-                "nullable": true,
-                "items": {
-                  "type": "string"
-                }
               }
             }
           }
@@ -10250,6 +10897,42 @@
           }
         ]
       },
+      "SchemaFieldInvalidBoostException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "boost"
+            ],
+            "properties": {
+              "fieldId": {
+                "type": "string",
+                "nullable": true
+              },
+              "schemaId": {
+                "type": "string",
+                "nullable": true
+              },
+              "boost": {
+                "type": "number",
+                "format": "double"
+              },
+              "allowedBoostValues": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "type": "number",
+                  "format": "double"
+                }
+              }
+            }
+          }
+        ]
+      },
       "SchemaNoContentException": {
         "allOf": [
           {
@@ -10332,7 +11015,7 @@
           "Struct"
         ]
       },
-      "SchemaPermissionException": {
+      "SchemaPermissionConfigurationException": {
         "allOf": [
           {
             "$ref": "#/components/schemas/PictureparkValidationException"
@@ -10570,6 +11253,78 @@
               }
             }
           }
+        ]
+      },
+      "SystemLayerReferenceInvalidModificationException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "schemaId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "SchemaFieldAnalyzerInvalidException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "fieldId": {
+                "type": "string",
+                "nullable": true
+              },
+              "schemaId": {
+                "type": "string",
+                "nullable": true
+              },
+              "analyzers": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/Analyzer"
+                }
+              },
+              "allowedAnalyzers": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/Analyzer"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "Analyzer": {
+        "type": "string",
+        "description": "",
+        "x-enumNames": [
+          "None",
+          "Simple",
+          "Language",
+          "PathHierarchy",
+          "EdgeNGram",
+          "NGram"
+        ],
+        "enum": [
+          "None",
+          "Simple",
+          "Language",
+          "PathHierarchy",
+          "EdgeNGram",
+          "NGram"
         ]
       },
       "DeleteContentsWithReferencesException": {
@@ -11011,6 +11766,17 @@
           }
         ]
       },
+      "SnapshotSkippedException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkBusinessException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
       "AddMetadataLanguageTimeoutException": {
         "allOf": [
           {
@@ -11053,12 +11819,14 @@
         "x-enumNames": [
           "AddMetadataLanguage",
           "CustomerUpdate",
-          "EnvironmentUpdate"
+          "EnvironmentUpdate",
+          "CustomerBoostValuesUpdate"
         ],
         "enum": [
           "AddMetadataLanguage",
           "CustomerUpdate",
-          "EnvironmentUpdate"
+          "EnvironmentUpdate",
+          "CustomerBoostValuesUpdate"
         ]
       },
       "EnvironmentProcessNotFoundException": {
@@ -11092,6 +11860,23 @@
                 "nullable": true
               },
               "waitedLifecycles": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "CustomerBoostValuesUpdateTimeoutException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkTimeoutException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "environmentProcessId": {
                 "type": "string",
                 "nullable": true
               }
@@ -11190,35 +11975,6 @@
           }
         ]
       },
-      "MaximumTransferSizeException": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/PictureparkException"
-          },
-          {
-            "type": "object",
-            "additionalProperties": false,
-            "required": [
-              "transferSize",
-              "maximumTransferSize"
-            ],
-            "properties": {
-              "transferSize": {
-                "type": "integer",
-                "format": "int32"
-              },
-              "maximumTransferSize": {
-                "type": "integer",
-                "format": "int32"
-              },
-              "transferId": {
-                "type": "string",
-                "nullable": true
-              }
-            }
-          }
-        ]
-      },
       "OnlyAccessibleToRecipientException": {
         "allOf": [
           {
@@ -11255,6 +12011,17 @@
                 "nullable": true
               }
             }
+          }
+        ]
+      },
+      "CustomerAliasHeaderMissingException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
           }
         ]
       },
@@ -11562,6 +12329,10 @@
           "elapsedMilliseconds": {
             "type": "integer",
             "format": "int64"
+          },
+          "pageToken": {
+            "type": "string",
+            "nullable": true
           }
         }
       },
@@ -12175,13 +12946,16 @@
           "sortableFieldThreshold",
           "redisDatabaseIndex",
           "lifeCycle",
+          "snapshotEnabled",
+          "snapshotRetentionTime",
+          "snapshotFullbackupScheduleTime",
           "contentRetentionTime",
           "listItemRetentionTime",
-          "snapshotRetentionTime",
           "userRetentionTime",
           "documentHistoryRetentionTime",
           "liveStreamRetentionTime",
-          "snapshotFullbackupScheduleTime",
+          "successfulTransferRetentionTime",
+          "incompleteTransferRetentionTime",
           "contentBackupState",
           "apiCallsPerMinute"
         ],
@@ -12416,15 +13190,22 @@
           "lifeCycle": {
             "$ref": "#/components/schemas/LifeCycle"
           },
+          "snapshotEnabled": {
+            "type": "boolean"
+          },
+          "snapshotRetentionTime": {
+            "type": "string",
+            "format": "time-span"
+          },
+          "snapshotFullbackupScheduleTime": {
+            "type": "string",
+            "format": "time-span"
+          },
           "contentRetentionTime": {
             "type": "string",
             "format": "time-span"
           },
           "listItemRetentionTime": {
-            "type": "string",
-            "format": "time-span"
-          },
-          "snapshotRetentionTime": {
             "type": "string",
             "format": "time-span"
           },
@@ -12440,7 +13221,11 @@
             "type": "string",
             "format": "time-span"
           },
-          "snapshotFullbackupScheduleTime": {
+          "successfulTransferRetentionTime": {
+            "type": "string",
+            "format": "time-span"
+          },
+          "incompleteTransferRetentionTime": {
             "type": "string",
             "format": "time-span"
           },
@@ -12472,6 +13257,14 @@
             "nullable": true,
             "items": {
               "type": "string"
+            }
+          },
+          "boostValues": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "type": "number",
+              "format": "double"
             }
           }
         }
@@ -12609,11 +13402,14 @@
           "sortableFieldThreshold",
           "contentRetentionTime",
           "listItemRetentionTime",
-          "snapshotRetentionTime",
           "userRetentionTime",
+          "successfulTransferRetentionTime",
+          "incompleteTransferRetentionTime",
           "documentHistoryRetentionTime",
           "liveStreamRetentionTime",
+          "snapshotEnabled",
           "snapshotFullbackupScheduleTime",
+          "snapshotRetentionTime",
           "contentBackupState",
           "apiCallsPerMinute"
         ],
@@ -12755,11 +13551,15 @@
             "type": "string",
             "format": "time-span"
           },
-          "snapshotRetentionTime": {
+          "userRetentionTime": {
             "type": "string",
             "format": "time-span"
           },
-          "userRetentionTime": {
+          "successfulTransferRetentionTime": {
+            "type": "string",
+            "format": "time-span"
+          },
+          "incompleteTransferRetentionTime": {
             "type": "string",
             "format": "time-span"
           },
@@ -12771,7 +13571,14 @@
             "type": "string",
             "format": "time-span"
           },
+          "snapshotEnabled": {
+            "type": "boolean"
+          },
           "snapshotFullbackupScheduleTime": {
+            "type": "string",
+            "format": "time-span"
+          },
+          "snapshotRetentionTime": {
             "type": "string",
             "format": "time-span"
           },
@@ -12801,6 +13608,14 @@
           "contentBackupStoragePath": {
             "type": "string",
             "nullable": true
+          },
+          "boostValues": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "type": "number",
+              "format": "double"
+            }
           }
         }
       },
@@ -12889,22 +13704,56 @@
         }
       },
       "OutputFormat": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/OutputFormatEditable"
+          },
+          {
+            "type": "object",
+            "description": "Represents an output format.",
+            "additionalProperties": false,
+            "required": [
+              "system",
+              "dynamic",
+              "dataExtraction",
+              "temporary"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "description": "Output format ID.",
+                "nullable": true
+              },
+              "system": {
+                "type": "boolean",
+                "description": "Marks if this is a system output format."
+              },
+              "dynamic": {
+                "type": "boolean",
+                "description": "A dynamic output format is not rendered automatically, but only on demand."
+              },
+              "dataExtraction": {
+                "type": "boolean",
+                "description": "Specifies if output format should be taken into account during data extraction."
+              },
+              "temporary": {
+                "type": "boolean",
+                "description": "Temporary outputs will not be backed up."
+              }
+            }
+          }
+        ]
+      },
+      "OutputFormatEditable": {
         "type": "object",
+        "description": "Represents the editable part of the output format.",
         "additionalProperties": false,
         "required": [
-          "static",
-          "system",
-          "dynamic",
-          "dataExtraction",
-          "temporary",
-          "render"
+          "retentionTime"
         ],
         "properties": {
-          "id": {
-            "type": "string",
-            "nullable": true
-          },
           "names": {
+            "description": "Language specific names.",
             "nullable": true,
             "oneOf": [
               {
@@ -12912,22 +13761,8 @@
               }
             ]
           },
-          "static": {
-            "type": "boolean"
-          },
-          "system": {
-            "type": "boolean"
-          },
-          "dynamic": {
-            "type": "boolean"
-          },
-          "dataExtraction": {
-            "type": "boolean"
-          },
-          "temporary": {
-            "type": "boolean"
-          },
           "sourceOutputFormats": {
+            "description": "Which output format should be used as a source of data.",
             "nullable": true,
             "oneOf": [
               {
@@ -12935,16 +13770,19 @@
               }
             ]
           },
-          "render": {
-            "type": "boolean"
-          },
           "format": {
+            "description": "Information about the technical format of the data, e.g. JPEG, AAC or video still.",
             "nullable": true,
             "oneOf": [
               {
                 "$ref": "#/components/schemas/FormatBase"
               }
             ]
+          },
+          "retentionTime": {
+            "type": "string",
+            "description": "How long should the dynamic outputs created from this format be kept.",
+            "format": "time-span"
           }
         }
       },
@@ -13395,16 +14233,9 @@
             "type": "object",
             "additionalProperties": false,
             "properties": {
-              "defaultOutputExtension": {
+              "extension": {
                 "type": "string",
                 "nullable": true
-              },
-              "allowedOutputExtensions": {
-                "type": "array",
-                "nullable": true,
-                "items": {
-                  "type": "string"
-                }
               }
             }
           }
@@ -13434,16 +14265,9 @@
               "chromaSubsamplingEnabled": {
                 "type": "boolean"
               },
-              "defaultOutputExtension": {
+              "extension": {
                 "type": "string",
                 "nullable": true
-              },
-              "allowedOutputExtensions": {
-                "type": "array",
-                "nullable": true,
-                "items": {
-                  "type": "string"
-                }
               }
             }
           }
@@ -13464,16 +14288,9 @@
               "interlaced": {
                 "type": "boolean"
               },
-              "defaultOutputExtension": {
+              "extension": {
                 "type": "string",
                 "nullable": true
-              },
-              "allowedOutputExtensions": {
-                "type": "array",
-                "nullable": true,
-                "items": {
-                  "type": "string"
-                }
               }
             }
           }
@@ -13502,16 +14319,9 @@
               "includeUnspecifiedTiffExtraChannels": {
                 "type": "boolean"
               },
-              "defaultOutputExtension": {
+              "extension": {
                 "type": "string",
                 "nullable": true
-              },
-              "allowedOutputExtensions": {
-                "type": "array",
-                "nullable": true,
-                "items": {
-                  "type": "string"
-                }
               }
             }
           }
@@ -13582,16 +14392,9 @@
                   }
                 ]
               },
-              "defaultOutputExtension": {
+              "extension": {
                 "type": "string",
                 "nullable": true
-              },
-              "allowedOutputExtensions": {
-                "type": "array",
-                "nullable": true,
-                "items": {
-                  "type": "string"
-                }
               }
             }
           }
@@ -13684,16 +14487,9 @@
                 "type": "integer",
                 "format": "int32"
               },
-              "defaultOutputExtension": {
+              "extension": {
                 "type": "string",
                 "nullable": true
-              },
-              "allowedOutputExtensions": {
-                "type": "array",
-                "nullable": true,
-                "items": {
-                  "type": "string"
-                }
               }
             }
           }
@@ -13711,16 +14507,9 @@
               "positionInSeconds"
             ],
             "properties": {
-              "defaultOutputExtension": {
+              "extension": {
                 "type": "string",
                 "nullable": true
-              },
-              "allowedOutputExtensions": {
-                "type": "array",
-                "nullable": true,
-                "items": {
-                  "type": "string"
-                }
               },
               "positionInSeconds": {
                 "type": "integer",
@@ -13743,16 +14532,9 @@
               "coder"
             ],
             "properties": {
-              "defaultOutputExtension": {
+              "extension": {
                 "type": "string",
                 "nullable": true
-              },
-              "allowedOutputExtensions": {
-                "type": "array",
-                "nullable": true,
-                "items": {
-                  "type": "string"
-                }
               },
               "profile": {
                 "description": "Gets or sets the encoding profile.",
@@ -13825,16 +14607,9 @@
             "type": "object",
             "additionalProperties": false,
             "properties": {
-              "defaultOutputExtension": {
+              "extension": {
                 "type": "string",
                 "nullable": true
-              },
-              "allowedOutputExtensions": {
-                "type": "array",
-                "nullable": true,
-                "items": {
-                  "type": "string"
-                }
               }
             }
           }
@@ -13849,16 +14624,9 @@
             "type": "object",
             "additionalProperties": false,
             "properties": {
-              "defaultOutputExtension": {
+              "extension": {
                 "type": "string",
                 "nullable": true
-              },
-              "allowedOutputExtensions": {
-                "type": "array",
-                "nullable": true,
-                "items": {
-                  "type": "string"
-                }
               },
               "bitrate": {
                 "type": "integer",
@@ -13897,16 +14665,9 @@
             "type": "object",
             "additionalProperties": false,
             "properties": {
-              "defaultOutputExtension": {
+              "extension": {
                 "type": "string",
                 "nullable": true
-              },
-              "allowedOutputExtensions": {
-                "type": "array",
-                "nullable": true,
-                "items": {
-                  "type": "string"
-                }
               }
             }
           }
@@ -13938,16 +14699,9 @@
               "reduceFileSize": {
                 "type": "boolean"
               },
-              "defaultOutputExtension": {
+              "extension": {
                 "type": "string",
                 "nullable": true
-              },
-              "allowedOutputExtensions": {
-                "type": "array",
-                "nullable": true,
-                "items": {
-                  "type": "string"
-                }
               },
               "extractFullText": {
                 "type": "boolean"
@@ -13990,14 +14744,16 @@
         "additionalProperties": false,
         "required": [
           "lifeCycle",
-          "backupEnabled",
-          "contentRetentionTime",
-          "listItemRetentionTime",
-          "snapshotRetentionTime",
-          "userRetentionTime",
-          "documentHistoryRetentionTime",
+          "snapshotEnabled",
           "liveStreamRetentionTime",
           "snapshotFullbackupScheduleTime",
+          "contentRetentionTime",
+          "listItemRetentionTime",
+          "userRetentionTime",
+          "documentHistoryRetentionTime",
+          "snapshotRetentionTime",
+          "successfulTransferRetentionTime",
+          "incompleteTransferRetentionTime",
           "useSsl",
           "enableQueryDetails",
           "apiCallsPerMinute"
@@ -14022,8 +14778,16 @@
               }
             ]
           },
-          "backupEnabled": {
+          "snapshotEnabled": {
             "type": "boolean"
+          },
+          "liveStreamRetentionTime": {
+            "type": "string",
+            "format": "time-span"
+          },
+          "snapshotFullbackupScheduleTime": {
+            "type": "string",
+            "format": "time-span"
           },
           "customerHosts": {
             "type": "array",
@@ -14040,10 +14804,6 @@
             "type": "string",
             "format": "time-span"
           },
-          "snapshotRetentionTime": {
-            "type": "string",
-            "format": "time-span"
-          },
           "userRetentionTime": {
             "type": "string",
             "format": "time-span"
@@ -14052,11 +14812,15 @@
             "type": "string",
             "format": "time-span"
           },
-          "liveStreamRetentionTime": {
+          "snapshotRetentionTime": {
             "type": "string",
             "format": "time-span"
           },
-          "snapshotFullbackupScheduleTime": {
+          "successfulTransferRetentionTime": {
+            "type": "string",
+            "format": "time-span"
+          },
+          "incompleteTransferRetentionTime": {
             "type": "string",
             "format": "time-span"
           },
@@ -14161,6 +14925,10 @@
           "elapsedMilliseconds": {
             "type": "integer",
             "format": "int64"
+          },
+          "pageToken": {
+            "type": "string",
+            "nullable": true
           }
         }
       },
@@ -14977,7 +15745,8 @@
           "mapping": {
             "EnvironmentProcessAddMetadataLanguageData": "#/components/schemas/EnvironmentProcessAddMetadataLanguageData",
             "EnvironmentProcessCustomerUpdateData": "#/components/schemas/EnvironmentProcessCustomerUpdateData",
-            "EnvironmentProcessEnvironmentUpdateData": "#/components/schemas/EnvironmentProcessEnvironmentUpdateData"
+            "EnvironmentProcessEnvironmentUpdateData": "#/components/schemas/EnvironmentProcessEnvironmentUpdateData",
+            "EnvironmentProcessCustomerBoostValuesUpdateData": "#/components/schemas/EnvironmentProcessCustomerBoostValuesUpdateData"
           }
         },
         "x-abstract": true,
@@ -15172,6 +15941,95 @@
           "Failed"
         ]
       },
+      "EnvironmentProcessCustomerBoostValuesUpdateData": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/EnvironmentProcessDataViewItemBase"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "state"
+            ],
+            "properties": {
+              "state": {
+                "$ref": "#/components/schemas/CustomerBoostValuesUpdateState"
+              },
+              "addedBoostValues": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "type": "number",
+                  "format": "double"
+                }
+              },
+              "removedBoostValues": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/CustomerBoostValueRemoveInfo"
+                }
+              },
+              "stateHistory": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/EnvironmentProcessState"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "CustomerBoostValuesUpdateState": {
+        "type": "string",
+        "description": "",
+        "x-enumNames": [
+          "Draft",
+          "InProgress",
+          "BoostValuesAdded",
+          "SearchIndexesMappingUpdated",
+          "ExistingBoostValuesUpdated",
+          "BoostValuesRemoved",
+          "SearchIndexesReindexed",
+          "Succeeded",
+          "Cancelled",
+          "Failed"
+        ],
+        "enum": [
+          "Draft",
+          "InProgress",
+          "BoostValuesAdded",
+          "SearchIndexesMappingUpdated",
+          "ExistingBoostValuesUpdated",
+          "BoostValuesRemoved",
+          "SearchIndexesReindexed",
+          "Succeeded",
+          "Cancelled",
+          "Failed"
+        ]
+      },
+      "CustomerBoostValueRemoveInfo": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "valueToRemove",
+          "valueToReplaceWith"
+        ],
+        "properties": {
+          "valueToRemove": {
+            "type": "number",
+            "description": "Existing boost value that is going to be removed.",
+            "format": "double"
+          },
+          "valueToReplaceWith": {
+            "type": "number",
+            "description": "Boost value that is going to replace the removed one where it was used.",
+            "format": "double"
+          }
+        }
+      },
       "CustomerMetadataLanguageCreateRequest": {
         "type": "object",
         "additionalProperties": false,
@@ -15179,6 +16037,29 @@
           "language": {
             "type": "string",
             "nullable": true
+          }
+        }
+      },
+      "CustomerBoostValuesUpdateRequest": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "boostValuesToAdd": {
+            "type": "array",
+            "description": "List of boost values that need to be added to the existing ones.",
+            "nullable": true,
+            "items": {
+              "type": "number",
+              "format": "double"
+            }
+          },
+          "boostValuesToRemove": {
+            "type": "array",
+            "description": "List of existing boost values that need to be removed.",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/CustomerBoostValueRemoveInfo"
+            }
           }
         }
       },
@@ -15352,323 +16233,48 @@
           }
         }
       },
-      "DataGenerationCreateRequest": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "sampleRootPath": {
-            "type": "string",
-            "nullable": true
-          },
-          "superUserEmailAddress": {
-            "type": "string",
-            "nullable": true
-          },
-          "usersAndRoles": {
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/DataGenerationUsersAndUserRoles"
-              }
-            ]
-          },
-          "contents": {
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/DataGenerationContents"
-              }
-            ]
-          },
-          "basicShares": {
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/DataGenerationBasicShares"
-              }
-            ]
-          },
-          "schemas": {
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/DataGenerationSchemas"
-              }
-            ]
-          },
-          "contentSchemas": {
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/DataGenerationContentSchemas"
-              }
-            ]
-          },
-          "contentPermissionSets": {
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/DataGenerationContentPermissionSets"
-              }
-            ]
-          },
-          "schemaPermissionSets": {
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/DataGenerationSchemaPermissionSets"
-              }
-            ]
-          },
-          "tags": {
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/DataGenerationTags"
-              }
-            ]
-          },
-          "referencedFields": {
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/DataGenerationReferencedFields"
-              }
-            ]
-          }
-        }
-      },
-      "DataGenerationUsersAndUserRoles": {
+      "OutputResetRetryAttemptsRequest": {
         "type": "object",
         "additionalProperties": false,
         "required": [
-          "numberOfUsers",
-          "numberOfUserRoles",
-          "userRoleGrantedMax",
-          "userRightGrantedAverage"
+          "includeCompleted"
         ],
         "properties": {
-          "numberOfUsers": {
-            "type": "integer",
-            "format": "int32"
+          "outputIds": {
+            "type": "array",
+            "description": "List of output IDs you want to filter on. If this field is not empty, the other will be ignored.",
+            "nullable": true,
+            "items": {
+              "type": "string"
+            }
           },
-          "numberOfUserRoles": {
-            "type": "integer",
-            "format": "int32"
+          "contentIds": {
+            "type": "array",
+            "description": "List of Content IDs you want to filter on.",
+            "nullable": true,
+            "items": {
+              "type": "string"
+            }
           },
-          "userRoleGrantedMax": {
-            "type": "integer",
-            "format": "int32"
+          "fileExtensions": {
+            "type": "array",
+            "description": "The file extension of the outputs you want to filter on.",
+            "nullable": true,
+            "items": {
+              "type": "string"
+            }
           },
-          "userRightGrantedAverage": {
-            "type": "number",
-            "format": "double"
-          }
-        }
-      },
-      "DataGenerationContents": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "numberOfContents",
-          "transferSize",
-          "numberOfUsersWithContents",
-          "copySampleFiles",
-          "renderOutputs",
-          "maxConcurrentTransfers",
-          "numberOfContentPermissionSets",
-          "includeTroubleMakerFiles",
-          "numberOfSchemasPerContent"
-        ],
-        "properties": {
-          "numberOfContents": {
-            "type": "integer",
-            "format": "int32"
+          "outputFormatIds": {
+            "type": "array",
+            "description": "The IDs of the output formats you want to filter on.",
+            "nullable": true,
+            "items": {
+              "type": "string"
+            }
           },
-          "transferSize": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "numberOfUsersWithContents": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "copySampleFiles": {
-            "type": "boolean"
-          },
-          "renderOutputs": {
-            "type": "boolean"
-          },
-          "maxConcurrentTransfers": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "numberOfContentPermissionSets": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "includeTroubleMakerFiles": {
-            "type": "boolean"
-          },
-          "numberOfSchemasPerContent": {
-            "type": "integer",
-            "format": "int32"
-          }
-        }
-      },
-      "DataGenerationBasicShares": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "shareBatchSizePerCreator",
-          "numberOfShareCreators",
-          "numberOfInternalRecipientsPerShare",
-          "numberOfContentsPerShare"
-        ],
-        "properties": {
-          "shareBatchSizePerCreator": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "numberOfShareCreators": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "numberOfInternalRecipientsPerShare": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "numberOfContentsPerShare": {
-            "type": "integer",
-            "format": "int32"
-          }
-        }
-      },
-      "DataGenerationSchemas": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "numberOfSchemas",
-          "numberOfFieldsPerSchema",
-          "numberOfSchemaPermissionSets"
-        ],
-        "properties": {
-          "numberOfSchemas": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "numberOfFieldsPerSchema": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "numberOfSchemaPermissionSets": {
-            "type": "integer",
-            "format": "int32"
-          }
-        }
-      },
-      "DataGenerationContentSchemas": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "numberOfContentSchemas",
-          "numberOfFieldsPerContentSchemas",
-          "numberOfSchemaPermissionSets"
-        ],
-        "properties": {
-          "numberOfContentSchemas": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "numberOfFieldsPerContentSchemas": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "numberOfSchemaPermissionSets": {
-            "type": "integer",
-            "format": "int32"
-          }
-        }
-      },
-      "DataGenerationContentPermissionSets": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "numberOfSets",
-          "numberOfRolesPerSet"
-        ],
-        "properties": {
-          "numberOfSets": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "numberOfRolesPerSet": {
-            "type": "integer",
-            "format": "int32"
-          }
-        }
-      },
-      "DataGenerationSchemaPermissionSets": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "numberOfSets",
-          "numberOfRolesPerSet"
-        ],
-        "properties": {
-          "numberOfSets": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "numberOfRolesPerSet": {
-            "type": "integer",
-            "format": "int32"
-          }
-        }
-      },
-      "DataGenerationTags": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "numberOfSchemas",
-          "numberOfFieldsPerSchema",
-          "numberOfListItems",
-          "numberOfPermissionSets"
-        ],
-        "properties": {
-          "numberOfSchemas": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "numberOfFieldsPerSchema": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "numberOfListItems": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "numberOfPermissionSets": {
-            "type": "integer",
-            "format": "int32"
-          }
-        }
-      },
-      "DataGenerationReferencedFields": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "searchLevel",
-          "numberOfSingleTagboxesPerSchema"
-        ],
-        "properties": {
-          "searchLevel": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "numberOfSingleTagboxesPerSchema": {
-            "type": "integer",
-            "format": "int32"
+          "includeCompleted": {
+            "type": "boolean",
+            "description": "Should the successful filter results also be reset (and subsequently re-rendered)?"
           }
         }
       },
@@ -15708,6 +16314,20 @@
             "nullable": true
           },
           "logLevel": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "SetServiceLogLevelRequest": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "serviceName": {
+            "type": "string",
+            "nullable": true
+          },
+          "level": {
             "type": "string",
             "nullable": true
           }
@@ -15919,15 +16539,19 @@
               "picturepark_account": "Have no idea.",
               "businessprocess_read": "Read business processes",
               "businessprocess_write": "Write business processes",
+              "channel_read": "Read channels",
+              "channel_write": "Write channels",
               "content_read": "Read content",
               "content_write": "Write content",
               "documenthistory_read": "Read document history",
-              "documenthistory_write": "Write document history",
               "jsonschema_read": "Read json schemas",
               "listitem_read": "Read list items",
               "listitem_write": "Write list items",
+              "livestream_read": "Read live stream",
               "output_read": "Read outputs",
               "output_write": "Write outputs",
+              "outputformat_read": "Read output formats",
+              "outputformat_write": "Write output formats",
               "permission_read": "Read permission sets",
               "permission_write": "Write permission sets",
               "profile_read": "Read profile",

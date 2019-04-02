@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using FluentAssertions;
 using Picturepark.SDK.V1.Contract;
@@ -25,12 +26,29 @@ namespace Picturepark.SDK.V1.Tests
         public async Task ShouldSearchAnalyzedFields()
         {
             // Arrange
-            if (await _client.Schema.ExistsAsync(nameof(AnalyzerTestObject)).ConfigureAwait(false) == false)
+            if (!await _client.Schema.ExistsAsync(nameof(AnalyzerTestObject)).ConfigureAwait(false))
             {
                 var schemas = await _client.Schema.GenerateSchemasAsync(typeof(AnalyzerTestObject)).ConfigureAwait(false);
+                var schemasToCreate = new List<SchemaDetail>();
+                var schemasToUpdate = new List<SchemaDetail>();
+
                 foreach (var schema in schemas)
                 {
-                    await _client.Schema.CreateOrUpdateAsync(schema, false, TimeSpan.FromMinutes(1)).ConfigureAwait(false);
+                    if (await _client.Schema.ExistsAsync(schema.Id).ConfigureAwait(false))
+                    {
+                        schemasToUpdate.Add(schema);
+                    }
+                    else
+                    {
+                        schemasToCreate.Add(schema);
+                    }
+                }
+
+                await _client.Schema.CreateManyAsync(schemasToCreate, false, TimeSpan.FromMinutes(1)).ConfigureAwait(false);
+
+                foreach (var schema in schemasToUpdate)
+                {
+                    await _client.Schema.UpdateAsync(schema, true, TimeSpan.FromMinutes(1)).ConfigureAwait(false);
                 }
 
                 var analyzerValue = new AnalyzerTestObject

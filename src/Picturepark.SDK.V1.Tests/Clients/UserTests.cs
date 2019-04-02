@@ -67,7 +67,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         {
             var userCount = 3;
 
-            await _fixture.CreateAndActivateUsers(userCount).ConfigureAwait(false);
+            await _fixture.Users.Create(userCount).ConfigureAwait(false);
         }
 
         [Theory,
@@ -78,7 +78,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldLockAndUnlockUsers(int count)
         {
             // Arrange
-            var activeUsers = await _fixture.CreateAndActivateUsers(count).ConfigureAwait(false);
+            var activeUsers = await _fixture.Users.Create(count).ConfigureAwait(false);
             var activeUserIds = activeUsers.Select(u => u.Id).ToArray();
 
             async Task CheckIfUsersAreLocked(bool isLocked) =>
@@ -105,7 +105,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var city = "Aarray";
 
             // Arrange
-            var user = await _fixture.CreateAndActivateUser().ConfigureAwait(false);
+            var user = await _fixture.Users.Create().ConfigureAwait(false);
 
             user.Comment = comment;
             user.Address = user.Address ?? new UserAddress();
@@ -134,7 +134,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldReturnMultipleUsersCorrectly()
         {
             // Arrange
-            var users = await _fixture.CreateAndActivateUsers(5).ConfigureAwait(false);
+            var users = await _fixture.Users.Create(5).ConfigureAwait(false);
 
             // Act
             var retrievedUsers = await _client.User.GetManyAsync(users.Select(u => u.Id)).ConfigureAwait(false);

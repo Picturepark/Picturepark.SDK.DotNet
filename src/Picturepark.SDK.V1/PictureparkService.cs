@@ -30,6 +30,8 @@ namespace Picturepark.SDK.V1
 
         public IOutputClient Output { get; private set; }
 
+        public IOutputFormatClient OutputFormat { get; private set; }
+
         public IBusinessProcessClient BusinessProcess { get; private set; }
 
         public IDocumentHistoryClient DocumentHistory { get; private set; }
@@ -72,6 +74,7 @@ namespace Picturepark.SDK.V1
         private void Initialize(IPictureparkServiceSettings settings, HttpClient httpClient)
         {
             Output = new OutputClient(settings, httpClient);
+            OutputFormat = new OutputFormatClient(settings, httpClient);
             BusinessProcess = new BusinessProcessClient(settings, httpClient);
             DocumentHistory = new DocumentHistoryClient(settings, httpClient);
             JsonSchema = new JsonSchemaClient(settings, httpClient);
@@ -81,7 +84,7 @@ namespace Picturepark.SDK.V1
             User = new UserClient(settings, httpClient);
             UserRole = new UserRoleClient(settings, httpClient);
             Info = new InfoClient(settings, httpClient);
-            Schema = new SchemaClient((InfoClient)Info, settings, httpClient);
+            Schema = new SchemaClient(Info, BusinessProcess, settings, httpClient);
             Transfer = new TransferClient((BusinessProcessClient)BusinessProcess, settings, httpClient);
             ListItem = new ListItemClient((BusinessProcessClient)BusinessProcess, settings, httpClient);
             LiveStream = new LiveStreamClient(settings, httpClient);

@@ -16,25 +16,19 @@ namespace Picturepark.SDK.V1.Tests.Fixtures
 
         private readonly object _disposeSync = new object();
 
-        public async Task<IReadOnlyList<SchemaDetail>> RandomizeSchemaIdsAndCreate(IEnumerable<SchemaDetail> schemas)
+        public async Task<IReadOnlyList<SchemaDetail>> RandomizeSchemaIdsAndCreateMany(IEnumerable<SchemaDetail> schemas)
         {
             var schemaSuffix = new Random().Next(0, 1000000);
-            var createdSchemas = new List<SchemaDetail>();
 
             foreach (var schema in schemas)
             {
                 AppendSchemaIdSuffix(schema, schemaSuffix);
-                var result = await Client.Schema.CreateAsync(schema, true, TimeSpan.FromMinutes(1)).ConfigureAwait(false);
-
-                createdSchemas.Add(result.Schema);
             }
 
-            foreach (var createdSchema in createdSchemas)
-            {
-                _createdSchemaIds.Enqueue(createdSchema.Id);
-            }
+            var result = await Client.Schema.CreateManyAsync(schemas, true, TimeSpan.FromMinutes(1)).ConfigureAwait(false);
+            var detail = await result.FetchDetail().ConfigureAwait(false);
 
-            return createdSchemas;
+            return detail.SucceededItems.ToArray();
         }
 
         public override void Dispose()

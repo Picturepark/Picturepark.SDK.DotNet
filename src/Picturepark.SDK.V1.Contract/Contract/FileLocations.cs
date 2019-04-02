@@ -46,5 +46,8 @@ namespace Picturepark.SDK.V1.Contract
         {
             return new FileLocations(path);
         }
+
+        public override string ToString()
+            => $"{AbsoluteSourcePath} => {UploadAs}";
     }
 }

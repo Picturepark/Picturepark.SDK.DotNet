@@ -247,7 +247,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var uploadOptions = new UploadOptions
             {
                 ConcurrentUploads = 4,
-                ChunkSize = 20 * 1024,
+                ChunkSize = 1024 * 1024,
                 SuccessDelegate = Console.WriteLine,
                 ErrorDelegate = Console.WriteLine
             };
@@ -357,7 +357,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var uploadOptions = new UploadOptions
             {
                 ConcurrentUploads = 4,
-                ChunkSize = 20 * 1024,
+                ChunkSize = 1024 * 1024,
                 SuccessDelegate = Console.WriteLine,
                 ErrorDelegate = Console.WriteLine
             };
@@ -495,13 +495,17 @@ namespace Picturepark.SDK.V1.Tests.Clients
         private async Task SetupSchema(Type type)
         {
             var schemas = await _client.Schema.GenerateSchemasAsync(type).ConfigureAwait(false);
+            var schemasToCreate = new List<SchemaDetail>();
+
             foreach (var schema in schemas)
             {
-                if (await _client.Schema.ExistsAsync(schema.Id).ConfigureAwait(false) == false)
+                if (!await _client.Schema.ExistsAsync(schema.Id).ConfigureAwait(false))
                 {
-                    await _client.Schema.CreateAsync(schema, true, TimeSpan.FromMinutes(1)).ConfigureAwait(false);
+                    schemasToCreate.Add(schema);
                 }
             }
+
+            await _client.Schema.CreateManyAsync(schemasToCreate, true, TimeSpan.FromMinutes(1)).ConfigureAwait(false);
         }
 
         private async Task<string> CreatePerson()

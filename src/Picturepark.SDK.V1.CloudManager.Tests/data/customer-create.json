@@ -8,23 +8,26 @@
     "rootListItemSearchIndexNumberOfShards": 1,
     "rootListItemSearchIndexNumberOfReplicas": 0,
     "corsAllowedHosts": [ "editor.swagger.io" ],
-    "contentRetentionTime": "30.00:00:00",
-    "listItemRetentionTime": "30.00:00:00",
+    "snapshotEnabled": true,
     "snapshotRetentionTime": "30.00:00:00",
     "SnapshotFullbackupScheduleTime": "13:00:00",
+    "contentRetentionTime": "30.00:00:00",
+    "listItemRetentionTime": "30.00:00:00",
     "documentHistoryRetentionTime": "30.00:00:00",
     "liveStreamRetentionTime": "7.00:00:00",
     "baseUrl": "{baseurl}",
     "storagePath": "{storagepath}",
     "customerHosts": [],
-    "enableQueryDetails": false, 
+    "enableQueryDetails": false,
     "supportContactEmailAddress": "support@picturepark.com",
     "useSsl": false,
     "noReplyEmailAddress": "no-reply@picturepark.com",
     "createTransferBusinessProcess": "TransferMonitor",
     "contentBackupState": "Disabled",
-    "userRetentionTime": "01:00:00", 
-    "apiCallsPerMinute": 1000, 
+    "userRetentionTime": "01:00:00",
+    "successfulTransferRetentionTime": "30.00:00:00",
+    "incompleteTransferRetentionTime": "30.00:00:00",
+    "apiCallsPerMinute": 1000,
     "languageConfiguration": {
         "systemLanguages": [ "en", "de" ],
         "metadataLanguages": [ "en", "tr", "nl", "fr", "de", "pt", "es", "fi", "it", "no", "bg", "da", "hu", "pl", "ro", "ru" ],
@@ -36,24 +39,27 @@
     "externalProviders": [],
     "outputFormats": [
         {
-            "static": true,
+            "names": {
+                "en": "Original",
+                "de": "Original"
+            },
             "system": false,
             "dynamic": false,
             "dataExtraction": false,
-            "temporary": true,
+            "temporary": false,
             "sourceOutputFormats": null,
             "render": false,
             "format": {
-                "kind": "OriginalFormat",
-                "defaultOutputExtension": "",
-                "allowedOutputExtensions": [],
-                "renderer": null
+                "kind": "OriginalFormat"
             },
             "id": "Original",
-            "version": 0
+            "retentionTime": "7.00:00:00" 
         },
         {
-            "static": true,
+            "names": {
+                "en": "Large thumbnail",
+                "de": "Vorschau gross"
+            },
             "system": true,
             "dynamic": false,
             "dataExtraction": true,
@@ -70,11 +76,6 @@
                 "quality": 95,
                 "isProgressive": false,
                 "chromaSubsamplingEnabled": false,
-                "defaultOutputExtension": ".jpg",
-                "allowedOutputExtensions": [
-                    ".jpg",
-                    ".jpeg"
-                ],
                 "colorProfile": null,
                 "colorTransformationIntent": 0,
                 "horizontalResolution": 72.0,
@@ -88,16 +89,18 @@
                 "resizeAction": {
                     "width": 320,
                     "height": 320,
-                    "resizeMode": 0
+                    "resizeMode": "Fit"
                 },
-                "actions": null,
-                "renderer": 2
+                "actions": null
             },
             "id": "ThumbnailLarge",
-            "version": 0
+            "retentionTime": "7.00:00:00"
         },
         {
-            "static": true,
+            "names": {
+                "en": "Medium thumbnail",
+                "de": "Vorschau mittel"
+            },
             "system": true,
             "dynamic": false,
             "dataExtraction": true,
@@ -114,11 +117,6 @@
                 "quality": 95,
                 "isProgressive": false,
                 "chromaSubsamplingEnabled": false,
-                "defaultOutputExtension": ".jpg",
-                "allowedOutputExtensions": [
-                    ".jpg",
-                    ".jpeg"
-                ],
                 "colorProfile": null,
                 "colorTransformationIntent": 0,
                 "horizontalResolution": 72.0,
@@ -132,16 +130,18 @@
                 "resizeAction": {
                     "width": 220,
                     "height": 200,
-                    "resizeMode": 0
+                    "resizeMode": "Fit"
                 },
-                "actions": null,
-                "renderer": 2
+                "actions": null
             },
             "id": "ThumbnailMedium",
-            "version": 0
+            "retentionTime": "7.00:00:00"
         },
         {
-            "static": true,
+            "names": {
+                "en": "Small thumbnail",
+                "de": "Vorschau klein"
+            },
             "system": true,
             "dynamic": false,
             "dataExtraction": true,
@@ -158,11 +158,6 @@
                 "quality": 95,
                 "isProgressive": false,
                 "chromaSubsamplingEnabled": false,
-                "defaultOutputExtension": ".jpg",
-                "allowedOutputExtensions": [
-                    ".jpg",
-                    ".jpeg"
-                ],
                 "colorProfile": null,
                 "colorTransformationIntent": 0,
                 "horizontalResolution": 72.0,
@@ -176,16 +171,18 @@
                 "resizeAction": {
                     "width": 120,
                     "height": 90,
-                    "resizeMode": 0
+                    "resizeMode": "Fit"
                 },
-                "actions": null,
-                "renderer": 2
+                "actions": null
             },
             "id": "ThumbnailSmall",
-            "version": 0
+            "retentionTime": "7.00:00:00"
         },
         {
-            "static": true,
+            "names": {
+                "en": "Preview",
+                "de": "Voransicht"
+            },
             "system": false,
             "dynamic": false,
             "dataExtraction": true,
@@ -202,13 +199,8 @@
                 "quality": 95,
                 "isProgressive": false,
                 "chromaSubsamplingEnabled": false,
-                "defaultOutputExtension": ".jpg",
-                "allowedOutputExtensions": [
-                    ".jpg",
-                    ".jpeg"
-                ],
-                "colorProfile": 6,
-                "colorTransformationIntent": 1,
+                "colorProfile": "Srgb",
+                "colorTransformationIntent": "RelativeColorimetricBpc",
                 "horizontalResolution": null,
                 "verticalResolution": null,
                 "renderFirstFrameOnly": false,
@@ -220,16 +212,24 @@
                 "resizeAction": {
                     "width": 1600,
                     "height": 1600,
-                    "resizeMode": 0
+                    "resizeMode": "Shrink"
                 },
-                "actions": null,
-                "renderer": 2
+                "actions": [
+                    {
+                        "kind": "AlphaHandlingAction",
+                        "alphaHandling": "ReplaceAlpha",
+                        "replacementRgbColorHexCode": "0xFFFFFF"
+                    }
+                ]
             },
             "id": "Preview",
-            "version": 0
+            "retentionTime": "7.00:00:00"
         },
         {
-            "static": true,
+            "names": {
+                "en": "Video preview",
+                "de": "Video Voransicht"
+            },
             "system": false,
             "dynamic": false,
             "dataExtraction": true,
@@ -243,22 +243,16 @@
             "render": true,
             "format": {
                 "kind": "VideoStillFormat",
-                "defaultOutputExtension": ".jpg",
-                "allowedOutputExtensions": [
-                    ".jpg",
-                    ".jpeg",
-                    ".png",
-                    ".tif",
-                    ".tiff"
-                ],
-                "positionInSeconds": 10,
-                "renderer": 4
+                "positionInSeconds": 10
             },
             "id": "VideoPreview",
-            "version": 0
+            "retentionTime": "7.00:00:00"
         },
         {
-            "static": true,
+            "names": {
+                "en": "Document preview",
+                "de": "Dokument Voransicht"
+            },
             "system": false,
             "dynamic": false,
             "dataExtraction": true,
@@ -271,22 +265,16 @@
             },
             "render": true,
             "format": {
-                "kind": "DocumentStillFormat",
-                "defaultOutputExtension": ".jpg",
-                "allowedOutputExtensions": [
-                    ".jpg",
-                    ".jpeg",
-                    ".png",
-                    ".tif",
-                    ".tiff"
-                ],
-                "renderer": 0
+                "kind": "DocumentStillFormat"
             },
             "id": "DocumentPreview",
-            "version": 0
+            "retentionTime": "7.00:00:00"
         },
         {
-            "static": true,
+            "names": {
+                "en": "Audio waveform preview",
+                "de": "Audio-Wellenform Voransicht"
+            },
             "system": false,
             "dynamic": false,
             "dataExtraction": true,
@@ -299,22 +287,16 @@
             },
             "render": true,
             "format": {
-                "kind": "AudioStillFormat",
-                "defaultOutputExtension": ".png",
-                "allowedOutputExtensions": [
-                    ".jpg",
-                    ".jpeg",
-                    ".png",
-                    ".tif",
-                    ".tiff"
-                ],
-                "renderer": 5
+                "kind": "AudioStillFormat"
             },
             "id": "AudioPreview",
-            "version": 0
+            "retentionTime": "7.00:00:00"
         },
         {
-            "static": true,
+            "names": {
+                "en": "Video keyframes",
+                "de": "Video-Keyframes"
+            },
             "system": false,
             "dynamic": false,
             "dataExtraction": false,
@@ -331,22 +313,54 @@
                 "spriteResizeAction": {
                     "width": 160,
                     "height": 160,
-                    "resizeMode": 0
+                    "resizeMode": "Fit"
                 },
                 "maxNumberOfSprites": 50,
-                "quality": 80,
-                "defaultOutputExtension": ".jpg",
-                "allowedOutputExtensions": [
-                    ".jpg",
-                    ".jpeg"
-                ],
-                "renderer": 4
+                "quality": 80
             },
             "id": "VideoKeyframes",
-            "version": 0
+            "retentionTime": "7.00:00:00"
         },
         {
-            "static": false,
+            "names": {
+                "en": "Small video",
+                "de": "Video klein"
+            },
+            "system": false,
+            "dynamic": false,
+            "dataExtraction": false,
+            "temporary": false,
+            "sourceOutputFormats": {
+                "image": null,
+                "video": "Original",
+                "document": null,
+                "audio": null
+            },
+            "render": true,
+            "format": {
+                "kind": "Mp4VideoFormat",
+                "resizeAction": {
+                    "width": 480,
+                    "height": 360,
+                    "resizeMode": "Fit"
+                },
+                "audioCodec": {
+                    "kind": "AacAudioFormat",
+                    "bitrate": null,
+                    "quality": 4,
+                    "profile": "aac_low",
+                    "coder": "twoloop"
+                },
+                "preset": 5
+            },
+            "id": "VideoSmall",
+            "retentionTime": "7.00:00:00"
+        },
+        {
+            "names": {
+                "en": "Large video",
+                "de": "Video gross"
+            },
             "system": false,
             "dynamic": false,
             "dataExtraction": false,
@@ -363,26 +377,69 @@
                 "resizeAction": {
                     "width": 1280,
                     "height": 720,
-                    "resizeMode": 0
+                    "resizeMode": "Fit"
                 },
                 "audioCodec": {
                     "kind": "AacAudioFormat",
-                    "defaultOutputExtension": ".mp3",
-                    "allowedOutputExtensions": [ ".mp3" ],
                     "bitrate": null,
                     "quality": 4,
-                    "renderer": 5,
-                    "profile": "Aac_low",
-                    "coder": "Twoloop"
+                    "profile": "aac_low",
+                    "coder": "twoloop"
                 },
-                "preset": 5,
-                "defaultOutputExtension": ".mp4",
-                "allowedOutputExtensions": [ ".mp4" ],
-                "actions": null,
-                "renderer": 4
+                "preset": 5
             },
             "id": "VideoLarge",
-            "version": 0
+            "retentionTime": "7.00:00:00"
+        },
+        {
+            "names": {
+                "en": "PDF",
+                "de": "PDF"
+            },
+            "system": false,
+            "dynamic": false,
+            "dataExtraction": true,
+            "temporary": false,
+            "sourceOutputFormats": {
+                "image": null,
+                "video": null,
+                "document": "Original",
+                "audio": null
+            },
+            "render": true,
+            "format": {
+                "kind": "PdfFormat",
+                "jpegQuality": 90,
+                "fastWebView": true,
+                "reduceFileSize": true,
+                "extractFullText": true
+            },
+            "id": "Pdf",
+            "retentionTime": "7.00:00:00"
+        },
+        {
+            "names": {
+                "en": "Audio",
+                "de": "Audio"
+            },
+            "system": false,
+            "dynamic": false,
+            "dataExtraction": false,
+            "temporary": false,
+            "sourceOutputFormats": {
+                "image": null,
+                "video": null,
+                "document": null,
+                "audio": "Original"
+            },
+            "render": true,
+            "format": {
+                "kind": "Mp3AudioFormat",
+                "bitrate": 128,
+                "quality": null
+            },
+            "id": "AudioSmall",
+            "retentionTime": "7.00:00:00"
         }
     ]
 }
