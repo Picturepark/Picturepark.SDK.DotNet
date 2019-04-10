@@ -8626,9 +8626,13 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("backupTimestamp", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.DateTime? BackupTimestamp { get; set; }
     
-        /// <summary>Number of rendering retry attempts left</summary>
+        /// <summary>Number of rendering retry attempts left.</summary>
         [Newtonsoft.Json.JsonProperty("attemptsLeft", Required = Newtonsoft.Json.Required.Always)]
         public int AttemptsLeft { get; set; }
+    
+        /// <summary>Version counter incremented every time this output is rendered (or in case of Original when new original is uploaded).</summary>
+        [Newtonsoft.Json.JsonProperty("fileVersion", Required = Newtonsoft.Json.Required.Always)]
+        public int FileVersion { get; set; }
     
         public string ToJson() 
         {
