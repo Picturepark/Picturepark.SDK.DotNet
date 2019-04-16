@@ -212,7 +212,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             }).ConfigureAwait(false);
         }
 
-        [Fact(Skip = "Christian will solve it later")]
+        [Fact]
         [Trait("Stack", "Shares")]
         public async Task ShouldSearch()
         {
