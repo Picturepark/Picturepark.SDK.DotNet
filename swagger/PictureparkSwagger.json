@@ -25800,6 +25800,7 @@
           "contentId",
           "renderingState",
           "attemptsLeft",
+          "fileVersion",
           "kind"
         ],
         "properties": {
@@ -25844,7 +25845,12 @@
           },
           "attemptsLeft": {
             "type": "integer",
-            "description": "Number of rendering retry attempts left",
+            "description": "Number of rendering retry attempts left.",
+            "format": "int32"
+          },
+          "fileVersion": {
+            "type": "integer",
+            "description": "Version counter incremented every time this output is rendered (or in case of Original when new original is uploaded).",
             "format": "int32"
           },
           "kind": {
