@@ -19277,6 +19277,7 @@
                 "PictureparkApplicationException": "#/components/schemas/PictureparkApplicationException",
                 "MissingCustomerDefaultLanguageException": "#/components/schemas/MissingCustomerDefaultLanguageException",
                 "PartialOperationNotSupportedException": "#/components/schemas/PartialOperationNotSupportedException",
+                "ContractMismatchException": "#/components/schemas/ContractMismatchException",
                 "InvalidArgumentException": "#/components/schemas/InvalidArgumentException",
                 "UnknownException": "#/components/schemas/UnknownException",
                 "OwnerTokenInUseException": "#/components/schemas/OwnerTokenInUseException",
@@ -20288,6 +20289,17 @@
         ]
       },
       "PartialOperationNotSupportedException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "ContractMismatchException": {
         "allOf": [
           {
             "$ref": "#/components/schemas/PictureparkValidationException"
