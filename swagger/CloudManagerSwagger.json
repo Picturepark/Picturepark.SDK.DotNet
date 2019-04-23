@@ -7486,6 +7486,7 @@
                 "SchemaPermissionException": "#/components/schemas/SchemaPermissionException",
                 "PermissionSetValidationException": "#/components/schemas/PermissionSetValidationException",
                 "PermissionSetInvalidRightCombinationException": "#/components/schemas/PermissionSetInvalidRightCombinationException",
+                "AmbiguousUserRoleRightsException": "#/components/schemas/AmbiguousUserRoleRightsException",
                 "UnsupportedListItemChangeCommandException": "#/components/schemas/UnsupportedListItemChangeCommandException",
                 "ListItemLayerException": "#/components/schemas/ListItemLayerException",
                 "ListItemNotFoundException": "#/components/schemas/ListItemNotFoundException",
@@ -9492,6 +9493,17 @@
           {
             "type": "object",
             "description": "This exception is an abstract base for permission set validation.",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "AmbiguousUserRoleRightsException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PermissionSetValidationException"
+          },
+          {
+            "type": "object",
             "additionalProperties": false
           }
         ]
