@@ -51,7 +51,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                     Names = permissionSet.Names,
                     UserRolesRights = new[]
                     {
-                        new PermissionUserRoleRightsOfMetadataRight
+                        new UserRoleRightsOfMetadataRight
                             { UserRoleId = userRoleId, Rights = new[] { MetadataRight.View, MetadataRight.ManageItems } }
                     }
                 }).ConfigureAwait(false);

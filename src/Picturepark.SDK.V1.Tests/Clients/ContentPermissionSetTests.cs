@@ -51,7 +51,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                     Names = permissionSet.Names,
                     UserRolesRights = new[]
                     {
-                        new PermissionUserRoleRightsOfContentRight
+                        new UserRoleRightsOfContentRight
                             { UserRoleId = userRoleId, Rights = new[] { ContentRight.AccessOriginal } }
                     }
                 }).ConfigureAwait(false);

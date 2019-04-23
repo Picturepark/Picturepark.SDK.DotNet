@@ -2115,6 +2115,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("SchemaPermissionException", typeof(SchemaPermissionException))]
     [JsonInheritanceAttribute("PermissionSetValidationException", typeof(PermissionSetValidationException))]
     [JsonInheritanceAttribute("PermissionSetInvalidRightCombinationException", typeof(PermissionSetInvalidRightCombinationException))]
+    [JsonInheritanceAttribute("AmbiguousUserRoleRightsException", typeof(AmbiguousUserRoleRightsException))]
     [JsonInheritanceAttribute("UnsupportedListItemChangeCommandException", typeof(UnsupportedListItemChangeCommandException))]
     [JsonInheritanceAttribute("ListItemLayerException", typeof(ListItemLayerException))]
     [JsonInheritanceAttribute("ListItemNotFoundException", typeof(ListItemNotFoundException))]
@@ -4316,6 +4317,22 @@ namespace Picturepark.SDK.V1.Contract
         public static PermissionSetInvalidRightCombinationException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<PermissionSetInvalidRightCombinationException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class AmbiguousUserRoleRightsException : PermissionSetValidationException
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static AmbiguousUserRoleRightsException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<AmbiguousUserRoleRightsException>(data);
         }
     
     }
@@ -10779,10 +10796,10 @@ namespace Picturepark.SDK.V1.Contract
         public TranslatedStringDictionary Names { get; set; }
     
         [Newtonsoft.Json.JsonProperty("userRolesRights", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<PermissionUserRoleRightsOfContentRight> UserRolesRights { get; set; }
+        public System.Collections.Generic.ICollection<UserRoleRightsOfContentRight> UserRolesRights { get; set; }
     
         [Newtonsoft.Json.JsonProperty("userRolesPermissionSetRights", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<PermissionUserRoleRightsOfPermissionSetRight> UserRolesPermissionSetRights { get; set; }
+        public System.Collections.Generic.ICollection<UserRoleRightsOfPermissionSetRight> UserRolesPermissionSetRights { get; set; }
     
         [Newtonsoft.Json.JsonProperty("exclusive", Required = Newtonsoft.Json.Required.Always)]
         public bool Exclusive { get; set; }
@@ -16153,10 +16170,10 @@ namespace Picturepark.SDK.V1.Contract
         public TranslatedStringDictionary Names { get; set; }
     
         [Newtonsoft.Json.JsonProperty("userRolesRights", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<PermissionUserRoleRightsOfMetadataRight> UserRolesRights { get; set; }
+        public System.Collections.Generic.ICollection<UserRoleRightsOfMetadataRight> UserRolesRights { get; set; }
     
         [Newtonsoft.Json.JsonProperty("userRolesPermissionSetRights", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<PermissionUserRoleRightsOfPermissionSetRight> UserRolesPermissionSetRights { get; set; }
+        public System.Collections.Generic.ICollection<UserRoleRightsOfPermissionSetRight> UserRolesPermissionSetRights { get; set; }
     
         [Newtonsoft.Json.JsonProperty("exclusive", Required = Newtonsoft.Json.Required.Always)]
         public bool Exclusive { get; set; }
