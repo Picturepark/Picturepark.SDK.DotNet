@@ -333,6 +333,51 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
         [Fact]
         [Trait("Stack", "Contents")]
+        public async Task ShouldAllowMultiTagboxExtraction()
+        {
+            // Arrange
+            var contentId = await _fixture.GetRandomContentIdAsync(".jpg", 1).ConfigureAwait(false);
+            var listItems = await _fixture.Client.ListItem.SearchAsync(new ListItemSearchRequest()
+            {
+                Filter = FilterBase.FromExpression<ListItem>(s => s.ContentSchemaId, nameof(SimpleReferenceObject)),
+                Limit = 1
+            }).ConfigureAwait(false);
+            var listItemId = listItems.Results.First().Id;
+
+            var assignLayerWithTagbox = new ContentMetadataUpdateRequest()
+            {
+                LayerSchemaIds = new List<string>() { nameof(AllDataTypesContract) },
+                Metadata = new DataDictionary()
+                {
+                    {
+                        nameof(AllDataTypesContract),
+                        new DataDictionary()
+                        {
+                            {
+                                nameof(AllDataTypesContract.MultiTagboxField),
+                                new List<SimpleReferenceObject>() { new SimpleReferenceObject() { RefId = listItemId } }
+                            }
+                        }
+                    }
+                }
+            };
+
+            // Act
+            var withTagboxLayer = await _client.Content
+                .UpdateMetadataAsync(contentId, assignLayerWithTagbox, new[] { ContentResolveBehavior.Metadata })
+                .ConfigureAwait(false);
+
+            var listOfRefObjects = withTagboxLayer.Metadata
+                .Get(nameof(AllDataTypesContract).ToLowerCamelCase())
+                .GetList(nameof(AllDataTypesContract.MultiTagboxField).ToLowerCamelCase());
+
+            // Assert
+            listOfRefObjects.Should().HaveCount(1);
+            listOfRefObjects.Single()["_refId"].Should().Be(listItemId);
+        }
+
+        [Fact]
+        [Trait("Stack", "Contents")]
         public async Task ShouldDownloadMultiple()
         {
             int maxNumberOfDownloadFiles = 3;

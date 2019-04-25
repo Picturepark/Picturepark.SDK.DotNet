@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Newtonsoft.Json.Linq;
+using System.Linq;
 
 namespace Picturepark.SDK.V1.Contract
 {
@@ -29,9 +30,15 @@ namespace Picturepark.SDK.V1.Contract
         /// </summary>
         /// <param name="schemaId"></param>
         /// <returns></returns>
-        public List<DataDictionary> GetList(string schemaId)
-        {
-            return ((JObject)this[schemaId]).ToObject<List<DataDictionary>>();
-        }
+        public List<DataDictionary> GetList(string schemaId) =>
+            GetList<DataDictionary>(schemaId);
+
+        /// <summary>
+        /// Gets an item in the dictionary as List&lt;T&gt;
+        /// </summary>
+        /// <param name="schemaId"></param>
+        /// <returns></returns>
+        public List<T> GetList<T>(string schemaId) =>
+            ((JArray)this[schemaId]).Select(e => e.ToObject<T>()).ToList();
     }
 }
