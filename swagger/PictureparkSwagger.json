@@ -28732,8 +28732,7 @@
           "languageConfiguration",
           "languages",
           "outputFormats",
-          "boostValues",
-          "apps"
+          "boostValues"
         ],
         "properties": {
           "customerId": {
@@ -28793,6 +28792,7 @@
           "apps": {
             "type": "array",
             "description": "Apps registered for this customer",
+            "nullable": true,
             "items": {
               "$ref": "#/components/schemas/CustomerApp"
             }

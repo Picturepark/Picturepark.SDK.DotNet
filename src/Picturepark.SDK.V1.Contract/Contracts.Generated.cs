@@ -11467,9 +11467,8 @@ namespace Picturepark.SDK.V1.Contract
         public System.Collections.Generic.ICollection<double> BoostValues { get; set; } = new System.Collections.Generic.List<double>();
     
         /// <summary>Apps registered for this customer</summary>
-        [Newtonsoft.Json.JsonProperty("apps", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.Collections.Generic.ICollection<CustomerApp> Apps { get; set; } = new System.Collections.Generic.List<CustomerApp>();
+        [Newtonsoft.Json.JsonProperty("apps", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<CustomerApp> Apps { get; set; }
     
         public string ToJson() 
         {
