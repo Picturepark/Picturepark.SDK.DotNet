@@ -28788,6 +28788,14 @@
               "type": "number",
               "format": "double"
             }
+          },
+          "apps": {
+            "type": "array",
+            "description": "Apps registered for this customer",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/CustomerApp"
+            }
           }
         }
       },
@@ -28871,6 +28879,24 @@
           },
           "names": {
             "description": "Output translations.",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/TranslatedStringDictionary"
+              }
+            ]
+          }
+        }
+      },
+      "CustomerApp": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "appId": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "nullable": true,
             "oneOf": [
               {
                 "$ref": "#/components/schemas/TranslatedStringDictionary"
