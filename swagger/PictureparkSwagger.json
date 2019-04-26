@@ -19314,6 +19314,7 @@
                 "QueryException": "#/components/schemas/QueryException",
                 "PermissionOwnershipTransferException": "#/components/schemas/PermissionOwnershipTransferException",
                 "PermissionSetNotFoundException": "#/components/schemas/PermissionSetNotFoundException",
+                "PermissionSetAggregateException": "#/components/schemas/PermissionSetAggregateException",
                 "DuplicateRightException": "#/components/schemas/DuplicateRightException",
                 "PermissionValidationException": "#/components/schemas/PermissionValidationException",
                 "PermissionSetInUseException": "#/components/schemas/PermissionSetInUseException",
@@ -21139,6 +21140,26 @@
                 "nullable": true,
                 "items": {
                   "type": "string"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "PermissionSetAggregateException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "exceptions": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/PictureparkException"
                 }
               }
             }
