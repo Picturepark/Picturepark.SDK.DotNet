@@ -19457,6 +19457,10 @@
                 "type": "integer",
                 "format": "int32"
               },
+              "exceptionMessage": {
+                "type": "string",
+                "nullable": true
+              },
               "kind": {
                 "type": "string"
               }
