@@ -19282,6 +19282,7 @@
                 "UnknownException": "#/components/schemas/UnknownException",
                 "OwnerTokenInUseException": "#/components/schemas/OwnerTokenInUseException",
                 "InvalidValueFormatException": "#/components/schemas/InvalidValueFormatException",
+                "ItemIdDuplicatedException": "#/components/schemas/ItemIdDuplicatedException",
                 "CustomerViolationException": "#/components/schemas/CustomerViolationException",
                 "CustomerAliasNotFoundException": "#/components/schemas/CustomerAliasNotFoundException",
                 "CustomerAliasInUseException": "#/components/schemas/CustomerAliasInUseException",
@@ -19314,6 +19315,7 @@
                 "QueryException": "#/components/schemas/QueryException",
                 "PermissionOwnershipTransferException": "#/components/schemas/PermissionOwnershipTransferException",
                 "PermissionSetNotFoundException": "#/components/schemas/PermissionSetNotFoundException",
+                "PermissionSetAggregateException": "#/components/schemas/PermissionSetAggregateException",
                 "DuplicateRightException": "#/components/schemas/DuplicateRightException",
                 "PermissionValidationException": "#/components/schemas/PermissionValidationException",
                 "PermissionSetInUseException": "#/components/schemas/PermissionSetInUseException",
@@ -20381,6 +20383,23 @@
           }
         ]
       },
+      "ItemIdDuplicatedException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
       "CustomerViolationException": {
         "allOf": [
           {
@@ -21143,6 +21162,26 @@
                 "nullable": true,
                 "items": {
                   "type": "string"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "PermissionSetAggregateException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "exceptions": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/PictureparkException"
                 }
               }
             }
@@ -30068,13 +30107,6 @@
               "documentType": {
                 "type": "string",
                 "nullable": true
-              },
-              "documentIds": {
-                "type": "array",
-                "nullable": true,
-                "items": {
-                  "type": "string"
-                }
               }
             }
           }
@@ -30083,7 +30115,7 @@
       "CustomerChangeEvent": {
         "allOf": [
           {
-            "$ref": "#/components/schemas/ApplicationEvent"
+            "$ref": "#/components/schemas/ConfigurationChangeEvent"
           },
           {
             "type": "object",
@@ -35635,7 +35667,7 @@
               },
               "outputItems": {
                 "type": "array",
-                "description": "Outputs being rendered for file.",
+                "description": "Outputs rendered during data extraction phase.",
                 "nullable": true,
                 "items": {
                   "$ref": "#/components/schemas/FileTransferOutput"

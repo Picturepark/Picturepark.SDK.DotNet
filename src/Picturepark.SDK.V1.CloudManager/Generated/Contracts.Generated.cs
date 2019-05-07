@@ -833,6 +833,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [JsonInheritanceAttribute("UnknownException", typeof(UnknownException))]
     [JsonInheritanceAttribute("OwnerTokenInUseException", typeof(OwnerTokenInUseException))]
     [JsonInheritanceAttribute("InvalidValueFormatException", typeof(InvalidValueFormatException))]
+    [JsonInheritanceAttribute("ItemIdDuplicatedException", typeof(ItemIdDuplicatedException))]
     [JsonInheritanceAttribute("CustomerViolationException", typeof(CustomerViolationException))]
     [JsonInheritanceAttribute("CustomerAliasNotFoundException", typeof(CustomerAliasNotFoundException))]
     [JsonInheritanceAttribute("CustomerAliasInUseException", typeof(CustomerAliasInUseException))]
@@ -865,6 +866,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [JsonInheritanceAttribute("QueryException", typeof(QueryException))]
     [JsonInheritanceAttribute("PermissionOwnershipTransferException", typeof(PermissionOwnershipTransferException))]
     [JsonInheritanceAttribute("PermissionSetNotFoundException", typeof(PermissionSetNotFoundException))]
+    [JsonInheritanceAttribute("PermissionSetAggregateException", typeof(PermissionSetAggregateException))]
     [JsonInheritanceAttribute("DuplicateRightException", typeof(DuplicateRightException))]
     [JsonInheritanceAttribute("PermissionValidationException", typeof(PermissionValidationException))]
     [JsonInheritanceAttribute("PermissionSetInUseException", typeof(PermissionSetInUseException))]
@@ -2052,6 +2054,25 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
     [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class ItemIdDuplicatedException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static ItemIdDuplicatedException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ItemIdDuplicatedException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
     public partial class CustomerViolationException : PictureparkException
     {
         [Newtonsoft.Json.JsonProperty("expectedCustomerId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -2871,6 +2892,25 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         public static PermissionSetNotFoundException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<PermissionSetNotFoundException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class PermissionSetAggregateException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("exceptions", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<PictureparkException> Exceptions { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static PermissionSetAggregateException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<PermissionSetAggregateException>(data);
         }
     
     }

@@ -203,7 +203,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldCreateDownloadLinkForSingleFile()
         {
             // Arrange
-            var contentId = await _fixture.GetRandomContentIdAsync(".jpg", 50).ConfigureAwait(false);
+            var contentId = await _fixture.GetRandomContentIdAsync("fileMetadata.fileExtension:.jpg", 50).ConfigureAwait(false);
             var createDownloadLinkRequest = new ContentDownloadLinkCreateRequest
             {
                 Contents = new List<ContentDownloadRequestItem>
