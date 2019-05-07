@@ -19282,6 +19282,7 @@
                 "UnknownException": "#/components/schemas/UnknownException",
                 "OwnerTokenInUseException": "#/components/schemas/OwnerTokenInUseException",
                 "InvalidValueFormatException": "#/components/schemas/InvalidValueFormatException",
+                "ItemIdDuplicatedException": "#/components/schemas/ItemIdDuplicatedException",
                 "CustomerViolationException": "#/components/schemas/CustomerViolationException",
                 "CustomerAliasNotFoundException": "#/components/schemas/CustomerAliasNotFoundException",
                 "CustomerAliasInUseException": "#/components/schemas/CustomerAliasInUseException",
@@ -19457,6 +19458,10 @@
               "httpStatusCode": {
                 "type": "integer",
                 "format": "int32"
+              },
+              "exceptionMessage": {
+                "type": "string",
+                "nullable": true
               },
               "kind": {
                 "type": "string"
@@ -20375,6 +20380,23 @@
           {
             "type": "object",
             "additionalProperties": false
+          }
+        ]
+      },
+      "ItemIdDuplicatedException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string",
+                "nullable": true
+              }
+            }
           }
         ]
       },
@@ -28809,6 +28831,14 @@
               "type": "number",
               "format": "double"
             }
+          },
+          "apps": {
+            "type": "array",
+            "description": "Apps registered for this customer",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/CustomerApp"
+            }
           }
         }
       },
@@ -28892,6 +28922,24 @@
           },
           "names": {
             "description": "Output translations.",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/TranslatedStringDictionary"
+              }
+            ]
+          }
+        }
+      },
+      "CustomerApp": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "appId": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "nullable": true,
             "oneOf": [
               {
                 "$ref": "#/components/schemas/TranslatedStringDictionary"
@@ -30059,13 +30107,6 @@
               "documentType": {
                 "type": "string",
                 "nullable": true
-              },
-              "documentIds": {
-                "type": "array",
-                "nullable": true,
-                "items": {
-                  "type": "string"
-                }
               }
             }
           }
@@ -30074,7 +30115,7 @@
       "CustomerChangeEvent": {
         "allOf": [
           {
-            "$ref": "#/components/schemas/ApplicationEvent"
+            "$ref": "#/components/schemas/ConfigurationChangeEvent"
           },
           {
             "type": "object",
@@ -35626,7 +35667,7 @@
               },
               "outputItems": {
                 "type": "array",
-                "description": "Outputs being rendered for file.",
+                "description": "Outputs rendered during data extraction phase.",
                 "nullable": true,
                 "items": {
                   "$ref": "#/components/schemas/FileTransferOutput"

@@ -7446,6 +7446,7 @@
                 "UnknownException": "#/components/schemas/UnknownException",
                 "OwnerTokenInUseException": "#/components/schemas/OwnerTokenInUseException",
                 "InvalidValueFormatException": "#/components/schemas/InvalidValueFormatException",
+                "ItemIdDuplicatedException": "#/components/schemas/ItemIdDuplicatedException",
                 "CustomerViolationException": "#/components/schemas/CustomerViolationException",
                 "CustomerAliasNotFoundException": "#/components/schemas/CustomerAliasNotFoundException",
                 "CustomerAliasInUseException": "#/components/schemas/CustomerAliasInUseException",
@@ -7621,6 +7622,10 @@
               "httpStatusCode": {
                 "type": "integer",
                 "format": "int32"
+              },
+              "exceptionMessage": {
+                "type": "string",
+                "nullable": true
               },
               "kind": {
                 "type": "string"
@@ -8539,6 +8544,23 @@
           {
             "type": "object",
             "additionalProperties": false
+          }
+        ]
+      },
+      "ItemIdDuplicatedException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string",
+                "nullable": true
+              }
+            }
           }
         ]
       },
