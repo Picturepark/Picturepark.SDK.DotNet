@@ -1068,6 +1068,17 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         System.Threading.Tasks.Task<System.Collections.Generic.ICollection<SchemaDetail>> GetReferencedAsync(string schemaId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
+        /// <summary>Gets all schemas referenced by the schemas specified in</summary>
+        /// <param name="schemaIds">The schema IDs.</param>
+        /// <returns>Referenced schema details</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<SchemaDetail>> GetManyReferencedAsync(System.Collections.Generic.IEnumerable<string> schemaIds = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "12.0.9.0 (NJsonSchema v9.13.10.0 (Newtonsoft.Json v11.0.0.0))")]
@@ -2046,6 +2057,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("TermsOfServiceConsentRequiredException", typeof(TermsOfServiceConsentRequiredException))]
     [JsonInheritanceAttribute("PictureparkNotFoundException", typeof(PictureparkNotFoundException))]
     [JsonInheritanceAttribute("UserRolesNotFoundException", typeof(UserRolesNotFoundException))]
+    [JsonInheritanceAttribute("UnauthorizedException", typeof(UnauthorizedException))]
     [JsonInheritanceAttribute("RenderingException", typeof(RenderingException))]
     [JsonInheritanceAttribute("ServiceProviderDeleteException", typeof(ServiceProviderDeleteException))]
     [JsonInheritanceAttribute("ServiceProviderCreateException", typeof(ServiceProviderCreateException))]
@@ -2540,6 +2552,22 @@ namespace Picturepark.SDK.V1.Contract
         public static UserRolesNotFoundException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<UserRolesNotFoundException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class UnauthorizedException : PictureparkBusinessException
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static UnauthorizedException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<UnauthorizedException>(data);
         }
     
     }
