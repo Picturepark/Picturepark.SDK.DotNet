@@ -386,6 +386,21 @@ namespace Picturepark.SDK.V1.Tests.Clients
             referencedSchemas.Single().Id.Should().StartWith("Department");
         }
 
+        [Fact]
+        [Trait("Stack", "Schema")]
+        public async Task ShouldNotGetAnyOtherReferencedSchemasForCyclicDependency()
+        {
+            // Arrange
+            var schemas = await _client.Schema.GenerateSchemasAsync(typeof(Employee)).ConfigureAwait(false);
+            var result = await _fixture.RandomizeSchemaIdsAndCreateMany(schemas).ConfigureAwait(false);
+
+            // act
+            var referencedSchemas = await _client.Schema.GetManyReferencedAsync(result.Select(i => i.Id)).ConfigureAwait(false);
+
+            // assert
+            referencedSchemas.Should().HaveCount(0);
+        }
+
         private void AppendSchemaIdSuffix(SchemaDetail schema, int schemaSuffix)
             => _fixture.AppendSchemaIdSuffix(schema, schemaSuffix);
 

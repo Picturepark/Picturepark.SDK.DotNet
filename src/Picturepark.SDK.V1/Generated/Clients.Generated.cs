@@ -18606,7 +18606,7 @@ namespace Picturepark.SDK.V1
         }
     
         /// <summary>Gets all schemas referenced by the schemas specified in</summary>
-        /// <param name="schemaIds">The schema IDs.</param>
+        /// <param name="ids">The schema IDs.</param>
         /// <returns>Referenced schema details</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -18614,13 +18614,13 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<SchemaDetail>> GetManyReferencedAsync(System.Collections.Generic.IEnumerable<string> schemaIds = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<SchemaDetail>> GetManyReferencedAsync(System.Collections.Generic.IEnumerable<string> ids = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/schemas/many/referenced?");
-            if (schemaIds != null) 
+            if (ids != null) 
             {
-                foreach (var item_ in schemaIds) { urlBuilder_.Append("schemaIds=").Append(System.Uri.EscapeDataString(ConvertToString(item_, System.Globalization.CultureInfo.InvariantCulture))).Append("&"); }
+                foreach (var item_ in ids) { urlBuilder_.Append("ids=").Append(System.Uri.EscapeDataString(ConvertToString(item_, System.Globalization.CultureInfo.InvariantCulture))).Append("&"); }
             }
             urlBuilder_.Length--;
     

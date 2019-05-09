@@ -12250,7 +12250,7 @@
         "operationId": "Schema_GetManyReferenced",
         "parameters": [
           {
-            "name": "schemaIds",
+            "name": "ids",
             "in": "query",
             "description": "The schema IDs.",
             "collectionFormat": "multi",

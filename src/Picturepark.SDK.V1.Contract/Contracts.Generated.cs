@@ -1069,7 +1069,7 @@ namespace Picturepark.SDK.V1.Contract
         System.Threading.Tasks.Task<System.Collections.Generic.ICollection<SchemaDetail>> GetReferencedAsync(string schemaId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Gets all schemas referenced by the schemas specified in</summary>
-        /// <param name="schemaIds">The schema IDs.</param>
+        /// <param name="ids">The schema IDs.</param>
         /// <returns>Referenced schema details</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -1077,7 +1077,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<SchemaDetail>> GetManyReferencedAsync(System.Collections.Generic.IEnumerable<string> schemaIds = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<SchemaDetail>> GetManyReferencedAsync(System.Collections.Generic.IEnumerable<string> ids = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
     }
     
