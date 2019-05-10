@@ -29014,7 +29014,8 @@
           "languageConfiguration",
           "languages",
           "outputFormats",
-          "boostValues"
+          "boostValues",
+          "modificationDate"
         ],
         "properties": {
           "customerId": {
@@ -29078,6 +29079,11 @@
             "items": {
               "$ref": "#/components/schemas/CustomerApp"
             }
+          },
+          "modificationDate": {
+            "type": "string",
+            "format": "date-time",
+            "minLength": 1
           }
         }
       },

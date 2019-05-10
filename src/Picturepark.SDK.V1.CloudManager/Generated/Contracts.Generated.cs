@@ -5995,6 +5995,9 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [Newtonsoft.Json.JsonProperty("customerId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string CustomerId { get; set; }
     
+        [Newtonsoft.Json.JsonProperty("resetServiceProviders", Required = Newtonsoft.Json.Required.Always)]
+        public bool ResetServiceProviders { get; set; }
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -6538,6 +6541,10 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <summary>Provide password for the admin user</summary>
         [Newtonsoft.Json.JsonProperty("adminUserPassword", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string AdminUserPassword { get; set; }
+    
+        /// <summary>Reset service providers</summary>
+        [Newtonsoft.Json.JsonProperty("resetServiceProviders", Required = Newtonsoft.Json.Required.Always)]
+        public bool ResetServiceProviders { get; set; }
     
         public string ToJson() 
         {

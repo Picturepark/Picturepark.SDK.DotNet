@@ -12307,6 +12307,9 @@
           {
             "type": "object",
             "additionalProperties": false,
+            "required": [
+              "resetServiceProviders"
+            ],
             "properties": {
               "customerAlias": {
                 "type": "string",
@@ -12315,6 +12318,9 @@
               "customerId": {
                 "type": "string",
                 "nullable": true
+              },
+              "resetServiceProviders": {
+                "type": "boolean"
               }
             }
           }
@@ -12834,7 +12840,8 @@
         "description": "Request to import the ElasticSearch repository of a customer from another cloud",
         "additionalProperties": false,
         "required": [
-          "resetExternalUserIds"
+          "resetExternalUserIds",
+          "resetServiceProviders"
         ],
         "properties": {
           "customerId": {
@@ -12870,6 +12877,10 @@
             "type": "string",
             "description": "Provide password for the admin user",
             "nullable": true
+          },
+          "resetServiceProviders": {
+            "type": "boolean",
+            "description": "Reset service providers"
           }
         }
       },
