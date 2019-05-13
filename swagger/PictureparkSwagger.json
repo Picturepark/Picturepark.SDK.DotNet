@@ -26605,6 +26605,7 @@
         ],
         "properties": {
           "audit": {
+            "description": "Audit information.",
             "nullable": true,
             "oneOf": [
               {
