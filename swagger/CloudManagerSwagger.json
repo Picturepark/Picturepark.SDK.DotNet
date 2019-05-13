@@ -7414,6 +7414,7 @@
                 "DocumentVersionNotFoundException": "#/components/schemas/DocumentVersionNotFoundException",
                 "DefaultChannelDeleteException": "#/components/schemas/DefaultChannelDeleteException",
                 "ChannelsNotFoundException": "#/components/schemas/ChannelsNotFoundException",
+                "SuperAdminRolesNotAssignableToChannelException": "#/components/schemas/SuperAdminRolesNotAssignableToChannelException",
                 "ElasticVersionUpdateException": "#/components/schemas/ElasticVersionUpdateException",
                 "InvalidVersionException": "#/components/schemas/InvalidVersionException",
                 "EnvironmentNotDeactivatedException": "#/components/schemas/EnvironmentNotDeactivatedException",
@@ -8008,6 +8009,17 @@
         "allOf": [
           {
             "$ref": "#/components/schemas/PictureparkNotFoundException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "SuperAdminRolesNotAssignableToChannelException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
           },
           {
             "type": "object",
