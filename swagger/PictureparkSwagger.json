@@ -29248,6 +29248,15 @@
             "type": "string",
             "description": "The list item id.",
             "nullable": true
+          },
+          "audit": {
+            "description": "Audit data with information regarding document creation and modification.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/UserAudit"
+              }
+            ]
           }
         }
       },
@@ -29339,6 +29348,15 @@
             "type": "string",
             "description": "The list item id.",
             "nullable": true
+          },
+          "audit": {
+            "description": "Audit data with information regarding document creation and modification.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/UserAudit"
+              }
+            ]
           }
         }
       },
