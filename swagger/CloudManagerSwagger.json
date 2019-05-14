@@ -7430,6 +7430,7 @@
                 "NotSupportedFileMappingException": "#/components/schemas/NotSupportedFileMappingException",
                 "NotSupportedFileExtensionException": "#/components/schemas/NotSupportedFileExtensionException",
                 "DuplicateOutputFormatIdException": "#/components/schemas/DuplicateOutputFormatIdException",
+                "OutputFormatResizingNotSupportedException": "#/components/schemas/OutputFormatResizingNotSupportedException",
                 "LeaseNotAcquiredException": "#/components/schemas/LeaseNotAcquiredException",
                 "OperationInProgressException": "#/components/schemas/OperationInProgressException",
                 "RetryException": "#/components/schemas/RetryException",
@@ -8262,6 +8263,27 @@
           {
             "type": "object",
             "additionalProperties": false
+          }
+        ]
+      },
+      "OutputFormatResizingNotSupportedException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "contentId": {
+                "type": "string",
+                "nullable": true
+              },
+              "outputFormatId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
           }
         ]
       },
