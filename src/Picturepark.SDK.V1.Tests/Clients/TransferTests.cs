@@ -237,7 +237,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var numberOfFilesInDirectory = filesInDirectory.Count;
             var numberOfUploadFiles = Math.Min(desiredUploadFiles, numberOfFilesInDirectory);
 
-            var randomNumber = new Random().Next(0, numberOfFilesInDirectory - numberOfUploadFiles);
+            var randomNumber = new Random().Next(1, numberOfFilesInDirectory - numberOfUploadFiles);
             var importFilePaths = filesInDirectory
                 .Skip(randomNumber)
                 .Take(numberOfUploadFiles)
@@ -253,20 +253,24 @@ namespace Picturepark.SDK.V1.Tests.Clients
             };
 
             var createTransferResult = await _client.Transfer.UploadFilesAsync(transferName, importFilePaths, uploadOptions).ConfigureAwait(false);
+            var uploadFiles = await _client.Transfer.SearchFilesByTransferIdAsync(createTransferResult.Transfer.Id, numberOfUploadFiles).ConfigureAwait(false);
+
             var transfer = await _client.Transfer.PartialImportAsync(createTransferResult.Transfer.Id, new ImportTransferPartialRequest
             {
                 Items = new List<FileTransferCreateItem>
                 {
                     new FileTransferCreateItem
                     {
-                        FileId = createTransferResult.FileUploads.First().Identifier
+                        FileId = uploadFiles.Results.First().Id
                     }
                 }
             }).ConfigureAwait(false);
 
+            await _client.BusinessProcess.WaitForCompletionAsync(transfer.BusinessProcessId).ConfigureAwait(false);
+
             // Assert
-            var result = await _client.Transfer.SearchFilesByTransferIdAsync(transfer.Id).ConfigureAwait(false);
-            Assert.Equal(importFilePaths.Count, result.Results.Count);
+            var result = await _client.Transfer.SearchFilesByTransferIdAsync(transfer.Id, numberOfUploadFiles).ConfigureAwait(false);
+            result.Results.Should().ContainSingle(x => x.State == FileTransferState.ImportCompleted);
         }
 
         [Fact]
