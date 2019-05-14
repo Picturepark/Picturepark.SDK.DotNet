@@ -2081,6 +2081,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("NotSupportedFileMappingException", typeof(NotSupportedFileMappingException))]
     [JsonInheritanceAttribute("NotSupportedFileExtensionException", typeof(NotSupportedFileExtensionException))]
     [JsonInheritanceAttribute("DuplicateOutputFormatIdException", typeof(DuplicateOutputFormatIdException))]
+    [JsonInheritanceAttribute("OutputFormatResizingNotSupportedException", typeof(OutputFormatResizingNotSupportedException))]
     [JsonInheritanceAttribute("LeaseNotAcquiredException", typeof(LeaseNotAcquiredException))]
     [JsonInheritanceAttribute("OperationInProgressException", typeof(OperationInProgressException))]
     [JsonInheritanceAttribute("RetryException", typeof(RetryException))]
@@ -3000,6 +3001,28 @@ namespace Picturepark.SDK.V1.Contract
         public static DuplicateOutputFormatIdException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<DuplicateOutputFormatIdException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class OutputFormatResizingNotSupportedException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("contentId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ContentId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("outputFormatId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string OutputFormatId { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static OutputFormatResizingNotSupportedException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<OutputFormatResizingNotSupportedException>(data);
         }
     
     }
