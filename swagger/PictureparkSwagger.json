@@ -19493,6 +19493,7 @@
                 "NotSupportedFileMappingException": "#/components/schemas/NotSupportedFileMappingException",
                 "NotSupportedFileExtensionException": "#/components/schemas/NotSupportedFileExtensionException",
                 "DuplicateOutputFormatIdException": "#/components/schemas/DuplicateOutputFormatIdException",
+                "OutputFormatResizingNotSupportedException": "#/components/schemas/OutputFormatResizingNotSupportedException",
                 "LeaseNotAcquiredException": "#/components/schemas/LeaseNotAcquiredException",
                 "OperationInProgressException": "#/components/schemas/OperationInProgressException",
                 "RetryException": "#/components/schemas/RetryException",
@@ -20325,6 +20326,27 @@
           {
             "type": "object",
             "additionalProperties": false
+          }
+        ]
+      },
+      "OutputFormatResizingNotSupportedException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "contentId": {
+                "type": "string",
+                "nullable": true
+              },
+              "outputFormatId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
           }
         ]
       },
@@ -30025,7 +30047,8 @@
             "BusinessProcessEvent": "#/components/schemas/BusinessProcessEvent",
             "OutputRenderedEvent": "#/components/schemas/OutputRenderedEvent",
             "ConfigurationChangeEvent": "#/components/schemas/ConfigurationChangeEvent",
-            "CustomerChangeEvent": "#/components/schemas/CustomerChangeEvent"
+            "CustomerChangeEvent": "#/components/schemas/CustomerChangeEvent",
+            "SearchReindexCompletedEvent": "#/components/schemas/SearchReindexCompletedEvent"
           }
         },
         "additionalProperties": false,
@@ -30405,6 +30428,47 @@
               }
             }
           }
+        ]
+      },
+      "SearchReindexCompletedEvent": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ApplicationEvent"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "searchIndex",
+              "items",
+              "duration"
+            ],
+            "properties": {
+              "searchIndex": {
+                "$ref": "#/components/schemas/SearchIndexType"
+              },
+              "items": {
+                "type": "integer",
+                "format": "int64"
+              },
+              "duration": {
+                "type": "string",
+                "format": "time-span"
+              }
+            }
+          }
+        ]
+      },
+      "SearchIndexType": {
+        "type": "string",
+        "description": "",
+        "x-enumNames": [
+          "Content",
+          "ListItem"
+        ],
+        "enum": [
+          "Content",
+          "ListItem"
         ]
       },
       "Message": {
