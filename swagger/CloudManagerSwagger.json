@@ -13293,6 +13293,10 @@
             "type": "string",
             "nullable": true
           },
+          "statisticsCatalog": {
+            "type": "string",
+            "nullable": true
+          },
           "watermarkPath": {
             "type": "string",
             "nullable": true
@@ -15818,7 +15822,8 @@
           "OutputFormat",
           "Channel",
           "Reference",
-          "DocumentHistorySteady"
+          "DocumentHistorySteady",
+          "Statistics"
         ],
         "enum": [
           "Configuration",
@@ -15843,7 +15848,8 @@
           "OutputFormat",
           "Channel",
           "Reference",
-          "DocumentHistorySteady"
+          "DocumentHistorySteady",
+          "Statistics"
         ]
       },
       "IndexState": {

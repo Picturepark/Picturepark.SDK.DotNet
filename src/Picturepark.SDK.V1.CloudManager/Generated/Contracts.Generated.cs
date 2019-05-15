@@ -6884,6 +6884,9 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [Newtonsoft.Json.JsonProperty("referenceCatalog", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ReferenceCatalog { get; set; }
     
+        [Newtonsoft.Json.JsonProperty("statisticsCatalog", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string StatisticsCatalog { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("watermarkPath", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string WatermarkPath { get; set; }
     
@@ -9199,6 +9202,9 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
         [System.Runtime.Serialization.EnumMember(Value = "DocumentHistorySteady")]
         DocumentHistorySteady = 22,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "Statistics")]
+        Statistics = 23,
     
     }
     

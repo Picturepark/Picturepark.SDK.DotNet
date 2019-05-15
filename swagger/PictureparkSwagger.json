@@ -30069,7 +30069,8 @@
             "BusinessProcessEvent": "#/components/schemas/BusinessProcessEvent",
             "OutputRenderedEvent": "#/components/schemas/OutputRenderedEvent",
             "ConfigurationChangeEvent": "#/components/schemas/ConfigurationChangeEvent",
-            "CustomerChangeEvent": "#/components/schemas/CustomerChangeEvent"
+            "CustomerChangeEvent": "#/components/schemas/CustomerChangeEvent",
+            "SearchReindexCompletedEvent": "#/components/schemas/SearchReindexCompletedEvent"
           }
         },
         "additionalProperties": false,
@@ -30449,6 +30450,47 @@
               }
             }
           }
+        ]
+      },
+      "SearchReindexCompletedEvent": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ApplicationEvent"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "searchIndex",
+              "items",
+              "duration"
+            ],
+            "properties": {
+              "searchIndex": {
+                "$ref": "#/components/schemas/SearchIndexType"
+              },
+              "items": {
+                "type": "integer",
+                "format": "int64"
+              },
+              "duration": {
+                "type": "string",
+                "format": "time-span"
+              }
+            }
+          }
+        ]
+      },
+      "SearchIndexType": {
+        "type": "string",
+        "description": "",
+        "x-enumNames": [
+          "Content",
+          "ListItem"
+        ],
+        "enum": [
+          "Content",
+          "ListItem"
         ]
       },
       "Message": {
