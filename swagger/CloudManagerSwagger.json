@@ -9556,16 +9556,17 @@
           {
             "type": "object",
             "additionalProperties": false,
-            "required": [
-              "contentRight"
-            ],
             "properties": {
               "contentId": {
                 "type": "string",
                 "nullable": true
               },
-              "contentRight": {
-                "$ref": "#/components/schemas/ContentRight"
+              "contentRights": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/ContentRight"
+                }
               }
             }
           }

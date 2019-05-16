@@ -21532,16 +21532,17 @@
           {
             "type": "object",
             "additionalProperties": false,
-            "required": [
-              "contentRight"
-            ],
             "properties": {
               "contentId": {
                 "type": "string",
                 "nullable": true
               },
-              "contentRight": {
-                "$ref": "#/components/schemas/ContentRight"
+              "contentRights": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/ContentRight"
+                }
               }
             }
           }
@@ -27738,7 +27739,7 @@
         "properties": {
           "layerSchemaIds": {
             "type": "array",
-            "description": "An optional list of IDs of the schemas that form the layers of the content.\nThe SchemaType of the specified schemas must be Layer.",
+            "description": "An optional list of IDs of the schemas that should be updated/replaced based on the options below and Metadata provided.\nThe SchemaType of the specified schemas must be Layer.",
             "nullable": true,
             "items": {
               "type": "string"
