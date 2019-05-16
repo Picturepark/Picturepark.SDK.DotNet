@@ -10241,15 +10241,15 @@ namespace Picturepark.SDK.V1.Contract
     
         /// <summary>The content data of the content. It's a dictionary of dynamic metadata whose structure is defined in the Content schema identified by
         /// the ContentSchemaId property. Updating the Content property is only possible for virtual items (contents
-        /// whose ContentType is ContentItem).</summary>
+        /// whose ContentType is ContentItem).
+        /// Update of content data will be done only if this attribute has any data, i.e. if it's not null or empty.</summary>
         [Newtonsoft.Json.JsonProperty("content", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public DataDictionary Content { get; set; }
     
         /// <summary>The dynamic data structure matching the field schematics of the schemas with type layer (LayerSchemaIds).
         /// The metadata belonging to the layers of the content. It's a dictionary of dynamic metadata whose structure is defined in the Layer schemas identified
         /// by the LayerSchemaIds property.
-        /// For every layer schema specified in the LayerSchemaIds property there must be a corresponding dictionary inside the Metadata one, otherwise
-        /// an exception is thrown.</summary>
+        /// If there are no data for a specified LayerSchemaId, it is treated as empty.</summary>
         [Newtonsoft.Json.JsonProperty("metadata", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public DataDictionary Metadata { get; set; }
     

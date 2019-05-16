@@ -27746,7 +27746,7 @@
             }
           },
           "content": {
-            "description": "The content data of the content. It's a dictionary of dynamic metadata whose structure is defined in the Content schema identified by\nthe ContentSchemaId property. Updating the Content property is only possible for virtual items (contents\nwhose ContentType is ContentItem).",
+            "description": "The content data of the content. It's a dictionary of dynamic metadata whose structure is defined in the Content schema identified by\nthe ContentSchemaId property. Updating the Content property is only possible for virtual items (contents\nwhose ContentType is ContentItem).\nUpdate of content data will be done only if this attribute has any data, i.e. if it's not null or empty.",
             "nullable": true,
             "oneOf": [
               {
@@ -27755,7 +27755,7 @@
             ]
           },
           "metadata": {
-            "description": "The dynamic data structure matching the field schematics of the schemas with type layer (LayerSchemaIds).\nThe metadata belonging to the layers of the content. It's a dictionary of dynamic metadata whose structure is defined in the Layer schemas identified\nby the LayerSchemaIds property.\nFor every layer schema specified in the LayerSchemaIds property there must be a corresponding dictionary inside the Metadata one, otherwise\nan exception is thrown.",
+            "description": "The dynamic data structure matching the field schematics of the schemas with type layer (LayerSchemaIds).\nThe metadata belonging to the layers of the content. It's a dictionary of dynamic metadata whose structure is defined in the Layer schemas identified\nby the LayerSchemaIds property.\nIf there are no data for a specified LayerSchemaId, it is treated as empty.",
             "nullable": true,
             "oneOf": [
               {
