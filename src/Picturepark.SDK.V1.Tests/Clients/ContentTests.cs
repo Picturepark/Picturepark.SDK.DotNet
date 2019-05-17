@@ -30,7 +30,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldTransferOwnership()
         {
             // Arrange
-            var contentId = await _fixture.GetRandomContentIdAsync(".jpg", 50).ConfigureAwait(false);
+            var contentId = await _fixture.GetRandomContentIdAsync("fileMetadata.fileExtension:.jpg", 50).ConfigureAwait(false);
 
             // Act
             var previousContent = await _client.Content.GetAsync(contentId).ConfigureAwait(false);
@@ -336,7 +336,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldAllowMultiTagboxExtraction()
         {
             // Arrange
-            var contentId = await _fixture.GetRandomContentIdAsync(".jpg", 1).ConfigureAwait(false);
+            var contentId = await _fixture.GetRandomContentIdAsync("fileMetadata.fileExtension:.jpg", 1).ConfigureAwait(false);
             var listItems = await _fixture.Client.ListItem.SearchAsync(new ListItemSearchRequest()
             {
                 Filter = FilterBase.FromExpression<ListItem>(s => s.ContentSchemaId, nameof(SimpleReferenceObject)),
@@ -402,7 +402,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         [Trait("Stack", "Contents")]
         public async Task ShouldDownloadSingle()
         {
-            string contentId = await _fixture.GetRandomContentIdAsync(".jpg", 20).ConfigureAwait(false);
+            string contentId = await _fixture.GetRandomContentIdAsync("fileMetadata.fileExtension:.jpg", 20).ConfigureAwait(false);
             Assert.False(string.IsNullOrEmpty(contentId));
             ContentDetail contentDetail = await _client.Content.GetAsync(contentId, new[] { ContentResolveBehavior.Content }).ConfigureAwait(false);
 
@@ -430,7 +430,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldDownloadThumbnail()
         {
             // Arrange
-            var contentId = await _fixture.GetRandomContentIdAsync(".jpg", 20).ConfigureAwait(false);
+            var contentId = await _fixture.GetRandomContentIdAsync("fileMetadata.fileExtension:.jpg", 20).ConfigureAwait(false);
 
             // Act
             using (var response = await _client.Content.DownloadThumbnailAsync(contentId, ThumbnailSize.Medium).ConfigureAwait(false))
@@ -450,7 +450,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         {
             // Arrange
             var expectedName = "test" + new Random().Next(0, 999999);
-            var contentId = await _fixture.GetRandomContentIdAsync(".jpg", 20).ConfigureAwait(false);
+            var contentId = await _fixture.GetRandomContentIdAsync("fileMetadata.fileExtension:.jpg", 20).ConfigureAwait(false);
             var request = new ContentMetadataUpdateRequest
             {
                 LayerSchemaIds = new List<string> { nameof(SimpleLayer) },
@@ -530,7 +530,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldSetLayerAndResolveDisplayValues()
         {
             // Arrange
-            var contentId = await _fixture.GetRandomContentIdAsync(".jpg", 20).ConfigureAwait(false);
+            var contentId = await _fixture.GetRandomContentIdAsync("fileMetadata.fileExtension:.jpg", 20).ConfigureAwait(false);
             var request = new ContentMetadataUpdateRequest
             {
                 LayerSchemaIds = new List<string> { "PersonShot" },
@@ -558,7 +558,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldMergeLayersOnMetadataUpdate()
         {
             // Arrange
-            var contentId = await _fixture.GetRandomContentIdAsync(".jpg", 20).ConfigureAwait(false);
+            var contentId = await _fixture.GetRandomContentIdAsync("fileMetadata.fileExtension:.jpg", 20).ConfigureAwait(false);
             var request = new ContentMetadataUpdateRequest
             {
                 LayerSchemaIds = new List<string> { nameof(PersonShot) },
@@ -605,7 +605,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldReplaceLayersOnMetadataUpdate()
         {
             // Arrange
-            var contentId = await _fixture.GetRandomContentIdAsync(".jpg", 20).ConfigureAwait(false);
+            var contentId = await _fixture.GetRandomContentIdAsync("fileMetadata.fileExtension:.jpg", 20).ConfigureAwait(false);
             var request = new ContentMetadataUpdateRequest
             {
                 LayerSchemaIds = new List<string> { nameof(PersonShot) },
@@ -655,7 +655,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldMergeFieldsOnMetadataUpdate()
         {
             // Arrange
-            var contentId = await _fixture.GetRandomContentIdAsync(".jpg", 20).ConfigureAwait(false);
+            var contentId = await _fixture.GetRandomContentIdAsync("fileMetadata.fileExtension:.jpg", 20).ConfigureAwait(false);
             var request = new ContentMetadataUpdateRequest
             {
                 LayerSchemaIds = new List<string> { nameof(AllDataTypesContract) },
@@ -702,7 +702,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldReplaceFieldsOnMetadataUpdate()
         {
             // Arrange
-            var contentId = await _fixture.GetRandomContentIdAsync(".jpg", 20).ConfigureAwait(false);
+            var contentId = await _fixture.GetRandomContentIdAsync("fileMetadata.fileExtension:.jpg", 20).ConfigureAwait(false);
             var request = new ContentMetadataUpdateRequest
             {
                 LayerSchemaIds = new List<string> { nameof(AllDataTypesContract) },
@@ -749,7 +749,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldBatchUpdateFieldsByFilter()
         {
             // Arrange
-            var contentId = await _fixture.GetRandomContentIdAsync(".jpg", 20).ConfigureAwait(false);
+            var contentId = await _fixture.GetRandomContentIdAsync("fileMetadata.fileExtension:.jpg", 20).ConfigureAwait(false);
             var request = new ContentFieldsBatchUpdateFilterRequest
             {
                 FilterRequest = new ContentFilterRequest
@@ -782,7 +782,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldBatchUpdateFieldsByIds()
         {
             // Arrange
-            var contentId = await _fixture.GetRandomContentIdAsync(".jpg", 20).ConfigureAwait(false);
+            var contentId = await _fixture.GetRandomContentIdAsync("fileMetadata.fileExtension:.jpg", 20).ConfigureAwait(false);
 
             var content = await _client.Content.GetAsync(contentId).ConfigureAwait(false);
             var updateRequest = new ContentFieldsBatchUpdateRequest
@@ -824,7 +824,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldDownloadSingleResized()
         {
             // Download a resized version of an image file
-            var contentId = await _fixture.GetRandomContentIdAsync(".jpg", 20).ConfigureAwait(false);
+            var contentId = await _fixture.GetRandomContentIdAsync("fileMetadata.fileExtension:.jpg", 20).ConfigureAwait(false);
 
             Assert.False(string.IsNullOrEmpty(contentId));
             ContentDetail contentDetail = await _client.Content.GetAsync(contentId, new[] { ContentResolveBehavior.Content }).ConfigureAwait(false);
@@ -849,7 +849,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldDownloadSingleThumbnail()
         {
             // Download a resized version of an image file
-            var contentId = await _fixture.GetRandomContentIdAsync(".jpg", 20).ConfigureAwait(false);
+            var contentId = await _fixture.GetRandomContentIdAsync("fileMetadata.fileExtension:.jpg", 20).ConfigureAwait(false);
             Assert.False(string.IsNullOrEmpty(contentId));
 
             var fileName = new Random().Next(0, 999999) + "-" + contentId + ".jpg";
@@ -870,7 +870,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         [Trait("Stack", "Contents")]
         public async Task ShouldGet()
         {
-            var contentId = await _fixture.GetRandomContentIdAsync(".jpg", 20).ConfigureAwait(false);
+            var contentId = await _fixture.GetRandomContentIdAsync("fileMetadata.fileExtension:.jpg", 20).ConfigureAwait(false);
             Assert.False(string.IsNullOrEmpty(contentId));
 
             ContentDetail result = await _client.Content.GetAsync(contentId, new[]
@@ -890,10 +890,10 @@ namespace Picturepark.SDK.V1.Tests.Clients
         [Trait("Stack", "Contents")]
         public async Task ShouldGetDocumentMetadata()
         {
-            var contentId = await _fixture.GetRandomContentIdAsync(".jpg", 20).ConfigureAwait(false);
+            var contentId = await _fixture.GetRandomContentIdAsync("fileMetadata.fileExtension:.jpg", 20).ConfigureAwait(false);
 
             if (string.IsNullOrEmpty(contentId))
-                contentId = await _fixture.GetRandomContentIdAsync(".docx", 20).ConfigureAwait(false);
+                contentId = await _fixture.GetRandomContentIdAsync("fileMetadata.fileExtension:.docx", 20).ConfigureAwait(false);
 
             Assert.False(string.IsNullOrEmpty(contentId));
 
@@ -1100,7 +1100,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         [Trait("Stack", "Contents")]
         public async Task ShouldUpdateFile()
         {
-            string contentId = await _fixture.GetRandomContentIdAsync(".jpg -0030_JabLtzJl8bc", 20).ConfigureAwait(false);
+            string contentId = await _fixture.GetRandomContentIdAsync("fileMetadata.fileExtension:.jpg -0030_JabLtzJl8bc", 20).ConfigureAwait(false);
 
             // Create transfer
             var filePaths = new FileLocations[]
@@ -1141,7 +1141,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldUpdatePermissions()
         {
             // Arrange
-            var contentId = await _fixture.GetRandomContentIdAsync(".jpg", 20).ConfigureAwait(false);
+            var contentId = await _fixture.GetRandomContentIdAsync("fileMetadata.fileExtension:.jpg", 20).ConfigureAwait(false);
             var contentDetail = await _client.Content.GetAsync(contentId).ConfigureAwait(false);
             var permissionSetId = (await _fixture.ContentPermissions.Create().ConfigureAwait(false)).Id;
 
@@ -1171,7 +1171,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldUpdatePermissionsMany()
         {
             // Arrange
-            var contentId = await _fixture.GetRandomContentIdAsync(".jpg", 20).ConfigureAwait(false);
+            var contentId = await _fixture.GetRandomContentIdAsync("fileMetadata.fileExtension:.jpg", 20).ConfigureAwait(false);
             var contentDetail = await _client.Content.GetAsync(contentId).ConfigureAwait(false);
             var permissionSetId = (await _fixture.ContentPermissions.Create().ConfigureAwait(false)).Id;
 
