@@ -35,7 +35,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldGetUser()
         {
             // Arrange
-            var contentId = await _fixture.GetRandomContentIdAsync(".jpg", 50).ConfigureAwait(false);
+            var contentId = await _fixture.GetRandomContentIdAsync("fileMetadata.fileExtension:.jpg", 50).ConfigureAwait(false);
             var content = await _client.Content.GetAsync(contentId).ConfigureAwait(false);
             var owner = await _client.User.GetByOwnerTokenAsync(content.OwnerTokenId).ConfigureAwait(false);
 
@@ -51,7 +51,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldGetByOwnerToken()
         {
             // Arrange
-            var contentId = await _fixture.GetRandomContentIdAsync(".jpg", 50).ConfigureAwait(false);
+            var contentId = await _fixture.GetRandomContentIdAsync("fileMetadata.fileExtension:.jpg", 50).ConfigureAwait(false);
             var content = await _client.Content.GetAsync(contentId).ConfigureAwait(false);
 
             // Act
