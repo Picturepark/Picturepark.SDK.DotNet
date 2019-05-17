@@ -30128,7 +30128,9 @@
           "TransferReady",
           "FileDeleteInProgress",
           "TransferCleanup",
-          "ImportCompletedWithErrors"
+          "ImportCompletedWithErrors",
+          "UploadCompletedWithErrors",
+          "UploadCancellationInProgress"
         ],
         "enum": [
           "Draft",
@@ -30144,7 +30146,9 @@
           "TransferReady",
           "FileDeleteInProgress",
           "TransferCleanup",
-          "ImportCompletedWithErrors"
+          "ImportCompletedWithErrors",
+          "UploadCompletedWithErrors",
+          "UploadCancellationInProgress"
         ]
       },
       "ReindexEvent": {
@@ -30399,6 +30403,9 @@
           {
             "type": "object",
             "additionalProperties": false,
+            "required": [
+              "renderingState"
+            ],
             "properties": {
               "outputId": {
                 "type": "string",
@@ -30411,6 +30418,9 @@
               "outputFormatId": {
                 "type": "string",
                 "nullable": true
+              },
+              "renderingState": {
+                "$ref": "#/components/schemas/OutputRenderingState"
               }
             }
           }
