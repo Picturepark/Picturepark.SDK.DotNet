@@ -41,7 +41,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldGetCurrent()
         {
             // Arrange
-            var documentId = await _fixture.GetRandomContentIdAsync(".jpg", 20).ConfigureAwait(false);
+            var documentId = await _fixture.GetRandomContentIdAsync("fileMetadata.fileExtension:.jpg", 20).ConfigureAwait(false);
 
             // Act
             var result = await _client.DocumentHistory.GetCurrentAsync(typeof(Content).Name, documentId).ConfigureAwait(false);
@@ -55,7 +55,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldGetVersion()
         {
             // Arrange
-            string documentId = await _fixture.GetRandomContentIdAsync(".jpg", 20).ConfigureAwait(false);
+            string documentId = await _fixture.GetRandomContentIdAsync("fileMetadata.fileExtension:.jpg", 20).ConfigureAwait(false);
             long versionId = 1;
 
             // Act
@@ -71,7 +71,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         {
             // Arrange
             string location = "testlocation" + new Random().Next(0, 999999);
-            string contentId = await _fixture.GetRandomContentIdAsync(".jpg", 20).ConfigureAwait(false);
+            string contentId = await _fixture.GetRandomContentIdAsync("fileMetadata.fileExtension:.jpg", 20).ConfigureAwait(false);
 
             var schema = await CreateTestSchemaAsync().ConfigureAwait(false);
             var content = await _client.Content.GetAsync(contentId).ConfigureAwait(false);
@@ -112,7 +112,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldCompareWithCurrent()
         {
             // Arrange
-            string documentId = await _fixture.GetRandomContentIdAsync(".jpg", 20).ConfigureAwait(false);
+            string documentId = await _fixture.GetRandomContentIdAsync("fileMetadata.fileExtension:.jpg", 20).ConfigureAwait(false);
             long oldVersionId = 1;
 
             // Act

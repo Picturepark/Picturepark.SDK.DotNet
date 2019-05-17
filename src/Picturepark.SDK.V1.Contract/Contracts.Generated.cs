@@ -12631,6 +12631,12 @@ namespace Picturepark.SDK.V1.Contract
         [System.Runtime.Serialization.EnumMember(Value = "ImportCompletedWithErrors")]
         ImportCompletedWithErrors = 13,
     
+        [System.Runtime.Serialization.EnumMember(Value = "UploadCompletedWithErrors")]
+        UploadCompletedWithErrors = 14,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "UploadCancellationInProgress")]
+        UploadCancellationInProgress = 15,
+    
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
@@ -12880,6 +12886,11 @@ namespace Picturepark.SDK.V1.Contract
     
         [Newtonsoft.Json.JsonProperty("outputFormatId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string OutputFormatId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("renderingState", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public OutputRenderingState RenderingState { get; set; }
     
         public string ToJson() 
         {
