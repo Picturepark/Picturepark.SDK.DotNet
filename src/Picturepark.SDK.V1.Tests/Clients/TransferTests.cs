@@ -90,7 +90,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
             };
 
             var result = await _client.Transfer.CreateAndWaitForCompletionAsync(transferName, files).ConfigureAwait(false);
-            var originalTransfer = await _client.Transfer.GetAsync(result.Transfer.Id).ConfigureAwait(false);
 
             // Act
             await _client.Transfer.CancelTransferAsync(result.Transfer.Id).ConfigureAwait(false);
@@ -98,8 +97,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             // Assert
             var currentTransfer = await _client.Transfer.GetAsync(result.Transfer.Id).ConfigureAwait(false);
 
-            Assert.Equal(TransferState.Created, originalTransfer.State);
-            Assert.Equal(TransferState.TransferReady, currentTransfer.State);
+            Assert.Equal(TransferState.Created, currentTransfer.State);
         }
 
         [Fact]
