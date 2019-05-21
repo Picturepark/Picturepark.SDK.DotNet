@@ -4307,10 +4307,8 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("contentId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ContentId { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("contentRight", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public ContentRight ContentRight { get; set; }
+        [Newtonsoft.Json.JsonProperty("contentRights", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public System.Collections.Generic.ICollection<ContentRight> ContentRights { get; set; }
     
         public string ToJson() 
         {
@@ -10236,22 +10234,22 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class ContentMetadataUpdateRequest 
     {
-        /// <summary>An optional list of IDs of the schemas that form the layers of the content.
+        /// <summary>An optional list of IDs of the schemas that should be updated/replaced based on the options below and Metadata provided.
         /// The SchemaType of the specified schemas must be Layer.</summary>
         [Newtonsoft.Json.JsonProperty("layerSchemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> LayerSchemaIds { get; set; }
     
         /// <summary>The content data of the content. It's a dictionary of dynamic metadata whose structure is defined in the Content schema identified by
         /// the ContentSchemaId property. Updating the Content property is only possible for virtual items (contents
-        /// whose ContentType is ContentItem).</summary>
+        /// whose ContentType is ContentItem).
+        /// Update of content data will be done only if this attribute has any data, i.e. if it's not null or empty.</summary>
         [Newtonsoft.Json.JsonProperty("content", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public DataDictionary Content { get; set; }
     
         /// <summary>The dynamic data structure matching the field schematics of the schemas with type layer (LayerSchemaIds).
         /// The metadata belonging to the layers of the content. It's a dictionary of dynamic metadata whose structure is defined in the Layer schemas identified
         /// by the LayerSchemaIds property.
-        /// For every layer schema specified in the LayerSchemaIds property there must be a corresponding dictionary inside the Metadata one, otherwise
-        /// an exception is thrown.</summary>
+        /// If there are no data for a specified LayerSchemaId, it is treated as empty.</summary>
         [Newtonsoft.Json.JsonProperty("metadata", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public DataDictionary Metadata { get; set; }
     

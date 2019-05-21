@@ -9556,16 +9556,17 @@
           {
             "type": "object",
             "additionalProperties": false,
-            "required": [
-              "contentRight"
-            ],
             "properties": {
               "contentId": {
                 "type": "string",
                 "nullable": true
               },
-              "contentRight": {
-                "$ref": "#/components/schemas/ContentRight"
+              "contentRights": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/ContentRight"
+                }
               }
             }
           }
@@ -12921,6 +12922,47 @@
           "redirectUri": {
             "type": "string",
             "nullable": true
+          },
+          "adminUser": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/User"
+              }
+            ]
+          },
+          "adminUserPassword": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "User": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "emailAddress"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "User's Picturepark ID.",
+            "nullable": true
+          },
+          "firstName": {
+            "type": "string",
+            "description": "User's first name.",
+            "nullable": true
+          },
+          "lastName": {
+            "type": "string",
+            "description": "User's last name.",
+            "nullable": true
+          },
+          "emailAddress": {
+            "type": "string",
+            "description": "Email address of the user (doubles as username).",
+            "minLength": 1
           }
         }
       },
@@ -14946,35 +14988,6 @@
             }
           }
         ]
-      },
-      "User": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "emailAddress"
-        ],
-        "properties": {
-          "id": {
-            "type": "string",
-            "description": "User's Picturepark ID.",
-            "nullable": true
-          },
-          "firstName": {
-            "type": "string",
-            "description": "User's first name.",
-            "nullable": true
-          },
-          "lastName": {
-            "type": "string",
-            "description": "User's last name.",
-            "nullable": true
-          },
-          "emailAddress": {
-            "type": "string",
-            "description": "Email address of the user (doubles as username).",
-            "minLength": 1
-          }
-        }
       },
       "CustomerUpdateRequest": {
         "type": "object",
