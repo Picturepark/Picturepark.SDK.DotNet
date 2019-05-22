@@ -10153,7 +10153,7 @@
           {
             "name": "ids",
             "in": "query",
-            "description": "Output format IDs to get information about",
+            "description": "Output format IDs to get information about. If this is omitted, all output formats in the system will be returned.",
             "collectionFormat": "multi",
             "schema": {
               "type": "array",
@@ -18420,7 +18420,7 @@
           {
             "name": "ids",
             "in": "query",
-            "description": "User role IDs to get information about",
+            "description": "User role IDs to get information about. If this is omitted, all user roles in the system will be returned.",
             "collectionFormat": "multi",
             "schema": {
               "type": "array",

@@ -15465,7 +15465,7 @@ namespace Picturepark.SDK.V1
         }
     
         /// <summary>Get multiple output formats</summary>
-        /// <param name="ids">Output format IDs to get information about</param>
+        /// <param name="ids">Output format IDs to get information about. If this is omitted, all output formats in the system will be returned.</param>
         /// <returns>Output formats</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -28149,7 +28149,7 @@ namespace Picturepark.SDK.V1
         partial void ProcessResponse(System.Net.Http.HttpClient client, System.Net.Http.HttpResponseMessage response);
     
         /// <summary>Get multiple user roles</summary>
-        /// <param name="ids">User role IDs to get information about</param>
+        /// <param name="ids">User role IDs to get information about. If this is omitted, all user roles in the system will be returned.</param>
         /// <returns>List of user roles</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
