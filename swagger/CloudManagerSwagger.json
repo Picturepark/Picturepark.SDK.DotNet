@@ -12876,6 +12876,9 @@
       "SnapshotCustomerCloneRequest": {
         "type": "object",
         "additionalProperties": false,
+        "required": [
+          "anonymize"
+        ],
         "properties": {
           "snapshotName": {
             "type": "string",
@@ -12922,6 +12925,50 @@
           "redirectUri": {
             "type": "string",
             "nullable": true
+          },
+          "anonymize": {
+            "type": "boolean"
+          },
+          "adminUser": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/User"
+              }
+            ]
+          },
+          "adminUserPassword": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "User": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "emailAddress"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "User's Picturepark ID.",
+            "nullable": true
+          },
+          "firstName": {
+            "type": "string",
+            "description": "User's first name.",
+            "nullable": true
+          },
+          "lastName": {
+            "type": "string",
+            "description": "User's last name.",
+            "nullable": true
+          },
+          "emailAddress": {
+            "type": "string",
+            "description": "Email address of the user (doubles as username).",
+            "minLength": 1
           }
         }
       },
@@ -14947,35 +14994,6 @@
             }
           }
         ]
-      },
-      "User": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "emailAddress"
-        ],
-        "properties": {
-          "id": {
-            "type": "string",
-            "description": "User's Picturepark ID.",
-            "nullable": true
-          },
-          "firstName": {
-            "type": "string",
-            "description": "User's first name.",
-            "nullable": true
-          },
-          "lastName": {
-            "type": "string",
-            "description": "User's last name.",
-            "nullable": true
-          },
-          "emailAddress": {
-            "type": "string",
-            "description": "Email address of the user (doubles as username).",
-            "minLength": 1
-          }
-        }
       },
       "CustomerUpdateRequest": {
         "type": "object",
