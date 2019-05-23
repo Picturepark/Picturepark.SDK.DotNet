@@ -15465,7 +15465,7 @@ namespace Picturepark.SDK.V1
         }
     
         /// <summary>Get multiple output formats</summary>
-        /// <param name="ids">Output format IDs to get information about. If this is omitted, all output formats in the system will be returned.</param>
+        /// <param name="ids">Output format IDs to get information about. If this is omitted, all user roles in the system will be returned.</param>
         /// <returns>Output formats</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -28149,7 +28149,7 @@ namespace Picturepark.SDK.V1
         partial void ProcessResponse(System.Net.Http.HttpClient client, System.Net.Http.HttpResponseMessage response);
     
         /// <summary>Get multiple user roles</summary>
-        /// <param name="ids">User role IDs to get information about. If this is omitted, all user roles in the system will be returned.</param>
+        /// <param name="ids">User role IDs to get information about.</param>
         /// <returns>List of user roles</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -28157,14 +28157,11 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<UserRole>> GetManyAsync(System.Collections.Generic.IEnumerable<string> ids = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<UserRole>> GetManyAsync(System.Collections.Generic.IEnumerable<string> ids, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/userRoles?");
-            if (ids != null) 
-            {
-                foreach (var item_ in ids) { urlBuilder_.Append("ids=").Append(System.Uri.EscapeDataString(ConvertToString(item_, System.Globalization.CultureInfo.InvariantCulture))).Append("&"); }
-            }
+            foreach (var item_ in ids) { urlBuilder_.Append("ids=").Append(System.Uri.EscapeDataString(ConvertToString(item_, System.Globalization.CultureInfo.InvariantCulture))).Append("&"); }
             urlBuilder_.Length--;
     
             var client_ = _httpClient;

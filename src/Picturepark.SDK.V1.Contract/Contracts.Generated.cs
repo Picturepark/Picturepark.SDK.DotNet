@@ -868,7 +868,7 @@ namespace Picturepark.SDK.V1.Contract
         System.Threading.Tasks.Task<OutputFormat> CreateAsync(OutputFormat request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Get multiple output formats</summary>
-        /// <param name="ids">Output format IDs to get information about. If this is omitted, all output formats in the system will be returned.</param>
+        /// <param name="ids">Output format IDs to get information about. If this is omitted, all user roles in the system will be returned.</param>
         /// <returns>Output formats</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -1693,7 +1693,7 @@ namespace Picturepark.SDK.V1.Contract
     public partial interface IUserRoleClient
     {
         /// <summary>Get multiple user roles</summary>
-        /// <param name="ids">User role IDs to get information about. If this is omitted, all user roles in the system will be returned.</param>
+        /// <param name="ids">User role IDs to get information about.</param>
         /// <returns>List of user roles</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -1701,7 +1701,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<UserRole>> GetManyAsync(System.Collections.Generic.IEnumerable<string> ids = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<UserRole>> GetManyAsync(System.Collections.Generic.IEnumerable<string> ids, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <summary>Create user role</summary>
         /// <param name="request">User role creation request.</param>
