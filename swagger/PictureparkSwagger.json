@@ -10153,7 +10153,7 @@
           {
             "name": "ids",
             "in": "query",
-            "description": "Output format IDs to get information about. If this is omitted, all user roles in the system will be returned.",
+            "description": "Output format IDs to get information about. If this is omitted, all output formats in the system will be returned.",
             "collectionFormat": "multi",
             "schema": {
               "type": "array",
@@ -37850,10 +37850,18 @@
         "description": "Holds information about which user roles are requested to be deleted.",
         "additionalProperties": false,
         "required": [
-          "items"
+          "ids"
         ],
         "properties": {
           "items": {
+            "type": "array",
+            "description": "Warning: Please use Ids property instead.",
+            "nullable": true,
+            "items": {
+              "type": "string"
+            }
+          },
+          "ids": {
             "type": "array",
             "description": "IDs of the user roles to delete.",
             "items": {

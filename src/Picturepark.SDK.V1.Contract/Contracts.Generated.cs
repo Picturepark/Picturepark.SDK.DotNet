@@ -19270,10 +19270,14 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class UserRoleDeleteManyRequest 
     {
+        /// <summary>Warning: Please use Ids property instead.</summary>
+        [Newtonsoft.Json.JsonProperty("items", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> Items { get; set; }
+    
         /// <summary>IDs of the user roles to delete.</summary>
-        [Newtonsoft.Json.JsonProperty("items", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("ids", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
-        public System.Collections.Generic.ICollection<string> Items { get; set; } = new System.Collections.Generic.List<string>();
+        public System.Collections.Generic.ICollection<string> Ids { get; set; } = new System.Collections.Generic.List<string>();
     
         public string ToJson() 
         {

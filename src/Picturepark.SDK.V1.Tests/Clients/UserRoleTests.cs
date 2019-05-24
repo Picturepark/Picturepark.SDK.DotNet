@@ -127,7 +127,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         {
             await _client.UserRole.DeleteManyAsync(new UserRoleDeleteManyRequest
             {
-                Items = roles.Select(r => r.Id).ToArray()
+                Ids = roles.Select(r => r.Id).ToArray()
             });
         }
 
