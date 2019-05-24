@@ -15465,7 +15465,7 @@ namespace Picturepark.SDK.V1
         }
     
         /// <summary>Get multiple output formats</summary>
-        /// <param name="ids">Output format IDs to get information about. If this is omitted, all user roles in the system will be returned.</param>
+        /// <param name="ids">Output format IDs to get information about. If this is omitted, all output formats in the system will be returned.</param>
         /// <returns>Output formats</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
