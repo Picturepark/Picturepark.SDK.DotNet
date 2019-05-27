@@ -29487,6 +29487,18 @@
                 "$ref": "#/components/schemas/TranslatedStringDictionary"
               }
             ]
+          },
+          "description": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/TranslatedStringDictionary"
+              }
+            ]
+          },
+          "icon": {
+            "type": "string",
+            "nullable": true
           }
         }
       },
@@ -35813,10 +35825,13 @@
         "type": "object",
         "description": "Represents a user role, which associates users with user rights.",
         "additionalProperties": false,
+        "required": [
+          "names",
+          "userRights"
+        ],
         "properties": {
           "names": {
             "description": "Language specific user role names.",
-            "nullable": true,
             "oneOf": [
               {
                 "$ref": "#/components/schemas/TranslatedStringDictionary"
@@ -35826,7 +35841,6 @@
           "userRights": {
             "type": "array",
             "description": "All user rights for this user role.",
-            "nullable": true,
             "items": {
               "$ref": "#/components/schemas/UserRight"
             }
