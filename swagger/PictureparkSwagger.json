@@ -10153,7 +10153,7 @@
           {
             "name": "ids",
             "in": "query",
-            "description": "Output format IDs to get information about",
+            "description": "Output format IDs to get information about. If this is omitted, all output formats in the system will be returned.",
             "collectionFormat": "multi",
             "schema": {
               "type": "array",
@@ -18414,11 +18414,28 @@
         "tags": [
           "UserRole"
         ],
-        "summary": "Get all user roles",
-        "operationId": "UserRole_GetAll",
+        "summary": "Get multiple user roles",
+        "operationId": "UserRole_GetMany",
+        "parameters": [
+          {
+            "name": "ids",
+            "in": "query",
+            "required": true,
+            "description": "User role IDs to get information about.",
+            "collectionFormat": "multi",
+            "schema": {
+              "type": "array",
+              "nullable": true,
+              "items": {
+                "type": "string"
+              }
+            },
+            "x-position": 1
+          }
+        ],
         "responses": {
           "200": {
-            "description": "List of all the user roles in the system",
+            "description": "List of user roles",
             "content": {
               "application/json": {
                 "schema": {
@@ -18831,6 +18848,228 @@
           {
             "Bearer": [
               "userrole_read"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/userRoles/{id}": {
+      "put": {
+        "tags": [
+          "UserRole"
+        ],
+        "summary": "Update user roles",
+        "operationId": "UserRole_Update",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "ID of the user role to update.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1
+          }
+        ],
+        "requestBody": {
+          "x-name": "request",
+          "description": "User role update request.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserRoleEditable"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 2
+        },
+        "responses": {
+          "200": {
+            "description": "Updated user role",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserRole"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkNotFoundException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkConflictException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkValidationException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "userrole_write"
+            ]
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "UserRole"
+        ],
+        "summary": "Delete user role",
+        "operationId": "UserRole_Delete",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "ID of user role to delete",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkNotFoundException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkConflictException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkValidationException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "userrole_write"
             ]
           }
         ]
@@ -29248,6 +29487,18 @@
                 "$ref": "#/components/schemas/TranslatedStringDictionary"
               }
             ]
+          },
+          "description": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/TranslatedStringDictionary"
+              }
+            ]
+          },
+          "icon": {
+            "type": "string",
+            "nullable": true
           }
         }
       },
@@ -35552,18 +35803,35 @@
         ]
       },
       "UserRole": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/UserRoleEditable"
+          },
+          {
+            "type": "object",
+            "description": "Represents a user role, which associates users with user rights.",
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string",
+                "description": "User role ID.",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "UserRoleEditable": {
         "type": "object",
         "description": "Represents a user role, which associates users with user rights.",
         "additionalProperties": false,
+        "required": [
+          "names",
+          "userRights"
+        ],
         "properties": {
-          "id": {
-            "type": "string",
-            "description": "User role ID.",
-            "nullable": true
-          },
           "names": {
             "description": "Language specific user role names.",
-            "nullable": true,
             "oneOf": [
               {
                 "$ref": "#/components/schemas/TranslatedStringDictionary"
@@ -35573,7 +35841,6 @@
           "userRights": {
             "type": "array",
             "description": "All user rights for this user role.",
-            "nullable": true,
             "items": {
               "$ref": "#/components/schemas/UserRight"
             }
@@ -37547,30 +37814,16 @@
         }
       },
       "UserRoleCreateRequest": {
-        "type": "object",
-        "description": "Holds information needed for user role creation.",
-        "additionalProperties": false,
-        "required": [
-          "names",
-          "userRights"
-        ],
-        "properties": {
-          "names": {
-            "description": "Language specific user role names.",
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/TranslatedStringDictionary"
-              }
-            ]
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/UserRoleEditable"
           },
-          "userRights": {
-            "type": "array",
-            "description": "All user rights for this user role.",
-            "items": {
-              "$ref": "#/components/schemas/UserRight"
-            }
+          {
+            "type": "object",
+            "description": "Holds information needed for user role creation.",
+            "additionalProperties": false
           }
-        }
+        ]
       },
       "UserRoleCreateManyRequest": {
         "type": "object",
@@ -37601,35 +37854,7 @@
             "type": "array",
             "description": "New value for user roles with specified IDs.",
             "items": {
-              "$ref": "#/components/schemas/UserRoleDetail"
-            }
-          }
-        }
-      },
-      "UserRoleDetail": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "id": {
-            "type": "string",
-            "description": "The user role id.",
-            "nullable": true
-          },
-          "names": {
-            "description": "Language specific user role names.",
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/TranslatedStringDictionary"
-              }
-            ]
-          },
-          "userRights": {
-            "type": "array",
-            "description": "All user rights for this user role.",
-            "nullable": true,
-            "items": {
-              "$ref": "#/components/schemas/UserRight"
+              "$ref": "#/components/schemas/UserRole"
             }
           }
         }
@@ -37642,6 +37867,14 @@
           "ids"
         ],
         "properties": {
+          "items": {
+            "type": "array",
+            "description": "Warning: Please use Ids property instead.",
+            "nullable": true,
+            "items": {
+              "type": "string"
+            }
+          },
           "ids": {
             "type": "array",
             "description": "IDs of the user roles to delete.",
