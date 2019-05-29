@@ -2323,6 +2323,105 @@
         ]
       }
     },
+    "/customer/getCreateRequest": {
+      "post": {
+        "tags": [
+          "Customer"
+        ],
+        "operationId": "Customer_GetCreateRequest",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/CustomerCreateRequest"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkNotFoundException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkConflictException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkValidationException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
     "/customer": {
       "post": {
         "tags": [
@@ -5592,6 +5691,93 @@
         ]
       }
     },
+    "/services/dumpCaches": {
+      "post": {
+        "tags": [
+          "Service"
+        ],
+        "operationId": "Service_DumpCaches",
+        "responses": {
+          "200": {
+            "description": ""
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkNotFoundException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkConflictException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkValidationException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
     "/service/serviceProvider": {
       "post": {
         "tags": [
@@ -7406,6 +7592,7 @@
                 "TermsOfServiceConsentRequiredException": "#/components/schemas/TermsOfServiceConsentRequiredException",
                 "PictureparkNotFoundException": "#/components/schemas/PictureparkNotFoundException",
                 "UserRolesNotFoundException": "#/components/schemas/UserRolesNotFoundException",
+                "UnauthorizedException": "#/components/schemas/UnauthorizedException",
                 "RenderingException": "#/components/schemas/RenderingException",
                 "ServiceProviderDeleteException": "#/components/schemas/ServiceProviderDeleteException",
                 "ServiceProviderCreateException": "#/components/schemas/ServiceProviderCreateException",
@@ -7413,6 +7600,7 @@
                 "DocumentVersionNotFoundException": "#/components/schemas/DocumentVersionNotFoundException",
                 "DefaultChannelDeleteException": "#/components/schemas/DefaultChannelDeleteException",
                 "ChannelsNotFoundException": "#/components/schemas/ChannelsNotFoundException",
+                "SuperAdminRolesNotAssignableToChannelException": "#/components/schemas/SuperAdminRolesNotAssignableToChannelException",
                 "ElasticVersionUpdateException": "#/components/schemas/ElasticVersionUpdateException",
                 "InvalidVersionException": "#/components/schemas/InvalidVersionException",
                 "EnvironmentNotDeactivatedException": "#/components/schemas/EnvironmentNotDeactivatedException",
@@ -7428,6 +7616,7 @@
                 "NotSupportedFileMappingException": "#/components/schemas/NotSupportedFileMappingException",
                 "NotSupportedFileExtensionException": "#/components/schemas/NotSupportedFileExtensionException",
                 "DuplicateOutputFormatIdException": "#/components/schemas/DuplicateOutputFormatIdException",
+                "OutputFormatResizingNotSupportedException": "#/components/schemas/OutputFormatResizingNotSupportedException",
                 "LeaseNotAcquiredException": "#/components/schemas/LeaseNotAcquiredException",
                 "OperationInProgressException": "#/components/schemas/OperationInProgressException",
                 "RetryException": "#/components/schemas/RetryException",
@@ -7441,10 +7630,12 @@
                 "PictureparkApplicationException": "#/components/schemas/PictureparkApplicationException",
                 "MissingCustomerDefaultLanguageException": "#/components/schemas/MissingCustomerDefaultLanguageException",
                 "PartialOperationNotSupportedException": "#/components/schemas/PartialOperationNotSupportedException",
+                "ContractMismatchException": "#/components/schemas/ContractMismatchException",
                 "InvalidArgumentException": "#/components/schemas/InvalidArgumentException",
                 "UnknownException": "#/components/schemas/UnknownException",
                 "OwnerTokenInUseException": "#/components/schemas/OwnerTokenInUseException",
                 "InvalidValueFormatException": "#/components/schemas/InvalidValueFormatException",
+                "ItemIdDuplicatedException": "#/components/schemas/ItemIdDuplicatedException",
                 "CustomerViolationException": "#/components/schemas/CustomerViolationException",
                 "CustomerAliasNotFoundException": "#/components/schemas/CustomerAliasNotFoundException",
                 "CustomerAliasInUseException": "#/components/schemas/CustomerAliasInUseException",
@@ -7477,6 +7668,7 @@
                 "QueryException": "#/components/schemas/QueryException",
                 "PermissionOwnershipTransferException": "#/components/schemas/PermissionOwnershipTransferException",
                 "PermissionSetNotFoundException": "#/components/schemas/PermissionSetNotFoundException",
+                "PermissionSetAggregateException": "#/components/schemas/PermissionSetAggregateException",
                 "DuplicateRightException": "#/components/schemas/DuplicateRightException",
                 "PermissionValidationException": "#/components/schemas/PermissionValidationException",
                 "PermissionSetInUseException": "#/components/schemas/PermissionSetInUseException",
@@ -7485,6 +7677,7 @@
                 "SchemaPermissionException": "#/components/schemas/SchemaPermissionException",
                 "PermissionSetValidationException": "#/components/schemas/PermissionSetValidationException",
                 "PermissionSetInvalidRightCombinationException": "#/components/schemas/PermissionSetInvalidRightCombinationException",
+                "AmbiguousUserRoleRightsException": "#/components/schemas/AmbiguousUserRoleRightsException",
                 "UnsupportedListItemChangeCommandException": "#/components/schemas/UnsupportedListItemChangeCommandException",
                 "ListItemLayerException": "#/components/schemas/ListItemLayerException",
                 "ListItemNotFoundException": "#/components/schemas/ListItemNotFoundException",
@@ -7563,6 +7756,7 @@
                 "SchemaViewForAllException": "#/components/schemas/SchemaViewForAllException",
                 "SystemLayerReferenceInvalidModificationException": "#/components/schemas/SystemLayerReferenceInvalidModificationException",
                 "SchemaFieldAnalyzerInvalidException": "#/components/schemas/SchemaFieldAnalyzerInvalidException",
+                "SchemaFieldRelationMultipleTypesException": "#/components/schemas/SchemaFieldRelationMultipleTypesException",
                 "DeleteContentsWithReferencesException": "#/components/schemas/DeleteContentsWithReferencesException",
                 "ContentMetadataUpdateManyException": "#/components/schemas/ContentMetadataUpdateManyException",
                 "ContentNotFoundException": "#/components/schemas/ContentNotFoundException",
@@ -7618,6 +7812,10 @@
               "httpStatusCode": {
                 "type": "integer",
                 "format": "int32"
+              },
+              "exceptionMessage": {
+                "type": "string",
+                "nullable": true
               },
               "kind": {
                 "type": "string"
@@ -7878,6 +8076,17 @@
           }
         ]
       },
+      "UnauthorizedException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkBusinessException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
       "RenderingException": {
         "allOf": [
           {
@@ -7988,6 +8197,17 @@
         "allOf": [
           {
             "$ref": "#/components/schemas/PictureparkNotFoundException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "SuperAdminRolesNotAssignableToChannelException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
           },
           {
             "type": "object",
@@ -8233,6 +8453,27 @@
           }
         ]
       },
+      "OutputFormatResizingNotSupportedException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "contentId": {
+                "type": "string",
+                "nullable": true
+              },
+              "outputFormatId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
       "LeaseNotAcquiredException": {
         "allOf": [
           {
@@ -8462,6 +8703,17 @@
           }
         ]
       },
+      "ContractMismatchException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
       "InvalidArgumentException": {
         "allOf": [
           {
@@ -8525,6 +8777,23 @@
           {
             "type": "object",
             "additionalProperties": false
+          }
+        ]
+      },
+      "ItemIdDuplicatedException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string",
+                "nullable": true
+              }
+            }
           }
         ]
       },
@@ -9296,6 +9565,26 @@
           }
         ]
       },
+      "PermissionSetAggregateException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "exceptions": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          }
+        ]
+      },
       "DuplicateRightException": {
         "allOf": [
           {
@@ -9366,16 +9655,17 @@
           {
             "type": "object",
             "additionalProperties": false,
-            "required": [
-              "contentRight"
-            ],
             "properties": {
               "contentId": {
                 "type": "string",
                 "nullable": true
               },
-              "contentRight": {
-                "$ref": "#/components/schemas/ContentRight"
+              "contentRights": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/ContentRight"
+                }
               }
             }
           }
@@ -9480,6 +9770,17 @@
           {
             "type": "object",
             "description": "This exception is an abstract base for permission set validation.",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "AmbiguousUserRoleRightsException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PermissionSetValidationException"
+          },
+          {
+            "type": "object",
             "additionalProperties": false
           }
         ]
@@ -11327,6 +11628,27 @@
           "NGram"
         ]
       },
+      "SchemaFieldRelationMultipleTypesException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "schemaId": {
+                "type": "string",
+                "nullable": true
+              },
+              "fieldId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
       "DeleteContentsWithReferencesException": {
         "allOf": [
           {
@@ -12228,6 +12550,9 @@
           {
             "type": "object",
             "additionalProperties": false,
+            "required": [
+              "resetServiceProviders"
+            ],
             "properties": {
               "customerAlias": {
                 "type": "string",
@@ -12236,6 +12561,9 @@
               "customerId": {
                 "type": "string",
                 "nullable": true
+              },
+              "resetServiceProviders": {
+                "type": "boolean"
               }
             }
           }
@@ -12647,6 +12975,9 @@
       "SnapshotCustomerCloneRequest": {
         "type": "object",
         "additionalProperties": false,
+        "required": [
+          "anonymize"
+        ],
         "properties": {
           "snapshotName": {
             "type": "string",
@@ -12693,6 +13024,50 @@
           "redirectUri": {
             "type": "string",
             "nullable": true
+          },
+          "anonymize": {
+            "type": "boolean"
+          },
+          "adminUser": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/User"
+              }
+            ]
+          },
+          "adminUserPassword": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "User": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "emailAddress"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "User's Picturepark ID.",
+            "nullable": true
+          },
+          "firstName": {
+            "type": "string",
+            "description": "User's first name.",
+            "nullable": true
+          },
+          "lastName": {
+            "type": "string",
+            "description": "User's last name.",
+            "nullable": true
+          },
+          "emailAddress": {
+            "type": "string",
+            "description": "Email address of the user (doubles as username).",
+            "minLength": 1
           }
         }
       },
@@ -12755,7 +13130,8 @@
         "description": "Request to import the ElasticSearch repository of a customer from another cloud",
         "additionalProperties": false,
         "required": [
-          "resetExternalUserIds"
+          "resetExternalUserIds",
+          "resetServiceProviders"
         ],
         "properties": {
           "customerId": {
@@ -12791,6 +13167,10 @@
             "type": "string",
             "description": "Provide password for the admin user",
             "nullable": true
+          },
+          "resetServiceProviders": {
+            "type": "boolean",
+            "description": "Reset service providers"
           }
         }
       },
@@ -12926,465 +13306,6 @@
             "nullable": true
           }
         }
-      },
-      "CustomerConfiguration": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "useSsl",
-          "enableQueryDetails",
-          "elasticSearchNumberOfShards",
-          "elasticSearchNumberOfReplicas",
-          "elasticSearchNumberOfRoutingShards",
-          "rootContentSearchIndexNumberOfShards",
-          "rootContentSearchIndexNumberOfReplicas",
-          "rootContentSearchIndexNumberOfRoutingShards",
-          "rootListItemSearchIndexNumberOfShards",
-          "rootListItemSearchIndexNumberOfReplicas",
-          "rootListItemSearchIndexNumberOfRoutingShards",
-          "indexedFieldThreshold",
-          "sortableFieldThreshold",
-          "redisDatabaseIndex",
-          "lifeCycle",
-          "snapshotEnabled",
-          "snapshotRetentionTime",
-          "snapshotFullbackupScheduleTime",
-          "contentRetentionTime",
-          "listItemRetentionTime",
-          "userRetentionTime",
-          "documentHistoryRetentionTime",
-          "liveStreamRetentionTime",
-          "successfulTransferRetentionTime",
-          "incompleteTransferRetentionTime",
-          "contentBackupState",
-          "apiCallsPerMinute"
-        ],
-        "properties": {
-          "id": {
-            "type": "string",
-            "nullable": true
-          },
-          "lifelineId": {
-            "type": "string",
-            "nullable": true
-          },
-          "namespace": {
-            "type": "string",
-            "nullable": true
-          },
-          "alias": {
-            "type": "string",
-            "nullable": true
-          },
-          "name": {
-            "type": "string",
-            "nullable": true
-          },
-          "mainCatalog": {
-            "type": "string",
-            "nullable": true
-          },
-          "userCatalog": {
-            "type": "string",
-            "nullable": true
-          },
-          "mailCatalog": {
-            "type": "string",
-            "nullable": true
-          },
-          "transferCatalog": {
-            "type": "string",
-            "nullable": true
-          },
-          "shareCatalog": {
-            "type": "string",
-            "nullable": true
-          },
-          "outputCatalog": {
-            "type": "string",
-            "nullable": true
-          },
-          "outputFormatCatalog": {
-            "type": "string",
-            "nullable": true
-          },
-          "channelCatalog": {
-            "type": "string",
-            "nullable": true
-          },
-          "notificationCatalog": {
-            "type": "string",
-            "nullable": true
-          },
-          "businessProcessCatalog": {
-            "type": "string",
-            "nullable": true
-          },
-          "listItemCatalog": {
-            "type": "string",
-            "nullable": true
-          },
-          "contentCatalog": {
-            "type": "string",
-            "nullable": true
-          },
-          "displayValueCatalog": {
-            "type": "string",
-            "nullable": true
-          },
-          "tokenCatalog": {
-            "type": "string",
-            "nullable": true
-          },
-          "documentHistoryCatalog": {
-            "type": "string",
-            "nullable": true
-          },
-          "documentHistorySteadyCatalog": {
-            "type": "string",
-            "nullable": true
-          },
-          "liveStreamCatalog": {
-            "type": "string",
-            "nullable": true
-          },
-          "cacheCatalog": {
-            "type": "string",
-            "nullable": true
-          },
-          "schemaCatalog": {
-            "type": "string",
-            "nullable": true
-          },
-          "referenceCatalog": {
-            "type": "string",
-            "nullable": true
-          },
-          "watermarkPath": {
-            "type": "string",
-            "nullable": true
-          },
-          "logoPath": {
-            "type": "string",
-            "nullable": true
-          },
-          "storagePath": {
-            "type": "string",
-            "nullable": true
-          },
-          "contractVersion": {
-            "type": "string",
-            "nullable": true
-          },
-          "customerHosts": {
-            "type": "array",
-            "nullable": true,
-            "items": {
-              "type": "string"
-            }
-          },
-          "useSsl": {
-            "type": "boolean"
-          },
-          "enableQueryDetails": {
-            "type": "boolean"
-          },
-          "serviceProviders": {
-            "type": "array",
-            "nullable": true,
-            "items": {
-              "$ref": "#/components/schemas/CustomerServiceProviderConfiguration"
-            }
-          },
-          "supportContactEmailAddress": {
-            "type": "string",
-            "nullable": true
-          },
-          "baseUrl": {
-            "type": "string",
-            "nullable": true
-          },
-          "cdnConfiguration": {
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/CdnConfigurationBase"
-              }
-            ]
-          },
-          "elasticSearchNumberOfShards": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "elasticSearchNumberOfReplicas": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "elasticSearchNumberOfRoutingShards": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "rootContentSearchIndexNumberOfShards": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "rootContentSearchIndexNumberOfReplicas": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "rootContentSearchIndexNumberOfRoutingShards": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "rootListItemSearchIndexNumberOfShards": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "rootListItemSearchIndexNumberOfReplicas": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "rootListItemSearchIndexNumberOfRoutingShards": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "indexedFieldThreshold": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "sortableFieldThreshold": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "corsAllowedHosts": {
-            "type": "array",
-            "nullable": true,
-            "items": {
-              "type": "string"
-            }
-          },
-          "noReplyEmailAddress": {
-            "type": "string",
-            "nullable": true
-          },
-          "languageConfiguration": {
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/LanguageConfiguration"
-              }
-            ]
-          },
-          "businessProcessEngineConnectionString": {
-            "type": "string",
-            "nullable": true
-          },
-          "createTransferBusinessProcess": {
-            "type": "string",
-            "nullable": true
-          },
-          "redisDatabaseIndex": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "lifeCycle": {
-            "$ref": "#/components/schemas/LifeCycle"
-          },
-          "snapshotEnabled": {
-            "type": "boolean"
-          },
-          "snapshotRetentionTime": {
-            "type": "string",
-            "format": "time-span"
-          },
-          "snapshotFullbackupScheduleTime": {
-            "type": "string",
-            "format": "time-span"
-          },
-          "contentRetentionTime": {
-            "type": "string",
-            "format": "time-span"
-          },
-          "listItemRetentionTime": {
-            "type": "string",
-            "format": "time-span"
-          },
-          "userRetentionTime": {
-            "type": "string",
-            "format": "time-span"
-          },
-          "documentHistoryRetentionTime": {
-            "type": "string",
-            "format": "time-span"
-          },
-          "liveStreamRetentionTime": {
-            "type": "string",
-            "format": "time-span"
-          },
-          "successfulTransferRetentionTime": {
-            "type": "string",
-            "format": "time-span"
-          },
-          "incompleteTransferRetentionTime": {
-            "type": "string",
-            "format": "time-span"
-          },
-          "deactivationMessage": {
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/TranslatedStringDictionary"
-              }
-            ]
-          },
-          "serviceAdminUserId": {
-            "type": "string",
-            "nullable": true
-          },
-          "contentBackupState": {
-            "$ref": "#/components/schemas/ContentBackupState"
-          },
-          "apiCallsPerMinute": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "contentBackupStoragePath": {
-            "type": "string",
-            "nullable": true
-          },
-          "defaultContentPermissionSetIds": {
-            "type": "array",
-            "nullable": true,
-            "items": {
-              "type": "string"
-            }
-          },
-          "boostValues": {
-            "type": "array",
-            "nullable": true,
-            "items": {
-              "type": "number",
-              "format": "double"
-            }
-          }
-        }
-      },
-      "CustomerServiceProviderConfiguration": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "serviceProviderId": {
-            "type": "string",
-            "nullable": true
-          },
-          "customerId": {
-            "type": "string",
-            "nullable": true
-          },
-          "userRoleIds": {
-            "type": "array",
-            "nullable": true,
-            "items": {
-              "type": "string"
-            }
-          },
-          "settings": {
-            "type": "string",
-            "nullable": true
-          }
-        }
-      },
-      "CdnConfigurationBase": {
-        "type": "object",
-        "discriminator": {
-          "propertyName": "kind",
-          "mapping": {
-            "FastlyCdnConfiguration": "#/components/schemas/FastlyCdnConfiguration"
-          }
-        },
-        "x-abstract": true,
-        "additionalProperties": false,
-        "required": [
-          "kind"
-        ],
-        "properties": {
-          "url": {
-            "type": "string",
-            "nullable": true
-          },
-          "kind": {
-            "type": "string"
-          }
-        }
-      },
-      "FastlyCdnConfiguration": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/CdnConfigurationBase"
-          },
-          {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "apiToken": {
-                "type": "string",
-                "nullable": true
-              },
-              "serviceId": {
-                "type": "string",
-                "nullable": true
-              }
-            }
-          }
-        ]
-      },
-      "LanguageConfiguration": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "systemLanguages": {
-            "type": "array",
-            "description": "A list of languages serving as system languages.",
-            "nullable": true,
-            "items": {
-              "type": "string"
-            }
-          },
-          "metadataLanguages": {
-            "type": "array",
-            "description": "A list of languages serving as metadata languages.",
-            "nullable": true,
-            "items": {
-              "type": "string"
-            }
-          },
-          "defaultLanguage": {
-            "type": "string",
-            "description": "The default language. Not the be confused with the metadata fallback language x-default.",
-            "nullable": true
-          }
-        }
-      },
-      "TranslatedStringDictionary": {
-        "type": "object",
-        "description": "A custom dictionary type to distinguish language specific class properties.",
-        "additionalProperties": {
-          "type": "string"
-        }
-      },
-      "ContentBackupState": {
-        "type": "string",
-        "description": "",
-        "x-enumNames": [
-          "Disabled",
-          "Recovery",
-          "Enabled"
-        ],
-        "enum": [
-          "Disabled",
-          "Recovery",
-          "Enabled"
-        ]
       },
       "CustomerCreateRequest": {
         "type": "object",
@@ -13539,10 +13460,6 @@
               "$ref": "#/components/schemas/OutputFormat"
             }
           },
-          "businessProcessEngineConnectionString": {
-            "type": "string",
-            "nullable": true
-          },
           "contentRetentionTime": {
             "type": "string",
             "format": "time-span"
@@ -13582,10 +13499,6 @@
             "type": "string",
             "format": "time-span"
           },
-          "createTransferBusinessProcess": {
-            "type": "string",
-            "nullable": true
-          },
           "adminUser": {
             "nullable": true,
             "oneOf": [
@@ -13618,6 +13531,50 @@
             }
           }
         }
+      },
+      "CdnConfigurationBase": {
+        "type": "object",
+        "discriminator": {
+          "propertyName": "kind",
+          "mapping": {
+            "FastlyCdnConfiguration": "#/components/schemas/FastlyCdnConfiguration"
+          }
+        },
+        "x-abstract": true,
+        "additionalProperties": false,
+        "required": [
+          "kind"
+        ],
+        "properties": {
+          "url": {
+            "type": "string",
+            "nullable": true
+          },
+          "kind": {
+            "type": "string"
+          }
+        }
+      },
+      "FastlyCdnConfiguration": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/CdnConfigurationBase"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "apiToken": {
+                "type": "string",
+                "nullable": true
+              },
+              "serviceId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
       },
       "IdentityServerProvider": {
         "type": "object",
@@ -13703,6 +13660,33 @@
           }
         }
       },
+      "LanguageConfiguration": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "systemLanguages": {
+            "type": "array",
+            "description": "A list of languages serving as system languages.",
+            "nullable": true,
+            "items": {
+              "type": "string"
+            }
+          },
+          "metadataLanguages": {
+            "type": "array",
+            "description": "A list of languages serving as metadata languages.",
+            "nullable": true,
+            "items": {
+              "type": "string"
+            }
+          },
+          "defaultLanguage": {
+            "type": "string",
+            "description": "The default language. Not the be confused with the metadata fallback language x-default.",
+            "nullable": true
+          }
+        }
+      },
       "OutputFormat": {
         "allOf": [
           {
@@ -13784,6 +13768,13 @@
             "description": "How long should the dynamic outputs created from this format be kept.",
             "format": "time-span"
           }
+        }
+      },
+      "TranslatedStringDictionary": {
+        "type": "object",
+        "description": "A custom dictionary type to distinguish language specific class properties.",
+        "additionalProperties": {
+          "type": "string"
         }
       },
       "SourceOutputFormats": {
@@ -14710,32 +14701,380 @@
           }
         ]
       },
-      "User": {
+      "ContentBackupState": {
+        "type": "string",
+        "description": "",
+        "x-enumNames": [
+          "Disabled",
+          "Recovery",
+          "Enabled"
+        ],
+        "enum": [
+          "Disabled",
+          "Recovery",
+          "Enabled"
+        ]
+      },
+      "CustomerConfiguration": {
         "type": "object",
         "additionalProperties": false,
         "required": [
-          "emailAddress"
+          "useSsl",
+          "enableQueryDetails",
+          "elasticSearchNumberOfShards",
+          "elasticSearchNumberOfReplicas",
+          "elasticSearchNumberOfRoutingShards",
+          "rootContentSearchIndexNumberOfShards",
+          "rootContentSearchIndexNumberOfReplicas",
+          "rootContentSearchIndexNumberOfRoutingShards",
+          "rootListItemSearchIndexNumberOfShards",
+          "rootListItemSearchIndexNumberOfReplicas",
+          "rootListItemSearchIndexNumberOfRoutingShards",
+          "indexedFieldThreshold",
+          "sortableFieldThreshold",
+          "redisDatabaseIndex",
+          "lifeCycle",
+          "snapshotEnabled",
+          "snapshotRetentionTime",
+          "snapshotFullbackupScheduleTime",
+          "contentRetentionTime",
+          "listItemRetentionTime",
+          "userRetentionTime",
+          "documentHistoryRetentionTime",
+          "liveStreamRetentionTime",
+          "successfulTransferRetentionTime",
+          "incompleteTransferRetentionTime",
+          "contentBackupState",
+          "apiCallsPerMinute"
         ],
         "properties": {
           "id": {
             "type": "string",
-            "description": "User's Picturepark ID.",
             "nullable": true
           },
-          "firstName": {
+          "lifelineId": {
             "type": "string",
-            "description": "User's first name.",
             "nullable": true
           },
-          "lastName": {
+          "namespace": {
             "type": "string",
-            "description": "User's last name.",
             "nullable": true
           },
-          "emailAddress": {
+          "alias": {
             "type": "string",
-            "description": "Email address of the user (doubles as username).",
-            "minLength": 1
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "mainCatalog": {
+            "type": "string",
+            "nullable": true
+          },
+          "userCatalog": {
+            "type": "string",
+            "nullable": true
+          },
+          "mailCatalog": {
+            "type": "string",
+            "nullable": true
+          },
+          "transferCatalog": {
+            "type": "string",
+            "nullable": true
+          },
+          "shareCatalog": {
+            "type": "string",
+            "nullable": true
+          },
+          "outputCatalog": {
+            "type": "string",
+            "nullable": true
+          },
+          "outputFormatCatalog": {
+            "type": "string",
+            "nullable": true
+          },
+          "channelCatalog": {
+            "type": "string",
+            "nullable": true
+          },
+          "notificationCatalog": {
+            "type": "string",
+            "nullable": true
+          },
+          "businessProcessCatalog": {
+            "type": "string",
+            "nullable": true
+          },
+          "listItemCatalog": {
+            "type": "string",
+            "nullable": true
+          },
+          "contentCatalog": {
+            "type": "string",
+            "nullable": true
+          },
+          "displayValueCatalog": {
+            "type": "string",
+            "nullable": true
+          },
+          "tokenCatalog": {
+            "type": "string",
+            "nullable": true
+          },
+          "documentHistoryCatalog": {
+            "type": "string",
+            "nullable": true
+          },
+          "documentHistorySteadyCatalog": {
+            "type": "string",
+            "nullable": true
+          },
+          "liveStreamCatalog": {
+            "type": "string",
+            "nullable": true
+          },
+          "cacheCatalog": {
+            "type": "string",
+            "nullable": true
+          },
+          "schemaCatalog": {
+            "type": "string",
+            "nullable": true
+          },
+          "referenceCatalog": {
+            "type": "string",
+            "nullable": true
+          },
+          "statisticsCatalog": {
+            "type": "string",
+            "nullable": true
+          },
+          "watermarkPath": {
+            "type": "string",
+            "nullable": true
+          },
+          "logoPath": {
+            "type": "string",
+            "nullable": true
+          },
+          "storagePath": {
+            "type": "string",
+            "nullable": true
+          },
+          "contractVersion": {
+            "type": "string",
+            "nullable": true
+          },
+          "customerHosts": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "type": "string"
+            }
+          },
+          "useSsl": {
+            "type": "boolean"
+          },
+          "enableQueryDetails": {
+            "type": "boolean"
+          },
+          "serviceProviders": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/CustomerServiceProviderConfiguration"
+            }
+          },
+          "supportContactEmailAddress": {
+            "type": "string",
+            "nullable": true
+          },
+          "baseUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "cdnConfiguration": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/CdnConfigurationBase"
+              }
+            ]
+          },
+          "elasticSearchNumberOfShards": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "elasticSearchNumberOfReplicas": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "elasticSearchNumberOfRoutingShards": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "rootContentSearchIndexNumberOfShards": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "rootContentSearchIndexNumberOfReplicas": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "rootContentSearchIndexNumberOfRoutingShards": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "rootListItemSearchIndexNumberOfShards": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "rootListItemSearchIndexNumberOfReplicas": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "rootListItemSearchIndexNumberOfRoutingShards": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "indexedFieldThreshold": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "sortableFieldThreshold": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "corsAllowedHosts": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "type": "string"
+            }
+          },
+          "noReplyEmailAddress": {
+            "type": "string",
+            "nullable": true
+          },
+          "languageConfiguration": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/LanguageConfiguration"
+              }
+            ]
+          },
+          "redisDatabaseIndex": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "lifeCycle": {
+            "$ref": "#/components/schemas/LifeCycle"
+          },
+          "snapshotEnabled": {
+            "type": "boolean"
+          },
+          "snapshotRetentionTime": {
+            "type": "string",
+            "format": "time-span"
+          },
+          "snapshotFullbackupScheduleTime": {
+            "type": "string",
+            "format": "time-span"
+          },
+          "contentRetentionTime": {
+            "type": "string",
+            "format": "time-span"
+          },
+          "listItemRetentionTime": {
+            "type": "string",
+            "format": "time-span"
+          },
+          "userRetentionTime": {
+            "type": "string",
+            "format": "time-span"
+          },
+          "documentHistoryRetentionTime": {
+            "type": "string",
+            "format": "time-span"
+          },
+          "liveStreamRetentionTime": {
+            "type": "string",
+            "format": "time-span"
+          },
+          "successfulTransferRetentionTime": {
+            "type": "string",
+            "format": "time-span"
+          },
+          "incompleteTransferRetentionTime": {
+            "type": "string",
+            "format": "time-span"
+          },
+          "deactivationMessage": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/TranslatedStringDictionary"
+              }
+            ]
+          },
+          "serviceAdminUserId": {
+            "type": "string",
+            "nullable": true
+          },
+          "contentBackupState": {
+            "$ref": "#/components/schemas/ContentBackupState"
+          },
+          "apiCallsPerMinute": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "contentBackupStoragePath": {
+            "type": "string",
+            "nullable": true
+          },
+          "defaultContentPermissionSetIds": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "type": "string"
+            }
+          },
+          "boostValues": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "type": "number",
+              "format": "double"
+            }
+          }
+        }
+      },
+      "CustomerServiceProviderConfiguration": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "serviceProviderId": {
+            "type": "string",
+            "nullable": true
+          },
+          "customerId": {
+            "type": "string",
+            "nullable": true
+          },
+          "userRoleIds": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "type": "string"
+            }
+          },
+          "settings": {
+            "type": "string",
+            "nullable": true
           }
         }
       },
@@ -15585,7 +15924,8 @@
           "OutputFormat",
           "Channel",
           "Reference",
-          "DocumentHistorySteady"
+          "DocumentHistorySteady",
+          "Statistics"
         ],
         "enum": [
           "Configuration",
@@ -15610,7 +15950,8 @@
           "OutputFormat",
           "Channel",
           "Reference",
-          "DocumentHistorySteady"
+          "DocumentHistorySteady",
+          "Statistics"
         ]
       },
       "IndexState": {

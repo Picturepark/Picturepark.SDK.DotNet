@@ -10153,7 +10153,7 @@
           {
             "name": "ids",
             "in": "query",
-            "description": "Output format IDs to get information about",
+            "description": "Output format IDs to get information about. If this is omitted, all output formats in the system will be returned.",
             "collectionFormat": "multi",
             "schema": {
               "type": "array",
@@ -12046,6 +12046,233 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/FieldExistsResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkNotFoundException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkConflictException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkValidationException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "schema_read"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/schemas/{schemaId}/referenced": {
+      "get": {
+        "tags": [
+          "Schema"
+        ],
+        "summary": "Gets all schemas referenced by the schema specified in ",
+        "operationId": "Schema_GetReferenced",
+        "parameters": [
+          {
+            "name": "schemaId",
+            "in": "path",
+            "required": true,
+            "description": "The schema ID.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Referenced schema details",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SchemaDetail"
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkNotFoundException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkConflictException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkValidationException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "schema_read"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/schemas/many/referenced": {
+      "get": {
+        "tags": [
+          "Schema"
+        ],
+        "summary": "Gets all schemas referenced by the schemas specified in ",
+        "operationId": "Schema_GetManyReferenced",
+        "parameters": [
+          {
+            "name": "ids",
+            "in": "query",
+            "description": "The schema IDs.",
+            "collectionFormat": "multi",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Referenced schema details",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SchemaDetail"
+                  }
                 }
               }
             }
@@ -18187,11 +18414,28 @@
         "tags": [
           "UserRole"
         ],
-        "summary": "Get all user roles",
-        "operationId": "UserRole_GetAll",
+        "summary": "Get multiple user roles",
+        "operationId": "UserRole_GetMany",
+        "parameters": [
+          {
+            "name": "ids",
+            "in": "query",
+            "required": true,
+            "description": "User role IDs to get information about.",
+            "collectionFormat": "multi",
+            "schema": {
+              "type": "array",
+              "nullable": true,
+              "items": {
+                "type": "string"
+              }
+            },
+            "x-position": 1
+          }
+        ],
         "responses": {
           "200": {
-            "description": "List of all the user roles in the system",
+            "description": "List of user roles",
             "content": {
               "application/json": {
                 "schema": {
@@ -18604,6 +18848,228 @@
           {
             "Bearer": [
               "userrole_read"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/userRoles/{id}": {
+      "put": {
+        "tags": [
+          "UserRole"
+        ],
+        "summary": "Update user roles",
+        "operationId": "UserRole_Update",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "ID of the user role to update.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1
+          }
+        ],
+        "requestBody": {
+          "x-name": "request",
+          "description": "User role update request.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserRoleEditable"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 2
+        },
+        "responses": {
+          "200": {
+            "description": "Updated user role",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserRole"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkNotFoundException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkConflictException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkValidationException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "userrole_write"
+            ]
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "UserRole"
+        ],
+        "summary": "Delete user role",
+        "operationId": "UserRole_Delete",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "ID of user role to delete",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkNotFoundException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkConflictException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkValidationException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "userrole_write"
             ]
           }
         ]
@@ -19242,6 +19708,7 @@
                 "TermsOfServiceConsentRequiredException": "#/components/schemas/TermsOfServiceConsentRequiredException",
                 "PictureparkNotFoundException": "#/components/schemas/PictureparkNotFoundException",
                 "UserRolesNotFoundException": "#/components/schemas/UserRolesNotFoundException",
+                "UnauthorizedException": "#/components/schemas/UnauthorizedException",
                 "RenderingException": "#/components/schemas/RenderingException",
                 "ServiceProviderDeleteException": "#/components/schemas/ServiceProviderDeleteException",
                 "ServiceProviderCreateException": "#/components/schemas/ServiceProviderCreateException",
@@ -19249,6 +19716,7 @@
                 "DocumentVersionNotFoundException": "#/components/schemas/DocumentVersionNotFoundException",
                 "DefaultChannelDeleteException": "#/components/schemas/DefaultChannelDeleteException",
                 "ChannelsNotFoundException": "#/components/schemas/ChannelsNotFoundException",
+                "SuperAdminRolesNotAssignableToChannelException": "#/components/schemas/SuperAdminRolesNotAssignableToChannelException",
                 "ElasticVersionUpdateException": "#/components/schemas/ElasticVersionUpdateException",
                 "InvalidVersionException": "#/components/schemas/InvalidVersionException",
                 "EnvironmentNotDeactivatedException": "#/components/schemas/EnvironmentNotDeactivatedException",
@@ -19264,6 +19732,7 @@
                 "NotSupportedFileMappingException": "#/components/schemas/NotSupportedFileMappingException",
                 "NotSupportedFileExtensionException": "#/components/schemas/NotSupportedFileExtensionException",
                 "DuplicateOutputFormatIdException": "#/components/schemas/DuplicateOutputFormatIdException",
+                "OutputFormatResizingNotSupportedException": "#/components/schemas/OutputFormatResizingNotSupportedException",
                 "LeaseNotAcquiredException": "#/components/schemas/LeaseNotAcquiredException",
                 "OperationInProgressException": "#/components/schemas/OperationInProgressException",
                 "RetryException": "#/components/schemas/RetryException",
@@ -19277,10 +19746,12 @@
                 "PictureparkApplicationException": "#/components/schemas/PictureparkApplicationException",
                 "MissingCustomerDefaultLanguageException": "#/components/schemas/MissingCustomerDefaultLanguageException",
                 "PartialOperationNotSupportedException": "#/components/schemas/PartialOperationNotSupportedException",
+                "ContractMismatchException": "#/components/schemas/ContractMismatchException",
                 "InvalidArgumentException": "#/components/schemas/InvalidArgumentException",
                 "UnknownException": "#/components/schemas/UnknownException",
                 "OwnerTokenInUseException": "#/components/schemas/OwnerTokenInUseException",
                 "InvalidValueFormatException": "#/components/schemas/InvalidValueFormatException",
+                "ItemIdDuplicatedException": "#/components/schemas/ItemIdDuplicatedException",
                 "CustomerViolationException": "#/components/schemas/CustomerViolationException",
                 "CustomerAliasNotFoundException": "#/components/schemas/CustomerAliasNotFoundException",
                 "CustomerAliasInUseException": "#/components/schemas/CustomerAliasInUseException",
@@ -19313,6 +19784,7 @@
                 "QueryException": "#/components/schemas/QueryException",
                 "PermissionOwnershipTransferException": "#/components/schemas/PermissionOwnershipTransferException",
                 "PermissionSetNotFoundException": "#/components/schemas/PermissionSetNotFoundException",
+                "PermissionSetAggregateException": "#/components/schemas/PermissionSetAggregateException",
                 "DuplicateRightException": "#/components/schemas/DuplicateRightException",
                 "PermissionValidationException": "#/components/schemas/PermissionValidationException",
                 "PermissionSetInUseException": "#/components/schemas/PermissionSetInUseException",
@@ -19321,6 +19793,7 @@
                 "SchemaPermissionException": "#/components/schemas/SchemaPermissionException",
                 "PermissionSetValidationException": "#/components/schemas/PermissionSetValidationException",
                 "PermissionSetInvalidRightCombinationException": "#/components/schemas/PermissionSetInvalidRightCombinationException",
+                "AmbiguousUserRoleRightsException": "#/components/schemas/AmbiguousUserRoleRightsException",
                 "UnsupportedListItemChangeCommandException": "#/components/schemas/UnsupportedListItemChangeCommandException",
                 "ListItemLayerException": "#/components/schemas/ListItemLayerException",
                 "ListItemNotFoundException": "#/components/schemas/ListItemNotFoundException",
@@ -19399,6 +19872,7 @@
                 "SchemaViewForAllException": "#/components/schemas/SchemaViewForAllException",
                 "SystemLayerReferenceInvalidModificationException": "#/components/schemas/SystemLayerReferenceInvalidModificationException",
                 "SchemaFieldAnalyzerInvalidException": "#/components/schemas/SchemaFieldAnalyzerInvalidException",
+                "SchemaFieldRelationMultipleTypesException": "#/components/schemas/SchemaFieldRelationMultipleTypesException",
                 "DeleteContentsWithReferencesException": "#/components/schemas/DeleteContentsWithReferencesException",
                 "ContentMetadataUpdateManyException": "#/components/schemas/ContentMetadataUpdateManyException",
                 "ContentNotFoundException": "#/components/schemas/ContentNotFoundException",
@@ -19454,6 +19928,10 @@
               "httpStatusCode": {
                 "type": "integer",
                 "format": "int32"
+              },
+              "exceptionMessage": {
+                "type": "string",
+                "nullable": true
               },
               "kind": {
                 "type": "string"
@@ -19714,6 +20192,17 @@
           }
         ]
       },
+      "UnauthorizedException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkBusinessException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
       "RenderingException": {
         "allOf": [
           {
@@ -19824,6 +20313,17 @@
         "allOf": [
           {
             "$ref": "#/components/schemas/PictureparkNotFoundException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "SuperAdminRolesNotAssignableToChannelException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
           },
           {
             "type": "object",
@@ -20069,6 +20569,27 @@
           }
         ]
       },
+      "OutputFormatResizingNotSupportedException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "contentId": {
+                "type": "string",
+                "nullable": true
+              },
+              "outputFormatId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
       "LeaseNotAcquiredException": {
         "allOf": [
           {
@@ -20298,6 +20819,17 @@
           }
         ]
       },
+      "ContractMismatchException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
       "InvalidArgumentException": {
         "allOf": [
           {
@@ -20361,6 +20893,23 @@
           {
             "type": "object",
             "additionalProperties": false
+          }
+        ]
+      },
+      "ItemIdDuplicatedException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string",
+                "nullable": true
+              }
+            }
           }
         ]
       },
@@ -21132,6 +21681,26 @@
           }
         ]
       },
+      "PermissionSetAggregateException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "exceptions": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          }
+        ]
+      },
       "DuplicateRightException": {
         "allOf": [
           {
@@ -21202,16 +21771,17 @@
           {
             "type": "object",
             "additionalProperties": false,
-            "required": [
-              "contentRight"
-            ],
             "properties": {
               "contentId": {
                 "type": "string",
                 "nullable": true
               },
-              "contentRight": {
-                "$ref": "#/components/schemas/ContentRight"
+              "contentRights": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/ContentRight"
+                }
               }
             }
           }
@@ -21316,6 +21886,17 @@
           {
             "type": "object",
             "description": "This exception is an abstract base for permission set validation.",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "AmbiguousUserRoleRightsException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PermissionSetValidationException"
+          },
+          {
+            "type": "object",
             "additionalProperties": false
           }
         ]
@@ -23161,6 +23742,27 @@
           "PathHierarchy",
           "EdgeNGram",
           "NGram"
+        ]
+      },
+      "SchemaFieldRelationMultipleTypesException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "schemaId": {
+                "type": "string",
+                "nullable": true
+              },
+              "fieldId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
         ]
       },
       "DeleteContentsWithReferencesException": {
@@ -25800,6 +26402,7 @@
           "contentId",
           "renderingState",
           "attemptsLeft",
+          "fileVersion",
           "kind"
         ],
         "properties": {
@@ -25844,7 +26447,12 @@
           },
           "attemptsLeft": {
             "type": "integer",
-            "description": "Number of rendering retry attempts left",
+            "description": "Number of rendering retry attempts left.",
+            "format": "int32"
+          },
+          "fileVersion": {
+            "type": "integer",
+            "description": "Version counter incremented every time this output is rendered (or in case of Original when new original is uploaded).",
             "format": "int32"
           },
           "kind": {
@@ -26293,6 +26901,7 @@
         ],
         "properties": {
           "audit": {
+            "description": "Audit information.",
             "nullable": true,
             "oneOf": [
               {
@@ -27369,14 +27978,14 @@
         "properties": {
           "layerSchemaIds": {
             "type": "array",
-            "description": "An optional list of IDs of the schemas that form the layers of the content.\nThe SchemaType of the specified schemas must be Layer.",
+            "description": "An optional list of IDs of the schemas that should be updated/replaced based on the options below and Metadata provided.\nThe SchemaType of the specified schemas must be Layer.",
             "nullable": true,
             "items": {
               "type": "string"
             }
           },
           "content": {
-            "description": "The content data of the content. It's a dictionary of dynamic metadata whose structure is defined in the Content schema identified by\nthe ContentSchemaId property. Updating the Content property is only possible for virtual items (contents\nwhose ContentType is ContentItem).",
+            "description": "The content data of the content. It's a dictionary of dynamic metadata whose structure is defined in the Content schema identified by\nthe ContentSchemaId property. Updating the Content property is only possible for virtual items (contents\nwhose ContentType is ContentItem).\nUpdate of content data will be done only if this attribute has any data, i.e. if it's not null or empty.",
             "nullable": true,
             "oneOf": [
               {
@@ -27385,7 +27994,7 @@
             ]
           },
           "metadata": {
-            "description": "The dynamic data structure matching the field schematics of the schemas with type layer (LayerSchemaIds).\nThe metadata belonging to the layers of the content. It's a dictionary of dynamic metadata whose structure is defined in the Layer schemas identified\nby the LayerSchemaIds property.\nFor every layer schema specified in the LayerSchemaIds property there must be a corresponding dictionary inside the Metadata one, otherwise\nan exception is thrown.",
+            "description": "The dynamic data structure matching the field schematics of the schemas with type layer (LayerSchemaIds).\nThe metadata belonging to the layers of the content. It's a dictionary of dynamic metadata whose structure is defined in the Layer schemas identified\nby the LayerSchemaIds property.\nIf there are no data for a specified LayerSchemaId, it is treated as empty.",
             "nullable": true,
             "oneOf": [
               {
@@ -28105,14 +28714,14 @@
             "type": "array",
             "nullable": true,
             "items": {
-              "$ref": "#/components/schemas/PermissionUserRoleRightsOfContentRight"
+              "$ref": "#/components/schemas/UserRoleRightsOfContentRight"
             }
           },
           "userRolesPermissionSetRights": {
             "type": "array",
             "nullable": true,
             "items": {
-              "$ref": "#/components/schemas/PermissionUserRoleRightsOfPermissionSetRight"
+              "$ref": "#/components/schemas/UserRoleRightsOfPermissionSetRight"
             }
           },
           "exclusive": {
@@ -28702,7 +29311,8 @@
           "languageConfiguration",
           "languages",
           "outputFormats",
-          "boostValues"
+          "boostValues",
+          "modificationDate"
         ],
         "properties": {
           "customerId": {
@@ -28758,6 +29368,19 @@
               "type": "number",
               "format": "double"
             }
+          },
+          "apps": {
+            "type": "array",
+            "description": "Apps registered for this customer",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/CustomerApp"
+            }
+          },
+          "modificationDate": {
+            "type": "string",
+            "format": "date-time",
+            "minLength": 1
           }
         }
       },
@@ -28849,6 +29472,36 @@
           }
         }
       },
+      "CustomerApp": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "appId": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/TranslatedStringDictionary"
+              }
+            ]
+          },
+          "description": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/TranslatedStringDictionary"
+              }
+            ]
+          },
+          "icon": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
       "VersionInfo": {
         "type": "object",
         "description": "The version view item for the environment.",
@@ -28903,6 +29556,15 @@
             "type": "string",
             "description": "The list item id.",
             "nullable": true
+          },
+          "audit": {
+            "description": "Audit data with information regarding document creation and modification.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/UserAudit"
+              }
+            ]
           }
         }
       },
@@ -28994,6 +29656,15 @@
             "type": "string",
             "description": "The list item id.",
             "nullable": true
+          },
+          "audit": {
+            "description": "Audit data with information regarding document creation and modification.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/UserAudit"
+              }
+            ]
           }
         }
       },
@@ -29650,7 +30321,8 @@
             "BusinessProcessEvent": "#/components/schemas/BusinessProcessEvent",
             "OutputRenderedEvent": "#/components/schemas/OutputRenderedEvent",
             "ConfigurationChangeEvent": "#/components/schemas/ConfigurationChangeEvent",
-            "CustomerChangeEvent": "#/components/schemas/CustomerChangeEvent"
+            "CustomerChangeEvent": "#/components/schemas/CustomerChangeEvent",
+            "SearchReindexCompletedEvent": "#/components/schemas/SearchReindexCompletedEvent"
           }
         },
         "additionalProperties": false,
@@ -29708,7 +30380,9 @@
           "TransferReady",
           "FileDeleteInProgress",
           "TransferCleanup",
-          "ImportCompletedWithErrors"
+          "ImportCompletedWithErrors",
+          "UploadCompletedWithErrors",
+          "UploadCancellationInProgress"
         ],
         "enum": [
           "Draft",
@@ -29724,7 +30398,9 @@
           "TransferReady",
           "FileDeleteInProgress",
           "TransferCleanup",
-          "ImportCompletedWithErrors"
+          "ImportCompletedWithErrors",
+          "UploadCompletedWithErrors",
+          "UploadCancellationInProgress"
         ]
       },
       "ReindexEvent": {
@@ -29979,6 +30655,9 @@
           {
             "type": "object",
             "additionalProperties": false,
+            "required": [
+              "renderingState"
+            ],
             "properties": {
               "outputId": {
                 "type": "string",
@@ -29991,6 +30670,9 @@
               "outputFormatId": {
                 "type": "string",
                 "nullable": true
+              },
+              "renderingState": {
+                "$ref": "#/components/schemas/OutputRenderingState"
               }
             }
           }
@@ -30008,13 +30690,6 @@
               "documentType": {
                 "type": "string",
                 "nullable": true
-              },
-              "documentIds": {
-                "type": "array",
-                "nullable": true,
-                "items": {
-                  "type": "string"
-                }
               }
             }
           }
@@ -30023,7 +30698,7 @@
       "CustomerChangeEvent": {
         "allOf": [
           {
-            "$ref": "#/components/schemas/ApplicationEvent"
+            "$ref": "#/components/schemas/ConfigurationChangeEvent"
           },
           {
             "type": "object",
@@ -30037,6 +30712,47 @@
               }
             }
           }
+        ]
+      },
+      "SearchReindexCompletedEvent": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ApplicationEvent"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "searchIndex",
+              "items",
+              "duration"
+            ],
+            "properties": {
+              "searchIndex": {
+                "$ref": "#/components/schemas/SearchIndexType"
+              },
+              "items": {
+                "type": "integer",
+                "format": "int64"
+              },
+              "duration": {
+                "type": "string",
+                "format": "time-span"
+              }
+            }
+          }
+        ]
+      },
+      "SearchIndexType": {
+        "type": "string",
+        "description": "",
+        "x-enumNames": [
+          "Content",
+          "ListItem"
+        ],
+        "enum": [
+          "Content",
+          "ListItem"
         ]
       },
       "Message": {
@@ -31521,7 +32237,7 @@
         "description": "Used to remove multiple output formats at once.",
         "additionalProperties": false,
         "properties": {
-          "items": {
+          "ids": {
             "type": "array",
             "description": "List of IDs of output formats to remove.",
             "nullable": true,
@@ -33988,14 +34704,14 @@
             "type": "array",
             "nullable": true,
             "items": {
-              "$ref": "#/components/schemas/PermissionUserRoleRightsOfMetadataRight"
+              "$ref": "#/components/schemas/UserRoleRightsOfMetadataRight"
             }
           },
           "userRolesPermissionSetRights": {
             "type": "array",
             "nullable": true,
             "items": {
-              "$ref": "#/components/schemas/PermissionUserRoleRightsOfPermissionSetRight"
+              "$ref": "#/components/schemas/UserRoleRightsOfPermissionSetRight"
             }
           },
           "exclusive": {
@@ -35087,18 +35803,35 @@
         ]
       },
       "UserRole": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/UserRoleEditable"
+          },
+          {
+            "type": "object",
+            "description": "Represents a user role, which associates users with user rights.",
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string",
+                "description": "User role ID.",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "UserRoleEditable": {
         "type": "object",
         "description": "Represents a user role, which associates users with user rights.",
         "additionalProperties": false,
+        "required": [
+          "names",
+          "userRights"
+        ],
         "properties": {
-          "id": {
-            "type": "string",
-            "description": "User role ID.",
-            "nullable": true
-          },
           "names": {
             "description": "Language specific user role names.",
-            "nullable": true,
             "oneOf": [
               {
                 "$ref": "#/components/schemas/TranslatedStringDictionary"
@@ -35108,7 +35841,6 @@
           "userRights": {
             "type": "array",
             "description": "All user rights for this user role.",
-            "nullable": true,
             "items": {
               "$ref": "#/components/schemas/UserRight"
             }
@@ -35575,7 +36307,7 @@
               },
               "outputItems": {
                 "type": "array",
-                "description": "Outputs being rendered for file.",
+                "description": "Outputs rendered during data extraction phase.",
                 "nullable": true,
                 "items": {
                   "$ref": "#/components/schemas/FileTransferOutput"
@@ -37082,30 +37814,16 @@
         }
       },
       "UserRoleCreateRequest": {
-        "type": "object",
-        "description": "Holds information needed for user role creation.",
-        "additionalProperties": false,
-        "required": [
-          "names",
-          "userRights"
-        ],
-        "properties": {
-          "names": {
-            "description": "Language specific user role names.",
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/TranslatedStringDictionary"
-              }
-            ]
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/UserRoleEditable"
           },
-          "userRights": {
-            "type": "array",
-            "description": "All user rights for this user role.",
-            "items": {
-              "$ref": "#/components/schemas/UserRight"
-            }
+          {
+            "type": "object",
+            "description": "Holds information needed for user role creation.",
+            "additionalProperties": false
           }
-        }
+        ]
       },
       "UserRoleCreateManyRequest": {
         "type": "object",
@@ -37136,35 +37854,7 @@
             "type": "array",
             "description": "New value for user roles with specified IDs.",
             "items": {
-              "$ref": "#/components/schemas/UserRoleDetail"
-            }
-          }
-        }
-      },
-      "UserRoleDetail": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "id": {
-            "type": "string",
-            "description": "The user role id.",
-            "nullable": true
-          },
-          "names": {
-            "description": "Language specific user role names.",
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/TranslatedStringDictionary"
-              }
-            ]
-          },
-          "userRights": {
-            "type": "array",
-            "description": "All user rights for this user role.",
-            "nullable": true,
-            "items": {
-              "$ref": "#/components/schemas/UserRight"
+              "$ref": "#/components/schemas/UserRole"
             }
           }
         }

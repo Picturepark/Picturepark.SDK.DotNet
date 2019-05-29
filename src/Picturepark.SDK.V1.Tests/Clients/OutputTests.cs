@@ -23,7 +23,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldGet()
         {
             // Arrange
-            string contentId = await _fixture.GetRandomContentIdAsync(".jpg", 20).ConfigureAwait(false);
+            string contentId = await _fixture.GetRandomContentIdAsync("fileMetadata.fileExtension:.jpg", 20).ConfigureAwait(false);
             Assert.False(string.IsNullOrEmpty(contentId));
 
             ContentDetail contentDetail = await _client.Content.GetAsync(contentId, new[] { ContentResolveBehavior.Outputs }).ConfigureAwait(false);
@@ -45,7 +45,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldGetByContentIds()
         {
             // Arrange
-            string contentId = await _fixture.GetRandomContentIdAsync(".jpg", 20).ConfigureAwait(false);
+            string contentId = await _fixture.GetRandomContentIdAsync("fileMetadata.fileExtension:.jpg", 20).ConfigureAwait(false);
             var request = new OutputSearchRequest
             {
                 ContentIds = new List<string> { contentId }
