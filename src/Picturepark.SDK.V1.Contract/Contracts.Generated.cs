@@ -14365,8 +14365,8 @@ namespace Picturepark.SDK.V1.Contract
     public partial class OutputFormatDeleteManyRequest 
     {
         /// <summary>List of IDs of output formats to remove.</summary>
-        [Newtonsoft.Json.JsonProperty("items", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> Items { get; set; }
+        [Newtonsoft.Json.JsonProperty("ids", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> Ids { get; set; }
     
         public string ToJson() 
         {
@@ -19278,10 +19278,6 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class UserRoleDeleteManyRequest 
     {
-        /// <summary>Warning: Please use Ids property instead.</summary>
-        [Newtonsoft.Json.JsonProperty("items", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> Items { get; set; }
-    
         /// <summary>IDs of the user roles to delete.</summary>
         [Newtonsoft.Json.JsonProperty("ids", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]

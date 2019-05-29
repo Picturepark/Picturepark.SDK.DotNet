@@ -32237,7 +32237,7 @@
         "description": "Used to remove multiple output formats at once.",
         "additionalProperties": false,
         "properties": {
-          "items": {
+          "ids": {
             "type": "array",
             "description": "List of IDs of output formats to remove.",
             "nullable": true,
@@ -37867,14 +37867,6 @@
           "ids"
         ],
         "properties": {
-          "items": {
-            "type": "array",
-            "description": "Warning: Please use Ids property instead.",
-            "nullable": true,
-            "items": {
-              "type": "string"
-            }
-          },
           "ids": {
             "type": "array",
             "description": "IDs of the user roles to delete.",
