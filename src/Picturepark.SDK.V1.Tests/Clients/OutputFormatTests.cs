@@ -154,7 +154,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             await _client.OutputFormat.DeleteManyAsync(
                 new OutputFormatDeleteManyRequest
                 {
-                    Items = toDeleteIds
+                    Ids = toDeleteIds
                 }).ConfigureAwait(false);
 
             // Assert
