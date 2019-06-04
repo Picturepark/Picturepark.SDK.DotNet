@@ -25266,6 +25266,11 @@
                 "$ref": "#/components/schemas/ErrorResponse"
               }
             ]
+          },
+          "requestId": {
+            "type": "string",
+            "description": "The request ID provided by user or null if none was provided. Used only in bulk creation.",
+            "nullable": true
           }
         }
       },
@@ -27775,6 +27780,11 @@
             "items": {
               "type": "string"
             }
+          },
+          "requestId": {
+            "type": "string",
+            "description": "Optional client reference for this request.\nWill be returned back in response to make easier for clients to match request items with the respective results.\nIt is not persisted anywhere and it is ignored in single operations.",
+            "nullable": true
           }
         }
       },
@@ -28645,6 +28655,10 @@
           },
           "exclusive": {
             "type": "boolean"
+          },
+          "requestId": {
+            "type": "string",
+            "nullable": true
           }
         }
       },
@@ -28792,6 +28806,10 @@
             "type": "integer",
             "description": "Returned status code.",
             "format": "int32"
+          },
+          "requestId": {
+            "type": "string",
+            "nullable": true
           }
         }
       },
@@ -29888,9 +29906,9 @@
             "description": "The id of the schema with schema type list.",
             "nullable": true
           },
-          "listItemId": {
+          "requestId": {
             "type": "string",
-            "description": "The list item id. When not provided a Guid is generated.",
+            "description": "Optional client reference for this request.\nWill be returned back in response to make easier for clients to match request items with the respective results.\nIt is not persisted anywhere and it is ignored in single operations.",
             "nullable": true
           }
         }
@@ -34652,6 +34670,10 @@
           },
           "exclusive": {
             "type": "boolean"
+          },
+          "requestId": {
+            "type": "string",
+            "nullable": true
           }
         }
       },
@@ -37821,7 +37843,14 @@
           {
             "type": "object",
             "description": "Holds information needed for user role creation.",
-            "additionalProperties": false
+            "additionalProperties": false,
+            "properties": {
+              "requestId": {
+                "type": "string",
+                "description": "Optional client reference for this request.\nWill be returned back in response to make easier for clients to match request items with the respective results.\nIt is not persisted anywhere and it is ignored in single operations.",
+                "nullable": true
+              }
+            }
           }
         ]
       },

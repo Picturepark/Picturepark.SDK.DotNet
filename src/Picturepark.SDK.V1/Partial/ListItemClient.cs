@@ -226,22 +226,22 @@ namespace Picturepark.SDK.V1
                         foreach (var value in values)
                         {
                             var refObject = value as IReferenceObject;
-                            if (refObject == null || string.IsNullOrEmpty(refObject.RefId))
+                            if (refObject == null || (string.IsNullOrEmpty(refObject.RefId) && string.IsNullOrEmpty(refObject.RefRequestId)))
                             {
                                 var schemaId = value.GetType().Name;
 
                                 // Add metadata object if it does not already exist
                                 if (referencedListItems.Where(i => i.ContentSchemaId == schemaId).Select(i => i.Content).All(i => i != value))
                                 {
-                                    var listItemId = Guid.NewGuid().ToString("N");
+                                    var listItemRequestId = Guid.NewGuid().ToString("N");
                                     if (refObject != null)
-                                        refObject.RefId = listItemId;
+                                        refObject.RefRequestId = listItemRequestId;
 
                                     referencedListItems.Insert(0, new ListItemCreateRequest
                                     {
                                         ContentSchemaId = schemaId,
                                         Content = value,
-                                        ListItemId = listItemId
+                                        RequestId = listItemRequestId
                                     });
                                 }
                             }
@@ -255,7 +255,7 @@ namespace Picturepark.SDK.V1
                     if (value != null)
                     {
                         var refObject = value as IReferenceObject;
-                        if (refObject == null || string.IsNullOrEmpty(refObject.RefId))
+                        if (refObject == null || (string.IsNullOrEmpty(refObject.RefId) && string.IsNullOrEmpty(refObject.RefRequestId)))
                         {
                             var schemaId = value.GetType().Name;
 
@@ -265,14 +265,14 @@ namespace Picturepark.SDK.V1
                             if (hasValueBeenAdded)
                                 continue;
 
-                            var listItemId = Guid.NewGuid().ToString("N");
+                            var listItemRequestId = Guid.NewGuid().ToString("N");
                             if (refObject != null)
-                                refObject.RefId = listItemId;
+                                refObject.RefRequestId = listItemRequestId;
                             referencedListItems.Insert(0, new ListItemCreateRequest
                             {
                                 ContentSchemaId = schemaId,
                                 Content = value,
-                                ListItemId = listItemId
+                                RequestId = listItemRequestId
                             });
                         }
                     }
