@@ -35000,7 +35000,8 @@
           "id",
           "outputs",
           "contentType",
-          "displayValues"
+          "displayValues",
+          "iconUrl"
         ],
         "properties": {
           "contentSchemaId": {
@@ -35061,6 +35062,11 @@
                 "$ref": "#/components/schemas/DisplayValueDictionary"
               }
             ]
+          },
+          "iconUrl": {
+            "type": "string",
+            "description": "Contains an URL that can be used to retrieve the icon corresponding to the file type.",
+            "minLength": 1
           }
         }
       },
