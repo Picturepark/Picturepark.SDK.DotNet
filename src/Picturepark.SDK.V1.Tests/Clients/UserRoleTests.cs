@@ -123,6 +123,72 @@ namespace Picturepark.SDK.V1.Tests.Clients
             }
         }
 
+        [Fact]
+        [Trait("Stack", "UserRoles")]
+        public async Task CreateManyShouldReturnRequestIdsWhereSpecified()
+        {
+            // Arrange
+            var createManyRequest = new UserRoleCreateManyRequest
+            {
+                Items = new[]
+                {
+                    new UserRoleCreateRequest
+                    {
+                        Names = new TranslatedStringDictionary
+                        {
+                            { "en", "Group A" }
+                        },
+                        UserRights = new[] { UserRight.ManageAllShares },
+                        RequestId = "A"
+                    },
+                    new UserRoleCreateRequest
+                    {
+                        Names = new TranslatedStringDictionary
+                        {
+                            { "en", "Group B" }
+                        },
+                        UserRights = new[] { UserRight.ManageAllShares }
+                    },
+                    new UserRoleCreateRequest
+                    {
+                        Names = new TranslatedStringDictionary
+                        {
+                            { "en", "Group C" }
+                        },
+                        UserRights = new[] { UserRight.ManageAllShares },
+                        RequestId = "C"
+                    },
+                    new UserRoleCreateRequest
+                    {
+                        Names = new TranslatedStringDictionary
+                        {
+                            { "en", "Group D" }
+                        },
+                        UserRights = new[] { UserRight.ManageAllShares },
+                        RequestId = "D"
+                    }
+                }
+            };
+
+            // Act
+            var result = await _client.UserRole.CreateManyAsync(createManyRequest).ConfigureAwait(false);
+
+            try
+            {
+                // Assert
+                var idToRequestLookup = result.Rows.ToDictionary(r => r.Id, r => r.RequestId);
+                result.Rows.Should().HaveCount(4).And.Subject.Where(r => r.RequestId != null).Should().HaveCount(3);
+
+                var roles = await _client.UserRole.GetManyAsync(idToRequestLookup.Keys).ConfigureAwait(false);
+
+                roles.Should().OnlyContain(ur => ur.Names["en"] == "Group B" || ur.Names["en"] == $"Group {idToRequestLookup[ur.Id]}");
+            }
+            finally
+            {
+                await _client.UserRole.DeleteManyAsync(new UserRoleDeleteManyRequest { Ids = result.Rows.Select(r => r.Id).ToArray() }).ConfigureAwait(false);
+            }
+        }
+
         private async Task Delete(IEnumerable<UserRole> roles)
         {
             await _client.UserRole.DeleteManyAsync(new UserRoleDeleteManyRequest
