@@ -1,6 +1,4 @@
 ﻿using Newtonsoft.Json.Linq;
-using System;
-using Newtonsoft.Json;
 
 namespace Picturepark.SDK.V1.Contract
 {
@@ -11,13 +9,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>The converted content.</returns>
         public T ConvertTo<T>()
         {
-            return Content is T
-                ? (T)Content
-                : ((JObject)Content).ToObject<T>(
-                    new JsonSerializer
-                    {
-                        DateTimeZoneHandling = DateTimeZoneHandling.Utc
-                    });
+            return Content is T ? (T)Content : ((JObject)Content).ToObject<T>();
         }
     }
 }
