@@ -686,7 +686,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var items = details.SucceededItems;
 
             // Act
-            var item = items.Last();
+            var item = items.Single(x => ((JObject)x.Content).ContainsKey("child"));
             var dateValue = item.ConvertTo<LocalDateTestItem>().DateTimeField;
 
             const string quote = "\"";
