@@ -10454,14 +10454,17 @@
             "properties": {
               "referenceItemId": {
                 "type": "string",
+                "description": "This is the source of the reference.",
                 "nullable": true
               },
               "referenceType": {
                 "type": "string",
+                "description": "This is the DocType of the source of the reference.",
                 "nullable": true
               },
               "exceptions": {
                 "type": "array",
+                "description": "These exceptions describe why the source metadata item could not be updated.",
                 "nullable": true,
                 "items": {
                   "$ref": "#/components/schemas/PictureparkException"
