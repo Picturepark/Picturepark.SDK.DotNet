@@ -5140,12 +5140,15 @@ namespace Picturepark.SDK.V1.Contract
     [Newtonsoft.Json.JsonObjectAttribute]
     public partial class ReferenceUpdateException : PictureparkBusinessException
     {
+        /// <summary>This is the source of the reference.</summary>
         [Newtonsoft.Json.JsonProperty("referenceItemId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ReferenceItemId { get; set; }
     
+        /// <summary>This is the DocType of the source of the reference.</summary>
         [Newtonsoft.Json.JsonProperty("referenceType", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ReferenceType { get; set; }
     
+        /// <summary>These exceptions describe why the source metadata item could not be updated.</summary>
         [Newtonsoft.Json.JsonProperty("exceptions", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<PictureparkException> Exceptions { get; set; }
     
