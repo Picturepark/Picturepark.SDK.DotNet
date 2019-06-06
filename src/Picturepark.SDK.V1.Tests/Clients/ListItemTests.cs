@@ -686,11 +686,11 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var items = details.SucceededItems;
 
             // Act
-            var item = items.Last();
+            var item = items.Single(x => ((JObject)x.Content).ContainsKey("child"));
             var dateValue = item.ConvertTo<LocalDateTestItem>().DateTimeField;
 
             const string quote = "\"";
-            var shouldBeValue = $"{{{{ {quote}2010-01-01T12:01:01.0000000Z{quote} | date: {quote}%d.%m.%Y %H:%M:%S{quote} }}}}";
+            var shouldBeValue = $"{{{{ {quote}{dateValue:O}{quote} | date: {quote}%d.%m.%Y %H:%M:%S{quote} }}}}";
 
             // Assert
             item.DisplayValues[DisplayPatternType.Name.ToString().ToLowerCamelCase()]
