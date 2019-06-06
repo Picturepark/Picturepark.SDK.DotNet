@@ -35000,8 +35000,7 @@
           "id",
           "outputs",
           "contentType",
-          "displayValues",
-          "iconUrl"
+          "displayValues"
         ],
         "properties": {
           "contentSchemaId": {
@@ -35066,7 +35065,7 @@
           "iconUrl": {
             "type": "string",
             "description": "Contains an URL that can be used to retrieve the icon corresponding to the file type.",
-            "minLength": 1
+            "nullable": true
           }
         }
       },

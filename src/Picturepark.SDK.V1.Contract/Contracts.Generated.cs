@@ -16763,8 +16763,7 @@ namespace Picturepark.SDK.V1.Contract
         public DisplayValueDictionary DisplayValues { get; set; } = new DisplayValueDictionary();
     
         /// <summary>Contains an URL that can be used to retrieve the icon corresponding to the file type.</summary>
-        [Newtonsoft.Json.JsonProperty("iconUrl", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
+        [Newtonsoft.Json.JsonProperty("iconUrl", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string IconUrl { get; set; }
     
         public string ToJson() 
