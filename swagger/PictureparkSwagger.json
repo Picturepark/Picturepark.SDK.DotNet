@@ -25272,7 +25272,7 @@
           },
           "requestId": {
             "type": "string",
-            "description": "The request ID provided by user or null if none was provided. Used only in bulk creation.",
+            "description": "The identifier provided by user in the corresponding request (or null if none was provided). Used only in bulk creation.",
             "nullable": true
           }
         }
@@ -28812,6 +28812,7 @@
           },
           "requestId": {
             "type": "string",
+            "description": "The identifier provided by user in the corresponding request (or null if none was provided). Used only in bulk creation.",
             "nullable": true
           }
         }
