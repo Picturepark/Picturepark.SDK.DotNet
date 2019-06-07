@@ -25305,13 +25305,15 @@
           "DropInvalidCharactersOnFailure",
           "WildcardOnSingleTerm",
           "SimplifiedSearch",
-          "WildcardOnEveryTerm"
+          "WildcardOnEveryTerm",
+          "SimplifiedSearchOr"
         ],
         "enum": [
           "DropInvalidCharactersOnFailure",
           "WildcardOnSingleTerm",
           "SimplifiedSearch",
-          "WildcardOnEveryTerm"
+          "WildcardOnEveryTerm",
+          "SimplifiedSearchOr"
         ]
       },
       "BusinessProcessWaitForLifeCycleResult": {
