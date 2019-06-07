@@ -5226,6 +5226,15 @@
               "type": "string"
             },
             "x-position": 1
+          },
+          {
+            "name": "nodeId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 2
           }
         ],
         "responses": {
@@ -5324,6 +5333,15 @@
               "type": "string"
             },
             "x-position": 1
+          },
+          {
+            "name": "nodeId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 2
           }
         ],
         "responses": {
