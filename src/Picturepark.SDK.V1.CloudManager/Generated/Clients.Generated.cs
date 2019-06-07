@@ -8556,19 +8556,14 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        public async System.Threading.Tasks.Task RestartServiceAsync(string serviceName, string nodeId = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task RestartServiceAsync(string serviceName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (serviceName == null)
                 throw new System.ArgumentNullException("serviceName");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/services/{serviceName}/restart?");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/services/{serviceName}/restart");
             urlBuilder_.Replace("{serviceName}", System.Uri.EscapeDataString(ConvertToString(serviceName, System.Globalization.CultureInfo.InvariantCulture)));
-            if (nodeId != null) 
-            {
-                urlBuilder_.Append("nodeId=").Append(System.Uri.EscapeDataString(ConvertToString(nodeId, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
-            }
-            urlBuilder_.Length--;
     
             var client_ = _httpClient;
             try
@@ -8722,19 +8717,14 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        public async System.Threading.Tasks.Task ShutdownServiceAsync(string serviceName, string nodeId = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task ShutdownServiceAsync(string serviceName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (serviceName == null)
                 throw new System.ArgumentNullException("serviceName");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/services/{serviceName}/shutdown?");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/services/{serviceName}/shutdown");
             urlBuilder_.Replace("{serviceName}", System.Uri.EscapeDataString(ConvertToString(serviceName, System.Globalization.CultureInfo.InvariantCulture)));
-            if (nodeId != null) 
-            {
-                urlBuilder_.Append("nodeId=").Append(System.Uri.EscapeDataString(ConvertToString(nodeId, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
-            }
-            urlBuilder_.Length--;
     
             var client_ = _httpClient;
             try
