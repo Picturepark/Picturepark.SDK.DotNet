@@ -7678,6 +7678,9 @@ namespace Picturepark.SDK.V1.Contract
         [System.Runtime.Serialization.EnumMember(Value = "WildcardOnEveryTerm")]
         WildcardOnEveryTerm = 3,
     
+        [System.Runtime.Serialization.EnumMember(Value = "SimplifiedSearchOr")]
+        SimplifiedSearchOr = 4,
+    
     }
     
     /// <summary>Result from waiting for life cycle(s) on a business process</summary>
@@ -7844,7 +7847,7 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("error", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public ErrorResponse Error { get; set; }
     
-        /// <summary>The request ID provided by user or null if none was provided. Used only in bulk creation.</summary>
+        /// <summary>The identifier provided by user in the corresponding request (or null if none was provided). Used only in bulk creation.</summary>
         [Newtonsoft.Json.JsonProperty("requestId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string RequestId { get; set; }
     
@@ -11081,6 +11084,7 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("status", Required = Newtonsoft.Json.Required.Always)]
         public int Status { get; set; }
     
+        /// <summary>The identifier provided by user in the corresponding request (or null if none was provided). Used only in bulk creation.</summary>
         [Newtonsoft.Json.JsonProperty("requestId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string RequestId { get; set; }
     
