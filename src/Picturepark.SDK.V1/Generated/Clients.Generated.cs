@@ -14451,6 +14451,134 @@ namespace Picturepark.SDK.V1
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>Transfer ownership</summary>
+        /// <param name="schemaId">The schema ID.</param>
+        /// <param name="request">Request detailing which user to transfer to.</param>
+        /// <returns>OK</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        public async System.Threading.Tasks.Task TransferOwnershipAsync(string schemaId, SchemaOwnershipTransferRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            if (schemaId == null)
+                throw new System.ArgumentNullException("schemaId");
+    
+            var urlBuilder_ = new System.Text.StringBuilder();
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/schemas/{schemaId}/ownership");
+            urlBuilder_.Replace("{schemaId}", System.Uri.EscapeDataString(ConvertToString(schemaId, System.Globalization.CultureInfo.InvariantCulture)));
+    
+            var client_ = _httpClient;
+            try
+            {
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
+                {
+                    var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(request, _settings.Value));
+                    content_.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json");
+                    request_.Content = content_;
+                    request_.Method = new System.Net.Http.HttpMethod("PUT");
+    
+                    PrepareRequest(client_, request_, urlBuilder_);
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+                    PrepareRequest(client_, request_, url_);
+    
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    try
+                    {
+                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
+                        if (response_.Content != null && response_.Content.Headers != null)
+                        {
+                            foreach (var item_ in response_.Content.Headers)
+                                headers_[item_.Key] = item_.Value;
+                        }
+    
+                        ProcessResponse(client_, response_);
+    
+                        var status_ = ((int)response_.StatusCode).ToString();
+                        if (status_ == "200") 
+                        {
+                            return;
+                        }
+                        else
+                        if (status_ == "500") 
+                        {
+                            var objectResponse_ = await ReadJsonObjectResponseAsync<PictureparkException>(response_, headers_).ConfigureAwait(false);
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkException();
+                            responseObject_.Data.Add("HttpStatus", status_);
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw objectResponse_.Object;
+                        }
+                        else
+                        if (status_ == "401") 
+                        {
+                            string responseText_ = ( response_.Content == null ) ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
+                            throw new ApiException("Not authorized", (int)response_.StatusCode, responseText_, headers_, null);
+                        }
+                        else
+                        if (status_ == "405") 
+                        {
+                            string responseText_ = ( response_.Content == null ) ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
+                            throw new ApiException("Method not allowed", (int)response_.StatusCode, responseText_, headers_, null);
+                        }
+                        else
+                        if (status_ == "404") 
+                        {
+                            var objectResponse_ = await ReadJsonObjectResponseAsync<PictureparkNotFoundException>(response_, headers_).ConfigureAwait(false);
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkNotFoundException();
+                            responseObject_.Data.Add("HttpStatus", status_);
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw objectResponse_.Object;
+                        }
+                        else
+                        if (status_ == "409") 
+                        {
+                            var objectResponse_ = await ReadJsonObjectResponseAsync<PictureparkConflictException>(response_, headers_).ConfigureAwait(false);
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkConflictException();
+                            responseObject_.Data.Add("HttpStatus", status_);
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw objectResponse_.Object;
+                        }
+                        else
+                        if (status_ == "400") 
+                        {
+                            var objectResponse_ = await ReadJsonObjectResponseAsync<PictureparkValidationException>(response_, headers_).ConfigureAwait(false);
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkValidationException();
+                            responseObject_.Data.Add("HttpStatus", status_);
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw objectResponse_.Object;
+                        }
+                        else
+                        if (status_ == "429") 
+                        {
+                            string responseText_ = ( response_.Content == null ) ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
+                            throw new ApiException("Too many requests", (int)response_.StatusCode, responseText_, headers_, null);
+                        }
+                        else
+                        if (status_ != "200" && status_ != "204")
+                        {
+                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", (int)response_.StatusCode, responseData_, headers_, null);
+                        }
+                    }
+                    finally
+                    {
+                        if (response_ != null)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+            }
+        }
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Gets all schemas referenced by the schemas specified in</summary>
         /// <param name="ids">The schema IDs.</param>
         /// <returns>Referenced schema details</returns>
@@ -14677,6 +14805,133 @@ namespace Picturepark.SDK.V1
                         {
                             var objectResponse_ = await ReadJsonObjectResponseAsync<PictureparkConflictException>(response_, headers_).ConfigureAwait(false);
                             var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkConflictException();
+                            responseObject_.Data.Add("HttpStatus", status_);
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw objectResponse_.Object;
+                        }
+                        else
+                        if (status_ == "429") 
+                        {
+                            string responseText_ = ( response_.Content == null ) ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
+                            throw new ApiException("Too many requests", (int)response_.StatusCode, responseText_, headers_, null);
+                        }
+                        else
+                        if (status_ != "200" && status_ != "204")
+                        {
+                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
+                            throw new ApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", (int)response_.StatusCode, responseData_, headers_, null);
+                        }
+            
+                        return default(BusinessProcess);
+                    }
+                    finally
+                    {
+                        if (response_ != null)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+            }
+        }
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>Transfer ownership of multiple schemas</summary>
+        /// <param name="request">Schema ownership transfer many request.</param>
+        /// <returns>Business process</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        public async System.Threading.Tasks.Task<BusinessProcess> TransferOwnershipManyAsync(SchemaOwnershipTransferManyRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            var urlBuilder_ = new System.Text.StringBuilder();
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/schemas/many/ownership");
+    
+            var client_ = _httpClient;
+            try
+            {
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
+                {
+                    var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(request, _settings.Value));
+                    content_.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json");
+                    request_.Content = content_;
+                    request_.Method = new System.Net.Http.HttpMethod("PUT");
+                    request_.Headers.Accept.Add(System.Net.Http.Headers.MediaTypeWithQualityHeaderValue.Parse("application/json"));
+    
+                    PrepareRequest(client_, request_, urlBuilder_);
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+                    PrepareRequest(client_, request_, url_);
+    
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    try
+                    {
+                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
+                        if (response_.Content != null && response_.Content.Headers != null)
+                        {
+                            foreach (var item_ in response_.Content.Headers)
+                                headers_[item_.Key] = item_.Value;
+                        }
+    
+                        ProcessResponse(client_, response_);
+    
+                        var status_ = ((int)response_.StatusCode).ToString();
+                        if (status_ == "200") 
+                        {
+                            var objectResponse_ = await ReadJsonObjectResponseAsync<BusinessProcess>(response_, headers_).ConfigureAwait(false);
+                            return objectResponse_.Object;
+                        }
+                        else
+                        if (status_ == "500") 
+                        {
+                            var objectResponse_ = await ReadJsonObjectResponseAsync<PictureparkException>(response_, headers_).ConfigureAwait(false);
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkException();
+                            responseObject_.Data.Add("HttpStatus", status_);
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw objectResponse_.Object;
+                        }
+                        else
+                        if (status_ == "401") 
+                        {
+                            string responseText_ = ( response_.Content == null ) ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
+                            throw new ApiException("Not authorized", (int)response_.StatusCode, responseText_, headers_, null);
+                        }
+                        else
+                        if (status_ == "405") 
+                        {
+                            string responseText_ = ( response_.Content == null ) ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
+                            throw new ApiException("Method not allowed", (int)response_.StatusCode, responseText_, headers_, null);
+                        }
+                        else
+                        if (status_ == "404") 
+                        {
+                            var objectResponse_ = await ReadJsonObjectResponseAsync<PictureparkNotFoundException>(response_, headers_).ConfigureAwait(false);
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkNotFoundException();
+                            responseObject_.Data.Add("HttpStatus", status_);
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw objectResponse_.Object;
+                        }
+                        else
+                        if (status_ == "409") 
+                        {
+                            var objectResponse_ = await ReadJsonObjectResponseAsync<PictureparkConflictException>(response_, headers_).ConfigureAwait(false);
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkConflictException();
+                            responseObject_.Data.Add("HttpStatus", status_);
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw objectResponse_.Object;
+                        }
+                        else
+                        if (status_ == "400") 
+                        {
+                            var objectResponse_ = await ReadJsonObjectResponseAsync<PictureparkValidationException>(response_, headers_).ConfigureAwait(false);
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkValidationException();
                             responseObject_.Data.Add("HttpStatus", status_);
                             responseObject_.Data.Add("HttpHeaders", headers_);
                             responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
