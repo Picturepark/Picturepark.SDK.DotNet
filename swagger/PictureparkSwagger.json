@@ -1,5 +1,5 @@
 ﻿{
-  "x-generator": "NSwag v13.0.0.0 (NJsonSchema v10.0.14.0 (Newtonsoft.Json v11.0.0.0))",
+  "x-generator": "NSwag v13.0.0.0 (NJsonSchema v10.0.18.0 (Newtonsoft.Json v11.0.0.0))",
   "openapi": "3.0.0",
   "info": {
     "title": "Picturepark API V1",
@@ -12238,6 +12238,122 @@
         ]
       }
     },
+    "/v1/schemas/{schemaId}/ownership": {
+      "put": {
+        "tags": [
+          "Schema"
+        ],
+        "summary": "Transfer ownership",
+        "description": "Transfer ownership of the schema specified in ",
+        "operationId": "Schema_TransferOwnership",
+        "parameters": [
+          {
+            "name": "schemaId",
+            "in": "path",
+            "required": true,
+            "description": "The schema ID.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1
+          }
+        ],
+        "requestBody": {
+          "x-name": "request",
+          "description": "Request detailing which user to transfer to.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SchemaOwnershipTransferRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 2
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkNotFoundException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkConflictException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkValidationException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "schema_write"
+            ]
+          }
+        ]
+      }
+    },
     "/v1/schemas/many/referenced": {
       "get": {
         "tags": [
@@ -12491,6 +12607,117 @@
                   "oneOf": [
                     {
                       "$ref": "#/components/schemas/PictureparkConflictException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "schema_write"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/schemas/many/ownership": {
+      "put": {
+        "tags": [
+          "Schema"
+        ],
+        "summary": "Transfer ownership of multiple schemas",
+        "description": "Transfers ownership of multiple schemas to specified user. The target user must have the ManageSchemas user right.\nThe operation is executed asynchronous and is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.",
+        "operationId": "Schema_TransferOwnershipMany",
+        "requestBody": {
+          "x-name": "request",
+          "description": "Schema ownership transfer many request.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SchemaOwnershipTransferManyRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "Business process",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BusinessProcess"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkNotFoundException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkConflictException"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkValidationException"
                     }
                   ]
                 }
@@ -34290,6 +34517,17 @@
           }
         }
       },
+      "SchemaOwnershipTransferRequest": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "transferUserId": {
+            "type": "string",
+            "description": "The id of the user to whom the schema has to be transfered to.",
+            "nullable": true
+          }
+        }
+      },
       "SchemaCreateResult": {
         "type": "object",
         "description": "Result of a schema create operation",
@@ -34554,6 +34792,25 @@
         "type": "object",
         "description": "Result of a schema delete operation",
         "additionalProperties": false
+      },
+      "SchemaOwnershipTransferManyRequest": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "schemaIds": {
+            "type": "array",
+            "description": "The schema ids.",
+            "nullable": true,
+            "items": {
+              "type": "string"
+            }
+          },
+          "transferUserId": {
+            "type": "string",
+            "description": "The id of user to whom the schemas have to be transfered to.",
+            "nullable": true
+          }
+        }
       },
       "SchemaPermissionSetDetail": {
         "allOf": [
