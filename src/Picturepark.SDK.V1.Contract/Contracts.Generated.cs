@@ -1068,6 +1068,18 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         System.Threading.Tasks.Task<System.Collections.Generic.ICollection<SchemaDetail>> GetReferencedAsync(string schemaId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
+        /// <summary>Transfer ownership</summary>
+        /// <param name="schemaId">The schema ID.</param>
+        /// <param name="request">Request detailing which user to transfer to.</param>
+        /// <returns>OK</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        System.Threading.Tasks.Task TransferOwnershipAsync(string schemaId, SchemaOwnershipTransferRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
         /// <summary>Gets all schemas referenced by the schemas specified in</summary>
         /// <param name="ids">The schema IDs.</param>
         /// <returns>Referenced schema details</returns>
@@ -1078,6 +1090,17 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         System.Threading.Tasks.Task<System.Collections.Generic.ICollection<SchemaDetail>> GetManyReferencedAsync(System.Collections.Generic.IEnumerable<string> ids = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <summary>Transfer ownership of multiple schemas</summary>
+        /// <param name="request">Schema ownership transfer many request.</param>
+        /// <returns>Business process</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        System.Threading.Tasks.Task<BusinessProcess> TransferOwnershipManyAsync(SchemaOwnershipTransferManyRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
     }
     
@@ -16088,6 +16111,25 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class SchemaOwnershipTransferRequest 
+    {
+        /// <summary>The id of the user to whom the schema has to be transfered to.</summary>
+        [Newtonsoft.Json.JsonProperty("transferUserId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string TransferUserId { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static SchemaOwnershipTransferRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaOwnershipTransferRequest>(data);
+        }
+    
+    }
+    
     /// <summary>Result of a schema create operation</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class SchemaCreateResult 
@@ -16304,6 +16346,29 @@ namespace Picturepark.SDK.V1.Contract
         public static SchemaDeleteResult FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaDeleteResult>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class SchemaOwnershipTransferManyRequest 
+    {
+        /// <summary>The schema ids.</summary>
+        [Newtonsoft.Json.JsonProperty("schemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> SchemaIds { get; set; }
+    
+        /// <summary>The id of user to whom the schemas have to be transfered to.</summary>
+        [Newtonsoft.Json.JsonProperty("transferUserId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string TransferUserId { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static SchemaOwnershipTransferManyRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaOwnershipTransferManyRequest>(data);
         }
     
     }
