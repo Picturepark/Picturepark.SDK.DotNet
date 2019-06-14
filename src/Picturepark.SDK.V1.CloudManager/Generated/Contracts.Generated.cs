@@ -480,14 +480,6 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         System.Threading.Tasks.Task DumpCachesAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkException">Internal server error</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
-        /// <exception cref="PictureparkConflictException">Version conflict</exception>
-        /// <exception cref="PictureparkValidationException">Validation exception</exception>
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        System.Threading.Tasks.Task DeleteNodeInfosAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-    
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "12.0.9.0 (NJsonSchema v9.13.10.0 (Newtonsoft.Json v11.0.0.0))")]

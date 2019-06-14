@@ -27006,7 +27006,11 @@
           "InnerDisplayValueDetail",
           "InnerDisplayValueName",
           "Owner",
-          "Permissions"
+          "Permissions",
+          "OuterDisplayValueThumbnail",
+          "OuterDisplayValueList",
+          "OuterDisplayValueDetail",
+          "OuterDisplayValueName"
         ],
         "enum": [
           "Content",
@@ -27018,7 +27022,11 @@
           "InnerDisplayValueDetail",
           "InnerDisplayValueName",
           "Owner",
-          "Permissions"
+          "Permissions",
+          "OuterDisplayValueThumbnail",
+          "OuterDisplayValueList",
+          "OuterDisplayValueDetail",
+          "OuterDisplayValueName"
         ]
       },
       "ContentSearchResult": {
@@ -29822,7 +29830,11 @@
           "InnerDisplayValueThumbnail",
           "InnerDisplayValueList",
           "InnerDisplayValueDetail",
-          "InnerDisplayValueName"
+          "InnerDisplayValueName",
+          "OuterDisplayValueThumbnail",
+          "OuterDisplayValueList",
+          "OuterDisplayValueDetail",
+          "OuterDisplayValueName"
         ],
         "enum": [
           "Content",
@@ -29830,7 +29842,11 @@
           "InnerDisplayValueThumbnail",
           "InnerDisplayValueList",
           "InnerDisplayValueDetail",
-          "InnerDisplayValueName"
+          "InnerDisplayValueName",
+          "OuterDisplayValueThumbnail",
+          "OuterDisplayValueList",
+          "OuterDisplayValueDetail",
+          "OuterDisplayValueName"
         ]
       },
       "ListItemSearchResult": {
@@ -29921,7 +29937,6 @@
           "limit",
           "includeAllSchemaChildren",
           "brokenDependenciesFilter",
-          "includeContentData",
           "debugMode",
           "lifeCycleFilter"
         ],
@@ -29979,14 +29994,6 @@
               "type": "string"
             }
           },
-          "displayPatternIds": {
-            "type": "array",
-            "description": "Limits the display values included in the search response. Defaults to all display values.",
-            "nullable": true,
-            "items": {
-              "type": "string"
-            }
-          },
           "brokenDependenciesFilter": {
             "description": "Limits the search to the list items that have or not have broken references. By default it includes both.",
             "default": "All",
@@ -29996,14 +30003,6 @@
               }
             ]
           },
-          "referencedFieldsDisplayPatternIds": {
-            "type": "array",
-            "description": "Defines the display values included in the search response for the referenced fields. Defaults to no display value.",
-            "nullable": true,
-            "items": {
-              "type": "string"
-            }
-          },
           "searchLanguages": {
             "type": "array",
             "description": "When searching in multi language fields, limit the searchable fields to the ones corresponding to the specified languages.\nIf not specified, all metadata languages defined in the system are used.",
@@ -30011,10 +30010,6 @@
             "items": {
               "type": "string"
             }
-          },
-          "includeContentData": {
-            "type": "boolean",
-            "description": "When set to true the content data is included in the result items."
           },
           "debugMode": {
             "type": "boolean",
@@ -30028,6 +30023,14 @@
                 "$ref": "#/components/schemas/LifeCycleFilter"
               }
             ]
+          },
+          "resolveBehaviors": {
+            "type": "array",
+            "description": "List of enums that control which parts of the list item are resolved and returned.",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/ListItemResolveBehavior"
+            }
           }
         }
       },

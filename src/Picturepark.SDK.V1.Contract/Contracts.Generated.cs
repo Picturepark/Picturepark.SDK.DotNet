@@ -9198,6 +9198,18 @@ namespace Picturepark.SDK.V1.Contract
         [System.Runtime.Serialization.EnumMember(Value = "Permissions")]
         Permissions = 9,
     
+        [System.Runtime.Serialization.EnumMember(Value = "OuterDisplayValueThumbnail")]
+        OuterDisplayValueThumbnail = 10,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "OuterDisplayValueList")]
+        OuterDisplayValueList = 11,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "OuterDisplayValueDetail")]
+        OuterDisplayValueDetail = 12,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "OuterDisplayValueName")]
+        OuterDisplayValueName = 13,
+    
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
@@ -11903,6 +11915,18 @@ namespace Picturepark.SDK.V1.Contract
         [System.Runtime.Serialization.EnumMember(Value = "InnerDisplayValueName")]
         InnerDisplayValueName = 5,
     
+        [System.Runtime.Serialization.EnumMember(Value = "OuterDisplayValueThumbnail")]
+        OuterDisplayValueThumbnail = 6,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "OuterDisplayValueList")]
+        OuterDisplayValueList = 7,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "OuterDisplayValueDetail")]
+        OuterDisplayValueDetail = 8,
+    
+        [System.Runtime.Serialization.EnumMember(Value = "OuterDisplayValueName")]
+        OuterDisplayValueName = 9,
+    
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "9.13.10.0 (Newtonsoft.Json v11.0.0.0)")]
@@ -12021,28 +12045,16 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("schemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> SchemaIds { get; set; }
     
-        /// <summary>Limits the display values included in the search response. Defaults to all display values.</summary>
-        [Newtonsoft.Json.JsonProperty("displayPatternIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> DisplayPatternIds { get; set; }
-    
         /// <summary>Limits the search to the list items that have or not have broken references. By default it includes both.</summary>
         [Newtonsoft.Json.JsonProperty("brokenDependenciesFilter", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public BrokenDependenciesFilter BrokenDependenciesFilter { get; set; } = Picturepark.SDK.V1.Contract.BrokenDependenciesFilter.All;
     
-        /// <summary>Defines the display values included in the search response for the referenced fields. Defaults to no display value.</summary>
-        [Newtonsoft.Json.JsonProperty("referencedFieldsDisplayPatternIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> ReferencedFieldsDisplayPatternIds { get; set; }
-    
         /// <summary>When searching in multi language fields, limit the searchable fields to the ones corresponding to the specified languages.
         /// If not specified, all metadata languages defined in the system are used.</summary>
         [Newtonsoft.Json.JsonProperty("searchLanguages", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> SearchLanguages { get; set; }
-    
-        /// <summary>When set to true the content data is included in the result items.</summary>
-        [Newtonsoft.Json.JsonProperty("includeContentData", Required = Newtonsoft.Json.Required.Always)]
-        public bool IncludeContentData { get; set; }
     
         /// <summary>Enable debug mode: additional debug information regarding the query execution and reason of the matched documents are returned in the ListItemSearchResult.
         /// Warning! It severely affects performance.</summary>
@@ -12054,6 +12066,10 @@ namespace Picturepark.SDK.V1.Contract
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public LifeCycleFilter LifeCycleFilter { get; set; } = Picturepark.SDK.V1.Contract.LifeCycleFilter.ActiveOnly;
+    
+        /// <summary>List of enums that control which parts of the list item are resolved and returned.</summary>
+        [Newtonsoft.Json.JsonProperty("resolveBehaviors", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public System.Collections.Generic.ICollection<ListItemResolveBehavior> ResolveBehaviors { get; set; }
     
         public string ToJson() 
         {
