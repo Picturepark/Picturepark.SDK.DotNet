@@ -11029,9 +11029,6 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("userRolesPermissionSetRights", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<UserRoleRightsOfPermissionSetRight> UserRolesPermissionSetRights { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("exclusive", Required = Newtonsoft.Json.Required.Always)]
-        public bool Exclusive { get; set; }
-    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -11351,7 +11348,8 @@ namespace Picturepark.SDK.V1.Contract
         [System.ComponentModel.DataAnnotations.Required]
         public string Id { get; set; }
     
-        /// <summary>When true this permission set will derogate all other configured permission sets.</summary>
+        /// <summary>When true this permission set will derogate all other configured permission sets.
+        /// Cannot be changed after creation.</summary>
         [Newtonsoft.Json.JsonProperty("exclusive", Required = Newtonsoft.Json.Required.Always)]
         public bool Exclusive { get; set; }
     
@@ -16543,9 +16541,6 @@ namespace Picturepark.SDK.V1.Contract
     
         [Newtonsoft.Json.JsonProperty("userRolesPermissionSetRights", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<UserRoleRightsOfPermissionSetRight> UserRolesPermissionSetRights { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("exclusive", Required = Newtonsoft.Json.Required.Always)]
-        public bool Exclusive { get; set; }
     
         public string ToJson() 
         {
