@@ -28948,9 +28948,6 @@
         "type": "object",
         "x-abstract": true,
         "additionalProperties": false,
-        "required": [
-          "exclusive"
-        ],
         "properties": {
           "names": {
             "nullable": true,
@@ -28973,9 +28970,6 @@
             "items": {
               "$ref": "#/components/schemas/UserRoleRightsOfPermissionSetRight"
             }
-          },
-          "exclusive": {
-            "type": "boolean"
           }
         }
       },
@@ -29260,7 +29254,7 @@
           },
           "exclusive": {
             "type": "boolean",
-            "description": "When true this permission set will derogate all other configured permission sets."
+            "description": "When true this permission set will derogate all other configured permission sets.\nCannot be changed after creation."
           },
           "names": {
             "description": "Language specific permission set names.",
@@ -34977,9 +34971,6 @@
         "type": "object",
         "x-abstract": true,
         "additionalProperties": false,
-        "required": [
-          "exclusive"
-        ],
         "properties": {
           "names": {
             "nullable": true,
@@ -35002,9 +34993,6 @@
             "items": {
               "$ref": "#/components/schemas/UserRoleRightsOfPermissionSetRight"
             }
-          },
-          "exclusive": {
-            "type": "boolean"
           }
         }
       },
