@@ -652,10 +652,10 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             // Act
             var englishClient = _fixture.GetLocalizedPictureparkService("en");
-            var receivedItem1 = await englishClient.ListItem.GetAsync(detail.Id, new[] { ListItemResolveBehavior.Content }).ConfigureAwait(false);
+            var receivedItem1 = await englishClient.ListItem.GetAsync(detail.Id, new[] { ListItemResolveBehavior.Content, ListItemResolveBehavior.OuterDisplayValueName }).ConfigureAwait(false);
 
             var germanClient = _fixture.GetLocalizedPictureparkService("de");
-            var receivedItem2 = await germanClient.ListItem.GetAsync(detail.Id, new[] { ListItemResolveBehavior.Content }).ConfigureAwait(false);
+            var receivedItem2 = await germanClient.ListItem.GetAsync(detail.Id, new[] { ListItemResolveBehavior.Content, ListItemResolveBehavior.OuterDisplayValueName }).ConfigureAwait(false);
 
             // Assert
             receivedItem1.DisplayValues[DisplayPatternType.Name.ToString().ToLowerCamelCase()].Should().Be("value2");
@@ -682,7 +682,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             var detail = await _client.ListItem.CreateFromObjectAsync(listItem1).ConfigureAwait(false);
 
-            var details = await detail.FetchDetail(new[] { ListItemResolveBehavior.Content, ListItemResolveBehavior.InnerDisplayValueName }).ConfigureAwait(false);
+            var details = await detail.FetchDetail(new[] { ListItemResolveBehavior.Content, ListItemResolveBehavior.InnerDisplayValueName, ListItemResolveBehavior.OuterDisplayValueName }).ConfigureAwait(false);
             var items = details.SucceededItems;
 
             // Act

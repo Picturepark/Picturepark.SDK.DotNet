@@ -1249,10 +1249,10 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             // Act
             var englishClient = _fixture.GetLocalizedPictureparkService("en");
-            var englishContent = await englishClient.Content.GetAsync(detail.Id, new[] { ContentResolveBehavior.Content }).ConfigureAwait(false);
+            var englishContent = await englishClient.Content.GetAsync(detail.Id, new[] { ContentResolveBehavior.Content, ContentResolveBehavior.OuterDisplayValueName }).ConfigureAwait(false);
 
             var germanClient = _fixture.GetLocalizedPictureparkService("de");
-            var germanContent = await germanClient.Content.GetAsync(detail.Id, new[] { ContentResolveBehavior.Content }).ConfigureAwait(false);
+            var germanContent = await germanClient.Content.GetAsync(detail.Id, new[] { ContentResolveBehavior.Content, ContentResolveBehavior.OuterDisplayValueName }).ConfigureAwait(false);
 
             // Assert
             englishContent.DisplayValues[DisplayPatternType.Name.ToString().ToLowerCamelCase()].Should().Be("value1");
