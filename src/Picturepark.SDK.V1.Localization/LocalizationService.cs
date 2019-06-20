@@ -82,7 +82,7 @@ namespace Picturepark.SDK.V1.Localization
 
             if (obj is JObject jObject)
             {
-                var tokens = jObject.SelectTokens("..displayValue").ToList()
+                var tokens = jObject.SelectTokens(".._displayValues").ToList()
                     .Concat(jObject.SelectTokens("..displayValues").ToList());
 
                 foreach (var jToken in tokens.SelectMany(i => i.ToList()))

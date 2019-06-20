@@ -707,7 +707,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             item.DisplayValues["name"].Should().Be(formattedLocalDate);
             ((JObject)item.Content)
                 .GetValue("child")
-                .Value<JToken>("displayValue")
+                .Value<JToken>("_displayValues")
                 .Value<string>("name").Should()
                 .Be(formattedChildLocalDate);
         }
