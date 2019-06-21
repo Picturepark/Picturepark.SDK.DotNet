@@ -9200,16 +9200,16 @@ namespace Picturepark.SDK.V1.Contract
         [System.Runtime.Serialization.EnumMember(Value = @"Permissions")]
         Permissions = 9,
     
-        [System.Runtime.Serialization.EnumMember(Value = "OuterDisplayValueThumbnail")]
+        [System.Runtime.Serialization.EnumMember(Value = @"OuterDisplayValueThumbnail")]
         OuterDisplayValueThumbnail = 10,
     
-        [System.Runtime.Serialization.EnumMember(Value = "OuterDisplayValueList")]
+        [System.Runtime.Serialization.EnumMember(Value = @"OuterDisplayValueList")]
         OuterDisplayValueList = 11,
     
-        [System.Runtime.Serialization.EnumMember(Value = "OuterDisplayValueDetail")]
+        [System.Runtime.Serialization.EnumMember(Value = @"OuterDisplayValueDetail")]
         OuterDisplayValueDetail = 12,
     
-        [System.Runtime.Serialization.EnumMember(Value = "OuterDisplayValueName")]
+        [System.Runtime.Serialization.EnumMember(Value = @"OuterDisplayValueName")]
         OuterDisplayValueName = 13,
     
     }
@@ -11917,16 +11917,16 @@ namespace Picturepark.SDK.V1.Contract
         [System.Runtime.Serialization.EnumMember(Value = @"InnerDisplayValueName")]
         InnerDisplayValueName = 5,
     
-        [System.Runtime.Serialization.EnumMember(Value = "OuterDisplayValueThumbnail")]
+        [System.Runtime.Serialization.EnumMember(Value = @"OuterDisplayValueThumbnail")]
         OuterDisplayValueThumbnail = 6,
     
-        [System.Runtime.Serialization.EnumMember(Value = "OuterDisplayValueList")]
+        [System.Runtime.Serialization.EnumMember(Value = @"OuterDisplayValueList")]
         OuterDisplayValueList = 7,
     
-        [System.Runtime.Serialization.EnumMember(Value = "OuterDisplayValueDetail")]
+        [System.Runtime.Serialization.EnumMember(Value = @"OuterDisplayValueDetail")]
         OuterDisplayValueDetail = 8,
     
-        [System.Runtime.Serialization.EnumMember(Value = "OuterDisplayValueName")]
+        [System.Runtime.Serialization.EnumMember(Value = @"OuterDisplayValueName")]
         OuterDisplayValueName = 9,
     
     }
