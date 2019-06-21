@@ -550,7 +550,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var response = await _client.Content.UpdateMetadataAsync(contentId, request, new[] { ContentResolveBehavior.Metadata, ContentResolveBehavior.InnerDisplayValueName }).ConfigureAwait(false);
 
             // Assert
-            Assert.Equal("test description", ((JObject)response.Metadata["personShot"])["displayValue"]["name"].ToString());
+            Assert.Equal("test description", ((JObject)response.Metadata["personShot"])["_displayValues"]["name"].ToString());
         }
 
         [Fact]
