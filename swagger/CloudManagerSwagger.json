@@ -7286,13 +7286,7 @@
           },
           {
             "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "exceptionDetail": {
-                "type": "string",
-                "nullable": true
-              }
-            }
+            "additionalProperties": false
           }
         ]
       },
