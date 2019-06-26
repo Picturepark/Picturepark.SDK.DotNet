@@ -534,6 +534,183 @@
         ]
       }
     },
+    "/v1/businessrules/configuration": {
+      "get": {
+        "tags": [
+          "BusinessRule"
+        ],
+        "summary": "Get the current business rule configuration",
+        "operationId": "BusinessRule_GetConfiguration",
+        "responses": {
+          "200": {
+            "description": "BusinessRuleConfiguration",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BusinessRuleConfiguration"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "businessrule_read"
+            ]
+          }
+        ]
+      },
+      "put": {
+        "tags": [
+          "BusinessRule"
+        ],
+        "summary": "Updates the business rule configuration.",
+        "operationId": "BusinessRule_UpdateConfiguration",
+        "parameters": [
+          {
+            "name": "DisableRuleEngine",
+            "in": "query",
+            "description": "Disables the rule engine completely.",
+            "schema": {
+              "type": "boolean"
+            },
+            "x-position": 1
+          },
+          {
+            "name": "Rules",
+            "in": "query",
+            "description": "Rules",
+            "collectionFormat": "multi",
+            "schema": {
+              "type": "array",
+              "nullable": true,
+              "items": {
+                "$ref": "#/components/schemas/BusinessRule"
+              }
+            },
+            "x-position": 2
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Business process",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BusinessProcess"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "businessrule_read"
+            ]
+          }
+        ]
+      }
+    },
     "/v1/channels": {
       "get": {
         "tags": [
@@ -16865,7 +17042,18 @@
                 "OnlyAccessibleToRecipientException": "#/components/schemas/OnlyAccessibleToRecipientException",
                 "EnvironmentNotAvailableException": "#/components/schemas/EnvironmentNotAvailableException",
                 "CustomerNotAvailableException": "#/components/schemas/CustomerNotAvailableException",
-                "CustomerAliasHeaderMissingException": "#/components/schemas/CustomerAliasHeaderMissingException"
+                "CustomerAliasHeaderMissingException": "#/components/schemas/CustomerAliasHeaderMissingException",
+                "BusinessRuleActionInvalidDocumentTypeException": "#/components/schemas/BusinessRuleActionInvalidDocumentTypeException",
+                "BusinessRuleActionInvalidExecutionScopeException": "#/components/schemas/BusinessRuleActionInvalidExecutionScopeException",
+                "BusinessRuleActionsMissingException": "#/components/schemas/BusinessRuleActionsMissingException",
+                "BusinessRuleConditionMissingException": "#/components/schemas/BusinessRuleConditionMissingException",
+                "BusinessRuleConditionsMissingException": "#/components/schemas/BusinessRuleConditionsMissingException",
+                "BusinessRuleConfigurationValidationException": "#/components/schemas/BusinessRuleConfigurationValidationException",
+                "BusinessRuleLayerIdInvalidException": "#/components/schemas/BusinessRuleLayerIdInvalidException",
+                "BusinessRuleRuleIdDuplicationException": "#/components/schemas/BusinessRuleRuleIdDuplicationException",
+                "BusinessRuleRuleIdMissingException": "#/components/schemas/BusinessRuleRuleIdMissingException",
+                "BusinessRuleTriggerPointMissingException": "#/components/schemas/BusinessRuleTriggerPointMissingException",
+                "BusinessRuleValidationException": "#/components/schemas/BusinessRuleValidationException"
               }
             },
             "additionalProperties": false,
@@ -21427,6 +21615,195 @@
           }
         ]
       },
+      "BusinessRuleActionInvalidDocumentTypeException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "allowedDocumentTypes": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/BusinessRuleTriggerDocType"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "BusinessRuleTriggerDocType": {
+        "type": "string",
+        "description": "",
+        "x-enumNames": [
+          "Content"
+        ],
+        "enum": [
+          "Content"
+        ]
+      },
+      "BusinessRuleActionInvalidExecutionScopeException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "allowedScopes": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/BusinessRuleExecutionScope"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "BusinessRuleExecutionScope": {
+        "type": "string",
+        "description": "",
+        "x-enumNames": [
+          "MainDoc",
+          "SearchDoc"
+        ],
+        "enum": [
+          "MainDoc",
+          "SearchDoc"
+        ]
+      },
+      "BusinessRuleActionsMissingException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "BusinessRuleConditionMissingException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "BusinessRuleConditionsMissingException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "BusinessRuleConfigurationValidationException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "innerExceptions": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "BusinessRuleLayerIdInvalidException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "layerId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "BusinessRuleRuleIdDuplicationException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "BusinessRuleRuleIdMissingException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "BusinessRuleTriggerPointMissingException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "BusinessRuleValidationException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "ruleId": {
+                "type": "string",
+                "nullable": true
+              },
+              "innerExceptions": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          }
+        ]
+      },
       "BusinessProcessSearchRequest": {
         "type": "object",
         "description": "Search request to search for business processes",
@@ -22519,6 +22896,325 @@
           }
         }
       },
+      "BusinessRuleConfiguration": {
+        "type": "object",
+        "description": "Represents the business rule configuration.",
+        "additionalProperties": false,
+        "required": [
+          "disableRuleEngine"
+        ],
+        "properties": {
+          "disableRuleEngine": {
+            "type": "boolean",
+            "description": "Disables the rule completely."
+          },
+          "rules": {
+            "type": "array",
+            "description": "Rules",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/BusinessRule"
+            }
+          }
+        }
+      },
+      "BusinessRule": {
+        "type": "object",
+        "discriminator": {
+          "propertyName": "kind",
+          "mapping": {
+            "BusinessRuleConfigurable": "#/components/schemas/BusinessRuleConfigurable",
+            "BusinessRuleScript": "#/components/schemas/BusinessRuleScript"
+          }
+        },
+        "description": "A business rule",
+        "x-abstract": true,
+        "additionalProperties": false,
+        "required": [
+          "isEnabled",
+          "kind"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "User defined ID of the rule.",
+            "nullable": true
+          },
+          "triggerPoint": {
+            "description": "Trigger point.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/BusinessRuleTriggerPoint"
+              }
+            ]
+          },
+          "isEnabled": {
+            "type": "boolean",
+            "description": "Enable."
+          },
+          "names": {
+            "description": "Language specific rule names.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/TranslatedStringDictionary"
+              }
+            ]
+          },
+          "description": {
+            "description": "Language specific rule description.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/TranslatedStringDictionary"
+              }
+            ]
+          },
+          "kind": {
+            "type": "string"
+          }
+        }
+      },
+      "BusinessRuleTriggerPoint": {
+        "type": "object",
+        "description": "Represents a trigger point for a business rule",
+        "additionalProperties": false,
+        "required": [
+          "executionScope",
+          "documentType",
+          "action"
+        ],
+        "properties": {
+          "executionScope": {
+            "description": "Execution scope.",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/BusinessRuleExecutionScope"
+              }
+            ]
+          },
+          "documentType": {
+            "description": "Document type.",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/BusinessRuleTriggerDocType"
+              }
+            ]
+          },
+          "action": {
+            "description": "Action performed.",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/BusinessRuleTriggerAction"
+              }
+            ]
+          }
+        }
+      },
+      "BusinessRuleTriggerAction": {
+        "type": "string",
+        "description": "",
+        "x-enumNames": [
+          "Create",
+          "Update"
+        ],
+        "enum": [
+          "Create",
+          "Update"
+        ]
+      },
+      "BusinessRuleConfigurable": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BusinessRule"
+          },
+          {
+            "type": "object",
+            "description": "A business rule configurable by specific actions and conditions",
+            "additionalProperties": false,
+            "properties": {
+              "condition": {
+                "description": "The condition that makes this rule trigger.",
+                "nullable": true,
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/BusinessRuleCondition"
+                  }
+                ]
+              },
+              "actions": {
+                "type": "array",
+                "description": "The actions that are performed when this rule triggers.",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/BusinessRuleAction"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "BusinessRuleCondition": {
+        "type": "object",
+        "discriminator": {
+          "propertyName": "kind",
+          "mapping": {
+            "BooleanCondition": "#/components/schemas/BooleanCondition",
+            "AndCondition": "#/components/schemas/AndCondition",
+            "OrCondition": "#/components/schemas/OrCondition",
+            "LayerAssignedCondition": "#/components/schemas/LayerAssignedCondition"
+          }
+        },
+        "description": "Conditions on which a business rule is executed",
+        "x-abstract": true,
+        "additionalProperties": false,
+        "required": [
+          "kind"
+        ],
+        "properties": {
+          "kind": {
+            "type": "string"
+          }
+        }
+      },
+      "AndCondition": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BooleanCondition"
+          },
+          {
+            "type": "object",
+            "description": "Links conditions with AND",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "BooleanCondition": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BusinessRuleCondition"
+          },
+          {
+            "type": "object",
+            "description": "Links multiple conditions with a boolean operator",
+            "x-abstract": true,
+            "additionalProperties": false,
+            "properties": {
+              "conditions": {
+                "type": "array",
+                "description": "The conditions.",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/BusinessRuleCondition"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "OrCondition": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BooleanCondition"
+          },
+          {
+            "type": "object",
+            "description": "Links conditions with OR",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "LayerAssignedCondition": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BusinessRuleCondition"
+          },
+          {
+            "type": "object",
+            "description": "Matches when a layer was assigned",
+            "additionalProperties": false,
+            "properties": {
+              "layerId": {
+                "type": "string",
+                "description": "Layer id to match on.",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "BusinessRuleAction": {
+        "type": "object",
+        "discriminator": {
+          "propertyName": "kind",
+          "mapping": {
+            "AssignLayerAction": "#/components/schemas/AssignLayerAction"
+          }
+        },
+        "description": "Action to be performed by a business rule",
+        "x-abstract": true,
+        "additionalProperties": false,
+        "required": [
+          "kind"
+        ],
+        "properties": {
+          "kind": {
+            "type": "string"
+          }
+        }
+      },
+      "AssignLayerAction": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BusinessRuleAction"
+          },
+          {
+            "type": "object",
+            "description": "Assigns a layer, adding the default values to the data dictionary",
+            "additionalProperties": false,
+            "properties": {
+              "layerId": {
+                "type": "string",
+                "description": "The ID of the layer.",
+                "nullable": true
+              },
+              "defaultValues": {
+                "description": "A dictionary containing default values (used for example to populate required fields).",
+                "nullable": true,
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/DataDictionary"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "DataDictionary": {
+        "type": "object",
+        "additionalProperties": {}
+      },
+      "BusinessRuleScript": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BusinessRule"
+          },
+          {
+            "type": "object",
+            "description": "A business rule expressed as a script",
+            "additionalProperties": false,
+            "properties": {
+              "script": {
+                "type": "string",
+                "description": "Script",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
       "Channel": {
         "type": "object",
         "additionalProperties": false,
@@ -23352,10 +24048,6 @@
         "additionalProperties": {
           "type": "string"
         }
-      },
-      "DataDictionary": {
-        "type": "object",
-        "additionalProperties": {}
       },
       "Output": {
         "type": "object",
@@ -34955,6 +35647,10 @@
     {
       "name": "BusinessProcess",
       "description": "Endpoints to work with business processes.\r\n\r\nA business process is created when a long running server process is started and the API endpoint does not await the processing (e.g. batch updates of content).\r\n\r\nTo wait for the business process to complete, call the operation [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion).\r\n\r\n[Code examples](https://github.com/Picturepark/Picturepark.SDK.DotNet/blob/master/src/Picturepark.SDK.V1.Tests/Clients/BusinessProcessTests.cs)\r\n"
+    },
+    {
+      "name": "BusinessRule",
+      "description": "Endpoints to work with business rules."
     },
     {
       "name": "Channel",
