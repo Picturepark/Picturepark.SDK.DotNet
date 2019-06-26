@@ -6321,7 +6321,18 @@
                 "OnlyAccessibleToRecipientException": "#/components/schemas/OnlyAccessibleToRecipientException",
                 "EnvironmentNotAvailableException": "#/components/schemas/EnvironmentNotAvailableException",
                 "CustomerNotAvailableException": "#/components/schemas/CustomerNotAvailableException",
-                "CustomerAliasHeaderMissingException": "#/components/schemas/CustomerAliasHeaderMissingException"
+                "CustomerAliasHeaderMissingException": "#/components/schemas/CustomerAliasHeaderMissingException",
+                "BusinessRuleActionInvalidDocumentTypeException": "#/components/schemas/BusinessRuleActionInvalidDocumentTypeException",
+                "BusinessRuleActionInvalidExecutionScopeException": "#/components/schemas/BusinessRuleActionInvalidExecutionScopeException",
+                "BusinessRuleActionsMissingException": "#/components/schemas/BusinessRuleActionsMissingException",
+                "BusinessRuleConditionMissingException": "#/components/schemas/BusinessRuleConditionMissingException",
+                "BusinessRuleConditionsMissingException": "#/components/schemas/BusinessRuleConditionsMissingException",
+                "BusinessRuleConfigurationValidationException": "#/components/schemas/BusinessRuleConfigurationValidationException",
+                "BusinessRuleLayerIdInvalidException": "#/components/schemas/BusinessRuleLayerIdInvalidException",
+                "BusinessRuleRuleIdDuplicationException": "#/components/schemas/BusinessRuleRuleIdDuplicationException",
+                "BusinessRuleRuleIdMissingException": "#/components/schemas/BusinessRuleRuleIdMissingException",
+                "BusinessRuleTriggerPointMissingException": "#/components/schemas/BusinessRuleTriggerPointMissingException",
+                "BusinessRuleValidationException": "#/components/schemas/BusinessRuleValidationException"
               }
             },
             "additionalProperties": false,
@@ -10883,6 +10894,195 @@
           }
         ]
       },
+      "BusinessRuleActionInvalidDocumentTypeException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "allowedDocumentTypes": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/BusinessRuleTriggerDocType"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "BusinessRuleTriggerDocType": {
+        "type": "string",
+        "description": "",
+        "x-enumNames": [
+          "Content"
+        ],
+        "enum": [
+          "Content"
+        ]
+      },
+      "BusinessRuleActionInvalidExecutionScopeException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "allowedScopes": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/BusinessRuleExecutionScope"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "BusinessRuleExecutionScope": {
+        "type": "string",
+        "description": "",
+        "x-enumNames": [
+          "MainDoc",
+          "SearchDoc"
+        ],
+        "enum": [
+          "MainDoc",
+          "SearchDoc"
+        ]
+      },
+      "BusinessRuleActionsMissingException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "BusinessRuleConditionMissingException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "BusinessRuleConditionsMissingException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "BusinessRuleConfigurationValidationException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "innerExceptions": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "BusinessRuleLayerIdInvalidException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "layerId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "BusinessRuleRuleIdDuplicationException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "BusinessRuleRuleIdMissingException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "BusinessRuleTriggerPointMissingException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "BusinessRuleValidationException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "ruleId": {
+                "type": "string",
+                "nullable": true
+              },
+              "innerExceptions": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          }
+        ]
+      },
       "SnapshotRepository": {
         "type": "object",
         "additionalProperties": false,
@@ -13388,6 +13588,10 @@
             "type": "string",
             "nullable": true
           },
+          "businessRuleCatalog": {
+            "type": "string",
+            "nullable": true
+          },
           "watermarkPath": {
             "type": "string",
             "nullable": true
@@ -14461,7 +14665,8 @@
           "Channel",
           "Reference",
           "DocumentHistorySteady",
-          "Statistics"
+          "Statistics",
+          "BusinessRule"
         ],
         "enum": [
           "Configuration",
@@ -14487,7 +14692,8 @@
           "Channel",
           "Reference",
           "DocumentHistorySteady",
-          "Statistics"
+          "Statistics",
+          "BusinessRule"
         ]
       },
       "IndexState": {
