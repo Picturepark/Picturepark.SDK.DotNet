@@ -2313,6 +2313,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("SchemaFieldImportRelatedSchemaMismatchException", typeof(SchemaFieldImportRelatedSchemaMismatchException))]
     [JsonInheritanceAttribute("SchemaFieldImportTypeMismatchException", typeof(SchemaFieldImportTypeMismatchException))]
     [JsonInheritanceAttribute("SchemaFieldNotSupportedException", typeof(SchemaFieldNotSupportedException))]
+    [JsonInheritanceAttribute("SchemaFieldDisplayPatternTypeNotSupportedException", typeof(SchemaFieldDisplayPatternTypeNotSupportedException))]
     [JsonInheritanceAttribute("SnapshotTimeoutException", typeof(SnapshotTimeoutException))]
     [JsonInheritanceAttribute("SnapshotFailedException", typeof(SnapshotFailedException))]
     [JsonInheritanceAttribute("SnapshotSkippedException", typeof(SnapshotSkippedException))]
@@ -6830,6 +6831,33 @@ namespace Picturepark.SDK.V1.Contract
         public static SchemaFieldNotSupportedException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaFieldNotSupportedException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class SchemaFieldDisplayPatternTypeNotSupportedException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("fieldId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string FieldId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("displayPatternType", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public DisplayPatternType DisplayPatternType { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("supportedDisplayPatternTypes", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public System.Collections.Generic.ICollection<DisplayPatternType> SupportedDisplayPatternTypes { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static SchemaFieldDisplayPatternTypeNotSupportedException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaFieldDisplayPatternTypeNotSupportedException>(data);
         }
     
     }
@@ -15753,6 +15781,13 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("listItemCreateTemplate", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ListItemCreateTemplate { get; set; }
     
+        /// <summary>Defines the display pattern type to be used (Name or List only) when showing a tagbox item in view mode. Defaults to "Name".
+        /// The information is only consumed by the client application. No actual logic is implemented in the backend.</summary>
+        [Newtonsoft.Json.JsonProperty("viewModeDisplayPatternType", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public DisplayPatternType ViewModeDisplayPatternType { get; set; } = Picturepark.SDK.V1.Contract.DisplayPatternType.Name;
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -15793,6 +15828,13 @@ namespace Picturepark.SDK.V1.Contract
         /// <summary>Json serialized template used for creating new list item (no logic is implemented in backend).</summary>
         [Newtonsoft.Json.JsonProperty("listItemCreateTemplate", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ListItemCreateTemplate { get; set; }
+    
+        /// <summary>Defines the display pattern type to be used (Name or List only) when showing a tagbox item in view mode. Defaults to "Name".
+        /// The information is only consumed by the client application. No actual logic is implemented in the backend.</summary>
+        [Newtonsoft.Json.JsonProperty("viewModeDisplayPatternType", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public DisplayPatternType ViewModeDisplayPatternType { get; set; } = Picturepark.SDK.V1.Contract.DisplayPatternType.Name;
     
         public string ToJson() 
         {

@@ -6305,6 +6305,7 @@
                 "SchemaFieldImportRelatedSchemaMismatchException": "#/components/schemas/SchemaFieldImportRelatedSchemaMismatchException",
                 "SchemaFieldImportTypeMismatchException": "#/components/schemas/SchemaFieldImportTypeMismatchException",
                 "SchemaFieldNotSupportedException": "#/components/schemas/SchemaFieldNotSupportedException",
+                "SchemaFieldDisplayPatternTypeNotSupportedException": "#/components/schemas/SchemaFieldDisplayPatternTypeNotSupportedException",
                 "SnapshotTimeoutException": "#/components/schemas/SnapshotTimeoutException",
                 "SnapshotFailedException": "#/components/schemas/SnapshotFailedException",
                 "SnapshotSkippedException": "#/components/schemas/SnapshotSkippedException",
@@ -10602,6 +10603,36 @@
               "fieldType": {
                 "type": "string",
                 "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "SchemaFieldDisplayPatternTypeNotSupportedException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "displayPatternType"
+            ],
+            "properties": {
+              "fieldId": {
+                "type": "string",
+                "nullable": true
+              },
+              "displayPatternType": {
+                "$ref": "#/components/schemas/DisplayPatternType"
+              },
+              "supportedDisplayPatternTypes": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/DisplayPatternType"
+                }
               }
             }
           }
