@@ -17026,6 +17026,7 @@
                 "SchemaFieldImportRelatedSchemaMismatchException": "#/components/schemas/SchemaFieldImportRelatedSchemaMismatchException",
                 "SchemaFieldImportTypeMismatchException": "#/components/schemas/SchemaFieldImportTypeMismatchException",
                 "SchemaFieldNotSupportedException": "#/components/schemas/SchemaFieldNotSupportedException",
+                "SchemaFieldDisplayPatternTypeNotSupportedException": "#/components/schemas/SchemaFieldDisplayPatternTypeNotSupportedException",
                 "SnapshotTimeoutException": "#/components/schemas/SnapshotTimeoutException",
                 "SnapshotFailedException": "#/components/schemas/SnapshotFailedException",
                 "SnapshotSkippedException": "#/components/schemas/SnapshotSkippedException",
@@ -21323,6 +21324,36 @@
               "fieldType": {
                 "type": "string",
                 "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "SchemaFieldDisplayPatternTypeNotSupportedException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "displayPatternType"
+            ],
+            "properties": {
+              "fieldId": {
+                "type": "string",
+                "nullable": true
+              },
+              "displayPatternType": {
+                "$ref": "#/components/schemas/DisplayPatternType"
+              },
+              "supportedDisplayPatternTypes": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/DisplayPatternType"
+                }
               }
             }
           }
@@ -30833,7 +30864,8 @@
             "description": "The field used to store a single tagbox",
             "additionalProperties": false,
             "required": [
-              "schemaId"
+              "schemaId",
+              "viewModeDisplayPatternType"
             ],
             "properties": {
               "schemaId": {
@@ -30863,6 +30895,15 @@
                 "type": "string",
                 "description": "Json serialized template used for creating new list item (no logic is implemented in backend).",
                 "nullable": true
+              },
+              "viewModeDisplayPatternType": {
+                "description": "Defines the display pattern type to be used (Name or List only) when showing a tagbox item in view mode. Defaults to \"Name\".\nThe information is only consumed by the client application. No actual logic is implemented in the backend.",
+                "default": "Name",
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/DisplayPatternType"
+                  }
+                ]
               }
             }
           }
@@ -30878,7 +30919,8 @@
             "description": "The field used to store multiple tagboxes",
             "additionalProperties": false,
             "required": [
-              "schemaId"
+              "schemaId",
+              "viewModeDisplayPatternType"
             ],
             "properties": {
               "schemaId": {
@@ -30920,6 +30962,15 @@
                 "type": "string",
                 "description": "Json serialized template used for creating new list item (no logic is implemented in backend).",
                 "nullable": true
+              },
+              "viewModeDisplayPatternType": {
+                "description": "Defines the display pattern type to be used (Name or List only) when showing a tagbox item in view mode. Defaults to \"Name\".\nThe information is only consumed by the client application. No actual logic is implemented in the backend.",
+                "default": "Name",
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/DisplayPatternType"
+                  }
+                ]
               }
             }
           }
