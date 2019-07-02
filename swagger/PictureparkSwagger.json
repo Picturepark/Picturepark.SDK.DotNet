@@ -26238,6 +26238,14 @@
           "ownerTokenId": {
             "type": "string",
             "minLength": 1
+          },
+          "audit": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/UserAuditDetail"
+              }
+            ]
           }
         }
       },
@@ -26302,6 +26310,45 @@
           "Apply",
           "Manage"
         ]
+      },
+      "UserAuditDetail": {
+        "type": "object",
+        "description": "Audit information",
+        "additionalProperties": false,
+        "required": [
+          "creationDate",
+          "modificationDate"
+        ],
+        "properties": {
+          "creationDate": {
+            "type": "string",
+            "description": "The date on which the document was created.",
+            "format": "date-time"
+          },
+          "modificationDate": {
+            "type": "string",
+            "description": "The last date on which the document was modified.",
+            "format": "date-time"
+          },
+          "createdByUser": {
+            "description": "ID of the user who created the document.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/User"
+              }
+            ]
+          },
+          "modifiedByUser": {
+            "description": "ID of the last user who modified the document.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/User"
+              }
+            ]
+          }
+        }
       },
       "ContentPermissionSetCreateRequest": {
         "allOf": [
@@ -30278,7 +30325,7 @@
             "nullable": true,
             "oneOf": [
               {
-                "$ref": "#/components/schemas/UserAudit"
+                "$ref": "#/components/schemas/UserAuditDetail"
               }
             ]
           },
@@ -32330,6 +32377,14 @@
           "ownerTokenId": {
             "type": "string",
             "minLength": 1
+          },
+          "audit": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/UserAuditDetail"
+              }
+            ]
           }
         }
       },
@@ -35009,6 +35064,15 @@
               "isReadOnly": {
                 "type": "boolean",
                 "description": "Read-only users can't be removed from the system, e.g. service user."
+              },
+              "audit": {
+                "description": "Audit information.",
+                "nullable": true,
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/UserAuditDetail"
+                  }
+                ]
               }
             }
           }
