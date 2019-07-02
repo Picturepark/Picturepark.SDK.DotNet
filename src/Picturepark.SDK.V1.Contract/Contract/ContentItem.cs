@@ -9,7 +9,7 @@
         public T Content { get; set; }
 
         /// <summary>Audit data with information regarding document creation and modification.</summary>
-        public UserAudit Audit { get; set; }
+        public UserAuditDetail Audit { get; set; }
 
         /// <summary>An optional id list of content permission sets. Controls content accessibility outside of content ownership.</summary>
         public System.Collections.Generic.ICollection<string> ContentPermissionSetIds { get; set; }

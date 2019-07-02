@@ -7,7 +7,7 @@ namespace Picturepark.SDK.V1
 {
     public partial class OutputFormatClient
     {
-        public async Task<ICollection<OutputFormat>> GetAllAsync(CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<ICollection<OutputFormatDetail>> GetAllAsync(CancellationToken cancellationToken = default(CancellationToken))
             => await GetManyAsync(cancellationToken: cancellationToken);
     }
 }
