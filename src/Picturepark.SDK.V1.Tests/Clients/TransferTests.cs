@@ -161,8 +161,8 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 }).ToList()
             };
 
-            var createdTransfer = await _client.Transfer.CreateAsync(request).ConfigureAwait(false);
-            var fileTransfers = await _client.Transfer.SearchFilesByTransferIdAsync(createdTransfer.Id).ConfigureAwait(false);
+            var createTransferResult = await _client.Transfer.CreateAndWaitForCompletionAsync(request).ConfigureAwait(false);
+            var fileTransfers = await _client.Transfer.SearchFilesByTransferIdAsync(createTransferResult.Transfer.Id).ConfigureAwait(false);
 
             // Assert
             fileTransfers.Results.Should().HaveCount(2);
