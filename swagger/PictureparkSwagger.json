@@ -16847,6 +16847,7 @@
                 "PictureparkNotFoundException": "#/components/schemas/PictureparkNotFoundException",
                 "UserRolesNotFoundException": "#/components/schemas/UserRolesNotFoundException",
                 "UnauthorizedException": "#/components/schemas/UnauthorizedException",
+                "UserUnlockDisallowedException": "#/components/schemas/UserUnlockDisallowedException",
                 "RenderingException": "#/components/schemas/RenderingException",
                 "ServiceProviderDeleteException": "#/components/schemas/ServiceProviderDeleteException",
                 "ServiceProviderCreateException": "#/components/schemas/ServiceProviderCreateException",
@@ -17346,6 +17347,17 @@
         "allOf": [
           {
             "$ref": "#/components/schemas/PictureparkBusinessException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "UserUnlockDisallowedException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
           },
           {
             "type": "object",
