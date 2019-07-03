@@ -6145,8 +6145,8 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
     public enum BackupEntityType
     {
-        [System.Runtime.Serialization.EnumMember(Value = @"Enviroment")]
-        Enviroment = 0,
+        [System.Runtime.Serialization.EnumMember(Value = @"Environment")]
+        Environment = 0,
     
         [System.Runtime.Serialization.EnumMember(Value = @"Customer")]
         Customer = 1,
