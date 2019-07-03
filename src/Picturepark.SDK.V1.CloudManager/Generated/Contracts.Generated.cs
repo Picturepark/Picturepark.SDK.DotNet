@@ -820,6 +820,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [JsonInheritanceAttribute("PictureparkNotFoundException", typeof(PictureparkNotFoundException))]
     [JsonInheritanceAttribute("UserRolesNotFoundException", typeof(UserRolesNotFoundException))]
     [JsonInheritanceAttribute("UnauthorizedException", typeof(UnauthorizedException))]
+    [JsonInheritanceAttribute("UserUnlockDisallowedException", typeof(UserUnlockDisallowedException))]
     [JsonInheritanceAttribute("RenderingException", typeof(RenderingException))]
     [JsonInheritanceAttribute("ServiceProviderDeleteException", typeof(ServiceProviderDeleteException))]
     [JsonInheritanceAttribute("ServiceProviderCreateException", typeof(ServiceProviderCreateException))]
@@ -1345,6 +1346,22 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         public static UnauthorizedException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<UnauthorizedException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class UserUnlockDisallowedException : PictureparkValidationException
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static UserUnlockDisallowedException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<UserUnlockDisallowedException>(data);
         }
     
     }
@@ -6128,8 +6145,8 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
     public enum BackupEntityType
     {
-        [System.Runtime.Serialization.EnumMember(Value = @"Enviroment")]
-        Enviroment = 0,
+        [System.Runtime.Serialization.EnumMember(Value = @"Environment")]
+        Environment = 0,
     
         [System.Runtime.Serialization.EnumMember(Value = @"Customer")]
         Customer = 1,
