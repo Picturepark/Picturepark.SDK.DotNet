@@ -121,7 +121,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 WebLinks = urls.Select(url => new TransferWebLink
                 {
                     Url = url,
-                    Identifier = Guid.NewGuid().ToString()
+                    RequestId = Guid.NewGuid().ToString()
                 }).ToList()
             };
 
@@ -129,6 +129,45 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             // Assert
             Assert.NotNull(result.Transfer);
+        }
+
+        [Fact]
+        [Trait("Stack", "Transfers")]
+        public async Task ShouldSupportRequestIdAndLegacyIdentifier()
+        {
+            // Arrange
+            var transferName = "UrlImportRequestIdAndLegacyIdentifier " + new Random().Next(1000, 9999);
+            var urlsAndIds = new List<(string url, string id, bool legacy)>
+            {
+                ("https://picturepark.com/wp-content/uploads/2013/06/home-marquee.jpg", "marquee", true),
+                ("http://cdn1.spiegel.de/images/image-733178-900_breitwand_180x67-zgpe-733178.jpg", "breitwand", false)
+            };
+
+            // Act
+            var request = new CreateTransferRequest
+            {
+                Name = transferName,
+                TransferType = TransferType.WebDownload,
+                WebLinks = urlsAndIds.Select(urlAndId =>
+                {
+                    var webLink = new TransferWebLink() { Url = urlAndId.url };
+
+                    if (urlAndId.legacy)
+                        webLink.Identifier = urlAndId.id;
+                    else
+                        webLink.RequestId = urlAndId.id;
+
+                    return webLink;
+                }).ToList()
+            };
+
+            var createdTransfer = await _client.Transfer.CreateAsync(request).ConfigureAwait(false);
+            var fileTransfers = await _client.Transfer.SearchFilesByTransferIdAsync(createdTransfer.Id).ConfigureAwait(false);
+
+            // Assert
+            fileTransfers.Results.Should().HaveCount(2);
+            fileTransfers.Results.Should().OnlyContain(fileTransfer => urlsAndIds.Any(urlAndId =>
+                fileTransfer.RequestId == fileTransfer.Identifier && fileTransfer.RequestId == urlAndId.id));
         }
 
         [Fact]
@@ -487,7 +526,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 WebLinks = urls.Select(url => new TransferWebLink
                 {
                     Url = url,
-                    Identifier = Guid.NewGuid().ToString()
+                    RequestId = Guid.NewGuid().ToString()
                 }).ToList()
             };
 
