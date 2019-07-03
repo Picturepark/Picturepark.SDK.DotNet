@@ -20370,7 +20370,7 @@ namespace Picturepark.SDK.V1
         /// <param name="totalSize">Total size in bytes of the uploading file.</param>
         /// <param name="totalChunks">Total chunks of the uploading file.</param>
         /// <param name="transferId">ID of transfer.</param>
-        /// <param name="identifier">Identifier of file.</param>
+        /// <param name="requestId">Identifier of file.</param>
         /// <param name="formFile">Gets or sets the form file.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
@@ -20378,13 +20378,13 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
-        public async System.Threading.Tasks.Task UploadFileAsync(string relativePath, long chunkNumber, long currentChunkSize, long totalSize, long totalChunks, string transferId, string identifier, FileParameter formFile = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task UploadFileAsync(string relativePath, long chunkNumber, long currentChunkSize, long totalSize, long totalChunks, string transferId, string requestId, FileParameter formFile = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (transferId == null)
                 throw new System.ArgumentNullException("transferId");
     
-            if (identifier == null)
-                throw new System.ArgumentNullException("identifier");
+            if (requestId == null)
+                throw new System.ArgumentNullException("requestId");
     
             if (chunkNumber == null)
                 throw new System.ArgumentNullException("chunkNumber");
@@ -20399,9 +20399,9 @@ namespace Picturepark.SDK.V1
                 throw new System.ArgumentNullException("totalChunks");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/transfers/{transferId}/files/{identifier}/upload?");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/transfers/{transferId}/files/{requestId}/upload?");
             urlBuilder_.Replace("{transferId}", System.Uri.EscapeDataString(ConvertToString(transferId, System.Globalization.CultureInfo.InvariantCulture)));
-            urlBuilder_.Replace("{identifier}", System.Uri.EscapeDataString(ConvertToString(identifier, System.Globalization.CultureInfo.InvariantCulture)));
+            urlBuilder_.Replace("{requestId}", System.Uri.EscapeDataString(ConvertToString(requestId, System.Globalization.CultureInfo.InvariantCulture)));
             urlBuilder_.Append("relativePath=").Append(System.Uri.EscapeDataString(relativePath != null ? ConvertToString(relativePath, System.Globalization.CultureInfo.InvariantCulture) : "")).Append("&");
             urlBuilder_.Append("chunkNumber=").Append(System.Uri.EscapeDataString(ConvertToString(chunkNumber, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             urlBuilder_.Append("currentChunkSize=").Append(System.Uri.EscapeDataString(ConvertToString(currentChunkSize, System.Globalization.CultureInfo.InvariantCulture))).Append("&");

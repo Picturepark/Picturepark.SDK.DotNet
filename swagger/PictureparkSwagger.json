@@ -14304,7 +14304,7 @@
         ]
       }
     },
-    "/v1/transfers/{transferId}/files/{identifier}/upload": {
+    "/v1/transfers/{transferId}/files/{requestId}/upload": {
       "post": {
         "tags": [
           "Transfer"
@@ -14391,7 +14391,7 @@
             "x-position": 6
           },
           {
-            "name": "identifier",
+            "name": "requestId",
             "in": "path",
             "required": true,
             "description": "Identifier of file.",
@@ -33994,14 +33994,16 @@
         "description": "Represents the base class for transfer items.",
         "x-abstract": true,
         "additionalProperties": false,
-        "required": [
-          "identifier"
-        ],
         "properties": {
           "identifier": {
             "type": "string",
+            "description": "Replaced in favor of RequestId. Client generated identifier of the item.",
+            "nullable": true
+          },
+          "requestId": {
+            "type": "string",
             "description": "Client generated identifier of the item.",
-            "minLength": 1
+            "nullable": true
           }
         }
       },
@@ -34626,7 +34628,7 @@
         "required": [
           "id",
           "name",
-          "identifier",
+          "requestId",
           "transferId",
           "state"
         ],
@@ -34642,6 +34644,11 @@
             "minLength": 1
           },
           "identifier": {
+            "type": "string",
+            "description": "Replaced in favor of RequestId. Client provided identifier.",
+            "nullable": true
+          },
+          "requestId": {
             "type": "string",
             "description": "Client provided identifier.",
             "minLength": 1
