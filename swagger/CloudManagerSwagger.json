@@ -11152,11 +11152,11 @@
         "type": "string",
         "description": "",
         "x-enumNames": [
-          "Enviroment",
+          "Environment",
           "Customer"
         ],
         "enum": [
-          "Enviroment",
+          "Environment",
           "Customer"
         ]
       },
