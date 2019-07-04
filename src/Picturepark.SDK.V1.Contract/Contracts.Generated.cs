@@ -1568,7 +1568,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="totalSize">Total size in bytes of the uploading file.</param>
         /// <param name="totalChunks">Total chunks of the uploading file.</param>
         /// <param name="transferId">ID of transfer.</param>
-        /// <param name="identifier">Identifier of file.</param>
+        /// <param name="requestId">Identifier of file.</param>
         /// <param name="formFile">Gets or sets the form file.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
@@ -1576,7 +1576,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
-        System.Threading.Tasks.Task UploadFileAsync(string relativePath, long chunkNumber, long currentChunkSize, long totalSize, long totalChunks, string transferId, string identifier, FileParameter formFile = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task UploadFileAsync(string relativePath, long chunkNumber, long currentChunkSize, long totalSize, long totalChunks, string transferId, string requestId, FileParameter formFile = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
     }
     
@@ -18537,10 +18537,13 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
     public abstract partial class TransferFile 
     {
-        /// <summary>Client generated identifier of the item.</summary>
-        [Newtonsoft.Json.JsonProperty("identifier", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
+        /// <summary>Replaced in favor of RequestId. Client generated identifier of the item.</summary>
+        [Newtonsoft.Json.JsonProperty("identifier", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Identifier { get; set; }
+    
+        /// <summary>Client generated identifier of the item.</summary>
+        [Newtonsoft.Json.JsonProperty("requestId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string RequestId { get; set; }
     
         public string ToJson() 
         {
@@ -19044,10 +19047,14 @@ namespace Picturepark.SDK.V1.Contract
         [System.ComponentModel.DataAnnotations.Required]
         public string Name { get; set; }
     
-        /// <summary>Client provided identifier.</summary>
-        [Newtonsoft.Json.JsonProperty("identifier", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
+        /// <summary>Replaced in favor of RequestId. Client provided identifier.</summary>
+        [Newtonsoft.Json.JsonProperty("identifier", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Identifier { get; set; }
+    
+        /// <summary>Client provided identifier.</summary>
+        [Newtonsoft.Json.JsonProperty("requestId", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public string RequestId { get; set; }
     
         /// <summary>ID of transfer.</summary>
         [Newtonsoft.Json.JsonProperty("transferId", Required = Newtonsoft.Json.Required.Always)]
