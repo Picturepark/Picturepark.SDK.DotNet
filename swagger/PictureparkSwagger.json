@@ -8315,7 +8315,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/OutputFormat"
+                  "$ref": "#/components/schemas/OutputFormatDetail"
                 }
               }
             }
@@ -8416,7 +8416,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/OutputFormat"
+                  "$ref": "#/components/schemas/OutputFormatDetail"
                 }
               }
             }
@@ -8588,7 +8588,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/OutputFormat"
+                  "$ref": "#/components/schemas/OutputFormatDetail"
                 }
               }
             }
@@ -8682,7 +8682,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/OutputFormat"
+                    "$ref": "#/components/schemas/OutputFormatDetail"
                   }
                 }
               }
@@ -15759,7 +15759,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/UserRole"
+                    "$ref": "#/components/schemas/UserRoleDetail"
                   }
                 }
               }
@@ -15848,7 +15848,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/UserRole"
+                  "$ref": "#/components/schemas/UserRoleDetail"
                 }
               }
             }
@@ -15937,7 +15937,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/UserRole"
+                  "$ref": "#/components/schemas/UserRoleDetail"
                 }
               }
             }
@@ -16129,7 +16129,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/UserRole"
+                  "$ref": "#/components/schemas/UserRoleDetail"
                 }
               }
             }
@@ -23980,7 +23980,7 @@
             "nullable": true,
             "oneOf": [
               {
-                "$ref": "#/components/schemas/UserAudit"
+                "$ref": "#/components/schemas/UserAuditDetail"
               }
             ]
           },
@@ -24077,6 +24077,74 @@
             "items": {
               "$ref": "#/components/schemas/ContentRight"
             }
+          }
+        }
+      },
+      "UserAuditDetail": {
+        "type": "object",
+        "description": "Audit information",
+        "additionalProperties": false,
+        "required": [
+          "creationDate",
+          "modificationDate"
+        ],
+        "properties": {
+          "creationDate": {
+            "type": "string",
+            "description": "The date on which the document was created.",
+            "format": "date-time"
+          },
+          "modificationDate": {
+            "type": "string",
+            "description": "The last date on which the document was modified.",
+            "format": "date-time"
+          },
+          "createdByUser": {
+            "description": "ID of the user who created the document.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/User"
+              }
+            ]
+          },
+          "modifiedByUser": {
+            "description": "ID of the last user who modified the document.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/User"
+              }
+            ]
+          }
+        }
+      },
+      "User": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "emailAddress"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "User's Picturepark ID.",
+            "nullable": true
+          },
+          "firstName": {
+            "type": "string",
+            "description": "User's first name.",
+            "nullable": true
+          },
+          "lastName": {
+            "type": "string",
+            "description": "User's last name.",
+            "nullable": true
+          },
+          "emailAddress": {
+            "type": "string",
+            "description": "Email address of the user (doubles as username).",
+            "minLength": 1
           }
         }
       },
@@ -24410,35 +24478,6 @@
             "additionalProperties": false
           }
         ]
-      },
-      "User": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "emailAddress"
-        ],
-        "properties": {
-          "id": {
-            "type": "string",
-            "description": "User's Picturepark ID.",
-            "nullable": true
-          },
-          "firstName": {
-            "type": "string",
-            "description": "User's first name.",
-            "nullable": true
-          },
-          "lastName": {
-            "type": "string",
-            "description": "User's last name.",
-            "nullable": true
-          },
-          "emailAddress": {
-            "type": "string",
-            "description": "Email address of the user (doubles as username).",
-            "minLength": 1
-          }
-        }
       },
       "LifeCycle": {
         "type": "string",
@@ -26250,6 +26289,14 @@
           "ownerTokenId": {
             "type": "string",
             "minLength": 1
+          },
+          "audit": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/UserAuditDetail"
+              }
+            ]
           }
         }
       },
@@ -27278,7 +27325,7 @@
             "nullable": true,
             "oneOf": [
               {
-                "$ref": "#/components/schemas/UserAudit"
+                "$ref": "#/components/schemas/UserAuditDetail"
               }
             ]
           }
@@ -28887,6 +28934,29 @@
           }
         }
       },
+      "OutputFormatDetail": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/OutputFormat"
+          },
+          {
+            "type": "object",
+            "description": "Represents an output format.",
+            "additionalProperties": false,
+            "properties": {
+              "audit": {
+                "description": "Audit information.",
+                "nullable": true,
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/UserAuditDetail"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
       "OutputFormat": {
         "allOf": [
           {
@@ -30290,7 +30360,7 @@
             "nullable": true,
             "oneOf": [
               {
-                "$ref": "#/components/schemas/UserAudit"
+                "$ref": "#/components/schemas/UserAuditDetail"
               }
             ]
           },
@@ -32342,6 +32412,14 @@
           "ownerTokenId": {
             "type": "string",
             "minLength": 1
+          },
+          "audit": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/UserAuditDetail"
+              }
+            ]
           }
         }
       },
@@ -35028,6 +35106,15 @@
               "isReadOnly": {
                 "type": "boolean",
                 "description": "Read-only users can't be removed from the system, e.g. service user."
+              },
+              "audit": {
+                "description": "Audit information.",
+                "nullable": true,
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/UserAuditDetail"
+                  }
+                ]
               }
             }
           }
@@ -35443,6 +35530,29 @@
             "nullable": true
           }
         }
+      },
+      "UserRoleDetail": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/UserRole"
+          },
+          {
+            "type": "object",
+            "description": "Represents a user role, which associates users with user rights.",
+            "additionalProperties": false,
+            "properties": {
+              "audit": {
+                "description": "Audit information.",
+                "nullable": true,
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/UserAuditDetail"
+                  }
+                ]
+              }
+            }
+          }
+        ]
       },
       "UserRoleSearchResult": {
         "allOf": [
