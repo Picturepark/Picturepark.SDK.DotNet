@@ -30765,7 +30765,7 @@
           },
           {
             "type": "object",
-            "description": "The field used to store a geo point",
+            "description": "A field that can be triggered, and store in such occasion the id of the user and the time that triggered it. The last user who triggered it and the last time in which it was triggered can be used for filtering or for\nsimple search (if enabled on the field). Such information are stored in two inner fields: \"triggeredBy\" and \"triggeredOn\". In order to be triggered in a Content or ListItem metadata dictionary, the special '\"_trigger\": true'\nshould be sent in the DataDictionary of the field itself.",
             "additionalProperties": false,
             "required": [
               "boost"
