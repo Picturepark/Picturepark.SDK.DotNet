@@ -746,6 +746,77 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
         [Fact]
         [Trait("Stack", "Contents")]
+        public async Task ShouldCreateContentWithTriggerFieldInLayerAndTriggerItOnMetadataUpdate()
+        {
+            // Arrange
+            var contentSchemaId = $"TestContent{Guid.NewGuid():N}";
+            var layerSchemaId = $"TestLayer{Guid.NewGuid():N}";
+            var schemaCreateManyRequest = new SchemaCreateManyRequest
+            {
+                Schemas = new[]
+                {
+                    new SchemaCreateRequest { Id = contentSchemaId, Types = new[] { SchemaType.Content }, ViewForAll = true, LayerSchemaIds = new HashSet<string> { layerSchemaId } },
+                    new SchemaCreateRequest
+                    {
+                        Id = layerSchemaId,
+                        Types = new[] { SchemaType.Layer },
+                        ViewForAll = true,
+                        ReferencedInContentSchemaIds = new HashSet<string> { contentSchemaId },
+                        Fields = new[]
+                        {
+                            new FieldTrigger
+                            {
+                                Id = "fieldTrigger",
+                                Names = new TranslatedStringDictionary { { "en", "Field Trigger" } },
+                                Descriptions = new TranslatedStringDictionary { { "en", "Field Trigger Description" } },
+                                Index = true,
+                                SimpleSearch = true
+                            }
+                        }
+                    }
+                }
+            };
+            var result = await _client.Schema.CreateManyAsync(schemaCreateManyRequest).ConfigureAwait(false);
+            var resultDetails = await result.FetchDetail().ConfigureAwait(false);
+            var createdSchemas = resultDetails.SucceededItems;
+
+            var contentSchema = createdSchemas.First(s => s.Types.Contains(SchemaType.Content));
+            var layerSchema = createdSchemas.First(s => s.Types.Contains(SchemaType.Layer));
+
+            var contentCreateRequest = new ContentCreateRequest
+            {
+                ContentSchemaId = contentSchema.Id,
+                Content = new DataDictionary(),
+                LayerSchemaIds = new[] { layerSchema.Id },
+                Metadata = new DataDictionary()
+            };
+
+            var contentDetail = await _client.Content.CreateAsync(contentCreateRequest).ConfigureAwait(false);
+
+            // Act
+            var updateContentRequest = new ContentMetadataUpdateRequest
+            {
+                LayerSchemaIds = new[] { layerSchema.Id },
+                Metadata = new DataDictionary
+                {
+                    {
+                        layerSchemaId.ToLowerCamelCase(),
+                        JObject.FromObject(new
+                        {
+                            fieldTrigger = new { _trigger = true }
+                        })
+                    }
+                }
+            };
+            contentDetail = await _client.Content.UpdateMetadataAsync(contentDetail.Id, updateContentRequest, new[] { ContentResolveBehavior.Metadata }).ConfigureAwait(false);
+
+            // Assert
+            contentDetail.Metadata.Get(layerSchema.Id.ToLowerCamelCase()).Get("fieldTrigger")["triggeredBy"].Should().NotBeNull();
+            contentDetail.Metadata.Get(layerSchema.Id.ToLowerCamelCase()).Get("fieldTrigger")["triggeredOn"].Should().NotBeNull();
+        }
+
+        [Fact]
+        [Trait("Stack", "Contents")]
         public async Task ShouldBatchUpdateFieldsByFilter()
         {
             // Arrange
