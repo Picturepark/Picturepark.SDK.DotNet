@@ -2299,6 +2299,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("SystemLayerReferenceInvalidModificationException", typeof(SystemLayerReferenceInvalidModificationException))]
     [JsonInheritanceAttribute("SchemaFieldAnalyzerInvalidException", typeof(SchemaFieldAnalyzerInvalidException))]
     [JsonInheritanceAttribute("SchemaFieldRelationMultipleTypesException", typeof(SchemaFieldRelationMultipleTypesException))]
+    [JsonInheritanceAttribute("SchemaFieldNotRequirableException", typeof(SchemaFieldNotRequirableException))]
     [JsonInheritanceAttribute("DeleteContentsWithReferencesException", typeof(DeleteContentsWithReferencesException))]
     [JsonInheritanceAttribute("ContentMetadataUpdateManyException", typeof(ContentMetadataUpdateManyException))]
     [JsonInheritanceAttribute("ContentNotFoundException", typeof(ContentNotFoundException))]
@@ -6412,6 +6413,28 @@ namespace Picturepark.SDK.V1.Contract
         public static SchemaFieldRelationMultipleTypesException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaFieldRelationMultipleTypesException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class SchemaFieldNotRequirableException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("fieldId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string FieldId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("schemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string SchemaId { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static SchemaFieldNotRequirableException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaFieldNotRequirableException>(data);
         }
     
     }
@@ -15404,6 +15427,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("FieldDictionary", typeof(FieldDictionary))]
     [JsonInheritanceAttribute("FieldDictionaryArray", typeof(FieldDictionaryArray))]
     [JsonInheritanceAttribute("FieldGeoPoint", typeof(FieldGeoPoint))]
+    [JsonInheritanceAttribute("FieldTrigger", typeof(FieldTrigger))]
     [JsonInheritanceAttribute("FieldLong", typeof(FieldLong))]
     [JsonInheritanceAttribute("FieldLongArray", typeof(FieldLongArray))]
     [JsonInheritanceAttribute("FieldSingleFieldset", typeof(FieldSingleFieldset))]
@@ -15655,6 +15679,28 @@ namespace Picturepark.SDK.V1.Contract
         public static FieldGeoPoint FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<FieldGeoPoint>(data);
+        }
+    
+    }
+    
+    /// <summary>A field that can be triggered, and store in such occasion the id of the user and the time that triggered it. The last user who triggered it and the last time in which it was triggered can be used for filtering or for
+    /// simple search (if enabled on the field). Such information are stored in two inner fields: "triggeredBy" and "triggeredOn". In order to be triggered in a Content or ListItem metadata dictionary, the special '"_trigger": true'
+    /// should be sent in the DataDictionary of the field itself.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class FieldTrigger : FieldBase
+    {
+        /// <summary>Value to prioritize search results. Set to 1 by default. Ignored if SimpleSearch not set to true.</summary>
+        [Newtonsoft.Json.JsonProperty("boost", Required = Newtonsoft.Json.Required.Always)]
+        public double Boost { get; set; } = 1D;
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static FieldTrigger FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<FieldTrigger>(data);
         }
     
     }

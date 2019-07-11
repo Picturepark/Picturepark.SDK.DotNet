@@ -17012,6 +17012,7 @@
                 "SystemLayerReferenceInvalidModificationException": "#/components/schemas/SystemLayerReferenceInvalidModificationException",
                 "SchemaFieldAnalyzerInvalidException": "#/components/schemas/SchemaFieldAnalyzerInvalidException",
                 "SchemaFieldRelationMultipleTypesException": "#/components/schemas/SchemaFieldRelationMultipleTypesException",
+                "SchemaFieldNotRequirableException": "#/components/schemas/SchemaFieldNotRequirableException",
                 "DeleteContentsWithReferencesException": "#/components/schemas/DeleteContentsWithReferencesException",
                 "ContentMetadataUpdateManyException": "#/components/schemas/ContentMetadataUpdateManyException",
                 "ContentNotFoundException": "#/components/schemas/ContentNotFoundException",
@@ -20917,6 +20918,27 @@
                 "nullable": true
               },
               "fieldId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "SchemaFieldNotRequirableException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "fieldId": {
+                "type": "string",
+                "nullable": true
+              },
+              "schemaId": {
                 "type": "string",
                 "nullable": true
               }
@@ -30434,6 +30456,7 @@
             "FieldDictionary": "#/components/schemas/FieldDictionary",
             "FieldDictionaryArray": "#/components/schemas/FieldDictionaryArray",
             "FieldGeoPoint": "#/components/schemas/FieldGeoPoint",
+            "FieldTrigger": "#/components/schemas/FieldTrigger",
             "FieldLong": "#/components/schemas/FieldLong",
             "FieldLongArray": "#/components/schemas/FieldLongArray",
             "FieldSingleFieldset": "#/components/schemas/FieldSingleFieldset",
@@ -30720,6 +30743,29 @@
           {
             "type": "object",
             "description": "The field used to store a geo point",
+            "additionalProperties": false,
+            "required": [
+              "boost"
+            ],
+            "properties": {
+              "boost": {
+                "type": "number",
+                "description": "Value to prioritize search results. Set to 1 by default. Ignored if SimpleSearch not set to true.",
+                "format": "double",
+                "default": 1
+              }
+            }
+          }
+        ]
+      },
+      "FieldTrigger": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/FieldBase"
+          },
+          {
+            "type": "object",
+            "description": "A field that can be triggered, and store in such occasion the id of the user and the time that triggered it. The last user who triggered it and the last time in which it was triggered can be used for filtering or for\nsimple search (if enabled on the field). Such information are stored in two inner fields: \"triggeredBy\" and \"triggeredOn\". In order to be triggered in a Content or ListItem metadata dictionary, the special '\"_trigger\": true'\nshould be sent in the DataDictionary of the field itself.",
             "additionalProperties": false,
             "required": [
               "boost"
