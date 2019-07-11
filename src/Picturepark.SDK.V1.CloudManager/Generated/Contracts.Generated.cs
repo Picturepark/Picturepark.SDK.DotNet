@@ -303,6 +303,14 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         System.Threading.Tasks.Task InvalidateAsync(string customerAlias, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<string>> GetAvailableMetadataLanguagesAsync(string customerAlias, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "13.0.1.0 (NJsonSchema v10.0.19.0 (Newtonsoft.Json v11.0.0.0))")]
