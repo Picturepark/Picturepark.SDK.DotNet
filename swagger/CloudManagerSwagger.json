@@ -6446,6 +6446,7 @@
                 "SystemLayerReferenceInvalidModificationException": "#/components/schemas/SystemLayerReferenceInvalidModificationException",
                 "SchemaFieldAnalyzerInvalidException": "#/components/schemas/SchemaFieldAnalyzerInvalidException",
                 "SchemaFieldRelationMultipleTypesException": "#/components/schemas/SchemaFieldRelationMultipleTypesException",
+                "SchemaFieldNotRequirableException": "#/components/schemas/SchemaFieldNotRequirableException",
                 "DeleteContentsWithReferencesException": "#/components/schemas/DeleteContentsWithReferencesException",
                 "ContentMetadataUpdateManyException": "#/components/schemas/ContentMetadataUpdateManyException",
                 "ContentNotFoundException": "#/components/schemas/ContentNotFoundException",
@@ -10351,6 +10352,27 @@
                 "nullable": true
               },
               "fieldId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "SchemaFieldNotRequirableException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "fieldId": {
+                "type": "string",
+                "nullable": true
+              },
+              "schemaId": {
                 "type": "string",
                 "nullable": true
               }
