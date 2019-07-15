@@ -2339,11 +2339,19 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("BusinessRuleConditionMissingException", typeof(BusinessRuleConditionMissingException))]
     [JsonInheritanceAttribute("BusinessRuleConditionsMissingException", typeof(BusinessRuleConditionsMissingException))]
     [JsonInheritanceAttribute("BusinessRuleConfigurationValidationException", typeof(BusinessRuleConfigurationValidationException))]
-    [JsonInheritanceAttribute("BusinessRuleLayerIdInvalidException", typeof(BusinessRuleLayerIdInvalidException))]
+    [JsonInheritanceAttribute("BusinessRuleSchemaIdInvalidException", typeof(BusinessRuleSchemaIdInvalidException))]
+    [JsonInheritanceAttribute("BusinessRulePermissionSetIdInvalidException", typeof(BusinessRulePermissionSetIdInvalidException))]
     [JsonInheritanceAttribute("BusinessRuleRuleIdDuplicationException", typeof(BusinessRuleRuleIdDuplicationException))]
     [JsonInheritanceAttribute("BusinessRuleRuleIdMissingException", typeof(BusinessRuleRuleIdMissingException))]
     [JsonInheritanceAttribute("BusinessRuleTriggerPointMissingException", typeof(BusinessRuleTriggerPointMissingException))]
     [JsonInheritanceAttribute("BusinessRuleValidationException", typeof(BusinessRuleValidationException))]
+    [JsonInheritanceAttribute("BusinessRuleConditionInvalidTriggerPointDocumentTypeException", typeof(BusinessRuleConditionInvalidTriggerPointDocumentTypeException))]
+    [JsonInheritanceAttribute("BusinessRuleRegularExpressionInvalidException", typeof(BusinessRuleRegularExpressionInvalidException))]
+    [JsonInheritanceAttribute("BusinessRuleConditionInvalidTriggerPointActionException", typeof(BusinessRuleConditionInvalidTriggerPointActionException))]
+    [JsonInheritanceAttribute("BusinessRuleRefIdsMissingException", typeof(BusinessRuleRefIdsMissingException))]
+    [JsonInheritanceAttribute("BusinessRulePathInvalidException", typeof(BusinessRulePathInvalidException))]
+    [JsonInheritanceAttribute("BusinessRuleFieldIdInvalidException", typeof(BusinessRuleFieldIdInvalidException))]
+    [JsonInheritanceAttribute("BusinessRuleContentPermissionSetIdsMissingException", typeof(BusinessRuleContentPermissionSetIdsMissingException))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
     [Newtonsoft.Json.JsonObjectAttribute]
     public partial class PictureparkException : System.Exception
@@ -7360,19 +7368,38 @@ namespace Picturepark.SDK.V1.Contract
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
     [Newtonsoft.Json.JsonObjectAttribute]
-    public partial class BusinessRuleLayerIdInvalidException : PictureparkValidationException
+    public partial class BusinessRuleSchemaIdInvalidException : PictureparkValidationException
     {
-        [Newtonsoft.Json.JsonProperty("layerId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string LayerId { get; set; }
+        [Newtonsoft.Json.JsonProperty("schemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string SchemaId { get; set; }
     
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
         }
     
-        public static BusinessRuleLayerIdInvalidException FromJson(string data)
+        public static BusinessRuleSchemaIdInvalidException FromJson(string data)
         {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessRuleLayerIdInvalidException>(data);
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessRuleSchemaIdInvalidException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class BusinessRulePermissionSetIdInvalidException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("permissionSetId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string PermissionSetId { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static BusinessRulePermissionSetIdInvalidException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessRulePermissionSetIdInvalidException>(data);
         }
     
     }
@@ -7443,6 +7470,147 @@ namespace Picturepark.SDK.V1.Contract
         public static BusinessRuleValidationException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessRuleValidationException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class BusinessRuleConditionInvalidTriggerPointDocumentTypeException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("allowedDocumentTypes", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public System.Collections.Generic.ICollection<BusinessRuleTriggerDocType> AllowedDocumentTypes { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static BusinessRuleConditionInvalidTriggerPointDocumentTypeException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessRuleConditionInvalidTriggerPointDocumentTypeException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class BusinessRuleRegularExpressionInvalidException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("regex", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Regex { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static BusinessRuleRegularExpressionInvalidException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessRuleRegularExpressionInvalidException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class BusinessRuleConditionInvalidTriggerPointActionException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("allowedActions", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public System.Collections.Generic.ICollection<BusinessRuleTriggerAction> AllowedActions { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static BusinessRuleConditionInvalidTriggerPointActionException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessRuleConditionInvalidTriggerPointActionException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
+    public enum BusinessRuleTriggerAction
+    {
+        [System.Runtime.Serialization.EnumMember(Value = @"Create")]
+        Create = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Update")]
+        Update = 1,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"FileReplacement")]
+        FileReplacement = 2,
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class BusinessRuleRefIdsMissingException : PictureparkValidationException
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static BusinessRuleRefIdsMissingException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessRuleRefIdsMissingException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class BusinessRulePathInvalidException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("path", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Path { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static BusinessRulePathInvalidException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessRulePathInvalidException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class BusinessRuleFieldIdInvalidException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("fieldId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string FieldId { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static BusinessRuleFieldIdInvalidException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessRuleFieldIdInvalidException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class BusinessRuleContentPermissionSetIdsMissingException : PictureparkValidationException
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static BusinessRuleContentPermissionSetIdsMissingException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessRuleContentPermissionSetIdsMissingException>(data);
         }
     
     }
@@ -8546,17 +8714,6 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
-    public enum BusinessRuleTriggerAction
-    {
-        [System.Runtime.Serialization.EnumMember(Value = @"Create")]
-        Create = 0,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"Update")]
-        Update = 1,
-    
-    }
-    
     /// <summary>A business rule configurable by specific actions and conditions</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class BusinessRuleConfigurable : BusinessRule
@@ -8587,6 +8744,14 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("AndCondition", typeof(AndCondition))]
     [JsonInheritanceAttribute("OrCondition", typeof(OrCondition))]
     [JsonInheritanceAttribute("LayerAssignedCondition", typeof(LayerAssignedCondition))]
+    [JsonInheritanceAttribute("LayerUnassignedCondition", typeof(LayerUnassignedCondition))]
+    [JsonInheritanceAttribute("ContentPermissionSetAssignedCondition", typeof(ContentPermissionSetAssignedCondition))]
+    [JsonInheritanceAttribute("ContentPermissionSetUnassignedCondition", typeof(ContentPermissionSetUnassignedCondition))]
+    [JsonInheritanceAttribute("FieldValueChangedCondition", typeof(FieldValueChangedCondition))]
+    [JsonInheritanceAttribute("MatchRegexCondition", typeof(MatchRegexCondition))]
+    [JsonInheritanceAttribute("TagboxItemAssignedCondition", typeof(TagboxItemAssignedCondition))]
+    [JsonInheritanceAttribute("TagboxItemUnassignedCondition", typeof(TagboxItemUnassignedCondition))]
+    [JsonInheritanceAttribute("ContentSchemaCondition", typeof(ContentSchemaCondition))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
     public abstract partial class BusinessRuleCondition 
     {
@@ -8674,9 +8839,192 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>Matches when a layer was unassigned</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class LayerUnassignedCondition : BusinessRuleCondition
+    {
+        /// <summary>Layer id to match on.</summary>
+        [Newtonsoft.Json.JsonProperty("layerId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string LayerId { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static LayerUnassignedCondition FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<LayerUnassignedCondition>(data);
+        }
+    
+    }
+    
+    /// <summary>Matches when a permission set was assigned</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class ContentPermissionSetAssignedCondition : BusinessRuleCondition
+    {
+        /// <summary>Permission set id to match on.</summary>
+        [Newtonsoft.Json.JsonProperty("permissionSetId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string PermissionSetId { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static ContentPermissionSetAssignedCondition FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentPermissionSetAssignedCondition>(data);
+        }
+    
+    }
+    
+    /// <summary>Matches when a permission set was unassigned</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class ContentPermissionSetUnassignedCondition : BusinessRuleCondition
+    {
+        /// <summary>Permission set id to match on.</summary>
+        [Newtonsoft.Json.JsonProperty("permissionSetId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string PermissionSetId { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static ContentPermissionSetUnassignedCondition FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentPermissionSetUnassignedCondition>(data);
+        }
+    
+    }
+    
+    /// <summary>Matches when a field matching the field path string (JSON path) changes to the expected value.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class FieldValueChangedCondition : BusinessRuleCondition
+    {
+        /// <summary>JSON path to the field</summary>
+        [Newtonsoft.Json.JsonProperty("fieldPath", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string FieldPath { get; set; }
+    
+        /// <summary>Expected value for the field to have to satisfy the condition</summary>
+        [Newtonsoft.Json.JsonProperty("expectedValue", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public object ExpectedValue { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static FieldValueChangedCondition FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<FieldValueChangedCondition>(data);
+        }
+    
+    }
+    
+    /// <summary>Matches when a field matching the field path string (JSON Path) changes and matches the given regular expression.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class MatchRegexCondition : BusinessRuleCondition
+    {
+        /// <summary>JSON path to the field</summary>
+        [Newtonsoft.Json.JsonProperty("fieldPath", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string FieldPath { get; set; }
+    
+        /// <summary>Regular expression</summary>
+        [Newtonsoft.Json.JsonProperty("regex", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Regex { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static MatchRegexCondition FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<MatchRegexCondition>(data);
+        }
+    
+    }
+    
+    /// <summary>Matches when a tag in a tagbox matching the field path string (JSON path) is newly assigned.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class TagboxItemAssignedCondition : BusinessRuleCondition
+    {
+        /// <summary>JSON path to the field</summary>
+        [Newtonsoft.Json.JsonProperty("fieldPath", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string FieldPath { get; set; }
+    
+        /// <summary>Ref Id of the list item that was assigned in the tagbox</summary>
+        [Newtonsoft.Json.JsonProperty("refId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string RefId { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static TagboxItemAssignedCondition FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<TagboxItemAssignedCondition>(data);
+        }
+    
+    }
+    
+    /// <summary>Matches when a tag in a tagbox matching the field path string (JSON path) is removed.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class TagboxItemUnassignedCondition : BusinessRuleCondition
+    {
+        /// <summary>JSON path to the field</summary>
+        [Newtonsoft.Json.JsonProperty("fieldPath", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string FieldPath { get; set; }
+    
+        /// <summary>Ref Id of the list item that was unassigned from the tagbox</summary>
+        [Newtonsoft.Json.JsonProperty("refId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string RefId { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static TagboxItemUnassignedCondition FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<TagboxItemUnassignedCondition>(data);
+        }
+    
+    }
+    
+    /// <summary>Matches when the content schema of a metadata item equals the one set in the condition.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class ContentSchemaCondition : BusinessRuleCondition
+    {
+        /// <summary>Content schema id to match on.</summary>
+        [Newtonsoft.Json.JsonProperty("schemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string SchemaId { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static ContentSchemaCondition FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentSchemaCondition>(data);
+        }
+    
+    }
+    
     /// <summary>Action to be performed by a business rule</summary>
     [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
     [JsonInheritanceAttribute("AssignLayerAction", typeof(AssignLayerAction))]
+    [JsonInheritanceAttribute("UnassignLayerAction", typeof(UnassignLayerAction))]
+    [JsonInheritanceAttribute("AssignValueAction", typeof(AssignValueAction))]
+    [JsonInheritanceAttribute("AssignTagboxItemsAction", typeof(AssignTagboxItemsAction))]
+    [JsonInheritanceAttribute("UnassignTagboxItemsAction", typeof(UnassignTagboxItemsAction))]
+    [JsonInheritanceAttribute("AssignContentPermissionSetsAction", typeof(AssignContentPermissionSetsAction))]
+    [JsonInheritanceAttribute("UnassignContentPermissionSetsAction", typeof(UnassignContentPermissionSetsAction))]
+    [JsonInheritanceAttribute("ProduceMessageAction", typeof(ProduceMessageAction))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
     public abstract partial class BusinessRuleAction 
     {
@@ -8727,6 +9075,180 @@ namespace Picturepark.SDK.V1.Contract
         public static DataDictionary FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<DataDictionary>(data);
+        }
+    
+    }
+    
+    /// <summary>Removes a layer</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class UnassignLayerAction : BusinessRuleAction
+    {
+        /// <summary>The ID of the layer.</summary>
+        [Newtonsoft.Json.JsonProperty("layerId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string LayerId { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static UnassignLayerAction FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<UnassignLayerAction>(data);
+        }
+    
+    }
+    
+    /// <summary>Assign a value to all fields matching the FieldPath (JSON path).</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class AssignValueAction : BusinessRuleAction
+    {
+        /// <summary>Path to the object the value should be inserted in.</summary>
+        [Newtonsoft.Json.JsonProperty("path", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Path { get; set; }
+    
+        /// <summary>ID of the field, the value should be inserted in.</summary>
+        [Newtonsoft.Json.JsonProperty("fieldId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string FieldId { get; set; }
+    
+        /// <summary>Value to assign.</summary>
+        [Newtonsoft.Json.JsonProperty("value", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public object Value { get; set; }
+    
+        /// <summary>Indicates whether existing values should be replaced.
+        /// Note: for multi fieldsets and relations, this setting controls, if the value is added
+        /// to the already existing values or if the existing values shall be overwritten.</summary>
+        [Newtonsoft.Json.JsonProperty("replace", Required = Newtonsoft.Json.Required.Always)]
+        public bool Replace { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static AssignValueAction FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<AssignValueAction>(data);
+        }
+    
+    }
+    
+    /// <summary>Assigns one or multiple tag box items to the multi tagbox identified by the path (JSON path).</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class AssignTagboxItemsAction : BusinessRuleAction
+    {
+        /// <summary>Path to the object the tagbox is contained in.</summary>
+        [Newtonsoft.Json.JsonProperty("path", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Path { get; set; }
+    
+        /// <summary>ID of the tagbox field.</summary>
+        [Newtonsoft.Json.JsonProperty("fieldId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string FieldId { get; set; }
+    
+        /// <summary>List of refIds of the items that should be assigned.</summary>
+        [Newtonsoft.Json.JsonProperty("refIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> RefIds { get; set; }
+    
+        /// <summary>Indicates whether all the already assigned tags get replaced by the set specified in the action.
+        /// If false, the not already assigned tags get added, the rest is left as is.</summary>
+        [Newtonsoft.Json.JsonProperty("replace", Required = Newtonsoft.Json.Required.Always)]
+        public bool Replace { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static AssignTagboxItemsAction FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<AssignTagboxItemsAction>(data);
+        }
+    
+    }
+    
+    /// <summary>Removes one or multiple tag box items from the multi tagbox identified by the path (JSON path).</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class UnassignTagboxItemsAction : BusinessRuleAction
+    {
+        /// <summary>Path to the object the tagbox is contained in.</summary>
+        [Newtonsoft.Json.JsonProperty("path", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Path { get; set; }
+    
+        /// <summary>ID of the tagbox field.</summary>
+        [Newtonsoft.Json.JsonProperty("fieldId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string FieldId { get; set; }
+    
+        /// <summary>List of refIds of the items that should be removed.</summary>
+        [Newtonsoft.Json.JsonProperty("refIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> RefIds { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static UnassignTagboxItemsAction FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<UnassignTagboxItemsAction>(data);
+        }
+    
+    }
+    
+    /// <summary>Assigns one or more permission sets to a content.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class AssignContentPermissionSetsAction : BusinessRuleAction
+    {
+        /// <summary>IDs of the permission sets to assign.</summary>
+        [Newtonsoft.Json.JsonProperty("permissionSetIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> PermissionSetIds { get; set; }
+    
+        /// <summary>Indicates whether the already assigned permissions should be replaced or merged.</summary>
+        [Newtonsoft.Json.JsonProperty("replace", Required = Newtonsoft.Json.Required.Always)]
+        public bool Replace { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static AssignContentPermissionSetsAction FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<AssignContentPermissionSetsAction>(data);
+        }
+    
+    }
+    
+    /// <summary>Removes one or more permission sets from a content.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class UnassignContentPermissionSetsAction : BusinessRuleAction
+    {
+        /// <summary>IDs of the permission sets to unassign.</summary>
+        [Newtonsoft.Json.JsonProperty("permissionSetIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> PermissionSetIds { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static UnassignContentPermissionSetsAction FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<UnassignContentPermissionSetsAction>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class ProduceMessageAction : BusinessRuleAction
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static ProduceMessageAction FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ProduceMessageAction>(data);
         }
     
     }
@@ -13243,6 +13765,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("ConfigurationChangeEvent", typeof(ConfigurationChangeEvent))]
     [JsonInheritanceAttribute("CustomerChangeEvent", typeof(CustomerChangeEvent))]
     [JsonInheritanceAttribute("SearchReindexCompletedEvent", typeof(SearchReindexCompletedEvent))]
+    [JsonInheritanceAttribute("BusinessRuleFiredEvent", typeof(BusinessRuleFiredEvent))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class ApplicationEvent 
     {
@@ -13677,6 +14200,48 @@ namespace Picturepark.SDK.V1.Contract
     
         [System.Runtime.Serialization.EnumMember(Value = @"ListItem")]
         ListItem = 1,
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class BusinessRuleFiredEvent : ApplicationEvent
+    {
+        [Newtonsoft.Json.JsonProperty("details", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<BusinessRuleFiredEventDetail> Details { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static BusinessRuleFiredEvent FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessRuleFiredEvent>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class BusinessRuleFiredEventDetail 
+    {
+        [Newtonsoft.Json.JsonProperty("documentId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string DocumentId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("documentType", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string DocumentType { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("ruleIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> RuleIds { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static BusinessRuleFiredEventDetail FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessRuleFiredEventDetail>(data);
+        }
     
     }
     

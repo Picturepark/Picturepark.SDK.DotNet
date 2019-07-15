@@ -1041,11 +1041,19 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [JsonInheritanceAttribute("BusinessRuleConditionMissingException", typeof(BusinessRuleConditionMissingException))]
     [JsonInheritanceAttribute("BusinessRuleConditionsMissingException", typeof(BusinessRuleConditionsMissingException))]
     [JsonInheritanceAttribute("BusinessRuleConfigurationValidationException", typeof(BusinessRuleConfigurationValidationException))]
-    [JsonInheritanceAttribute("BusinessRuleLayerIdInvalidException", typeof(BusinessRuleLayerIdInvalidException))]
+    [JsonInheritanceAttribute("BusinessRuleSchemaIdInvalidException", typeof(BusinessRuleSchemaIdInvalidException))]
+    [JsonInheritanceAttribute("BusinessRulePermissionSetIdInvalidException", typeof(BusinessRulePermissionSetIdInvalidException))]
     [JsonInheritanceAttribute("BusinessRuleRuleIdDuplicationException", typeof(BusinessRuleRuleIdDuplicationException))]
     [JsonInheritanceAttribute("BusinessRuleRuleIdMissingException", typeof(BusinessRuleRuleIdMissingException))]
     [JsonInheritanceAttribute("BusinessRuleTriggerPointMissingException", typeof(BusinessRuleTriggerPointMissingException))]
     [JsonInheritanceAttribute("BusinessRuleValidationException", typeof(BusinessRuleValidationException))]
+    [JsonInheritanceAttribute("BusinessRuleConditionInvalidTriggerPointDocumentTypeException", typeof(BusinessRuleConditionInvalidTriggerPointDocumentTypeException))]
+    [JsonInheritanceAttribute("BusinessRuleRegularExpressionInvalidException", typeof(BusinessRuleRegularExpressionInvalidException))]
+    [JsonInheritanceAttribute("BusinessRuleConditionInvalidTriggerPointActionException", typeof(BusinessRuleConditionInvalidTriggerPointActionException))]
+    [JsonInheritanceAttribute("BusinessRuleRefIdsMissingException", typeof(BusinessRuleRefIdsMissingException))]
+    [JsonInheritanceAttribute("BusinessRulePathInvalidException", typeof(BusinessRulePathInvalidException))]
+    [JsonInheritanceAttribute("BusinessRuleFieldIdInvalidException", typeof(BusinessRuleFieldIdInvalidException))]
+    [JsonInheritanceAttribute("BusinessRuleContentPermissionSetIdsMissingException", typeof(BusinessRuleContentPermissionSetIdsMissingException))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
     [Newtonsoft.Json.JsonObjectAttribute]
     public partial class PictureparkException : System.Exception
@@ -6062,19 +6070,38 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
     [Newtonsoft.Json.JsonObjectAttribute]
-    public partial class BusinessRuleLayerIdInvalidException : PictureparkValidationException
+    public partial class BusinessRuleSchemaIdInvalidException : PictureparkValidationException
     {
-        [Newtonsoft.Json.JsonProperty("layerId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string LayerId { get; set; }
+        [Newtonsoft.Json.JsonProperty("schemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string SchemaId { get; set; }
     
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
         }
     
-        public static BusinessRuleLayerIdInvalidException FromJson(string data)
+        public static BusinessRuleSchemaIdInvalidException FromJson(string data)
         {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessRuleLayerIdInvalidException>(data);
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessRuleSchemaIdInvalidException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class BusinessRulePermissionSetIdInvalidException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("permissionSetId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string PermissionSetId { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static BusinessRulePermissionSetIdInvalidException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessRulePermissionSetIdInvalidException>(data);
         }
     
     }
@@ -6145,6 +6172,147 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         public static BusinessRuleValidationException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessRuleValidationException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class BusinessRuleConditionInvalidTriggerPointDocumentTypeException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("allowedDocumentTypes", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public System.Collections.Generic.ICollection<BusinessRuleTriggerDocType> AllowedDocumentTypes { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static BusinessRuleConditionInvalidTriggerPointDocumentTypeException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessRuleConditionInvalidTriggerPointDocumentTypeException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class BusinessRuleRegularExpressionInvalidException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("regex", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Regex { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static BusinessRuleRegularExpressionInvalidException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessRuleRegularExpressionInvalidException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class BusinessRuleConditionInvalidTriggerPointActionException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("allowedActions", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public System.Collections.Generic.ICollection<BusinessRuleTriggerAction> AllowedActions { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static BusinessRuleConditionInvalidTriggerPointActionException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessRuleConditionInvalidTriggerPointActionException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
+    public enum BusinessRuleTriggerAction
+    {
+        [System.Runtime.Serialization.EnumMember(Value = @"Create")]
+        Create = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Update")]
+        Update = 1,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"FileReplacement")]
+        FileReplacement = 2,
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class BusinessRuleRefIdsMissingException : PictureparkValidationException
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static BusinessRuleRefIdsMissingException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessRuleRefIdsMissingException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class BusinessRulePathInvalidException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("path", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Path { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static BusinessRulePathInvalidException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessRulePathInvalidException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class BusinessRuleFieldIdInvalidException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("fieldId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string FieldId { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static BusinessRuleFieldIdInvalidException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessRuleFieldIdInvalidException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class BusinessRuleContentPermissionSetIdsMissingException : PictureparkValidationException
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static BusinessRuleContentPermissionSetIdsMissingException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessRuleContentPermissionSetIdsMissingException>(data);
         }
     
     }

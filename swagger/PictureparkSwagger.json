@@ -17052,11 +17052,19 @@
                 "BusinessRuleConditionMissingException": "#/components/schemas/BusinessRuleConditionMissingException",
                 "BusinessRuleConditionsMissingException": "#/components/schemas/BusinessRuleConditionsMissingException",
                 "BusinessRuleConfigurationValidationException": "#/components/schemas/BusinessRuleConfigurationValidationException",
-                "BusinessRuleLayerIdInvalidException": "#/components/schemas/BusinessRuleLayerIdInvalidException",
+                "BusinessRuleSchemaIdInvalidException": "#/components/schemas/BusinessRuleSchemaIdInvalidException",
+                "BusinessRulePermissionSetIdInvalidException": "#/components/schemas/BusinessRulePermissionSetIdInvalidException",
                 "BusinessRuleRuleIdDuplicationException": "#/components/schemas/BusinessRuleRuleIdDuplicationException",
                 "BusinessRuleRuleIdMissingException": "#/components/schemas/BusinessRuleRuleIdMissingException",
                 "BusinessRuleTriggerPointMissingException": "#/components/schemas/BusinessRuleTriggerPointMissingException",
-                "BusinessRuleValidationException": "#/components/schemas/BusinessRuleValidationException"
+                "BusinessRuleValidationException": "#/components/schemas/BusinessRuleValidationException",
+                "BusinessRuleConditionInvalidTriggerPointDocumentTypeException": "#/components/schemas/BusinessRuleConditionInvalidTriggerPointDocumentTypeException",
+                "BusinessRuleRegularExpressionInvalidException": "#/components/schemas/BusinessRuleRegularExpressionInvalidException",
+                "BusinessRuleConditionInvalidTriggerPointActionException": "#/components/schemas/BusinessRuleConditionInvalidTriggerPointActionException",
+                "BusinessRuleRefIdsMissingException": "#/components/schemas/BusinessRuleRefIdsMissingException",
+                "BusinessRulePathInvalidException": "#/components/schemas/BusinessRulePathInvalidException",
+                "BusinessRuleFieldIdInvalidException": "#/components/schemas/BusinessRuleFieldIdInvalidException",
+                "BusinessRuleContentPermissionSetIdsMissingException": "#/components/schemas/BusinessRuleContentPermissionSetIdsMissingException"
               }
             },
             "additionalProperties": false,
@@ -21789,7 +21797,7 @@
           }
         ]
       },
-      "BusinessRuleLayerIdInvalidException": {
+      "BusinessRuleSchemaIdInvalidException": {
         "allOf": [
           {
             "$ref": "#/components/schemas/PictureparkValidationException"
@@ -21798,7 +21806,24 @@
             "type": "object",
             "additionalProperties": false,
             "properties": {
-              "layerId": {
+              "schemaId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "BusinessRulePermissionSetIdInvalidException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "permissionSetId": {
                 "type": "string",
                 "nullable": true
               }
@@ -21860,6 +21885,133 @@
                 }
               }
             }
+          }
+        ]
+      },
+      "BusinessRuleConditionInvalidTriggerPointDocumentTypeException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "allowedDocumentTypes": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/BusinessRuleTriggerDocType"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "BusinessRuleRegularExpressionInvalidException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "regex": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "BusinessRuleConditionInvalidTriggerPointActionException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "allowedActions": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/BusinessRuleTriggerAction"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "BusinessRuleTriggerAction": {
+        "type": "string",
+        "description": "",
+        "x-enumNames": [
+          "Create",
+          "Update",
+          "FileReplacement"
+        ],
+        "enum": [
+          "Create",
+          "Update",
+          "FileReplacement"
+        ]
+      },
+      "BusinessRuleRefIdsMissingException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "BusinessRulePathInvalidException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "path": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "BusinessRuleFieldIdInvalidException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "fieldId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "BusinessRuleContentPermissionSetIdsMissingException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
           }
         ]
       },
@@ -23071,18 +23223,6 @@
           }
         }
       },
-      "BusinessRuleTriggerAction": {
-        "type": "string",
-        "description": "",
-        "x-enumNames": [
-          "Create",
-          "Update"
-        ],
-        "enum": [
-          "Create",
-          "Update"
-        ]
-      },
       "BusinessRuleConfigurable": {
         "allOf": [
           {
@@ -23122,7 +23262,15 @@
             "BooleanCondition": "#/components/schemas/BooleanCondition",
             "AndCondition": "#/components/schemas/AndCondition",
             "OrCondition": "#/components/schemas/OrCondition",
-            "LayerAssignedCondition": "#/components/schemas/LayerAssignedCondition"
+            "LayerAssignedCondition": "#/components/schemas/LayerAssignedCondition",
+            "LayerUnassignedCondition": "#/components/schemas/LayerUnassignedCondition",
+            "ContentPermissionSetAssignedCondition": "#/components/schemas/ContentPermissionSetAssignedCondition",
+            "ContentPermissionSetUnassignedCondition": "#/components/schemas/ContentPermissionSetUnassignedCondition",
+            "FieldValueChangedCondition": "#/components/schemas/FieldValueChangedCondition",
+            "MatchRegexCondition": "#/components/schemas/MatchRegexCondition",
+            "TagboxItemAssignedCondition": "#/components/schemas/TagboxItemAssignedCondition",
+            "TagboxItemUnassignedCondition": "#/components/schemas/TagboxItemUnassignedCondition",
+            "ContentSchemaCondition": "#/components/schemas/ContentSchemaCondition"
           }
         },
         "description": "Conditions on which a business rule is executed",
@@ -23203,12 +23351,190 @@
           }
         ]
       },
+      "LayerUnassignedCondition": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BusinessRuleCondition"
+          },
+          {
+            "type": "object",
+            "description": "Matches when a layer was unassigned",
+            "additionalProperties": false,
+            "properties": {
+              "layerId": {
+                "type": "string",
+                "description": "Layer id to match on.",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "ContentPermissionSetAssignedCondition": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BusinessRuleCondition"
+          },
+          {
+            "type": "object",
+            "description": "Matches when a permission set was assigned",
+            "additionalProperties": false,
+            "properties": {
+              "permissionSetId": {
+                "type": "string",
+                "description": "Permission set id to match on.",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "ContentPermissionSetUnassignedCondition": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BusinessRuleCondition"
+          },
+          {
+            "type": "object",
+            "description": "Matches when a permission set was unassigned",
+            "additionalProperties": false,
+            "properties": {
+              "permissionSetId": {
+                "type": "string",
+                "description": "Permission set id to match on.",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "FieldValueChangedCondition": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BusinessRuleCondition"
+          },
+          {
+            "type": "object",
+            "description": "Matches when a field matching the field path string (JSON path) changes to the expected value.",
+            "additionalProperties": false,
+            "properties": {
+              "fieldPath": {
+                "type": "string",
+                "description": "JSON path to the field",
+                "nullable": true
+              },
+              "expectedValue": {
+                "description": "Expected value for the field to have to satisfy the condition",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "MatchRegexCondition": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BusinessRuleCondition"
+          },
+          {
+            "type": "object",
+            "description": "Matches when a field matching the field path string (JSON Path) changes and matches the given regular expression.",
+            "additionalProperties": false,
+            "properties": {
+              "fieldPath": {
+                "type": "string",
+                "description": "JSON path to the field",
+                "nullable": true
+              },
+              "regex": {
+                "type": "string",
+                "description": "Regular expression",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "TagboxItemAssignedCondition": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BusinessRuleCondition"
+          },
+          {
+            "type": "object",
+            "description": "Matches when a tag in a tagbox matching the field path string (JSON path) is newly assigned.",
+            "additionalProperties": false,
+            "properties": {
+              "fieldPath": {
+                "type": "string",
+                "description": "JSON path to the field",
+                "nullable": true
+              },
+              "refId": {
+                "type": "string",
+                "description": "Ref Id of the list item that was assigned in the tagbox",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "TagboxItemUnassignedCondition": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BusinessRuleCondition"
+          },
+          {
+            "type": "object",
+            "description": "Matches when a tag in a tagbox matching the field path string (JSON path) is removed.",
+            "additionalProperties": false,
+            "properties": {
+              "fieldPath": {
+                "type": "string",
+                "description": "JSON path to the field",
+                "nullable": true
+              },
+              "refId": {
+                "type": "string",
+                "description": "Ref Id of the list item that was unassigned from the tagbox",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "ContentSchemaCondition": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BusinessRuleCondition"
+          },
+          {
+            "type": "object",
+            "description": "Matches when the content schema of a metadata item equals the one set in the condition.",
+            "additionalProperties": false,
+            "properties": {
+              "schemaId": {
+                "type": "string",
+                "description": "Content schema id to match on.",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
       "BusinessRuleAction": {
         "type": "object",
         "discriminator": {
           "propertyName": "kind",
           "mapping": {
-            "AssignLayerAction": "#/components/schemas/AssignLayerAction"
+            "AssignLayerAction": "#/components/schemas/AssignLayerAction",
+            "UnassignLayerAction": "#/components/schemas/UnassignLayerAction",
+            "AssignValueAction": "#/components/schemas/AssignValueAction",
+            "AssignTagboxItemsAction": "#/components/schemas/AssignTagboxItemsAction",
+            "UnassignTagboxItemsAction": "#/components/schemas/UnassignTagboxItemsAction",
+            "AssignContentPermissionSetsAction": "#/components/schemas/AssignContentPermissionSetsAction",
+            "UnassignContentPermissionSetsAction": "#/components/schemas/UnassignContentPermissionSetsAction",
+            "ProduceMessageAction": "#/components/schemas/ProduceMessageAction"
           }
         },
         "description": "Action to be performed by a business rule",
@@ -23254,6 +23580,193 @@
       "DataDictionary": {
         "type": "object",
         "additionalProperties": {}
+      },
+      "UnassignLayerAction": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BusinessRuleAction"
+          },
+          {
+            "type": "object",
+            "description": "Removes a layer",
+            "additionalProperties": false,
+            "properties": {
+              "layerId": {
+                "type": "string",
+                "description": "The ID of the layer.",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "AssignValueAction": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BusinessRuleAction"
+          },
+          {
+            "type": "object",
+            "description": "Assign a value to all fields matching the FieldPath (JSON path).",
+            "additionalProperties": false,
+            "required": [
+              "replace"
+            ],
+            "properties": {
+              "path": {
+                "type": "string",
+                "description": "Path to the object the value should be inserted in.",
+                "nullable": true
+              },
+              "fieldId": {
+                "type": "string",
+                "description": "ID of the field, the value should be inserted in.",
+                "nullable": true
+              },
+              "value": {
+                "description": "Value to assign.",
+                "nullable": true
+              },
+              "replace": {
+                "type": "boolean",
+                "description": "Indicates whether existing values should be replaced.\nNote: for multi fieldsets and relations, this setting controls, if the value is added\nto the already existing values or if the existing values shall be overwritten."
+              }
+            }
+          }
+        ]
+      },
+      "AssignTagboxItemsAction": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BusinessRuleAction"
+          },
+          {
+            "type": "object",
+            "description": "Assigns one or multiple tag box items to the multi tagbox identified by the path (JSON path).",
+            "additionalProperties": false,
+            "required": [
+              "replace"
+            ],
+            "properties": {
+              "path": {
+                "type": "string",
+                "description": "Path to the object the tagbox is contained in.",
+                "nullable": true
+              },
+              "fieldId": {
+                "type": "string",
+                "description": "ID of the tagbox field.",
+                "nullable": true
+              },
+              "refIds": {
+                "type": "array",
+                "description": "List of refIds of the items that should be assigned.",
+                "nullable": true,
+                "items": {
+                  "type": "string"
+                }
+              },
+              "replace": {
+                "type": "boolean",
+                "description": "Indicates whether all the already assigned tags get replaced by the set specified in the action.\nIf false, the not already assigned tags get added, the rest is left as is."
+              }
+            }
+          }
+        ]
+      },
+      "UnassignTagboxItemsAction": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BusinessRuleAction"
+          },
+          {
+            "type": "object",
+            "description": "Removes one or multiple tag box items from the multi tagbox identified by the path (JSON path).",
+            "additionalProperties": false,
+            "properties": {
+              "path": {
+                "type": "string",
+                "description": "Path to the object the tagbox is contained in.",
+                "nullable": true
+              },
+              "fieldId": {
+                "type": "string",
+                "description": "ID of the tagbox field.",
+                "nullable": true
+              },
+              "refIds": {
+                "type": "array",
+                "description": "List of refIds of the items that should be removed.",
+                "nullable": true,
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "AssignContentPermissionSetsAction": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BusinessRuleAction"
+          },
+          {
+            "type": "object",
+            "description": "Assigns one or more permission sets to a content.",
+            "additionalProperties": false,
+            "required": [
+              "replace"
+            ],
+            "properties": {
+              "permissionSetIds": {
+                "type": "array",
+                "description": "IDs of the permission sets to assign.",
+                "nullable": true,
+                "items": {
+                  "type": "string"
+                }
+              },
+              "replace": {
+                "type": "boolean",
+                "description": "Indicates whether the already assigned permissions should be replaced or merged."
+              }
+            }
+          }
+        ]
+      },
+      "UnassignContentPermissionSetsAction": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BusinessRuleAction"
+          },
+          {
+            "type": "object",
+            "description": "Removes one or more permission sets from a content.",
+            "additionalProperties": false,
+            "properties": {
+              "permissionSetIds": {
+                "type": "array",
+                "description": "IDs of the permission sets to unassign.",
+                "nullable": true,
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "ProduceMessageAction": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BusinessRuleAction"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
       },
       "BusinessRuleScript": {
         "allOf": [
@@ -28102,7 +28615,8 @@
             "OutputRenderedEvent": "#/components/schemas/OutputRenderedEvent",
             "ConfigurationChangeEvent": "#/components/schemas/ConfigurationChangeEvent",
             "CustomerChangeEvent": "#/components/schemas/CustomerChangeEvent",
-            "SearchReindexCompletedEvent": "#/components/schemas/SearchReindexCompletedEvent"
+            "SearchReindexCompletedEvent": "#/components/schemas/SearchReindexCompletedEvent",
+            "BusinessRuleFiredEvent": "#/components/schemas/BusinessRuleFiredEvent"
           }
         },
         "additionalProperties": false,
@@ -28534,6 +29048,47 @@
           "Content",
           "ListItem"
         ]
+      },
+      "BusinessRuleFiredEvent": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ApplicationEvent"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "details": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/BusinessRuleFiredEventDetail"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "BusinessRuleFiredEventDetail": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "documentId": {
+            "type": "string",
+            "nullable": true
+          },
+          "documentType": {
+            "type": "string",
+            "nullable": true
+          },
+          "ruleIds": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "type": "string"
+            }
+          }
+        }
       },
       "Message": {
         "type": "object",
