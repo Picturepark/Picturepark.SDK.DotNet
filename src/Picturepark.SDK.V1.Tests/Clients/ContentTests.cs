@@ -749,39 +749,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldCreateContentWithTriggerFieldInLayerAndTriggerItOnMetadataUpdate()
         {
             // Arrange
-            var contentSchemaId = $"TestContent{Guid.NewGuid():N}";
-            var layerSchemaId = $"TestLayer{Guid.NewGuid():N}";
-            var schemaCreateManyRequest = new SchemaCreateManyRequest
-            {
-                Schemas = new[]
-                {
-                    new SchemaCreateRequest { Id = contentSchemaId, Types = new[] { SchemaType.Content }, ViewForAll = true, LayerSchemaIds = new HashSet<string> { layerSchemaId } },
-                    new SchemaCreateRequest
-                    {
-                        Id = layerSchemaId,
-                        Types = new[] { SchemaType.Layer },
-                        ViewForAll = true,
-                        ReferencedInContentSchemaIds = new HashSet<string> { contentSchemaId },
-                        Fields = new[]
-                        {
-                            new FieldTrigger
-                            {
-                                Id = "fieldTrigger",
-                                Names = new TranslatedStringDictionary { { "en", "Field Trigger" } },
-                                Descriptions = new TranslatedStringDictionary { { "en", "Field Trigger Description" } },
-                                Index = true,
-                                SimpleSearch = true
-                            }
-                        }
-                    }
-                }
-            };
-            var result = await _client.Schema.CreateManyAsync(schemaCreateManyRequest).ConfigureAwait(false);
-            var resultDetails = await result.FetchDetail().ConfigureAwait(false);
-            var createdSchemas = resultDetails.SucceededItems;
-
-            var contentSchema = createdSchemas.First(s => s.Types.Contains(SchemaType.Content));
-            var layerSchema = createdSchemas.First(s => s.Types.Contains(SchemaType.Layer));
+            var (contentSchema, layerSchema) = await CreateSchemasForTriggerTests();
 
             var contentCreateRequest = new ContentCreateRequest
             {
@@ -800,7 +768,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 Metadata = new DataDictionary
                 {
                     {
-                        layerSchemaId.ToLowerCamelCase(),
+                        layerSchema.Id.ToLowerCamelCase(),
                         JObject.FromObject(new
                         {
                             fieldTrigger = new { _trigger = true }
@@ -811,8 +779,125 @@ namespace Picturepark.SDK.V1.Tests.Clients
             contentDetail = await _client.Content.UpdateMetadataAsync(contentDetail.Id, updateContentRequest, new[] { ContentResolveBehavior.Metadata }).ConfigureAwait(false);
 
             // Assert
-            contentDetail.Metadata.Get(layerSchema.Id.ToLowerCamelCase()).Get("fieldTrigger")["triggeredBy"].Should().NotBeNull();
+            contentDetail.Metadata.Get(layerSchema.Id.ToLowerCamelCase()).Get("fieldTrigger").Get("triggeredBy")["id"].Should().NotBeNull();
+            contentDetail.Metadata.Get(layerSchema.Id.ToLowerCamelCase()).Get("fieldTrigger").Get("triggeredBy")["firstName"].Should().NotBeNull();
+            contentDetail.Metadata.Get(layerSchema.Id.ToLowerCamelCase()).Get("fieldTrigger").Get("triggeredBy")["lastName"].Should().NotBeNull();
+            contentDetail.Metadata.Get(layerSchema.Id.ToLowerCamelCase()).Get("fieldTrigger").Get("triggeredBy")["emailAddress"].Should().NotBeNull();
             contentDetail.Metadata.Get(layerSchema.Id.ToLowerCamelCase()).Get("fieldTrigger")["triggeredOn"].Should().NotBeNull();
+        }
+
+        [Fact]
+        [Trait("Stack", "Contents")]
+        public async Task ShouldSimpleSearchOnInnerTriggeredOnFieldOfTriggerFieldOfLayer()
+        {
+            // Arrange
+            var (contentSchema, layerSchema) = await CreateSchemasForTriggerTests();
+
+            var contentCreateRequest1 = new ContentCreateRequest
+            {
+                ContentSchemaId = contentSchema.Id,
+                Content = new DataDictionary(),
+                LayerSchemaIds = new[] { layerSchema.Id },
+                Metadata = new DataDictionary
+                {
+                    {
+                        layerSchema.Id.ToLowerCamelCase(),
+                        JObject.FromObject(new
+                        {
+                            fieldTrigger = new { _trigger = true }
+                        })
+                    }
+                }
+            };
+
+            var contentCreateRequest2 = new ContentCreateRequest
+            {
+                ContentSchemaId = contentSchema.Id,
+                Content = new DataDictionary(),
+                LayerSchemaIds = new[] { layerSchema.Id },
+                Metadata = new DataDictionary()
+            };
+
+            var contentCreateResult = await _client.Content.CreateManyAsync(new ContentCreateManyRequest { Items = new[] { contentCreateRequest1, contentCreateRequest2 } }).ConfigureAwait(false);
+            var contentIds = (await contentCreateResult.FetchDetail().ConfigureAwait(false)).SucceededIds;
+
+            // Act: reduce the possible contents to the two created (with a filter), and then perform a simple search taking the expected date part and requesting to append an asterisk: it should match the triggeredOn inner field
+            // of the trigger field
+            var searchRequest = new ContentSearchRequest
+            {
+                Filter = new AndFilter
+                {
+                    Filters = new FilterBase[]
+                    {
+                        new TermsFilter { Field = "id", Terms = contentIds.ToArray() }
+                    }
+                },
+                SearchString = DateTime.UtcNow.Date.ToString("yyyy-MM-dd"),
+                SearchBehaviors = new[] { SearchBehavior.WildcardOnSingleTerm }
+            };
+
+            var searchResult = await _client.Content.SearchAsync(searchRequest).ConfigureAwait(false);
+
+            // Assert
+            searchResult.Results.Should().HaveCount(1).And.Subject.First().Id.Should().Be(contentIds[0]);
+        }
+
+        [Fact]
+        [Trait("Stack", "Contents")]
+        public async Task ShouldFilterOnInnerTriggeredByFieldOfTriggerFieldOfLayer()
+        {
+            // Arrange
+            var profile = await _client.Profile.GetAsync().ConfigureAwait(false);
+            var userId = profile.Id;
+
+            var (contentSchema, layerSchema) = await CreateSchemasForTriggerTests();
+
+            var contentCreateRequest1 = new ContentCreateRequest
+            {
+                ContentSchemaId = contentSchema.Id,
+                Content = new DataDictionary(),
+                LayerSchemaIds = new[] { layerSchema.Id },
+                Metadata = new DataDictionary
+                {
+                    {
+                        layerSchema.Id.ToLowerCamelCase(),
+                        JObject.FromObject(new
+                        {
+                            fieldTrigger = new { _trigger = true }
+                        })
+                    }
+                }
+            };
+
+            var contentCreateRequest2 = new ContentCreateRequest
+            {
+                ContentSchemaId = contentSchema.Id,
+                Content = new DataDictionary(),
+                LayerSchemaIds = new[] { layerSchema.Id },
+                Metadata = new DataDictionary()
+            };
+
+            var contentCreateResult = await _client.Content.CreateManyAsync(new ContentCreateManyRequest { Items = new[] { contentCreateRequest1, contentCreateRequest2 } }).ConfigureAwait(false);
+            var contentIds = (await contentCreateResult.FetchDetail().ConfigureAwait(false)).SucceededIds;
+
+            // Act: reduce the possible contents to the two created (filter), and then add a filter for the expected user to have triggered the content: it should match the triggeredBy inner field
+            // of the trigger field
+            var searchRequest = new ContentSearchRequest
+            {
+                Filter = new AndFilter
+                {
+                    Filters = new FilterBase[]
+                    {
+                        new TermsFilter { Field = "id", Terms = contentIds.ToArray() },
+                        new TermFilter { Field = $"{layerSchema.Id.ToLowerCamelCase()}.fieldTrigger.triggeredBy", Term = userId }
+                    }
+                }
+            };
+
+            var searchResult = await _client.Content.SearchAsync(searchRequest).ConfigureAwait(false);
+
+            // Assert
+            searchResult.Results.Should().HaveCount(1).And.Subject.First().Id.Should().Be(contentIds[0]);
         }
 
         [Fact]
@@ -1400,6 +1485,42 @@ namespace Picturepark.SDK.V1.Tests.Clients
             contentDetail.Content.Should().NotBeNull();
 
             return contentDetail;
+        }
+
+        private async Task<(SchemaDetail, SchemaDetail)> CreateSchemasForTriggerTests()
+        {
+            var contentSchemaId = $"TestContent{Guid.NewGuid():N}";
+            var layerSchemaId = $"TestLayer{Guid.NewGuid():N}";
+            var schemaCreateManyRequest = new SchemaCreateManyRequest
+            {
+                Schemas = new[]
+                {
+                    new SchemaCreateRequest { Id = contentSchemaId, Types = new[] { SchemaType.Content }, ViewForAll = true, LayerSchemaIds = new HashSet<string> { layerSchemaId } },
+                    new SchemaCreateRequest
+                    {
+                        Id = layerSchemaId,
+                        Types = new[] { SchemaType.Layer },
+                        ViewForAll = true,
+                        ReferencedInContentSchemaIds = new HashSet<string> { contentSchemaId },
+                        Fields = new[]
+                        {
+                            new FieldTrigger
+                            {
+                                Id = "fieldTrigger",
+                                Names = new TranslatedStringDictionary { { "en", "Field Trigger" } },
+                                Descriptions = new TranslatedStringDictionary { { "en", "Field Trigger Description" } },
+                                Index = true,
+                                SimpleSearch = true
+                            }
+                        }
+                    }
+                }
+            };
+            var result = await _client.Schema.CreateManyAsync(schemaCreateManyRequest).ConfigureAwait(false);
+            var resultDetails = await result.FetchDetail().ConfigureAwait(false);
+            var createdSchemas = resultDetails.SucceededItems;
+
+            return (createdSchemas.First(s => s.Types.Contains(SchemaType.Content)), createdSchemas.First(s => s.Types.Contains(SchemaType.Layer)));
         }
     }
 }
