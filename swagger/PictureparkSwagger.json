@@ -616,31 +616,19 @@
         ],
         "summary": "Updates the business rule configuration.",
         "operationId": "BusinessRule_UpdateConfiguration",
-        "parameters": [
-          {
-            "name": "DisableRuleEngine",
-            "in": "query",
-            "description": "Disables the rule engine completely.",
-            "schema": {
-              "type": "boolean"
-            },
-            "x-position": 1
-          },
-          {
-            "name": "Rules",
-            "in": "query",
-            "description": "Rules",
-            "collectionFormat": "multi",
-            "schema": {
-              "type": "array",
-              "nullable": true,
-              "items": {
-                "$ref": "#/components/schemas/BusinessRule"
+        "requestBody": {
+          "x-name": "request",
+          "description": "Request containing the new configuration.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BusinessRuleConfigurationUpdateRequest"
               }
-            },
-            "x-position": 2
-          }
-        ],
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
         "responses": {
           "200": {
             "description": "Business process",
@@ -23786,6 +23774,28 @@
             }
           }
         ]
+      },
+      "BusinessRuleConfigurationUpdateRequest": {
+        "type": "object",
+        "description": "Update request for changing business rule configuration",
+        "additionalProperties": false,
+        "required": [
+          "disableRuleEngine"
+        ],
+        "properties": {
+          "disableRuleEngine": {
+            "type": "boolean",
+            "description": "Disables the rule engine completely."
+          },
+          "rules": {
+            "type": "array",
+            "description": "Rules",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/BusinessRule"
+            }
+          }
+        }
       },
       "Channel": {
         "type": "object",

@@ -54,15 +54,14 @@ namespace Picturepark.SDK.V1.Contract
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Updates the business rule configuration.</summary>
-        /// <param name="disableRuleEngine">Disables the rule engine completely.</param>
-        /// <param name="rules">Rules</param>
+        /// <param name="request">Request containing the new configuration.</param>
         /// <returns>Business process</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
-        System.Threading.Tasks.Task<BusinessProcess> UpdateConfigurationAsync(bool? disableRuleEngine = null, System.Collections.Generic.IEnumerable<BusinessRule> rules = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<BusinessProcess> UpdateConfigurationAsync(BusinessRuleConfigurationUpdateRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
     }
     
@@ -9269,6 +9268,30 @@ namespace Picturepark.SDK.V1.Contract
         public static BusinessRuleScript FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessRuleScript>(data);
+        }
+    
+    }
+    
+    /// <summary>Update request for changing business rule configuration</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class BusinessRuleConfigurationUpdateRequest 
+    {
+        /// <summary>Disables the rule engine completely.</summary>
+        [Newtonsoft.Json.JsonProperty("disableRuleEngine", Required = Newtonsoft.Json.Required.Always)]
+        public bool DisableRuleEngine { get; set; }
+    
+        /// <summary>Rules</summary>
+        [Newtonsoft.Json.JsonProperty("rules", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<BusinessRule> Rules { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static BusinessRuleConfigurationUpdateRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessRuleConfigurationUpdateRequest>(data);
         }
     
     }

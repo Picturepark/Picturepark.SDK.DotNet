@@ -21,46 +21,50 @@ namespace Picturepark.SDK.V1.Tests.Clients
         [Trait("Stack", "BusinessRule")]
         public async Task ShouldStoreAndRetrieveConfiguration()
         {
-            var rules = new List<BusinessRule>
+            // in order not to interfere with other tests, we intentionally disable the rule engine here
+            var request = new BusinessRuleConfigurationUpdateRequest
             {
-                new BusinessRuleConfigurable
+                DisableRuleEngine = true,
+                Rules = new List<BusinessRule>
                 {
-                    Id = $"{Guid.NewGuid():N}",
-                    Names = new TranslatedStringDictionary
+                    new BusinessRuleConfigurable
                     {
-                        { "en", "A sample rule" }
-                    },
-                    Description = new TranslatedStringDictionary
-                    {
-                        { "en", "Assign a permission set upon uploading of any image or video" }
-                    },
-                    IsEnabled = true,
-                    TriggerPoint = new BusinessRuleTriggerPoint
-                    {
-                        DocumentType = BusinessRuleTriggerDocType.Content,
-                        ExecutionScope = BusinessRuleExecutionScope.MainDoc,
-                        Action = BusinessRuleTriggerAction.Create
-                    },
-                    Condition = new OrCondition
-                    {
-                        Conditions = new List<BusinessRuleCondition>
+                        Id = $"{Guid.NewGuid():N}",
+                        Names = new TranslatedStringDictionary
                         {
-                            new ContentSchemaCondition { SchemaId = "ImageMetadata" },
-                            new ContentSchemaCondition { SchemaId = "VideoMetadata" }
-                        }
-                    },
-                    Actions = new List<BusinessRuleAction>
-                    {
-                        new AssignContentPermissionSetsAction
+                            { "en", "A sample rule" }
+                        },
+                        Description = new TranslatedStringDictionary
                         {
-                            PermissionSetIds = new[] { $"{Guid.NewGuid():N}" }
+                            { "en", "Assign a permission set upon uploading of any image or video" }
+                        },
+                        IsEnabled = true,
+                        TriggerPoint = new BusinessRuleTriggerPoint
+                        {
+                            DocumentType = BusinessRuleTriggerDocType.Content,
+                            ExecutionScope = BusinessRuleExecutionScope.MainDoc,
+                            Action = BusinessRuleTriggerAction.Create
+                        },
+                        Condition = new OrCondition
+                        {
+                            Conditions = new List<BusinessRuleCondition>
+                            {
+                                new ContentSchemaCondition { SchemaId = "ImageMetadata" },
+                                new ContentSchemaCondition { SchemaId = "VideoMetadata" }
+                            }
+                        },
+                        Actions = new List<BusinessRuleAction>
+                        {
+                            new AssignContentPermissionSetsAction
+                            {
+                                PermissionSetIds = new[] { $"{Guid.NewGuid():N}" }
+                            }
                         }
                     }
                 }
             };
 
-            // in order not to interfere with other tests, we intentionally disable the rule engine here
-            var businessProcess = await _client.BusinessRule.UpdateConfigurationAsync(true, rules).ConfigureAwait(false);
+            var businessProcess = await _client.BusinessRule.UpdateConfigurationAsync(request).ConfigureAwait(false);
             await _client.BusinessProcess.WaitForCompletionAsync(businessProcess.Id).ConfigureAwait(false);
 
             // retrieve config again
