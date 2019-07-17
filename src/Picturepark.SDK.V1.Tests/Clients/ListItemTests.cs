@@ -798,11 +798,24 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var updated = result.ConvertTo<TriggerList>();
 
             // assert
+            updated.Trigger.Trigger.Should().BeFalse();
             updated.Trigger.TriggeredOn.Should().NotBeNull();
             updated.Trigger.TriggeredBy.Id.Should().Be(myself.Id);
             updated.Trigger.TriggeredBy.EmailAddress.Should().Be(myself.EmailAddress);
             updated.Trigger.TriggeredBy.FirstName.Should().Be(myself.FirstName);
             updated.Trigger.TriggeredBy.LastName.Should().Be(myself.LastName);
+
+            // update again using same object
+            updated.Name = "name (updated)";
+            var previousTriggerDate = updated.Trigger.TriggeredOn;
+
+            // assert
+            result = await _client.ListItem.UpdateAsync(listItemId, updated, new[] { ListItemResolveBehavior.Content }).ConfigureAwait(false);
+            updated = result.ConvertTo<TriggerList>();
+
+            updated.Trigger.TriggeredOn.Should().Be(previousTriggerDate);
+            updated.Trigger.TriggeredBy.Id.Should().Be(myself.Id);
+            updated.Name.Should().Be("name (updated)");
         }
     }
 }
