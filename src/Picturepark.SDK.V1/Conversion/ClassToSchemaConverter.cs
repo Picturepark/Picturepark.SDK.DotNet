@@ -96,7 +96,8 @@ namespace Picturepark.SDK.V1.Conversion
                 if (baseType != null &&
                     baseType != typeof(object) &&
                     baseType != typeof(Relation) &&
-                    baseType != typeof(ReferenceObject))
+                    baseType != typeof(ReferenceObject) &&
+                    typeToReflect != typeof(TriggerObject))
                 {
                     typesToReflect.Push(baseType);
                     parentSchemaId = ResolveSchemaName(baseType);
@@ -172,7 +173,14 @@ namespace Picturepark.SDK.V1.Conversion
                                 propertyInfo.IsReference = true;
                             }
 
-                            typesToReflect.Push(property.PropertyType);
+                            if (typeInfo.IsAssignableFrom(typeof(TriggerObject).GetTypeInfo()))
+                            {
+                                propertyInfo.IsTrigger = true;
+                            }
+                            else
+                            {
+                                typesToReflect.Push(property.PropertyType);
+                            }
                         }
                     }
 
@@ -651,6 +659,14 @@ namespace Picturepark.SDK.V1.Conversion
                             ListItemCreateTemplate = listItemCreateTemplateAttribute?.ListItemCreateTemplate
                         };
                     }
+                    else if (property.IsTrigger)
+                    {
+                        field = new FieldTrigger
+                        {
+                            Index = true,
+                            SimpleSearch = true
+                        };
+                    }
                     else
                     {
                         field = new FieldSingleFieldset
@@ -682,6 +698,11 @@ namespace Picturepark.SDK.V1.Conversion
 
                 if (attribute is PictureparkRequiredAttribute)
                 {
+                    if (field is FieldTrigger)
+                    {
+                        throw new InvalidOperationException($"Trigger property {property.Name} must not be marked as required.");
+                    }
+
                     field.Required = true;
                 }
 
@@ -717,6 +738,11 @@ namespace Picturepark.SDK.V1.Conversion
                     if (field is FieldGeoPoint)
                     {
                         throw new InvalidOperationException($"GeoPoint property {property.Name} must not be marked as sortable.");
+                    }
+
+                    if (field is FieldTrigger)
+                    {
+                        throw new InvalidOperationException($"Trigger property {property.Name} must not be marked as sortable.");
                     }
 
                     field.Sortable = true;

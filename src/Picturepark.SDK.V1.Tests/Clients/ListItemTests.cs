@@ -764,5 +764,45 @@ namespace Picturepark.SDK.V1.Tests.Clients
             carResultDetail.SucceededItems.Should().NotBeEmpty()
                 .And.Subject.First().ContentSchemaId.Should().Be("Automobile");
         }
+
+        [Fact]
+        [Trait("Stack", "ListItem")]
+        public async Task ShouldGenerateSchemaFireTriggerAndRetrieveInfo()
+        {
+            // Arrange
+            var myself = await _client.Profile.GetAsync().ConfigureAwait(false);
+
+            await SchemaHelper.CreateSchemasIfNotExistentAsync<TriggerList>(_client).ConfigureAwait(false);
+
+            var listItemCreationResult = await _client.ListItem.CreateFromObjectAsync(
+                new TriggerList
+                {
+                    Name = "name"
+                }).ConfigureAwait(false);
+
+            var listItemId = (await listItemCreationResult.FetchDetail().ConfigureAwait(false)).SucceededIds.Single();
+
+            // act
+            var result = await _client.ListItem.UpdateAsync(
+                listItemId,
+                new TriggerList
+                {
+                    Name = "name",
+                    Trigger = new TriggerObject
+                    {
+                        Trigger = true
+                    }
+                },
+                new[] { ListItemResolveBehavior.Content }).ConfigureAwait(false);
+
+            var updated = result.ConvertTo<TriggerList>();
+
+            // assert
+            updated.Trigger.TriggeredOn.Should().NotBeNull();
+            updated.Trigger.TriggeredBy.Id.Should().Be(myself.Id);
+            updated.Trigger.TriggeredBy.EmailAddress.Should().Be(myself.EmailAddress);
+            updated.Trigger.TriggeredBy.FirstName.Should().Be(myself.FirstName);
+            updated.Trigger.TriggeredBy.LastName.Should().Be(myself.LastName);
+        }
     }
 }
