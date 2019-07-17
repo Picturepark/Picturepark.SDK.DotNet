@@ -41,5 +41,7 @@ namespace Picturepark.SDK.V1.Contract
         IProfileClient Profile { get; }
 
         IChannelClient Channel { get; }
+
+        IBusinessRuleClient BusinessRule { get; }
     }
 }
