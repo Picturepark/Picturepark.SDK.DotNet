@@ -21,6 +21,8 @@ namespace Picturepark.SDK.V1.Conversion
 
         public bool IsEnum { get; set; }
 
+        public bool IsTrigger { get; set; }
+
         public IReadOnlyList<IPictureparkAttribute> PictureparkAttributes { get; set; } = new List<IPictureparkAttribute>();
     }
 }
