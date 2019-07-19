@@ -20,7 +20,7 @@ namespace Picturepark.SDK.V1.Contract.Results
 
         public string BusinessProcessId { get; }
 
-        protected async Task<BatchOperationResultDetail<T>> FetchDetail(Func<string[], Task<IEnumerable<T>>> fetchEntities, CancellationToken cancellationToken = default(CancellationToken))
+        protected async Task<BatchOperationResultDetail<T>> FetchDetail(Func<string[], Task<IEnumerable<T>>> fetchEntities, Func<T, string> idAccessor, CancellationToken cancellationToken = default(CancellationToken))
         {
             BusinessProcessDetailsDataBatchResponse batchResult;
 
@@ -43,7 +43,7 @@ namespace Picturepark.SDK.V1.Contract.Results
             if (batchResult == null)
                 throw new InvalidOperationException("BusinessProcess did not return a BatchResponse");
 
-            return new BatchOperationResultDetail<T>(batchResult, fetchEntities);
+            return new BatchOperationResultDetail<T>(batchResult, fetchEntities, idAccessor);
         }
     }
 }

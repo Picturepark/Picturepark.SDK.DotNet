@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using FluentAssertions;
-using FluentAssertions.Extensions;
 using Newtonsoft.Json.Linq;
 using Xunit;
 using Picturepark.SDK.V1.Tests.Contracts;
@@ -816,6 +815,62 @@ namespace Picturepark.SDK.V1.Tests.Clients
             updated.Trigger.TriggeredOn.Should().Be(previousTriggerDate);
             updated.Trigger.TriggeredBy.Id.Should().Be(myself.Id);
             updated.Name.Should().Be("name (updated)");
+        }
+
+        [Fact]
+        [Trait("Stack", "ListItem")]
+        public async Task ShouldCreateListItemsAndReturnRequestIdInDetail()
+        {
+            var prefix = $"{Guid.NewGuid():N}";
+
+            var requests = Enumerable.Range(0, 5).Select(n => $"{Guid.NewGuid():N}").Select(
+                (requestId, n) =>
+                    (requestId, new ListItemCreateRequest
+                    {
+                        RequestId = requestId,
+                        ContentSchemaId = nameof(Tag),
+                        Content = new Tag { Name = $"{prefix}_{n}" }
+                    })).ToArray();
+
+            var result = await _client.ListItem.CreateManyAsync(
+                new ListItemCreateManyRequest
+                {
+                    Items = requests.Select(i => i.Item2).ToArray()
+                }).ConfigureAwait(false);
+
+            var detail = await result.FetchDetail(new[] { ListItemResolveBehavior.Content }).ConfigureAwait(false);
+
+            foreach (var row in detail.SucceededRows)
+            {
+                var associatedRequest = requests.Single(x => x.requestId == row.RequestId);
+                ((Tag)associatedRequest.Item2.Content).Name.Should().Be(row.Item.ConvertTo<Tag>().Name);
+            }
+        }
+
+        [Fact]
+        [Trait("Stack", "ListItem")]
+        public async Task ShouldCreateListItemsAndEnumerateResultRowsWithoutRequestId()
+        {
+            var prefix = $"{Guid.NewGuid():N}";
+
+            var requests = Enumerable.Range(0, 5).Select(n => $"{Guid.NewGuid():N}").Select(
+                (requestId, n) =>
+                    (requestId, new ListItemCreateRequest
+                    {
+                        ContentSchemaId = nameof(Tag),
+                        Content = new Tag { Name = $"{prefix}_{n}" }
+                    })).ToArray();
+
+            var result = await _client.ListItem.CreateManyAsync(
+                new ListItemCreateManyRequest
+                {
+                    Items = requests.Select(i => i.Item2).ToArray()
+                }).ConfigureAwait(false);
+
+            var detail = await result.FetchDetail(new[] { ListItemResolveBehavior.Content }).ConfigureAwait(false);
+
+            var enumeratedRows = detail.SucceededRows.ToArray();
+            enumeratedRows.Should().OnlyContain(r => r.RequestId == null).And.HaveCount(requests.Length);
         }
     }
 }
