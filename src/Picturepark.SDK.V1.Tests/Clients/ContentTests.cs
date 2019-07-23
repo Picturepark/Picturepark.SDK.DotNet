@@ -1442,7 +1442,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             // Assert
             detail.SucceededItems.Should().HaveCount(201);
-            detail.SucceededItems.Select(i => ((dynamic)i.Content).name).ToArray().Distinct().Should().HaveCount(201);
+            detail.SucceededItems.Select(i => ((dynamic)i.Item.Content).name).ToArray().Distinct().Should().HaveCount(201);
         }
 
         private async Task<ContentDetail> CreateContentReferencingSimpleField(params ContentResolveBehavior[] behaviors)

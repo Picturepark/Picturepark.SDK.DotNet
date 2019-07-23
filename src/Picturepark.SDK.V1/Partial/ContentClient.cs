@@ -108,10 +108,10 @@ namespace Picturepark.SDK.V1
         }
 
         /// <inheritdoc />
-        public async Task<ContentBatchOperationResult> CreateManyAsync(ContentCreateManyRequest contentCreateManyRequest, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<ContentBatchOperationWithRequestIdResult> CreateManyAsync(ContentCreateManyRequest contentCreateManyRequest, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             var businessProcess = await CreateManyCoreAsync(contentCreateManyRequest, cancellationToken).ConfigureAwait(false);
-            return await WaitForBusinessProcessAndReturnResult(businessProcess.Id, timeout, cancellationToken).ConfigureAwait(false);
+            return await WaitForBusinessProcessAndReturnResultWithRequestId(businessProcess.Id, timeout, cancellationToken).ConfigureAwait(false);
         }
 
         /// <inheritdoc />
@@ -155,6 +155,14 @@ namespace Picturepark.SDK.V1
             var result = await _businessProcessClient.WaitForCompletionAsync(businessProcessId, timeout, cancellationToken).ConfigureAwait(false);
 
             return new ContentBatchOperationResult(this, businessProcessId, result.LifeCycleHit, _businessProcessClient);
+        }
+
+        /// <inheritdoc />
+        public async Task<ContentBatchOperationWithRequestIdResult> WaitForBusinessProcessAndReturnResultWithRequestId(string businessProcessId, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var result = await _businessProcessClient.WaitForCompletionAsync(businessProcessId, timeout, cancellationToken).ConfigureAwait(false);
+
+            return new ContentBatchOperationWithRequestIdResult(this, businessProcessId, result.LifeCycleHit, _businessProcessClient);
         }
     }
 }

@@ -21,8 +21,7 @@ namespace Picturepark.SDK.V1.Contract.Results
 
         public async Task<BatchOperationResultDetail<SchemaDetail>> FetchDetail(CancellationToken cancellationToken = default(CancellationToken))
         {
-            return await FetchDetail(async ids => await _schemaClient.GetManyAsync(ids, cancellationToken).ConfigureAwait(false), cancellationToken)
-                .ConfigureAwait(false);
+            return await FetchDetail(async ids => await _schemaClient.GetManyAsync(ids, cancellationToken).ConfigureAwait(false), cancellationToken).ConfigureAwait(false);
         }
     }
 }

@@ -15,6 +15,8 @@ namespace Picturepark.SDK.V1
 {
     public partial class ListItemClient
     {
+        public const string RootObjectRequestId = "rootObjectRequestId";
+
         private readonly IBusinessProcessClient _businessProcessClient;
 
         public ListItemClient(IBusinessProcessClient businessProcessClient, IPictureparkServiceSettings settings, HttpClient httpClient)
@@ -24,7 +26,7 @@ namespace Picturepark.SDK.V1
         }
 
         /// <inheritdoc />
-        public async Task<ListItemBatchOperationResult> CreateFromObjectAsync(object content, bool allowMissingDependencies = false, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<ListItemBatchOperationWithRequestIdResult> CreateFromObjectAsync(object content, bool allowMissingDependencies = false, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             var createManyRequest = new ListItemCreateManyRequest
             {
@@ -43,7 +45,8 @@ namespace Picturepark.SDK.V1
             createManyRequest.Items.Add(new ListItemCreateRequest
             {
                 ContentSchemaId = schemaId,
-                Content = content
+                Content = content,
+                RequestId = RootObjectRequestId
             });
 
             var objectResult = await CreateManyAsync(createManyRequest, timeout, cancellationToken).ConfigureAwait(false);
@@ -51,15 +54,15 @@ namespace Picturepark.SDK.V1
         }
 
         /// <inheritdoc />
-        public async Task<ListItemBatchOperationResult> CreateManyAsync(ListItemCreateManyRequest createManyRequest, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<ListItemBatchOperationWithRequestIdResult> CreateManyAsync(ListItemCreateManyRequest createManyRequest, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (!createManyRequest.Items.Any())
             {
-                return ListItemBatchOperationResult.Empty;
+                return ListItemBatchOperationWithRequestIdResult.Empty;
             }
 
             var businessProcess = await CreateManyCoreAsync(createManyRequest, cancellationToken).ConfigureAwait(false);
-            return await WaitForBusinessProcessAndReturnResult(businessProcess.Id, timeout, cancellationToken).ConfigureAwait(false);
+            return await WaitForBusinessProcessAndReturnResultWithRequestId(businessProcess.Id, timeout, cancellationToken).ConfigureAwait(false);
         }
 
         /// <inheritdoc />
@@ -151,6 +154,14 @@ namespace Picturepark.SDK.V1
             var result = await _businessProcessClient.WaitForCompletionAsync(businessProcessId, timeout, cancellationToken).ConfigureAwait(false);
 
             return new ListItemBatchOperationResult(this, businessProcessId, result.LifeCycleHit, _businessProcessClient);
+        }
+
+        /// <inheritdoc />
+        public async Task<ListItemBatchOperationWithRequestIdResult> WaitForBusinessProcessAndReturnResultWithRequestId(string businessProcessId, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var result = await _businessProcessClient.WaitForCompletionAsync(businessProcessId, timeout, cancellationToken).ConfigureAwait(false);
+
+            return new ListItemBatchOperationWithRequestIdResult(this, businessProcessId, result.LifeCycleHit, _businessProcessClient);
         }
 
         private bool IsSimpleType(Type type)

@@ -15,7 +15,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The created <see cref="ListItem"/>s.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        Task<ListItemBatchOperationResult> CreateFromObjectAsync(object content, bool allowMissingDependencies = false, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<ListItemBatchOperationWithRequestIdResult> CreateFromObjectAsync(object content, bool allowMissingDependencies = false, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>Creates multiple <see cref="ListItem"/>s.</summary>
         /// <param name="createManyRequest">The create many request.</param>
@@ -24,7 +24,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>The <see cref="BatchOperationResult{ListItemDetail}"/>.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">The business process has not been completed.</exception>
-        Task<ListItemBatchOperationResult> CreateManyAsync(ListItemCreateManyRequest createManyRequest, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<ListItemBatchOperationWithRequestIdResult> CreateManyAsync(ListItemCreateManyRequest createManyRequest, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>Update - many</summary>
         /// <param name="listItemUpdateManyRequest">List item update many request.</param>
@@ -108,5 +108,14 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The <see cref="ListItemBatchOperationResult"/>.</returns>
         Task<ListItemBatchOperationResult> WaitForBusinessProcessAndReturnResult(string businessProcessId, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Waits for a business process and returns a <see cref="ListItemBatchOperationWithRequestIdResult"/>.
+        /// </summary>
+        /// <param name="businessProcessId">The business process id.</param>
+        /// <param name="timeout">The timeout to wait on the business process.</param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>The <see cref="ListItemBatchOperationWithRequestIdResult"/>.</returns>
+        Task<ListItemBatchOperationWithRequestIdResult> WaitForBusinessProcessAndReturnResultWithRequestId(string businessProcessId, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken));
     }
 }
