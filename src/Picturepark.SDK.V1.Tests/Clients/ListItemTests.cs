@@ -308,7 +308,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             // Assert
             listItem.ContentSchemaId.Should().Be(countrySchemaId);
 
-            var region = ((Newtonsoft.Json.Linq.JObject)listItem.Content)["regions"].First();
+            var region = ((JObject)listItem.Content)["regions"].First();
             region["name"].Should().NotBeNull("the regions should be resolved");
         }
 
@@ -339,15 +339,15 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             var createResult = await _client.ListItem.CreateManyAsync(createRequest).ConfigureAwait(false);
             var createDetail = await createResult.FetchDetail().ConfigureAwait(false);
-            var createdListItems = createDetail.SucceededItems.ToArray();
+            var createdListItemIds = createDetail.SucceededIds;
 
             // Act
-            var resultListItems = await _client.ListItem.GetManyAsync(createdListItems.Select(li => li.Id), new List<ListItemResolveBehavior> { ListItemResolveBehavior.Content }).ConfigureAwait(false);
+            var resultListItems = await _client.ListItem.GetManyAsync(createdListItemIds, new List<ListItemResolveBehavior> { ListItemResolveBehavior.Content }).ConfigureAwait(false);
 
             // Assert
             resultListItems.Should().NotBeNull().And.HaveCount(2);
-            resultListItems.Select(li => li.Id).Should().BeEquivalentTo(createdListItems.ElementAt(0).Id, createdListItems.ElementAt(1).Id);
-            resultListItems.Select(li => li.Content.As<Newtonsoft.Json.Linq.JObject>()["name"].ToString()).Should().BeEquivalentTo(objectName1, objectName2);
+            resultListItems.Select(li => li.Id).Should().BeEquivalentTo(createdListItemIds.ElementAt(0), createdListItemIds.ElementAt(1));
+            resultListItems.Select(li => li.Content.As<JObject>()["name"].ToString()).Should().BeEquivalentTo(objectName1, objectName2);
         }
 
         [Fact]
@@ -685,7 +685,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var items = details.SucceededItems;
 
             // Act
-            var item = items.Single(x => ((JObject)x.Content).ContainsKey("child"));
+            var item = items.Single(x => x.RequestId == ListItemClient.RootObjectRequestId).Item;
             var dateValue = item.ConvertTo<LocalDateTestItem>().DateTimeField;
 
             const string quote = "\"";
@@ -737,7 +737,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             // Assert
             detail.SucceededItems.Should().HaveCount(201);
-            detail.SucceededItems.Select(i => ((dynamic)i.Content).name).ToArray().Distinct().Should().HaveCount(201);
+            detail.SucceededItems.Select(i => ((dynamic)i.Item.Content).name).ToArray().Distinct().Should().HaveCount(201);
         }
 
         [Fact]
@@ -761,7 +761,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             carResultDetail.FailedItems.Should().BeEmpty();
             carResultDetail.SucceededItems.Should().NotBeEmpty()
-                .And.Subject.First().ContentSchemaId.Should().Be("Automobile");
+                .And.Subject.Single(i => i.RequestId == ListItemClient.RootObjectRequestId).Item.ContentSchemaId.Should().Be("Automobile");
         }
 
         [Fact]
@@ -840,7 +840,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             var detail = await result.FetchDetail(new[] { ListItemResolveBehavior.Content }).ConfigureAwait(false);
 
-            foreach (var row in detail.SucceededRows)
+            foreach (var row in detail.SucceededItems)
             {
                 var associatedRequest = requests.Single(x => x.requestId == row.RequestId);
                 ((Tag)associatedRequest.Item2.Content).Name.Should().Be(row.Item.ConvertTo<Tag>().Name);
@@ -869,7 +869,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             var detail = await result.FetchDetail(new[] { ListItemResolveBehavior.Content }).ConfigureAwait(false);
 
-            var enumeratedRows = detail.SucceededRows.ToArray();
+            var enumeratedRows = detail.SucceededItems.ToArray();
             enumeratedRows.Should().OnlyContain(r => r.RequestId == null).And.HaveCount(requests.Length);
         }
     }

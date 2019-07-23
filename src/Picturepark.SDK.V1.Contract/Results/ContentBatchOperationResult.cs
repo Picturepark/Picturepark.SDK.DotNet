@@ -27,7 +27,6 @@ namespace Picturepark.SDK.V1.Contract.Results
         {
             return await FetchDetail(
                 async ids => await _contentClient.GetManyAsync(ids, resolveBehaviors, cancellationToken).ConfigureAwait(false),
-                c => c.Id,
                 cancellationToken);
         }
     }
