@@ -13,6 +13,7 @@
     <CodeAnalysisRuleSet>../Picturepark.SDK.DotNet.ruleset</CodeAnalysisRuleSet>
     <ApplicationIcon />
     <StartupObject />
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>
