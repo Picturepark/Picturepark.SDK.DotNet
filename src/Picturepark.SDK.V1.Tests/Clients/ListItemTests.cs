@@ -9,6 +9,7 @@ using Picturepark.SDK.V1.Tests.Contracts;
 using Picturepark.SDK.V1.Contract;
 using Picturepark.SDK.V1.Localization;
 using Picturepark.SDK.V1.Tests.Fixtures;
+using Picturepark.SDK.V1.Tests.FluentAssertions;
 
 namespace Picturepark.SDK.V1.Tests.Clients
 {
@@ -101,6 +102,9 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             // Assert
             Assert.False(string.IsNullOrEmpty(result.Id));
+
+            result.Audit.CreatedByUser.Should().BeResolved();
+            result.Audit.ModifiedByUser.Should().BeResolved();
         }
 
         [Fact]
@@ -285,6 +289,9 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             // Assert
             Assert.NotNull(result);
+
+            result.Audit.CreatedByUser.Should().BeResolved();
+            result.Audit.ModifiedByUser.Should().BeResolved();
         }
 
         [Fact]
@@ -348,6 +355,13 @@ namespace Picturepark.SDK.V1.Tests.Clients
             resultListItems.Should().NotBeNull().And.HaveCount(2);
             resultListItems.Select(li => li.Id).Should().BeEquivalentTo(createdListItemIds.ElementAt(0), createdListItemIds.ElementAt(1));
             resultListItems.Select(li => li.Content.As<JObject>()["name"].ToString()).Should().BeEquivalentTo(objectName1, objectName2);
+
+            resultListItems.ToList().ForEach(listItem =>
+                {
+                    listItem.Audit.CreatedByUser.Should().BeResolved();
+                    listItem.Audit.ModifiedByUser.Should().BeResolved();
+                }
+            );
         }
 
         [Fact]
@@ -478,11 +492,14 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var player = playerItem.ConvertTo<SoccerPlayer>();
             player.Firstname = "xy jviorej ivorejvioe";
 
-            await _client.ListItem.UpdateAsync(playerItem.Id, player).ConfigureAwait(false);
+            var updateResult = await _client.ListItem.UpdateAsync(playerItem.Id, player).ConfigureAwait(false);
             var updatedPlayer = await _client.ListItem.GetAndConvertToAsync<SoccerPlayer>(playerItem.Id, nameof(SoccerPlayer)).ConfigureAwait(false);
 
             // Assert
             Assert.Equal(player.Firstname, updatedPlayer.Firstname);
+
+            updateResult.Audit.CreatedByUser.Should().BeResolved();
+            updateResult.Audit.ModifiedByUser.Should().BeResolved();
         }
 
         [Fact]
