@@ -1,10 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using FluentAssertions;
+using Picturepark.SDK.V1.Contract;
+using Picturepark.SDK.V1.Tests.Fixtures;
+using Picturepark.SDK.V1.Tests.FluentAssertions;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Xunit;
-using Picturepark.SDK.V1.Contract;
-using System.Linq;
-using FluentAssertions;
-using Picturepark.SDK.V1.Tests.Fixtures;
 
 namespace Picturepark.SDK.V1.Tests.Clients
 {
@@ -44,6 +45,9 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             // Assert
             Assert.Equal(owner.Id, user.Id);
+
+            user.Audit.CreatedByUser.Should().BeResolved();
+            user.Audit.ModifiedByUser.Should().BeResolved();
         }
 
         [Fact]
@@ -59,6 +63,9 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             // Assert
             Assert.NotNull(owner);
+
+            owner.Audit.CreatedByUser.Should().BeResolved();
+            owner.Audit.ModifiedByUser.Should().BeResolved();
         }
 
         [Fact]
@@ -127,6 +134,12 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             updatedUser.Address.City.Should().Be(
                 city, "update should have changed the address city field");
+
+            user.Audit.CreatedByUser.Should().BeResolved();
+            user.Audit.ModifiedByUser.Should().BeResolved();
+
+            updatedUserResponse.Audit.CreatedByUser.Should().BeResolved();
+            updatedUserResponse.Audit.ModifiedByUser.Should().BeResolved();
         }
 
         [Fact]
@@ -141,6 +154,13 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             // Assert
             retrievedUsers.Should().BeEquivalentTo(users);
+
+            users.ToList().ForEach(user =>
+                {
+                    user.Audit.CreatedByUser.Should().BeResolved();
+                    user.Audit.ModifiedByUser.Should().BeResolved();
+                }
+            );
         }
 
         private async Task LockUnlockCall(IEnumerable<string> ids, bool @lock)
