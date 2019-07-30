@@ -1,14 +1,15 @@
-﻿using System;
+﻿using FluentAssertions;
+using Newtonsoft.Json;
+using Picturepark.SDK.V1.Contract;
+using Picturepark.SDK.V1.Contract.Attributes;
+using Picturepark.SDK.V1.Tests.Contracts;
+using Picturepark.SDK.V1.Tests.Fixtures;
+using Picturepark.SDK.V1.Tests.FluentAssertions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using FluentAssertions;
 using Xunit;
-using Picturepark.SDK.V1.Tests.Contracts;
-using Picturepark.SDK.V1.Contract;
-using Picturepark.SDK.V1.Tests.Fixtures;
-using Newtonsoft.Json;
-using Picturepark.SDK.V1.Contract.Attributes;
 
 namespace Picturepark.SDK.V1.Tests.Clients
 {
@@ -239,6 +240,9 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             // Assert
             Assert.Contains(expectedFilterString, JsonConvert.SerializeObject(jsonConvertedField));
+
+            generatedSoccerPlayerSchema.Audit.CreatedByUser.Should().BeResolved();
+            generatedSoccerPlayerSchema.Audit.ModifiedByUser.Should().BeResolved();
         }
 
         [Fact]
@@ -310,6 +314,12 @@ namespace Picturepark.SDK.V1.Tests.Clients
             updateResult.Schema.Names.TryGetValue(language, out string outString);
 
             Assert.Equal(schemaTranslation, outString);
+
+            createResult.Schema.Audit.CreatedByUser.Should().BeResolved();
+            createResult.Schema.Audit.ModifiedByUser.Should().BeResolved();
+
+            updateResult.Schema.Audit.CreatedByUser.Should().BeResolved();
+            updateResult.Schema.Audit.ModifiedByUser.Should().BeResolved();
         }
 
         [Fact]
@@ -384,6 +394,13 @@ namespace Picturepark.SDK.V1.Tests.Clients
             // assert
             referencedSchemas.Should().HaveCount(1);
             referencedSchemas.Single().Id.Should().StartWith("Department");
+
+            referencedSchemas.ToList().ForEach(schema =>
+                {
+                    schema.Audit.CreatedByUser.Should().BeResolved();
+                    schema.Audit.ModifiedByUser.Should().BeResolved();
+                }
+            );
         }
 
         [Fact]
@@ -399,6 +416,13 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             // assert
             referencedSchemas.Should().HaveCount(0);
+
+            referencedSchemas.ToList().ForEach(schema =>
+                {
+                    schema.Audit.CreatedByUser.Should().BeResolved();
+                    schema.Audit.ModifiedByUser.Should().BeResolved();
+                }
+            );
         }
 
         [Fact]
@@ -433,6 +457,13 @@ namespace Picturepark.SDK.V1.Tests.Clients
             // Assert
             var transferredSchemas = await _client.Schema.GetManyAsync(schemaIds).ConfigureAwait(false);
             transferredSchemas.Select(c => c.OwnerTokenId).Should().OnlyContain(ot => ot == newOwner.OwnerTokens.First().Id);
+
+            transferredSchemas.ToList().ForEach(schema =>
+                {
+                    schema.Audit.CreatedByUser.Should().BeResolved();
+                    schema.Audit.ModifiedByUser.Should().BeResolved();
+                }
+            );
         }
 
         private void AppendSchemaIdSuffix(SchemaDetail schema, int schemaSuffix)
