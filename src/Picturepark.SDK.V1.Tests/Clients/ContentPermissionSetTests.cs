@@ -1,11 +1,12 @@
-﻿using System;
+﻿using FluentAssertions;
+using Picturepark.SDK.V1.Contract;
+using Picturepark.SDK.V1.Tests.Fixtures;
+using Picturepark.SDK.V1.Tests.FluentAssertions;
+using System;
 using System.Linq;
 using System.Runtime.CompilerServices;
-using Picturepark.SDK.V1.Contract;
 using System.Threading.Tasks;
-using FluentAssertions;
 using Xunit;
-using Picturepark.SDK.V1.Tests.Fixtures;
 
 namespace Picturepark.SDK.V1.Tests.Clients
 {
@@ -33,6 +34,9 @@ namespace Picturepark.SDK.V1.Tests.Clients
             // Assert
             result.Should().NotBeNull();
             result.Id.Should().Be(permissionSet.Id);
+
+            result.Audit.CreatedByUser.Should().BeResolved();
+            result.Audit.ModifiedByUser.Should().BeResolved();
         }
 
         [Fact]
@@ -60,6 +64,9 @@ namespace Picturepark.SDK.V1.Tests.Clients
             result.Should().NotBeNull();
             result.UserRolesRights.Should().HaveCount(1)
                 .And.Subject.First().UserRoleId.Should().Be(userRoleId);
+
+            result.Audit.CreatedByUser.Should().BeResolved();
+            result.Audit.ModifiedByUser.Should().BeResolved();
 
             var verifyPermissionSet = await _client.ContentPermissionSet.GetAsync(permissionSet.Id).ConfigureAwait(false);
 
@@ -105,6 +112,13 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             var verifyPermissionSets = await _client.ContentPermissionSet.GetManyAsync(shouldStayIds).ConfigureAwait(false);
             verifyPermissionSets.Select(s => s.Id).Should().BeEquivalentTo(shouldStayIds);
+
+            verifyPermissionSets.ToList().ForEach(contentPermissionSet =>
+                {
+                    contentPermissionSet.Audit.CreatedByUser.Should().BeResolved();
+                    contentPermissionSet.Audit.ModifiedByUser.Should().BeResolved();
+                }
+            );
         }
 
         [Fact]
@@ -150,11 +164,17 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
         private async Task<UserRole> CreateUserRole(UserRight userRight, [CallerMemberName] string testName = null)
         {
-            return await _client.UserRole.CreateAsync(new UserRoleCreateRequest
+            var result = await _client.UserRole.CreateAsync(new UserRoleCreateRequest
             {
                 Names = { { "en", testName } },
                 UserRights = { userRight }
             }).ConfigureAwait(false);
+
+            // Assert
+            result.Audit.CreatedByUser.Should().BeResolved();
+            result.Audit.ModifiedByUser.Should().BeResolved();
+
+            return result;
         }
     }
 }
