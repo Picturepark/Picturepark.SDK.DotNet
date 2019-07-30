@@ -1,11 +1,12 @@
-﻿using System;
+﻿using FluentAssertions;
+using Picturepark.SDK.V1.Contract;
+using Picturepark.SDK.V1.Tests.Fixtures;
+using Picturepark.SDK.V1.Tests.FluentAssertions;
+using System;
 using System.Linq;
 using System.Runtime.CompilerServices;
-using Picturepark.SDK.V1.Contract;
 using System.Threading.Tasks;
-using FluentAssertions;
 using Xunit;
-using Picturepark.SDK.V1.Tests.Fixtures;
 
 namespace Picturepark.SDK.V1.Tests.Clients
 {
@@ -33,6 +34,11 @@ namespace Picturepark.SDK.V1.Tests.Clients
             // Assert
             result.Should().NotBeNull();
             result.Id.Should().Be(permissionSet.Id);
+
+            permissionSet.Audit.CreatedByUser.Should().BeResolved();
+            permissionSet.Audit.ModifiedByUser.Should().BeResolved();
+            result.Audit.CreatedByUser.Should().BeResolved();
+            result.Audit.ModifiedByUser.Should().BeResolved();
         }
 
         [Fact]
@@ -60,6 +66,9 @@ namespace Picturepark.SDK.V1.Tests.Clients
             result.Should().NotBeNull();
             result.UserRolesRights.Should().HaveCount(1)
                 .And.Subject.First().UserRoleId.Should().Be(userRoleId);
+
+            result.Audit.CreatedByUser.Should().BeResolved();
+            result.Audit.ModifiedByUser.Should().BeResolved();
 
             var verifyPermissionSet = await _client.SchemaPermissionSet.GetAsync(permissionSet.Id).ConfigureAwait(false);
 
@@ -105,6 +114,13 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             var verifyPermissionSets = await _client.SchemaPermissionSet.GetManyAsync(shouldStayIds).ConfigureAwait(false);
             verifyPermissionSets.Select(s => s.Id).Should().BeEquivalentTo(shouldStayIds);
+
+            verifyPermissionSets.ToList().ForEach(schemaPermissionSet =>
+                {
+                    schemaPermissionSet.Audit.CreatedByUser.Should().BeResolved();
+                    schemaPermissionSet.Audit.ModifiedByUser.Should().BeResolved();
+                }
+            );
         }
 
         [Fact]
