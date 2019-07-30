@@ -164,17 +164,11 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
         private async Task<UserRole> CreateUserRole(UserRight userRight, [CallerMemberName] string testName = null)
         {
-            var result = await _client.UserRole.CreateAsync(new UserRoleCreateRequest
+            return await _client.UserRole.CreateAsync(new UserRoleCreateRequest
             {
                 Names = { { "en", testName } },
                 UserRights = { userRight }
             }).ConfigureAwait(false);
-
-            // Assert
-            result.Audit.CreatedByUser.Should().BeResolved();
-            result.Audit.ModifiedByUser.Should().BeResolved();
-
-            return result;
         }
     }
 }
