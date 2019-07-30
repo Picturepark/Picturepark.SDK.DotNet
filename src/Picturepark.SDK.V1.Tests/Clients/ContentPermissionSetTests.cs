@@ -35,6 +35,8 @@ namespace Picturepark.SDK.V1.Tests.Clients
             result.Should().NotBeNull();
             result.Id.Should().Be(permissionSet.Id);
 
+            permissionSet.Audit.CreatedByUser.Should().BeResolved();
+            permissionSet.Audit.ModifiedByUser.Should().BeResolved();
             result.Audit.CreatedByUser.Should().BeResolved();
             result.Audit.ModifiedByUser.Should().BeResolved();
         }
