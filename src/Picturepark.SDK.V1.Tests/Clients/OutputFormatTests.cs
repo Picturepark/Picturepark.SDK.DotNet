@@ -1,9 +1,10 @@
-﻿using System;
-using System.Linq;
-using System.Threading.Tasks;
-using FluentAssertions;
+﻿using FluentAssertions;
 using Picturepark.SDK.V1.Contract;
 using Picturepark.SDK.V1.Tests.Fixtures;
+using Picturepark.SDK.V1.Tests.FluentAssertions;
+using System;
+using System.Linq;
+using System.Threading.Tasks;
 using Xunit;
 
 namespace Picturepark.SDK.V1.Tests.Clients
@@ -32,6 +33,9 @@ namespace Picturepark.SDK.V1.Tests.Clients
             // Assert
             result.Should().NotBeNull();
             result.Id.Should().Be(outputFormat.Id);
+
+            result.Audit.CreatedByUser.Should().BeResolved();
+            result.Audit.ModifiedByUser.Should().BeResolved();
         }
 
         [Fact]
@@ -48,6 +52,13 @@ namespace Picturepark.SDK.V1.Tests.Clients
             // Assert
             result.Should().NotBeNull();
             result.Select(of => of.Id).Should().BeEquivalentTo(outputFormatIds);
+
+            result.ToList().ForEach(outputFormatDetail =>
+                {
+                    outputFormatDetail.Audit.CreatedByUser.Should().BeResolved();
+                    outputFormatDetail.Audit.ModifiedByUser.Should().BeResolved();
+                }
+            );
         }
 
         [Fact]
@@ -74,6 +85,9 @@ namespace Picturepark.SDK.V1.Tests.Clients
             result.Should().NotBeNull();
             result.Format.As<JpegFormat>().IsProgressive.Should().BeTrue();
             result.SourceOutputFormats.Audio.Should().Be("Preview");
+
+            result.Audit.CreatedByUser.Should().BeResolved();
+            result.Audit.ModifiedByUser.Should().BeResolved();
 
             var verifyOutputFormat = await _client.OutputFormat.GetAsync(outputFormat.Id).ConfigureAwait(false);
 
