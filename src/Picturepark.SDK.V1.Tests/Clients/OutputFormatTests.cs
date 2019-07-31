@@ -68,7 +68,9 @@ namespace Picturepark.SDK.V1.Tests.Clients
             update.SourceOutputFormats.Audio = "Preview";
 
             // Act
-            var result = await _client.OutputFormat.UpdateAsync(outputFormat.Id, update).ConfigureAwait(false);
+            var response = await _client.OutputFormat.UpdateAsync(outputFormat.Id, update).ConfigureAwait(false);
+
+            var result = await response.FetchResult().ConfigureAwait(false);
 
             // Assert
             result.Should().NotBeNull();
@@ -107,12 +109,13 @@ namespace Picturepark.SDK.V1.Tests.Clients
             }).ToArray();
 
             // Act
-            var result = await _client.OutputFormat.UpdateManyAsync(new OutputFormatUpdateManyRequest { Items = updateRequests }).ConfigureAwait(false);
+            var response = await _client.OutputFormat.UpdateManyAsync(new OutputFormatUpdateManyRequest { Items = updateRequests }).ConfigureAwait(false);
+            var detail = await response.FetchDetail().ConfigureAwait(false);
 
             // Assert
-            result.Should().NotBeNull();
-            result.Rows.Should().HaveSameCount(outputFormats);
-            result.Rows.Should().OnlyContain(r => r.Succeeded);
+            detail.Should().NotBeNull();
+            detail.SucceededIds.Should().HaveSameCount(outputFormats);
+            detail.FailedIds.Should().BeEmpty();
 
             var verifyOutputFormats = await _client.OutputFormat.GetManyAsync(outputFormatIds).ConfigureAwait(false);
 

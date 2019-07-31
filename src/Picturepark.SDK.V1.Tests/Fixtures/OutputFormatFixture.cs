@@ -39,8 +39,9 @@ namespace Picturepark.SDK.V1.Tests.Fixtures
             }).ToArray();
 
             var created = await Client.OutputFormat.CreateManyAsync(new OutputFormatCreateManyRequest { Items = createRequests }).ConfigureAwait(false);
+            var detail = await created.FetchDetail().ConfigureAwait(false);
 
-            var createdFormats = await Client.OutputFormat.GetManyAsync(created.Rows.Select(r => r.Id)).ConfigureAwait(false);
+            var createdFormats = await Client.OutputFormat.GetManyAsync(detail.SucceededIds).ConfigureAwait(false);
 
             foreach (var of in createdFormats)
             {

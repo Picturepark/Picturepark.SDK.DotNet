@@ -6677,7 +6677,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [Newtonsoft.Json.JsonProperty("endTimeInMilliseconds", Required = Newtonsoft.Json.Required.Always)]
         public long EndTimeInMilliseconds { get; set; }
     
-        /// <summary>The snapshot elastic search shard Falures.</summary>
+        /// <summary>The snapshot elastic search shard failures.</summary>
         [Newtonsoft.Json.JsonProperty("failures", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<SnapshotShardFailure> Failures { get; set; }
     

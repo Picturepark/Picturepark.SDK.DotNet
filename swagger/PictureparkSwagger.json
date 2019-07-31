@@ -8371,7 +8371,7 @@
           "OutputFormat"
         ],
         "summary": "Update output format",
-        "description": "Updates the output format specified by the ID and based on supplied request.",
+        "description": "Updates the output format specified by the ID and based on supplied request.\nThe operation is executed asynchronous and is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.",
         "operationId": "OutputFormat_Update",
         "parameters": [
           {
@@ -8400,11 +8400,11 @@
         },
         "responses": {
           "200": {
-            "description": "Updated output format",
+            "description": "Business process",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/OutputFormatDetail"
+                  "$ref": "#/components/schemas/BusinessProcess"
                 }
               }
             }
@@ -8472,7 +8472,7 @@
           "OutputFormat"
         ],
         "summary": "Delete output format",
-        "description": "Deletes the output format specified by the ID.",
+        "description": "Deletes the output format specified by the ID.\nThe operation is executed asynchronous and is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.",
         "operationId": "OutputFormat_Delete",
         "parameters": [
           {
@@ -8488,7 +8488,14 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "Business process",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BusinessProcess"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -8555,7 +8562,7 @@
           "OutputFormat"
         ],
         "summary": "Create output format",
-        "description": "Creates new output format based on supplied request.",
+        "description": "Creates new output format based on supplied request.\nThe operation is executed asynchronous and is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.",
         "operationId": "OutputFormat_Create",
         "requestBody": {
           "x-name": "request",
@@ -8572,11 +8579,11 @@
         },
         "responses": {
           "200": {
-            "description": "Output format",
+            "description": "Business process",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/OutputFormatDetail"
+                  "$ref": "#/components/schemas/BusinessProcess"
                 }
               }
             }
@@ -8741,7 +8748,7 @@
           "OutputFormat"
         ],
         "summary": "Create multiple output formats",
-        "description": "Creates new output formats based on supplied requests.",
+        "description": "Creates new output formats based on supplied requests.\nThe operation is executed asynchronous and is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.",
         "operationId": "OutputFormat_CreateMany",
         "requestBody": {
           "x-name": "request",
@@ -8758,11 +8765,11 @@
         },
         "responses": {
           "200": {
-            "description": "Bulk response with information about created output formats",
+            "description": "Business process",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BulkResponse"
+                  "$ref": "#/components/schemas/BusinessProcess"
                 }
               }
             }
@@ -8830,7 +8837,7 @@
           "OutputFormat"
         ],
         "summary": "Update multiple output formats",
-        "description": "Updates the output formats specified by the IDs and based on supplied request.",
+        "description": "Updates the output formats specified by the IDs and based on supplied request.\nThe operation is executed asynchronous and is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.",
         "operationId": "OutputFormat_UpdateMany",
         "requestBody": {
           "x-name": "request",
@@ -8847,11 +8854,11 @@
         },
         "responses": {
           "200": {
-            "description": "Bulk response with information about updated output formats",
+            "description": "Business process",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BulkResponse"
+                  "$ref": "#/components/schemas/BusinessProcess"
                 }
               }
             }
@@ -8921,7 +8928,7 @@
           "OutputFormat"
         ],
         "summary": "Delete multiple output formats",
-        "description": "Deletes the output formats specified by the IDs.",
+        "description": "Deletes the output formats specified by the IDs.\nThe operation is executed asynchronous and is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.",
         "operationId": "OutputFormat_DeleteMany",
         "requestBody": {
           "x-name": "request",
@@ -8938,11 +8945,11 @@
         },
         "responses": {
           "200": {
-            "description": "Bulk response with information about success or failure",
+            "description": "Business process",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BulkResponse"
+                  "$ref": "#/components/schemas/BusinessProcess"
                 }
               }
             }

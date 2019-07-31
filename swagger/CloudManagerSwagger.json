@@ -11798,7 +11798,7 @@
           },
           "failures": {
             "type": "array",
-            "description": "The snapshot elastic search shard Falures.",
+            "description": "The snapshot elastic search shard failures.",
             "nullable": true,
             "items": {
               "$ref": "#/components/schemas/SnapshotShardFailure"

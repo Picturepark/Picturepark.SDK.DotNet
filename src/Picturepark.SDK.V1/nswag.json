@@ -36,7 +36,13 @@
         "SchemaClient.ExistsAsync",
         "SchemaClient.CreateManyAsync",
         "JsonSchemaClient.GetAsync",
-        "LiveStreamClient.GetMessageAsync"
+        "LiveStreamClient.GetMessageAsync",
+        "OutputFormatClient.CreateAsync",
+        "OutputFormatClient.CreateManyAsync",
+        "OutputFormatClient.UpdateAsync",
+        "OutputFormatClient.UpdateManyAsync",
+        "OutputFormatClient.DeleteAsync",
+        "OutputFormatClient.DeleteManyAsync"
       ],
       "generateExceptionClasses": true,
       "exceptionClass": "ApiException",
