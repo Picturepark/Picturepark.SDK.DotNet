@@ -1,4 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="..\common.props" />
+
   <PropertyGroup>
     <Description>Picturepark .NET SDK CloudManager: Manage Picturepark backend instances.</Description>
     <AssemblyTitle>Picturepark.SDK.V1.CloudManager</AssemblyTitle>
