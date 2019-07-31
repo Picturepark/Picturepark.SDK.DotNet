@@ -155,7 +155,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             // Assert
             retrievedUsers.Should().BeEquivalentTo(users);
 
-            users.ToList().ForEach(user =>
+            retrievedUsers.ToList().ForEach(user =>
                 {
                     user.Audit.CreatedByUser.Should().BeResolved();
                     user.Audit.ModifiedByUser.Should().BeResolved();
