@@ -35,8 +35,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
             result.Should().NotBeNull();
             result.Id.Should().Be(permissionSet.Id);
 
-            permissionSet.Audit.CreatedByUser.Should().BeResolved();
-            permissionSet.Audit.ModifiedByUser.Should().BeResolved();
             result.Audit.CreatedByUser.Should().BeResolved();
             result.Audit.ModifiedByUser.Should().BeResolved();
         }
@@ -162,6 +160,28 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             // Assert
             result.Results.Should().NotBeEmpty();
+        }
+
+        [Fact]
+        [Trait("Stack", "ContentPermissionSets")]
+        public async Task ShouldCreateSingleContentPermissionSet()
+        {
+            // Arrange
+            var request = new ContentPermissionSetCreateRequest
+            {
+                Names = new TranslatedStringDictionary
+                    {
+                        { "en", $"Content_ps_test_{Guid.NewGuid():N}" }
+                    }
+            };
+
+            // Act
+            var result = await _client.ContentPermissionSet.CreateAsync(request).ConfigureAwait(false);
+
+            // Assert
+            result.Should().NotBeNull();
+            result.Audit.CreatedByUser.Should().BeResolved();
+            result.Audit.ModifiedByUser.Should().BeResolved();
         }
 
         private async Task<UserRole> CreateUserRole(UserRight userRight, [CallerMemberName] string testName = null)

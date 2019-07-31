@@ -178,5 +178,41 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var verifyOutputFormatsStayed = await _client.OutputFormat.GetManyAsync(shouldStayIds).ConfigureAwait(false);
             verifyOutputFormatsStayed.Select(s => s.Id).Should().BeEquivalentTo(shouldStayIds);
         }
+
+        [Fact]
+        [Trait("Stack", "OutputFormats")]
+        public async Task ShouldCreateSingleOutputFormat()
+        {
+            // Arrange
+            var guid = System.Guid.NewGuid().ToString("N");
+
+            // Act
+            var outputFormat = new OutputFormat
+            {
+                Id = $"OF-test-{guid}",
+                Names = new TranslatedStringDictionary
+                    {
+                        { "en", $"OF_test_{guid}" }
+                    },
+                Dynamic = true,
+                Format = new JpegFormat
+                {
+                    Quality = 95
+                },
+                SourceOutputFormats = new SourceOutputFormats
+                {
+                    Image = "Original",
+                    Video = "VideoPreview",
+                    Document = "DocumentPreview",
+                    Audio = "AudioPreview"
+                }
+            };
+            var result = await _client.OutputFormat.CreateAsync(outputFormat).ConfigureAwait(false);
+
+            // Assert
+            result.Should().NotBeNull();
+            result.Audit.CreatedByUser.Should().BeResolved();
+            result.Audit.ModifiedByUser.Should().BeResolved();
+        }
     }
 }

@@ -135,9 +135,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
             updatedUser.Address.City.Should().Be(
                 city, "update should have changed the address city field");
 
-            user.Audit.CreatedByUser.Should().BeResolved();
-            user.Audit.ModifiedByUser.Should().BeResolved();
-
             updatedUserResponse.Audit.CreatedByUser.Should().BeResolved();
             updatedUserResponse.Audit.ModifiedByUser.Should().BeResolved();
         }
@@ -161,6 +158,28 @@ namespace Picturepark.SDK.V1.Tests.Clients
                     user.Audit.ModifiedByUser.Should().BeResolved();
                 }
             );
+        }
+
+        [Fact]
+        [Trait("Stack", "Users")]
+        public async Task ShouldCreateSingleUser()
+        {
+            // Arrange
+            var request = new UserCreateRequest
+            {
+                FirstName = "Test",
+                LastName = "User",
+                EmailAddress = $"test.user_{System.Guid.NewGuid()}@test.picturepark.com",
+                LanguageCode = "en"
+            };
+
+            // Act
+            var user = await _client.User.CreateAsync(request).ConfigureAwait(false);
+
+            // Assert
+            user.Should().NotBeNull();
+            user.Audit.CreatedByUser.Should().BeResolved();
+            user.Audit.ModifiedByUser.Should().BeResolved();
         }
 
         private async Task LockUnlockCall(IEnumerable<string> ids, bool @lock)
