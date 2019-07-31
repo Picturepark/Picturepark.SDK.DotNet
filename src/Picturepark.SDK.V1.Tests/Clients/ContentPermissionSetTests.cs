@@ -23,7 +23,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
         [Fact]
         [Trait("Stack", "ContentPermissionSets")]
-        public async Task Should_get_schema_permission_set()
+        public async Task Should_get_content_permission_set()
         {
             // Arrange
             var permissionSet = await _fixture.CreatePermissionSet().ConfigureAwait(false);
@@ -43,7 +43,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
         [Fact]
         [Trait("Stack", "ContentPermissionSets")]
-        public async Task Should_update_schema_permission_set()
+        public async Task Should_update_content_permission_set()
         {
             // Arrange
             var permissionSet = await _fixture.CreatePermissionSet().ConfigureAwait(false);
@@ -94,7 +94,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
         [Fact]
         [Trait("Stack", "ContentPermissionSets")]
-        public async Task Should_delete_multiple_schema_permission_sets()
+        public async Task Should_delete_multiple_content_permission_sets()
         {
             // Arrange
             var permissionSets = await _fixture.CreatePermissionSets(5).ConfigureAwait(false);
@@ -152,7 +152,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
         [Fact]
         [Trait("Stack", "ContentPermissionSets")]
-        public async Task Should_search_schema_permission_sets()
+        public async Task Should_search_content_permission_sets()
         {
             // Arrange
             var request = new PermissionSetSearchRequest { Limit = 20 };
