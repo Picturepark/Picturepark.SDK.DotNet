@@ -1,4 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="..\common.props" />
+
   <PropertyGroup>
     <Description>Picturepark .NET SDK Localization: Provides translations for exception codes and texts.</Description>
     <AssemblyTitle>Picturepark.SDK.V1.Localization</AssemblyTitle>

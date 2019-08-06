@@ -62,6 +62,8 @@ namespace Picturepark.SDK.V1
 
         public IChannelClient Channel { get; private set; }
 
+        public IBusinessRuleClient BusinessRule { get; private set; }
+
         public void Dispose()
         {
             if (_httpClient != null)
@@ -92,6 +94,7 @@ namespace Picturepark.SDK.V1
             Profile = new ProfileClient(settings, httpClient);
             SchemaTransfer = new SchemaTransferClient(settings, httpClient);
             Channel = new ChannelClient(settings, httpClient);
+            BusinessRule = new BusinessRuleClient(settings, httpClient);
         }
     }
 }

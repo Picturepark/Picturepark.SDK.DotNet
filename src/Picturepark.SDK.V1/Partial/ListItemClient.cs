@@ -15,6 +15,8 @@ namespace Picturepark.SDK.V1
 {
     public partial class ListItemClient
     {
+        public const string RootObjectRequestId = "rootObjectRequestId";
+
         private readonly IBusinessProcessClient _businessProcessClient;
 
         public ListItemClient(IBusinessProcessClient businessProcessClient, IPictureparkServiceSettings settings, HttpClient httpClient)
@@ -24,7 +26,7 @@ namespace Picturepark.SDK.V1
         }
 
         /// <inheritdoc />
-        public async Task<ListItemBatchOperationResult> CreateFromObjectAsync(object content, bool allowMissingDependencies = false, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<ListItemBatchOperationWithRequestIdResult> CreateFromObjectAsync(object content, bool allowMissingDependencies = false, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             var createManyRequest = new ListItemCreateManyRequest
             {
@@ -43,7 +45,8 @@ namespace Picturepark.SDK.V1
             createManyRequest.Items.Add(new ListItemCreateRequest
             {
                 ContentSchemaId = schemaId,
-                Content = content
+                Content = content,
+                RequestId = RootObjectRequestId
             });
 
             var objectResult = await CreateManyAsync(createManyRequest, timeout, cancellationToken).ConfigureAwait(false);
@@ -51,15 +54,15 @@ namespace Picturepark.SDK.V1
         }
 
         /// <inheritdoc />
-        public async Task<ListItemBatchOperationResult> CreateManyAsync(ListItemCreateManyRequest createManyRequest, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<ListItemBatchOperationWithRequestIdResult> CreateManyAsync(ListItemCreateManyRequest createManyRequest, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (!createManyRequest.Items.Any())
             {
-                return ListItemBatchOperationResult.Empty;
+                return ListItemBatchOperationWithRequestIdResult.Empty;
             }
 
             var businessProcess = await CreateManyCoreAsync(createManyRequest, cancellationToken).ConfigureAwait(false);
-            return await WaitForBusinessProcessAndReturnResult(businessProcess.Id, timeout, cancellationToken).ConfigureAwait(false);
+            return await WaitForBusinessProcessAndReturnResultWithRequestId(businessProcess.Id, timeout, cancellationToken).ConfigureAwait(false);
         }
 
         /// <inheritdoc />
@@ -153,6 +156,14 @@ namespace Picturepark.SDK.V1
             return new ListItemBatchOperationResult(this, businessProcessId, result.LifeCycleHit, _businessProcessClient);
         }
 
+        /// <inheritdoc />
+        public async Task<ListItemBatchOperationWithRequestIdResult> WaitForBusinessProcessAndReturnResultWithRequestId(string businessProcessId, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var result = await _businessProcessClient.WaitForCompletionAsync(businessProcessId, timeout, cancellationToken).ConfigureAwait(false);
+
+            return new ListItemBatchOperationWithRequestIdResult(this, businessProcessId, result.LifeCycleHit, _businessProcessClient);
+        }
+
         private bool IsSimpleType(Type type)
         {
             return
@@ -226,22 +237,22 @@ namespace Picturepark.SDK.V1
                         foreach (var value in values)
                         {
                             var refObject = value as IReferenceObject;
-                            if (refObject == null || string.IsNullOrEmpty(refObject.RefId))
+                            if (refObject == null || (string.IsNullOrEmpty(refObject.RefId) && string.IsNullOrEmpty(refObject.RefRequestId)))
                             {
                                 var schemaId = value.GetType().Name;
 
                                 // Add metadata object if it does not already exist
                                 if (referencedListItems.Where(i => i.ContentSchemaId == schemaId).Select(i => i.Content).All(i => i != value))
                                 {
-                                    var listItemId = Guid.NewGuid().ToString("N");
+                                    var listItemRequestId = Guid.NewGuid().ToString("N");
                                     if (refObject != null)
-                                        refObject.RefId = listItemId;
+                                        refObject.RefRequestId = listItemRequestId;
 
                                     referencedListItems.Insert(0, new ListItemCreateRequest
                                     {
                                         ContentSchemaId = schemaId,
                                         Content = value,
-                                        ListItemId = listItemId
+                                        RequestId = listItemRequestId
                                     });
                                 }
                             }
@@ -255,7 +266,7 @@ namespace Picturepark.SDK.V1
                     if (value != null)
                     {
                         var refObject = value as IReferenceObject;
-                        if (refObject == null || string.IsNullOrEmpty(refObject.RefId))
+                        if (refObject == null || (string.IsNullOrEmpty(refObject.RefId) && string.IsNullOrEmpty(refObject.RefRequestId)))
                         {
                             var schemaId = value.GetType().Name;
 
@@ -265,14 +276,14 @@ namespace Picturepark.SDK.V1
                             if (hasValueBeenAdded)
                                 continue;
 
-                            var listItemId = Guid.NewGuid().ToString("N");
+                            var listItemRequestId = Guid.NewGuid().ToString("N");
                             if (refObject != null)
-                                refObject.RefId = listItemId;
+                                refObject.RefRequestId = listItemRequestId;
                             referencedListItems.Insert(0, new ListItemCreateRequest
                             {
                                 ContentSchemaId = schemaId,
                                 Content = value,
-                                ListItemId = listItemId
+                                RequestId = listItemRequestId
                             });
                         }
                     }

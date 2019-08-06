@@ -1,9 +1,10 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using FluentAssertions;
+﻿using FluentAssertions;
 using Picturepark.SDK.V1.Contract;
 using Picturepark.SDK.V1.Tests.Fixtures;
+using Picturepark.SDK.V1.Tests.FluentAssertions;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using Xunit;
 
 namespace Picturepark.SDK.V1.Tests.Clients
@@ -78,6 +79,12 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 var updateRoleFromApi = await _client.UserRole.GetAsync(role.Id).ConfigureAwait(false);
                 updateRoleFromApi.Names.Should().ContainKey("en").And.Subject["en"].Should().Be(UpdatedRoleName);
                 updateRoleFromApi.UserRights.Should().BeEquivalentTo(role.UserRights);
+
+                updateRoleFromApi.Audit.CreatedByUser.Should().BeResolved();
+                updateRoleFromApi.Audit.ModifiedByUser.Should().BeResolved();
+
+                updatedRole.Audit.CreatedByUser.Should().BeResolved();
+                updatedRole.Audit.ModifiedByUser.Should().BeResolved();
             }
             finally
             {
@@ -109,17 +116,91 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 // Assert
                 bulkResponse.Rows.Should().OnlyContain(r => r.Succeeded);
 
-                var updatedRoles = (await _client.UserRole.GetManyAsync(update.Items.Select(u => u.Id)).ConfigureAwait(false)).ToDictionary(u => u.Id);
+                var getManyResult = await _client.UserRole.GetManyAsync(update.Items.Select(u => u.Id)).ConfigureAwait(false);
+                var updatedRoles = getManyResult.ToDictionary(u => u.Id);
 
                 updatedRoles[role1.Id].Names.Should().ContainKey("en").And.Subject["en"].Should().Be(UpdatedRoleName);
                 updatedRoles[role1.Id].UserRights.Should().BeEquivalentTo(role1.UserRights);
 
                 updatedRoles[role2.Id].Names.Should().ContainKey("en").And.Subject["en"].Should().Be(UpdatedRoleName2);
                 updatedRoles[role2.Id].UserRights.Should().BeEquivalentTo(role2.UserRights);
+
+                getManyResult.ToList().ForEach(userRole =>
+                    {
+                        userRole.Audit.CreatedByUser.Should().BeResolved();
+                        userRole.Audit.ModifiedByUser.Should().BeResolved();
+                    }
+                );
             }
             finally
             {
                 await Delete(roles).ConfigureAwait(false);
+            }
+        }
+
+        [Fact]
+        [Trait("Stack", "UserRoles")]
+        public async Task CreateManyShouldReturnRequestIdsWhereSpecified()
+        {
+            // Arrange
+            var createManyRequest = new UserRoleCreateManyRequest
+            {
+                Items = new[]
+                {
+                    new UserRoleCreateRequest
+                    {
+                        Names = new TranslatedStringDictionary
+                        {
+                            { "en", "Group A" }
+                        },
+                        UserRights = new[] { UserRight.ManageAllShares },
+                        RequestId = "A"
+                    },
+                    new UserRoleCreateRequest
+                    {
+                        Names = new TranslatedStringDictionary
+                        {
+                            { "en", "Group B" }
+                        },
+                        UserRights = new[] { UserRight.ManageAllShares }
+                    },
+                    new UserRoleCreateRequest
+                    {
+                        Names = new TranslatedStringDictionary
+                        {
+                            { "en", "Group C" }
+                        },
+                        UserRights = new[] { UserRight.ManageAllShares },
+                        RequestId = "C"
+                    },
+                    new UserRoleCreateRequest
+                    {
+                        Names = new TranslatedStringDictionary
+                        {
+                            { "en", "Group D" }
+                        },
+                        UserRights = new[] { UserRight.ManageAllShares },
+                        RequestId = "D"
+                    }
+                }
+            };
+
+            // Act
+            var result = await _client.UserRole.CreateManyAsync(createManyRequest).ConfigureAwait(false);
+
+            try
+            {
+                // Assert
+                var idToRequestLookup = result.Rows.ToDictionary(r => r.Id, r => r.RequestId);
+                result.Rows.Should().HaveCount(4).And.Subject.Where(r => r.RequestId != null).Should().HaveCount(3);
+
+                var roles = await _client.UserRole.GetManyAsync(idToRequestLookup.Keys).ConfigureAwait(false);
+
+                roles.Should().OnlyContain(ur => ur.Names["en"] == "Group B" || ur.Names["en"] == $"Group {idToRequestLookup[ur.Id]}");
+            }
+            finally
+            {
+                await _client.UserRole.DeleteManyAsync(new UserRoleDeleteManyRequest { Ids = result.Rows.Select(r => r.Id).ToArray() }).ConfigureAwait(false);
             }
         }
 
@@ -141,6 +222,10 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 }),
                 UserRights = new[] { UserRight.ManageTransfer }
             }).ConfigureAwait(false);
+
+            // Asserts
+            role1.Audit.CreatedByUser.Should().BeResolved();
+            role1.Audit.ModifiedByUser.Should().BeResolved();
 
             var role2 = await _client.UserRole.CreateAsync(new UserRoleCreateRequest
             {

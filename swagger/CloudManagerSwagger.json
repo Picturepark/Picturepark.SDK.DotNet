@@ -1,5 +1,5 @@
 ﻿{
-  "x-generator": "NSwag v12.0.9.0 (NJsonSchema v9.13.10.0 (Newtonsoft.Json v11.0.0.0))",
+  "x-generator": "NSwag v13.0.1.0 (NJsonSchema v10.0.19.0 (Newtonsoft.Json v11.0.0.0))",
   "openapi": "3.0.0",
   "info": {
     "title": "Picturepark CloudManager API V1",
@@ -10,12 +10,6 @@
     },
     "version": "1.0"
   },
-  "consumes": [
-    "application/json-patch+json",
-    "application/json",
-    "text/json",
-    "application/*+json"
-  ],
   "paths": {
     "/customer/{customerAlias}/cdn/purge": {
       "post": {
@@ -40,12 +34,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/BusinessProcess"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/BusinessProcess"
                 }
               }
             }
@@ -55,12 +44,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkException"
                 }
               }
             }
@@ -76,12 +60,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkNotFoundException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
                 }
               }
             }
@@ -91,12 +70,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkConflictException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkConflictException"
                 }
               }
             }
@@ -106,12 +80,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkValidationException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkValidationException"
                 }
               }
             }
@@ -151,12 +120,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/SnapshotRepository"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/SnapshotRepository"
                 }
               }
             }
@@ -166,12 +130,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkException"
                 }
               }
             }
@@ -187,12 +146,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkNotFoundException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
                 }
               }
             }
@@ -202,12 +156,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkConflictException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkConflictException"
                 }
               }
             }
@@ -217,12 +166,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkValidationException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkValidationException"
                 }
               }
             }
@@ -262,12 +206,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/SnapshotEnqueueResult"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/SnapshotEnqueueResult"
                 }
               }
             }
@@ -277,12 +216,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkException"
                 }
               }
             }
@@ -298,12 +232,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkNotFoundException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
                 }
               }
             }
@@ -313,12 +242,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkConflictException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkConflictException"
                 }
               }
             }
@@ -328,12 +252,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkValidationException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkValidationException"
                 }
               }
             }
@@ -373,12 +292,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/SnapshotRestore"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/SnapshotRestore"
                 }
               }
             }
@@ -388,12 +302,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkException"
                 }
               }
             }
@@ -409,12 +318,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkNotFoundException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
                 }
               }
             }
@@ -424,12 +328,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkConflictException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkConflictException"
                 }
               }
             }
@@ -439,12 +338,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkValidationException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkValidationException"
                 }
               }
             }
@@ -484,12 +378,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/SnapshotRepository"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/SnapshotRepository"
                 }
               }
             }
@@ -499,12 +388,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkException"
                 }
               }
             }
@@ -520,12 +404,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkNotFoundException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
                 }
               }
             }
@@ -535,12 +414,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkConflictException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkConflictException"
                 }
               }
             }
@@ -550,12 +424,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkValidationException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkValidationException"
                 }
               }
             }
@@ -595,12 +464,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/SnapshotEnqueueResult"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/SnapshotEnqueueResult"
                 }
               }
             }
@@ -610,12 +474,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkException"
                 }
               }
             }
@@ -631,12 +490,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkNotFoundException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
                 }
               }
             }
@@ -646,12 +500,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkConflictException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkConflictException"
                 }
               }
             }
@@ -661,12 +510,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkValidationException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkValidationException"
                 }
               }
             }
@@ -706,12 +550,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/SnapshotRestore"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/SnapshotRestore"
                 }
               }
             }
@@ -721,12 +560,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkException"
                 }
               }
             }
@@ -742,12 +576,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkNotFoundException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
                 }
               }
             }
@@ -757,12 +586,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkConflictException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkConflictException"
                 }
               }
             }
@@ -772,12 +596,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkValidationException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkValidationException"
                 }
               }
             }
@@ -817,12 +636,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/SnapshotCustomerSearchResult"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/SnapshotCustomerSearchResult"
                 }
               }
             }
@@ -832,12 +646,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkException"
                 }
               }
             }
@@ -853,12 +662,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkNotFoundException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
                 }
               }
             }
@@ -868,12 +672,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkConflictException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkConflictException"
                 }
               }
             }
@@ -883,12 +682,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkValidationException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkValidationException"
                 }
               }
             }
@@ -928,12 +722,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/SnapshotRepositorySearchResult"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/SnapshotRepositorySearchResult"
                 }
               }
             }
@@ -943,12 +732,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkException"
                 }
               }
             }
@@ -964,12 +748,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkNotFoundException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
                 }
               }
             }
@@ -979,12 +758,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkConflictException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkConflictException"
                 }
               }
             }
@@ -994,12 +768,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkValidationException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkValidationException"
                 }
               }
             }
@@ -1039,12 +808,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/SnapshotRepositorySearchResult"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/SnapshotRepositorySearchResult"
                 }
               }
             }
@@ -1054,12 +818,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkException"
                 }
               }
             }
@@ -1075,12 +834,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkNotFoundException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
                 }
               }
             }
@@ -1090,12 +844,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkConflictException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkConflictException"
                 }
               }
             }
@@ -1105,12 +854,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkValidationException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkValidationException"
                 }
               }
             }
@@ -1150,12 +894,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/Customer"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/Customer"
                 }
               }
             }
@@ -1165,12 +904,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkException"
                 }
               }
             }
@@ -1186,12 +920,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkNotFoundException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
                 }
               }
             }
@@ -1201,12 +930,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkConflictException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkConflictException"
                 }
               }
             }
@@ -1216,12 +940,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkValidationException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkValidationException"
                 }
               }
             }
@@ -1249,12 +968,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/SnapshotRepositoryCleanupResult"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/SnapshotRepositoryCleanupResult"
                 }
               }
             }
@@ -1264,12 +978,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkException"
                 }
               }
             }
@@ -1285,12 +994,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkNotFoundException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
                 }
               }
             }
@@ -1300,12 +1004,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkConflictException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkConflictException"
                 }
               }
             }
@@ -1315,12 +1014,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkValidationException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkValidationException"
                 }
               }
             }
@@ -1372,12 +1066,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/CustomerExportResult"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/CustomerExportResult"
                 }
               }
             }
@@ -1387,12 +1076,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkValidationException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkValidationException"
                 }
               }
             },
@@ -1426,12 +1110,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkException"
                 }
               }
             }
@@ -1447,12 +1126,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkNotFoundException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
                 }
               }
             }
@@ -1462,12 +1136,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkConflictException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkConflictException"
                 }
               }
             }
@@ -1507,12 +1176,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/Customer"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/Customer"
                 }
               }
             }
@@ -1522,12 +1186,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkException"
                 }
               }
             }
@@ -1543,12 +1202,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkNotFoundException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
                 }
               }
             }
@@ -1558,12 +1212,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkConflictException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkConflictException"
                 }
               }
             }
@@ -1573,12 +1222,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkValidationException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkValidationException"
                 }
               }
             }
@@ -1618,12 +1262,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/SnapshotRepository"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/SnapshotRepository"
                 }
               }
             }
@@ -1633,12 +1272,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkException"
                 }
               }
             }
@@ -1654,12 +1288,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkNotFoundException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
                 }
               }
             }
@@ -1669,12 +1298,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkConflictException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkConflictException"
                 }
               }
             }
@@ -1684,12 +1308,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkValidationException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkValidationException"
                 }
               }
             }
@@ -1729,12 +1348,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/SnapshotRepository"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/SnapshotRepository"
                 }
               }
             }
@@ -1744,12 +1358,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkException"
                 }
               }
             }
@@ -1765,12 +1374,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkNotFoundException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
                 }
               }
             }
@@ -1780,12 +1384,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkConflictException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkConflictException"
                 }
               }
             }
@@ -1795,12 +1394,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkValidationException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkValidationException"
                 }
               }
             }
@@ -1840,12 +1434,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/ContentBackupSearchResult"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/ContentBackupSearchResult"
                 }
               }
             }
@@ -1855,12 +1444,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkException"
                 }
               }
             }
@@ -1876,12 +1460,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkNotFoundException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
                 }
               }
             }
@@ -1891,12 +1470,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkConflictException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkConflictException"
                 }
               }
             }
@@ -1906,12 +1480,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkValidationException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkValidationException"
                 }
               }
             }
@@ -1954,12 +1523,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkException"
                 }
               }
             }
@@ -1975,12 +1539,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkNotFoundException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
                 }
               }
             }
@@ -1990,12 +1549,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkConflictException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkConflictException"
                 }
               }
             }
@@ -2005,12 +1559,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkValidationException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkValidationException"
                 }
               }
             }
@@ -2053,12 +1602,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkException"
                 }
               }
             }
@@ -2074,12 +1618,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkNotFoundException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
                 }
               }
             }
@@ -2089,12 +1628,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkConflictException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkConflictException"
                 }
               }
             }
@@ -2104,12 +1638,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkValidationException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkValidationException"
                 }
               }
             }
@@ -2152,12 +1681,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkException"
                 }
               }
             }
@@ -2173,12 +1697,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkNotFoundException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
                 }
               }
             }
@@ -2188,12 +1707,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkConflictException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkConflictException"
                 }
               }
             }
@@ -2203,12 +1717,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkValidationException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkValidationException"
                 }
               }
             }
@@ -2251,12 +1760,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkException"
                 }
               }
             }
@@ -2272,12 +1776,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkNotFoundException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
                 }
               }
             }
@@ -2287,12 +1786,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkConflictException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkConflictException"
                 }
               }
             }
@@ -2302,12 +1796,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkValidationException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkValidationException"
                 }
               }
             }
@@ -2335,12 +1824,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/CustomerCreateRequest"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/CustomerCreateRequest"
                 }
               }
             }
@@ -2350,12 +1834,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkException"
                 }
               }
             }
@@ -2371,12 +1850,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkNotFoundException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
                 }
               }
             }
@@ -2386,12 +1860,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkConflictException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkConflictException"
                 }
               }
             }
@@ -2401,12 +1870,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkValidationException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkValidationException"
                 }
               }
             }
@@ -2446,12 +1910,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/CustomerConfiguration"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/CustomerConfiguration"
                 }
               }
             }
@@ -2461,12 +1920,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkException"
                 }
               }
             }
@@ -2482,12 +1936,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkNotFoundException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
                 }
               }
             }
@@ -2497,12 +1946,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkConflictException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkConflictException"
                 }
               }
             }
@@ -2512,12 +1956,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkValidationException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkValidationException"
                 }
               }
             }
@@ -2555,12 +1994,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/CustomerConfiguration"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/CustomerConfiguration"
                 }
               }
             }
@@ -2570,12 +2004,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkException"
                 }
               }
             }
@@ -2591,12 +2020,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkNotFoundException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
                 }
               }
             }
@@ -2606,12 +2030,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkConflictException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkConflictException"
                 }
               }
             }
@@ -2621,12 +2040,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkValidationException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkValidationException"
                 }
               }
             }
@@ -2665,12 +2079,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/CustomerConfiguration"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/CustomerConfiguration"
                 }
               }
             }
@@ -2680,12 +2089,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkException"
                 }
               }
             }
@@ -2701,12 +2105,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkNotFoundException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
                 }
               }
             }
@@ -2716,12 +2115,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkConflictException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkConflictException"
                 }
               }
             }
@@ -2731,12 +2125,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkValidationException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkValidationException"
                 }
               }
             }
@@ -2776,12 +2165,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkException"
                 }
               }
             }
@@ -2797,12 +2181,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkNotFoundException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
                 }
               }
             }
@@ -2812,12 +2191,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkConflictException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkConflictException"
                 }
               }
             }
@@ -2827,12 +2201,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkValidationException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkValidationException"
                 }
               }
             }
@@ -2871,12 +2240,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/CustomerSearchResult"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/CustomerSearchResult"
                 }
               }
             }
@@ -2886,12 +2250,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkException"
                 }
               }
             }
@@ -2907,12 +2266,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkNotFoundException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
                 }
               }
             }
@@ -2922,12 +2276,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkConflictException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkConflictException"
                 }
               }
             }
@@ -2937,12 +2286,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkValidationException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkValidationException"
                 }
               }
             }
@@ -2980,12 +2324,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/CustomerSearchResult"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/CustomerSearchResult"
                 }
               }
             }
@@ -2995,12 +2334,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkException"
                 }
               }
             }
@@ -3016,12 +2350,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkNotFoundException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
                 }
               }
             }
@@ -3031,12 +2360,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkConflictException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkConflictException"
                 }
               }
             }
@@ -3046,12 +2370,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkValidationException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkValidationException"
                 }
               }
             }
@@ -3091,7 +2410,6 @@
               "application/json": {
                 "schema": {
                   "type": "array",
-                  "nullable": true,
                   "items": {
                     "$ref": "#/components/schemas/User"
                   }
@@ -3104,12 +2422,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkException"
                 }
               }
             }
@@ -3125,12 +2438,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkNotFoundException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
                 }
               }
             }
@@ -3140,12 +2448,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkConflictException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkConflictException"
                 }
               }
             }
@@ -3155,12 +2458,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkValidationException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkValidationException"
                 }
               }
             }
@@ -3202,12 +2500,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkException"
                 }
               }
             }
@@ -3223,12 +2516,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkNotFoundException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
                 }
               }
             }
@@ -3238,12 +2526,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkConflictException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkConflictException"
                 }
               }
             }
@@ -3253,12 +2536,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkValidationException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkValidationException"
                 }
               }
             }
@@ -3309,12 +2587,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/Index"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/Index"
                 }
               }
             }
@@ -3324,12 +2597,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkException"
                 }
               }
             }
@@ -3345,12 +2613,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkNotFoundException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
                 }
               }
             }
@@ -3360,12 +2623,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkConflictException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkConflictException"
                 }
               }
             }
@@ -3375,12 +2633,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkValidationException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkValidationException"
                 }
               }
             }
@@ -3441,12 +2694,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/EnvironmentProcess"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/EnvironmentProcess"
                 }
               }
             }
@@ -3456,12 +2704,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkException"
                 }
               }
             }
@@ -3477,12 +2720,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkNotFoundException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
                 }
               }
             }
@@ -3492,12 +2730,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkConflictException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkConflictException"
                 }
               }
             }
@@ -3507,12 +2740,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkValidationException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkValidationException"
                 }
               }
             }
@@ -3573,12 +2801,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/EnvironmentProcess"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/EnvironmentProcess"
                 }
               }
             }
@@ -3588,12 +2811,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkException"
                 }
               }
             }
@@ -3609,12 +2827,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkNotFoundException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
                 }
               }
             }
@@ -3624,12 +2837,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkConflictException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkConflictException"
                 }
               }
             }
@@ -3639,12 +2847,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkValidationException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkValidationException"
                 }
               }
             }
@@ -3686,12 +2889,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkException"
                 }
               }
             }
@@ -3707,12 +2905,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkNotFoundException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
                 }
               }
             }
@@ -3722,12 +2915,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkConflictException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkConflictException"
                 }
               }
             }
@@ -3737,12 +2925,95 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkValidationException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/customer/{customerAlias}/metadataLanguagesAvailable": {
+      "get": {
+        "tags": [
+          "Customer"
+        ],
+        "operationId": "Customer_GetAvailableMetadataLanguages",
+        "parameters": [
+          {
+            "name": "customerAlias",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
                 }
               }
             }
@@ -3792,12 +3063,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkException"
                 }
               }
             },
@@ -3842,12 +3108,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkException"
                 }
               }
             }
@@ -3863,12 +3124,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkConflictException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkConflictException"
                 }
               }
             }
@@ -3878,12 +3134,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkValidationException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkValidationException"
                 }
               }
             }
@@ -3934,12 +3185,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkException"
                 }
               }
             },
@@ -3984,12 +3230,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkException"
                 }
               }
             }
@@ -4005,12 +3246,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkConflictException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkConflictException"
                 }
               }
             }
@@ -4020,12 +3256,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkValidationException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkValidationException"
                 }
               }
             }
@@ -4053,12 +3284,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/EnvironmentConfiguration"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/EnvironmentConfiguration"
                 }
               }
             }
@@ -4068,12 +3294,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkException"
                 }
               }
             }
@@ -4089,12 +3310,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkNotFoundException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
                 }
               }
             }
@@ -4104,12 +3320,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkConflictException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkConflictException"
                 }
               }
             }
@@ -4119,12 +3330,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkValidationException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkValidationException"
                 }
               }
             }
@@ -4152,12 +3358,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/VersionInfo"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/VersionInfo"
                 }
               }
             }
@@ -4167,12 +3368,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkException"
                 }
               }
             }
@@ -4188,12 +3384,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkNotFoundException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
                 }
               }
             }
@@ -4203,12 +3394,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkConflictException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkConflictException"
                 }
               }
             }
@@ -4218,12 +3404,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkValidationException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkValidationException"
                 }
               }
             }
@@ -4262,12 +3443,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/EnvironmentProcess"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/EnvironmentProcess"
                 }
               }
             }
@@ -4277,12 +3453,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkException"
                 }
               }
             }
@@ -4298,12 +3469,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkNotFoundException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
                 }
               }
             }
@@ -4313,12 +3479,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkConflictException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkConflictException"
                 }
               }
             }
@@ -4328,12 +3489,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkValidationException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkValidationException"
                 }
               }
             }
@@ -4395,12 +3551,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/EnvironmentProcessWaitResult"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/EnvironmentProcessWaitResult"
                 }
               }
             }
@@ -4410,12 +3561,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkException"
                 }
               }
             }
@@ -4431,12 +3577,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkNotFoundException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
                 }
               }
             }
@@ -4446,12 +3587,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkConflictException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkConflictException"
                 }
               }
             }
@@ -4461,12 +3597,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkValidationException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkValidationException"
                 }
               }
             }
@@ -4508,12 +3639,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkException"
                 }
               }
             }
@@ -4529,12 +3655,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkNotFoundException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
                 }
               }
             }
@@ -4544,12 +3665,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkConflictException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkConflictException"
                 }
               }
             }
@@ -4559,12 +3675,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkValidationException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkValidationException"
                 }
               }
             }
@@ -4606,12 +3717,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkException"
                 }
               }
             }
@@ -4627,12 +3733,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkNotFoundException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
                 }
               }
             }
@@ -4642,12 +3743,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkConflictException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkConflictException"
                 }
               }
             }
@@ -4657,12 +3753,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkValidationException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkValidationException"
                 }
               }
             }
@@ -4702,12 +3793,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/EnvironmentProcessSearchResult"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/EnvironmentProcessSearchResult"
                 }
               }
             }
@@ -4717,12 +3803,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkException"
                 }
               }
             }
@@ -4738,12 +3819,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkNotFoundException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
                 }
               }
             }
@@ -4753,12 +3829,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkConflictException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkConflictException"
                 }
               }
             }
@@ -4768,12 +3839,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkValidationException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkValidationException"
                 }
               }
             }
@@ -4833,12 +3899,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/BusinessProcess"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/BusinessProcess"
                 }
               }
             }
@@ -4848,12 +3909,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkException"
                 }
               }
             }
@@ -4869,12 +3925,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkNotFoundException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
                 }
               }
             }
@@ -4884,12 +3935,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkConflictException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkConflictException"
                 }
               }
             }
@@ -4899,12 +3945,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkValidationException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkValidationException"
                 }
               }
             }
@@ -4965,12 +4006,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkException"
                 }
               }
             }
@@ -4986,12 +4022,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkNotFoundException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
                 }
               }
             }
@@ -5001,12 +4032,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkConflictException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkConflictException"
                 }
               }
             }
@@ -5016,12 +4042,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkValidationException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkValidationException"
                 }
               }
             }
@@ -5052,12 +4073,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkException"
                 }
               }
             }
@@ -5073,12 +4089,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkNotFoundException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
                 }
               }
             }
@@ -5088,12 +4099,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkConflictException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkConflictException"
                 }
               }
             }
@@ -5103,12 +4109,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkValidationException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkValidationException"
                 }
               }
             }
@@ -5139,12 +4140,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkException"
                 }
               }
             }
@@ -5160,12 +4156,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkNotFoundException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
                 }
               }
             }
@@ -5175,12 +4166,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkConflictException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkConflictException"
                 }
               }
             }
@@ -5190,12 +4176,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkValidationException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkValidationException"
                 }
               }
             }
@@ -5226,6 +4207,15 @@
               "type": "string"
             },
             "x-position": 1
+          },
+          {
+            "name": "nodeId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 2
           }
         ],
         "responses": {
@@ -5237,12 +4227,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkException"
                 }
               }
             }
@@ -5258,12 +4243,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkNotFoundException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
                 }
               }
             }
@@ -5273,12 +4253,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkConflictException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkConflictException"
                 }
               }
             }
@@ -5288,12 +4263,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkValidationException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkValidationException"
                 }
               }
             }
@@ -5324,6 +4294,15 @@
               "type": "string"
             },
             "x-position": 1
+          },
+          {
+            "name": "nodeId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 2
           }
         ],
         "responses": {
@@ -5335,12 +4314,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkException"
                 }
               }
             }
@@ -5356,12 +4330,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkNotFoundException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
                 }
               }
             }
@@ -5371,12 +4340,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkConflictException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkConflictException"
                 }
               }
             }
@@ -5386,12 +4350,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkValidationException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkValidationException"
                 }
               }
             }
@@ -5422,12 +4381,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkException"
                 }
               }
             }
@@ -5443,12 +4397,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkNotFoundException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
                 }
               }
             }
@@ -5458,12 +4407,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkConflictException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkConflictException"
                 }
               }
             }
@@ -5473,12 +4417,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkValidationException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkValidationException"
                 }
               }
             }
@@ -5507,7 +4446,6 @@
               "application/json": {
                 "schema": {
                   "type": "array",
-                  "nullable": true,
                   "items": {
                     "$ref": "#/components/schemas/NodeInfo"
                   }
@@ -5520,12 +4458,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkException"
                 }
               }
             }
@@ -5541,12 +4474,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkNotFoundException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
                 }
               }
             }
@@ -5556,12 +4484,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkConflictException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkConflictException"
                 }
               }
             }
@@ -5571,12 +4494,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkValidationException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkValidationException"
                 }
               }
             }
@@ -5619,12 +4537,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkException"
                 }
               }
             }
@@ -5640,12 +4553,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkNotFoundException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
                 }
               }
             }
@@ -5655,12 +4563,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkConflictException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkConflictException"
                 }
               }
             }
@@ -5670,12 +4573,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkValidationException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkValidationException"
                 }
               }
             }
@@ -5706,12 +4604,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkException"
                 }
               }
             }
@@ -5727,12 +4620,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkNotFoundException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
                 }
               }
             }
@@ -5742,12 +4630,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkConflictException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkConflictException"
                 }
               }
             }
@@ -5757,12 +4640,141 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkValidationException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/services/deleteNodeInfos": {
+      "post": {
+        "tags": [
+          "Service"
+        ],
+        "operationId": "Service_DeleteNodeInfos",
+        "responses": {
+          "200": {
+            "description": ""
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/services/invalidateAllCaches": {
+      "post": {
+        "tags": [
+          "Service"
+        ],
+        "operationId": "Service_InvalidateAllCaches",
+        "responses": {
+          "200": {
+            "description": ""
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
                 }
               }
             }
@@ -5812,12 +4824,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkException"
                 }
               }
             }
@@ -5833,12 +4840,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkNotFoundException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
                 }
               }
             }
@@ -5848,12 +4850,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkConflictException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkConflictException"
                 }
               }
             }
@@ -5863,12 +4860,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkValidationException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkValidationException"
                 }
               }
             }
@@ -5910,12 +4902,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkException"
                 }
               }
             },
@@ -5949,12 +4936,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkException"
                 }
               }
             }
@@ -5970,12 +4952,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkConflictException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkConflictException"
                 }
               }
             }
@@ -5985,12 +4962,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkValidationException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkValidationException"
                 }
               }
             }
@@ -6019,7 +4991,6 @@
               "application/json": {
                 "schema": {
                   "type": "array",
-                  "nullable": true,
                   "items": {
                     "$ref": "#/components/schemas/UpdateInfo"
                   }
@@ -6032,12 +5003,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkException"
                 }
               }
             }
@@ -6053,12 +5019,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkNotFoundException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
                 }
               }
             }
@@ -6068,12 +5029,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkConflictException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkConflictException"
                 }
               }
             }
@@ -6083,12 +5039,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkValidationException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkValidationException"
                 }
               }
             }
@@ -6116,12 +5067,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/VersionInfo"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/VersionInfo"
                 }
               }
             }
@@ -6131,12 +5077,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkException"
                 }
               }
             }
@@ -6152,12 +5093,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkNotFoundException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
                 }
               }
             }
@@ -6167,12 +5103,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkConflictException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkConflictException"
                 }
               }
             }
@@ -6182,12 +5113,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkValidationException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkValidationException"
                 }
               }
             }
@@ -6230,12 +5156,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkException"
                 }
               }
             }
@@ -6251,12 +5172,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkNotFoundException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
                 }
               }
             }
@@ -6266,12 +5182,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkConflictException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkConflictException"
                 }
               }
             }
@@ -6281,12 +5192,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkValidationException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkValidationException"
                 }
               }
             }
@@ -6329,12 +5235,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkException"
                 }
               }
             }
@@ -6350,12 +5251,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkNotFoundException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
                 }
               }
             }
@@ -6365,12 +5261,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkConflictException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkConflictException"
                 }
               }
             }
@@ -6380,12 +5271,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkValidationException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkValidationException"
                 }
               }
             }
@@ -6425,12 +5311,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/EnvironmentProcess"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/EnvironmentProcess"
                 }
               }
             }
@@ -6440,12 +5321,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkException"
                 }
               }
             }
@@ -6461,12 +5337,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkNotFoundException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
                 }
               }
             }
@@ -6476,12 +5347,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkConflictException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkConflictException"
                 }
               }
             }
@@ -6491,12 +5357,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkValidationException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkValidationException"
                 }
               }
             }
@@ -6536,7 +5397,6 @@
               "application/json": {
                 "schema": {
                   "type": "array",
-                  "nullable": true,
                   "items": {
                     "$ref": "#/components/schemas/UpdateInfo"
                   }
@@ -6549,12 +5409,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkException"
                 }
               }
             }
@@ -6570,12 +5425,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkNotFoundException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
                 }
               }
             }
@@ -6585,12 +5435,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkConflictException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkConflictException"
                 }
               }
             }
@@ -6600,12 +5445,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkValidationException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkValidationException"
                 }
               }
             }
@@ -6634,7 +5474,6 @@
               "application/json": {
                 "schema": {
                   "type": "array",
-                  "nullable": true,
                   "items": {
                     "$ref": "#/components/schemas/CustomerVersionInfo"
                   }
@@ -6647,12 +5486,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkException"
                 }
               }
             }
@@ -6668,12 +5502,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkNotFoundException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
                 }
               }
             }
@@ -6683,12 +5512,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkConflictException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkConflictException"
                 }
               }
             }
@@ -6698,12 +5522,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkValidationException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkValidationException"
                 }
               }
             }
@@ -6742,12 +5561,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/CustomerVersionInfo"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/CustomerVersionInfo"
                 }
               }
             }
@@ -6757,12 +5571,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkException"
                 }
               }
             }
@@ -6778,12 +5587,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkNotFoundException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
                 }
               }
             }
@@ -6793,12 +5597,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkConflictException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkConflictException"
                 }
               }
             }
@@ -6808,12 +5607,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkValidationException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkValidationException"
                 }
               }
             }
@@ -6859,12 +5653,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkException"
                 }
               }
             }
@@ -6880,12 +5669,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkNotFoundException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
                 }
               }
             }
@@ -6895,12 +5679,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkConflictException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkConflictException"
                 }
               }
             }
@@ -6910,12 +5689,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkValidationException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkValidationException"
                 }
               }
             }
@@ -6961,12 +5735,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkException"
                 }
               }
             }
@@ -6982,12 +5751,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkNotFoundException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
                 }
               }
             }
@@ -6997,12 +5761,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkConflictException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkConflictException"
                 }
               }
             }
@@ -7012,12 +5771,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkValidationException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkValidationException"
                 }
               }
             }
@@ -7061,7 +5815,6 @@
               "application/json": {
                 "schema": {
                   "type": "array",
-                  "nullable": true,
                   "items": {
                     "$ref": "#/components/schemas/EnvironmentProcess"
                   }
@@ -7074,12 +5827,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkException"
                 }
               }
             }
@@ -7095,12 +5843,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkNotFoundException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
                 }
               }
             }
@@ -7110,12 +5853,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkConflictException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkConflictException"
                 }
               }
             }
@@ -7125,12 +5863,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkValidationException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkValidationException"
                 }
               }
             }
@@ -7188,12 +5921,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkException"
                 }
               }
             }
@@ -7209,12 +5937,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkNotFoundException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
                 }
               }
             }
@@ -7224,12 +5947,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkConflictException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkConflictException"
                 }
               }
             }
@@ -7239,12 +5957,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkValidationException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkValidationException"
                 }
               }
             }
@@ -7295,12 +6008,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/UserDeveloperFlagUpdateRequest"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/UserDeveloperFlagUpdateRequest"
                 }
               }
             }
@@ -7310,12 +6018,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkException"
                 }
               }
             }
@@ -7331,12 +6034,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkNotFoundException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
                 }
               }
             }
@@ -7346,12 +6044,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkConflictException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkConflictException"
                 }
               }
             }
@@ -7361,12 +6054,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkValidationException"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/PictureparkValidationException"
                 }
               }
             }
@@ -7593,6 +6281,7 @@
                 "PictureparkNotFoundException": "#/components/schemas/PictureparkNotFoundException",
                 "UserRolesNotFoundException": "#/components/schemas/UserRolesNotFoundException",
                 "UnauthorizedException": "#/components/schemas/UnauthorizedException",
+                "UserUnlockDisallowedException": "#/components/schemas/UserUnlockDisallowedException",
                 "RenderingException": "#/components/schemas/RenderingException",
                 "ServiceProviderDeleteException": "#/components/schemas/ServiceProviderDeleteException",
                 "ServiceProviderCreateException": "#/components/schemas/ServiceProviderCreateException",
@@ -7757,6 +6446,7 @@
                 "SystemLayerReferenceInvalidModificationException": "#/components/schemas/SystemLayerReferenceInvalidModificationException",
                 "SchemaFieldAnalyzerInvalidException": "#/components/schemas/SchemaFieldAnalyzerInvalidException",
                 "SchemaFieldRelationMultipleTypesException": "#/components/schemas/SchemaFieldRelationMultipleTypesException",
+                "SchemaFieldNotRequirableException": "#/components/schemas/SchemaFieldNotRequirableException",
                 "DeleteContentsWithReferencesException": "#/components/schemas/DeleteContentsWithReferencesException",
                 "ContentMetadataUpdateManyException": "#/components/schemas/ContentMetadataUpdateManyException",
                 "ContentNotFoundException": "#/components/schemas/ContentNotFoundException",
@@ -7772,6 +6462,7 @@
                 "SchemaFieldImportRelatedSchemaMismatchException": "#/components/schemas/SchemaFieldImportRelatedSchemaMismatchException",
                 "SchemaFieldImportTypeMismatchException": "#/components/schemas/SchemaFieldImportTypeMismatchException",
                 "SchemaFieldNotSupportedException": "#/components/schemas/SchemaFieldNotSupportedException",
+                "SchemaFieldDisplayPatternTypeNotSupportedException": "#/components/schemas/SchemaFieldDisplayPatternTypeNotSupportedException",
                 "SnapshotTimeoutException": "#/components/schemas/SnapshotTimeoutException",
                 "SnapshotFailedException": "#/components/schemas/SnapshotFailedException",
                 "SnapshotSkippedException": "#/components/schemas/SnapshotSkippedException",
@@ -7788,7 +6479,26 @@
                 "OnlyAccessibleToRecipientException": "#/components/schemas/OnlyAccessibleToRecipientException",
                 "EnvironmentNotAvailableException": "#/components/schemas/EnvironmentNotAvailableException",
                 "CustomerNotAvailableException": "#/components/schemas/CustomerNotAvailableException",
-                "CustomerAliasHeaderMissingException": "#/components/schemas/CustomerAliasHeaderMissingException"
+                "CustomerAliasHeaderMissingException": "#/components/schemas/CustomerAliasHeaderMissingException",
+                "BusinessRuleActionInvalidDocumentTypeException": "#/components/schemas/BusinessRuleActionInvalidDocumentTypeException",
+                "BusinessRuleActionInvalidExecutionScopeException": "#/components/schemas/BusinessRuleActionInvalidExecutionScopeException",
+                "BusinessRuleActionsMissingException": "#/components/schemas/BusinessRuleActionsMissingException",
+                "BusinessRuleConditionMissingException": "#/components/schemas/BusinessRuleConditionMissingException",
+                "BusinessRuleConditionsMissingException": "#/components/schemas/BusinessRuleConditionsMissingException",
+                "BusinessRuleConfigurationValidationException": "#/components/schemas/BusinessRuleConfigurationValidationException",
+                "BusinessRuleSchemaIdInvalidException": "#/components/schemas/BusinessRuleSchemaIdInvalidException",
+                "BusinessRulePermissionSetIdInvalidException": "#/components/schemas/BusinessRulePermissionSetIdInvalidException",
+                "BusinessRuleRuleIdDuplicationException": "#/components/schemas/BusinessRuleRuleIdDuplicationException",
+                "BusinessRuleRuleIdMissingException": "#/components/schemas/BusinessRuleRuleIdMissingException",
+                "BusinessRuleTriggerPointMissingException": "#/components/schemas/BusinessRuleTriggerPointMissingException",
+                "BusinessRuleValidationException": "#/components/schemas/BusinessRuleValidationException",
+                "BusinessRuleConditionInvalidTriggerPointDocumentTypeException": "#/components/schemas/BusinessRuleConditionInvalidTriggerPointDocumentTypeException",
+                "BusinessRuleRegularExpressionInvalidException": "#/components/schemas/BusinessRuleRegularExpressionInvalidException",
+                "BusinessRuleConditionInvalidTriggerPointActionException": "#/components/schemas/BusinessRuleConditionInvalidTriggerPointActionException",
+                "BusinessRuleRefIdsMissingException": "#/components/schemas/BusinessRuleRefIdsMissingException",
+                "BusinessRulePathInvalidException": "#/components/schemas/BusinessRulePathInvalidException",
+                "BusinessRuleFieldIdInvalidException": "#/components/schemas/BusinessRuleFieldIdInvalidException",
+                "BusinessRuleContentPermissionSetIdsMissingException": "#/components/schemas/BusinessRuleContentPermissionSetIdsMissingException"
               }
             },
             "additionalProperties": false,
@@ -8080,6 +6790,17 @@
         "allOf": [
           {
             "$ref": "#/components/schemas/PictureparkBusinessException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "UserUnlockDisallowedException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
           },
           {
             "type": "object",
@@ -8742,13 +7463,7 @@
           },
           {
             "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "exceptionDetail": {
-                "type": "string",
-                "nullable": true
-              }
-            }
+            "additionalProperties": false
           }
         ]
       },
@@ -10454,14 +9169,17 @@
             "properties": {
               "referenceItemId": {
                 "type": "string",
+                "description": "This is the source of the reference.",
                 "nullable": true
               },
               "referenceType": {
                 "type": "string",
+                "description": "This is the DocType of the source of the reference.",
                 "nullable": true
               },
               "exceptions": {
                 "type": "array",
+                "description": "These exceptions describe why the source metadata item could not be updated.",
                 "nullable": true,
                 "items": {
                   "$ref": "#/components/schemas/PictureparkException"
@@ -11649,6 +10367,27 @@
           }
         ]
       },
+      "SchemaFieldNotRequirableException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "fieldId": {
+                "type": "string",
+                "nullable": true
+              },
+              "schemaId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
       "DeleteContentsWithReferencesException": {
         "allOf": [
           {
@@ -12066,6 +10805,36 @@
           }
         ]
       },
+      "SchemaFieldDisplayPatternTypeNotSupportedException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "displayPatternType"
+            ],
+            "properties": {
+              "fieldId": {
+                "type": "string",
+                "nullable": true
+              },
+              "displayPatternType": {
+                "$ref": "#/components/schemas/DisplayPatternType"
+              },
+              "supportedDisplayPatternTypes": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/DisplayPatternType"
+                }
+              }
+            }
+          }
+        ]
+      },
       "SnapshotTimeoutException": {
         "allOf": [
           {
@@ -12347,6 +11116,339 @@
           }
         ]
       },
+      "BusinessRuleActionInvalidDocumentTypeException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "allowedDocumentTypes": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/BusinessRuleTriggerDocType"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "BusinessRuleTriggerDocType": {
+        "type": "string",
+        "description": "",
+        "x-enumNames": [
+          "Content"
+        ],
+        "enum": [
+          "Content"
+        ]
+      },
+      "BusinessRuleActionInvalidExecutionScopeException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "allowedScopes": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/BusinessRuleExecutionScope"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "BusinessRuleExecutionScope": {
+        "type": "string",
+        "description": "",
+        "x-enumNames": [
+          "MainDoc",
+          "SearchDoc"
+        ],
+        "enum": [
+          "MainDoc",
+          "SearchDoc"
+        ]
+      },
+      "BusinessRuleActionsMissingException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "BusinessRuleConditionMissingException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "BusinessRuleConditionsMissingException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "BusinessRuleConfigurationValidationException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "innerExceptions": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "BusinessRuleSchemaIdInvalidException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "schemaId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "BusinessRulePermissionSetIdInvalidException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "permissionSetId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "BusinessRuleRuleIdDuplicationException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "BusinessRuleRuleIdMissingException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "BusinessRuleTriggerPointMissingException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "BusinessRuleValidationException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "ruleId": {
+                "type": "string",
+                "nullable": true
+              },
+              "innerExceptions": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "BusinessRuleConditionInvalidTriggerPointDocumentTypeException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "allowedDocumentTypes": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/BusinessRuleTriggerDocType"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "BusinessRuleRegularExpressionInvalidException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "regex": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "BusinessRuleConditionInvalidTriggerPointActionException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "allowedActions": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/BusinessRuleTriggerAction"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "BusinessRuleTriggerAction": {
+        "type": "string",
+        "description": "",
+        "x-enumNames": [
+          "Create",
+          "Update",
+          "FileReplacement"
+        ],
+        "enum": [
+          "Create",
+          "Update",
+          "FileReplacement"
+        ]
+      },
+      "BusinessRuleRefIdsMissingException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "BusinessRulePathInvalidException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "path": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "BusinessRuleFieldIdInvalidException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "fieldId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "BusinessRuleContentPermissionSetIdsMissingException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
       "SnapshotRepository": {
         "type": "object",
         "additionalProperties": false,
@@ -12379,11 +11481,11 @@
         "type": "string",
         "description": "",
         "x-enumNames": [
-          "Enviroment",
+          "Environment",
           "Customer"
         ],
         "enum": [
-          "Enviroment",
+          "Environment",
           "Customer"
         ]
       },
@@ -14852,6 +13954,10 @@
             "type": "string",
             "nullable": true
           },
+          "businessRuleCatalog": {
+            "type": "string",
+            "nullable": true
+          },
           "watermarkPath": {
             "type": "string",
             "nullable": true
@@ -15925,7 +15031,8 @@
           "Channel",
           "Reference",
           "DocumentHistorySteady",
-          "Statistics"
+          "Statistics",
+          "BusinessRule"
         ],
         "enum": [
           "Configuration",
@@ -15951,7 +15058,8 @@
           "Channel",
           "Reference",
           "DocumentHistorySteady",
-          "Statistics"
+          "Statistics",
+          "BusinessRule"
         ]
       },
       "IndexState": {
@@ -16912,5 +16020,10 @@
         }
       }
     }
-  }
+  },
+  "security": [
+    {
+      "Bearer": []
+    }
+  ]
 }

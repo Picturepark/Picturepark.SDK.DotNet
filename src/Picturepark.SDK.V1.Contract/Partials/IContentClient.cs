@@ -39,7 +39,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <returns>The <see cref="ContentBatchOperationResult"/>.</returns>
-        Task<ContentBatchOperationResult> CreateManyAsync(ContentCreateManyRequest contentCreateManyRequest, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<ContentBatchOperationWithRequestIdResult> CreateManyAsync(ContentCreateManyRequest contentCreateManyRequest, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>Update metadata - many</summary>
         /// <param name="updateRequest">The metadata update requests.</param>
@@ -110,5 +110,14 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The <see cref="ContentBatchOperationResult"/>.</returns>
         Task<ContentBatchOperationResult> WaitForBusinessProcessAndReturnResult(string businessProcessId, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Waits for a business process and returns a <see cref="ContentBatchOperationWithRequestIdResult"/>.
+        /// </summary>
+        /// <param name="businessProcessId">The business process id.</param>
+        /// <param name="timeout">The timeout to wait on the business process.</param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>The <see cref="ContentBatchOperationWithRequestIdResult"/>.</returns>
+        Task<ContentBatchOperationWithRequestIdResult> WaitForBusinessProcessAndReturnResultWithRequestId(string businessProcessId, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

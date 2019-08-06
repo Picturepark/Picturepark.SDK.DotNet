@@ -1,19 +1,18 @@
 ﻿{
   "runtime": "Default",
   "defaultVariables": null,
-  "swaggerGenerator": {
-    "fromSwagger": {
+  "documentGenerator": {
+    "fromDocument": {
       "url": "../../swagger/PictureparkSwagger.json",
       "output": null
     }
   },
   "codeGenerators": {
-    "swaggerToCSharpClient": {
+    "openApiToCSharpClient": {
       "clientBaseClass": "ClientBase",
       "configurationClass": "Picturepark.SDK.V1.Contract.IPictureparkServiceSettings",
       "generateClientClasses": true,
       "generateClientInterfaces": true,
-      "generateDtoTypes": true,
       "injectHttpClient": true,
       "disposeHttpClient": true,
       "protectedMethods": [
@@ -77,6 +76,7 @@
       "requiredPropertiesMustBeDefined": true,
       "dateType": "System.DateTime",
       "jsonConverters": null,
+      "anyType": "object",
       "dateTimeType": "System.DateTime",
       "timeType": "System.TimeSpan",
       "timeSpanType": "System.TimeSpan",
@@ -90,10 +90,16 @@
       "generateDefaultValues": true,
       "generateDataAnnotations": true,
       "excludedTypeNames": [],
+      "excludedParameterNames": [],
       "handleReferences": false,
       "generateImmutableArrayProperties": false,
       "generateImmutableDictionaryProperties": false,
       "jsonSerializerSettingsTransformationMethod": null,
+      "inlineNamedArrays": false,
+      "inlineNamedDictionaries": false,
+      "inlineNamedTuples": true,
+      "inlineNamedAny": false,
+      "generateDtoTypes": true,
       "templateDirectory": null,
       "typeNameGeneratorType": null,
       "propertyNameGeneratorType": null,

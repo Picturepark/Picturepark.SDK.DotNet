@@ -317,5 +317,29 @@ namespace Picturepark.SDK.V1.Tests.Conversion
 
             public State State { get; set; }
         }
+
+        [Fact]
+        [Trait("Stack", "SchemaCreation")]
+        public async Task ShouldGenerateTriggerField()
+        {
+            var schemas = await _client.Schema.GenerateSchemasAsync(typeof(ListWithTrigger)).ConfigureAwait(false);
+            schemas.Should().HaveCount(1);
+
+            var schema = schemas.Single();
+            schema.Fields.Should().HaveCount(1);
+
+            var triggerField = schema.Fields.Single();
+            triggerField.Should().BeOfType<FieldTrigger>();
+            triggerField.Index.Should().BeFalse();
+            triggerField.SimpleSearch.Should().BeTrue();
+            ((FieldTrigger)triggerField).Boost.Should().Be(1.3);
+        }
+
+        [PictureparkSchema(SchemaType.List)]
+        public class ListWithTrigger
+        {
+            [PictureparkSearch(Boost = 1.3, Index = false, SimpleSearch = true)]
+            public TriggerObject Trigger { get; set; }
+        }
     }
 }
