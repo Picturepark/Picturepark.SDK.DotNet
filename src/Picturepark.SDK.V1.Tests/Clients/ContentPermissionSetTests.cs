@@ -1,11 +1,12 @@
-﻿using System;
+﻿using FluentAssertions;
+using Picturepark.SDK.V1.Contract;
+using Picturepark.SDK.V1.Tests.Fixtures;
+using Picturepark.SDK.V1.Tests.FluentAssertions;
+using System;
 using System.Linq;
 using System.Runtime.CompilerServices;
-using Picturepark.SDK.V1.Contract;
 using System.Threading.Tasks;
-using FluentAssertions;
 using Xunit;
-using Picturepark.SDK.V1.Tests.Fixtures;
 
 namespace Picturepark.SDK.V1.Tests.Clients
 {
@@ -22,7 +23,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
         [Fact]
         [Trait("Stack", "ContentPermissionSets")]
-        public async Task Should_get_schema_permission_set()
+        public async Task Should_get_content_permission_set()
         {
             // Arrange
             var permissionSet = await _fixture.CreatePermissionSet().ConfigureAwait(false);
@@ -33,11 +34,14 @@ namespace Picturepark.SDK.V1.Tests.Clients
             // Assert
             result.Should().NotBeNull();
             result.Id.Should().Be(permissionSet.Id);
+
+            result.Audit.CreatedByUser.Should().BeResolved();
+            result.Audit.ModifiedByUser.Should().BeResolved();
         }
 
         [Fact]
         [Trait("Stack", "ContentPermissionSets")]
-        public async Task Should_update_schema_permission_set()
+        public async Task Should_update_content_permission_set()
         {
             // Arrange
             var permissionSet = await _fixture.CreatePermissionSet().ConfigureAwait(false);
@@ -60,6 +64,9 @@ namespace Picturepark.SDK.V1.Tests.Clients
             result.Should().NotBeNull();
             result.UserRolesRights.Should().HaveCount(1)
                 .And.Subject.First().UserRoleId.Should().Be(userRoleId);
+
+            result.Audit.CreatedByUser.Should().BeResolved();
+            result.Audit.ModifiedByUser.Should().BeResolved();
 
             var verifyPermissionSet = await _client.ContentPermissionSet.GetAsync(permissionSet.Id).ConfigureAwait(false);
 
@@ -85,7 +92,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
         [Fact]
         [Trait("Stack", "ContentPermissionSets")]
-        public async Task Should_delete_multiple_schema_permission_sets()
+        public async Task Should_delete_multiple_content_permission_sets()
         {
             // Arrange
             var permissionSets = await _fixture.CreatePermissionSets(5).ConfigureAwait(false);
@@ -105,6 +112,13 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             var verifyPermissionSets = await _client.ContentPermissionSet.GetManyAsync(shouldStayIds).ConfigureAwait(false);
             verifyPermissionSets.Select(s => s.Id).Should().BeEquivalentTo(shouldStayIds);
+
+            verifyPermissionSets.ToList().ForEach(contentPermissionSet =>
+                {
+                    contentPermissionSet.Audit.CreatedByUser.Should().BeResolved();
+                    contentPermissionSet.Audit.ModifiedByUser.Should().BeResolved();
+                }
+            );
         }
 
         [Fact]
@@ -136,7 +150,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
         [Fact]
         [Trait("Stack", "ContentPermissionSets")]
-        public async Task Should_search_schema_permission_sets()
+        public async Task Should_search_content_permission_sets()
         {
             // Arrange
             var request = new PermissionSetSearchRequest { Limit = 20 };
@@ -146,6 +160,28 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             // Assert
             result.Results.Should().NotBeEmpty();
+        }
+
+        [Fact]
+        [Trait("Stack", "ContentPermissionSets")]
+        public async Task ShouldCreateSingleContentPermissionSet()
+        {
+            // Arrange
+            var request = new ContentPermissionSetCreateRequest
+            {
+                Names = new TranslatedStringDictionary
+                    {
+                        { "en", $"Content_ps_test_{Guid.NewGuid():N}" }
+                    }
+            };
+
+            // Act
+            var result = await _client.ContentPermissionSet.CreateAsync(request).ConfigureAwait(false);
+
+            // Assert
+            result.Should().NotBeNull();
+            result.Audit.CreatedByUser.Should().BeResolved();
+            result.Audit.ModifiedByUser.Should().BeResolved();
         }
 
         private async Task<UserRole> CreateUserRole(UserRight userRight, [CallerMemberName] string testName = null)

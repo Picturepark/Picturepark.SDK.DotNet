@@ -1,4 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="..\common.props" />
+
   <PropertyGroup>
     <Description>Picturepark .NET SDK: The client implementations to access the Picturepark backend.</Description>
     <AssemblyTitle>Picturepark.SDK.V1</AssemblyTitle>
