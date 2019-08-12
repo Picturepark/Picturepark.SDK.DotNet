@@ -1,16 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Xunit;
-using System.IO;
-using System.Net.Http;
-using FluentAssertions;
-using Picturepark.SDK.V1.Contract;
-using Picturepark.SDK.V1.Tests.Fixtures;
+﻿using FluentAssertions;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using Picturepark.SDK.V1.Contract;
 using Picturepark.SDK.V1.Tests.Contracts;
+using Picturepark.SDK.V1.Tests.Fixtures;
+using Picturepark.SDK.V1.Tests.FluentAssertions;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Net.Http;
+using System.Threading.Tasks;
+using Xunit;
 
 namespace Picturepark.SDK.V1.Tests.Clients
 {
@@ -72,6 +73,13 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             contents.Should().NotContainNulls(i => i.Owner);
             contents.Should().NotContainNulls(i => i.ContentRights);
+
+            contents.ToList().ForEach(content =>
+                {
+                    content.Audit.CreatedByUser.Should().BeResolved();
+                    content.Audit.ModifiedByUser.Should().BeResolved();
+                }
+            );
         }
 
         [Fact]
@@ -296,6 +304,9 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             // Assert
             Assert.NotNull(result);
+
+            result.Audit.CreatedByUser.Should().BeResolved();
+            result.Audit.ModifiedByUser.Should().BeResolved();
         }
 
         [Fact]
@@ -472,6 +483,9 @@ namespace Picturepark.SDK.V1.Tests.Clients
             // Assert
             Assert.NotNull(response);
             Assert.Equal(expectedName, response.Metadata.Get(nameof(SimpleLayer).ToLowerCamelCase())["name"]);
+
+            response.Audit.CreatedByUser.Should().BeResolved();
+            response.Audit.ModifiedByUser.Should().BeResolved();
         }
 
         [Fact]
@@ -1040,6 +1054,9 @@ namespace Picturepark.SDK.V1.Tests.Clients
             result.Owner.Should().NotBeNull();
             result.ContentRights.Should().NotBeNull();
             result.ContentRights.Should().NotBeEmpty();
+
+            result.Audit.CreatedByUser.Should().BeResolved();
+            result.Audit.ModifiedByUser.Should().BeResolved();
         }
 
         [Fact]
@@ -1312,7 +1329,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             };
 
             // Act
-            await _client.Content.UpdatePermissionsAsync(contentDetail.Id, request).ConfigureAwait(false);
+            var result = await _client.Content.UpdatePermissionsAsync(contentDetail.Id, request).ConfigureAwait(false);
 
             var currentContentDetail = await _client.Content.GetAsync(contentId).ConfigureAwait(false);
             var currentContentPermissionSetIds = currentContentDetail.ContentPermissionSetIds.Select(i => i).ToList();
@@ -1320,6 +1337,9 @@ namespace Picturepark.SDK.V1.Tests.Clients
             // Assert
             Assert.True(!contentPermissionSetIds.Except(currentContentPermissionSetIds).Any());
             Assert.True(!currentContentPermissionSetIds.Except(contentPermissionSetIds).Any());
+
+            result.Audit.CreatedByUser.Should().BeResolved();
+            result.Audit.ModifiedByUser.Should().BeResolved();
         }
 
         [Fact]

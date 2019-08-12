@@ -6498,7 +6498,9 @@
                 "BusinessRuleRefIdsMissingException": "#/components/schemas/BusinessRuleRefIdsMissingException",
                 "BusinessRulePathInvalidException": "#/components/schemas/BusinessRulePathInvalidException",
                 "BusinessRuleFieldIdInvalidException": "#/components/schemas/BusinessRuleFieldIdInvalidException",
-                "BusinessRuleContentPermissionSetIdsMissingException": "#/components/schemas/BusinessRuleContentPermissionSetIdsMissingException"
+                "BusinessRuleContentPermissionSetIdsMissingException": "#/components/schemas/BusinessRuleContentPermissionSetIdsMissingException",
+                "BusinessRuleFieldPathInvalidException": "#/components/schemas/BusinessRuleFieldPathInvalidException",
+                "BusinessRulePolygonInvalidException": "#/components/schemas/BusinessRulePolygonInvalidException"
               }
             },
             "additionalProperties": false,
@@ -11439,6 +11441,34 @@
         ]
       },
       "BusinessRuleContentPermissionSetIdsMissingException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "BusinessRuleFieldPathInvalidException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "fieldPath": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "BusinessRulePolygonInvalidException": {
         "allOf": [
           {
             "$ref": "#/components/schemas/PictureparkValidationException"

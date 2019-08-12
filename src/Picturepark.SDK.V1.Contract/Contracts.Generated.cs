@@ -2284,6 +2284,8 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("BusinessRulePathInvalidException", typeof(BusinessRulePathInvalidException))]
     [JsonInheritanceAttribute("BusinessRuleFieldIdInvalidException", typeof(BusinessRuleFieldIdInvalidException))]
     [JsonInheritanceAttribute("BusinessRuleContentPermissionSetIdsMissingException", typeof(BusinessRuleContentPermissionSetIdsMissingException))]
+    [JsonInheritanceAttribute("BusinessRuleFieldPathInvalidException", typeof(BusinessRuleFieldPathInvalidException))]
+    [JsonInheritanceAttribute("BusinessRulePolygonInvalidException", typeof(BusinessRulePolygonInvalidException))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
     [Newtonsoft.Json.JsonObjectAttribute]
     public partial class PictureparkException : System.Exception
@@ -7547,6 +7549,41 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class BusinessRuleFieldPathInvalidException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("fieldPath", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string FieldPath { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static BusinessRuleFieldPathInvalidException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessRuleFieldPathInvalidException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class BusinessRulePolygonInvalidException : PictureparkValidationException
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static BusinessRulePolygonInvalidException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessRulePolygonInvalidException>(data);
+        }
+    
+    }
+    
     /// <summary>Search request to search for business processes</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class BusinessProcessSearchRequest 
@@ -8684,6 +8721,10 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("TagboxItemAssignedCondition", typeof(TagboxItemAssignedCondition))]
     [JsonInheritanceAttribute("TagboxItemUnassignedCondition", typeof(TagboxItemUnassignedCondition))]
     [JsonInheritanceAttribute("ContentSchemaCondition", typeof(ContentSchemaCondition))]
+    [JsonInheritanceAttribute("NumberCompareCondition", typeof(NumberCompareCondition))]
+    [JsonInheritanceAttribute("ContentRelationItemAssignedCondition", typeof(ContentRelationItemAssignedCondition))]
+    [JsonInheritanceAttribute("ContentRelationItemUnassignedCondition", typeof(ContentRelationItemUnassignedCondition))]
+    [JsonInheritanceAttribute("GeoPointWithinPolygonCondition", typeof(GeoPointWithinPolygonCondition))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
     public abstract partial class BusinessRuleCondition 
     {
@@ -8943,6 +8984,152 @@ namespace Picturepark.SDK.V1.Contract
         public static ContentSchemaCondition FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentSchemaCondition>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class NumberCompareCondition : BusinessRuleCondition
+    {
+        /// <summary>JSON path to the field.</summary>
+        [Newtonsoft.Json.JsonProperty("fieldPath", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string FieldPath { get; set; }
+    
+        /// <summary>Mode to use for comparison.</summary>
+        [Newtonsoft.Json.JsonProperty("mode", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public BusinessRuleNumberCompareConditionMode Mode { get; set; }
+    
+        /// <summary>Value to compare to.</summary>
+        [Newtonsoft.Json.JsonProperty("value", Required = Newtonsoft.Json.Required.Always)]
+        public double Value { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static NumberCompareCondition FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<NumberCompareCondition>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
+    public enum BusinessRuleNumberCompareConditionMode
+    {
+        [System.Runtime.Serialization.EnumMember(Value = @"LessThan")]
+        LessThan = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"LessThanEqual")]
+        LessThanEqual = 1,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Equal")]
+        Equal = 2,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"GreaterThanEqual")]
+        GreaterThanEqual = 3,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"GreaterThan")]
+        GreaterThan = 4,
+    
+    }
+    
+    /// <summary>Matches when a relationship entry in a relationship field matching the field path string (JSON path) is newly assigned.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class ContentRelationItemAssignedCondition : BusinessRuleCondition
+    {
+        /// <summary>Content id that should be matched against.</summary>
+        [Newtonsoft.Json.JsonProperty("contentId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ContentId { get; set; }
+    
+        /// <summary>JSON path to the field</summary>
+        [Newtonsoft.Json.JsonProperty("fieldPath", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string FieldPath { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static ContentRelationItemAssignedCondition FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentRelationItemAssignedCondition>(data);
+        }
+    
+    }
+    
+    /// <summary>Matches when a relationship entry in a relationship field matching the field path string (JSON path) is removed.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class ContentRelationItemUnassignedCondition : BusinessRuleCondition
+    {
+        /// <summary>Content id that should be matched against.</summary>
+        [Newtonsoft.Json.JsonProperty("contentId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ContentId { get; set; }
+    
+        /// <summary>JSON path to the field</summary>
+        [Newtonsoft.Json.JsonProperty("fieldPath", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string FieldPath { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static ContentRelationItemUnassignedCondition FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentRelationItemUnassignedCondition>(data);
+        }
+    
+    }
+    
+    /// <summary>Matches when the geo point from the field specified by the field path is inside the specified polygon.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class GeoPointWithinPolygonCondition : BusinessRuleCondition
+    {
+        /// <summary>JSON path to the field</summary>
+        [Newtonsoft.Json.JsonProperty("fieldPath", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string FieldPath { get; set; }
+    
+        /// <summary>List of points that form the polygon for the geo fence.
+        /// Must include at least 3 points.</summary>
+        [Newtonsoft.Json.JsonProperty("polygon", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<LatLon> Polygon { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static GeoPointWithinPolygonCondition FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<GeoPointWithinPolygonCondition>(data);
+        }
+    
+    }
+    
+    /// <summary>Stores a coordinate</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class LatLon 
+    {
+        /// <summary>Latitude</summary>
+        [Newtonsoft.Json.JsonProperty("lat", Required = Newtonsoft.Json.Required.Always)]
+        public double Lat { get; set; }
+    
+        /// <summary>Longitude</summary>
+        [Newtonsoft.Json.JsonProperty("lon", Required = Newtonsoft.Json.Required.Always)]
+        public double Lon { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static LatLon FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<LatLon>(data);
         }
     
     }

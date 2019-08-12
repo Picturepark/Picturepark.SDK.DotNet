@@ -17059,7 +17059,9 @@
                 "BusinessRuleRefIdsMissingException": "#/components/schemas/BusinessRuleRefIdsMissingException",
                 "BusinessRulePathInvalidException": "#/components/schemas/BusinessRulePathInvalidException",
                 "BusinessRuleFieldIdInvalidException": "#/components/schemas/BusinessRuleFieldIdInvalidException",
-                "BusinessRuleContentPermissionSetIdsMissingException": "#/components/schemas/BusinessRuleContentPermissionSetIdsMissingException"
+                "BusinessRuleContentPermissionSetIdsMissingException": "#/components/schemas/BusinessRuleContentPermissionSetIdsMissingException",
+                "BusinessRuleFieldPathInvalidException": "#/components/schemas/BusinessRuleFieldPathInvalidException",
+                "BusinessRulePolygonInvalidException": "#/components/schemas/BusinessRulePolygonInvalidException"
               }
             },
             "additionalProperties": false,
@@ -22010,6 +22012,34 @@
           }
         ]
       },
+      "BusinessRuleFieldPathInvalidException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "fieldPath": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "BusinessRulePolygonInvalidException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
       "BusinessProcessSearchRequest": {
         "type": "object",
         "description": "Search request to search for business processes",
@@ -23265,7 +23295,11 @@
             "MatchRegexCondition": "#/components/schemas/MatchRegexCondition",
             "TagboxItemAssignedCondition": "#/components/schemas/TagboxItemAssignedCondition",
             "TagboxItemUnassignedCondition": "#/components/schemas/TagboxItemUnassignedCondition",
-            "ContentSchemaCondition": "#/components/schemas/ContentSchemaCondition"
+            "ContentSchemaCondition": "#/components/schemas/ContentSchemaCondition",
+            "NumberCompareCondition": "#/components/schemas/NumberCompareCondition",
+            "ContentRelationItemAssignedCondition": "#/components/schemas/ContentRelationItemAssignedCondition",
+            "ContentRelationItemUnassignedCondition": "#/components/schemas/ContentRelationItemUnassignedCondition",
+            "GeoPointWithinPolygonCondition": "#/components/schemas/GeoPointWithinPolygonCondition"
           }
         },
         "description": "Conditions on which a business rule is executed",
@@ -23516,6 +23550,155 @@
             }
           }
         ]
+      },
+      "NumberCompareCondition": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BusinessRuleCondition"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "mode",
+              "value"
+            ],
+            "properties": {
+              "fieldPath": {
+                "type": "string",
+                "description": "JSON path to the field.",
+                "nullable": true
+              },
+              "mode": {
+                "description": "Mode to use for comparison.",
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/BusinessRuleNumberCompareConditionMode"
+                  }
+                ]
+              },
+              "value": {
+                "type": "number",
+                "description": "Value to compare to.",
+                "format": "double"
+              }
+            }
+          }
+        ]
+      },
+      "BusinessRuleNumberCompareConditionMode": {
+        "type": "string",
+        "description": "",
+        "x-enumNames": [
+          "LessThan",
+          "LessThanEqual",
+          "Equal",
+          "GreaterThanEqual",
+          "GreaterThan"
+        ],
+        "enum": [
+          "LessThan",
+          "LessThanEqual",
+          "Equal",
+          "GreaterThanEqual",
+          "GreaterThan"
+        ]
+      },
+      "ContentRelationItemAssignedCondition": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BusinessRuleCondition"
+          },
+          {
+            "type": "object",
+            "description": "Matches when a relationship entry in a relationship field matching the field path string (JSON path) is newly assigned.",
+            "additionalProperties": false,
+            "properties": {
+              "contentId": {
+                "type": "string",
+                "description": "Content id that should be matched against.",
+                "nullable": true
+              },
+              "fieldPath": {
+                "type": "string",
+                "description": "JSON path to the field",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "ContentRelationItemUnassignedCondition": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BusinessRuleCondition"
+          },
+          {
+            "type": "object",
+            "description": "Matches when a relationship entry in a relationship field matching the field path string (JSON path) is removed.",
+            "additionalProperties": false,
+            "properties": {
+              "contentId": {
+                "type": "string",
+                "description": "Content id that should be matched against.",
+                "nullable": true
+              },
+              "fieldPath": {
+                "type": "string",
+                "description": "JSON path to the field",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "GeoPointWithinPolygonCondition": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BusinessRuleCondition"
+          },
+          {
+            "type": "object",
+            "description": "Matches when the geo point from the field specified by the field path is inside the specified polygon.",
+            "additionalProperties": false,
+            "properties": {
+              "fieldPath": {
+                "type": "string",
+                "description": "JSON path to the field",
+                "nullable": true
+              },
+              "polygon": {
+                "type": "array",
+                "description": "List of points that form the polygon for the geo fence.\nMust include at least 3 points.",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/LatLon"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "LatLon": {
+        "type": "object",
+        "description": "Stores a coordinate",
+        "additionalProperties": false,
+        "required": [
+          "lat",
+          "lon"
+        ],
+        "properties": {
+          "lat": {
+            "type": "number",
+            "description": "Latitude",
+            "format": "double"
+          },
+          "lon": {
+            "type": "number",
+            "description": "Longitude",
+            "format": "double"
+          }
+        }
       },
       "BusinessRuleAction": {
         "type": "object",

@@ -1,4 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="..\common.props" />
+
   <PropertyGroup>
     <Description>Picturepark .NET SDK Contracts: The SDK's contracts (DTOs and client interfaces).</Description>
     <AssemblyTitle>Picturepark.SDK.V1.Contract</AssemblyTitle>
