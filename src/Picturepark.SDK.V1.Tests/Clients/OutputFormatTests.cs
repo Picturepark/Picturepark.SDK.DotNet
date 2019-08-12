@@ -210,7 +210,9 @@ namespace Picturepark.SDK.V1.Tests.Clients
                     Audio = "AudioPreview"
                 }
             };
-            var result = await _client.OutputFormat.CreateAsync(outputFormat).ConfigureAwait(false);
+            var bpResult = await _client.OutputFormat.CreateAsync(outputFormat).ConfigureAwait(false);
+
+            var result = await bpResult.FetchResult().ConfigureAwait(false);
 
             // Assert
             result.Should().NotBeNull();
