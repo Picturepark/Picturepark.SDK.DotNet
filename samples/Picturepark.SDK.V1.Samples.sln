@@ -1,13 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27004.2002
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29102.190
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Picturepark.ContentUploader", "Picturepark.ContentUploader\Picturepark.ContentUploader.csproj", "{6B970F42-4FB4-4654-9C20-E2A3CBDE5076}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Picturepark.ServiceProvider.Example", "Picturepark.ServiceProvider.Example\Picturepark.ServiceProvider.Example.csproj", "{641D7423-E79E-430C-B64E-34F11E4F7942}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Picturepark.Microsite.Example", "Picturepark.Microsite.Example\Picturepark.Microsite.Example.csproj", "{B9CEF6CD-CB68-47B3-8DE7-C1BA6C96D998}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Picturepark.ServiceProvider.Example.BusinessProcess", "Picturepark.ServiceProvider.Example.BusinessProcess\Picturepark.ServiceProvider.Example.BusinessProcess.csproj", "{CD610048-1699-4B95-BC3D-73DC3F3C3346}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{B9CEF6CD-CB68-47B3-8DE7-C1BA6C96D998}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B9CEF6CD-CB68-47B3-8DE7-C1BA6C96D998}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B9CEF6CD-CB68-47B3-8DE7-C1BA6C96D998}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD610048-1699-4B95-BC3D-73DC3F3C3346}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD610048-1699-4B95-BC3D-73DC3F3C3346}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD610048-1699-4B95-BC3D-73DC3F3C3346}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD610048-1699-4B95-BC3D-73DC3F3C3346}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

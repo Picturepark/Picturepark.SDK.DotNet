@@ -6458,6 +6458,8 @@
                 "BusinessProcessNotFoundException": "#/components/schemas/BusinessProcessNotFoundException",
                 "BusinessProcessDefinitionNotFoundException": "#/components/schemas/BusinessProcessDefinitionNotFoundException",
                 "BusinessProcessDefinitionCreateException": "#/components/schemas/BusinessProcessDefinitionCreateException",
+                "BusinessProcessNotExternalException": "#/components/schemas/BusinessProcessNotExternalException",
+                "BusinessProcessCancellationNotSupportedException": "#/components/schemas/BusinessProcessCancellationNotSupportedException",
                 "SchemaFieldImportMismatchException": "#/components/schemas/SchemaFieldImportMismatchException",
                 "SchemaFieldImportRelatedSchemaMismatchException": "#/components/schemas/SchemaFieldImportRelatedSchemaMismatchException",
                 "SchemaFieldImportTypeMismatchException": "#/components/schemas/SchemaFieldImportTypeMismatchException",
@@ -10694,6 +10696,40 @@
                 "items": {
                   "type": "string"
                 }
+              }
+            }
+          }
+        ]
+      },
+      "BusinessProcessNotExternalException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkForbiddenException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "businessProcessId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "BusinessProcessCancellationNotSupportedException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "businessProcessId": {
+                "type": "string",
+                "nullable": true
               }
             }
           }
@@ -16018,6 +16054,8 @@
               "picturepark_account": "Have no idea.",
               "businessprocess_read": "Read business processes",
               "businessprocess_write": "Write business processes",
+              "businessrule_read": "Read business rule",
+              "businessrule_write": "Write business rule",
               "channel_read": "Read channels",
               "channel_write": "Write channels",
               "content_read": "Read content",
