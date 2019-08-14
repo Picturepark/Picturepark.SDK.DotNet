@@ -22,8 +22,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
         {
             _fixture = fixture;
             _client = _fixture.Client;
-            _client.Info.GetInfoAsync().GetAwaiter().GetResult().LanguageConfiguration.MetadataLanguages.Should()
-                .Contain(new[] { "en", "de" }, "some tests require customer used for testing to have both 'en' and 'de' metadata languages configured");
         }
 
         [Fact]

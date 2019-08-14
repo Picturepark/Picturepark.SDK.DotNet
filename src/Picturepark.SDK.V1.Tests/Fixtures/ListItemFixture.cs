@@ -2,6 +2,7 @@
 using Picturepark.SDK.V1.Tests.Contracts;
 using System.Linq;
 using System.Threading.Tasks;
+using FluentAssertions;
 
 namespace Picturepark.SDK.V1.Tests.Fixtures
 {
@@ -19,6 +20,9 @@ namespace Picturepark.SDK.V1.Tests.Fixtures
                 var schema = await Client.Schema.GenerateSchemasAsync(typeof(Tag)).ConfigureAwait(false);
                 await Client.Schema.CreateAsync(schema.First(), true, TimeSpan.FromMinutes(1)).ConfigureAwait(false);
             }
+
+            (await Client.Info.GetInfoAsync().ConfigureAwait(false)).LanguageConfiguration.MetadataLanguages.Should()
+                .Contain(new[] { "en", "de" }, "some tests require customer used for testing to have both 'en' and 'de' metadata languages configured");
         }
     }
 }
