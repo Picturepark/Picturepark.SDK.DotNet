@@ -117,8 +117,8 @@ namespace Picturepark.ServiceProvider.Example.BusinessProcess
                 {
                     _logger.LogInformation($"Downloading batch consisting of {batch.Length} items");
 
-                    string GetTitle(string state) => $"Content carbon copy {state}";
-                    string GetProgress(int n) => $"Downloaded {n}/{batch.Length} contents";
+                    TranslatedStringDictionary GetTitle(string state) => new TranslatedStringDictionary { { "en", $"Content carbon copy {state}" } };
+                    TranslatedStringDictionary GetProgress(int n) => new TranslatedStringDictionary { { "en", $"Downloaded {n}/{batch.Length} contents" } };
 
                     var client = _clientFactory();
 
