@@ -4302,6 +4302,9 @@ namespace Picturepark.SDK.V1.Contract
         [System.Runtime.Serialization.EnumMember(Value = @"ManageOutputFormats")]
         ManageOutputFormats = 18,
     
+        [System.Runtime.Serialization.EnumMember(Value = @"ManageBusinessProcesses")]
+        ManageBusinessProcesses = 19,
+    
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]

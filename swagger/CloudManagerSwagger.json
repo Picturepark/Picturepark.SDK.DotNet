@@ -8240,7 +8240,8 @@
           "ManageLiveStream",
           "ManageDocumentHistory",
           "ManageAllShares",
-          "ManageOutputFormats"
+          "ManageOutputFormats",
+          "ManageBusinessProcesses"
         ],
         "enum": [
           "ManageContent",
@@ -8261,7 +8262,8 @@
           "ManageLiveStream",
           "ManageDocumentHistory",
           "ManageAllShares",
-          "ManageOutputFormats"
+          "ManageOutputFormats",
+          "ManageBusinessProcesses"
         ]
       },
       "PermissionSetNotFoundException": {

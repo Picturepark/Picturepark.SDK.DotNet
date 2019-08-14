@@ -145,7 +145,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         [Fact]
         public async Task Should_cancel_running_business_process()
         {
-            var businessProcess = await CreateBusinessProcess().ConfigureAwait(false);
+            var businessProcess = await CreateBusinessProcess(supportsCancellation: true).ConfigureAwait(false);
 
             await _client.BusinessProcess.CancelAsync(businessProcess.Id).ConfigureAwait(false);
 
@@ -173,13 +173,13 @@ namespace Picturepark.SDK.V1.Tests.Clients
             retrieved.Id.Should().Be(businessProcess.Id);
         }
 
-        private async Task<BusinessProcess> CreateBusinessProcess()
+        private async Task<BusinessProcess> CreateBusinessProcess(bool supportsCancellation = false)
         {
             var businessProcess = await _client.BusinessProcess.CreateAsync(
                 new BusinessProcessCreateRequest
                 {
                     InitialState = "Started",
-                    SupportsCancellation = false,
+                    SupportsCancellation = supportsCancellation,
                     Notification = new BusinessProcessNotificationUpdate
                     {
                         EventType = NotificationEventType.InProgress,

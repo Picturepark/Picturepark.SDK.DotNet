@@ -97,7 +97,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             // Assert
             var currentTransfer = await _client.Transfer.GetAsync(result.Transfer.Id).ConfigureAwait(false);
 
-            Assert.Equal(TransferState.Created, currentTransfer.State);
+            Assert.Equal(TransferState.UploadCancelled, currentTransfer.State);
         }
 
         [Fact]
