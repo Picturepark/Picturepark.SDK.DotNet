@@ -441,7 +441,9 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 UserRightsFilter = new List<UserRight> { UserRight.ManageSchemas }
             }).ConfigureAwait(false);
 
-            var newOwnerId = newPotentialOwners.Results.First(u => u.Id != currentOwner.Id).Id;
+            var newOwnerId = newPotentialOwners.Results.FirstOrDefault(u => u.Id != currentOwner.Id)?.Id;
+            newOwnerId.Should().NotBeNull($"expected to have more users with {UserRight.ManageSchemas} user right in the tested customer to test schema ownership transfer");
+
             var newOwner = await _client.User.GetAsync(newOwnerId).ConfigureAwait(false);
             var schemaIds = schemas.Select(i => i.Id).ToList();
             var manyRequest = new SchemaOwnershipTransferManyRequest

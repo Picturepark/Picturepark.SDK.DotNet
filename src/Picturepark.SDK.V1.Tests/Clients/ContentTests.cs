@@ -101,7 +101,8 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 UserRightsFilter = new List<UserRight> { UserRight.ManageContent }
             }).ConfigureAwait(false);
 
-            var newUser = searchResult.Results.First(u => u.Id != previousOwner.Id);
+            var newUser = searchResult.Results.FirstOrDefault(u => u.Id != previousOwner.Id);
+            newUser.Should().NotBeNull($"expected to have more users with {UserRight.ManageContent} user right in the tested customer to test content ownership transfer");
             var manyRequest = new ContentOwnershipTransferManyRequest
             {
                 Items = contentIds.Select(id => new ContentOwnershipTransferItem
