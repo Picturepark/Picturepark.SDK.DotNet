@@ -149,7 +149,7 @@ namespace Picturepark.ServiceProvider.Example.BusinessProcess
                             break;
                         }
 
-                        var response = await client.Content.DownloadAsync(contentId, "Preview").ConfigureAwait(false);
+                        var response = await client.Content.DownloadAsync(contentId, "Original").ConfigureAwait(false);
                         using (var fs = new FileStream(Path.Combine(_config.Value.OutputDownloadDirectory, contentId + ".jpg"), FileMode.CreateNew))
                         {
                             await response.Stream.CopyToAsync(fs).ConfigureAwait(false);
@@ -171,7 +171,7 @@ namespace Picturepark.ServiceProvider.Example.BusinessProcess
                         businessProcess.Id,
                         new BusinessProcessStateChangeRequest
                         {
-                            LifeCycle = BusinessProcessLifeCycle.Succeeded,
+                            LifeCycle = cancelled ? BusinessProcessLifeCycle.Cancelled : BusinessProcessLifeCycle.Succeeded,
                             State = cancelled ? "Cancelled" : "Finished",
                             Notification = new BusinessProcessNotificationUpdate
                             {
