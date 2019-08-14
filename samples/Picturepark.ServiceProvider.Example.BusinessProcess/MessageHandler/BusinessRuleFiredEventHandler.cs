@@ -1,11 +1,11 @@
-﻿using System;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Picturepark.SDK.V1.Contract;
+using Picturepark.ServiceProvider.Example.BusinessProcess.Config;
+using Picturepark.ServiceProvider.Example.BusinessProcess.Util;
 
-namespace Picturepark.ServiceProvider.Example.BusinessProcess
+namespace Picturepark.ServiceProvider.Example.BusinessProcess.MessageHandler
 {
     internal class BusinessRuleFiredEventHandler : ApplicationEventHandlerBase<BusinessRuleFiredEvent>
     {

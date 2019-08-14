@@ -1,6 +1,7 @@
 ﻿using Picturepark.SDK.V1.Contract;
+using Picturepark.ServiceProvider.Example.BusinessProcess.BusinessProcess;
 
-namespace Picturepark.ServiceProvider.Example.BusinessProcess
+namespace Picturepark.ServiceProvider.Example.BusinessProcess.MessageHandler
 {
     internal class BusinessProcessCancellationRequestedEventHandler  : ApplicationEventHandlerBase<BusinessProcessCancellationRequestedEvent>
     {

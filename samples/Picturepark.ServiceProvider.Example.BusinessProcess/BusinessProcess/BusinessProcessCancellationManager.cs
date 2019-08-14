@@ -1,6 +1,6 @@
 ﻿using System.Collections.Concurrent;
 
-namespace Picturepark.ServiceProvider.Example.BusinessProcess
+namespace Picturepark.ServiceProvider.Example.BusinessProcess.BusinessProcess
 {
     internal class BusinessProcessCancellationManager : IBusinessProcessCancellationManager
     {

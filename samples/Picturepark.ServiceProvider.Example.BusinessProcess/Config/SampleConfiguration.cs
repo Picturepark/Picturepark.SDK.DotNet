@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Picturepark.ServiceProvider.Example.BusinessProcess
+namespace Picturepark.ServiceProvider.Example.BusinessProcess.Config
 {
     public class SampleConfiguration
     {

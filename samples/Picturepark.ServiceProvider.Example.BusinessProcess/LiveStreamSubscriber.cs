@@ -7,6 +7,8 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Picturepark.SDK.V1.ServiceProvider;
 using Picturepark.SDK.V1.ServiceProvider.Buffer;
+using Picturepark.ServiceProvider.Example.BusinessProcess.Config;
+using Picturepark.ServiceProvider.Example.BusinessProcess.MessageHandler;
 
 namespace Picturepark.ServiceProvider.Example.BusinessProcess
 {

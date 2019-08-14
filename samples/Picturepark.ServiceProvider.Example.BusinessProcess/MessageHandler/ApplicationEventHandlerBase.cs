@@ -1,6 +1,6 @@
 ﻿using Picturepark.SDK.V1.Contract;
 
-namespace Picturepark.ServiceProvider.Example.BusinessProcess
+namespace Picturepark.ServiceProvider.Example.BusinessProcess.MessageHandler
 {
     internal abstract class ApplicationEventHandlerBase<T> : IApplicationEventHandler where T : ApplicationEvent
     {

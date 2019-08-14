@@ -1,4 +1,4 @@
-﻿namespace Picturepark.ServiceProvider.Example.BusinessProcess
+﻿namespace Picturepark.ServiceProvider.Example.BusinessProcess.BusinessProcess
 {
     internal interface IBusinessProcessCancellationManager
     {

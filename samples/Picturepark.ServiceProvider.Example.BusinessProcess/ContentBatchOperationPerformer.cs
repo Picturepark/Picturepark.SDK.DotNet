@@ -8,6 +8,9 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Picturepark.SDK.V1.Contract;
+using Picturepark.ServiceProvider.Example.BusinessProcess.BusinessProcess;
+using Picturepark.ServiceProvider.Example.BusinessProcess.Config;
+using Picturepark.ServiceProvider.Example.BusinessProcess.Util;
 
 namespace Picturepark.ServiceProvider.Example.BusinessProcess
 {
