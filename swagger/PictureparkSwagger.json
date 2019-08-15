@@ -534,6 +534,511 @@
         ]
       }
     },
+    "/v1/businessProcesses/{processId}": {
+      "get": {
+        "tags": [
+          "BusinessProcess"
+        ],
+        "summary": "Get business process",
+        "operationId": "BusinessProcess_Get",
+        "parameters": [
+          {
+            "name": "processId",
+            "in": "path",
+            "required": true,
+            "description": "The business process id.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "BusinessProcess",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BusinessProcess"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "businessprocess_read"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/businessProcesses": {
+      "post": {
+        "tags": [
+          "BusinessProcess"
+        ],
+        "summary": "Create business process",
+        "operationId": "BusinessProcess_Create",
+        "requestBody": {
+          "x-name": "request",
+          "description": "The business process create request.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BusinessProcessCreateRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "BusinessProcess",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BusinessProcess"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "businessprocess_write"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/businessProcesses/{processId}/state": {
+      "put": {
+        "tags": [
+          "BusinessProcess"
+        ],
+        "summary": "Change business process state",
+        "description": "Only available for business processes created through BusinessProcessCreateRequest).",
+        "operationId": "BusinessProcess_ChangeState",
+        "parameters": [
+          {
+            "name": "processId",
+            "in": "path",
+            "required": true,
+            "description": "The business process id.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1
+          }
+        ],
+        "requestBody": {
+          "x-name": "request",
+          "description": "The business process state change request.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BusinessProcessStateChangeRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 2
+        },
+        "responses": {
+          "200": {
+            "description": "BusinessProcess",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BusinessProcess"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Business process is not driven externally, no state changes are allowed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BusinessProcessNotExternalException"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "businessprocess_write"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/businessProcesses/{processId}/notification": {
+      "put": {
+        "tags": [
+          "BusinessProcess"
+        ],
+        "summary": "Update business process notification",
+        "description": "Only available for business processes created through BusinessProcessCreateRequest).",
+        "operationId": "BusinessProcess_UpdateNotification",
+        "parameters": [
+          {
+            "name": "processId",
+            "in": "path",
+            "required": true,
+            "description": "The business process id.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1
+          }
+        ],
+        "requestBody": {
+          "x-name": "request",
+          "description": "The business process notification update request.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BusinessProcessNotificationUpdateRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 2
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          },
+          "403": {
+            "description": "Business process is not driven externally, no notification changes are allowed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BusinessProcessNotExternalException"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "businessprocess_write"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/businessProcesses/{processId}/cancel": {
+      "post": {
+        "tags": [
+          "BusinessProcess"
+        ],
+        "summary": "Cancel business process",
+        "description": "Only available if the business process indicates supports for cancellation in SupportsCancellation.",
+        "operationId": "BusinessProcess_Cancel",
+        "parameters": [
+          {
+            "name": "processId",
+            "in": "path",
+            "required": true,
+            "description": "The business process id.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          },
+          "400": {
+            "description": "Business process does not support cancellation.\nor\nValidation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            },
+            "x-expectedSchemas": [
+              {
+                "description": "Business process does not support cancellation.",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/BusinessProcessCancellationNotSupportedException"
+                    }
+                  ]
+                }
+              },
+              {
+                "description": "Validation exception",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkValidationException"
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "businessprocess_write"
+            ]
+          }
+        ]
+      }
+    },
     "/v1/businessrules/configuration": {
       "get": {
         "tags": [
@@ -17019,6 +17524,8 @@
                 "BusinessProcessNotFoundException": "#/components/schemas/BusinessProcessNotFoundException",
                 "BusinessProcessDefinitionNotFoundException": "#/components/schemas/BusinessProcessDefinitionNotFoundException",
                 "BusinessProcessDefinitionCreateException": "#/components/schemas/BusinessProcessDefinitionCreateException",
+                "BusinessProcessNotExternalException": "#/components/schemas/BusinessProcessNotExternalException",
+                "BusinessProcessCancellationNotSupportedException": "#/components/schemas/BusinessProcessCancellationNotSupportedException",
                 "SchemaFieldImportMismatchException": "#/components/schemas/SchemaFieldImportMismatchException",
                 "SchemaFieldImportRelatedSchemaMismatchException": "#/components/schemas/SchemaFieldImportRelatedSchemaMismatchException",
                 "SchemaFieldImportTypeMismatchException": "#/components/schemas/SchemaFieldImportTypeMismatchException",
@@ -18799,7 +19306,8 @@
           "ManageLiveStream",
           "ManageDocumentHistory",
           "ManageAllShares",
-          "ManageOutputFormats"
+          "ManageOutputFormats",
+          "ManageBusinessProcesses"
         ],
         "enum": [
           "ManageContent",
@@ -18820,7 +19328,8 @@
           "ManageLiveStream",
           "ManageDocumentHistory",
           "ManageAllShares",
-          "ManageOutputFormats"
+          "ManageOutputFormats",
+          "ManageBusinessProcesses"
         ]
       },
       "PermissionSetNotFoundException": {
@@ -21260,6 +21769,40 @@
           }
         ]
       },
+      "BusinessProcessNotExternalException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkForbiddenException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "businessProcessId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "BusinessProcessCancellationNotSupportedException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "businessProcessId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
       "SchemaFieldImportMismatchException": {
         "allOf": [
           {
@@ -23131,6 +23674,141 @@
             ]
           }
         }
+      },
+      "BusinessProcessCreateRequest": {
+        "type": "object",
+        "description": "Create request to create a BusinessProcess.",
+        "additionalProperties": false,
+        "required": [
+          "supportsCancellation",
+          "initialState"
+        ],
+        "properties": {
+          "supportsCancellation": {
+            "type": "boolean",
+            "description": "Indicates if the system starting the business process supports cancellation."
+          },
+          "notification": {
+            "description": "Notification data to send to the user when creating the business process.\nSet to null to not create a notification.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/BusinessProcessNotificationUpdate"
+              }
+            ]
+          },
+          "initialState": {
+            "type": "string",
+            "description": "Initial state of the business process.",
+            "minLength": 1
+          }
+        }
+      },
+      "BusinessProcessNotificationUpdate": {
+        "type": "object",
+        "description": "Notification update for a business process.",
+        "additionalProperties": false,
+        "required": [
+          "title",
+          "message",
+          "eventType"
+        ],
+        "properties": {
+          "title": {
+            "description": "The title the message that is shown to the user should have.",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/TranslatedStringDictionary"
+              }
+            ]
+          },
+          "message": {
+            "description": "The message shown to the user.",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/TranslatedStringDictionary"
+              }
+            ]
+          },
+          "navigationLink": {
+            "type": "string",
+            "description": "An optional navigation link that allows the user to jump to a page giving more information\nabout the process.",
+            "nullable": true
+          },
+          "eventType": {
+            "description": "The event type of the notification.",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/NotificationEventType"
+              }
+            ]
+          }
+        }
+      },
+      "NotificationEventType": {
+        "type": "string",
+        "description": "",
+        "x-enumNames": [
+          "Pending",
+          "InProgress",
+          "Success",
+          "Error",
+          "Warning",
+          "Information"
+        ],
+        "enum": [
+          "Pending",
+          "InProgress",
+          "Success",
+          "Error",
+          "Warning",
+          "Information"
+        ]
+      },
+      "BusinessProcessStateChangeRequest": {
+        "type": "object",
+        "description": "Transitions the business process to a new state and/or life cycle.",
+        "additionalProperties": false,
+        "required": [
+          "state",
+          "lifeCycle"
+        ],
+        "properties": {
+          "state": {
+            "type": "string",
+            "description": "The new state of the business process.",
+            "minLength": 1
+          },
+          "lifeCycle": {
+            "description": "The new life cycle of the business process.",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/BusinessProcessLifeCycle"
+              }
+            ]
+          },
+          "notification": {
+            "description": "An optional notification update to be posted together with the transition.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/BusinessProcessNotificationUpdate"
+              }
+            ]
+          }
+        }
+      },
+      "BusinessProcessNotificationUpdateRequest": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BusinessProcessNotificationUpdate"
+          },
+          {
+            "type": "object",
+            "description": "Updates the notification of a business process without changing the state or the life cycle.",
+            "additionalProperties": false
+          }
+        ]
       },
       "BusinessRuleConfiguration": {
         "type": "object",
@@ -28816,7 +29494,8 @@
             "ConfigurationChangeEvent": "#/components/schemas/ConfigurationChangeEvent",
             "CustomerChangeEvent": "#/components/schemas/CustomerChangeEvent",
             "SearchReindexCompletedEvent": "#/components/schemas/SearchReindexCompletedEvent",
-            "BusinessRuleFiredEvent": "#/components/schemas/BusinessRuleFiredEvent"
+            "BusinessRuleFiredEvent": "#/components/schemas/BusinessRuleFiredEvent",
+            "BusinessProcessCancellationRequestedEvent": "#/components/schemas/BusinessProcessCancellationRequestedEvent"
           }
         },
         "additionalProperties": false,
@@ -29289,6 +29968,23 @@
             }
           }
         }
+      },
+      "BusinessProcessCancellationRequestedEvent": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ApplicationEvent"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "businessProcessId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
       },
       "Message": {
         "type": "object",
@@ -36580,6 +37276,8 @@
               "picturepark_account": "Have no idea.",
               "businessprocess_read": "Read business processes",
               "businessprocess_write": "Write business processes",
+              "businessrule_read": "Read business rule",
+              "businessrule_write": "Write business rule",
               "channel_read": "Read channels",
               "channel_write": "Write channels",
               "content_read": "Read content",
