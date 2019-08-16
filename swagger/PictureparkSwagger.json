@@ -17568,7 +17568,10 @@
                 "BusinessRuleFieldIdInvalidException": "#/components/schemas/BusinessRuleFieldIdInvalidException",
                 "BusinessRuleContentPermissionSetIdsMissingException": "#/components/schemas/BusinessRuleContentPermissionSetIdsMissingException",
                 "BusinessRuleFieldPathInvalidException": "#/components/schemas/BusinessRuleFieldPathInvalidException",
-                "BusinessRulePolygonInvalidException": "#/components/schemas/BusinessRulePolygonInvalidException"
+                "BusinessRulePolygonInvalidException": "#/components/schemas/BusinessRulePolygonInvalidException",
+                "BusinessRuleArrayIndexInvalidException": "#/components/schemas/BusinessRuleArrayIndexInvalidException",
+                "BusinessRuleDictionaryKeyInvalidException": "#/components/schemas/BusinessRuleDictionaryKeyInvalidException",
+                "BusinessRuleProjectionTransformationsMissingException": "#/components/schemas/BusinessRuleProjectionTransformationsMissingException"
               }
             },
             "additionalProperties": false,
@@ -22583,6 +22586,51 @@
           }
         ]
       },
+      "BusinessRuleArrayIndexInvalidException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "index": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "BusinessRuleDictionaryKeyInvalidException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "key": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "BusinessRuleProjectionTransformationsMissingException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
       "BusinessProcessSearchRequest": {
         "type": "object",
         "description": "Search request to search for business processes",
@@ -23945,6 +23993,14 @@
                   }
                 ]
               },
+              "transformationGroups": {
+                "type": "array",
+                "description": "Optional transformations to apply.",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/BusinessRuleTransformationGroup"
+                }
+              },
               "actions": {
                 "type": "array",
                 "description": "The actions that are performed when this rule triggers.",
@@ -24156,6 +24212,11 @@
               "regex": {
                 "type": "string",
                 "description": "Regular expression",
+                "nullable": true
+              },
+              "storeIn": {
+                "type": "string",
+                "description": "Optional variable name to store the matched regex groups in",
                 "nullable": true
               }
             }
@@ -24377,6 +24438,102 @@
             "format": "double"
           }
         }
+      },
+      "BusinessRuleTransformationGroup": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "inputs": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "type": "string"
+            }
+          },
+          "transformations": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/BusinessRuleTransformation"
+            }
+          },
+          "storeIn": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "BusinessRuleTransformation": {
+        "type": "object",
+        "discriminator": {
+          "propertyName": "kind",
+          "mapping": {
+            "TakeDictionaryValueTransformation": "#/components/schemas/TakeDictionaryValueTransformation",
+            "TakeArrayValueTransformation": "#/components/schemas/TakeArrayValueTransformation",
+            "JoinByTransformation": "#/components/schemas/JoinByTransformation"
+          }
+        },
+        "x-abstract": true,
+        "additionalProperties": false,
+        "required": [
+          "kind"
+        ],
+        "properties": {
+          "kind": {
+            "type": "string"
+          }
+        }
+      },
+      "TakeDictionaryValueTransformation": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BusinessRuleTransformation"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "key": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "TakeArrayValueTransformation": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BusinessRuleTransformation"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "index": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "JoinByTransformation": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BusinessRuleTransformation"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "separator": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
       },
       "BusinessRuleAction": {
         "type": "object",
