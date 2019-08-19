@@ -17571,7 +17571,10 @@
                 "BusinessRulePolygonInvalidException": "#/components/schemas/BusinessRulePolygonInvalidException",
                 "BusinessRuleArrayIndexInvalidException": "#/components/schemas/BusinessRuleArrayIndexInvalidException",
                 "BusinessRuleDictionaryKeyInvalidException": "#/components/schemas/BusinessRuleDictionaryKeyInvalidException",
-                "BusinessRuleProjectionTransformationsMissingException": "#/components/schemas/BusinessRuleProjectionTransformationsMissingException"
+                "BusinessRuleProjectionTransformationsMissingException": "#/components/schemas/BusinessRuleProjectionTransformationsMissingException",
+                "BusinessRuleInvalidVariableNameException": "#/components/schemas/BusinessRuleInvalidVariableNameException",
+                "BusinessRuleTransformationGroupTransformationsMissingException": "#/components/schemas/BusinessRuleTransformationGroupTransformationsMissingException",
+                "BusinessRuleTransformationGroupInputsMissingException": "#/components/schemas/BusinessRuleTransformationGroupInputsMissingException"
               }
             },
             "additionalProperties": false,
@@ -22631,6 +22634,45 @@
           }
         ]
       },
+      "BusinessRuleInvalidVariableNameException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "name": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "BusinessRuleTransformationGroupTransformationsMissingException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "BusinessRuleTransformationGroupInputsMissingException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
       "BusinessProcessSearchRequest": {
         "type": "object",
         "description": "Search request to search for business processes",
@@ -24441,10 +24483,12 @@
       },
       "BusinessRuleTransformationGroup": {
         "type": "object",
+        "description": "Business rule transformation group:\nA group of transformations to run for the specified inputs",
         "additionalProperties": false,
         "properties": {
           "inputs": {
             "type": "array",
+            "description": "The inputs of the transformation group.",
             "nullable": true,
             "items": {
               "type": "string"
@@ -24452,6 +24496,7 @@
           },
           "transformations": {
             "type": "array",
+            "description": "A list of transformations to apply.",
             "nullable": true,
             "items": {
               "$ref": "#/components/schemas/BusinessRuleTransformation"
@@ -24459,6 +24504,7 @@
           },
           "storeIn": {
             "type": "string",
+            "description": "Variable name where the final result should be stored in.",
             "nullable": true
           }
         }
@@ -24473,6 +24519,7 @@
             "JoinByTransformation": "#/components/schemas/JoinByTransformation"
           }
         },
+        "description": "Business rule transformation",
         "x-abstract": true,
         "additionalProperties": false,
         "required": [
@@ -24491,10 +24538,12 @@
           },
           {
             "type": "object",
+            "description": "Takes an item from a dictionary by its key.",
             "additionalProperties": false,
             "properties": {
               "key": {
                 "type": "string",
+                "description": "Key of the item.",
                 "nullable": true
               }
             }
@@ -24508,10 +24557,12 @@
           },
           {
             "type": "object",
+            "description": "Takes an item from an array by its index.",
             "additionalProperties": false,
             "properties": {
               "index": {
                 "type": "string",
+                "description": "Index of the item.",
                 "nullable": true
               }
             }
@@ -24525,10 +24576,12 @@
           },
           {
             "type": "object",
+            "description": "Joins the input by a configurable separator",
             "additionalProperties": false,
             "properties": {
               "separator": {
                 "type": "string",
+                "description": "Separator to use.",
                 "nullable": true
               }
             }

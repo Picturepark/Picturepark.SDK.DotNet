@@ -2349,6 +2349,9 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("BusinessRuleArrayIndexInvalidException", typeof(BusinessRuleArrayIndexInvalidException))]
     [JsonInheritanceAttribute("BusinessRuleDictionaryKeyInvalidException", typeof(BusinessRuleDictionaryKeyInvalidException))]
     [JsonInheritanceAttribute("BusinessRuleProjectionTransformationsMissingException", typeof(BusinessRuleProjectionTransformationsMissingException))]
+    [JsonInheritanceAttribute("BusinessRuleInvalidVariableNameException", typeof(BusinessRuleInvalidVariableNameException))]
+    [JsonInheritanceAttribute("BusinessRuleTransformationGroupTransformationsMissingException", typeof(BusinessRuleTransformationGroupTransformationsMissingException))]
+    [JsonInheritanceAttribute("BusinessRuleTransformationGroupInputsMissingException", typeof(BusinessRuleTransformationGroupInputsMissingException))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
     [Newtonsoft.Json.JsonObjectAttribute]
     public partial class PictureparkException : System.Exception
@@ -7742,6 +7745,57 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class BusinessRuleInvalidVariableNameException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Name { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static BusinessRuleInvalidVariableNameException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessRuleInvalidVariableNameException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class BusinessRuleTransformationGroupTransformationsMissingException : PictureparkValidationException
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static BusinessRuleTransformationGroupTransformationsMissingException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessRuleTransformationGroupTransformationsMissingException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class BusinessRuleTransformationGroupInputsMissingException : PictureparkValidationException
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static BusinessRuleTransformationGroupInputsMissingException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessRuleTransformationGroupInputsMissingException>(data);
+        }
+    
+    }
+    
     /// <summary>Search request to search for business processes</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class BusinessProcessSearchRequest 
@@ -9437,15 +9491,20 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>Business rule transformation group:
+    /// A group of transformations to run for the specified inputs</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class BusinessRuleTransformationGroup 
     {
+        /// <summary>The inputs of the transformation group.</summary>
         [Newtonsoft.Json.JsonProperty("inputs", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> Inputs { get; set; }
     
+        /// <summary>A list of transformations to apply.</summary>
         [Newtonsoft.Json.JsonProperty("transformations", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<BusinessRuleTransformation> Transformations { get; set; }
     
+        /// <summary>Variable name where the final result should be stored in.</summary>
         [Newtonsoft.Json.JsonProperty("storeIn", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string StoreIn { get; set; }
     
@@ -9461,6 +9520,7 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>Business rule transformation</summary>
     [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
     [JsonInheritanceAttribute("TakeDictionaryValueTransformation", typeof(TakeDictionaryValueTransformation))]
     [JsonInheritanceAttribute("TakeArrayValueTransformation", typeof(TakeArrayValueTransformation))]
@@ -9480,9 +9540,11 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>Takes an item from a dictionary by its key.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class TakeDictionaryValueTransformation : BusinessRuleTransformation
     {
+        /// <summary>Key of the item.</summary>
         [Newtonsoft.Json.JsonProperty("key", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Key { get; set; }
     
@@ -9498,9 +9560,11 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>Takes an item from an array by its index.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class TakeArrayValueTransformation : BusinessRuleTransformation
     {
+        /// <summary>Index of the item.</summary>
         [Newtonsoft.Json.JsonProperty("index", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Index { get; set; }
     
@@ -9516,9 +9580,11 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>Joins the input by a configurable separator</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class JoinByTransformation : BusinessRuleTransformation
     {
+        /// <summary>Separator to use.</summary>
         [Newtonsoft.Json.JsonProperty("separator", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Separator { get; set; }
     

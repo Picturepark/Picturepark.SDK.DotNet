@@ -6505,7 +6505,10 @@
                 "BusinessRulePolygonInvalidException": "#/components/schemas/BusinessRulePolygonInvalidException",
                 "BusinessRuleArrayIndexInvalidException": "#/components/schemas/BusinessRuleArrayIndexInvalidException",
                 "BusinessRuleDictionaryKeyInvalidException": "#/components/schemas/BusinessRuleDictionaryKeyInvalidException",
-                "BusinessRuleProjectionTransformationsMissingException": "#/components/schemas/BusinessRuleProjectionTransformationsMissingException"
+                "BusinessRuleProjectionTransformationsMissingException": "#/components/schemas/BusinessRuleProjectionTransformationsMissingException",
+                "BusinessRuleInvalidVariableNameException": "#/components/schemas/BusinessRuleInvalidVariableNameException",
+                "BusinessRuleTransformationGroupTransformationsMissingException": "#/components/schemas/BusinessRuleTransformationGroupTransformationsMissingException",
+                "BusinessRuleTransformationGroupInputsMissingException": "#/components/schemas/BusinessRuleTransformationGroupInputsMissingException"
               }
             },
             "additionalProperties": false,
@@ -11555,6 +11558,45 @@
         ]
       },
       "BusinessRuleProjectionTransformationsMissingException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "BusinessRuleInvalidVariableNameException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "name": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "BusinessRuleTransformationGroupTransformationsMissingException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "BusinessRuleTransformationGroupInputsMissingException": {
         "allOf": [
           {
             "$ref": "#/components/schemas/PictureparkValidationException"
