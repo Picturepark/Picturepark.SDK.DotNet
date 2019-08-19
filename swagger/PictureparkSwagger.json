@@ -24672,12 +24672,8 @@
                 "nullable": true
               },
               "refIds": {
-                "type": "array",
                 "description": "List of refIds of the items that should be assigned.",
-                "nullable": true,
-                "items": {
-                  "type": "string"
-                }
+                "nullable": true
               },
               "replace": {
                 "type": "boolean",
@@ -24708,12 +24704,8 @@
                 "nullable": true
               },
               "refIds": {
-                "type": "array",
                 "description": "List of refIds of the items that should be removed.",
-                "nullable": true,
-                "items": {
-                  "type": "string"
-                }
+                "nullable": true
               }
             }
           }
@@ -24733,12 +24725,8 @@
             ],
             "properties": {
               "permissionSetIds": {
-                "type": "array",
                 "description": "IDs of the permission sets to assign.",
-                "nullable": true,
-                "items": {
-                  "type": "string"
-                }
+                "nullable": true
               },
               "replace": {
                 "type": "boolean",
@@ -24759,12 +24747,8 @@
             "additionalProperties": false,
             "properties": {
               "permissionSetIds": {
-                "type": "array",
                 "description": "IDs of the permission sets to unassign.",
-                "nullable": true,
-                "items": {
-                  "type": "string"
-                }
+                "nullable": true
               }
             }
           }

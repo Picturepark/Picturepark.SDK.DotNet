@@ -9666,7 +9666,7 @@ namespace Picturepark.SDK.V1.Contract
     
         /// <summary>List of refIds of the items that should be assigned.</summary>
         [Newtonsoft.Json.JsonProperty("refIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> RefIds { get; set; }
+        public object RefIds { get; set; }
     
         /// <summary>Indicates whether all the already assigned tags get replaced by the set specified in the action.
         /// If false, the not already assigned tags get added, the rest is left as is.</summary>
@@ -9699,7 +9699,7 @@ namespace Picturepark.SDK.V1.Contract
     
         /// <summary>List of refIds of the items that should be removed.</summary>
         [Newtonsoft.Json.JsonProperty("refIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> RefIds { get; set; }
+        public object RefIds { get; set; }
     
         public string ToJson() 
         {
@@ -9719,7 +9719,7 @@ namespace Picturepark.SDK.V1.Contract
     {
         /// <summary>IDs of the permission sets to assign.</summary>
         [Newtonsoft.Json.JsonProperty("permissionSetIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> PermissionSetIds { get; set; }
+        public object PermissionSetIds { get; set; }
     
         /// <summary>Indicates whether the already assigned permissions should be replaced or merged.</summary>
         [Newtonsoft.Json.JsonProperty("replace", Required = Newtonsoft.Json.Required.Always)]
@@ -9743,7 +9743,7 @@ namespace Picturepark.SDK.V1.Contract
     {
         /// <summary>IDs of the permission sets to unassign.</summary>
         [Newtonsoft.Json.JsonProperty("permissionSetIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> PermissionSetIds { get; set; }
+        public object PermissionSetIds { get; set; }
     
         public string ToJson() 
         {
