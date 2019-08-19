@@ -6502,7 +6502,13 @@
                 "BusinessRuleFieldIdInvalidException": "#/components/schemas/BusinessRuleFieldIdInvalidException",
                 "BusinessRuleContentPermissionSetIdsMissingException": "#/components/schemas/BusinessRuleContentPermissionSetIdsMissingException",
                 "BusinessRuleFieldPathInvalidException": "#/components/schemas/BusinessRuleFieldPathInvalidException",
-                "BusinessRulePolygonInvalidException": "#/components/schemas/BusinessRulePolygonInvalidException"
+                "BusinessRulePolygonInvalidException": "#/components/schemas/BusinessRulePolygonInvalidException",
+                "BusinessRuleArrayIndexInvalidException": "#/components/schemas/BusinessRuleArrayIndexInvalidException",
+                "BusinessRuleDictionaryKeyInvalidException": "#/components/schemas/BusinessRuleDictionaryKeyInvalidException",
+                "BusinessRuleProjectionTransformationsMissingException": "#/components/schemas/BusinessRuleProjectionTransformationsMissingException",
+                "BusinessRuleInvalidVariableNameException": "#/components/schemas/BusinessRuleInvalidVariableNameException",
+                "BusinessRuleTransformationGroupTransformationsMissingException": "#/components/schemas/BusinessRuleTransformationGroupTransformationsMissingException",
+                "BusinessRuleTransformationGroupInputsMissingException": "#/components/schemas/BusinessRuleTransformationGroupInputsMissingException"
               }
             },
             "additionalProperties": false,
@@ -11507,6 +11513,90 @@
         ]
       },
       "BusinessRulePolygonInvalidException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "BusinessRuleArrayIndexInvalidException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "index": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "BusinessRuleDictionaryKeyInvalidException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "key": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "BusinessRuleProjectionTransformationsMissingException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "BusinessRuleInvalidVariableNameException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "name": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "BusinessRuleTransformationGroupTransformationsMissingException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "BusinessRuleTransformationGroupInputsMissingException": {
         "allOf": [
           {
             "$ref": "#/components/schemas/PictureparkValidationException"

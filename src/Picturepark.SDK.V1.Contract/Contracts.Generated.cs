@@ -2346,6 +2346,12 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("BusinessRuleContentPermissionSetIdsMissingException", typeof(BusinessRuleContentPermissionSetIdsMissingException))]
     [JsonInheritanceAttribute("BusinessRuleFieldPathInvalidException", typeof(BusinessRuleFieldPathInvalidException))]
     [JsonInheritanceAttribute("BusinessRulePolygonInvalidException", typeof(BusinessRulePolygonInvalidException))]
+    [JsonInheritanceAttribute("BusinessRuleArrayIndexInvalidException", typeof(BusinessRuleArrayIndexInvalidException))]
+    [JsonInheritanceAttribute("BusinessRuleDictionaryKeyInvalidException", typeof(BusinessRuleDictionaryKeyInvalidException))]
+    [JsonInheritanceAttribute("BusinessRuleProjectionTransformationsMissingException", typeof(BusinessRuleProjectionTransformationsMissingException))]
+    [JsonInheritanceAttribute("BusinessRuleInvalidVariableNameException", typeof(BusinessRuleInvalidVariableNameException))]
+    [JsonInheritanceAttribute("BusinessRuleTransformationGroupTransformationsMissingException", typeof(BusinessRuleTransformationGroupTransformationsMissingException))]
+    [JsonInheritanceAttribute("BusinessRuleTransformationGroupInputsMissingException", typeof(BusinessRuleTransformationGroupInputsMissingException))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
     [Newtonsoft.Json.JsonObjectAttribute]
     public partial class PictureparkException : System.Exception
@@ -7685,6 +7691,111 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class BusinessRuleArrayIndexInvalidException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("index", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Index { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static BusinessRuleArrayIndexInvalidException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessRuleArrayIndexInvalidException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class BusinessRuleDictionaryKeyInvalidException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("key", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Key { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static BusinessRuleDictionaryKeyInvalidException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessRuleDictionaryKeyInvalidException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class BusinessRuleProjectionTransformationsMissingException : PictureparkValidationException
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static BusinessRuleProjectionTransformationsMissingException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessRuleProjectionTransformationsMissingException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class BusinessRuleInvalidVariableNameException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Name { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static BusinessRuleInvalidVariableNameException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessRuleInvalidVariableNameException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class BusinessRuleTransformationGroupTransformationsMissingException : PictureparkValidationException
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static BusinessRuleTransformationGroupTransformationsMissingException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessRuleTransformationGroupTransformationsMissingException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class BusinessRuleTransformationGroupInputsMissingException : PictureparkValidationException
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static BusinessRuleTransformationGroupInputsMissingException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessRuleTransformationGroupInputsMissingException>(data);
+        }
+    
+    }
+    
     /// <summary>Search request to search for business processes</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class BusinessProcessSearchRequest 
@@ -8929,6 +9040,10 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("condition", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public BusinessRuleCondition Condition { get; set; }
     
+        /// <summary>Optional transformations to apply.</summary>
+        [Newtonsoft.Json.JsonProperty("transformationGroups", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<BusinessRuleTransformationGroup> TransformationGroups { get; set; }
+    
         /// <summary>The actions that are performed when this rule triggers.</summary>
         [Newtonsoft.Json.JsonProperty("actions", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<BusinessRuleAction> Actions { get; set; }
@@ -9145,6 +9260,10 @@ namespace Picturepark.SDK.V1.Contract
         /// <summary>Regular expression</summary>
         [Newtonsoft.Json.JsonProperty("regex", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Regex { get; set; }
+    
+        /// <summary>Optional variable name to store the matched regex groups in</summary>
+        [Newtonsoft.Json.JsonProperty("storeIn", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string StoreIn { get; set; }
     
         public string ToJson() 
         {
@@ -9372,6 +9491,115 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>Business rule transformation group:
+    /// A group of transformations to run for the specified inputs</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class BusinessRuleTransformationGroup 
+    {
+        /// <summary>The inputs of the transformation group.</summary>
+        [Newtonsoft.Json.JsonProperty("inputs", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> Inputs { get; set; }
+    
+        /// <summary>A list of transformations to apply.</summary>
+        [Newtonsoft.Json.JsonProperty("transformations", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<BusinessRuleTransformation> Transformations { get; set; }
+    
+        /// <summary>Variable name where the final result should be stored in.</summary>
+        [Newtonsoft.Json.JsonProperty("storeIn", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string StoreIn { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static BusinessRuleTransformationGroup FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessRuleTransformationGroup>(data);
+        }
+    
+    }
+    
+    /// <summary>Business rule transformation</summary>
+    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
+    [JsonInheritanceAttribute("TakeDictionaryValueTransformation", typeof(TakeDictionaryValueTransformation))]
+    [JsonInheritanceAttribute("TakeArrayValueTransformation", typeof(TakeArrayValueTransformation))]
+    [JsonInheritanceAttribute("JoinByTransformation", typeof(JoinByTransformation))]
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
+    public abstract partial class BusinessRuleTransformation 
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static BusinessRuleTransformation FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessRuleTransformation>(data);
+        }
+    
+    }
+    
+    /// <summary>Takes an item from a dictionary by its key.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class TakeDictionaryValueTransformation : BusinessRuleTransformation
+    {
+        /// <summary>Key of the item.</summary>
+        [Newtonsoft.Json.JsonProperty("key", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Key { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static TakeDictionaryValueTransformation FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<TakeDictionaryValueTransformation>(data);
+        }
+    
+    }
+    
+    /// <summary>Takes an item from an array by its index.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class TakeArrayValueTransformation : BusinessRuleTransformation
+    {
+        /// <summary>Index of the item.</summary>
+        [Newtonsoft.Json.JsonProperty("index", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Index { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static TakeArrayValueTransformation FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<TakeArrayValueTransformation>(data);
+        }
+    
+    }
+    
+    /// <summary>Joins the input by a configurable separator</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class JoinByTransformation : BusinessRuleTransformation
+    {
+        /// <summary>Separator to use.</summary>
+        [Newtonsoft.Json.JsonProperty("separator", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Separator { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static JoinByTransformation FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<JoinByTransformation>(data);
+        }
+    
+    }
+    
     /// <summary>Action to be performed by a business rule</summary>
     [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
     [JsonInheritanceAttribute("AssignLayerAction", typeof(AssignLayerAction))]
@@ -9504,7 +9732,7 @@ namespace Picturepark.SDK.V1.Contract
     
         /// <summary>List of refIds of the items that should be assigned.</summary>
         [Newtonsoft.Json.JsonProperty("refIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> RefIds { get; set; }
+        public object RefIds { get; set; }
     
         /// <summary>Indicates whether all the already assigned tags get replaced by the set specified in the action.
         /// If false, the not already assigned tags get added, the rest is left as is.</summary>
@@ -9537,7 +9765,7 @@ namespace Picturepark.SDK.V1.Contract
     
         /// <summary>List of refIds of the items that should be removed.</summary>
         [Newtonsoft.Json.JsonProperty("refIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> RefIds { get; set; }
+        public object RefIds { get; set; }
     
         public string ToJson() 
         {
@@ -9557,7 +9785,7 @@ namespace Picturepark.SDK.V1.Contract
     {
         /// <summary>IDs of the permission sets to assign.</summary>
         [Newtonsoft.Json.JsonProperty("permissionSetIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> PermissionSetIds { get; set; }
+        public object PermissionSetIds { get; set; }
     
         /// <summary>Indicates whether the already assigned permissions should be replaced or merged.</summary>
         [Newtonsoft.Json.JsonProperty("replace", Required = Newtonsoft.Json.Required.Always)]
@@ -9581,7 +9809,7 @@ namespace Picturepark.SDK.V1.Contract
     {
         /// <summary>IDs of the permission sets to unassign.</summary>
         [Newtonsoft.Json.JsonProperty("permissionSetIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> PermissionSetIds { get; set; }
+        public object PermissionSetIds { get; set; }
     
         public string ToJson() 
         {
