@@ -97,7 +97,31 @@ namespace Picturepark.SDK.V1.Tests.Clients
             // Assert
             var currentTransfer = await _client.Transfer.GetAsync(result.Transfer.Id).ConfigureAwait(false);
 
-            Assert.Equal(TransferState.UploadCancelled, currentTransfer.State);
+            new[] { TransferState.TransferReady, TransferState.UploadCancellationInProgress, TransferState.UploadCancelled }.Should()
+                .Contain(currentTransfer.State);
+        }
+
+        [Fact]
+        [Trait("Stack", "Transfers")]
+        public async Task ShouldWaitForCompletionAndStateShouldBeTransferReady()
+        {
+            // Arrange
+            var transferName = new Random().Next(1000, 9999).ToString();
+            var files = new FileLocations[]
+            {
+                Path.Combine(_fixture.ExampleFilesBasePath, "0030_JabLtzJl8bc.jpg")
+            };
+
+            var result = await _client.Transfer.UploadFilesAsync(transferName, files, new UploadOptions()).ConfigureAwait(false);
+
+            // Act
+            var waitResult = await _client.BusinessProcess.WaitForCompletionAsync(result.Transfer.BusinessProcessId).ConfigureAwait(false);
+
+            // Assert
+            waitResult.LifeCycleHit.Should().Be(BusinessProcessLifeCycle.Succeeded);
+
+            var transfer = await _client.Transfer.GetAsync(result.Transfer.Id).ConfigureAwait(false);
+            transfer.State.Should().Be(TransferState.TransferReady);
         }
 
         [Fact]
