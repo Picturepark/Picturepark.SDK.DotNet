@@ -6437,6 +6437,7 @@
                 "SchemaIdException": "#/components/schemas/SchemaIdException",
                 "SchemaInUseException": "#/components/schemas/SchemaInUseException",
                 "SchemaNotFoundException": "#/components/schemas/SchemaNotFoundException",
+                "SchemaCountLimitReachedException": "#/components/schemas/SchemaCountLimitReachedException",
                 "SystemSchemaInvalidModificationException": "#/components/schemas/SystemSchemaInvalidModificationException",
                 "SchemaFieldRelationSchemaSystemSchemaException": "#/components/schemas/SchemaFieldRelationSchemaSystemSchemaException",
                 "SchemaFieldRelationSchemaTypeUnsupportedException": "#/components/schemas/SchemaFieldRelationSchemaTypeUnsupportedException",
@@ -10135,6 +10136,17 @@
                 "nullable": true
               }
             }
+          }
+        ]
+      },
+      "SchemaCountLimitReachedException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkBusinessException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
           }
         ]
       },
