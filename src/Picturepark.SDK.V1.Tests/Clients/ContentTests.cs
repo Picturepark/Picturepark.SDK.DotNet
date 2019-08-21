@@ -1388,11 +1388,12 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var contentSchema = new SchemaDetail
             {
                 Id = schemaId,
+                Names = new TranslatedStringDictionary { { "en", "Display language content schema" } },
                 Types = new List<SchemaType> { SchemaType.Content },
                 Fields = new List<FieldBase>
                 {
-                    new FieldString { Id = "value1" },
-                    new FieldString { Id = "value2" }
+                    new FieldString { Id = "value1", Names = new TranslatedStringDictionary { { "en", "Value 1" } } },
+                    new FieldString { Id = "value2", Names = new TranslatedStringDictionary { { "en", "Value 2" } } }
                 },
                 ViewForAll = true,
                 DisplayPatterns = new List<DisplayPattern>
@@ -1516,10 +1517,11 @@ namespace Picturepark.SDK.V1.Tests.Clients
             {
                 Schemas = new[]
                 {
-                    new SchemaCreateRequest { Id = contentSchemaId, Types = new[] { SchemaType.Content }, ViewForAll = true, LayerSchemaIds = new HashSet<string> { layerSchemaId } },
+                    new SchemaCreateRequest { Id = contentSchemaId, Names = new TranslatedStringDictionary { { "en", "Test content" } }, Types = new[] { SchemaType.Content }, ViewForAll = true, LayerSchemaIds = new HashSet<string> { layerSchemaId } },
                     new SchemaCreateRequest
                     {
                         Id = layerSchemaId,
+                        Names = new TranslatedStringDictionary { { "en", "Test layer" } },
                         Types = new[] { SchemaType.Layer },
                         ViewForAll = true,
                         ReferencedInContentSchemaIds = new HashSet<string> { contentSchemaId },
