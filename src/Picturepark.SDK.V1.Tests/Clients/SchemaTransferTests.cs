@@ -4,7 +4,6 @@ using Xunit;
 using Picturepark.SDK.V1.Contract;
 using Picturepark.SDK.V1.Tests.Fixtures;
 using System.IO;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace Picturepark.SDK.V1.Tests.Clients
@@ -46,11 +45,20 @@ namespace Picturepark.SDK.V1.Tests.Clients
             // Arrange
             const string schemaId = "Planet";
 
+            var version = await _client.Info.GetVersionAsync().ConfigureAwait(false);
+
             var transferName = new Random().Next(1000, 9999).ToString();
+
+            var tempPlanetFile = Path.GetTempFileName();
+
+            var planetJson = File.ReadAllText(Path.Combine(_fixture.ExampleSchemaBasePath, "Planet.json"))
+                .Replace("{{contractVersion}}", version.ContractVersion);
+
+            File.WriteAllText(tempPlanetFile, planetJson);
 
             var files = new FileLocations[]
             {
-                Path.Combine(_fixture.ExampleSchemaBasePath, "Planet.json")
+                tempPlanetFile
             };
 
             var createTransferResult = await _client.Transfer.UploadFilesAsync(transferName, files, new UploadOptions()).ConfigureAwait(false);
@@ -77,7 +85,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             // Assert
             Assert.Equal(schema.Id, schemaId);
 
-            /// Tear down
+            // Tear down
             await _client.Schema.DeleteAsync(schema.Id).ConfigureAwait(false);
         }
     }
