@@ -9041,6 +9041,10 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.TimeSpan IncompleteTransferRetentionTime { get; set; }
     
+        [Newtonsoft.Json.JsonProperty("replacedOriginalsRetentionTime", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public System.TimeSpan ReplacedOriginalsRetentionTime { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("deactivationMessage", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public TranslatedStringDictionary DeactivationMessage { get; set; }
     

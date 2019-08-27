@@ -14016,6 +14016,7 @@
           "liveStreamRetentionTime",
           "successfulTransferRetentionTime",
           "incompleteTransferRetentionTime",
+          "replacedOriginalsRetentionTime",
           "contentBackupState",
           "apiCallsPerMinute"
         ],
@@ -14286,6 +14287,10 @@
             "format": "time-span"
           },
           "incompleteTransferRetentionTime": {
+            "type": "string",
+            "format": "time-span"
+          },
+          "replacedOriginalsRetentionTime": {
             "type": "string",
             "format": "time-span"
           },
