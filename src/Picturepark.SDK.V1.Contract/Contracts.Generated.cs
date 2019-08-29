@@ -2353,6 +2353,12 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("BusinessRuleInvalidVariableNameException", typeof(BusinessRuleInvalidVariableNameException))]
     [JsonInheritanceAttribute("BusinessRuleTransformationGroupTransformationsMissingException", typeof(BusinessRuleTransformationGroupTransformationsMissingException))]
     [JsonInheritanceAttribute("BusinessRuleTransformationGroupInputsMissingException", typeof(BusinessRuleTransformationGroupInputsMissingException))]
+    [JsonInheritanceAttribute("BusinessRuleNamedCacheNameInvalidException", typeof(BusinessRuleNamedCacheNameInvalidException))]
+    [JsonInheritanceAttribute("NamedCacheConfigurationException", typeof(NamedCacheConfigurationException))]
+    [JsonInheritanceAttribute("NamedCacheNameMissingException", typeof(NamedCacheNameMissingException))]
+    [JsonInheritanceAttribute("NamedCacheNameDuplicationException", typeof(NamedCacheNameDuplicationException))]
+    [JsonInheritanceAttribute("ListItemNamedCacheSchemaIdInvalidException", typeof(ListItemNamedCacheSchemaIdInvalidException))]
+    [JsonInheritanceAttribute("ListItemNamedCacheKeyFieldsInvalidException", typeof(ListItemNamedCacheKeyFieldsInvalidException))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
     [Newtonsoft.Json.JsonObjectAttribute]
     public partial class PictureparkException : System.Exception
@@ -7813,6 +7819,114 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class BusinessRuleNamedCacheNameInvalidException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("cacheName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string CacheName { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static BusinessRuleNamedCacheNameInvalidException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessRuleNamedCacheNameInvalidException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class NamedCacheConfigurationException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("innerExceptions", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<PictureparkValidationException> InnerExceptions { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static NamedCacheConfigurationException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<NamedCacheConfigurationException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class NamedCacheNameMissingException : PictureparkValidationException
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static NamedCacheNameMissingException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<NamedCacheNameMissingException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class NamedCacheNameDuplicationException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Name { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static NamedCacheNameDuplicationException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<NamedCacheNameDuplicationException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class ListItemNamedCacheSchemaIdInvalidException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("schemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string SchemaId { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static ListItemNamedCacheSchemaIdInvalidException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ListItemNamedCacheSchemaIdInvalidException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class ListItemNamedCacheKeyFieldsInvalidException : PictureparkValidationException
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static ListItemNamedCacheKeyFieldsInvalidException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ListItemNamedCacheKeyFieldsInvalidException>(data);
+        }
+    
+    }
+    
     /// <summary>Search request to search for business processes</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class BusinessProcessSearchRequest 
@@ -8964,6 +9078,10 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("rules", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<BusinessRule> Rules { get; set; }
     
+        /// <summary>Named caches.</summary>
+        [Newtonsoft.Json.JsonProperty("caches", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<NamedCacheConfigurationBase> Caches { get; set; }
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -9542,6 +9660,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("TakeDictionaryValueTransformation", typeof(TakeDictionaryValueTransformation))]
     [JsonInheritanceAttribute("TakeArrayValueTransformation", typeof(TakeArrayValueTransformation))]
     [JsonInheritanceAttribute("JoinByTransformation", typeof(JoinByTransformation))]
+    [JsonInheritanceAttribute("LookupCacheTransformation", typeof(LookupCacheTransformation))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
     public abstract partial class BusinessRuleTransformation 
     {
@@ -9613,6 +9732,26 @@ namespace Picturepark.SDK.V1.Contract
         public static JoinByTransformation FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<JoinByTransformation>(data);
+        }
+    
+    }
+    
+    /// <summary>Uses a named cache to lookup a value.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class LookupCacheTransformation : BusinessRuleTransformation
+    {
+        /// <summary>Name of the cache to use.</summary>
+        [Newtonsoft.Json.JsonProperty("namedCache", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string NamedCache { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static LookupCacheTransformation FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<LookupCacheTransformation>(data);
         }
     
     }
@@ -9875,6 +10014,52 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>Named cache configuration</summary>
+    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
+    [JsonInheritanceAttribute("ListItemNamedCacheConfiguration", typeof(ListItemNamedCacheConfiguration))]
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
+    public abstract partial class NamedCacheConfigurationBase 
+    {
+        /// <summary>Name of named cache.</summary>
+        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Name { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static NamedCacheConfigurationBase FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<NamedCacheConfigurationBase>(data);
+        }
+    
+    }
+    
+    /// <summary>List item named cache</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class ListItemNamedCacheConfiguration : NamedCacheConfigurationBase
+    {
+        /// <summary>ID of the schema to cache (should have SchemaType = List)</summary>
+        [Newtonsoft.Json.JsonProperty("schemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string SchemaId { get; set; }
+    
+        /// <summary>List of IDs of fields to use as a composite key</summary>
+        [Newtonsoft.Json.JsonProperty("keyFields", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> KeyFields { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static ListItemNamedCacheConfiguration FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ListItemNamedCacheConfiguration>(data);
+        }
+    
+    }
+    
     /// <summary>Update request for changing business rule configuration</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class BusinessRuleConfigurationUpdateRequest 
@@ -9883,9 +10068,13 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("disableRuleEngine", Required = Newtonsoft.Json.Required.Always)]
         public bool DisableRuleEngine { get; set; }
     
-        /// <summary>Rules</summary>
+        /// <summary>Rules.</summary>
         [Newtonsoft.Json.JsonProperty("rules", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<BusinessRule> Rules { get; set; }
+    
+        /// <summary>Named caches.</summary>
+        [Newtonsoft.Json.JsonProperty("caches", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<NamedCacheConfigurationBase> Caches { get; set; }
     
         public string ToJson() 
         {

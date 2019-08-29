@@ -17575,7 +17575,13 @@
                 "BusinessRuleProjectionTransformationsMissingException": "#/components/schemas/BusinessRuleProjectionTransformationsMissingException",
                 "BusinessRuleInvalidVariableNameException": "#/components/schemas/BusinessRuleInvalidVariableNameException",
                 "BusinessRuleTransformationGroupTransformationsMissingException": "#/components/schemas/BusinessRuleTransformationGroupTransformationsMissingException",
-                "BusinessRuleTransformationGroupInputsMissingException": "#/components/schemas/BusinessRuleTransformationGroupInputsMissingException"
+                "BusinessRuleTransformationGroupInputsMissingException": "#/components/schemas/BusinessRuleTransformationGroupInputsMissingException",
+                "BusinessRuleNamedCacheNameInvalidException": "#/components/schemas/BusinessRuleNamedCacheNameInvalidException",
+                "NamedCacheConfigurationException": "#/components/schemas/NamedCacheConfigurationException",
+                "NamedCacheNameMissingException": "#/components/schemas/NamedCacheNameMissingException",
+                "NamedCacheNameDuplicationException": "#/components/schemas/NamedCacheNameDuplicationException",
+                "ListItemNamedCacheSchemaIdInvalidException": "#/components/schemas/ListItemNamedCacheSchemaIdInvalidException",
+                "ListItemNamedCacheKeyFieldsInvalidException": "#/components/schemas/ListItemNamedCacheKeyFieldsInvalidException"
               }
             },
             "additionalProperties": false,
@@ -22685,6 +22691,99 @@
           }
         ]
       },
+      "BusinessRuleNamedCacheNameInvalidException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "cacheName": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "NamedCacheConfigurationException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "innerExceptions": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "NamedCacheNameMissingException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "NamedCacheNameDuplicationException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "name": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "ListItemNamedCacheSchemaIdInvalidException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "schemaId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "ListItemNamedCacheKeyFieldsInvalidException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
       "BusinessProcessSearchRequest": {
         "type": "object",
         "description": "Search request to search for business processes",
@@ -23931,6 +24030,14 @@
             "items": {
               "$ref": "#/components/schemas/BusinessRule"
             }
+          },
+          "caches": {
+            "type": "array",
+            "description": "Named caches.",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/NamedCacheConfigurationBase"
+            }
           }
         }
       },
@@ -24528,7 +24635,8 @@
           "mapping": {
             "TakeDictionaryValueTransformation": "#/components/schemas/TakeDictionaryValueTransformation",
             "TakeArrayValueTransformation": "#/components/schemas/TakeArrayValueTransformation",
-            "JoinByTransformation": "#/components/schemas/JoinByTransformation"
+            "JoinByTransformation": "#/components/schemas/JoinByTransformation",
+            "LookupCacheTransformation": "#/components/schemas/LookupCacheTransformation"
           }
         },
         "description": "Business rule transformation",
@@ -24594,6 +24702,25 @@
               "separator": {
                 "type": "string",
                 "description": "Separator to use.",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "LookupCacheTransformation": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BusinessRuleTransformation"
+          },
+          {
+            "type": "object",
+            "description": "Uses a named cache to lookup a value.",
+            "additionalProperties": false,
+            "properties": {
+              "namedCache": {
+                "type": "string",
+                "description": "Name of the cache to use.",
                 "nullable": true
               }
             }
@@ -24849,6 +24976,58 @@
           }
         ]
       },
+      "NamedCacheConfigurationBase": {
+        "type": "object",
+        "discriminator": {
+          "propertyName": "kind",
+          "mapping": {
+            "ListItemNamedCacheConfiguration": "#/components/schemas/ListItemNamedCacheConfiguration"
+          }
+        },
+        "description": "Named cache configuration",
+        "x-abstract": true,
+        "additionalProperties": false,
+        "required": [
+          "kind"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Name of named cache.",
+            "nullable": true
+          },
+          "kind": {
+            "type": "string"
+          }
+        }
+      },
+      "ListItemNamedCacheConfiguration": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/NamedCacheConfigurationBase"
+          },
+          {
+            "type": "object",
+            "description": "List item named cache",
+            "additionalProperties": false,
+            "properties": {
+              "schemaId": {
+                "type": "string",
+                "description": "ID of the schema to cache (should have SchemaType = List)",
+                "nullable": true
+              },
+              "keyFields": {
+                "type": "array",
+                "description": "List of IDs of fields to use as a composite key",
+                "nullable": true,
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ]
+      },
       "BusinessRuleConfigurationUpdateRequest": {
         "type": "object",
         "description": "Update request for changing business rule configuration",
@@ -24863,10 +25042,18 @@
           },
           "rules": {
             "type": "array",
-            "description": "Rules",
+            "description": "Rules.",
             "nullable": true,
             "items": {
               "$ref": "#/components/schemas/BusinessRule"
+            }
+          },
+          "caches": {
+            "type": "array",
+            "description": "Named caches.",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/NamedCacheConfigurationBase"
             }
           }
         }

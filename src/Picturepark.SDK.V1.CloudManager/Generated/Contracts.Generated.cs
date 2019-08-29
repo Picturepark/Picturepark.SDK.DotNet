@@ -194,6 +194,22 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         System.Threading.Tasks.Task ForceCompleteContentBackupRecoveryAsync(ContentBackupForceCompleteRecoveryRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        System.Threading.Tasks.Task AckBackupAsync(string customerId, string filePath, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<ContentBackupAcknowledgementResult>> AckBackupManyAsync(string customerId, System.Collections.Generic.IEnumerable<string> filePaths, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "13.0.1.0 (NJsonSchema v10.0.19.0 (Newtonsoft.Json v11.0.0.0))")]
@@ -1065,6 +1081,12 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [JsonInheritanceAttribute("BusinessRuleInvalidVariableNameException", typeof(BusinessRuleInvalidVariableNameException))]
     [JsonInheritanceAttribute("BusinessRuleTransformationGroupTransformationsMissingException", typeof(BusinessRuleTransformationGroupTransformationsMissingException))]
     [JsonInheritanceAttribute("BusinessRuleTransformationGroupInputsMissingException", typeof(BusinessRuleTransformationGroupInputsMissingException))]
+    [JsonInheritanceAttribute("BusinessRuleNamedCacheNameInvalidException", typeof(BusinessRuleNamedCacheNameInvalidException))]
+    [JsonInheritanceAttribute("NamedCacheConfigurationException", typeof(NamedCacheConfigurationException))]
+    [JsonInheritanceAttribute("NamedCacheNameMissingException", typeof(NamedCacheNameMissingException))]
+    [JsonInheritanceAttribute("NamedCacheNameDuplicationException", typeof(NamedCacheNameDuplicationException))]
+    [JsonInheritanceAttribute("ListItemNamedCacheSchemaIdInvalidException", typeof(ListItemNamedCacheSchemaIdInvalidException))]
+    [JsonInheritanceAttribute("ListItemNamedCacheKeyFieldsInvalidException", typeof(ListItemNamedCacheKeyFieldsInvalidException))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
     [Newtonsoft.Json.JsonObjectAttribute]
     public partial class PictureparkException : System.Exception
@@ -6526,6 +6548,114 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class BusinessRuleNamedCacheNameInvalidException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("cacheName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string CacheName { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static BusinessRuleNamedCacheNameInvalidException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessRuleNamedCacheNameInvalidException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class NamedCacheConfigurationException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("innerExceptions", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<PictureparkValidationException> InnerExceptions { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static NamedCacheConfigurationException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<NamedCacheConfigurationException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class NamedCacheNameMissingException : PictureparkValidationException
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static NamedCacheNameMissingException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<NamedCacheNameMissingException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class NamedCacheNameDuplicationException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Name { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static NamedCacheNameDuplicationException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<NamedCacheNameDuplicationException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class ListItemNamedCacheSchemaIdInvalidException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("schemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string SchemaId { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static ListItemNamedCacheSchemaIdInvalidException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ListItemNamedCacheSchemaIdInvalidException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class ListItemNamedCacheKeyFieldsInvalidException : PictureparkValidationException
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static ListItemNamedCacheKeyFieldsInvalidException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ListItemNamedCacheKeyFieldsInvalidException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class SnapshotRepository 
     {
         [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -7543,6 +7673,30 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         public static ContentBackupForceCompleteRecoveryRequest FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentBackupForceCompleteRecoveryRequest>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class ContentBackupAcknowledgementResult 
+    {
+        [Newtonsoft.Json.JsonProperty("filePath", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string FilePath { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("succeeded", Required = Newtonsoft.Json.Required.Always)]
+        public bool Succeeded { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("error", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public ErrorResponse Error { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static ContentBackupAcknowledgementResult FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentBackupAcknowledgementResult>(data);
         }
     
     }
@@ -9040,6 +9194,10 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [Newtonsoft.Json.JsonProperty("incompleteTransferRetentionTime", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.TimeSpan IncompleteTransferRetentionTime { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("replacedOriginalsRetentionTime", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public System.TimeSpan ReplacedOriginalsRetentionTime { get; set; }
     
         [Newtonsoft.Json.JsonProperty("deactivationMessage", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public TranslatedStringDictionary DeactivationMessage { get; set; }
