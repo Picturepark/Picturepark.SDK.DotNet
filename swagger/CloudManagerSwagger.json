@@ -6708,7 +6708,8 @@
                 "NamedCacheNameMissingException": "#/components/schemas/NamedCacheNameMissingException",
                 "NamedCacheNameDuplicationException": "#/components/schemas/NamedCacheNameDuplicationException",
                 "ListItemNamedCacheSchemaIdInvalidException": "#/components/schemas/ListItemNamedCacheSchemaIdInvalidException",
-                "ListItemNamedCacheKeyFieldsInvalidException": "#/components/schemas/ListItemNamedCacheKeyFieldsInvalidException"
+                "ListItemNamedCacheKeyFieldsInvalidException": "#/components/schemas/ListItemNamedCacheKeyFieldsInvalidException",
+                "SchemaTagboxFilterLookupNamedCacheSchemaIdInvalidException": "#/components/schemas/SchemaTagboxFilterLookupNamedCacheSchemaIdInvalidException"
               }
             },
             "additionalProperties": false,
@@ -11908,6 +11909,23 @@
           {
             "type": "object",
             "additionalProperties": false
+          }
+        ]
+      },
+      "SchemaTagboxFilterLookupNamedCacheSchemaIdInvalidException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "schemaId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
           }
         ]
       },
