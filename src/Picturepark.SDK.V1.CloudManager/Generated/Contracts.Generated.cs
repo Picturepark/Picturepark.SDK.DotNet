@@ -874,6 +874,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [JsonInheritanceAttribute("OutputNotFoundException", typeof(OutputNotFoundException))]
     [JsonInheritanceAttribute("UnableToCreateOrModifyStaticOutputFormatException", typeof(UnableToCreateOrModifyStaticOutputFormatException))]
     [JsonInheritanceAttribute("NotSupportedFileMappingException", typeof(NotSupportedFileMappingException))]
+    [JsonInheritanceAttribute("NotSupportedFileMappingForDynamicFormatException", typeof(NotSupportedFileMappingForDynamicFormatException))]
     [JsonInheritanceAttribute("NotSupportedFileExtensionException", typeof(NotSupportedFileExtensionException))]
     [JsonInheritanceAttribute("DuplicateOutputFormatIdException", typeof(DuplicateOutputFormatIdException))]
     [JsonInheritanceAttribute("OutputFormatResizingNotSupportedException", typeof(OutputFormatResizingNotSupportedException))]
@@ -1819,6 +1820,22 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         public static NotSupportedFileMappingException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<NotSupportedFileMappingException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class NotSupportedFileMappingForDynamicFormatException : NotSupportedFileMappingException
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static NotSupportedFileMappingForDynamicFormatException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<NotSupportedFileMappingForDynamicFormatException>(data);
         }
     
     }

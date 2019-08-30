@@ -3,7 +3,10 @@ using Picturepark.SDK.V1.Contract;
 using Picturepark.SDK.V1.Tests.Fixtures;
 using Picturepark.SDK.V1.Tests.FluentAssertions;
 using System;
+using System.IO;
+using System.IO.Compression;
 using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 using Xunit;
 
@@ -187,7 +190,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldCreateSingleOutputFormat()
         {
             // Arrange
-            var guid = System.Guid.NewGuid().ToString("N");
+            var guid = Guid.NewGuid().ToString("N");
 
             // Act
             var outputFormat = new OutputFormat
@@ -218,6 +221,121 @@ namespace Picturepark.SDK.V1.Tests.Clients
             result.Should().NotBeNull();
             result.Audit.CreatedByUser.Should().BeResolved();
             result.Audit.ModifiedByUser.Should().BeResolved();
+        }
+
+        [Fact]
+        [Trait("Stack", "OutputFormats")]
+        public async Task ShouldRenderDynamicOutputSingle()
+        {
+            // Arrange
+            var format = await _fixture.CreateOutputFormat().ConfigureAwait(false);
+            var contentId = await _fixture.GetRandomContentIdAsync(".jpg", 20).ConfigureAwait(false);
+
+            var fileName = new Random().Next(0, 999999) + "-" + contentId + ".jpg";
+            var filePath = Path.Combine(_fixture.TempDirectory, fileName);
+
+            if (File.Exists(filePath))
+                File.Delete(filePath);
+
+            // Act
+            using (var response = await _client.Content.DownloadAsync(contentId, format.Id).ConfigureAwait(false))
+                await response.Stream.WriteToFileAsync(filePath).ConfigureAwait(false);
+
+            // Assert
+            var fileInfo = new FileInfo(filePath);
+            fileInfo.Exists.Should().BeTrue();
+            fileInfo.Length.Should().BeGreaterThan(0);
+        }
+
+        [Fact]
+        [Trait("Stack", "OutputFormats")]
+        public async Task ShouldRenderDynamicOutputMulti()
+        {
+            // Arrange
+            var format = await _fixture.CreateOutputFormat().ConfigureAwait(false);
+            var contents = await _fixture.GetRandomContentsAsync(".jpg", 10).ConfigureAwait(false);
+
+            var folderName = nameof(ShouldRenderDynamicOutputMulti) + new Random().Next(0, 999999);
+
+            var folderAbsolutePathRendered = Path.Combine(_fixture.TempDirectory, folderName, "rendered");
+            Directory.CreateDirectory(folderAbsolutePathRendered);
+
+            var errorDelegateCalled = false;
+
+            // Act
+            await _client.Content.DownloadFilesAsync(
+                contents,
+                folderAbsolutePathRendered,
+                overwriteIfExists: false,
+                outputFormat: format.Id,
+                errorDelegate: _ => errorDelegateCalled = true).ConfigureAwait(false);
+
+            // Assert
+            errorDelegateCalled.Should().BeFalse();
+
+            var renderedDirectoryInfo = new DirectoryInfo(folderAbsolutePathRendered);
+            renderedDirectoryInfo.EnumerateFiles().Count().Should().Be(contents.Results.Count);
+        }
+
+        [Fact]
+        [Trait("Stack", "OutputFormats")]
+        public async Task ShouldAllowDownloadOfMultipleOutputFormatsForMultipleContents()
+        {
+            // Arrange
+            var numberOfFormats = 3;
+
+            var formats = await _fixture.CreateOutputFormats(numberOfFormats).ConfigureAwait(false);
+            var contents = await _fixture.GetRandomContentsAsync(".jpg", 10).ConfigureAwait(false);
+
+            var folderName = new Random().Next(0, 999999) + "-" + nameof(ShouldAllowDownloadOfMultipleOutputFormatsForMultipleContents);
+            var folderPath = Path.Combine(_fixture.TempDirectory, folderName);
+            var filePath = folderPath + ".zip";
+
+            Directory.CreateDirectory(folderPath);
+            if (File.Exists(filePath))
+                File.Delete(filePath);
+
+            var combinations =
+                from content in contents.Results
+                from format in formats
+                select new ContentDownloadRequestItem()
+                {
+                    ContentId = content.Id,
+                    OutputFormatId = format.Id
+                };
+
+            // Act
+            var downloadLinkResponse = await _client.Content
+                .CreateDownloadLinkAsync(new ContentDownloadLinkCreateRequest { Contents = combinations.ToList() })
+                .ConfigureAwait(false);
+
+            using (var httpClient = new HttpClient())
+            using (var response = await httpClient.GetAsync(downloadLinkResponse.DownloadUrl).ConfigureAwait(false))
+            {
+                response.EnsureSuccessStatusCode();
+
+                using (var stream = await response.Content.ReadAsStreamAsync().ConfigureAwait(false))
+                using (var fileStream = File.Create(filePath))
+                    await stream.CopyToAsync(fileStream).ConfigureAwait(false);
+            }
+
+            // Assert
+            ZipFile.ExtractToDirectory(filePath, folderPath);
+
+            var folderInfo = new DirectoryInfo(folderPath);
+            var directories = folderInfo.EnumerateDirectories("*", SearchOption.TopDirectoryOnly).ToList();
+
+            directories.Count.Should().Be(numberOfFormats);
+
+            foreach (var directory in directories)
+            {
+                directory.Name.Should().BeOneOf(formats.Select(f => f.Id));
+
+                var filesInOutputFormat = directory.EnumerateFiles().ToList();
+                filesInOutputFormat.Should().HaveCount(contents.Results.Count);
+                filesInOutputFormat.Should().OnlyContain(f => f.Length > 0);
+                filesInOutputFormat.Should().OnlyContain(f => Path.GetExtension(f.Name) == ".jpg");
+            }
         }
     }
 }
