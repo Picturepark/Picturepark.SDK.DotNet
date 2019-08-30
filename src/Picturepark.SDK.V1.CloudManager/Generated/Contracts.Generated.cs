@@ -1087,6 +1087,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [JsonInheritanceAttribute("NamedCacheNameDuplicationException", typeof(NamedCacheNameDuplicationException))]
     [JsonInheritanceAttribute("ListItemNamedCacheSchemaIdInvalidException", typeof(ListItemNamedCacheSchemaIdInvalidException))]
     [JsonInheritanceAttribute("ListItemNamedCacheKeyFieldsInvalidException", typeof(ListItemNamedCacheKeyFieldsInvalidException))]
+    [JsonInheritanceAttribute("SchemaTagboxFilterLookupNamedCacheSchemaIdInvalidException", typeof(SchemaTagboxFilterLookupNamedCacheSchemaIdInvalidException))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
     [Newtonsoft.Json.JsonObjectAttribute]
     public partial class PictureparkException : System.Exception
@@ -6651,6 +6652,25 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         public static ListItemNamedCacheKeyFieldsInvalidException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<ListItemNamedCacheKeyFieldsInvalidException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class SchemaTagboxFilterLookupNamedCacheSchemaIdInvalidException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("schemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string SchemaId { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static SchemaTagboxFilterLookupNamedCacheSchemaIdInvalidException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaTagboxFilterLookupNamedCacheSchemaIdInvalidException>(data);
         }
     
     }
