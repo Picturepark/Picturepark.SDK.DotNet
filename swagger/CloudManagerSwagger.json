@@ -6702,7 +6702,13 @@
                 "BusinessRuleProjectionTransformationsMissingException": "#/components/schemas/BusinessRuleProjectionTransformationsMissingException",
                 "BusinessRuleInvalidVariableNameException": "#/components/schemas/BusinessRuleInvalidVariableNameException",
                 "BusinessRuleTransformationGroupTransformationsMissingException": "#/components/schemas/BusinessRuleTransformationGroupTransformationsMissingException",
-                "BusinessRuleTransformationGroupInputsMissingException": "#/components/schemas/BusinessRuleTransformationGroupInputsMissingException"
+                "BusinessRuleTransformationGroupInputsMissingException": "#/components/schemas/BusinessRuleTransformationGroupInputsMissingException",
+                "BusinessRuleNamedCacheNameInvalidException": "#/components/schemas/BusinessRuleNamedCacheNameInvalidException",
+                "NamedCacheConfigurationException": "#/components/schemas/NamedCacheConfigurationException",
+                "NamedCacheNameMissingException": "#/components/schemas/NamedCacheNameMissingException",
+                "NamedCacheNameDuplicationException": "#/components/schemas/NamedCacheNameDuplicationException",
+                "ListItemNamedCacheSchemaIdInvalidException": "#/components/schemas/ListItemNamedCacheSchemaIdInvalidException",
+                "ListItemNamedCacheKeyFieldsInvalidException": "#/components/schemas/ListItemNamedCacheKeyFieldsInvalidException"
               }
             },
             "additionalProperties": false,
@@ -11802,6 +11808,99 @@
         ]
       },
       "BusinessRuleTransformationGroupInputsMissingException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "BusinessRuleNamedCacheNameInvalidException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "cacheName": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "NamedCacheConfigurationException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "innerExceptions": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "NamedCacheNameMissingException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "NamedCacheNameDuplicationException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "name": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "ListItemNamedCacheSchemaIdInvalidException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "schemaId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "ListItemNamedCacheKeyFieldsInvalidException": {
         "allOf": [
           {
             "$ref": "#/components/schemas/PictureparkValidationException"
