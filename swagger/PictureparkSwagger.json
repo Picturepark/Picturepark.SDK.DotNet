@@ -25929,7 +25929,8 @@
         "type": "object",
         "additionalProperties": false,
         "required": [
-          "emailAddress"
+          "emailAddress",
+          "isDeleted"
         ],
         "properties": {
           "id": {
@@ -25951,6 +25952,10 @@
             "type": "string",
             "description": "Email address of the user (doubles as username).",
             "minLength": 1
+          },
+          "isDeleted": {
+            "type": "boolean",
+            "description": "Marks a user that was deleted from the system."
           }
         }
       },

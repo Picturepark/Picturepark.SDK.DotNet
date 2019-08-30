@@ -10806,6 +10806,10 @@ namespace Picturepark.SDK.V1.Contract
         [System.ComponentModel.DataAnnotations.Required]
         public string EmailAddress { get; set; }
     
+        /// <summary>Marks a user that was deleted from the system.</summary>
+        [Newtonsoft.Json.JsonProperty("isDeleted", Required = Newtonsoft.Json.Required.Always)]
+        public bool IsDeleted { get; set; }
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
