@@ -2354,6 +2354,9 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("BusinessRuleTransformationGroupTransformationsMissingException", typeof(BusinessRuleTransformationGroupTransformationsMissingException))]
     [JsonInheritanceAttribute("BusinessRuleTransformationGroupInputsMissingException", typeof(BusinessRuleTransformationGroupInputsMissingException))]
     [JsonInheritanceAttribute("BusinessRuleNamedCacheNameInvalidException", typeof(BusinessRuleNamedCacheNameInvalidException))]
+    [JsonInheritanceAttribute("BusinessRuleNGramTransformationSizeInvalidException", typeof(BusinessRuleNGramTransformationSizeInvalidException))]
+    [JsonInheritanceAttribute("BusinessRuleNGramTransformationMinWordLengthInvalidException", typeof(BusinessRuleNGramTransformationMinWordLengthInvalidException))]
+    [JsonInheritanceAttribute("BusinessRuleNGramTransformationMaxWordLengthInvalidException", typeof(BusinessRuleNGramTransformationMaxWordLengthInvalidException))]
     [JsonInheritanceAttribute("NamedCacheConfigurationException", typeof(NamedCacheConfigurationException))]
     [JsonInheritanceAttribute("NamedCacheNameMissingException", typeof(NamedCacheNameMissingException))]
     [JsonInheritanceAttribute("NamedCacheNameDuplicationException", typeof(NamedCacheNameDuplicationException))]
@@ -7841,6 +7844,69 @@ namespace Picturepark.SDK.V1.Contract
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
     [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class BusinessRuleNGramTransformationSizeInvalidException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("size", Required = Newtonsoft.Json.Required.Always)]
+        public int Size { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("minSize", Required = Newtonsoft.Json.Required.Always)]
+        public int MinSize { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("maxSize", Required = Newtonsoft.Json.Required.Always)]
+        public int MaxSize { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static BusinessRuleNGramTransformationSizeInvalidException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessRuleNGramTransformationSizeInvalidException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class BusinessRuleNGramTransformationMinWordLengthInvalidException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("minWordLength", Required = Newtonsoft.Json.Required.Always)]
+        public int MinWordLength { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static BusinessRuleNGramTransformationMinWordLengthInvalidException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessRuleNGramTransformationMinWordLengthInvalidException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class BusinessRuleNGramTransformationMaxWordLengthInvalidException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("maxWordLength", Required = Newtonsoft.Json.Required.Always)]
+        public int MaxWordLength { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static BusinessRuleNGramTransformationMaxWordLengthInvalidException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessRuleNGramTransformationMaxWordLengthInvalidException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
     public partial class NamedCacheConfigurationException : PictureparkValidationException
     {
         [Newtonsoft.Json.JsonProperty("innerExceptions", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -9681,6 +9747,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("TakeArrayValueTransformation", typeof(TakeArrayValueTransformation))]
     [JsonInheritanceAttribute("JoinByTransformation", typeof(JoinByTransformation))]
     [JsonInheritanceAttribute("LookupCacheTransformation", typeof(LookupCacheTransformation))]
+    [JsonInheritanceAttribute("NGramTransformation", typeof(NGramTransformation))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
     public abstract partial class BusinessRuleTransformation 
     {
@@ -9772,6 +9839,36 @@ namespace Picturepark.SDK.V1.Contract
         public static LookupCacheTransformation FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<LookupCacheTransformation>(data);
+        }
+    
+    }
+    
+    /// <summary>Produces N-grams based on splitting a text on whitespace characters.
+    /// Removes punctuation as well.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class NGramTransformation : BusinessRuleTransformation
+    {
+        /// <summary>Maximum size of n-grams to produce.
+        /// Settings this to 3 will produce unigrams, bigrams, trigrams.</summary>
+        [Newtonsoft.Json.JsonProperty("size", Required = Newtonsoft.Json.Required.Always)]
+        public int Size { get; set; }
+    
+        /// <summary>Minimum length of a word to be considered.</summary>
+        [Newtonsoft.Json.JsonProperty("minWordLength", Required = Newtonsoft.Json.Required.Always)]
+        public int MinWordLength { get; set; }
+    
+        /// <summary>Maximum length of a word to be considered.</summary>
+        [Newtonsoft.Json.JsonProperty("maxWordLength", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int? MaxWordLength { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static NGramTransformation FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<NGramTransformation>(data);
         }
     
     }
@@ -10075,6 +10172,10 @@ namespace Picturepark.SDK.V1.Contract
         /// <summary>Name of named cache.</summary>
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Name { get; set; }
+    
+        /// <summary>Indicates if the lookup should be cache sensitive.</summary>
+        [Newtonsoft.Json.JsonProperty("caseSensitive", Required = Newtonsoft.Json.Required.Always)]
+        public bool CaseSensitive { get; set; }
     
         public string ToJson() 
         {

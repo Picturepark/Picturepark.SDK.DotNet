@@ -6704,6 +6704,9 @@
                 "BusinessRuleTransformationGroupTransformationsMissingException": "#/components/schemas/BusinessRuleTransformationGroupTransformationsMissingException",
                 "BusinessRuleTransformationGroupInputsMissingException": "#/components/schemas/BusinessRuleTransformationGroupInputsMissingException",
                 "BusinessRuleNamedCacheNameInvalidException": "#/components/schemas/BusinessRuleNamedCacheNameInvalidException",
+                "BusinessRuleNGramTransformationSizeInvalidException": "#/components/schemas/BusinessRuleNGramTransformationSizeInvalidException",
+                "BusinessRuleNGramTransformationMinWordLengthInvalidException": "#/components/schemas/BusinessRuleNGramTransformationMinWordLengthInvalidException",
+                "BusinessRuleNGramTransformationMaxWordLengthInvalidException": "#/components/schemas/BusinessRuleNGramTransformationMaxWordLengthInvalidException",
                 "NamedCacheConfigurationException": "#/components/schemas/NamedCacheConfigurationException",
                 "NamedCacheNameMissingException": "#/components/schemas/NamedCacheNameMissingException",
                 "NamedCacheNameDuplicationException": "#/components/schemas/NamedCacheNameDuplicationException",
@@ -11831,6 +11834,76 @@
               "cacheName": {
                 "type": "string",
                 "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "BusinessRuleNGramTransformationSizeInvalidException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "size",
+              "minSize",
+              "maxSize"
+            ],
+            "properties": {
+              "size": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "minSize": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "maxSize": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          }
+        ]
+      },
+      "BusinessRuleNGramTransformationMinWordLengthInvalidException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "minWordLength"
+            ],
+            "properties": {
+              "minWordLength": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          }
+        ]
+      },
+      "BusinessRuleNGramTransformationMaxWordLengthInvalidException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "maxWordLength"
+            ],
+            "properties": {
+              "maxWordLength": {
+                "type": "integer",
+                "format": "int32"
               }
             }
           }
