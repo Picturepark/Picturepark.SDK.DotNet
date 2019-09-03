@@ -30,7 +30,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             Assert.True(contentId == contentDetail.Id, "Delivery goes wrong. We never ordered such pizza.");
 
             Assert.True(contentDetail.Outputs.Any());
-            var outputId = contentDetail.Outputs.FirstOrDefault()?.Id;
+            var outputId = contentDetail.Outputs.FirstOrDefault(o => !o.DynamicRendering)?.Id;
             Assert.False(string.IsNullOrEmpty(outputId));
 
             // Act
