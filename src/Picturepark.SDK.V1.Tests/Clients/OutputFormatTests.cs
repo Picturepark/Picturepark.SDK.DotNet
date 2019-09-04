@@ -247,7 +247,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             fileInfo.Length.Should().BeGreaterThan(0);
         }
 
-        [Fact]
+        [Fact(Skip = "await fix from PP9-9110, DownloadFilesAsync does not handle content with identical filename")]
         [Trait("Stack", "OutputFormats")]
         public async Task ShouldRenderDynamicOutputMulti()
         {
