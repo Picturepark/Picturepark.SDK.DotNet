@@ -2355,11 +2355,15 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("BusinessRuleTransformationGroupTransformationsMissingException", typeof(BusinessRuleTransformationGroupTransformationsMissingException))]
     [JsonInheritanceAttribute("BusinessRuleTransformationGroupInputsMissingException", typeof(BusinessRuleTransformationGroupInputsMissingException))]
     [JsonInheritanceAttribute("BusinessRuleNamedCacheNameInvalidException", typeof(BusinessRuleNamedCacheNameInvalidException))]
+    [JsonInheritanceAttribute("BusinessRuleNGramTransformationSizeInvalidException", typeof(BusinessRuleNGramTransformationSizeInvalidException))]
+    [JsonInheritanceAttribute("BusinessRuleNGramTransformationMinWordLengthInvalidException", typeof(BusinessRuleNGramTransformationMinWordLengthInvalidException))]
+    [JsonInheritanceAttribute("BusinessRuleNGramTransformationMaxWordLengthInvalidException", typeof(BusinessRuleNGramTransformationMaxWordLengthInvalidException))]
     [JsonInheritanceAttribute("NamedCacheConfigurationException", typeof(NamedCacheConfigurationException))]
     [JsonInheritanceAttribute("NamedCacheNameMissingException", typeof(NamedCacheNameMissingException))]
     [JsonInheritanceAttribute("NamedCacheNameDuplicationException", typeof(NamedCacheNameDuplicationException))]
     [JsonInheritanceAttribute("ListItemNamedCacheSchemaIdInvalidException", typeof(ListItemNamedCacheSchemaIdInvalidException))]
     [JsonInheritanceAttribute("ListItemNamedCacheKeyFieldsInvalidException", typeof(ListItemNamedCacheKeyFieldsInvalidException))]
+    [JsonInheritanceAttribute("SchemaTagboxFilterLookupNamedCacheSchemaIdInvalidException", typeof(SchemaTagboxFilterLookupNamedCacheSchemaIdInvalidException))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
     [Newtonsoft.Json.JsonObjectAttribute]
     public partial class PictureparkException : System.Exception
@@ -7857,6 +7861,69 @@ namespace Picturepark.SDK.V1.Contract
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
     [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class BusinessRuleNGramTransformationSizeInvalidException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("size", Required = Newtonsoft.Json.Required.Always)]
+        public int Size { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("minSize", Required = Newtonsoft.Json.Required.Always)]
+        public int MinSize { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("maxSize", Required = Newtonsoft.Json.Required.Always)]
+        public int MaxSize { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static BusinessRuleNGramTransformationSizeInvalidException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessRuleNGramTransformationSizeInvalidException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class BusinessRuleNGramTransformationMinWordLengthInvalidException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("minWordLength", Required = Newtonsoft.Json.Required.Always)]
+        public int MinWordLength { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static BusinessRuleNGramTransformationMinWordLengthInvalidException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessRuleNGramTransformationMinWordLengthInvalidException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class BusinessRuleNGramTransformationMaxWordLengthInvalidException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("maxWordLength", Required = Newtonsoft.Json.Required.Always)]
+        public int MaxWordLength { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static BusinessRuleNGramTransformationMaxWordLengthInvalidException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessRuleNGramTransformationMaxWordLengthInvalidException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
     public partial class NamedCacheConfigurationException : PictureparkValidationException
     {
         [Newtonsoft.Json.JsonProperty("innerExceptions", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -7940,6 +8007,25 @@ namespace Picturepark.SDK.V1.Contract
         public static ListItemNamedCacheKeyFieldsInvalidException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<ListItemNamedCacheKeyFieldsInvalidException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class SchemaTagboxFilterLookupNamedCacheSchemaIdInvalidException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("schemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string SchemaId { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static SchemaTagboxFilterLookupNamedCacheSchemaIdInvalidException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaTagboxFilterLookupNamedCacheSchemaIdInvalidException>(data);
         }
     
     }
@@ -9678,6 +9764,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("TakeArrayValueTransformation", typeof(TakeArrayValueTransformation))]
     [JsonInheritanceAttribute("JoinByTransformation", typeof(JoinByTransformation))]
     [JsonInheritanceAttribute("LookupCacheTransformation", typeof(LookupCacheTransformation))]
+    [JsonInheritanceAttribute("NGramTransformation", typeof(NGramTransformation))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
     public abstract partial class BusinessRuleTransformation 
     {
@@ -9773,6 +9860,36 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>Produces N-grams based on splitting a text on whitespace characters.
+    /// Removes punctuation as well.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class NGramTransformation : BusinessRuleTransformation
+    {
+        /// <summary>Maximum size of n-grams to produce.
+        /// Settings this to 3 will produce unigrams, bigrams, trigrams.</summary>
+        [Newtonsoft.Json.JsonProperty("size", Required = Newtonsoft.Json.Required.Always)]
+        public int Size { get; set; }
+    
+        /// <summary>Minimum length of a word to be considered.</summary>
+        [Newtonsoft.Json.JsonProperty("minWordLength", Required = Newtonsoft.Json.Required.Always)]
+        public int MinWordLength { get; set; }
+    
+        /// <summary>Maximum length of a word to be considered.</summary>
+        [Newtonsoft.Json.JsonProperty("maxWordLength", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int? MaxWordLength { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static NGramTransformation FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<NGramTransformation>(data);
+        }
+    
+    }
+    
     /// <summary>Action to be performed by a business rule</summary>
     [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
     [JsonInheritanceAttribute("AssignLayerAction", typeof(AssignLayerAction))]
@@ -9783,6 +9900,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("AssignContentPermissionSetsAction", typeof(AssignContentPermissionSetsAction))]
     [JsonInheritanceAttribute("UnassignContentPermissionSetsAction", typeof(UnassignContentPermissionSetsAction))]
     [JsonInheritanceAttribute("ProduceMessageAction", typeof(ProduceMessageAction))]
+    [JsonInheritanceAttribute("AssignTagboxItemsInLayerAction", typeof(AssignTagboxItemsInLayerAction))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
     public abstract partial class BusinessRuleAction 
     {
@@ -10011,6 +10129,36 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>Assigns a set of list item ids to all multi tag boxes in a layer where the
+    /// filter defined on the tagbox does allow assignment of the ID.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class AssignTagboxItemsInLayerAction : BusinessRuleAction
+    {
+        /// <summary>Named cache to use for lookup, should be of type SchemaTagboxFilterLookupNamedCacheConfiguration</summary>
+        [Newtonsoft.Json.JsonProperty("namedCache", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string NamedCache { get; set; }
+    
+        /// <summary>List of refIds of the items that should be assigned.</summary>
+        [Newtonsoft.Json.JsonProperty("refIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public object RefIds { get; set; }
+    
+        /// <summary>Indicates where the assignment should be additive to the already assigned tags
+        /// or if existing tags should be replaced.</summary>
+        [Newtonsoft.Json.JsonProperty("replace", Required = Newtonsoft.Json.Required.Always)]
+        public bool Replace { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static AssignTagboxItemsInLayerAction FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<AssignTagboxItemsInLayerAction>(data);
+        }
+    
+    }
+    
     /// <summary>A business rule expressed as a script</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class BusinessRuleScript : BusinessRule
@@ -10034,12 +10182,17 @@ namespace Picturepark.SDK.V1.Contract
     /// <summary>Named cache configuration</summary>
     [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
     [JsonInheritanceAttribute("ListItemNamedCacheConfiguration", typeof(ListItemNamedCacheConfiguration))]
+    [JsonInheritanceAttribute("SchemaTagboxFilterLookupNamedCacheConfiguration", typeof(SchemaTagboxFilterLookupNamedCacheConfiguration))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
     public abstract partial class NamedCacheConfigurationBase 
     {
         /// <summary>Name of named cache.</summary>
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Name { get; set; }
+    
+        /// <summary>Indicates if the lookup should be cache sensitive.</summary>
+        [Newtonsoft.Json.JsonProperty("caseSensitive", Required = Newtonsoft.Json.Required.Always)]
+        public bool CaseSensitive { get; set; }
     
         public string ToJson() 
         {
@@ -10065,6 +10218,14 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("keyFields", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> KeyFields { get; set; }
     
+        /// <summary>An optional filter to narrow down the cached list items</summary>
+        [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public FilterBase Filter { get; set; }
+    
+        /// <summary>Include child schemas when caching list items</summary>
+        [Newtonsoft.Json.JsonProperty("includeAllSchemaChildren", Required = Newtonsoft.Json.Required.Always)]
+        public bool IncludeAllSchemaChildren { get; set; }
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -10073,6 +10234,27 @@ namespace Picturepark.SDK.V1.Contract
         public static ListItemNamedCacheConfiguration FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<ListItemNamedCacheConfiguration>(data);
+        }
+    
+    }
+    
+    /// <summary>Creates a cache for all multi tag boxes in a schema
+    /// Lookup key is then in the format [ fieldId, refId ], returns the refId if matched by the filter</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class SchemaTagboxFilterLookupNamedCacheConfiguration : NamedCacheConfigurationBase
+    {
+        /// <summary>The layer id.</summary>
+        [Newtonsoft.Json.JsonProperty("schemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string SchemaId { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static SchemaTagboxFilterLookupNamedCacheConfiguration FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaTagboxFilterLookupNamedCacheConfiguration>(data);
         }
     
     }
@@ -10823,6 +11005,10 @@ namespace Picturepark.SDK.V1.Contract
         [System.ComponentModel.DataAnnotations.Required]
         public string EmailAddress { get; set; }
     
+        /// <summary>Marks a user that was deleted from the system.</summary>
+        [Newtonsoft.Json.JsonProperty("isDeleted", Required = Newtonsoft.Json.Required.Always)]
+        public bool IsDeleted { get; set; }
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -10856,9 +11042,8 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class Output 
     {
-        /// <summary>The ID of the output.</summary>
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
+        /// <summary>The ID of the output. Can be null for dynamic outputs which are not rendered yet.</summary>
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
     
         /// <summary>The ID of the output format this output represents.</summary>

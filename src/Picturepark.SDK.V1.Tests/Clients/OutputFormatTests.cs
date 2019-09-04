@@ -229,9 +229,9 @@ namespace Picturepark.SDK.V1.Tests.Clients
         {
             // Arrange
             var format = await _fixture.CreateOutputFormat().ConfigureAwait(false);
-            var contentId = await _fixture.GetRandomContentIdAsync(".jpg", 20).ConfigureAwait(false);
+            var contentId = await _fixture.GetRandomContentIdAsync("fileMetadata.fileExtension:.jpg", 20).ConfigureAwait(false);
 
-            var fileName = new Random().Next(0, 999999) + "-" + contentId + ".jpg";
+            var fileName = new Random().Next(0, 999999) + "-" + contentId + "fileMetadata.fileExtension:.jpg";
             var filePath = Path.Combine(_fixture.TempDirectory, fileName);
 
             if (File.Exists(filePath))
@@ -253,7 +253,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         {
             // Arrange
             var format = await _fixture.CreateOutputFormat().ConfigureAwait(false);
-            var contents = await _fixture.GetRandomContentsAsync(".jpg", 10).ConfigureAwait(false);
+            var contents = await _fixture.GetRandomContentsAsync("fileMetadata.fileExtension:.jpg", 10).ConfigureAwait(false);
 
             var folderName = nameof(ShouldRenderDynamicOutputMulti) + new Random().Next(0, 999999);
 
@@ -285,9 +285,9 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var numberOfFormats = 3;
 
             var formats = await _fixture.CreateOutputFormats(numberOfFormats).ConfigureAwait(false);
-            var contents = await _fixture.GetRandomContentsAsync(".jpg", 10).ConfigureAwait(false);
+            var contents = await _fixture.GetRandomContentsAsync("fileMetadata.fileExtension:.jpg", 10).ConfigureAwait(false);
 
-            var folderName = new Random().Next(0, 999999) + "-" + nameof(ShouldAllowDownloadOfMultipleOutputFormatsForMultipleContents);
+            var folderName = new Random().Next(0, 999999) + "-" + "multi-download-dynamic";
             var folderPath = Path.Combine(_fixture.TempDirectory, folderName);
             var filePath = folderPath + ".zip";
 

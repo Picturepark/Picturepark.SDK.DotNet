@@ -17578,11 +17578,15 @@
                 "BusinessRuleTransformationGroupTransformationsMissingException": "#/components/schemas/BusinessRuleTransformationGroupTransformationsMissingException",
                 "BusinessRuleTransformationGroupInputsMissingException": "#/components/schemas/BusinessRuleTransformationGroupInputsMissingException",
                 "BusinessRuleNamedCacheNameInvalidException": "#/components/schemas/BusinessRuleNamedCacheNameInvalidException",
+                "BusinessRuleNGramTransformationSizeInvalidException": "#/components/schemas/BusinessRuleNGramTransformationSizeInvalidException",
+                "BusinessRuleNGramTransformationMinWordLengthInvalidException": "#/components/schemas/BusinessRuleNGramTransformationMinWordLengthInvalidException",
+                "BusinessRuleNGramTransformationMaxWordLengthInvalidException": "#/components/schemas/BusinessRuleNGramTransformationMaxWordLengthInvalidException",
                 "NamedCacheConfigurationException": "#/components/schemas/NamedCacheConfigurationException",
                 "NamedCacheNameMissingException": "#/components/schemas/NamedCacheNameMissingException",
                 "NamedCacheNameDuplicationException": "#/components/schemas/NamedCacheNameDuplicationException",
                 "ListItemNamedCacheSchemaIdInvalidException": "#/components/schemas/ListItemNamedCacheSchemaIdInvalidException",
-                "ListItemNamedCacheKeyFieldsInvalidException": "#/components/schemas/ListItemNamedCacheKeyFieldsInvalidException"
+                "ListItemNamedCacheKeyFieldsInvalidException": "#/components/schemas/ListItemNamedCacheKeyFieldsInvalidException",
+                "SchemaTagboxFilterLookupNamedCacheSchemaIdInvalidException": "#/components/schemas/SchemaTagboxFilterLookupNamedCacheSchemaIdInvalidException"
               }
             },
             "additionalProperties": false,
@@ -22720,6 +22724,76 @@
           }
         ]
       },
+      "BusinessRuleNGramTransformationSizeInvalidException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "size",
+              "minSize",
+              "maxSize"
+            ],
+            "properties": {
+              "size": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "minSize": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "maxSize": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          }
+        ]
+      },
+      "BusinessRuleNGramTransformationMinWordLengthInvalidException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "minWordLength"
+            ],
+            "properties": {
+              "minWordLength": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          }
+        ]
+      },
+      "BusinessRuleNGramTransformationMaxWordLengthInvalidException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "maxWordLength"
+            ],
+            "properties": {
+              "maxWordLength": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          }
+        ]
+      },
       "NamedCacheConfigurationException": {
         "allOf": [
           {
@@ -22793,6 +22867,23 @@
           {
             "type": "object",
             "additionalProperties": false
+          }
+        ]
+      },
+      "SchemaTagboxFilterLookupNamedCacheSchemaIdInvalidException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "schemaId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
           }
         ]
       },
@@ -24648,7 +24739,8 @@
             "TakeDictionaryValueTransformation": "#/components/schemas/TakeDictionaryValueTransformation",
             "TakeArrayValueTransformation": "#/components/schemas/TakeArrayValueTransformation",
             "JoinByTransformation": "#/components/schemas/JoinByTransformation",
-            "LookupCacheTransformation": "#/components/schemas/LookupCacheTransformation"
+            "LookupCacheTransformation": "#/components/schemas/LookupCacheTransformation",
+            "NGramTransformation": "#/components/schemas/NGramTransformation"
           }
         },
         "description": "Business rule transformation",
@@ -24739,6 +24831,40 @@
           }
         ]
       },
+      "NGramTransformation": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BusinessRuleTransformation"
+          },
+          {
+            "type": "object",
+            "description": "Produces N-grams based on splitting a text on whitespace characters.\nRemoves punctuation as well.",
+            "additionalProperties": false,
+            "required": [
+              "size",
+              "minWordLength"
+            ],
+            "properties": {
+              "size": {
+                "type": "integer",
+                "description": "Maximum size of n-grams to produce.\nSettings this to 3 will produce unigrams, bigrams, trigrams.",
+                "format": "int32"
+              },
+              "minWordLength": {
+                "type": "integer",
+                "description": "Minimum length of a word to be considered.",
+                "format": "int32"
+              },
+              "maxWordLength": {
+                "type": "integer",
+                "description": "Maximum length of a word to be considered.",
+                "format": "int32",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
       "BusinessRuleAction": {
         "type": "object",
         "discriminator": {
@@ -24751,7 +24877,8 @@
             "UnassignTagboxItemsAction": "#/components/schemas/UnassignTagboxItemsAction",
             "AssignContentPermissionSetsAction": "#/components/schemas/AssignContentPermissionSetsAction",
             "UnassignContentPermissionSetsAction": "#/components/schemas/UnassignContentPermissionSetsAction",
-            "ProduceMessageAction": "#/components/schemas/ProduceMessageAction"
+            "ProduceMessageAction": "#/components/schemas/ProduceMessageAction",
+            "AssignTagboxItemsInLayerAction": "#/components/schemas/AssignTagboxItemsInLayerAction"
           }
         },
         "description": "Action to be performed by a business rule",
@@ -24969,6 +25096,36 @@
           }
         ]
       },
+      "AssignTagboxItemsInLayerAction": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BusinessRuleAction"
+          },
+          {
+            "type": "object",
+            "description": "Assigns a set of list item ids to all multi tag boxes in a layer where the\nfilter defined on the tagbox does allow assignment of the ID.",
+            "additionalProperties": false,
+            "required": [
+              "replace"
+            ],
+            "properties": {
+              "namedCache": {
+                "type": "string",
+                "description": "Named cache to use for lookup, should be of type SchemaTagboxFilterLookupNamedCacheConfiguration",
+                "nullable": true
+              },
+              "refIds": {
+                "description": "List of refIds of the items that should be assigned.",
+                "nullable": true
+              },
+              "replace": {
+                "type": "boolean",
+                "description": "Indicates where the assignment should be additive to the already assigned tags\nor if existing tags should be replaced."
+              }
+            }
+          }
+        ]
+      },
       "BusinessRuleScript": {
         "allOf": [
           {
@@ -24993,13 +25150,15 @@
         "discriminator": {
           "propertyName": "kind",
           "mapping": {
-            "ListItemNamedCacheConfiguration": "#/components/schemas/ListItemNamedCacheConfiguration"
+            "ListItemNamedCacheConfiguration": "#/components/schemas/ListItemNamedCacheConfiguration",
+            "SchemaTagboxFilterLookupNamedCacheConfiguration": "#/components/schemas/SchemaTagboxFilterLookupNamedCacheConfiguration"
           }
         },
         "description": "Named cache configuration",
         "x-abstract": true,
         "additionalProperties": false,
         "required": [
+          "caseSensitive",
           "kind"
         ],
         "properties": {
@@ -25007,6 +25166,10 @@
             "type": "string",
             "description": "Name of named cache.",
             "nullable": true
+          },
+          "caseSensitive": {
+            "type": "boolean",
+            "description": "Indicates if the lookup should be cache sensitive."
           },
           "kind": {
             "type": "string"
@@ -25022,6 +25185,9 @@
             "type": "object",
             "description": "List item named cache",
             "additionalProperties": false,
+            "required": [
+              "includeAllSchemaChildren"
+            ],
             "properties": {
               "schemaId": {
                 "type": "string",
@@ -25035,6 +25201,38 @@
                 "items": {
                   "type": "string"
                 }
+              },
+              "filter": {
+                "description": "An optional filter to narrow down the cached list items",
+                "nullable": true,
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/FilterBase"
+                  }
+                ]
+              },
+              "includeAllSchemaChildren": {
+                "type": "boolean",
+                "description": "Include child schemas when caching list items"
+              }
+            }
+          }
+        ]
+      },
+      "SchemaTagboxFilterLookupNamedCacheConfiguration": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/NamedCacheConfigurationBase"
+          },
+          {
+            "type": "object",
+            "description": "Creates a cache for all multi tag boxes in a schema\nLookup key is then in the format [ fieldId, refId ], returns the refId if matched by the filter",
+            "additionalProperties": false,
+            "properties": {
+              "schemaId": {
+                "type": "string",
+                "description": "The layer id.",
+                "nullable": true
               }
             }
           }
@@ -25941,7 +26139,8 @@
         "type": "object",
         "additionalProperties": false,
         "required": [
-          "emailAddress"
+          "emailAddress",
+          "isDeleted"
         ],
         "properties": {
           "id": {
@@ -25963,6 +26162,10 @@
             "type": "string",
             "description": "Email address of the user (doubles as username).",
             "minLength": 1
+          },
+          "isDeleted": {
+            "type": "boolean",
+            "description": "Marks a user that was deleted from the system."
           }
         }
       },
@@ -25983,7 +26186,6 @@
         "description": "Output",
         "additionalProperties": false,
         "required": [
-          "id",
           "outputFormatId",
           "contentId",
           "renderingState",
@@ -25995,8 +26197,8 @@
         "properties": {
           "id": {
             "type": "string",
-            "description": "The ID of the output.",
-            "minLength": 1
+            "description": "The ID of the output. Can be null for dynamic outputs which are not rendered yet.",
+            "nullable": true
           },
           "outputFormatId": {
             "type": "string",
