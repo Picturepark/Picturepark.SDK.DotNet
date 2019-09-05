@@ -231,7 +231,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var format = await _fixture.CreateOutputFormat().ConfigureAwait(false);
             var contentId = await _fixture.GetRandomContentIdAsync("fileMetadata.fileExtension:.jpg", 20).ConfigureAwait(false);
 
-            var fileName = new Random().Next(0, 999999) + "-" + contentId + "fileMetadata.fileExtension:.jpg";
+            var fileName = new Random().Next(0, 999999) + "-" + contentId + ".jpg";
             var filePath = Path.Combine(_fixture.TempDirectory, fileName);
 
             if (File.Exists(filePath))
@@ -257,7 +257,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             var folderName = nameof(ShouldRenderDynamicOutputMulti) + new Random().Next(0, 999999);
 
-            var folderAbsolutePathRendered = Path.Combine(_fixture.TempDirectory, folderName, "rendered");
+            var folderAbsolutePathRendered = Path.Combine(_fixture.TempDirectory, folderName);
             Directory.CreateDirectory(folderAbsolutePathRendered);
 
             var errorDelegateCalled = false;
