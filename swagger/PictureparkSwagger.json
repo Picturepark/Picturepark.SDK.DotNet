@@ -17369,6 +17369,7 @@
                 "OutputNotFoundException": "#/components/schemas/OutputNotFoundException",
                 "UnableToCreateOrModifyStaticOutputFormatException": "#/components/schemas/UnableToCreateOrModifyStaticOutputFormatException",
                 "NotSupportedFileMappingException": "#/components/schemas/NotSupportedFileMappingException",
+                "NotSupportedFileMappingForDynamicFormatException": "#/components/schemas/NotSupportedFileMappingForDynamicFormatException",
                 "NotSupportedFileExtensionException": "#/components/schemas/NotSupportedFileExtensionException",
                 "DuplicateOutputFormatIdException": "#/components/schemas/DuplicateOutputFormatIdException",
                 "OutputFormatResizingNotSupportedException": "#/components/schemas/OutputFormatResizingNotSupportedException",
@@ -18232,6 +18233,17 @@
         "allOf": [
           {
             "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "NotSupportedFileMappingForDynamicFormatException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/NotSupportedFileMappingException"
           },
           {
             "type": "object",
@@ -26174,19 +26186,19 @@
         "description": "Output",
         "additionalProperties": false,
         "required": [
-          "id",
           "outputFormatId",
           "contentId",
           "renderingState",
           "attemptsLeft",
           "fileVersion",
+          "dynamicRendering",
           "kind"
         ],
         "properties": {
           "id": {
             "type": "string",
-            "description": "The ID of the output.",
-            "minLength": 1
+            "description": "The ID of the output. Can be null for dynamic outputs which are not rendered yet.",
+            "nullable": true
           },
           "outputFormatId": {
             "type": "string",
@@ -26231,6 +26243,10 @@
             "type": "integer",
             "description": "Version counter incremented every time this output is rendered (or in case of Original when new original is uploaded).",
             "format": "int32"
+          },
+          "dynamicRendering": {
+            "type": "boolean",
+            "description": "Whether this Output belongs to a dynamic OutputFormat"
           },
           "kind": {
             "type": "string"

@@ -2146,6 +2146,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("OutputNotFoundException", typeof(OutputNotFoundException))]
     [JsonInheritanceAttribute("UnableToCreateOrModifyStaticOutputFormatException", typeof(UnableToCreateOrModifyStaticOutputFormatException))]
     [JsonInheritanceAttribute("NotSupportedFileMappingException", typeof(NotSupportedFileMappingException))]
+    [JsonInheritanceAttribute("NotSupportedFileMappingForDynamicFormatException", typeof(NotSupportedFileMappingForDynamicFormatException))]
     [JsonInheritanceAttribute("NotSupportedFileExtensionException", typeof(NotSupportedFileExtensionException))]
     [JsonInheritanceAttribute("DuplicateOutputFormatIdException", typeof(DuplicateOutputFormatIdException))]
     [JsonInheritanceAttribute("OutputFormatResizingNotSupportedException", typeof(OutputFormatResizingNotSupportedException))]
@@ -3095,6 +3096,22 @@ namespace Picturepark.SDK.V1.Contract
         public static NotSupportedFileMappingException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<NotSupportedFileMappingException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class NotSupportedFileMappingForDynamicFormatException : NotSupportedFileMappingException
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static NotSupportedFileMappingForDynamicFormatException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<NotSupportedFileMappingForDynamicFormatException>(data);
         }
     
     }
@@ -11025,9 +11042,8 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.19.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class Output 
     {
-        /// <summary>The ID of the output.</summary>
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
+        /// <summary>The ID of the output. Can be null for dynamic outputs which are not rendered yet.</summary>
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
     
         /// <summary>The ID of the output format this output represents.</summary>
@@ -11061,6 +11077,10 @@ namespace Picturepark.SDK.V1.Contract
         /// <summary>Version counter incremented every time this output is rendered (or in case of Original when new original is uploaded).</summary>
         [Newtonsoft.Json.JsonProperty("fileVersion", Required = Newtonsoft.Json.Required.Always)]
         public int FileVersion { get; set; }
+    
+        /// <summary>Whether this Output belongs to a dynamic OutputFormat</summary>
+        [Newtonsoft.Json.JsonProperty("dynamicRendering", Required = Newtonsoft.Json.Required.Always)]
+        public bool DynamicRendering { get; set; }
     
         public string ToJson() 
         {
