@@ -6496,6 +6496,7 @@
                 "OutputNotFoundException": "#/components/schemas/OutputNotFoundException",
                 "UnableToCreateOrModifyStaticOutputFormatException": "#/components/schemas/UnableToCreateOrModifyStaticOutputFormatException",
                 "NotSupportedFileMappingException": "#/components/schemas/NotSupportedFileMappingException",
+                "NotSupportedFileMappingForDynamicFormatException": "#/components/schemas/NotSupportedFileMappingForDynamicFormatException",
                 "NotSupportedFileExtensionException": "#/components/schemas/NotSupportedFileExtensionException",
                 "DuplicateOutputFormatIdException": "#/components/schemas/DuplicateOutputFormatIdException",
                 "OutputFormatResizingNotSupportedException": "#/components/schemas/OutputFormatResizingNotSupportedException",
@@ -6704,6 +6705,9 @@
                 "BusinessRuleTransformationGroupTransformationsMissingException": "#/components/schemas/BusinessRuleTransformationGroupTransformationsMissingException",
                 "BusinessRuleTransformationGroupInputsMissingException": "#/components/schemas/BusinessRuleTransformationGroupInputsMissingException",
                 "BusinessRuleNamedCacheNameInvalidException": "#/components/schemas/BusinessRuleNamedCacheNameInvalidException",
+                "BusinessRuleNGramTransformationSizeInvalidException": "#/components/schemas/BusinessRuleNGramTransformationSizeInvalidException",
+                "BusinessRuleNGramTransformationMinWordLengthInvalidException": "#/components/schemas/BusinessRuleNGramTransformationMinWordLengthInvalidException",
+                "BusinessRuleNGramTransformationMaxWordLengthInvalidException": "#/components/schemas/BusinessRuleNGramTransformationMaxWordLengthInvalidException",
                 "NamedCacheConfigurationException": "#/components/schemas/NamedCacheConfigurationException",
                 "NamedCacheNameMissingException": "#/components/schemas/NamedCacheNameMissingException",
                 "NamedCacheNameDuplicationException": "#/components/schemas/NamedCacheNameDuplicationException",
@@ -7356,6 +7360,17 @@
         "allOf": [
           {
             "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "NotSupportedFileMappingForDynamicFormatException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/NotSupportedFileMappingException"
           },
           {
             "type": "object",
@@ -11836,6 +11851,76 @@
           }
         ]
       },
+      "BusinessRuleNGramTransformationSizeInvalidException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "size",
+              "minSize",
+              "maxSize"
+            ],
+            "properties": {
+              "size": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "minSize": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "maxSize": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          }
+        ]
+      },
+      "BusinessRuleNGramTransformationMinWordLengthInvalidException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "minWordLength"
+            ],
+            "properties": {
+              "minWordLength": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          }
+        ]
+      },
+      "BusinessRuleNGramTransformationMaxWordLengthInvalidException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "maxWordLength"
+            ],
+            "properties": {
+              "maxWordLength": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          }
+        ]
+      },
       "NamedCacheConfigurationException": {
         "allOf": [
           {
@@ -12628,7 +12713,8 @@
         "type": "object",
         "additionalProperties": false,
         "required": [
-          "emailAddress"
+          "emailAddress",
+          "isDeleted"
         ],
         "properties": {
           "id": {
@@ -12650,6 +12736,10 @@
             "type": "string",
             "description": "Email address of the user (doubles as username).",
             "minLength": 1
+          },
+          "isDeleted": {
+            "type": "boolean",
+            "description": "Marks a user that was deleted from the system."
           }
         }
       },

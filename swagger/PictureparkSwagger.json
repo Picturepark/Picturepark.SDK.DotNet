@@ -17369,6 +17369,7 @@
                 "OutputNotFoundException": "#/components/schemas/OutputNotFoundException",
                 "UnableToCreateOrModifyStaticOutputFormatException": "#/components/schemas/UnableToCreateOrModifyStaticOutputFormatException",
                 "NotSupportedFileMappingException": "#/components/schemas/NotSupportedFileMappingException",
+                "NotSupportedFileMappingForDynamicFormatException": "#/components/schemas/NotSupportedFileMappingForDynamicFormatException",
                 "NotSupportedFileExtensionException": "#/components/schemas/NotSupportedFileExtensionException",
                 "DuplicateOutputFormatIdException": "#/components/schemas/DuplicateOutputFormatIdException",
                 "OutputFormatResizingNotSupportedException": "#/components/schemas/OutputFormatResizingNotSupportedException",
@@ -17577,6 +17578,9 @@
                 "BusinessRuleTransformationGroupTransformationsMissingException": "#/components/schemas/BusinessRuleTransformationGroupTransformationsMissingException",
                 "BusinessRuleTransformationGroupInputsMissingException": "#/components/schemas/BusinessRuleTransformationGroupInputsMissingException",
                 "BusinessRuleNamedCacheNameInvalidException": "#/components/schemas/BusinessRuleNamedCacheNameInvalidException",
+                "BusinessRuleNGramTransformationSizeInvalidException": "#/components/schemas/BusinessRuleNGramTransformationSizeInvalidException",
+                "BusinessRuleNGramTransformationMinWordLengthInvalidException": "#/components/schemas/BusinessRuleNGramTransformationMinWordLengthInvalidException",
+                "BusinessRuleNGramTransformationMaxWordLengthInvalidException": "#/components/schemas/BusinessRuleNGramTransformationMaxWordLengthInvalidException",
                 "NamedCacheConfigurationException": "#/components/schemas/NamedCacheConfigurationException",
                 "NamedCacheNameMissingException": "#/components/schemas/NamedCacheNameMissingException",
                 "NamedCacheNameDuplicationException": "#/components/schemas/NamedCacheNameDuplicationException",
@@ -18229,6 +18233,17 @@
         "allOf": [
           {
             "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "NotSupportedFileMappingForDynamicFormatException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/NotSupportedFileMappingException"
           },
           {
             "type": "object",
@@ -22709,6 +22724,76 @@
           }
         ]
       },
+      "BusinessRuleNGramTransformationSizeInvalidException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "size",
+              "minSize",
+              "maxSize"
+            ],
+            "properties": {
+              "size": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "minSize": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "maxSize": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          }
+        ]
+      },
+      "BusinessRuleNGramTransformationMinWordLengthInvalidException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "minWordLength"
+            ],
+            "properties": {
+              "minWordLength": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          }
+        ]
+      },
+      "BusinessRuleNGramTransformationMaxWordLengthInvalidException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "maxWordLength"
+            ],
+            "properties": {
+              "maxWordLength": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          }
+        ]
+      },
       "NamedCacheConfigurationException": {
         "allOf": [
           {
@@ -24654,7 +24739,8 @@
             "TakeDictionaryValueTransformation": "#/components/schemas/TakeDictionaryValueTransformation",
             "TakeArrayValueTransformation": "#/components/schemas/TakeArrayValueTransformation",
             "JoinByTransformation": "#/components/schemas/JoinByTransformation",
-            "LookupCacheTransformation": "#/components/schemas/LookupCacheTransformation"
+            "LookupCacheTransformation": "#/components/schemas/LookupCacheTransformation",
+            "NGramTransformation": "#/components/schemas/NGramTransformation"
           }
         },
         "description": "Business rule transformation",
@@ -24739,6 +24825,40 @@
               "namedCache": {
                 "type": "string",
                 "description": "Name of the cache to use.",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "NGramTransformation": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BusinessRuleTransformation"
+          },
+          {
+            "type": "object",
+            "description": "Produces N-grams based on splitting a text on whitespace characters.\nRemoves punctuation as well.",
+            "additionalProperties": false,
+            "required": [
+              "size",
+              "minWordLength"
+            ],
+            "properties": {
+              "size": {
+                "type": "integer",
+                "description": "Maximum size of n-grams to produce.\nSettings this to 3 will produce unigrams, bigrams, trigrams.",
+                "format": "int32"
+              },
+              "minWordLength": {
+                "type": "integer",
+                "description": "Minimum length of a word to be considered.",
+                "format": "int32"
+              },
+              "maxWordLength": {
+                "type": "integer",
+                "description": "Maximum length of a word to be considered.",
+                "format": "int32",
                 "nullable": true
               }
             }
@@ -25038,6 +25158,7 @@
         "x-abstract": true,
         "additionalProperties": false,
         "required": [
+          "caseSensitive",
           "kind"
         ],
         "properties": {
@@ -25045,6 +25166,10 @@
             "type": "string",
             "description": "Name of named cache.",
             "nullable": true
+          },
+          "caseSensitive": {
+            "type": "boolean",
+            "description": "Indicates if the lookup should be cache sensitive."
           },
           "kind": {
             "type": "string"
@@ -26014,7 +26139,8 @@
         "type": "object",
         "additionalProperties": false,
         "required": [
-          "emailAddress"
+          "emailAddress",
+          "isDeleted"
         ],
         "properties": {
           "id": {
@@ -26036,6 +26162,10 @@
             "type": "string",
             "description": "Email address of the user (doubles as username).",
             "minLength": 1
+          },
+          "isDeleted": {
+            "type": "boolean",
+            "description": "Marks a user that was deleted from the system."
           }
         }
       },
@@ -26056,19 +26186,19 @@
         "description": "Output",
         "additionalProperties": false,
         "required": [
-          "id",
           "outputFormatId",
           "contentId",
           "renderingState",
           "attemptsLeft",
           "fileVersion",
+          "dynamicRendering",
           "kind"
         ],
         "properties": {
           "id": {
             "type": "string",
-            "description": "The ID of the output.",
-            "minLength": 1
+            "description": "The ID of the output. Can be null for dynamic outputs which are not rendered yet.",
+            "nullable": true
           },
           "outputFormatId": {
             "type": "string",
@@ -26113,6 +26243,10 @@
             "type": "integer",
             "description": "Version counter incremented every time this output is rendered (or in case of Original when new original is uploaded).",
             "format": "int32"
+          },
+          "dynamicRendering": {
+            "type": "boolean",
+            "description": "Whether this Output belongs to a dynamic OutputFormat"
           },
           "kind": {
             "type": "string"
