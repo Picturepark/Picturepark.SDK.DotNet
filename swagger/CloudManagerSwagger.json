@@ -6713,7 +6713,9 @@
                 "NamedCacheNameDuplicationException": "#/components/schemas/NamedCacheNameDuplicationException",
                 "ListItemNamedCacheSchemaIdInvalidException": "#/components/schemas/ListItemNamedCacheSchemaIdInvalidException",
                 "ListItemNamedCacheKeyFieldsInvalidException": "#/components/schemas/ListItemNamedCacheKeyFieldsInvalidException",
-                "SchemaTagboxFilterLookupNamedCacheSchemaIdInvalidException": "#/components/schemas/SchemaTagboxFilterLookupNamedCacheSchemaIdInvalidException"
+                "SchemaTagboxFilterLookupNamedCacheSchemaIdInvalidException": "#/components/schemas/SchemaTagboxFilterLookupNamedCacheSchemaIdInvalidException",
+                "NoTagsFoundException": "#/components/schemas/NoTagsFoundException",
+                "OutputNotAvailableException": "#/components/schemas/OutputNotAvailableException"
               }
             },
             "additionalProperties": false,
@@ -11896,6 +11898,28 @@
           }
         ]
       },
+      "NoTagsFoundException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkBusinessException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "OutputNotAvailableException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkBusinessException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
       "SnapshotRepository": {
         "type": "object",
         "additionalProperties": false,
@@ -12962,6 +12986,14 @@
               }
             ]
           },
+          "taggingConfiguration": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/TaggingConfigurationBase"
+              }
+            ]
+          },
           "supportContactEmailAddress": {
             "type": "string",
             "nullable": true
@@ -13149,6 +13181,89 @@
               "serviceId": {
                 "type": "string",
                 "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "TaggingConfigurationBase": {
+        "type": "object",
+        "discriminator": {
+          "propertyName": "kind",
+          "mapping": {
+            "ClarifaiTaggingConfiguration": "#/components/schemas/ClarifaiTaggingConfiguration",
+            "SimulatedTaggingConfiguration": "#/components/schemas/SimulatedTaggingConfiguration"
+          }
+        },
+        "x-abstract": true,
+        "additionalProperties": false,
+        "required": [
+          "kind"
+        ],
+        "properties": {
+          "tagOutputFormatId": {
+            "type": "string",
+            "nullable": true
+          },
+          "keywordLookupCacheName": {
+            "type": "string",
+            "nullable": true
+          },
+          "taggingLayerId": {
+            "type": "string",
+            "nullable": true
+          },
+          "foundTagsFieldId": {
+            "type": "string",
+            "nullable": true
+          },
+          "missingKeywordsFieldId": {
+            "type": "string",
+            "nullable": true
+          },
+          "kind": {
+            "type": "string"
+          }
+        }
+      },
+      "ClarifaiTaggingConfiguration": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/TaggingConfigurationBase"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "useDownloadLink"
+            ],
+            "properties": {
+              "apiToken": {
+                "type": "string",
+                "nullable": true
+              },
+              "useDownloadLink": {
+                "type": "boolean"
+              }
+            }
+          }
+        ]
+      },
+      "SimulatedTaggingConfiguration": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/TaggingConfigurationBase"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "numberOfKeywords"
+            ],
+            "properties": {
+              "numberOfKeywords": {
+                "type": "integer",
+                "format": "int32"
               }
             }
           }
@@ -14487,6 +14602,14 @@
               }
             ]
           },
+          "taggingConfiguration": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/TaggingConfigurationBase"
+              }
+            ]
+          },
           "elasticSearchNumberOfShards": {
             "type": "integer",
             "format": "int32"
@@ -14761,6 +14884,14 @@
             "oneOf": [
               {
                 "$ref": "#/components/schemas/CdnConfigurationBase"
+              }
+            ]
+          },
+          "taggingConfiguration": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/TaggingConfigurationBase"
               }
             ]
           },
