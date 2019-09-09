@@ -160,7 +160,7 @@ namespace Picturepark.SDK.V1
             var sourceFileName = Path.GetFileName(fileLocation.AbsoluteSourcePath);
 
             var fileSize = new FileInfo(fileLocation.AbsoluteSourcePath).Length;
-            var targetFileName = Path.GetFileName(fileLocation.UploadAs);
+            var targetFileName = fileLocation.UploadAs;
             var totalChunks = (long)Math.Ceiling((decimal)fileSize / chunkSize);
 
             var uploadTasks = new List<Task>();

@@ -22,7 +22,7 @@ namespace Picturepark.SDK.V1.Contract
         public FileLocations(string absoluteSourcePath, string fileNameOverride = null, string identifier = null)
         {
             AbsoluteSourcePath = absoluteSourcePath ?? throw new ArgumentNullException(nameof(absoluteSourcePath));
-            UploadAs = Path.GetFileName(fileNameOverride ?? absoluteSourcePath);
+            UploadAs = fileNameOverride ?? Path.GetFileName(absoluteSourcePath);
             Identifier = identifier ?? $"{Guid.NewGuid():N}";
         }
 
