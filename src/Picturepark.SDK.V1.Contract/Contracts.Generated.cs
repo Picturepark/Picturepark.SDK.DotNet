@@ -2366,6 +2366,8 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("ListItemNamedCacheSchemaIdInvalidException", typeof(ListItemNamedCacheSchemaIdInvalidException))]
     [JsonInheritanceAttribute("ListItemNamedCacheKeyFieldsInvalidException", typeof(ListItemNamedCacheKeyFieldsInvalidException))]
     [JsonInheritanceAttribute("SchemaTagboxFilterLookupNamedCacheSchemaIdInvalidException", typeof(SchemaTagboxFilterLookupNamedCacheSchemaIdInvalidException))]
+    [JsonInheritanceAttribute("NoTagsFoundException", typeof(NoTagsFoundException))]
+    [JsonInheritanceAttribute("OutputNotAvailableException", typeof(OutputNotAvailableException))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     [Newtonsoft.Json.JsonObjectAttribute]
     public partial class PictureparkException : System.Exception
@@ -7914,6 +7916,38 @@ namespace Picturepark.SDK.V1.Contract
         public static SchemaTagboxFilterLookupNamedCacheSchemaIdInvalidException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaTagboxFilterLookupNamedCacheSchemaIdInvalidException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class NoTagsFoundException : PictureparkBusinessException
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static NoTagsFoundException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<NoTagsFoundException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class OutputNotAvailableException : PictureparkBusinessException
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static OutputNotAvailableException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<OutputNotAvailableException>(data);
         }
     
     }

@@ -17586,7 +17586,9 @@
                 "NamedCacheNameDuplicationException": "#/components/schemas/NamedCacheNameDuplicationException",
                 "ListItemNamedCacheSchemaIdInvalidException": "#/components/schemas/ListItemNamedCacheSchemaIdInvalidException",
                 "ListItemNamedCacheKeyFieldsInvalidException": "#/components/schemas/ListItemNamedCacheKeyFieldsInvalidException",
-                "SchemaTagboxFilterLookupNamedCacheSchemaIdInvalidException": "#/components/schemas/SchemaTagboxFilterLookupNamedCacheSchemaIdInvalidException"
+                "SchemaTagboxFilterLookupNamedCacheSchemaIdInvalidException": "#/components/schemas/SchemaTagboxFilterLookupNamedCacheSchemaIdInvalidException",
+                "NoTagsFoundException": "#/components/schemas/NoTagsFoundException",
+                "OutputNotAvailableException": "#/components/schemas/OutputNotAvailableException"
               }
             },
             "additionalProperties": false,
@@ -22766,6 +22768,28 @@
                 "nullable": true
               }
             }
+          }
+        ]
+      },
+      "NoTagsFoundException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkBusinessException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "OutputNotAvailableException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkBusinessException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
           }
         ]
       },
