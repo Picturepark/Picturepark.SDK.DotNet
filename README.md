@@ -33,6 +33,15 @@ Links:
 - **[Picturepark.SDK.V1.ServiceProvider](https://www.nuget.org/packages/Picturepark.SDK.V1.ServiceProvider) (.NET Standard 1.6+ & .NET 4.6+)**
     - [API Documentation](https://rawgit.com/Picturepark/Picturepark.SDK.DotNet/master/docs/api/site/api/Picturepark.SDK.V1.ServiceProvider.html)
 
+## Compatibility matrix
+
+| SDK version | Picturepark CP version |
+| ----------- | ---------------------- |
+| `1.0.x`     | `10.0.x`               |
+| `1.1.x`     | `10.1.x`               |
+| `1.2.x`     | `10.2.x`               |
+| `1.3.x`     | `10.3.x`               |
+
 ## SDK Development
 
 Links: 
