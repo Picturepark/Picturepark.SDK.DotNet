@@ -2171,6 +2171,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("OwnerTokenInUseException", typeof(OwnerTokenInUseException))]
     [JsonInheritanceAttribute("InvalidValueFormatException", typeof(InvalidValueFormatException))]
     [JsonInheritanceAttribute("ItemIdDuplicatedException", typeof(ItemIdDuplicatedException))]
+    [JsonInheritanceAttribute("RequestSizeLimitExceededException", typeof(RequestSizeLimitExceededException))]
     [JsonInheritanceAttribute("CustomerViolationException", typeof(CustomerViolationException))]
     [JsonInheritanceAttribute("CustomerAliasNotFoundException", typeof(CustomerAliasNotFoundException))]
     [JsonInheritanceAttribute("CustomerAliasInUseException", typeof(CustomerAliasInUseException))]
@@ -3532,6 +3533,22 @@ namespace Picturepark.SDK.V1.Contract
         public static ItemIdDuplicatedException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<ItemIdDuplicatedException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class RequestSizeLimitExceededException : PictureparkValidationException
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static RequestSizeLimitExceededException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<RequestSizeLimitExceededException>(data);
         }
     
     }
@@ -9238,6 +9255,10 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("ContentRelationItemAssignedCondition", typeof(ContentRelationItemAssignedCondition))]
     [JsonInheritanceAttribute("ContentRelationItemUnassignedCondition", typeof(ContentRelationItemUnassignedCondition))]
     [JsonInheritanceAttribute("GeoPointWithinPolygonCondition", typeof(GeoPointWithinPolygonCondition))]
+    [JsonInheritanceAttribute("ContentPermissionSetsChangedCondition", typeof(ContentPermissionSetsChangedCondition))]
+    [JsonInheritanceAttribute("ContentRelationItemsChangedCondition", typeof(ContentRelationItemsChangedCondition))]
+    [JsonInheritanceAttribute("LayersChangedCondition", typeof(LayersChangedCondition))]
+    [JsonInheritanceAttribute("TagboxItemsChangedCondition", typeof(TagboxItemsChangedCondition))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public abstract partial class BusinessRuleCondition 
     {
@@ -9647,6 +9668,78 @@ namespace Picturepark.SDK.V1.Contract
         public static LatLon FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<LatLon>(data);
+        }
+    
+    }
+    
+    /// <summary>Matches whenever the assigned content permission sets changed.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class ContentPermissionSetsChangedCondition : BusinessRuleCondition
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static ContentPermissionSetsChangedCondition FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentPermissionSetsChangedCondition>(data);
+        }
+    
+    }
+    
+    /// <summary>Matches whenever the assigned content(s) in a relationship field changed.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class ContentRelationItemsChangedCondition : BusinessRuleCondition
+    {
+        /// <summary>JSON path to the field</summary>
+        [Newtonsoft.Json.JsonProperty("fieldPath", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string FieldPath { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static ContentRelationItemsChangedCondition FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentRelationItemsChangedCondition>(data);
+        }
+    
+    }
+    
+    /// <summary>Matches whenever the assigned layers of a content changed.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class LayersChangedCondition : BusinessRuleCondition
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static LayersChangedCondition FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<LayersChangedCondition>(data);
+        }
+    
+    }
+    
+    /// <summary>Matches whenever the assigned item(s) in a tagbox changed.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class TagboxItemsChangedCondition : BusinessRuleCondition
+    {
+        /// <summary>JSON path to the field</summary>
+        [Newtonsoft.Json.JsonProperty("fieldPath", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string FieldPath { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static TagboxItemsChangedCondition FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<TagboxItemsChangedCondition>(data);
         }
     
     }
@@ -18354,7 +18447,7 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class SchemaOwnershipTransferRequest 
     {
-        /// <summary>The id of the user to whom the schema has to be transfered to.</summary>
+        /// <summary>The id of the user to whom the schema has to be transferred to.</summary>
         [Newtonsoft.Json.JsonProperty("transferUserId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string TransferUserId { get; set; }
     
@@ -18597,7 +18690,7 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("schemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> SchemaIds { get; set; }
     
-        /// <summary>The id of user to whom the schemas have to be transfered to.</summary>
+        /// <summary>The id of user to whom the schemas have to be transferred to.</summary>
         [Newtonsoft.Json.JsonProperty("transferUserId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string TransferUserId { get; set; }
     
