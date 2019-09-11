@@ -6519,6 +6519,7 @@
                 "OwnerTokenInUseException": "#/components/schemas/OwnerTokenInUseException",
                 "InvalidValueFormatException": "#/components/schemas/InvalidValueFormatException",
                 "ItemIdDuplicatedException": "#/components/schemas/ItemIdDuplicatedException",
+                "RequestSizeLimitExceededException": "#/components/schemas/RequestSizeLimitExceededException",
                 "CustomerViolationException": "#/components/schemas/CustomerViolationException",
                 "CustomerAliasNotFoundException": "#/components/schemas/CustomerAliasNotFoundException",
                 "CustomerAliasInUseException": "#/components/schemas/CustomerAliasInUseException",
@@ -7737,6 +7738,17 @@
                 "nullable": true
               }
             }
+          }
+        ]
+      },
+      "RequestSizeLimitExceededException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
           }
         ]
       },
