@@ -498,10 +498,13 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             var files = Enumerable.Range(0, 20).Select(x => new FileLocations(file)).ToList();
 
+            var weTriggeredCancellation = false;
+
             var exception = await Assert.ThrowsAnyAsync<AggregateException>(
                 async () =>
                 {
-                    using (var cts = new CancellationTokenSource(TimeSpan.FromSeconds(20)))
+                    using (var cts = new CancellationTokenSource(TimeSpan.FromMinutes(1)))
+                    using (cts.Token.Register(() => weTriggeredCancellation = true))
                     {
                         await _client.Transfer.UploadFilesAsync(
                             nameof(ShouldReportChunkSizeRangeErrorQuickly),
@@ -520,6 +523,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             File.Delete(file);
 
+            weTriggeredCancellation.Should().BeFalse();
             exception.InnerExceptions.Should().NotBeNullOrEmpty();
             exception.InnerExceptions.Should().HaveCount(files.Count);
             exception.InnerExceptions.Should().OnlyContain(ex => ex is ChunkSizeOutOfRangeException);
