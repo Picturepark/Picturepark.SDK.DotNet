@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using FluentAssertions;
 using Newtonsoft.Json.Linq;
@@ -486,6 +487,46 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             // Assert
             result.FileUploads.Should().HaveCount(2);
+        }
+
+        [Fact]
+        [Trait("Stack", "Transfers")]
+        public async Task ShouldReportChunkSizeRangeErrorQuickly()
+        {
+            var file = Path.GetTempFileName();
+            File.WriteAllBytes(file, Enumerable.Repeat((byte)42, 1024 * 1024).ToArray()); // 1MiB
+
+            var files = Enumerable.Range(0, 20).Select(x => new FileLocations(file)).ToList();
+
+            var weTriggeredCancellation = false;
+
+            var exception = await Assert.ThrowsAnyAsync<AggregateException>(
+                async () =>
+                {
+                    using (var cts = new CancellationTokenSource(TimeSpan.FromMinutes(1)))
+                    using (cts.Token.Register(() => weTriggeredCancellation = true))
+                    {
+                        await _client.Transfer.UploadFilesAsync(
+                            nameof(ShouldReportChunkSizeRangeErrorQuickly),
+                            files,
+                            new UploadOptions
+                            {
+                                ChunkSize = 1024, // this is out of range, needs to be between 1 and 100 MiB and given in Bytes
+                                ConcurrentUploads = 10,
+                                WaitForTransferCompletion = false
+                            },
+                            TimeSpan.FromMinutes(2),
+                            cts.Token
+                        ).ConfigureAwait(false);
+                    }
+                }).ConfigureAwait(false);
+
+            File.Delete(file);
+
+            weTriggeredCancellation.Should().BeFalse();
+            exception.InnerExceptions.Should().NotBeNullOrEmpty();
+            exception.InnerExceptions.Should().HaveCount(files.Count);
+            exception.InnerExceptions.Should().OnlyContain(ex => ex is ChunkSizeOutOfRangeException);
         }
 
         [Fact]
