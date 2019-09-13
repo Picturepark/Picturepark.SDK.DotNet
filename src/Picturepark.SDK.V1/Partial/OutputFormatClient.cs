@@ -34,7 +34,7 @@ namespace Picturepark.SDK.V1
         {
             var businessProcessId = (await DeleteCoreAsync(id, cancellationToken).ConfigureAwait(false)).Id;
 
-            var result = await _businessProcessClient.WaitForCompletionAsync(businessProcessId, timeout, cancellationToken).ConfigureAwait(false);
+            var result = await _businessProcessClient.WaitForCompletionAsync(businessProcessId, timeout, cancellationToken: cancellationToken).ConfigureAwait(false);
 
             return new OutputFormatDeleteResult(id, businessProcessId, result.LifeCycleHit);
         }
@@ -55,7 +55,7 @@ namespace Picturepark.SDK.V1
         {
             var businessProcessId = (await call().ConfigureAwait(false)).Id;
 
-            var result = await _businessProcessClient.WaitForCompletionAsync(businessProcessId, timeout, cancellationToken).ConfigureAwait(false);
+            var result = await _businessProcessClient.WaitForCompletionAsync(businessProcessId, timeout, cancellationToken: cancellationToken).ConfigureAwait(false);
 
             return new OutputFormatOperationResult(id, businessProcessId, result.LifeCycleHit, this);
         }
@@ -64,7 +64,7 @@ namespace Picturepark.SDK.V1
         {
             var businessProcessId = (await call().ConfigureAwait(false)).Id;
 
-            var result = await _businessProcessClient.WaitForCompletionAsync(businessProcessId, timeout, cancellationToken).ConfigureAwait(false);
+            var result = await _businessProcessClient.WaitForCompletionAsync(businessProcessId, timeout, cancellationToken: cancellationToken).ConfigureAwait(false);
 
             return new OutputFormatBatchOperationResult(this, businessProcessId, result.LifeCycleHit, _businessProcessClient);
         }

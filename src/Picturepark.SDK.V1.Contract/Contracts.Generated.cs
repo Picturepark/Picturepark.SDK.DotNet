@@ -208,7 +208,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="timeout">Maximum time to wait for the operation to complete. If timeout is exceeded, the operation is not aborted but continues anyhow.
         ///             Only the waiting is aborted, and the calls returned.</param>
         /// <param name="waitSearchDocCreation">Wait for the creation of the search document and the rendered display values.
-        ///             By default the create call is returned when the main item has been successfully created, and the creation of the search document has been enqueued but not yet performed.</param>
+        ///             By default the endpoint waits for the search document creation. Passing false, the endpoint will return when the main entity has been created and the creation of the search document has been enqueued but not yet performed.</param>
         /// <returns>Ok</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="BusinessProcessLifeCycleNotHitException">The specified wait timeout exceeded</exception>
@@ -239,7 +239,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="timeout">Maximum time to wait for the operation to complete. If timeout is exceeded, the operation is not aborted but continues anyhow.
         ///             Only the waiting is aborted, and the calls returned.</param>
         /// <param name="waitSearchDocCreation">Wait for the creation of the search document and the rendered display values.
-        ///             By default the create call is returned when the main item has been successfully created, and the creation of the search document has been enqueued but not yet performed.</param>
+        ///             By default the endpoint waits for the search document creation. Passing false, the endpoint will return when the main entity has been created and the creation of the search document has been enqueued but not yet performed.</param>
         /// <returns>The content details</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="BusinessProcessLifeCycleNotHitException">The specified wait timeout exceeded</exception>
@@ -374,7 +374,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="timeout">Maximum time to wait for the operation to complete. If timeout is exceeded, the operation is not aborted but continues anyhow.
         ///             Only the waiting is aborted, and the calls returned.</param>
         /// <param name="waitSearchDocCreation">Wait for the creation of the search document and the rendered display values.
-        ///             By default the create call is returned when the main item has been successfully created, and the creation of the search document has been enqueued but not yet performed.</param>
+        ///             By default the endpoint waits for the search document creation. Passing false, the endpoint will return when the main entity has been created and the creation of the search document has been enqueued but not yet performed.</param>
         /// <returns>Ok</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="BusinessProcessLifeCycleNotHitException">The specified wait timeout exceeded</exception>
@@ -416,7 +416,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="timeout">Maximum time to wait for the operation to complete. If timeout is exceeded, the operation is not aborted but continues anyhow.
         ///             Only the waiting is aborted, and the calls returned.</param>
         /// <param name="waitSearchDocCreation">Wait for the creation of the search document and the rendered display values.
-        ///             By default the create call is returned when the main item has been successfully created, and the creation of the search document has been enqueued but not yet performed.</param>
+        ///             By default the endpoint waits for the search document creation. Passing false, the endpoint will return when the main entity has been created and the creation of the search document has been enqueued but not yet performed.</param>
         /// <returns>Content detail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="BusinessProcessLifeCycleNotHitException">The specified wait timeout exceeded</exception>
@@ -434,7 +434,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="timeout">Maximum time to wait for the operation to complete. If timeout is exceeded, the operation is not aborted but continues anyhow.
         ///             Only the waiting is aborted, and the calls returned.</param>
         /// <param name="waitSearchDocCreation">Wait for the creation of the search document and the rendered display values.
-        ///             By default the create call is returned when the main item has been successfully created, and the creation of the search document has been enqueued but not yet performed.</param>
+        ///             By default the endpoint waits for the search document creation. Passing false, the endpoint will return when the main entity has been created and the creation of the search document has been enqueued but not yet performed.</param>
         /// <returns>Content detail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="BusinessProcessLifeCycleNotHitException">The specified wait timeout exceeded</exception>
@@ -451,7 +451,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="timeout">Maximum time to wait for the operation to complete. If timeout is exceeded, the operation is not aborted but continues anyhow.
         ///             Only the waiting is aborted, and the calls returned.</param>
         /// <param name="waitSearchDocCreation">Wait for the creation of the search document and the rendered display values.
-        ///             By default the create call is returned when the main item has been successfully created, and the creation of the search document has been enqueued but not yet performed.</param>
+        ///             By default the endpoint waits for the search document creation. Passing false, the endpoint will return when the main entity has been created and the creation of the search document has been enqueued but not yet performed.</param>
         /// <returns>Ok</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="BusinessProcessLifeCycleNotHitException">The specified wait timeout exceeded</exception>
@@ -734,7 +734,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="timeout">Maximum time to wait for the operation to complete. If timeout is exceeded, the operation is not aborted but continues anyhow.
         ///             Only the waiting is aborted, and the calls returned.</param>
         /// <param name="waitSearchDocCreation">Wait for the creation of the search document and the rendered display values.
-        ///             By default the create call is returned when the main item has been successfully created, and the creation of the search document has been enqueued but not yet performed.</param>
+        ///             By default the endpoint waits for the search document creation. Passing false, the endpoint will return when the main entity has been created and the creation of the search document has been enqueued but not yet performed.</param>
         /// <returns>Ok</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="BusinessProcessLifeCycleNotHitException">The specified wait timeout exceeded</exception>
@@ -765,7 +765,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="timeout">Maximum time to wait for the operation to complete. If timeout is exceeded, the operation is not aborted but continues anyhow.
         ///             Only the waiting is aborted, and the calls returned.</param>
         /// <param name="waitSearchDocCreation">Wait for the creation of the search document and the rendered display values.
-        ///             By default the create call is returned when the main item has been successfully created, and the creation of the search document has been enqueued but not yet performed.</param>
+        ///             By default the endpoint waits for the search document creation. Passing false, the endpoint will return when the main entity has been created and the creation of the search document has been enqueued but not yet performed.</param>
         /// <returns>List item detail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="BusinessProcessLifeCycleNotHitException">A server side error occurred.</exception>
@@ -826,7 +826,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="timeout">Maximum time to wait for the operation to complete. If timeout is exceeded, the operation is not aborted but continues anyhow.
         ///             Only the waiting is aborted, and the calls returned.</param>
         /// <param name="waitSearchDocCreation">Wait for the creation of the search document and the rendered display values.
-        ///             By default the create call is returned when the main item has been successfully created, and the creation of the search document has been enqueued but not yet performed.</param>
+        ///             By default the endpoint waits for the search document creation. Passing false, the endpoint will return when the main entity has been created and the creation of the search document has been enqueued but not yet performed.</param>
         /// <returns>Ok</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="BusinessProcessLifeCycleNotHitException">The specified wait timeout exceeded</exception>

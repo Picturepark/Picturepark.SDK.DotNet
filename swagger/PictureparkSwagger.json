@@ -372,6 +372,16 @@
               "nullable": true
             },
             "x-position": 2
+          },
+          {
+            "name": "waitForContinuationCompletion",
+            "in": "query",
+            "description": "Waits for the completion of the continuation business process (if existing, recursively). Default to true.",
+            "schema": {
+              "type": "boolean",
+              "default": true
+            },
+            "x-position": 3
           }
         ],
         "responses": {
@@ -1816,10 +1826,10 @@
           {
             "name": "waitSearchDocCreation",
             "in": "query",
-            "description": "Wait for the creation of the search document and the rendered display values.\n            By default the create call is returned when the main item has been successfully created, and the creation of the search document has been enqueued but not yet performed.",
+            "description": "Wait for the creation of the search document and the rendered display values.\n            By default the endpoint waits for the search document creation. Passing false, the endpoint will return when the main entity has been created and the creation of the search document has been enqueued but not yet performed.",
             "schema": {
               "type": "boolean",
-              "default": false
+              "default": true
             },
             "x-position": 4
           }
@@ -2092,10 +2102,10 @@
           {
             "name": "waitSearchDocCreation",
             "in": "query",
-            "description": "Wait for the creation of the search document and the rendered display values.\n            By default the create call is returned when the main item has been successfully created, and the creation of the search document has been enqueued but not yet performed.",
+            "description": "Wait for the creation of the search document and the rendered display values.\n            By default the endpoint waits for the search document creation. Passing false, the endpoint will return when the main entity has been created and the creation of the search document has been enqueued but not yet performed.",
             "schema": {
               "type": "boolean",
-              "default": false
+              "default": true
             },
             "x-position": 5
           }
@@ -3354,10 +3364,10 @@
           {
             "name": "waitSearchDocCreation",
             "in": "query",
-            "description": "Wait for the creation of the search document and the rendered display values.\n            By default the create call is returned when the main item has been successfully created, and the creation of the search document has been enqueued but not yet performed.",
+            "description": "Wait for the creation of the search document and the rendered display values.\n            By default the endpoint waits for the search document creation. Passing false, the endpoint will return when the main entity has been created and the creation of the search document has been enqueued but not yet performed.",
             "schema": {
               "type": "boolean",
-              "default": false
+              "default": true
             },
             "x-position": 4
           }
@@ -3700,10 +3710,10 @@
           {
             "name": "waitSearchDocCreation",
             "in": "query",
-            "description": "Wait for the creation of the search document and the rendered display values.\n            By default the create call is returned when the main item has been successfully created, and the creation of the search document has been enqueued but not yet performed.",
+            "description": "Wait for the creation of the search document and the rendered display values.\n            By default the endpoint waits for the search document creation. Passing false, the endpoint will return when the main entity has been created and the creation of the search document has been enqueued but not yet performed.",
             "schema": {
               "type": "boolean",
-              "default": false
+              "default": true
             },
             "x-position": 6
           }
@@ -3862,10 +3872,10 @@
           {
             "name": "waitSearchDocCreation",
             "in": "query",
-            "description": "Wait for the creation of the search document and the rendered display values.\n            By default the create call is returned when the main item has been successfully created, and the creation of the search document has been enqueued but not yet performed.",
+            "description": "Wait for the creation of the search document and the rendered display values.\n            By default the endpoint waits for the search document creation. Passing false, the endpoint will return when the main entity has been created and the creation of the search document has been enqueued but not yet performed.",
             "schema": {
               "type": "boolean",
-              "default": false
+              "default": true
             },
             "x-position": 5
           }
@@ -4216,10 +4226,10 @@
           {
             "name": "waitSearchDocCreation",
             "in": "query",
-            "description": "Wait for the creation of the search document and the rendered display values.\n            By default the create call is returned when the main item has been successfully created, and the creation of the search document has been enqueued but not yet performed.",
+            "description": "Wait for the creation of the search document and the rendered display values.\n            By default the endpoint waits for the search document creation. Passing false, the endpoint will return when the main entity has been created and the creation of the search document has been enqueued but not yet performed.",
             "schema": {
               "type": "boolean",
-              "default": false
+              "default": true
             },
             "x-position": 4
           }
@@ -6743,10 +6753,10 @@
           {
             "name": "waitSearchDocCreation",
             "in": "query",
-            "description": "Wait for the creation of the search document and the rendered display values.\n            By default the create call is returned when the main item has been successfully created, and the creation of the search document has been enqueued but not yet performed.",
+            "description": "Wait for the creation of the search document and the rendered display values.\n            By default the endpoint waits for the search document creation. Passing false, the endpoint will return when the main entity has been created and the creation of the search document has been enqueued but not yet performed.",
             "schema": {
               "type": "boolean",
-              "default": false
+              "default": true
             },
             "x-position": 6
           }
@@ -6876,10 +6886,10 @@
           {
             "name": "waitSearchDocCreation",
             "in": "query",
-            "description": "Wait for the creation of the search document and the rendered display values.\n            By default the create call is returned when the main item has been successfully created, and the creation of the search document has been enqueued but not yet performed.",
+            "description": "Wait for the creation of the search document and the rendered display values.\n            By default the endpoint waits for the search document creation. Passing false, the endpoint will return when the main entity has been created and the creation of the search document has been enqueued but not yet performed.",
             "schema": {
               "type": "boolean",
-              "default": false
+              "default": true
             },
             "x-position": 4
           }
@@ -7152,10 +7162,10 @@
           {
             "name": "waitSearchDocCreation",
             "in": "query",
-            "description": "Wait for the creation of the search document and the rendered display values.\n            By default the create call is returned when the main item has been successfully created, and the creation of the search document has been enqueued but not yet performed.",
+            "description": "Wait for the creation of the search document and the rendered display values.\n            By default the endpoint waits for the search document creation. Passing false, the endpoint will return when the main entity has been created and the creation of the search document has been enqueued but not yet performed.",
             "schema": {
               "type": "boolean",
-              "default": false
+              "default": true
             },
             "x-position": 5
           }
@@ -7854,10 +7864,10 @@
           {
             "name": "waitSearchDocCreation",
             "in": "query",
-            "description": "Wait for the creation of the search document and the rendered display values.\n            By default the create call is returned when the main item has been successfully created, and the creation of the search document has been enqueued but not yet performed.",
+            "description": "Wait for the creation of the search document and the rendered display values.\n            By default the endpoint waits for the search document creation. Passing false, the endpoint will return when the main entity has been created and the creation of the search document has been enqueued but not yet performed.",
             "schema": {
               "type": "boolean",
-              "default": false
+              "default": true
             },
             "x-position": 4
           }

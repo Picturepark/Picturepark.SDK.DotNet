@@ -142,7 +142,7 @@ namespace Picturepark.SDK.V1
         /// <inheritdoc />
         public async Task<ContentBatchOperationResult> WaitForBusinessProcessAndReturnResult(string businessProcessId, TimeSpan? timeout = null, bool waitSearchDocCreation = true, CancellationToken cancellationToken = default(CancellationToken))
         {
-            var result = await _businessProcessClient.WaitForCompletionAsync(businessProcessId, timeout, cancellationToken).ConfigureAwait(false);
+            var result = await _businessProcessClient.WaitForCompletionAsync(businessProcessId, timeout, waitSearchDocCreation, cancellationToken).ConfigureAwait(false);
 
             return new ContentBatchOperationResult(this, businessProcessId, result.LifeCycleHit, _businessProcessClient);
         }
@@ -150,7 +150,7 @@ namespace Picturepark.SDK.V1
         /// <inheritdoc />
         public async Task<ContentBatchOperationWithRequestIdResult> WaitForBusinessProcessAndReturnResultWithRequestId(string businessProcessId, TimeSpan? timeout = null, bool waitSearchDocCreation = true, CancellationToken cancellationToken = default(CancellationToken))
         {
-            var result = await _businessProcessClient.WaitForCompletionAsync(businessProcessId, timeout, cancellationToken).ConfigureAwait(false);
+            var result = await _businessProcessClient.WaitForCompletionAsync(businessProcessId, timeout, waitSearchDocCreation, cancellationToken).ConfigureAwait(false);
 
             return new ContentBatchOperationWithRequestIdResult(this, businessProcessId, result.LifeCycleHit, _businessProcessClient);
         }

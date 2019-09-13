@@ -125,7 +125,7 @@ namespace Picturepark.SDK.V1
         /// <inheritdoc />
         public async Task<ListItemBatchOperationResult> WaitForBusinessProcessAndReturnResult(string businessProcessId, TimeSpan? timeout = null, bool waitSearchDocCreation = true, CancellationToken cancellationToken = default(CancellationToken))
         {
-            var result = await _businessProcessClient.WaitForCompletionAsync(businessProcessId, timeout, cancellationToken).ConfigureAwait(false);
+            var result = await _businessProcessClient.WaitForCompletionAsync(businessProcessId, timeout, waitSearchDocCreation, cancellationToken).ConfigureAwait(false);
 
             return new ListItemBatchOperationResult(this, businessProcessId, result.LifeCycleHit, _businessProcessClient);
         }
@@ -133,7 +133,7 @@ namespace Picturepark.SDK.V1
         /// <inheritdoc />
         public async Task<ListItemBatchOperationWithRequestIdResult> WaitForBusinessProcessAndReturnResultWithRequestId(string businessProcessId, TimeSpan? timeout = null, bool waitSearchDocCreation = true, CancellationToken cancellationToken = default(CancellationToken))
         {
-            var result = await _businessProcessClient.WaitForCompletionAsync(businessProcessId, timeout, cancellationToken).ConfigureAwait(false);
+            var result = await _businessProcessClient.WaitForCompletionAsync(businessProcessId, timeout, waitSearchDocCreation, cancellationToken).ConfigureAwait(false);
 
             return new ListItemBatchOperationWithRequestIdResult(this, businessProcessId, result.LifeCycleHit, _businessProcessClient);
         }
