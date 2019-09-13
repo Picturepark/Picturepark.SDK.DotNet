@@ -155,7 +155,7 @@ namespace Picturepark.SDK.V1
             return new CreateTransferResult(transfer, request.Files);
         }
 
-        private async Task UploadFileAsync(SemaphoreSlim throttler, string transferId, string identifier, FileLocations fileLocation, int chunkSize, CancellationToken cancellationToken = default(CancellationToken))
+        private async Task UploadFileAsync(SemaphoreSlim throttler, string transferId, string identifier, FileLocations fileLocation, int chunkSize, CancellationToken cancellationToken = default)
         {
             var sourceFileName = Path.GetFileName(fileLocation.AbsoluteSourcePath);
 
@@ -165,54 +165,77 @@ namespace Picturepark.SDK.V1
 
             var uploadTasks = new List<Task>();
 
-            for (var chunkNumber = 1; chunkNumber <= totalChunks; chunkNumber++)
+            using (var perFileCts = new CancellationTokenSource())
+            using (cancellationToken.Register(perFileCts.Cancel))
             {
-                await throttler.WaitAsync(cancellationToken).ConfigureAwait(false);
+                var perFileCt = perFileCts.Token;
 
-                var number = chunkNumber;
-                uploadTasks.Add(Task.Run(async () =>
+                for (var chunkNumber = 1; chunkNumber <= totalChunks; chunkNumber++)
                 {
-                    try
+                    var number = chunkNumber;
+                    uploadTasks.Add(Task.Run(async () =>
                     {
-                        using (var fileStream = File.OpenRead(fileLocation.AbsoluteSourcePath))
+                        var semaphoreAcquired = false;
+                        try
                         {
-                            var currentChunkSize = chunkSize;
-                            var position = (number - 1) * chunkSize;
+                            await throttler.WaitAsync(perFileCt).ConfigureAwait(false);
+                            semaphoreAcquired = true;
 
-                            // last chunk may have a different size.
-                            if (number == totalChunks)
+                            using (var fileStream = File.OpenRead(fileLocation.AbsoluteSourcePath))
                             {
-                                currentChunkSize = (int)(fileSize - position);
-                            }
+                                var currentChunkSize = chunkSize;
+                                var position = (number - 1) * chunkSize;
 
-                            var buffer = new byte[currentChunkSize];
-                            fileStream.Position = position;
+                                // last chunk may have a different size.
+                                if (number == totalChunks)
+                                {
+                                    currentChunkSize = (int)(fileSize - position);
+                                }
 
-                            await fileStream.ReadAsync(buffer, 0, currentChunkSize, cancellationToken).ConfigureAwait(false);
+                                var buffer = new byte[currentChunkSize];
+                                fileStream.Position = position;
 
-                            using (var memoryStream = new MemoryStream(buffer))
-                            {
-                                await UploadFileAsync(
-                                    targetFileName,
-                                    number,
-                                    currentChunkSize,
-                                    fileSize,
-                                    totalChunks,
-                                    transferId,
-                                    identifier,
-                                    new FileParameter(memoryStream, sourceFileName),
-                                    cancellationToken).ConfigureAwait(false);
+                                await fileStream.ReadAsync(buffer, 0, currentChunkSize, perFileCt)
+                                    .ConfigureAwait(false);
+
+                                using (var memoryStream = new MemoryStream(buffer))
+                                {
+                                    await UploadFileAsync(
+                                        targetFileName,
+                                        number,
+                                        currentChunkSize,
+                                        fileSize,
+                                        totalChunks,
+                                        transferId,
+                                        identifier,
+                                        new FileParameter(memoryStream, sourceFileName),
+                                        perFileCt).ConfigureAwait(false);
+                                }
                             }
                         }
-                    }
-                    finally
-                    {
-                        throttler.Release();
-                    }
-                }));
-            }
+                        catch (OperationCanceledException) when (!cancellationToken.IsCancellationRequested && perFileCt.IsCancellationRequested)
+                        {
+                            // we already have the real exception, no need to also record all the cancellations we triggered ourselves
+                        }
+                        catch (TaskCanceledException) when (!cancellationToken.IsCancellationRequested && perFileCt.IsCancellationRequested)
+                        {
+                            // we already have the real exception, no need to also record all the cancellations we triggered ourselves
+                        }
+                        catch
+                        {
+                            perFileCts.Cancel();
+                            throw;
+                        }
+                        finally
+                        {
+                            if (semaphoreAcquired)
+                                throttler.Release();
+                        }
+                    }));
+                }
 
-            await Task.WhenAll(uploadTasks).ConfigureAwait(false);
+                await Task.WhenAll(uploadTasks).ConfigureAwait(false);
+            }
         }
 
         private async Task<IEnumerable<FileLocations>> FilterFilesByBlacklist(IEnumerable<FileLocations> files)
