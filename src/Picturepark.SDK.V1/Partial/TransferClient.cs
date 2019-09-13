@@ -107,7 +107,7 @@ namespace Picturepark.SDK.V1
         /// <param name="transfer">The transfer.</param>
         /// <param name="createRequest">The create request.</param>
         /// <param name="timeout">The timeout to wait for completion.</param>
-        /// <param name="cancellationToken">The cancellcation token.</param>
+        /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The task.</returns>
         public async Task ImportAndWaitForCompletionAsync(Transfer transfer, ImportTransferRequest createRequest, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
         {

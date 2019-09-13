@@ -475,18 +475,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 ContentSchemaId = nameof(SoccerPlayer),
                 Content = new SoccerPlayer { Firstname = objectName, LastName = "Foo", EmailAddress = "abc@def.ch" }
             };
-            await _client.ListItem.CreateAsync(listItem).ConfigureAwait(false);
-
-            // Search object
-            var players = await _client.ListItem.SearchAsync(new ListItemSearchRequest
-            {
-                Limit = 20,
-                SearchString = objectName,
-                SchemaIds = new List<string> { "SoccerPlayer" }
-            }).ConfigureAwait(false);
-
-            var playerObjectId = players.Results.First().Id;
-            var playerItem = await _client.ListItem.GetAsync(playerObjectId, new[] { ListItemResolveBehavior.Content }).ConfigureAwait(false);
+            var playerItem = await _client.ListItem.CreateAsync(listItem, new[] { ListItemResolveBehavior.Content }).ConfigureAwait(false);
 
             // Act
             var player = playerItem.ConvertTo<SoccerPlayer>();
@@ -508,22 +497,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         {
             // Arrange
             await SchemaHelper.CreateSchemasIfNotExistentAsync<SoccerPlayer>(_client).ConfigureAwait(false);
-
-            var originalPlayer = new SoccerPlayer
-            {
-                BirthDate = DateTime.Now,
-                EmailAddress = "test@test.com",
-                Firstname = "Test",
-                LastName = "Soccerplayer"
-            };
-
-            var createRequest = new ListItemCreateRequest
-            {
-                ContentSchemaId = nameof(SoccerPlayer),
-                Content = originalPlayer
-            };
-
-            var playerItem = await _client.ListItem.CreateAsync(createRequest, new[] { ListItemResolveBehavior.Content }).ConfigureAwait(false);
+            var playerItem = await CreateSoccerPlayer();
 
             // Act
             var player = playerItem.ConvertTo<SoccerPlayer>();
@@ -888,6 +862,16 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             var enumeratedRows = detail.SucceededItems.ToArray();
             enumeratedRows.Should().OnlyContain(r => r.RequestId == null).And.HaveCount(requests.Length);
+        }
+
+        private async Task<ListItemDetail> CreateSoccerPlayer()
+        {
+            var originalPlayer = new SoccerPlayer { BirthDate = DateTime.Now, EmailAddress = "test@test.com", Firstname = "Test", LastName = "Soccerplayer" };
+
+            var createRequest = new ListItemCreateRequest { ContentSchemaId = nameof(SoccerPlayer), Content = originalPlayer };
+
+            var playerItem = await _client.ListItem.CreateAsync(createRequest, new[] { ListItemResolveBehavior.Content }).ConfigureAwait(false);
+            return playerItem;
         }
     }
 }

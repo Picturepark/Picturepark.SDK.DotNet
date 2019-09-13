@@ -19,17 +19,7 @@ namespace Picturepark.SDK.V1
             _businessProcessClient = businessProcessClient;
         }
 
-        /// <summary>Downloads multiple files.</summary>
-        /// <param name="contents">The files to download.</param>
-        /// <param name="exportDirectory">The directory to store the downloaded files.</param>
-        /// <param name="overwriteIfExists">Specifies whether to overwrite files.</param>
-        /// <param name="concurrentDownloads">Specifies the number of concurrent downloads.</param>
-        /// <param name="outputFormat">The output format name (e.g. 'Original').</param>
-        /// <param name="outputExtension">The expected output file extension.</param>
-        /// <param name="successDelegate">The success delegate/callback.</param>
-        /// <param name="errorDelegate">The error delegate/callback.</param>
-        /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>The task.</returns>
+        /// <inheritdoc />
         public async Task DownloadFilesAsync(
             ContentSearchResult contents,
             string exportDirectory,
@@ -108,49 +98,49 @@ namespace Picturepark.SDK.V1
         }
 
         /// <inheritdoc />
-        public async Task<ContentBatchOperationWithRequestIdResult> CreateManyAsync(ContentCreateManyRequest contentCreateManyRequest, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<ContentBatchOperationWithRequestIdResult> CreateManyAsync(ContentCreateManyRequest contentCreateManyRequest, TimeSpan? timeout = null, bool waitSearchDocCreation = true, CancellationToken cancellationToken = default(CancellationToken))
         {
             var businessProcess = await CreateManyCoreAsync(contentCreateManyRequest, cancellationToken).ConfigureAwait(false);
-            return await WaitForBusinessProcessAndReturnResultWithRequestId(businessProcess.Id, timeout, cancellationToken).ConfigureAwait(false);
+            return await WaitForBusinessProcessAndReturnResultWithRequestId(businessProcess.Id, timeout, waitSearchDocCreation, cancellationToken).ConfigureAwait(false);
         }
 
         /// <inheritdoc />
-        public async Task<ContentBatchOperationResult> UpdateMetadataManyAsync(ContentMetadataUpdateManyRequest updateRequest, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<ContentBatchOperationResult> UpdateMetadataManyAsync(ContentMetadataUpdateManyRequest updateRequest, TimeSpan? timeout = null, bool waitSearchDocCreation = true, CancellationToken cancellationToken = default(CancellationToken))
         {
             var businessProcess = await UpdateMetadataManyCoreAsync(updateRequest, cancellationToken).ConfigureAwait(false);
-            return await WaitForBusinessProcessAndReturnResult(businessProcess.Id, timeout, cancellationToken).ConfigureAwait(false);
+            return await WaitForBusinessProcessAndReturnResult(businessProcess.Id, timeout, waitSearchDocCreation, cancellationToken).ConfigureAwait(false);
         }
 
         /// <inheritdoc />
-        public async Task<ContentBatchOperationResult> UpdatePermissionsManyAsync(ContentPermissionsUpdateManyRequest updateManyRequest, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<ContentBatchOperationResult> UpdatePermissionsManyAsync(ContentPermissionsUpdateManyRequest updateManyRequest, TimeSpan? timeout = null, bool waitSearchDocCreation = true, CancellationToken cancellationToken = default(CancellationToken))
         {
             var businessProcess = await UpdatePermissionsManyCoreAsync(updateManyRequest, cancellationToken).ConfigureAwait(false);
-            return await WaitForBusinessProcessAndReturnResult(businessProcess.Id, timeout, cancellationToken).ConfigureAwait(false);
+            return await WaitForBusinessProcessAndReturnResult(businessProcess.Id, timeout, waitSearchDocCreation, cancellationToken).ConfigureAwait(false);
         }
 
         /// <inheritdoc />
-        public async Task<ContentBatchOperationResult> TransferOwnershipManyAsync(ContentOwnershipTransferManyRequest contentOwnershipTransferManyRequest, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<ContentBatchOperationResult> TransferOwnershipManyAsync(ContentOwnershipTransferManyRequest contentOwnershipTransferManyRequest, TimeSpan? timeout = null, bool waitSearchDocCreation = true, CancellationToken cancellationToken = default(CancellationToken))
         {
             var businessProcess = await TransferOwnershipManyCoreAsync(contentOwnershipTransferManyRequest, cancellationToken).ConfigureAwait(false);
-            return await WaitForBusinessProcessAndReturnResult(businessProcess.Id, timeout, cancellationToken).ConfigureAwait(false);
+            return await WaitForBusinessProcessAndReturnResult(businessProcess.Id, timeout, waitSearchDocCreation, cancellationToken).ConfigureAwait(false);
         }
 
         /// <inheritdoc />
-        public async Task<ContentBatchOperationResult> BatchUpdateFieldsByIdsAsync(ContentFieldsBatchUpdateRequest updateRequest, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<ContentBatchOperationResult> BatchUpdateFieldsByIdsAsync(ContentFieldsBatchUpdateRequest updateRequest, TimeSpan? timeout = null, bool waitSearchDocCreation = true, CancellationToken cancellationToken = default(CancellationToken))
         {
             var businessProcess = await BatchUpdateFieldsByIdsCoreAsync(updateRequest, cancellationToken).ConfigureAwait(false);
-            return await WaitForBusinessProcessAndReturnResult(businessProcess.Id, timeout, cancellationToken).ConfigureAwait(false);
+            return await WaitForBusinessProcessAndReturnResult(businessProcess.Id, timeout, waitSearchDocCreation, cancellationToken).ConfigureAwait(false);
         }
 
         /// <inheritdoc />
-        public async Task<ContentBatchOperationResult> BatchUpdateFieldsByFilterAsync(ContentFieldsBatchUpdateFilterRequest updateRequest, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<ContentBatchOperationResult> BatchUpdateFieldsByFilterAsync(ContentFieldsBatchUpdateFilterRequest updateRequest, TimeSpan? timeout = null, bool waitSearchDocCreation = true, CancellationToken cancellationToken = default(CancellationToken))
         {
             var businessProcess = await BatchUpdateFieldsByFilterCoreAsync(updateRequest, cancellationToken).ConfigureAwait(false);
-            return await WaitForBusinessProcessAndReturnResult(businessProcess.Id, timeout, cancellationToken).ConfigureAwait(false);
+            return await WaitForBusinessProcessAndReturnResult(businessProcess.Id, timeout, waitSearchDocCreation, cancellationToken).ConfigureAwait(false);
         }
 
         /// <inheritdoc />
-        public async Task<ContentBatchOperationResult> WaitForBusinessProcessAndReturnResult(string businessProcessId, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<ContentBatchOperationResult> WaitForBusinessProcessAndReturnResult(string businessProcessId, TimeSpan? timeout = null, bool waitSearchDocCreation = true, CancellationToken cancellationToken = default(CancellationToken))
         {
             var result = await _businessProcessClient.WaitForCompletionAsync(businessProcessId, timeout, cancellationToken).ConfigureAwait(false);
 
@@ -158,7 +148,7 @@ namespace Picturepark.SDK.V1
         }
 
         /// <inheritdoc />
-        public async Task<ContentBatchOperationWithRequestIdResult> WaitForBusinessProcessAndReturnResultWithRequestId(string businessProcessId, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<ContentBatchOperationWithRequestIdResult> WaitForBusinessProcessAndReturnResultWithRequestId(string businessProcessId, TimeSpan? timeout = null, bool waitSearchDocCreation = true, CancellationToken cancellationToken = default(CancellationToken))
         {
             var result = await _businessProcessClient.WaitForCompletionAsync(businessProcessId, timeout, cancellationToken).ConfigureAwait(false);
 

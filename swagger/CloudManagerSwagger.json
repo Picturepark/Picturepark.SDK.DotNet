@@ -6358,6 +6358,11 @@
             "format": "date-time",
             "nullable": true
           },
+          "continuationBusinessProcessId": {
+            "type": "string",
+            "description": "Id of the business process that will be automatically started after the completion of the current one, if any.",
+            "nullable": true
+          },
           "kind": {
             "type": "string"
           }
@@ -6655,6 +6660,7 @@
                 "BusinessProcessDefinitionCreateException": "#/components/schemas/BusinessProcessDefinitionCreateException",
                 "BusinessProcessNotExternalException": "#/components/schemas/BusinessProcessNotExternalException",
                 "BusinessProcessCancellationNotSupportedException": "#/components/schemas/BusinessProcessCancellationNotSupportedException",
+                "BusinessProcessContinuationException": "#/components/schemas/BusinessProcessContinuationException",
                 "SchemaFieldImportMismatchException": "#/components/schemas/SchemaFieldImportMismatchException",
                 "SchemaFieldImportRelatedSchemaMismatchException": "#/components/schemas/SchemaFieldImportRelatedSchemaMismatchException",
                 "SchemaFieldImportTypeMismatchException": "#/components/schemas/SchemaFieldImportTypeMismatchException",
@@ -10849,6 +10855,35 @@
               "businessProcessId": {
                 "type": "string",
                 "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "BusinessProcessContinuationException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkBusinessException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "continuationBusinessProcessId": {
+                "type": "string",
+                "nullable": true
+              },
+              "precedingBusinessProcessId": {
+                "type": "string",
+                "nullable": true
+              },
+              "precedingBusinessProcessException": {
+                "nullable": true,
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/PictureparkException"
+                  }
+                ]
               }
             }
           }

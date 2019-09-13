@@ -207,6 +207,8 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="forceReferenceRemoval">A value indicating whether references to the content should be removed.</param>
         /// <param name="timeout">Maximum time to wait for the operation to complete. If timeout is exceeded, the operation is not aborted but continues anyhow.
         ///             Only the waiting is aborted, and the calls returned.</param>
+        /// <param name="waitSearchDocCreation">Wait for the creation of the search document and the rendered display values.
+        ///             By default the create call is returned when the main item has been successfully created, and the creation of the search document has been enqueued but not yet performed.</param>
         /// <returns>Ok</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="BusinessProcessLifeCycleNotHitException">The specified wait timeout exceeded</exception>
@@ -214,7 +216,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
-        System.Threading.Tasks.Task DeleteAsync(string contentId, bool? forceReferenceRemoval = null, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task DeleteAsync(string contentId, bool? forceReferenceRemoval = null, System.TimeSpan? timeout = null, bool? waitSearchDocCreation = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Get multiple contents</summary>
@@ -236,6 +238,8 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="allowMissingDependencies">Allows creating contents that refer to list items or contents that don't exist in the system.</param>
         /// <param name="timeout">Maximum time to wait for the operation to complete. If timeout is exceeded, the operation is not aborted but continues anyhow.
         ///             Only the waiting is aborted, and the calls returned.</param>
+        /// <param name="waitSearchDocCreation">Wait for the creation of the search document and the rendered display values.
+        ///             By default the create call is returned when the main item has been successfully created, and the creation of the search document has been enqueued but not yet performed.</param>
         /// <returns>The content details</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="BusinessProcessLifeCycleNotHitException">The specified wait timeout exceeded</exception>
@@ -243,7 +247,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
-        System.Threading.Tasks.Task<ContentDetail> CreateAsync(ContentCreateRequest contentCreateRequest, System.Collections.Generic.IEnumerable<ContentResolveBehavior> resolveBehaviors = null, bool? allowMissingDependencies = null, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ContentDetail> CreateAsync(ContentCreateRequest contentCreateRequest, System.Collections.Generic.IEnumerable<ContentResolveBehavior> resolveBehaviors = null, bool? allowMissingDependencies = null, System.TimeSpan? timeout = null, bool? waitSearchDocCreation = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Search contents</summary>
@@ -369,6 +373,8 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="allowMissingDependencies">Allows restoring contents that refer to list items or contents that don't exist in the system.</param>
         /// <param name="timeout">Maximum time to wait for the operation to complete. If timeout is exceeded, the operation is not aborted but continues anyhow.
         ///             Only the waiting is aborted, and the calls returned.</param>
+        /// <param name="waitSearchDocCreation">Wait for the creation of the search document and the rendered display values.
+        ///             By default the create call is returned when the main item has been successfully created, and the creation of the search document has been enqueued but not yet performed.</param>
         /// <returns>Ok</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="BusinessProcessLifeCycleNotHitException">The specified wait timeout exceeded</exception>
@@ -376,7 +382,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
-        System.Threading.Tasks.Task RestoreAsync(string contentId, bool? allowMissingDependencies = null, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task RestoreAsync(string contentId, bool? allowMissingDependencies = null, System.TimeSpan? timeout = null, bool? waitSearchDocCreation = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Restore multiple contents</summary>
@@ -409,6 +415,8 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="allowMissingDependencies">Allows storing references to list items or contents that don't exist in the system.</param>
         /// <param name="timeout">Maximum time to wait for the operation to complete. If timeout is exceeded, the operation is not aborted but continues anyhow.
         ///             Only the waiting is aborted, and the calls returned.</param>
+        /// <param name="waitSearchDocCreation">Wait for the creation of the search document and the rendered display values.
+        ///             By default the create call is returned when the main item has been successfully created, and the creation of the search document has been enqueued but not yet performed.</param>
         /// <returns>Content detail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="BusinessProcessLifeCycleNotHitException">The specified wait timeout exceeded</exception>
@@ -416,7 +424,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
-        System.Threading.Tasks.Task<ContentDetail> UpdateMetadataAsync(string contentId, ContentMetadataUpdateRequest updateRequest, System.Collections.Generic.IEnumerable<ContentResolveBehavior> resolveBehaviors = null, bool? allowMissingDependencies = null, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ContentDetail> UpdateMetadataAsync(string contentId, ContentMetadataUpdateRequest updateRequest, System.Collections.Generic.IEnumerable<ContentResolveBehavior> resolveBehaviors = null, bool? allowMissingDependencies = null, System.TimeSpan? timeout = null, bool? waitSearchDocCreation = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Update content permissions</summary>
@@ -425,6 +433,8 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="resolveBehaviors">List of enums that control which parts of the content are resolved and returned.</param>
         /// <param name="timeout">Maximum time to wait for the operation to complete. If timeout is exceeded, the operation is not aborted but continues anyhow.
         ///             Only the waiting is aborted, and the calls returned.</param>
+        /// <param name="waitSearchDocCreation">Wait for the creation of the search document and the rendered display values.
+        ///             By default the create call is returned when the main item has been successfully created, and the creation of the search document has been enqueued but not yet performed.</param>
         /// <returns>Content detail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="BusinessProcessLifeCycleNotHitException">The specified wait timeout exceeded</exception>
@@ -432,7 +442,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
-        System.Threading.Tasks.Task<ContentDetail> UpdatePermissionsAsync(string contentId, ContentPermissionsUpdateRequest updateRequest, System.Collections.Generic.IEnumerable<ContentResolveBehavior> resolveBehaviors = null, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ContentDetail> UpdatePermissionsAsync(string contentId, ContentPermissionsUpdateRequest updateRequest, System.Collections.Generic.IEnumerable<ContentResolveBehavior> resolveBehaviors = null, System.TimeSpan? timeout = null, bool? waitSearchDocCreation = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Transfer content ownership</summary>
@@ -440,6 +450,8 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="updateRequest">Content ownership transfer request.</param>
         /// <param name="timeout">Maximum time to wait for the operation to complete. If timeout is exceeded, the operation is not aborted but continues anyhow.
         ///             Only the waiting is aborted, and the calls returned.</param>
+        /// <param name="waitSearchDocCreation">Wait for the creation of the search document and the rendered display values.
+        ///             By default the create call is returned when the main item has been successfully created, and the creation of the search document has been enqueued but not yet performed.</param>
         /// <returns>Ok</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="BusinessProcessLifeCycleNotHitException">The specified wait timeout exceeded</exception>
@@ -447,7 +459,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
-        System.Threading.Tasks.Task TransferOwnershipAsync(string contentId, ContentOwnershipTransferRequest updateRequest, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task TransferOwnershipAsync(string contentId, ContentOwnershipTransferRequest updateRequest, System.TimeSpan? timeout = null, bool? waitSearchDocCreation = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
     }
     
@@ -721,6 +733,8 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="forceReferenceRemoval">A value indicating whether references to the list item should be removed.</param>
         /// <param name="timeout">Maximum time to wait for the operation to complete. If timeout is exceeded, the operation is not aborted but continues anyhow.
         ///             Only the waiting is aborted, and the calls returned.</param>
+        /// <param name="waitSearchDocCreation">Wait for the creation of the search document and the rendered display values.
+        ///             By default the create call is returned when the main item has been successfully created, and the creation of the search document has been enqueued but not yet performed.</param>
         /// <returns>Ok</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="BusinessProcessLifeCycleNotHitException">The specified wait timeout exceeded</exception>
@@ -728,7 +742,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
-        System.Threading.Tasks.Task DeleteAsync(string listItemId, bool? forceReferenceRemoval = null, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task DeleteAsync(string listItemId, bool? forceReferenceRemoval = null, System.TimeSpan? timeout = null, bool? waitSearchDocCreation = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Get multiple list items</summary>
@@ -750,6 +764,8 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="allowMissingDependencies">Allows creating list items that refer to list items or contents that don't exist in the system.</param>
         /// <param name="timeout">Maximum time to wait for the operation to complete. If timeout is exceeded, the operation is not aborted but continues anyhow.
         ///             Only the waiting is aborted, and the calls returned.</param>
+        /// <param name="waitSearchDocCreation">Wait for the creation of the search document and the rendered display values.
+        ///             By default the create call is returned when the main item has been successfully created, and the creation of the search document has been enqueued but not yet performed.</param>
         /// <returns>List item detail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="BusinessProcessLifeCycleNotHitException">A server side error occurred.</exception>
@@ -757,7 +773,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
-        System.Threading.Tasks.Task<ListItemDetail> CreateAsync(ListItemCreateRequest listItemCreateRequest, System.Collections.Generic.IEnumerable<ListItemResolveBehavior> resolveBehaviors = null, bool? allowMissingDependencies = null, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ListItemDetail> CreateAsync(ListItemCreateRequest listItemCreateRequest, System.Collections.Generic.IEnumerable<ListItemResolveBehavior> resolveBehaviors = null, bool? allowMissingDependencies = null, System.TimeSpan? timeout = null, bool? waitSearchDocCreation = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Search list items</summary>
@@ -809,6 +825,8 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="allowMissingDependencies">Allows restoring list items that refer to list items or contents that don't exist in the system.</param>
         /// <param name="timeout">Maximum time to wait for the operation to complete. If timeout is exceeded, the operation is not aborted but continues anyhow.
         ///             Only the waiting is aborted, and the calls returned.</param>
+        /// <param name="waitSearchDocCreation">Wait for the creation of the search document and the rendered display values.
+        ///             By default the create call is returned when the main item has been successfully created, and the creation of the search document has been enqueued but not yet performed.</param>
         /// <returns>Ok</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="BusinessProcessLifeCycleNotHitException">The specified wait timeout exceeded</exception>
@@ -816,7 +834,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
-        System.Threading.Tasks.Task RestoreAsync(string listItemId, bool? allowMissingDependencies = null, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task RestoreAsync(string listItemId, bool? allowMissingDependencies = null, System.TimeSpan? timeout = null, bool? waitSearchDocCreation = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Restore multiple list items</summary>
@@ -2001,6 +2019,10 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("lastReportedProgress", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.DateTime? LastReportedProgress { get; set; }
     
+        /// <summary>Id of the business process that will be automatically started after the completion of the current one, if any.</summary>
+        [Newtonsoft.Json.JsonProperty("continuationBusinessProcessId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ContinuationBusinessProcessId { get; set; }
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -2307,6 +2329,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("BusinessProcessDefinitionCreateException", typeof(BusinessProcessDefinitionCreateException))]
     [JsonInheritanceAttribute("BusinessProcessNotExternalException", typeof(BusinessProcessNotExternalException))]
     [JsonInheritanceAttribute("BusinessProcessCancellationNotSupportedException", typeof(BusinessProcessCancellationNotSupportedException))]
+    [JsonInheritanceAttribute("BusinessProcessContinuationException", typeof(BusinessProcessContinuationException))]
     [JsonInheritanceAttribute("SchemaFieldImportMismatchException", typeof(SchemaFieldImportMismatchException))]
     [JsonInheritanceAttribute("SchemaFieldImportRelatedSchemaMismatchException", typeof(SchemaFieldImportRelatedSchemaMismatchException))]
     [JsonInheritanceAttribute("SchemaFieldImportTypeMismatchException", typeof(SchemaFieldImportTypeMismatchException))]
@@ -6754,6 +6777,31 @@ namespace Picturepark.SDK.V1.Contract
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class BusinessProcessContinuationException : PictureparkBusinessException
+    {
+        [Newtonsoft.Json.JsonProperty("continuationBusinessProcessId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ContinuationBusinessProcessId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("precedingBusinessProcessId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string PrecedingBusinessProcessId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("precedingBusinessProcessException", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public PictureparkException PrecedingBusinessProcessException { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static BusinessProcessContinuationException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessProcessContinuationException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
     public partial class SchemaFieldImportMismatchException : PictureparkValidationException
     {
         [Newtonsoft.Json.JsonProperty("schemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -9238,6 +9286,10 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("ContentRelationItemAssignedCondition", typeof(ContentRelationItemAssignedCondition))]
     [JsonInheritanceAttribute("ContentRelationItemUnassignedCondition", typeof(ContentRelationItemUnassignedCondition))]
     [JsonInheritanceAttribute("GeoPointWithinPolygonCondition", typeof(GeoPointWithinPolygonCondition))]
+    [JsonInheritanceAttribute("ContentPermissionSetsChangedCondition", typeof(ContentPermissionSetsChangedCondition))]
+    [JsonInheritanceAttribute("ContentRelationItemsChangedCondition", typeof(ContentRelationItemsChangedCondition))]
+    [JsonInheritanceAttribute("LayersChangedCondition", typeof(LayersChangedCondition))]
+    [JsonInheritanceAttribute("TagboxItemsChangedCondition", typeof(TagboxItemsChangedCondition))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public abstract partial class BusinessRuleCondition 
     {
@@ -9647,6 +9699,78 @@ namespace Picturepark.SDK.V1.Contract
         public static LatLon FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<LatLon>(data);
+        }
+    
+    }
+    
+    /// <summary>Matches whenever the assigned content permission sets changed.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class ContentPermissionSetsChangedCondition : BusinessRuleCondition
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static ContentPermissionSetsChangedCondition FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentPermissionSetsChangedCondition>(data);
+        }
+    
+    }
+    
+    /// <summary>Matches whenever the assigned content(s) in a relationship field changed.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class ContentRelationItemsChangedCondition : BusinessRuleCondition
+    {
+        /// <summary>JSON path to the field</summary>
+        [Newtonsoft.Json.JsonProperty("fieldPath", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string FieldPath { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static ContentRelationItemsChangedCondition FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentRelationItemsChangedCondition>(data);
+        }
+    
+    }
+    
+    /// <summary>Matches whenever the assigned layers of a content changed.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class LayersChangedCondition : BusinessRuleCondition
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static LayersChangedCondition FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<LayersChangedCondition>(data);
+        }
+    
+    }
+    
+    /// <summary>Matches whenever the assigned item(s) in a tagbox changed.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class TagboxItemsChangedCondition : BusinessRuleCondition
+    {
+        /// <summary>JSON path to the field</summary>
+        [Newtonsoft.Json.JsonProperty("fieldPath", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string FieldPath { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static TagboxItemsChangedCondition FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<TagboxItemsChangedCondition>(data);
         }
     
     }

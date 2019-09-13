@@ -1812,6 +1812,16 @@
               "nullable": true
             },
             "x-position": 3
+          },
+          {
+            "name": "waitSearchDocCreation",
+            "in": "query",
+            "description": "Wait for the creation of the search document and the rendered display values.\n            By default the create call is returned when the main item has been successfully created, and the creation of the search document has been enqueued but not yet performed.",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            },
+            "x-position": 4
           }
         ],
         "responses": {
@@ -2078,6 +2088,16 @@
               "nullable": true
             },
             "x-position": 4
+          },
+          {
+            "name": "waitSearchDocCreation",
+            "in": "query",
+            "description": "Wait for the creation of the search document and the rendered display values.\n            By default the create call is returned when the main item has been successfully created, and the creation of the search document has been enqueued but not yet performed.",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            },
+            "x-position": 5
           }
         ],
         "requestBody": {
@@ -3330,6 +3350,16 @@
               "nullable": true
             },
             "x-position": 3
+          },
+          {
+            "name": "waitSearchDocCreation",
+            "in": "query",
+            "description": "Wait for the creation of the search document and the rendered display values.\n            By default the create call is returned when the main item has been successfully created, and the creation of the search document has been enqueued but not yet performed.",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            },
+            "x-position": 4
           }
         ],
         "responses": {
@@ -3666,6 +3696,16 @@
               "nullable": true
             },
             "x-position": 5
+          },
+          {
+            "name": "waitSearchDocCreation",
+            "in": "query",
+            "description": "Wait for the creation of the search document and the rendered display values.\n            By default the create call is returned when the main item has been successfully created, and the creation of the search document has been enqueued but not yet performed.",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            },
+            "x-position": 6
           }
         ],
         "requestBody": {
@@ -3818,6 +3858,16 @@
               "nullable": true
             },
             "x-position": 4
+          },
+          {
+            "name": "waitSearchDocCreation",
+            "in": "query",
+            "description": "Wait for the creation of the search document and the rendered display values.\n            By default the create call is returned when the main item has been successfully created, and the creation of the search document has been enqueued but not yet performed.",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            },
+            "x-position": 5
           }
         ],
         "requestBody": {
@@ -4162,6 +4212,16 @@
               "nullable": true
             },
             "x-position": 3
+          },
+          {
+            "name": "waitSearchDocCreation",
+            "in": "query",
+            "description": "Wait for the creation of the search document and the rendered display values.\n            By default the create call is returned when the main item has been successfully created, and the creation of the search document has been enqueued but not yet performed.",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            },
+            "x-position": 4
           }
         ],
         "requestBody": {
@@ -6679,6 +6739,16 @@
               "nullable": true
             },
             "x-position": 5
+          },
+          {
+            "name": "waitSearchDocCreation",
+            "in": "query",
+            "description": "Wait for the creation of the search document and the rendered display values.\n            By default the create call is returned when the main item has been successfully created, and the creation of the search document has been enqueued but not yet performed.",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            },
+            "x-position": 6
           }
         ],
         "requestBody": {
@@ -6802,6 +6872,16 @@
               "nullable": true
             },
             "x-position": 3
+          },
+          {
+            "name": "waitSearchDocCreation",
+            "in": "query",
+            "description": "Wait for the creation of the search document and the rendered display values.\n            By default the create call is returned when the main item has been successfully created, and the creation of the search document has been enqueued but not yet performed.",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            },
+            "x-position": 4
           }
         ],
         "responses": {
@@ -7068,6 +7148,16 @@
               "nullable": true
             },
             "x-position": 4
+          },
+          {
+            "name": "waitSearchDocCreation",
+            "in": "query",
+            "description": "Wait for the creation of the search document and the rendered display values.\n            By default the create call is returned when the main item has been successfully created, and the creation of the search document has been enqueued but not yet performed.",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            },
+            "x-position": 5
           }
         ],
         "requestBody": {
@@ -7760,6 +7850,16 @@
               "nullable": true
             },
             "x-position": 3
+          },
+          {
+            "name": "waitSearchDocCreation",
+            "in": "query",
+            "description": "Wait for the creation of the search document and the rendered display values.\n            By default the create call is returned when the main item has been successfully created, and the creation of the search document has been enqueued but not yet performed.",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            },
+            "x-position": 4
           }
         ],
         "responses": {
@@ -17231,6 +17331,11 @@
             "format": "date-time",
             "nullable": true
           },
+          "continuationBusinessProcessId": {
+            "type": "string",
+            "description": "Id of the business process that will be automatically started after the completion of the current one, if any.",
+            "nullable": true
+          },
           "kind": {
             "type": "string"
           }
@@ -17528,6 +17633,7 @@
                 "BusinessProcessDefinitionCreateException": "#/components/schemas/BusinessProcessDefinitionCreateException",
                 "BusinessProcessNotExternalException": "#/components/schemas/BusinessProcessNotExternalException",
                 "BusinessProcessCancellationNotSupportedException": "#/components/schemas/BusinessProcessCancellationNotSupportedException",
+                "BusinessProcessContinuationException": "#/components/schemas/BusinessProcessContinuationException",
                 "SchemaFieldImportMismatchException": "#/components/schemas/SchemaFieldImportMismatchException",
                 "SchemaFieldImportRelatedSchemaMismatchException": "#/components/schemas/SchemaFieldImportRelatedSchemaMismatchException",
                 "SchemaFieldImportTypeMismatchException": "#/components/schemas/SchemaFieldImportTypeMismatchException",
@@ -21727,6 +21833,35 @@
           }
         ]
       },
+      "BusinessProcessContinuationException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkBusinessException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "continuationBusinessProcessId": {
+                "type": "string",
+                "nullable": true
+              },
+              "precedingBusinessProcessId": {
+                "type": "string",
+                "nullable": true
+              },
+              "precedingBusinessProcessException": {
+                "nullable": true,
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/PictureparkException"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
       "SchemaFieldImportMismatchException": {
         "allOf": [
           {
@@ -24203,7 +24338,11 @@
             "NumberCompareCondition": "#/components/schemas/NumberCompareCondition",
             "ContentRelationItemAssignedCondition": "#/components/schemas/ContentRelationItemAssignedCondition",
             "ContentRelationItemUnassignedCondition": "#/components/schemas/ContentRelationItemUnassignedCondition",
-            "GeoPointWithinPolygonCondition": "#/components/schemas/GeoPointWithinPolygonCondition"
+            "GeoPointWithinPolygonCondition": "#/components/schemas/GeoPointWithinPolygonCondition",
+            "ContentPermissionSetsChangedCondition": "#/components/schemas/ContentPermissionSetsChangedCondition",
+            "ContentRelationItemsChangedCondition": "#/components/schemas/ContentRelationItemsChangedCondition",
+            "LayersChangedCondition": "#/components/schemas/LayersChangedCondition",
+            "TagboxItemsChangedCondition": "#/components/schemas/TagboxItemsChangedCondition"
           }
         },
         "description": "Conditions on which a business rule is executed",
@@ -24608,6 +24747,68 @@
             "format": "double"
           }
         }
+      },
+      "ContentPermissionSetsChangedCondition": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BusinessRuleCondition"
+          },
+          {
+            "type": "object",
+            "description": "Matches whenever the assigned content permission sets changed.",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "ContentRelationItemsChangedCondition": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BusinessRuleCondition"
+          },
+          {
+            "type": "object",
+            "description": "Matches whenever the assigned content(s) in a relationship field changed.",
+            "additionalProperties": false,
+            "properties": {
+              "fieldPath": {
+                "type": "string",
+                "description": "JSON path to the field",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "LayersChangedCondition": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BusinessRuleCondition"
+          },
+          {
+            "type": "object",
+            "description": "Matches whenever the assigned layers of a content changed.",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "TagboxItemsChangedCondition": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BusinessRuleCondition"
+          },
+          {
+            "type": "object",
+            "description": "Matches whenever the assigned item(s) in a tagbox changed.",
+            "additionalProperties": false,
+            "properties": {
+              "fieldPath": {
+                "type": "string",
+                "description": "JSON path to the field",
+                "nullable": true
+              }
+            }
+          }
+        ]
       },
       "BusinessRuleTransformationGroup": {
         "type": "object",
