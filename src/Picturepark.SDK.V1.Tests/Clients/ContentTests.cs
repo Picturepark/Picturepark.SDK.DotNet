@@ -1263,7 +1263,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             // Assert
             content = await _client.Content.GetAsync(content.Id, new[] { ContentResolveBehavior.Content }).ConfigureAwait(false);
             content.Should().NotBeNull();
-            content.Content.As<JObject>().ToObject<ContentItem>().Name.Should().Be(updatedName);
+            content.AsContentItem<ContentItem>().Content.Name.Should().Be(updatedName);
         }
 
         [Fact]
@@ -1328,7 +1328,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var contents = await _client.Content.GetManyAsync(contentIds, new[] { ContentResolveBehavior.Content }).ConfigureAwait(false);
 
             // Assert
-            contents.Should().HaveCount(2).And.Subject.Select(c => c.Content.As<JObject>().ToObject<ContentItem>().Name).Should().BeEquivalentTo(expectedName1, expectedName2);
+            contents.Should().HaveCount(2).And.Subject.Select(c => c.AsContentItem<ContentItem>().Content.Name).Should().BeEquivalentTo(expectedName1, expectedName2);
         }
 
         [Fact]
@@ -1380,7 +1380,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var contents = await _client.Content.GetManyAsync(contentIds, new[] { ContentResolveBehavior.Content }).ConfigureAwait(false);
 
             // Assert
-            contents.Should().HaveCount(2).And.Subject.Select(c => c.Content.As<JObject>().ToObject<ContentItem>().Name).Should().OnlyContain(s => s == expectedName);
+            contents.Should().HaveCount(2).And.Subject.Select(c => c.AsContentItem<ContentItem>().Content.Name).Should().OnlyContain(s => s == expectedName);
         }
 
         [Fact]
