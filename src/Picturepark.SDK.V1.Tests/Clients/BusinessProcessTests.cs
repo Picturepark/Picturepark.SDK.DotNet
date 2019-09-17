@@ -74,9 +74,9 @@ namespace Picturepark.SDK.V1.Tests.Clients
                     new MetadataValuesSchemaUpdateCommand
                     {
                         SchemaId = nameof(BusinessProcessTest),
-                        Value = new DataDictionary
+                        Value = new
                         {
-                            { "Description", "TestDescription" }
+                            Description = "TestDescription"
                         }
                     }
                 }

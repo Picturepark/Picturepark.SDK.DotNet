@@ -1,6 +1,5 @@
 ﻿using FluentAssertions;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 using Picturepark.SDK.V1.Contract;
 using Picturepark.SDK.V1.Tests.Contracts;
 using Picturepark.SDK.V1.Tests.Fixtures;
@@ -11,6 +10,7 @@ using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
+using Picturepark.SDK.V1.Contract.Extensions;
 using Xunit;
 
 namespace Picturepark.SDK.V1.Tests.Clients
@@ -297,7 +297,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             {
                 Content = JsonConvert.DeserializeObject(@"{ ""name"": ""foo"" }"),
                 ContentSchemaId = "ContentItem",
-                Metadata = new DataDictionary()
+                Metadata = new object()
             };
 
             // Act
@@ -319,14 +319,14 @@ namespace Picturepark.SDK.V1.Tests.Clients
             {
                 Content = JsonConvert.DeserializeObject(@"{ ""name"": ""foo"" }"),
                 ContentSchemaId = "ContentItem",
-                Metadata = new DataDictionary()
+                Metadata = new object()
             };
 
             var request2 = new ContentCreateRequest
             {
                 Content = JsonConvert.DeserializeObject(@"{ ""name"": ""bar"" }"),
                 ContentSchemaId = "ContentItem",
-                Metadata = new DataDictionary()
+                Metadata = new object()
             };
 
             // Act
@@ -359,19 +359,12 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var assignLayerWithTagbox = new ContentMetadataUpdateRequest()
             {
                 LayerSchemaIds = new List<string>() { nameof(AllDataTypesContract) },
-                Metadata = new DataDictionary()
-                {
+                Metadata = Metadata.From(
+                    new AllDataTypesContract
                     {
-                        nameof(AllDataTypesContract),
-                        new DataDictionary()
-                        {
-                            {
-                                nameof(AllDataTypesContract.MultiTagboxField),
-                                new List<SimpleReferenceObject>() { new SimpleReferenceObject() { RefId = listItemId } }
-                            }
-                        }
-                    }
-                }
+                        MultiTagboxField = new List<SimpleReferenceObject> { new SimpleReferenceObject { RefId = listItemId } }
+                    }),
+                SchemaFieldsUpdateOptions = UpdateOption.Replace
             };
 
             // Act
@@ -379,13 +372,11 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 .UpdateMetadataAsync(contentId, assignLayerWithTagbox, new[] { ContentResolveBehavior.Metadata })
                 .ConfigureAwait(false);
 
-            var listOfRefObjects = withTagboxLayer.Metadata
-                .Get(nameof(AllDataTypesContract).ToLowerCamelCase())
-                .GetList(nameof(AllDataTypesContract.MultiTagboxField).ToLowerCamelCase());
+            var listOfRefObjects = withTagboxLayer.Layer<AllDataTypesContract>().MultiTagboxField;
 
             // Assert
             listOfRefObjects.Should().HaveCount(1);
-            listOfRefObjects.Single()["_refId"].Should().Be(listItemId);
+            listOfRefObjects.Single().RefId.Should().Be(listItemId);
         }
 
         [Fact]
@@ -466,16 +457,11 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var request = new ContentMetadataUpdateRequest
             {
                 LayerSchemaIds = new List<string> { nameof(SimpleLayer) },
-                Metadata = new DataDictionary
-                {
+                Metadata = Metadata.From(
+                    new SimpleLayer
                     {
-                        nameof(SimpleLayer).ToLowerCamelCase(),
-                        new Dictionary<string, object>
-                        {
-                            { "name", expectedName }
-                        }
-                    }
-                }
+                        Name = expectedName
+                    })
             };
 
             // Act
@@ -483,7 +469,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             // Assert
             Assert.NotNull(response);
-            Assert.Equal(expectedName, response.Metadata.Get(nameof(SimpleLayer).ToLowerCamelCase())["name"]);
+            Assert.Equal(expectedName, response.Layer<SimpleLayer>().Name);
 
             response.Audit.CreatedByUser.Should().BeResolved();
             response.Audit.ModifiedByUser.Should().BeResolved();
@@ -501,32 +487,14 @@ namespace Picturepark.SDK.V1.Tests.Clients
             {
                 Id = contentIds[0],
                 LayerSchemaIds = new List<string> { nameof(SimpleLayer) },
-                Metadata = new DataDictionary
-                {
-                    {
-                        nameof(SimpleLayer),
-                        new Dictionary<string, object>
-                        {
-                            { "name", "Content1" }
-                        }
-                    }
-                }
+                Metadata = new SimpleLayer { Name = "Content1" }.AsMetadata()
             };
 
             var request2 = new ContentMetadataUpdateItem
             {
                 Id = contentIds[1],
                 LayerSchemaIds = new List<string> { nameof(SimpleLayer) },
-                Metadata = new DataDictionary
-                {
-                    {
-                        nameof(SimpleLayer),
-                        new Dictionary<string, object>
-                        {
-                            { "name", "Content2" }
-                        }
-                    }
-                }
+                Metadata = new SimpleLayer { Name = "Content2" }.AsMetadata()
             };
 
             // Act
@@ -546,26 +514,14 @@ namespace Picturepark.SDK.V1.Tests.Clients
         {
             // Arrange
             var contentId = await _fixture.GetRandomContentIdAsync("fileMetadata.fileExtension:.jpg", 20).ConfigureAwait(false);
-            var request = new ContentMetadataUpdateRequest
-            {
-                LayerSchemaIds = new List<string> { "PersonShot" },
-                Metadata = new DataDictionary
-                {
-                    {
-                        "PersonShot",
-                        new Dictionary<string, object>
-                        {
-                            { "Description", "test description" }
-                        }
-                    }
-                }
-            };
+            var request =
+                ContentMetadataUpdateRequest.LayerMergeUpdate((PersonShot ps) => ps.Description, "test description");
 
             // Act
             var response = await _client.Content.UpdateMetadataAsync(contentId, request, new[] { ContentResolveBehavior.Metadata, ContentResolveBehavior.InnerDisplayValueName }).ConfigureAwait(false);
 
             // Assert
-            Assert.Equal("test description", ((JObject)response.Metadata["personShot"])["_displayValues"]["name"].ToString());
+            Assert.Equal("test description", response.LayerDisplayValues<PersonShot>().Name);
         }
 
         [Fact]
@@ -577,16 +533,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var request = new ContentMetadataUpdateRequest
             {
                 LayerSchemaIds = new List<string> { nameof(PersonShot) },
-                Metadata = new DataDictionary
-                {
-                    {
-                        nameof(PersonShot),
-                        new Dictionary<string, object>
-                        {
-                            { "Description", "test description" }
-                        }
-                    }
-                }
+                Metadata = new PersonShot { Description = "test description" }.AsMetadata()
             };
 
             await _client.Content.UpdateMetadataAsync(contentId, request).ConfigureAwait(false);
@@ -594,16 +541,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             request = new ContentMetadataUpdateRequest
             {
                 LayerSchemaIds = new List<string> { nameof(AllDataTypesContract) },
-                Metadata = new DataDictionary
-                {
-                    {
-                        nameof(AllDataTypesContract),
-                        new Dictionary<string, object>
-                        {
-                            { "IntegerField", 12345 }
-                        }
-                    }
-                },
+                Metadata = new AllDataTypesContract { IntegerField = 12345 }.AsMetadata(),
                 LayerSchemasUpdateOptions = UpdateOption.Merge
             };
 
@@ -611,8 +549,8 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var response = await _client.Content.UpdateMetadataAsync(contentId, request, new[] { ContentResolveBehavior.Metadata }).ConfigureAwait(false);
 
             // Assert
-            Assert.Equal("test description", ((JObject)response.Metadata["personShot"])["description"].ToString());
-            Assert.Equal(12345, ((JObject)response.Metadata["allDataTypesContract"])["integerField"].ToObject<int>());
+            Assert.Equal("test description", response.Layer<PersonShot>().Description);
+            Assert.Equal(12345, response.Layer<AllDataTypesContract>().IntegerField);
         }
 
         [Fact]
@@ -624,16 +562,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var request = new ContentMetadataUpdateRequest
             {
                 LayerSchemaIds = new List<string> { nameof(PersonShot) },
-                Metadata = new DataDictionary
-                {
-                    {
-                        nameof(PersonShot),
-                        new Dictionary<string, object>
-                        {
-                            { "Description", "test description" }
-                        }
-                    }
-                }
+                Metadata = new PersonShot { Description = "test description" }.AsMetadata()
             };
 
             var contentDetail = await _client.Content.UpdateMetadataAsync(contentId, request).ConfigureAwait(false);
@@ -644,16 +573,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             request = new ContentMetadataUpdateRequest
             {
                 LayerSchemaIds = layerIds,
-                Metadata = new DataDictionary
-                {
-                    {
-                        nameof(AllDataTypesContract),
-                        new Dictionary<string, object>
-                        {
-                            { "IntegerField", 12345 }
-                        }
-                    }
-                },
+                Metadata = new AllDataTypesContract { IntegerField = 12345 }.AsMetadata(),
                 LayerSchemasUpdateOptions = UpdateOption.Replace
             };
 
@@ -661,8 +581,8 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var response = await _client.Content.UpdateMetadataAsync(contentId, request, new[] { ContentResolveBehavior.Metadata }).ConfigureAwait(false);
 
             // Assert
-            Assert.DoesNotContain("personShot", response.Metadata.Keys);
-            Assert.Equal(12345, ((JObject)response.Metadata["allDataTypesContract"])["integerField"].ToObject<int>());
+            response.HasLayer<PersonShot>().Should().BeFalse();
+            Assert.Equal(12345, response.Layer<AllDataTypesContract>().IntegerField);
         }
 
         [Fact]
@@ -674,42 +594,19 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var request = new ContentMetadataUpdateRequest
             {
                 LayerSchemaIds = new List<string> { nameof(AllDataTypesContract) },
-                Metadata = new DataDictionary
-                {
-                    {
-                        nameof(AllDataTypesContract),
-                        new Dictionary<string, object>
-                        {
-                            { "IntegerField", 12345 }
-                        }
-                    }
-                }
+                Metadata = new AllDataTypesContract { IntegerField = 12345 }.AsMetadata()
             };
 
             await _client.Content.UpdateMetadataAsync(contentId, request).ConfigureAwait(false);
 
-            request = new ContentMetadataUpdateRequest
-            {
-                LayerSchemaIds = new List<string> { nameof(AllDataTypesContract) },
-                Metadata = new DataDictionary
-                {
-                    {
-                        nameof(AllDataTypesContract),
-                        new Dictionary<string, object>
-                        {
-                            { "StringField", "test string" }
-                        }
-                    }
-                },
-                SchemaFieldsUpdateOptions = UpdateOption.Merge
-            };
+            request = ContentMetadataUpdateRequest.LayerMergeUpdate((AllDataTypesContract a) => a.StringField, "test string");
 
             // Act
             var response = await _client.Content.UpdateMetadataAsync(contentId, request, new[] { ContentResolveBehavior.Metadata }).ConfigureAwait(false);
 
             // Assert
-            Assert.Equal(12345, ((JObject)response.Metadata["allDataTypesContract"])["integerField"].ToObject<int>());
-            Assert.Equal("test string", ((JObject)response.Metadata["allDataTypesContract"])["stringField"].ToString());
+            Assert.Equal(12345, response.Layer<AllDataTypesContract>().IntegerField);
+            Assert.Equal("test string", response.Layer<AllDataTypesContract>().StringField);
         }
 
         [Fact]
@@ -721,16 +618,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var request = new ContentMetadataUpdateRequest
             {
                 LayerSchemaIds = new List<string> { nameof(AllDataTypesContract) },
-                Metadata = new DataDictionary
-                {
-                    {
-                        nameof(AllDataTypesContract),
-                        new Dictionary<string, object>
-                        {
-                            { "IntegerField", 12345 }
-                        }
-                    }
-                }
+                Metadata = new AllDataTypesContract { IntegerField = 12345 }.AsMetadata()
             };
 
             await _client.Content.UpdateMetadataAsync(contentId, request).ConfigureAwait(false);
@@ -738,16 +626,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             request = new ContentMetadataUpdateRequest
             {
                 LayerSchemaIds = new List<string> { nameof(AllDataTypesContract) },
-                Metadata = new DataDictionary
-                {
-                    {
-                        nameof(AllDataTypesContract),
-                        new Dictionary<string, object>
-                        {
-                            { "StringField", "test string" }
-                        }
-                    }
-                },
+                Metadata = new AllDataTypesContract { StringField = "test string" }.AsMetadata(),
                 SchemaFieldsUpdateOptions = UpdateOption.Replace
             };
 
@@ -755,8 +634,8 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var response = await _client.Content.UpdateMetadataAsync(contentId, request, new[] { ContentResolveBehavior.Metadata }).ConfigureAwait(false);
 
             // Assert
-            Assert.Null(((JObject)response.Metadata["allDataTypesContract"])["integerField"]);
-            Assert.Equal("test string", ((JObject)response.Metadata["allDataTypesContract"])["stringField"].ToString());
+            Assert.Null(response.Layer("allDataTypesContract")["integerField"]);
+            Assert.Equal("test string", response.Layer<AllDataTypesContract>().StringField);
         }
 
         [Fact]
@@ -769,9 +648,9 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var contentCreateRequest = new ContentCreateRequest
             {
                 ContentSchemaId = contentSchema.Id,
-                Content = new DataDictionary(),
+                Content = new object(),
                 LayerSchemaIds = new[] { layerSchema.Id },
-                Metadata = new DataDictionary()
+                Metadata = new object()
             };
 
             var contentDetail = await _client.Content.CreateAsync(contentCreateRequest).ConfigureAwait(false);
@@ -780,25 +659,24 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var updateContentRequest = new ContentMetadataUpdateRequest
             {
                 LayerSchemaIds = new[] { layerSchema.Id },
-                Metadata = new DataDictionary
-                {
+                Metadata = Metadata.From(
+                    layerSchema.Id.ToLowerCamelCase(),
+                    new
                     {
-                        layerSchema.Id.ToLowerCamelCase(),
-                        JObject.FromObject(new
-                        {
-                            fieldTrigger = new { _trigger = true }
-                        })
-                    }
-                }
+                        fieldTrigger = new { _trigger = true }
+                    })
             };
             contentDetail = await _client.Content.UpdateMetadataAsync(contentDetail.Id, updateContentRequest, new[] { ContentResolveBehavior.Metadata }).ConfigureAwait(false);
 
             // Assert
-            contentDetail.Metadata.Get(layerSchema.Id.ToLowerCamelCase()).Get("fieldTrigger").Get("triggeredBy")["id"].Should().NotBeNull();
-            contentDetail.Metadata.Get(layerSchema.Id.ToLowerCamelCase()).Get("fieldTrigger").Get("triggeredBy")["firstName"].Should().NotBeNull();
-            contentDetail.Metadata.Get(layerSchema.Id.ToLowerCamelCase()).Get("fieldTrigger").Get("triggeredBy")["lastName"].Should().NotBeNull();
-            contentDetail.Metadata.Get(layerSchema.Id.ToLowerCamelCase()).Get("fieldTrigger").Get("triggeredBy")["emailAddress"].Should().NotBeNull();
-            contentDetail.Metadata.Get(layerSchema.Id.ToLowerCamelCase()).Get("fieldTrigger")["triggeredOn"].Should().NotBeNull();
+            var fieldTrigger = contentDetail.Layer(layerSchema.Id)["fieldTrigger"];
+            fieldTrigger.Should().NotBeNull();
+            var triggeredBy = fieldTrigger["triggeredBy"];
+            triggeredBy["id"].Should().NotBeNull();
+            triggeredBy["firstName"].Should().NotBeNull();
+            triggeredBy["lastName"].Should().NotBeNull();
+            triggeredBy["emailAddress"].Should().NotBeNull();
+            contentDetail.Layer(layerSchema.Id)["fieldTrigger"]["triggeredOn"].Should().NotBeNull();
         }
 
         [Fact]
@@ -811,26 +689,22 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var contentCreateRequest1 = new ContentCreateRequest
             {
                 ContentSchemaId = contentSchema.Id,
-                Content = new DataDictionary(),
+                Content = new object(),
                 LayerSchemaIds = new[] { layerSchema.Id },
-                Metadata = new DataDictionary
-                {
+                Metadata = Metadata.From(
+                    layerSchema.Id.ToLowerCamelCase(),
+                    new
                     {
-                        layerSchema.Id.ToLowerCamelCase(),
-                        JObject.FromObject(new
-                        {
-                            fieldTrigger = new { _trigger = true }
-                        })
-                    }
-                }
+                        fieldTrigger = new { _trigger = true }
+                    })
             };
 
             var contentCreateRequest2 = new ContentCreateRequest
             {
                 ContentSchemaId = contentSchema.Id,
-                Content = new DataDictionary(),
+                Content = new object(),
                 LayerSchemaIds = new[] { layerSchema.Id },
-                Metadata = new DataDictionary()
+                Metadata = new object()
             };
 
             var contentCreateResult = await _client.Content.CreateManyAsync(new ContentCreateManyRequest { Items = new[] { contentCreateRequest1, contentCreateRequest2 } }).ConfigureAwait(false);
@@ -870,26 +744,20 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var contentCreateRequest1 = new ContentCreateRequest
             {
                 ContentSchemaId = contentSchema.Id,
-                Content = new DataDictionary(),
+                Content = new object(),
                 LayerSchemaIds = new[] { layerSchema.Id },
-                Metadata = new DataDictionary
-                {
+                Metadata = Metadata.From(
+                    layerSchema.Id.ToLowerCamelCase(),
+                    new
                     {
-                        layerSchema.Id.ToLowerCamelCase(),
-                        JObject.FromObject(new
-                        {
-                            fieldTrigger = new { _trigger = true }
-                        })
-                    }
-                }
+                        fieldTrigger = new { _trigger = true }
+                    })
             };
 
             var contentCreateRequest2 = new ContentCreateRequest
             {
                 ContentSchemaId = contentSchema.Id,
-                Content = new DataDictionary(),
-                LayerSchemaIds = new[] { layerSchema.Id },
-                Metadata = new DataDictionary()
+                LayerSchemaIds = new[] { layerSchema.Id }
             };
 
             var contentCreateResult = await _client.Content.CreateManyAsync(new ContentCreateManyRequest { Items = new[] { contentCreateRequest1, contentCreateRequest2 } }).ConfigureAwait(false);
@@ -933,9 +801,9 @@ namespace Picturepark.SDK.V1.Tests.Clients
                     new MetadataValuesSchemaUpsertCommand
                     {
                         SchemaId = nameof(SimpleLayer),
-                        Value = new DataDictionary
+                        Value = new SimpleLayer
                         {
-                            { "name", "testlocation" }
+                            Name = "testlocation"
                         }
                     }
                 }
@@ -964,9 +832,9 @@ namespace Picturepark.SDK.V1.Tests.Clients
                     new MetadataValuesSchemaUpsertCommand
                     {
                         SchemaId = nameof(SimpleLayer),
-                        Value = new DataDictionary
+                        Value = new SimpleLayer
                         {
-                            { "name", "testlocation" }
+                            Name = "testlocation"
                         }
                     }
                 }
@@ -1084,8 +952,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var contentDetail = await CreateContentReferencingSimpleField(ContentResolveBehavior.Content, ContentResolveBehavior.LinkedListItems);
 
             // Assert
-            var contentContent = (JObject)contentDetail.Content;
-            ((string)contentContent["object"]["nameField"]).Should().Be("simpleField");
+            contentDetail.ContentAs<ContentItemWithTagBox>().Object.NameField.Should().Be("simpleField");
         }
 
         [Fact]
@@ -1095,8 +962,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var contentDetail = await CreateContentReferencingSimpleField(ContentResolveBehavior.Content);
 
             // Assert
-            var contentContent = (JObject)contentDetail.Content;
-            contentContent["object"]["nameField"].Should().BeNull();
+            contentDetail.ContentAs<ContentItemWithTagBox>().Object.NameField.Should().BeNull();
         }
 
         [Fact]
@@ -1167,8 +1033,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var request = new ContentCreateRequest
             {
                 Content = JsonConvert.DeserializeObject(@"{ ""name"": ""contentToTrash"" }"),
-                ContentSchemaId = "ContentItem",
-                Metadata = new DataDictionary()
+                ContentSchemaId = "ContentItem"
             };
 
             // Act
@@ -1193,15 +1058,13 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var content1 = await _client.Content.CreateAsync(new ContentCreateRequest
             {
                 Content = JsonConvert.DeserializeObject(@"{ ""name"": ""contentToTrashMany1"" }"),
-                ContentSchemaId = "ContentItem",
-                Metadata = new DataDictionary()
+                ContentSchemaId = "ContentItem"
             }).ConfigureAwait(false);
 
             var content2 = await _client.Content.CreateAsync(new ContentCreateRequest
             {
                 Content = JsonConvert.DeserializeObject(@"{ ""name"": ""contentToTrashMany2"" }"),
-                ContentSchemaId = "ContentItem",
-                Metadata = new DataDictionary()
+                ContentSchemaId = "ContentItem"
             }).ConfigureAwait(false);
 
             var contentIds = new List<string> { content1.Id, content2.Id };
@@ -1242,15 +1105,13 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var content1 = await _client.Content.CreateAsync(new ContentCreateRequest
             {
                 Content = JsonConvert.DeserializeObject($"{{ \"name\": \"{uniqueValue}_1\" }}"),
-                ContentSchemaId = "ContentItem",
-                Metadata = new DataDictionary()
+                ContentSchemaId = "ContentItem"
             }).ConfigureAwait(false);
 
             var content2 = await _client.Content.CreateAsync(new ContentCreateRequest
             {
                 Content = JsonConvert.DeserializeObject($"{{ \"name\": \"{uniqueValue}_2\" }}"),
-                ContentSchemaId = "ContentItem",
-                Metadata = new DataDictionary()
+                ContentSchemaId = "ContentItem"
             }).ConfigureAwait(false);
 
             // Deactivate
@@ -1449,8 +1310,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                     {
                         name = $"Content #{x}"
                     },
-                    ContentSchemaId = "ContentItem",
-                    Metadata = new DataDictionary()
+                    ContentSchemaId = "ContentItem"
                 }).ToList();
 
             var result = await _client.Content.CreateManyAsync(
@@ -1493,8 +1353,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                     {
                         RefId = listItem.Id
                     }
-                },
-                Metadata = new DataDictionary()
+                }
             }).ConfigureAwait(false);
 
             // Act

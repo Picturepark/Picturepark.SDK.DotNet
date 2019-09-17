@@ -42,7 +42,7 @@ namespace Picturepark.SDK.V1.Tests.Contracts
 
         public GeoPoint GeoPointField { get; set; }
 
-        public int IntegerField { get; set; }
+        public int? IntegerField { get; set; }
 
         ////public List<int> IntegerArrayField { get; set; }
 
