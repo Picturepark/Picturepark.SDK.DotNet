@@ -401,66 +401,72 @@ namespace Picturepark.SDK.V1.Tests.Clients
         [Trait("Stack", "Shares")]
         public async Task ShouldContainDynamicOutputsBasic()
         {
-            var (formatId, shareContents) = await PrepareDynamicOutputFormatTest();
-            var shareCreateResult = await CreateShare(new ShareBasicCreateRequest
+            var (formatIdOriginal, formatIdPreview, shareContents) = await PrepareDynamicOutputFormatTest();
+            var shareCreateResult = await CreateShare(new ShareBasicCreateRequest()
             {
                 Contents = shareContents,
-                OutputAccess = OutputAccess.Full,
-                Name = formatId + "-share",
+                OutputAccess = OutputAccess.Preview,
+                Name = formatIdPreview + "-share",
                 LanguageCode = "en"
             }).ConfigureAwait(false);
 
             var share = await _client.Share.GetAsync(shareCreateResult.ShareId).ConfigureAwait(false);
 
             var shareOutputs = share.ContentSelections.Single().Outputs;
-            shareOutputs.Should().Contain(o => o.OutputFormatId == formatId);
+            shareOutputs.Should().Contain(o => o.OutputFormatId == formatIdPreview);
+            shareOutputs.Should().NotContain(o => o.OutputFormatId == formatIdOriginal);
         }
 
         [Fact]
         [Trait("Stack", "Shares")]
         public async Task ShouldContainDynamicOutputsEmbed()
         {
-            var (formatId, shareContents) = await PrepareDynamicOutputFormatTest();
+            var (formatIdOriginal, formatIdPreview, shareContents) = await PrepareDynamicOutputFormatTest();
             var shareCreateResult = await CreateShare(new ShareEmbedCreateRequest()
             {
                 Contents = shareContents,
-                OutputAccess = OutputAccess.Full,
-                Name = formatId + "-share"
+                OutputAccess = OutputAccess.Preview,
+                Name = formatIdPreview + "-share"
             }).ConfigureAwait(false);
 
             var share = await _client.Share.GetAsync(shareCreateResult.ShareId).ConfigureAwait(false);
 
             var shareOutputs = share.ContentSelections.Single().Outputs;
-            shareOutputs.Should().Contain(o => o.OutputFormatId == formatId);
+            shareOutputs.Should().Contain(o => o.OutputFormatId == formatIdPreview);
+            shareOutputs.Should().NotContain(o => o.OutputFormatId == formatIdOriginal);
         }
 
-        private async Task<(string outputFormatId, ICollection<ShareContent> shareContent)> PrepareDynamicOutputFormatTest([CallerMemberName] string testName = null)
+        private async Task<(string outputFormatIdOriginal, string outputFormatIdPreview, ICollection<ShareContent> shareContent)> PrepareDynamicOutputFormatTest([CallerMemberName] string testName = null)
         {
-            var uniqueName = testName + "-" + Guid.NewGuid().ToString("N");
-            var formatName = uniqueName + "-OF";
-            var outputFormat = new OutputFormat
+            var formats = new[] { "Original", "Preview" }.Select(sourceFormat =>
             {
-                Id = formatName,
-                Names = new TranslatedStringDictionary
+                var uniqueName = string.Join("-", testName, sourceFormat, Guid.NewGuid().ToString("N"));
+                var formatName = uniqueName + "-OF";
+                return new OutputFormat
                 {
-                    { "en", formatName }
-                },
-                Dynamic = true,
-                Format = new JpegFormat
-                {
-                    Quality = 95
-                },
-                SourceOutputFormats = new SourceOutputFormats
-                {
-                    Image = "Original"
-                }
-            };
+                    Id = formatName,
+                    Names = new TranslatedStringDictionary
+                    {
+                        { "en", formatName }
+                    },
+                    Dynamic = true,
+                    Format = new JpegFormat
+                    {
+                        Quality = 95
+                    },
+                    SourceOutputFormats = new SourceOutputFormats
+                    {
+                        Image = sourceFormat
+                    }
+                };
+            }).ToList();
 
-            await _client.OutputFormat.CreateAsync(outputFormat).ConfigureAwait(false);
+            await _client.OutputFormat.CreateManyAsync(new OutputFormatCreateManyRequest { Items = formats }).ConfigureAwait(false);
 
             var contentToShare = await _fixture.GetRandomContentIdAsync("fileMetadata.fileExtension:.jpg", 10).ConfigureAwait(false);
             return (
-                formatName,
+                formats[0].Id,
+                formats[1].Id,
                 new[] { new ShareContent { ContentId = contentToShare } }
             );
         }
