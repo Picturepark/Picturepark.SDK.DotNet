@@ -402,7 +402,16 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldContainDynamicOutputsBasic()
         {
             var (formatIdOriginal, formatIdPreview, shareContents) = await PrepareDynamicOutputFormatTest();
-            var shareCreateResult = await CreateShare(new ShareBasicCreateRequest()
+
+            var shareFullCreateResult = await CreateShare(new ShareBasicCreateRequest()
+            {
+                Contents = shareContents,
+                OutputAccess = OutputAccess.Full,
+                Name = formatIdOriginal + "-share",
+                LanguageCode = "en"
+            }).ConfigureAwait(false);
+
+            var sharePreviewCreateResult = await CreateShare(new ShareBasicCreateRequest()
             {
                 Contents = shareContents,
                 OutputAccess = OutputAccess.Preview,
@@ -410,11 +419,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 LanguageCode = "en"
             }).ConfigureAwait(false);
 
-            var share = await _client.Share.GetAsync(shareCreateResult.ShareId).ConfigureAwait(false);
-
-            var shareOutputs = share.ContentSelections.Single().Outputs;
-            shareOutputs.Should().Contain(o => o.OutputFormatId == formatIdPreview);
-            shareOutputs.Should().NotContain(o => o.OutputFormatId == formatIdOriginal);
+            await AssertSharesContainCorrectOutputs(shareFullCreateResult.ShareId, sharePreviewCreateResult.ShareId, formatIdOriginal, formatIdPreview);
         }
 
         [Fact]
@@ -422,18 +427,38 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldContainDynamicOutputsEmbed()
         {
             var (formatIdOriginal, formatIdPreview, shareContents) = await PrepareDynamicOutputFormatTest();
-            var shareCreateResult = await CreateShare(new ShareEmbedCreateRequest()
+
+            var shareFullCreateResult = await CreateShare(new ShareEmbedCreateRequest()
+            {
+                Contents = shareContents,
+                OutputAccess = OutputAccess.Full,
+                Name = formatIdOriginal + "-share"
+            }).ConfigureAwait(false);
+
+            var sharePreviewCreateResult = await CreateShare(new ShareEmbedCreateRequest()
             {
                 Contents = shareContents,
                 OutputAccess = OutputAccess.Preview,
                 Name = formatIdPreview + "-share"
             }).ConfigureAwait(false);
 
-            var share = await _client.Share.GetAsync(shareCreateResult.ShareId).ConfigureAwait(false);
+            await AssertSharesContainCorrectOutputs(shareFullCreateResult.ShareId, sharePreviewCreateResult.ShareId, formatIdOriginal, formatIdPreview);
+        }
 
-            var shareOutputs = share.ContentSelections.Single().Outputs;
-            shareOutputs.Should().Contain(o => o.OutputFormatId == formatIdPreview);
-            shareOutputs.Should().NotContain(o => o.OutputFormatId == formatIdOriginal);
+        private async Task AssertSharesContainCorrectOutputs(
+            string shareFullId,
+            string sharePreviewId,
+            string formatIdOriginal,
+            string formatIdPreview)
+        {
+            var shareFull = await _client.Share.GetAsync(shareFullId).ConfigureAwait(false);
+            var sharePreview = await _client.Share.GetAsync(sharePreviewId).ConfigureAwait(false);
+
+            shareFull.ContentSelections.Single().Outputs.Should().Contain(o => o.OutputFormatId == formatIdPreview);
+            shareFull.ContentSelections.Single().Outputs.Should().Contain(o => o.OutputFormatId == formatIdOriginal);
+
+            sharePreview.ContentSelections.Single().Outputs.Should().Contain(o => o.OutputFormatId == formatIdPreview);
+            sharePreview.ContentSelections.Single().Outputs.Should().NotContain(o => o.OutputFormatId == formatIdOriginal);
         }
 
         private async Task<(string outputFormatIdOriginal, string outputFormatIdPreview, ICollection<ShareContent> shareContent)> PrepareDynamicOutputFormatTest([CallerMemberName] string testName = null)
