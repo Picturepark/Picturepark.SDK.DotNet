@@ -14,6 +14,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="concurrentDownloads">Specifies the number of concurrent downloads.</param>
         /// <param name="outputFormat">The output format name (e.g. 'Original').</param>
         /// <param name="outputExtension">The expected output file extension.</param>
+        /// <param name="contentIdAsFilename">Specifies whether to use the content id as filename. If false, the original filename is used and a counter added if needed.</param>
         /// <param name="successDelegate">The success delegate/callback.</param>
         /// <param name="errorDelegate">The error delegate/callback.</param>
         /// <param name="cancellationToken">The cancellation token.</param>
@@ -25,9 +26,10 @@ namespace Picturepark.SDK.V1.Contract
             int concurrentDownloads = 4,
             string outputFormat = "Original",
             string outputExtension = "",
+            bool contentIdAsFilename = false,
             Action<ContentDetail> successDelegate = null,
             Action<Exception> errorDelegate = null,
-            CancellationToken cancellationToken = default(CancellationToken));
+            CancellationToken cancellationToken = default);
 
         /// <summary>Create - many</summary>
         /// <param name="contentCreateManyRequest">The content create many request.</param>

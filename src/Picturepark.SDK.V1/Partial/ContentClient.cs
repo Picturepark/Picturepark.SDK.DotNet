@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.IO;
 using System.Net.Http;
@@ -26,6 +27,7 @@ namespace Picturepark.SDK.V1
         /// <param name="concurrentDownloads">Specifies the number of concurrent downloads.</param>
         /// <param name="outputFormat">The output format name (e.g. 'Original').</param>
         /// <param name="outputExtension">The expected output file extension.</param>
+        /// <param name="contentIdAsFilename">Specifies whether to use the content id for filename. If false, the original filename is used and a counter added if needed.</param>
         /// <param name="successDelegate">The success delegate/callback.</param>
         /// <param name="errorDelegate">The error delegate/callback.</param>
         /// <param name="cancellationToken">The cancellation token.</param>
@@ -37,74 +39,96 @@ namespace Picturepark.SDK.V1
             int concurrentDownloads = 4,
             string outputFormat = "Original",
             string outputExtension = "",
+            bool contentIdAsFilename = false,
             Action<ContentDetail> successDelegate = null,
             Action<Exception> errorDelegate = null,
-            CancellationToken cancellationToken = default(CancellationToken))
+            CancellationToken cancellationToken = default)
         {
-            List<Task> allTasks = new List<Task>();
-
-            // Limits Concurrent Downloads
-            SemaphoreSlim throttler = new SemaphoreSlim(concurrentDownloads);
+            var allTasks = new List<Task>();
+            var fileNameRegistry = new ConcurrentDictionary<string, object>();
 
             // Create directory if it does not exist
             if (!Directory.Exists(exportDirectory))
                 Directory.CreateDirectory(exportDirectory);
 
-            foreach (var content in contents.Results)
+            using (var throttler = new SemaphoreSlim(concurrentDownloads)) // Limits Concurrent Downloads
             {
-                await throttler.WaitAsync(cancellationToken).ConfigureAwait(false);
-                allTasks.Add(Task.Run(async () =>
+                foreach (var content in contents.Results)
                 {
-                    try
+                    await throttler.WaitAsync(cancellationToken).ConfigureAwait(false);
+                    allTasks.Add(Task.Run(async () =>
                     {
-                        var contentDetail = await GetAsync(content.Id, new[] { ContentResolveBehavior.Content },  cancellationToken).ConfigureAwait(false);
-                        var metadata = contentDetail.GetFileMetadata();
-                        string fileNameOriginal = metadata.FileName;
-
                         try
                         {
-                            var fileName = string.IsNullOrEmpty(outputExtension) ?
-                                fileNameOriginal :
-                                fileNameOriginal.Replace(Path.GetExtension(fileNameOriginal), outputExtension);
+                            var contentDetail = await GetAsync(content.Id, new[] { ContentResolveBehavior.Content }, cancellationToken).ConfigureAwait(false);
+                            var metadata = contentDetail.GetFileMetadata();
+                            var fileNameOriginal = metadata.FileName;
 
-                            if (string.IsNullOrEmpty(fileName))
-                                throw new Exception("Filename empty: " + metadata);
-
-                            var filePath = Path.Combine(exportDirectory, fileName);
-
-                            if (!new FileInfo(filePath).Exists || overwriteIfExists)
+                            try
                             {
-                                try
+                                if (string.IsNullOrEmpty(fileNameOriginal))
+                                    throw new Exception("Filename empty: " + metadata);
+
+                                var fileName = string.IsNullOrEmpty(outputExtension)
+                                    ? fileNameOriginal
+                                    : fileNameOriginal.Replace(Path.GetExtension(fileNameOriginal), outputExtension);
+
+                                var extension = Path.GetExtension(fileName);
+                                var nameNoExtension = Path.GetFileNameWithoutExtension(fileName);
+
+                                if (contentIdAsFilename)
                                 {
-                                    using (var response = await DownloadAsync(content.Id, outputFormat, cancellationToken: cancellationToken).ConfigureAwait(false))
+                                    fileName = content.Id + extension;
+                                }
+                                else
+                                {
+                                    var fileNameDiscriminator = 1;
+                                    do
                                     {
+                                        var discriminatorString = fileNameDiscriminator == 1
+                                            ? string.Empty
+                                            : $" ({fileNameDiscriminator})";
+
+                                        fileName = nameNoExtension + discriminatorString + extension;
+                                        fileNameDiscriminator++;
+                                    }
+                                    while (!fileNameRegistry.TryAdd(fileName, null));
+                                }
+
+                                var filePath = Path.Combine(exportDirectory, fileName);
+
+                                if (!new FileInfo(filePath).Exists || overwriteIfExists)
+                                {
+                                    try
+                                    {
+                                        using (var response = await DownloadAsync(content.Id, outputFormat, cancellationToken: cancellationToken).ConfigureAwait(false))
                                         using (var fileStream = File.Create(filePath))
                                         {
-                                            response.Stream.CopyTo(fileStream);
+                                            await response.Stream.CopyToAsync(fileStream).ConfigureAwait(false);
                                         }
-                                    }
 
-                                    successDelegate?.Invoke(contentDetail);
-                                }
-                                catch (Exception ex)
-                                {
-                                    errorDelegate?.Invoke(ex);
+                                        successDelegate?.Invoke(contentDetail);
+                                    }
+                                    catch (Exception ex)
+                                    {
+                                        errorDelegate?.Invoke(ex);
+                                    }
                                 }
                             }
+                            catch (Exception ex)
+                            {
+                                errorDelegate?.Invoke(ex);
+                            }
                         }
-                        catch (Exception ex)
+                        finally
                         {
-                            errorDelegate?.Invoke(ex);
+                            throttler.Release();
                         }
-                    }
-                    finally
-                    {
-                        throttler.Release();
-                    }
-                }));
-            }
+                    }));
+                }
 
-            await Task.WhenAll(allTasks).ConfigureAwait(false);
+                await Task.WhenAll(allTasks).ConfigureAwait(false);
+            }
         }
 
         /// <inheritdoc />
