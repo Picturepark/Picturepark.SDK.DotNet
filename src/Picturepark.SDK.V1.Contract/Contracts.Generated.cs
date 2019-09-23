@@ -9939,7 +9939,7 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("layerId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string LayerId { get; set; }
     
-        /// <summary>A dictionary containing default values (used for example to populate required fields).</summary>
+        /// <summary>An object containing default values (used for example to populate required fields).</summary>
         [Newtonsoft.Json.JsonProperty("defaultValues", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public object DefaultValues { get; set; }
     
@@ -10897,7 +10897,7 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("brokenRelationTargetIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> BrokenRelationTargetIds { get; set; }
     
-        /// <summary>The content data of the content. It's a dictionary of dynamic metadata whose structure is defined in the Content schema identified
+        /// <summary>The content data of the content. It's an object of dynamic metadata whose structure is defined in the Content schema identified.
         /// by the ContentSchemaId property.</summary>
         [Newtonsoft.Json.JsonProperty("content", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public object Content { get; set; }
@@ -12290,7 +12290,7 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("layerSchemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> LayerSchemaIds { get; set; }
     
-        /// <summary>The content data of the content. It's a dictionary of dynamic metadata whose structure is defined in the Content schema identified by the ContentSchemaId property.</summary>
+        /// <summary>The content data of the content. It's an object of dynamic metadata whose structure is defined in the Content schema identified by the ContentSchemaId property.</summary>
         [Newtonsoft.Json.JsonProperty("content", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public object Content { get; set; }
     
@@ -12517,7 +12517,7 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("layerSchemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> LayerSchemaIds { get; set; }
     
-        /// <summary>The content data of the content. It's a dictionary of dynamic metadata whose structure is defined in the Content schema identified by
+        /// <summary>The content data of the content. It's an object of dynamic metadata whose structure is defined in the Content schema identified by
         /// the ContentSchemaId property. Updating the Content property is only possible for virtual items (contents
         /// whose ContentType is ContentItem).
         /// Update of content data will be done only if this attribute has any data, i.e. if it's not null or empty.</summary>
@@ -12835,7 +12835,7 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class MetadataValuesSchemaUpdateCommand : MetadataValuesChangeCommandBase
     {
-        /// <summary>The dictionary containing the metadata values to add / update.</summary>
+        /// <summary>An object containing the metadata values to add / update.</summary>
         [Newtonsoft.Json.JsonProperty("value", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
         public object Value { get; set; } = new object();
@@ -12856,7 +12856,7 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class MetadataValuesSchemaUpsertCommand : MetadataValuesChangeCommandBase
     {
-        /// <summary>The dictionary containing the metadata values to add / update.</summary>
+        /// <summary>An object containing the metadata values to add / update.</summary>
         [Newtonsoft.Json.JsonProperty("value", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
         public object Value { get; set; } = new object();
@@ -12893,7 +12893,7 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class MetadataValuesSchemaReplaceCommand : MetadataValuesChangeCommandBase
     {
-        /// <summary>The dictionary containing the metadata values for the schema. The existing dictionary will be entirely overwritten.</summary>
+        /// <summary>An object containing the metadata values for the schema. The existing dictionary will be entirely overwritten.</summary>
         [Newtonsoft.Json.JsonProperty("value", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
         public object Value { get; set; } = new object();
@@ -14078,7 +14078,7 @@ namespace Picturepark.SDK.V1.Contract
         [System.ComponentModel.DataAnnotations.Required]
         public string ContentSchemaId { get; set; }
     
-        /// <summary>The content data of the list item. It's a dictionary of dynamic metadata whose structure is defined in the Content schema specified
+        /// <summary>The content data of the list item. It's an object of dynamic metadata whose structure is defined in the Content schema specified
         /// by the ContentSchemaId property.</summary>
         [Newtonsoft.Json.JsonProperty("content", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public object Content { get; set; }
@@ -14413,7 +14413,7 @@ namespace Picturepark.SDK.V1.Contract
         [System.ComponentModel.DataAnnotations.Required]
         public string ContentSchemaId { get; set; }
     
-        /// <summary>The content data of the list item. It's a dictionary of dynamic metadata whose structure is defined in the Content schema.</summary>
+        /// <summary>The content data of the list item. It's an object of dynamic metadata whose structure is defined in the Content schema.</summary>
         [Newtonsoft.Json.JsonProperty("content", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public object Content { get; set; }
     
@@ -14464,7 +14464,7 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class ListItemUpdateRequest 
     {
-        /// <summary>The content data of the list item. It's a dictionary of dynamic metadata whose structure is defined in the Content schema of the list item.</summary>
+        /// <summary>The content data of the list item. It's an object of dynamic metadata whose structure is defined in the Content schema of the list item.</summary>
         [Newtonsoft.Json.JsonProperty("content", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public object Content { get; set; }
     
@@ -19219,12 +19219,14 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("layerSchemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> LayerSchemaIds { get; set; }
     
-        /// <summary>The content data.</summary>
+        /// <summary>The content data. It's an object of dynamic metadata whose structure is defined in the Content schema specified
+        /// by the ContentSchemaId property.</summary>
         [Newtonsoft.Json.JsonProperty("content", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
         public object Content { get; set; } = new object();
     
-        /// <summary>The metadata dictionary.</summary>
+        /// <summary>The metadata belonging to the layers of the content. It's a dictionary of dynamic metadata whose structure is defined in the Layer schemas identified
+        /// by the LayerSchemaIds property.</summary>
         [Newtonsoft.Json.JsonProperty("metadata", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.IDictionary<string, object> Metadata { get; set; }
     
@@ -21104,6 +21106,8 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("layerSchemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> LayerSchemaIds { get; set; }
     
+        /// <summary>The metadata to be assigned to the imported content. It's a dictionary of dynamic metadata whose structure is defined in the Layer schemas identified
+        /// by the LayerSchemaIds property.</summary>
         [Newtonsoft.Json.JsonProperty("metadata", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.IDictionary<string, object> Metadata { get; set; }
     
@@ -21151,6 +21155,8 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("layerSchemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> LayerSchemaIds { get; set; }
     
+        /// <summary>The metadata to be assigned to the imported content. It's a dictionary of dynamic metadata whose structure is defined in the Layer schemas identified
+        /// by the LayerSchemaIds property.</summary>
         [Newtonsoft.Json.JsonProperty("metadata", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.IDictionary<string, object> Metadata { get; set; }
     
@@ -21819,6 +21825,21 @@ namespace Picturepark.SDK.V1.Contract
         public static UserRoleDeleteManyRequest FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<UserRoleDeleteManyRequest>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class DataDictionary : System.Collections.Generic.Dictionary<string, object>
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static DataDictionary FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<DataDictionary>(data);
         }
     
     }

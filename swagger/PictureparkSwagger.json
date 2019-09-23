@@ -37931,6 +37931,10 @@
             }
           }
         }
+      },
+      "DataDictionary": {
+        "type": "object",
+        "additionalProperties": {}
       }
     },
     "securitySchemes": {

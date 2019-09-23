@@ -16753,6 +16753,10 @@
             "type": "boolean"
           }
         }
+      },
+      "DataDictionary": {
+        "type": "object",
+        "additionalProperties": {}
       }
     },
     "securitySchemes": {
