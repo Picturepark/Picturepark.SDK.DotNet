@@ -28,7 +28,7 @@
         public System.Collections.Generic.ICollection<string> LayerSchemaIds { get; set; } = new System.Collections.Generic.List<string>();
 
         /// <summary>The metadata dictionary</summary>
-        public DataDictionary Metadata { get; set; }
+        public object Metadata { get; set; }
 
         /// <summary>A list of rendering outputs for underlying digital file.</summary>
         public System.Collections.Generic.ICollection<Output> Outputs { get; set; }

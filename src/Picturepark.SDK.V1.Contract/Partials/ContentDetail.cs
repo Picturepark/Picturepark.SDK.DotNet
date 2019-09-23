@@ -1,10 +1,16 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
+using Newtonsoft.Json.Linq;
 
 namespace Picturepark.SDK.V1.Contract
 {
     /// <summary>The content detail.</summary>
     public partial class ContentDetail
     {
+        public IReadOnlyList<string> Layers => JMetadata.Properties().Select(p => p.Name).ToList();
+
+        private JObject JMetadata => (JObject)Metadata;
+
         /// <summary>Gets the content detail's file metadata.</summary>
         /// <returns>The file metadata.</returns>
         public FileMetadata GetFileMetadata()
@@ -17,7 +23,6 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>The content item.</returns>
         public ContentItem<T> AsContentItem<T>()
         {
-            var item = Content is T content ? content : ((JObject)Content).ToObject<T>();
             return new ContentItem<T>
             {
                 Id = Id,
@@ -33,8 +38,32 @@ namespace Picturepark.SDK.V1.Contract
                 Owner = Owner,
                 OwnerTokenId = OwnerTokenId,
                 Audit = Audit,
-                Content = item
+                Content = ContentAs<T>()
             };
+        }
+
+        public T ContentAs<T>() => Content is T content ? content : ((JObject)Content).ToObject<T>();
+
+        public T Layer<T>(string name = null)
+        {
+            var layer = Layer(name ?? typeof(T).Name);
+            return layer.ToObject<T>();
+        }
+
+        public JObject Layer(string name)
+            => (JObject)JMetadata.GetValue(name.ToLowerCamelCase());
+
+        public bool HasLayer<T>() => HasLayer(typeof(T).Name);
+
+        public bool HasLayer(string name) => JMetadata.ContainsKey(name.ToLowerCamelCase());
+
+        public DisplayValueDictionary LayerDisplayValues<T>()
+            => LayerDisplayValues(typeof(T).Name);
+
+        public DisplayValueDictionary LayerDisplayValues(string name)
+        {
+            var layer = Layer(name);
+            return layer.GetValue("_displayValues").ToObject<DisplayValueDictionary>();
         }
     }
 }

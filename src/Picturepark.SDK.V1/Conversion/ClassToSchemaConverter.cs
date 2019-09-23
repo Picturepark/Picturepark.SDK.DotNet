@@ -32,7 +32,7 @@ namespace Picturepark.SDK.V1.Conversion
 
         public static string ResolveSchemaName(Type contract)
         {
-            return contract.GetTypeInfo().GetCustomAttribute<PictureparkSchemaAttribute>()?.Name ??
+            return contract.GetTypeInfo().GetCustomAttribute<PictureparkSchemaAttribute>()?.Id ??
                    contract.Name;
         }
 

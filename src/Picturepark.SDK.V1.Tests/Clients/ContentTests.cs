@@ -296,8 +296,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var request = new ContentCreateRequest
             {
                 Content = JsonConvert.DeserializeObject(@"{ ""name"": ""foo"" }"),
-                ContentSchemaId = "ContentItem",
-                Metadata = new object()
+                ContentSchemaId = "ContentItem"
             };
 
             // Act
@@ -318,15 +317,13 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var request1 = new ContentCreateRequest
             {
                 Content = JsonConvert.DeserializeObject(@"{ ""name"": ""foo"" }"),
-                ContentSchemaId = "ContentItem",
-                Metadata = new object()
+                ContentSchemaId = "ContentItem"
             };
 
             var request2 = new ContentCreateRequest
             {
                 Content = JsonConvert.DeserializeObject(@"{ ""name"": ""bar"" }"),
-                ContentSchemaId = "ContentItem",
-                Metadata = new object()
+                ContentSchemaId = "ContentItem"
             };
 
             // Act
@@ -649,8 +646,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             {
                 ContentSchemaId = contentSchema.Id,
                 Content = new object(),
-                LayerSchemaIds = new[] { layerSchema.Id },
-                Metadata = new object()
+                LayerSchemaIds = new[] { layerSchema.Id }
             };
 
             var contentDetail = await _client.Content.CreateAsync(contentCreateRequest).ConfigureAwait(false);
@@ -703,8 +699,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             {
                 ContentSchemaId = contentSchema.Id,
                 Content = new object(),
-                LayerSchemaIds = new[] { layerSchema.Id },
-                Metadata = new object()
+                LayerSchemaIds = new[] { layerSchema.Id }
             };
 
             var contentCreateResult = await _client.Content.CreateManyAsync(new ContentCreateManyRequest { Items = new[] { contentCreateRequest1, contentCreateRequest2 } }).ConfigureAwait(false);
