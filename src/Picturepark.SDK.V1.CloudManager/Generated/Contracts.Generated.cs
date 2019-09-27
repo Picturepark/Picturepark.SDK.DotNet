@@ -737,6 +737,10 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [Newtonsoft.Json.JsonProperty("lastReportedProgress", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.DateTime? LastReportedProgress { get; set; }
     
+        /// <summary>Id of the business process that will be automatically started after the completion of the current one, if any.</summary>
+        [Newtonsoft.Json.JsonProperty("continuationBusinessProcessId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ContinuationBusinessProcessId { get; set; }
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -1044,6 +1048,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [JsonInheritanceAttribute("BusinessProcessDefinitionCreateException", typeof(BusinessProcessDefinitionCreateException))]
     [JsonInheritanceAttribute("BusinessProcessNotExternalException", typeof(BusinessProcessNotExternalException))]
     [JsonInheritanceAttribute("BusinessProcessCancellationNotSupportedException", typeof(BusinessProcessCancellationNotSupportedException))]
+    [JsonInheritanceAttribute("BusinessProcessContinuationException", typeof(BusinessProcessContinuationException))]
     [JsonInheritanceAttribute("SchemaFieldImportMismatchException", typeof(SchemaFieldImportMismatchException))]
     [JsonInheritanceAttribute("SchemaFieldImportRelatedSchemaMismatchException", typeof(SchemaFieldImportRelatedSchemaMismatchException))]
     [JsonInheritanceAttribute("SchemaFieldImportTypeMismatchException", typeof(SchemaFieldImportTypeMismatchException))]
@@ -5501,6 +5506,31 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         public static BusinessProcessCancellationNotSupportedException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessProcessCancellationNotSupportedException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class BusinessProcessContinuationException : PictureparkBusinessException
+    {
+        [Newtonsoft.Json.JsonProperty("continuationBusinessProcessId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ContinuationBusinessProcessId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("precedingBusinessProcessId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string PrecedingBusinessProcessId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("precedingBusinessProcessException", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public PictureparkException PrecedingBusinessProcessException { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static BusinessProcessContinuationException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessProcessContinuationException>(data);
         }
     
     }

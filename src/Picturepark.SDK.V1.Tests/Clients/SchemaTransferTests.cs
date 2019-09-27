@@ -78,7 +78,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var transfer = await _client.SchemaTransfer.ImportAsync(request).ConfigureAwait(false);
 
             // wait for completion
-            await _client.BusinessProcess.WaitForCompletionAsync(transfer.BusinessProcessId).ConfigureAwait(false);
+            await _client.BusinessProcess.WaitForCompletionAsync(transfer.BusinessProcessId, new TimeSpan(0, 2, 0)).ConfigureAwait(false);
 
             var schema = await _client.Schema.GetAsync(schemaId).ConfigureAwait(false);
 

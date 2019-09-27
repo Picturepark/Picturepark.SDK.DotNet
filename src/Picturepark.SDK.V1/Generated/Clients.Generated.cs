@@ -449,13 +449,14 @@ namespace Picturepark.SDK.V1
         /// <summary>Wait for completion</summary>
         /// <param name="processId">The business process id.</param>
         /// <param name="timeout">The timeout to wait for completion.</param>
+        /// <param name="waitForContinuationCompletion">Waits for the completion of the continuation business process (if existing, recursively). Default to true.</param>
         /// <returns>BusinessProcessWaitResult</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
-        protected async System.Threading.Tasks.Task<BusinessProcessWaitForLifeCycleResult> WaitForCompletionCoreAsync(string processId, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        protected async System.Threading.Tasks.Task<BusinessProcessWaitForLifeCycleResult> WaitForCompletionCoreAsync(string processId, System.TimeSpan? timeout = null, bool? waitForContinuationCompletion = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (processId == null)
                 throw new System.ArgumentNullException("processId");
@@ -466,6 +467,10 @@ namespace Picturepark.SDK.V1
             if (timeout != null) 
             {
                 urlBuilder_.Append(System.Uri.EscapeDataString("timeout") + "=").Append(System.Uri.EscapeDataString(ConvertToString(timeout, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            if (waitForContinuationCompletion != null) 
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("waitForContinuationCompletion") + "=").Append(System.Uri.EscapeDataString(ConvertToString(waitForContinuationCompletion, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             }
             urlBuilder_.Length--;
     
@@ -2744,6 +2749,8 @@ namespace Picturepark.SDK.V1
         /// <param name="forceReferenceRemoval">A value indicating whether references to the content should be removed.</param>
         /// <param name="timeout">Maximum time to wait for the operation to complete. If timeout is exceeded, the operation is not aborted but continues anyhow.
         ///             Only the waiting is aborted, and the calls returned.</param>
+        /// <param name="waitSearchDocCreation">Wait for the creation of the search document and the rendered display values.
+        ///             By default the endpoint waits for the search document creation. Passing false, the endpoint will return when the main entity has been created and the creation of the search document has been enqueued but not yet performed.</param>
         /// <returns>Ok</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="BusinessProcessLifeCycleNotHitException">The specified wait timeout exceeded</exception>
@@ -2751,7 +2758,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
-        public async System.Threading.Tasks.Task DeleteAsync(string contentId, bool? forceReferenceRemoval = null, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task DeleteAsync(string contentId, bool? forceReferenceRemoval = null, System.TimeSpan? timeout = null, bool? waitSearchDocCreation = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (contentId == null)
                 throw new System.ArgumentNullException("contentId");
@@ -2766,6 +2773,10 @@ namespace Picturepark.SDK.V1
             if (timeout != null) 
             {
                 urlBuilder_.Append(System.Uri.EscapeDataString("timeout") + "=").Append(System.Uri.EscapeDataString(ConvertToString(timeout, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            if (waitSearchDocCreation != null) 
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("waitSearchDocCreation") + "=").Append(System.Uri.EscapeDataString(ConvertToString(waitSearchDocCreation, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             }
             urlBuilder_.Length--;
     
@@ -3014,6 +3025,8 @@ namespace Picturepark.SDK.V1
         /// <param name="allowMissingDependencies">Allows creating contents that refer to list items or contents that don't exist in the system.</param>
         /// <param name="timeout">Maximum time to wait for the operation to complete. If timeout is exceeded, the operation is not aborted but continues anyhow.
         ///             Only the waiting is aborted, and the calls returned.</param>
+        /// <param name="waitSearchDocCreation">Wait for the creation of the search document and the rendered display values.
+        ///             By default the endpoint waits for the search document creation. Passing false, the endpoint will return when the main entity has been created and the creation of the search document has been enqueued but not yet performed.</param>
         /// <returns>The content details</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="BusinessProcessLifeCycleNotHitException">The specified wait timeout exceeded</exception>
@@ -3021,7 +3034,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
-        public async System.Threading.Tasks.Task<ContentDetail> CreateAsync(ContentCreateRequest contentCreateRequest, System.Collections.Generic.IEnumerable<ContentResolveBehavior> resolveBehaviors = null, bool? allowMissingDependencies = null, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ContentDetail> CreateAsync(ContentCreateRequest contentCreateRequest, System.Collections.Generic.IEnumerable<ContentResolveBehavior> resolveBehaviors = null, bool? allowMissingDependencies = null, System.TimeSpan? timeout = null, bool? waitSearchDocCreation = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/contents?");
@@ -3036,6 +3049,10 @@ namespace Picturepark.SDK.V1
             if (timeout != null) 
             {
                 urlBuilder_.Append(System.Uri.EscapeDataString("timeout") + "=").Append(System.Uri.EscapeDataString(ConvertToString(timeout, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            if (waitSearchDocCreation != null) 
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("waitSearchDocCreation") + "=").Append(System.Uri.EscapeDataString(ConvertToString(waitSearchDocCreation, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             }
             urlBuilder_.Length--;
     
@@ -4621,6 +4638,8 @@ namespace Picturepark.SDK.V1
         /// <param name="allowMissingDependencies">Allows restoring contents that refer to list items or contents that don't exist in the system.</param>
         /// <param name="timeout">Maximum time to wait for the operation to complete. If timeout is exceeded, the operation is not aborted but continues anyhow.
         ///             Only the waiting is aborted, and the calls returned.</param>
+        /// <param name="waitSearchDocCreation">Wait for the creation of the search document and the rendered display values.
+        ///             By default the endpoint waits for the search document creation. Passing false, the endpoint will return when the main entity has been created and the creation of the search document has been enqueued but not yet performed.</param>
         /// <returns>Ok</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="BusinessProcessLifeCycleNotHitException">The specified wait timeout exceeded</exception>
@@ -4628,7 +4647,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
-        public async System.Threading.Tasks.Task RestoreAsync(string contentId, bool? allowMissingDependencies = null, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task RestoreAsync(string contentId, bool? allowMissingDependencies = null, System.TimeSpan? timeout = null, bool? waitSearchDocCreation = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (contentId == null)
                 throw new System.ArgumentNullException("contentId");
@@ -4643,6 +4662,10 @@ namespace Picturepark.SDK.V1
             if (timeout != null) 
             {
                 urlBuilder_.Append(System.Uri.EscapeDataString("timeout") + "=").Append(System.Uri.EscapeDataString(ConvertToString(timeout, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            if (waitSearchDocCreation != null) 
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("waitSearchDocCreation") + "=").Append(System.Uri.EscapeDataString(ConvertToString(waitSearchDocCreation, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             }
             urlBuilder_.Length--;
     
@@ -5020,6 +5043,8 @@ namespace Picturepark.SDK.V1
         /// <param name="allowMissingDependencies">Allows storing references to list items or contents that don't exist in the system.</param>
         /// <param name="timeout">Maximum time to wait for the operation to complete. If timeout is exceeded, the operation is not aborted but continues anyhow.
         ///             Only the waiting is aborted, and the calls returned.</param>
+        /// <param name="waitSearchDocCreation">Wait for the creation of the search document and the rendered display values.
+        ///             By default the endpoint waits for the search document creation. Passing false, the endpoint will return when the main entity has been created and the creation of the search document has been enqueued but not yet performed.</param>
         /// <returns>Content detail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="BusinessProcessLifeCycleNotHitException">The specified wait timeout exceeded</exception>
@@ -5027,7 +5052,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
-        public async System.Threading.Tasks.Task<ContentDetail> UpdateMetadataAsync(string contentId, ContentMetadataUpdateRequest updateRequest, System.Collections.Generic.IEnumerable<ContentResolveBehavior> resolveBehaviors = null, bool? allowMissingDependencies = null, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ContentDetail> UpdateMetadataAsync(string contentId, ContentMetadataUpdateRequest updateRequest, System.Collections.Generic.IEnumerable<ContentResolveBehavior> resolveBehaviors = null, bool? allowMissingDependencies = null, System.TimeSpan? timeout = null, bool? waitSearchDocCreation = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (contentId == null)
                 throw new System.ArgumentNullException("contentId");
@@ -5046,6 +5071,10 @@ namespace Picturepark.SDK.V1
             if (timeout != null) 
             {
                 urlBuilder_.Append(System.Uri.EscapeDataString("timeout") + "=").Append(System.Uri.EscapeDataString(ConvertToString(timeout, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            if (waitSearchDocCreation != null) 
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("waitSearchDocCreation") + "=").Append(System.Uri.EscapeDataString(ConvertToString(waitSearchDocCreation, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             }
             urlBuilder_.Length--;
     
@@ -5169,6 +5198,8 @@ namespace Picturepark.SDK.V1
         /// <param name="resolveBehaviors">List of enums that control which parts of the content are resolved and returned.</param>
         /// <param name="timeout">Maximum time to wait for the operation to complete. If timeout is exceeded, the operation is not aborted but continues anyhow.
         ///             Only the waiting is aborted, and the calls returned.</param>
+        /// <param name="waitSearchDocCreation">Wait for the creation of the search document and the rendered display values.
+        ///             By default the endpoint waits for the search document creation. Passing false, the endpoint will return when the main entity has been created and the creation of the search document has been enqueued but not yet performed.</param>
         /// <returns>Content detail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="BusinessProcessLifeCycleNotHitException">The specified wait timeout exceeded</exception>
@@ -5176,7 +5207,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
-        public async System.Threading.Tasks.Task<ContentDetail> UpdatePermissionsAsync(string contentId, ContentPermissionsUpdateRequest updateRequest, System.Collections.Generic.IEnumerable<ContentResolveBehavior> resolveBehaviors = null, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ContentDetail> UpdatePermissionsAsync(string contentId, ContentPermissionsUpdateRequest updateRequest, System.Collections.Generic.IEnumerable<ContentResolveBehavior> resolveBehaviors = null, System.TimeSpan? timeout = null, bool? waitSearchDocCreation = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (contentId == null)
                 throw new System.ArgumentNullException("contentId");
@@ -5191,6 +5222,10 @@ namespace Picturepark.SDK.V1
             if (timeout != null) 
             {
                 urlBuilder_.Append(System.Uri.EscapeDataString("timeout") + "=").Append(System.Uri.EscapeDataString(ConvertToString(timeout, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            if (waitSearchDocCreation != null) 
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("waitSearchDocCreation") + "=").Append(System.Uri.EscapeDataString(ConvertToString(waitSearchDocCreation, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             }
             urlBuilder_.Length--;
     
@@ -5568,6 +5603,8 @@ namespace Picturepark.SDK.V1
         /// <param name="updateRequest">Content ownership transfer request.</param>
         /// <param name="timeout">Maximum time to wait for the operation to complete. If timeout is exceeded, the operation is not aborted but continues anyhow.
         ///             Only the waiting is aborted, and the calls returned.</param>
+        /// <param name="waitSearchDocCreation">Wait for the creation of the search document and the rendered display values.
+        ///             By default the endpoint waits for the search document creation. Passing false, the endpoint will return when the main entity has been created and the creation of the search document has been enqueued but not yet performed.</param>
         /// <returns>Ok</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="BusinessProcessLifeCycleNotHitException">The specified wait timeout exceeded</exception>
@@ -5575,7 +5612,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
-        public async System.Threading.Tasks.Task TransferOwnershipAsync(string contentId, ContentOwnershipTransferRequest updateRequest, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task TransferOwnershipAsync(string contentId, ContentOwnershipTransferRequest updateRequest, System.TimeSpan? timeout = null, bool? waitSearchDocCreation = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (contentId == null)
                 throw new System.ArgumentNullException("contentId");
@@ -5586,6 +5623,10 @@ namespace Picturepark.SDK.V1
             if (timeout != null) 
             {
                 urlBuilder_.Append(System.Uri.EscapeDataString("timeout") + "=").Append(System.Uri.EscapeDataString(ConvertToString(timeout, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            if (waitSearchDocCreation != null) 
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("waitSearchDocCreation") + "=").Append(System.Uri.EscapeDataString(ConvertToString(waitSearchDocCreation, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             }
             urlBuilder_.Length--;
     
@@ -9518,13 +9559,15 @@ namespace Picturepark.SDK.V1
         /// <param name="allowMissingDependencies">Allows creating list items that refer to list items or contents that don't exist in the system.</param>
         /// <param name="timeout">Maximum time to wait for the operation to complete. If timeout is exceeded, the operation is not aborted but continues anyhow.
         ///             Only the waiting is aborted, and the calls returned.</param>
+        /// <param name="waitSearchDocCreation">Wait for the creation of the search document and the rendered display values.
+        ///             By default the endpoint waits for the search document creation. Passing false, the endpoint will return when the main entity has been created and the creation of the search document has been enqueued but not yet performed.</param>
         /// <returns>List item detail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
-        protected async System.Threading.Tasks.Task<ListItemDetail> UpdateCoreAsync(string listItemId, ListItemUpdateRequest updateRequest, System.Collections.Generic.IEnumerable<ListItemResolveBehavior> resolveBehaviors = null, bool? allowMissingDependencies = null, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        protected async System.Threading.Tasks.Task<ListItemDetail> UpdateCoreAsync(string listItemId, ListItemUpdateRequest updateRequest, System.Collections.Generic.IEnumerable<ListItemResolveBehavior> resolveBehaviors = null, bool? allowMissingDependencies = null, System.TimeSpan? timeout = null, bool? waitSearchDocCreation = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (listItemId == null)
                 throw new System.ArgumentNullException("listItemId");
@@ -9543,6 +9586,10 @@ namespace Picturepark.SDK.V1
             if (timeout != null) 
             {
                 urlBuilder_.Append(System.Uri.EscapeDataString("timeout") + "=").Append(System.Uri.EscapeDataString(ConvertToString(timeout, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            if (waitSearchDocCreation != null) 
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("waitSearchDocCreation") + "=").Append(System.Uri.EscapeDataString(ConvertToString(waitSearchDocCreation, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             }
             urlBuilder_.Length--;
     
@@ -9665,6 +9712,8 @@ namespace Picturepark.SDK.V1
         /// <param name="forceReferenceRemoval">A value indicating whether references to the list item should be removed.</param>
         /// <param name="timeout">Maximum time to wait for the operation to complete. If timeout is exceeded, the operation is not aborted but continues anyhow.
         ///             Only the waiting is aborted, and the calls returned.</param>
+        /// <param name="waitSearchDocCreation">Wait for the creation of the search document and the rendered display values.
+        ///             By default the endpoint waits for the search document creation. Passing false, the endpoint will return when the main entity has been created and the creation of the search document has been enqueued but not yet performed.</param>
         /// <returns>Ok</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="BusinessProcessLifeCycleNotHitException">The specified wait timeout exceeded</exception>
@@ -9672,7 +9721,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
-        public async System.Threading.Tasks.Task DeleteAsync(string listItemId, bool? forceReferenceRemoval = null, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task DeleteAsync(string listItemId, bool? forceReferenceRemoval = null, System.TimeSpan? timeout = null, bool? waitSearchDocCreation = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (listItemId == null)
                 throw new System.ArgumentNullException("listItemId");
@@ -9687,6 +9736,10 @@ namespace Picturepark.SDK.V1
             if (timeout != null) 
             {
                 urlBuilder_.Append(System.Uri.EscapeDataString("timeout") + "=").Append(System.Uri.EscapeDataString(ConvertToString(timeout, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            if (waitSearchDocCreation != null) 
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("waitSearchDocCreation") + "=").Append(System.Uri.EscapeDataString(ConvertToString(waitSearchDocCreation, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             }
             urlBuilder_.Length--;
     
@@ -9935,6 +9988,8 @@ namespace Picturepark.SDK.V1
         /// <param name="allowMissingDependencies">Allows creating list items that refer to list items or contents that don't exist in the system.</param>
         /// <param name="timeout">Maximum time to wait for the operation to complete. If timeout is exceeded, the operation is not aborted but continues anyhow.
         ///             Only the waiting is aborted, and the calls returned.</param>
+        /// <param name="waitSearchDocCreation">Wait for the creation of the search document and the rendered display values.
+        ///             By default the endpoint waits for the search document creation. Passing false, the endpoint will return when the main entity has been created and the creation of the search document has been enqueued but not yet performed.</param>
         /// <returns>List item detail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="BusinessProcessLifeCycleNotHitException">A server side error occurred.</exception>
@@ -9942,7 +9997,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
-        public async System.Threading.Tasks.Task<ListItemDetail> CreateAsync(ListItemCreateRequest listItemCreateRequest, System.Collections.Generic.IEnumerable<ListItemResolveBehavior> resolveBehaviors = null, bool? allowMissingDependencies = null, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ListItemDetail> CreateAsync(ListItemCreateRequest listItemCreateRequest, System.Collections.Generic.IEnumerable<ListItemResolveBehavior> resolveBehaviors = null, bool? allowMissingDependencies = null, System.TimeSpan? timeout = null, bool? waitSearchDocCreation = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/listItems?");
@@ -9957,6 +10012,10 @@ namespace Picturepark.SDK.V1
             if (timeout != null) 
             {
                 urlBuilder_.Append(System.Uri.EscapeDataString("timeout") + "=").Append(System.Uri.EscapeDataString(ConvertToString(timeout, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            if (waitSearchDocCreation != null) 
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("waitSearchDocCreation") + "=").Append(System.Uri.EscapeDataString(ConvertToString(waitSearchDocCreation, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             }
             urlBuilder_.Length--;
     
@@ -10841,6 +10900,8 @@ namespace Picturepark.SDK.V1
         /// <param name="allowMissingDependencies">Allows restoring list items that refer to list items or contents that don't exist in the system.</param>
         /// <param name="timeout">Maximum time to wait for the operation to complete. If timeout is exceeded, the operation is not aborted but continues anyhow.
         ///             Only the waiting is aborted, and the calls returned.</param>
+        /// <param name="waitSearchDocCreation">Wait for the creation of the search document and the rendered display values.
+        ///             By default the endpoint waits for the search document creation. Passing false, the endpoint will return when the main entity has been created and the creation of the search document has been enqueued but not yet performed.</param>
         /// <returns>Ok</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="BusinessProcessLifeCycleNotHitException">The specified wait timeout exceeded</exception>
@@ -10848,7 +10909,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
-        public async System.Threading.Tasks.Task RestoreAsync(string listItemId, bool? allowMissingDependencies = null, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task RestoreAsync(string listItemId, bool? allowMissingDependencies = null, System.TimeSpan? timeout = null, bool? waitSearchDocCreation = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (listItemId == null)
                 throw new System.ArgumentNullException("listItemId");
@@ -10863,6 +10924,10 @@ namespace Picturepark.SDK.V1
             if (timeout != null) 
             {
                 urlBuilder_.Append(System.Uri.EscapeDataString("timeout") + "=").Append(System.Uri.EscapeDataString(ConvertToString(timeout, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            if (waitSearchDocCreation != null) 
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("waitSearchDocCreation") + "=").Append(System.Uri.EscapeDataString(ConvertToString(waitSearchDocCreation, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             }
             urlBuilder_.Length--;
     

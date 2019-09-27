@@ -7,7 +7,7 @@ namespace Picturepark.SDK.V1.Contract
 {
     public partial interface IContentClient
     {
-        /// <summary>Downloads multiple files.</summary>
+        /// <summary>Downloads multiple files</summary>
         /// <param name="contents">The files to download.</param>
         /// <param name="exportDirectory">The directory to store the downloaded files.</param>
         /// <param name="overwriteIfExists">Specifies whether to overwrite files.</param>
@@ -34,6 +34,8 @@ namespace Picturepark.SDK.V1.Contract
         /// <summary>Create - many</summary>
         /// <param name="contentCreateManyRequest">The content create many request.</param>
         /// <param name="timeout">Timeout for waiting on the business process.</param>
+        /// <param name="waitSearchDocCreation">Wait for the creation of the search document and the rendered display values.
+        /// By default the method waits for the search documents creation. Passing false, the method will return when the main entities have been created and the creation of the search documents has been enqueued but not yet performed.</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -41,11 +43,13 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <returns>The <see cref="ContentBatchOperationResult"/>.</returns>
-        Task<ContentBatchOperationWithRequestIdResult> CreateManyAsync(ContentCreateManyRequest contentCreateManyRequest, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<ContentBatchOperationWithRequestIdResult> CreateManyAsync(ContentCreateManyRequest contentCreateManyRequest, TimeSpan? timeout = null, bool waitSearchDocCreation = true, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>Update metadata - many</summary>
         /// <param name="updateRequest">The metadata update requests.</param>
         /// <param name="timeout">Timeout for waiting on the business process.</param>
+        /// <param name="waitSearchDocCreation">Wait for the creation of the search document and the rendered display values.
+        /// By default the method waits for the search documents creation. Passing false, the method will return when the main entities have been updated and the creation of the search documents has been enqueued but not yet performed.</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>The <see cref="ContentBatchOperationResult"/>.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
@@ -54,11 +58,13 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
-        Task<ContentBatchOperationResult> UpdateMetadataManyAsync(ContentMetadataUpdateManyRequest updateRequest, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<ContentBatchOperationResult> UpdateMetadataManyAsync(ContentMetadataUpdateManyRequest updateRequest, TimeSpan? timeout = null, bool waitSearchDocCreation = true, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>Update permissions - many</summary>
         /// <param name="updateManyRequest">The permissions update many request.</param>
         /// <param name="timeout">Timeout for waiting on the business process.</param>
+        /// <param name="waitSearchDocCreation">Wait for the creation of the search document and the rendered display values.
+        /// By default the method waits for the search documents creation. Passing false, the method will return when the main entities have been created and the creation of the search documents has been enqueued but not yet performed.</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>The <see cref="ContentBatchOperationResult"/>.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
@@ -66,11 +72,13 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
-        Task<ContentBatchOperationResult> UpdatePermissionsManyAsync(ContentPermissionsUpdateManyRequest updateManyRequest, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<ContentBatchOperationResult> UpdatePermissionsManyAsync(ContentPermissionsUpdateManyRequest updateManyRequest, TimeSpan? timeout = null, bool waitSearchDocCreation = true, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>Transfer ownership - many</summary>
         /// <param name="contentOwnershipTransferManyRequest">The content ownership transfer many request.</param>
         /// <param name="timeout">Timeout for waiting on the business process.</param>
+        /// <param name="waitSearchDocCreation">Wait for the creation of the search document and the rendered display values.
+        /// By default the method waits for the search documents creation. Passing false, the method will return when the main entities have been updated and the creation of the search documents has been enqueued but not yet performed.</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>The <see cref="ContentBatchOperationResult"/>.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
@@ -78,11 +86,13 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
-        Task<ContentBatchOperationResult> TransferOwnershipManyAsync(ContentOwnershipTransferManyRequest contentOwnershipTransferManyRequest, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<ContentBatchOperationResult> TransferOwnershipManyAsync(ContentOwnershipTransferManyRequest contentOwnershipTransferManyRequest, TimeSpan? timeout = null, bool waitSearchDocCreation = true, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>Batch update fields - by ids</summary>
         /// <param name="updateRequest">The metadata update request.</param>
         /// <param name="timeout">Timeout for waiting on the business process.</param>
+        /// <param name="waitSearchDocCreation">Wait for the creation of the search document and the rendered display values.
+        /// By default the method waits for the search documents creation. Passing false, the method will return when the main entities have been updated and the creation of the search documents has been enqueued but not yet performed.</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>The <see cref="ContentBatchOperationResult"/>.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
@@ -90,11 +100,13 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
-        Task<ContentBatchOperationResult> BatchUpdateFieldsByIdsAsync(ContentFieldsBatchUpdateRequest updateRequest, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<ContentBatchOperationResult> BatchUpdateFieldsByIdsAsync(ContentFieldsBatchUpdateRequest updateRequest, TimeSpan? timeout = null, bool waitSearchDocCreation = true, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>Batch update fields - by filter</summary>
         /// <param name="updateRequest">The metadata update request.</param>
         /// <param name="timeout">Timeout for waiting on the business process.</param>
+        /// <param name="waitSearchDocCreation">Wait for the creation of the search document and the rendered display values.
+        /// By default the method waits for the search documents creation. Passing false, the method will return when the main entities have been updated and the creation of the search documents has been enqueued but not yet performed.</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <returns>The <see cref="ContentBatchOperationResult"/>.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
@@ -102,24 +114,26 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
-        Task<ContentBatchOperationResult> BatchUpdateFieldsByFilterAsync(ContentFieldsBatchUpdateFilterRequest updateRequest, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<ContentBatchOperationResult> BatchUpdateFieldsByFilterAsync(ContentFieldsBatchUpdateFilterRequest updateRequest, TimeSpan? timeout = null, bool waitSearchDocCreation = true, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Waits for a business process and returns a <see cref="ContentBatchOperationResult"/>.
         /// </summary>
         /// <param name="businessProcessId">The business process id.</param>
         /// <param name="timeout">The timeout to wait on the business process.</param>
+        /// <param name="waitSearchDocCreation">Wait for the creation of the search documents and the rendered display values</param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The <see cref="ContentBatchOperationResult"/>.</returns>
-        Task<ContentBatchOperationResult> WaitForBusinessProcessAndReturnResult(string businessProcessId, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<ContentBatchOperationResult> WaitForBusinessProcessAndReturnResult(string businessProcessId, TimeSpan? timeout = null, bool waitSearchDocCreation = true, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Waits for a business process and returns a <see cref="ContentBatchOperationWithRequestIdResult"/>.
         /// </summary>
         /// <param name="businessProcessId">The business process id.</param>
         /// <param name="timeout">The timeout to wait on the business process.</param>
+        /// <param name="waitSearchDocCreation">Wait for the creation of the search documents and the rendered display values</param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The <see cref="ContentBatchOperationWithRequestIdResult"/>.</returns>
-        Task<ContentBatchOperationWithRequestIdResult> WaitForBusinessProcessAndReturnResultWithRequestId(string businessProcessId, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<ContentBatchOperationWithRequestIdResult> WaitForBusinessProcessAndReturnResultWithRequestId(string businessProcessId, TimeSpan? timeout = null, bool waitSearchDocCreation = true, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

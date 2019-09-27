@@ -475,18 +475,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 ContentSchemaId = nameof(SoccerPlayer),
                 Content = new SoccerPlayer { Firstname = objectName, LastName = "Foo", EmailAddress = "abc@def.ch" }
             };
-            await _client.ListItem.CreateAsync(listItem).ConfigureAwait(false);
-
-            // Search object
-            var players = await _client.ListItem.SearchAsync(new ListItemSearchRequest
-            {
-                Limit = 20,
-                SearchString = objectName,
-                SchemaIds = new List<string> { "SoccerPlayer" }
-            }).ConfigureAwait(false);
-
-            var playerObjectId = players.Results.First().Id;
-            var playerItem = await _client.ListItem.GetAsync(playerObjectId, new[] { ListItemResolveBehavior.Content }).ConfigureAwait(false);
+            var playerItem = await _client.ListItem.CreateAsync(listItem, new[] { ListItemResolveBehavior.Content }).ConfigureAwait(false);
 
             // Act
             var player = playerItem.ConvertTo<SoccerPlayer>();
@@ -508,22 +497,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         {
             // Arrange
             await SchemaHelper.CreateSchemasIfNotExistentAsync<SoccerPlayer>(_client).ConfigureAwait(false);
-
-            var originalPlayer = new SoccerPlayer
-            {
-                BirthDate = DateTime.Now,
-                EmailAddress = "test@test.com",
-                Firstname = "Test",
-                LastName = "Soccerplayer"
-            };
-
-            var createRequest = new ListItemCreateRequest
-            {
-                ContentSchemaId = nameof(SoccerPlayer),
-                Content = originalPlayer
-            };
-
-            var playerItem = await _client.ListItem.CreateAsync(createRequest, new[] { ListItemResolveBehavior.Content }).ConfigureAwait(false);
+            var playerItem = await CreateSoccerPlayer();
 
             // Act
             var player = playerItem.ConvertTo<SoccerPlayer>();
@@ -888,6 +862,129 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             var enumeratedRows = detail.SucceededItems.ToArray();
             enumeratedRows.Should().OnlyContain(r => r.RequestId == null).And.HaveCount(requests.Length);
+        }
+
+        [Fact]
+        [Trait("Stack", "ListItem")]
+        public async Task ShouldCreateUpdatedDeleteAndRestoreListItemWithoutWaitingSearchDocs()
+        {
+            // Act
+            // Create
+            var listItem = await _client.ListItem.CreateAsync(
+                    new ListItemCreateRequest { ContentSchemaId = nameof(Tag), Content = new Tag { Name = $"{Guid.NewGuid():N}" } },
+                    waitSearchDocCreation: false)
+                .ConfigureAwait(false);
+
+            // Update
+            var expectedName = $"{Guid.NewGuid():N}";
+            listItem = await _client.ListItem.UpdateAsync(listItem.Id, new ListItemUpdateRequest { Content = new Tag { Name = expectedName } }, waitSearchDocCreation: false)
+                .ConfigureAwait(false);
+
+            // Delete
+            await _client.ListItem.DeleteAsync(listItem.Id, waitSearchDocCreation: false).ConfigureAwait(false);
+
+            // Assert
+            await Assert.ThrowsAsync<ListItemNotFoundException>(async () => await _client.ListItem.GetAsync(listItem.Id).ConfigureAwait(false)).ConfigureAwait(false);
+
+            // Restore
+            await _client.ListItem.RestoreAsync(listItem.Id, waitSearchDocCreation: false).ConfigureAwait(false);
+
+            listItem = await _client.ListItem.GetAsync(listItem.Id, new[] { ListItemResolveBehavior.Content }).ConfigureAwait(false);
+
+            // Assert
+            listItem.Should().NotBeNull();
+            listItem.ConvertTo<Tag>().Name.Should().Be(expectedName);
+        }
+
+        [Fact]
+        [Trait("Stack", "ListItem")]
+        public async Task ShouldCreateUpdatedDeleteAndRestoreManyListItemsWithoutWaitingSearchDocs()
+        {
+            // Act
+            // Create
+            var listItem1CreateRequest = new ListItemCreateRequest { RequestId = $"{Guid.NewGuid():N}", ContentSchemaId = nameof(Tag), Content = new Tag { Name = $"{Guid.NewGuid():N}" } };
+            var listItem2CreateRequest = new ListItemCreateRequest { RequestId = $"{Guid.NewGuid():N}", ContentSchemaId = nameof(Tag), Content = new Tag { Name = $"{Guid.NewGuid():N}" } };
+
+            var result = await _client.ListItem.CreateManyAsync(new ListItemCreateManyRequest { Items = new[] { listItem1CreateRequest, listItem2CreateRequest } }, waitSearchDocCreation: false)
+                .ConfigureAwait(false);
+
+            var createdItems = (await result.FetchDetail().ConfigureAwait(false)).SucceededItems.ToArray();
+            var listItem1Id = createdItems.Single(i => i.RequestId == listItem1CreateRequest.RequestId).Item.Id;
+            var listItem2Id = createdItems.Single(i => i.RequestId == listItem2CreateRequest.RequestId).Item.Id;
+            var listItemIds = new[] { listItem1Id, listItem2Id };
+
+            // Update
+            var expectedName1 = $"{Guid.NewGuid():N}";
+            var expectedName2 = $"{Guid.NewGuid():N}";
+            var listItem1UpdateItem = new ListItemUpdateItem { Id = listItem1Id, Content = new Tag { Name = expectedName1 } };
+            var listItem2UpdateItem = new ListItemUpdateItem { Id = listItem2Id, Content = new Tag { Name = expectedName2 } };
+
+            await _client.ListItem.UpdateManyAsync(new ListItemUpdateManyRequest { Items = new[] { listItem1UpdateItem, listItem2UpdateItem } }, waitSearchDocCreation: false)
+                .ConfigureAwait(false);
+
+            // Delete
+            var businessProcess = await _client.ListItem.DeleteManyAsync(new ListItemDeleteManyRequest { ListItemIds = listItemIds }).ConfigureAwait(false);
+            await _client.BusinessProcess.WaitForCompletionAsync(businessProcess.Id, waitForContinuationCompletion: false).ConfigureAwait(false);
+
+            // Assert
+            await Assert.ThrowsAsync<ListItemNotFoundException>(async () => await _client.ListItem.GetAsync(listItem1Id).ConfigureAwait(false)).ConfigureAwait(false);
+            await Assert.ThrowsAsync<ListItemNotFoundException>(async () => await _client.ListItem.GetAsync(listItem2Id).ConfigureAwait(false)).ConfigureAwait(false);
+
+            // Restore
+            businessProcess = await _client.ListItem.RestoreManyAsync(new ListItemRestoreManyRequest { ListItemIds = listItemIds }).ConfigureAwait(false);
+            await _client.BusinessProcess.WaitForCompletionAsync(businessProcess.Id, waitForContinuationCompletion: false).ConfigureAwait(false);
+
+            var listItems = await _client.ListItem.GetManyAsync(listItemIds, new[] { ListItemResolveBehavior.Content }).ConfigureAwait(false);
+
+            // Assert
+            listItems.Should().HaveCount(2).And.Subject.Select(c => c.ConvertTo<Tag>().Name).Should().BeEquivalentTo(expectedName1, expectedName2);
+        }
+
+        [Fact]
+        [Trait("Stack", "Contents")]
+        public async Task ShouldBatchUpdateWithoutWithoutWaitingSearchDocs()
+        {
+            // Arrange
+            var listItem1CreateRequest = new ListItemCreateRequest { RequestId = $"{Guid.NewGuid():N}", ContentSchemaId = nameof(Tag), Content = new Tag { Name = $"{Guid.NewGuid():N}" } };
+            var listItem2CreateRequest = new ListItemCreateRequest { RequestId = $"{Guid.NewGuid():N}", ContentSchemaId = nameof(Tag), Content = new Tag { Name = $"{Guid.NewGuid():N}" } };
+
+            var result = await _client.ListItem.CreateManyAsync(new ListItemCreateManyRequest { Items = new[] { listItem1CreateRequest, listItem2CreateRequest } }, waitSearchDocCreation: false)
+                .ConfigureAwait(false);
+
+            var listItemIds = (await result.FetchDetail().ConfigureAwait(false)).SucceededIds;
+
+            // Act
+            var temporaryName = $"{Guid.NewGuid():N}";
+            var expectedName = $"{Guid.NewGuid():N}";
+
+            var updateRequest = new ListItemFieldsBatchUpdateRequest
+            {
+                ListItemIds = listItemIds.ToArray(),
+                ChangeCommands = new List<MetadataValuesChangeCommandBase>
+                {
+                    new MetadataValuesSchemaUpdateCommand { SchemaId = nameof(Tag), Value = new DataDictionary { { "name", temporaryName } } }
+                }
+            };
+
+            await _client.ListItem.BatchUpdateFieldsByIdsAsync(updateRequest, waitSearchDocCreation: false).ConfigureAwait(false);
+
+            updateRequest.ChangeCommands.First().As<MetadataValuesSchemaUpdateCommand>().Value = new DataDictionary { { "name", expectedName } };
+            await _client.ListItem.BatchUpdateFieldsByIdsAsync(updateRequest, waitSearchDocCreation: false).ConfigureAwait(false);
+
+            var listItems = await _client.ListItem.GetManyAsync(listItemIds, new[] { ListItemResolveBehavior.Content }).ConfigureAwait(false);
+
+            // Assert
+            listItems.Should().HaveCount(2).And.Subject.Select(c => c.ConvertTo<Tag>().Name).Should().OnlyContain(s => s == expectedName);
+        }
+
+        private async Task<ListItemDetail> CreateSoccerPlayer()
+        {
+            var originalPlayer = new SoccerPlayer { BirthDate = DateTime.Now, EmailAddress = "test@test.com", Firstname = "Test", LastName = "Soccerplayer" };
+
+            var createRequest = new ListItemCreateRequest { ContentSchemaId = nameof(SoccerPlayer), Content = originalPlayer };
+
+            var playerItem = await _client.ListItem.CreateAsync(createRequest, new[] { ListItemResolveBehavior.Content }).ConfigureAwait(false);
+            return playerItem;
         }
     }
 }

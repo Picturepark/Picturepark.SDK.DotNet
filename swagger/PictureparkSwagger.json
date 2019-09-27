@@ -372,6 +372,16 @@
               "nullable": true
             },
             "x-position": 2
+          },
+          {
+            "name": "waitForContinuationCompletion",
+            "in": "query",
+            "description": "Waits for the completion of the continuation business process (if existing, recursively). Default to true.",
+            "schema": {
+              "type": "boolean",
+              "default": true
+            },
+            "x-position": 3
           }
         ],
         "responses": {
@@ -1812,6 +1822,16 @@
               "nullable": true
             },
             "x-position": 3
+          },
+          {
+            "name": "waitSearchDocCreation",
+            "in": "query",
+            "description": "Wait for the creation of the search document and the rendered display values.\n            By default the endpoint waits for the search document creation. Passing false, the endpoint will return when the main entity has been created and the creation of the search document has been enqueued but not yet performed.",
+            "schema": {
+              "type": "boolean",
+              "default": true
+            },
+            "x-position": 4
           }
         ],
         "responses": {
@@ -2078,6 +2098,16 @@
               "nullable": true
             },
             "x-position": 4
+          },
+          {
+            "name": "waitSearchDocCreation",
+            "in": "query",
+            "description": "Wait for the creation of the search document and the rendered display values.\n            By default the endpoint waits for the search document creation. Passing false, the endpoint will return when the main entity has been created and the creation of the search document has been enqueued but not yet performed.",
+            "schema": {
+              "type": "boolean",
+              "default": true
+            },
+            "x-position": 5
           }
         ],
         "requestBody": {
@@ -3330,6 +3360,16 @@
               "nullable": true
             },
             "x-position": 3
+          },
+          {
+            "name": "waitSearchDocCreation",
+            "in": "query",
+            "description": "Wait for the creation of the search document and the rendered display values.\n            By default the endpoint waits for the search document creation. Passing false, the endpoint will return when the main entity has been created and the creation of the search document has been enqueued but not yet performed.",
+            "schema": {
+              "type": "boolean",
+              "default": true
+            },
+            "x-position": 4
           }
         ],
         "responses": {
@@ -3666,6 +3706,16 @@
               "nullable": true
             },
             "x-position": 5
+          },
+          {
+            "name": "waitSearchDocCreation",
+            "in": "query",
+            "description": "Wait for the creation of the search document and the rendered display values.\n            By default the endpoint waits for the search document creation. Passing false, the endpoint will return when the main entity has been created and the creation of the search document has been enqueued but not yet performed.",
+            "schema": {
+              "type": "boolean",
+              "default": true
+            },
+            "x-position": 6
           }
         ],
         "requestBody": {
@@ -3818,6 +3868,16 @@
               "nullable": true
             },
             "x-position": 4
+          },
+          {
+            "name": "waitSearchDocCreation",
+            "in": "query",
+            "description": "Wait for the creation of the search document and the rendered display values.\n            By default the endpoint waits for the search document creation. Passing false, the endpoint will return when the main entity has been created and the creation of the search document has been enqueued but not yet performed.",
+            "schema": {
+              "type": "boolean",
+              "default": true
+            },
+            "x-position": 5
           }
         ],
         "requestBody": {
@@ -4162,6 +4222,16 @@
               "nullable": true
             },
             "x-position": 3
+          },
+          {
+            "name": "waitSearchDocCreation",
+            "in": "query",
+            "description": "Wait for the creation of the search document and the rendered display values.\n            By default the endpoint waits for the search document creation. Passing false, the endpoint will return when the main entity has been created and the creation of the search document has been enqueued but not yet performed.",
+            "schema": {
+              "type": "boolean",
+              "default": true
+            },
+            "x-position": 4
           }
         ],
         "requestBody": {
@@ -6679,6 +6749,16 @@
               "nullable": true
             },
             "x-position": 5
+          },
+          {
+            "name": "waitSearchDocCreation",
+            "in": "query",
+            "description": "Wait for the creation of the search document and the rendered display values.\n            By default the endpoint waits for the search document creation. Passing false, the endpoint will return when the main entity has been created and the creation of the search document has been enqueued but not yet performed.",
+            "schema": {
+              "type": "boolean",
+              "default": true
+            },
+            "x-position": 6
           }
         ],
         "requestBody": {
@@ -6802,6 +6882,16 @@
               "nullable": true
             },
             "x-position": 3
+          },
+          {
+            "name": "waitSearchDocCreation",
+            "in": "query",
+            "description": "Wait for the creation of the search document and the rendered display values.\n            By default the endpoint waits for the search document creation. Passing false, the endpoint will return when the main entity has been created and the creation of the search document has been enqueued but not yet performed.",
+            "schema": {
+              "type": "boolean",
+              "default": true
+            },
+            "x-position": 4
           }
         ],
         "responses": {
@@ -7068,6 +7158,16 @@
               "nullable": true
             },
             "x-position": 4
+          },
+          {
+            "name": "waitSearchDocCreation",
+            "in": "query",
+            "description": "Wait for the creation of the search document and the rendered display values.\n            By default the endpoint waits for the search document creation. Passing false, the endpoint will return when the main entity has been created and the creation of the search document has been enqueued but not yet performed.",
+            "schema": {
+              "type": "boolean",
+              "default": true
+            },
+            "x-position": 5
           }
         ],
         "requestBody": {
@@ -7760,6 +7860,16 @@
               "nullable": true
             },
             "x-position": 3
+          },
+          {
+            "name": "waitSearchDocCreation",
+            "in": "query",
+            "description": "Wait for the creation of the search document and the rendered display values.\n            By default the endpoint waits for the search document creation. Passing false, the endpoint will return when the main entity has been created and the creation of the search document has been enqueued but not yet performed.",
+            "schema": {
+              "type": "boolean",
+              "default": true
+            },
+            "x-position": 4
           }
         ],
         "responses": {
@@ -17231,6 +17341,11 @@
             "format": "date-time",
             "nullable": true
           },
+          "continuationBusinessProcessId": {
+            "type": "string",
+            "description": "Id of the business process that will be automatically started after the completion of the current one, if any.",
+            "nullable": true
+          },
           "kind": {
             "type": "string"
           }
@@ -17529,6 +17644,7 @@
                 "BusinessProcessDefinitionCreateException": "#/components/schemas/BusinessProcessDefinitionCreateException",
                 "BusinessProcessNotExternalException": "#/components/schemas/BusinessProcessNotExternalException",
                 "BusinessProcessCancellationNotSupportedException": "#/components/schemas/BusinessProcessCancellationNotSupportedException",
+                "BusinessProcessContinuationException": "#/components/schemas/BusinessProcessContinuationException",
                 "SchemaFieldImportMismatchException": "#/components/schemas/SchemaFieldImportMismatchException",
                 "SchemaFieldImportRelatedSchemaMismatchException": "#/components/schemas/SchemaFieldImportRelatedSchemaMismatchException",
                 "SchemaFieldImportTypeMismatchException": "#/components/schemas/SchemaFieldImportTypeMismatchException",
@@ -21734,6 +21850,35 @@
               "businessProcessId": {
                 "type": "string",
                 "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "BusinessProcessContinuationException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkBusinessException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "continuationBusinessProcessId": {
+                "type": "string",
+                "nullable": true
+              },
+              "precedingBusinessProcessId": {
+                "type": "string",
+                "nullable": true
+              },
+              "precedingBusinessProcessException": {
+                "nullable": true,
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/PictureparkException"
+                  }
+                ]
               }
             }
           }
