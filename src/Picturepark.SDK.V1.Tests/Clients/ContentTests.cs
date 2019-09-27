@@ -1467,6 +1467,39 @@ namespace Picturepark.SDK.V1.Tests.Clients
             detail.SucceededItems.Select(i => ((dynamic)i.Item.Content).name).ToArray().Distinct().Should().HaveCount(201);
         }
 
+        [Fact]
+        [Trait("Stack", "Contents")]
+        public async Task ShouldHandleDuplicateFilenameWhenDownloading()
+        {
+            // Arrange
+            var numberOfUploads = 2;
+            var files = new FileLocations[]
+            {
+                Path.Combine(_fixture.ExampleFilesBasePath, "0559_BYu8ITUWMfc.jpg")
+            };
+
+            for (var i = 0; i < numberOfUploads; i++)
+            {
+                var transfer = await _client.Transfer.UploadFilesAsync(
+                    nameof(ShouldHandleDuplicateFilenameWhenDownloading) + Guid.NewGuid().ToString("N"),
+                    files,
+                    new UploadOptions { WaitForTransferCompletion = true }).ConfigureAwait(false);
+
+                await _client.Transfer
+                    .ImportTransferAsync(transfer.Transfer.Id, new ImportTransferRequest())
+                    .ConfigureAwait(false);
+            }
+
+            var contents = await _client.Content.SearchAsync(new ContentSearchRequest { SearchString = "fileMetadata.fileName:0559_BYu8ITUWMfc.jpg" }).ConfigureAwait(false);
+
+            // Act
+            var targetFolder = Path.Combine(_fixture.TempDirectory, nameof(ShouldHandleDuplicateFilenameWhenDownloading) + Guid.NewGuid().ToString("N"));
+            await _client.Content.DownloadFilesAsync(contents, targetFolder, overwriteIfExists: false).ConfigureAwait(false);
+
+            // Assert
+            new DirectoryInfo(targetFolder).EnumerateFiles("*").Should().HaveCountGreaterOrEqualTo(numberOfUploads);
+        }
+
         private async Task<ContentDetail> CreateContentReferencingSimpleField(params ContentResolveBehavior[] behaviors)
         {
             // Arrange
