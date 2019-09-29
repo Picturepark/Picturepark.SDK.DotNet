@@ -35159,6 +35159,7 @@
         "required": [
           "contentId",
           "outputFormatId",
+          "dynamicRendering",
           "kind"
         ],
         "properties": {
@@ -35190,6 +35191,10 @@
                 "$ref": "#/components/schemas/OutputDataBase"
               }
             ]
+          },
+          "dynamicRendering": {
+            "type": "boolean",
+            "description": "Whether this Output belongs to a dynamic OutputFormat"
           },
           "kind": {
             "type": "string"
