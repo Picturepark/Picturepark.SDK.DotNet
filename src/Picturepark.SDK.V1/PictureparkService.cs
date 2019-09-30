@@ -64,6 +64,8 @@ namespace Picturepark.SDK.V1
 
         public IBusinessRuleClient BusinessRule { get; private set; }
 
+        public IDisplayValueClient DisplayValue { get; private set; }
+
         public void Dispose()
         {
             if (_httpClient != null)
@@ -95,6 +97,7 @@ namespace Picturepark.SDK.V1
             Channel = new ChannelClient(settings, httpClient);
             BusinessRule = new BusinessRuleClient(settings, httpClient);
             OutputFormat = new OutputFormatClient(BusinessProcess, settings, httpClient);
+            DisplayValue = new DisplayValueClient(settings, httpClient);
         }
     }
 }
