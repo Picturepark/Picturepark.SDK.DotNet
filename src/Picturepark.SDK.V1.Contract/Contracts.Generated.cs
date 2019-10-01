@@ -17414,7 +17414,7 @@ namespace Picturepark.SDK.V1.Contract
     
     /// <summary>A field that can be triggered, and store in such occasion the id of the user and the time that triggered it. The last user who triggered it and the last time in which it was triggered can be used for filtering or for
     /// simple search (if enabled on the field). Such information are stored in two inner fields: "triggeredBy" and "triggeredOn". In order to be triggered in a Content or ListItem metadata dictionary, the special '"_trigger": true'
-    /// should be sent in the DataDictionary of the field itself.</summary>
+    /// should be sent in the data of the field itself.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class FieldTrigger : FieldBase
     {
