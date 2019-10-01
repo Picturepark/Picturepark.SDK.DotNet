@@ -1092,6 +1092,157 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
         [Fact]
         [Trait("Stack", "Contents")]
+        public async Task ShouldCreateUpdateDeleteAndRestoreContentWithoutWaitingSearchDocs()
+        {
+            // Act
+            // Create
+            var request = new ContentCreateRequest
+            {
+                Content = new { Name = $"{Guid.NewGuid():N}" },
+                ContentSchemaId = nameof(ContentItem)
+            };
+
+            var content = await _client.Content.CreateAsync(request, waitSearchDocCreation: false).ConfigureAwait(false);
+
+            // Update
+            var updatedName = $"{Guid.NewGuid():N}";
+            await _client.Content.UpdateMetadataAsync(content.Id, new ContentMetadataUpdateRequest { Content = new DataDictionary { { "name", updatedName } } }, waitSearchDocCreation: false)
+                .ConfigureAwait(false);
+
+            // Delete
+            await _client.Content.DeleteAsync(content.Id).ConfigureAwait(false);
+
+            // Assert
+            await Assert.ThrowsAsync<ContentNotFoundException>(async () => await _client.Content.GetAsync(content.Id).ConfigureAwait(false)).ConfigureAwait(false);
+
+            // Restore
+            await _client.Content.RestoreAsync(content.Id, waitSearchDocCreation: false).ConfigureAwait(false);
+
+            // Assert
+            content = await _client.Content.GetAsync(content.Id, new[] { ContentResolveBehavior.Content }).ConfigureAwait(false);
+            content.Should().NotBeNull();
+            content.AsContentItem<ContentItem>().Content.Name.Should().Be(updatedName);
+        }
+
+        [Fact]
+        [Trait("Stack", "Contents")]
+        public async Task ShouldCreateUpdateDeleteAndRestoreContentManyWithoutWaitingSearchDocs()
+        {
+            // Act
+            // Create
+            var content1CreateRequest = new ContentCreateRequest
+            {
+                RequestId = $"{Guid.NewGuid():N}",
+                Content = new { Name = $"{Guid.NewGuid():N}" },
+                ContentSchemaId = nameof(ContentItem)
+            };
+
+            var content2CreateRequest = new ContentCreateRequest
+            {
+                RequestId = $"{Guid.NewGuid():N}",
+                Content = new { Name = $"{Guid.NewGuid():N}" },
+                ContentSchemaId = nameof(ContentItem)
+            };
+
+            var createResult = await _client.Content.CreateManyAsync(new ContentCreateManyRequest { Items = new[] { content1CreateRequest, content2CreateRequest } }, waitSearchDocCreation: false)
+                .ConfigureAwait(false);
+
+            var createdContents = (await createResult.FetchDetail().ConfigureAwait(false)).SucceededItems.ToArray();
+
+            var content1Id = createdContents.Single(c => c.RequestId == content1CreateRequest.RequestId).Item.Id;
+            var content2Id = createdContents.Single(c => c.RequestId == content2CreateRequest.RequestId).Item.Id;
+            var contentIds = new List<string> { content1Id, content2Id };
+
+            // Update
+            var expectedName1 = $"{Guid.NewGuid():N}";
+            var expectedName2 = $"{Guid.NewGuid():N}";
+
+            var updateItem1 = new ContentMetadataUpdateItem
+            {
+                Id = content1Id,
+                Content = new DataDictionary { { "name", expectedName1 } }
+            };
+
+            var updateItem2 = new ContentMetadataUpdateItem
+            {
+                Id = content2Id,
+                Content = new DataDictionary { { "name", expectedName2 } }
+            };
+
+            await _client.Content.UpdateMetadataManyAsync(new ContentMetadataUpdateManyRequest { Items = new[] { updateItem1, updateItem2 } }, waitSearchDocCreation: false).ConfigureAwait(false);
+
+            // Delete
+            var businessProcess = await _client.Content.DeleteManyAsync(new ContentDeleteManyRequest { ContentIds = contentIds }).ConfigureAwait(false);
+            await _client.BusinessProcess.WaitForCompletionAsync(businessProcess.Id, waitForContinuationCompletion: false).ConfigureAwait(false);
+
+            // Assert
+            await Assert.ThrowsAsync<ContentNotFoundException>(async () => await _client.Content.GetAsync(contentIds[0]).ConfigureAwait(false)).ConfigureAwait(false);
+            await Assert.ThrowsAsync<ContentNotFoundException>(async () => await _client.Content.GetAsync(contentIds[1]).ConfigureAwait(false)).ConfigureAwait(false);
+
+            // Reactivate
+            businessProcess = await _client.Content.RestoreManyAsync(new ContentRestoreManyRequest { ContentIds = contentIds }).ConfigureAwait(false);
+            await _client.BusinessProcess.WaitForCompletionAsync(businessProcess.Id, waitForContinuationCompletion: false).ConfigureAwait(false);
+
+            var contents = await _client.Content.GetManyAsync(contentIds, new[] { ContentResolveBehavior.Content }).ConfigureAwait(false);
+
+            // Assert
+            contents.Should().HaveCount(2).And.Subject.Select(c => c.AsContentItem<ContentItem>().Content.Name).Should().BeEquivalentTo(expectedName1, expectedName2);
+        }
+
+        [Fact]
+        [Trait("Stack", "Contents")]
+        public async Task ShouldBatchUpdateWithoutWithoutWaitingSearchDocs()
+        {
+            // Arrange
+            var content1CreateRequest = new ContentCreateRequest
+            {
+                RequestId = $"{Guid.NewGuid():N}",
+                Content = new { Name = $"{Guid.NewGuid():N}" },
+                ContentSchemaId = nameof(ContentItem)
+            };
+
+            var content2CreateRequest = new ContentCreateRequest
+            {
+                RequestId = $"{Guid.NewGuid():N}",
+                Content = new { Name = $"{Guid.NewGuid():N}" },
+                ContentSchemaId = nameof(ContentItem)
+            };
+
+            var createResult = await _client.Content.CreateManyAsync(new ContentCreateManyRequest { Items = new[] { content1CreateRequest, content2CreateRequest } }, waitSearchDocCreation: false)
+                .ConfigureAwait(false);
+
+            var createdContents = (await createResult.FetchDetail().ConfigureAwait(false)).SucceededItems.ToArray();
+
+            var content1Id = createdContents.Single(c => c.RequestId == content1CreateRequest.RequestId).Item.Id;
+            var content2Id = createdContents.Single(c => c.RequestId == content2CreateRequest.RequestId).Item.Id;
+            var contentIds = new List<string> { content1Id, content2Id };
+
+            // Act
+            var temporaryName = $"{Guid.NewGuid():N}";
+            var expectedName = $"{Guid.NewGuid():N}";
+
+            var updateRequest = new ContentFieldsBatchUpdateRequest
+            {
+                ContentIds = contentIds,
+                ChangeCommands = new List<MetadataValuesChangeCommandBase>
+                {
+                    new MetadataValuesSchemaUpsertCommand { SchemaId = nameof(ContentItem), Value = new DataDictionary { { "name", temporaryName } } }
+                }
+            };
+
+            await _client.Content.BatchUpdateFieldsByIdsAsync(updateRequest, waitSearchDocCreation: false).ConfigureAwait(false);
+
+            updateRequest.ChangeCommands.First().As<MetadataValuesSchemaUpsertCommand>().Value = new DataDictionary { { "name", expectedName } };
+            await _client.Content.BatchUpdateFieldsByIdsAsync(updateRequest, waitSearchDocCreation: false).ConfigureAwait(false);
+
+            var contents = await _client.Content.GetManyAsync(contentIds, new[] { ContentResolveBehavior.Content }).ConfigureAwait(false);
+
+            // Assert
+            contents.Should().HaveCount(2).And.Subject.Select(c => c.AsContentItem<ContentItem>().Content.Name).Should().OnlyContain(s => s == expectedName);
+        }
+
+        [Fact]
+        [Trait("Stack", "Contents")]
         public async Task ShouldDeleteContentManyByFilter()
         {
             // Arrange
@@ -1320,6 +1471,39 @@ namespace Picturepark.SDK.V1.Tests.Clients
             // Assert
             detail.SucceededItems.Should().HaveCount(201);
             detail.SucceededItems.Select(i => ((dynamic)i.Item.Content).name).ToArray().Distinct().Should().HaveCount(201);
+        }
+
+        [Fact]
+        [Trait("Stack", "Contents")]
+        public async Task ShouldHandleDuplicateFilenameWhenDownloading()
+        {
+            // Arrange
+            var numberOfUploads = 2;
+            var files = new FileLocations[]
+            {
+                Path.Combine(_fixture.ExampleFilesBasePath, "0559_BYu8ITUWMfc.jpg")
+            };
+
+            for (var i = 0; i < numberOfUploads; i++)
+            {
+                var transfer = await _client.Transfer.UploadFilesAsync(
+                    nameof(ShouldHandleDuplicateFilenameWhenDownloading) + Guid.NewGuid().ToString("N"),
+                    files,
+                    new UploadOptions { WaitForTransferCompletion = true }).ConfigureAwait(false);
+
+                await _client.Transfer
+                    .ImportTransferAsync(transfer.Transfer.Id, new ImportTransferRequest())
+                    .ConfigureAwait(false);
+            }
+
+            var contents = await _client.Content.SearchAsync(new ContentSearchRequest { SearchString = "fileMetadata.fileName:0559_BYu8ITUWMfc.jpg" }).ConfigureAwait(false);
+
+            // Act
+            var targetFolder = Path.Combine(_fixture.TempDirectory, nameof(ShouldHandleDuplicateFilenameWhenDownloading) + Guid.NewGuid().ToString("N"));
+            await _client.Content.DownloadFilesAsync(contents, targetFolder, overwriteIfExists: false).ConfigureAwait(false);
+
+            // Assert
+            new DirectoryInfo(targetFolder).EnumerateFiles("*").Should().HaveCountGreaterOrEqualTo(numberOfUploads);
         }
 
         private async Task<ContentDetail> CreateContentReferencingSimpleField(params ContentResolveBehavior[] behaviors)

@@ -65,11 +65,11 @@ namespace Picturepark.SDK.V1
         }
 
         /// <inheritdoc />
-        public async Task<BusinessProcessWaitForLifeCycleResult> WaitForCompletionAsync(string processId, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<BusinessProcessWaitForLifeCycleResult> WaitForCompletionAsync(string processId, TimeSpan? timeout = null, bool waitForContinuationCompletion = true, CancellationToken cancellationToken = default(CancellationToken))
         {
             return await _httpClient.Poll(timeout, cancellationToken, async () =>
             {
-                var waitResult = await WaitForCompletionCoreAsync(processId, timeout, cancellationToken).ConfigureAwait(false);
+                var waitResult = await WaitForCompletionCoreAsync(processId, timeout, waitForContinuationCompletion, cancellationToken).ConfigureAwait(false);
                 if (waitResult.BusinessProcess.LifeCycle == BusinessProcessLifeCycle.Succeeded ||
                     waitResult.BusinessProcess.LifeCycle == BusinessProcessLifeCycle.SucceededWithErrors)
                     return waitResult;

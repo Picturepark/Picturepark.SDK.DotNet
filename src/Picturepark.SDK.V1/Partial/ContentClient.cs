@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.IO;
 using System.Net.Http;
@@ -19,17 +20,7 @@ namespace Picturepark.SDK.V1
             _businessProcessClient = businessProcessClient;
         }
 
-        /// <summary>Downloads multiple files.</summary>
-        /// <param name="contents">The files to download.</param>
-        /// <param name="exportDirectory">The directory to store the downloaded files.</param>
-        /// <param name="overwriteIfExists">Specifies whether to overwrite files.</param>
-        /// <param name="concurrentDownloads">Specifies the number of concurrent downloads.</param>
-        /// <param name="outputFormat">The output format name (e.g. 'Original').</param>
-        /// <param name="outputExtension">The expected output file extension.</param>
-        /// <param name="successDelegate">The success delegate/callback.</param>
-        /// <param name="errorDelegate">The error delegate/callback.</param>
-        /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>The task.</returns>
+        /// <inheritdoc />
         public async Task DownloadFilesAsync(
             ContentSearchResult contents,
             string exportDirectory,
@@ -37,130 +28,152 @@ namespace Picturepark.SDK.V1
             int concurrentDownloads = 4,
             string outputFormat = "Original",
             string outputExtension = "",
+            bool contentIdAsFilename = false,
             Action<ContentDetail> successDelegate = null,
             Action<Exception> errorDelegate = null,
-            CancellationToken cancellationToken = default(CancellationToken))
+            CancellationToken cancellationToken = default)
         {
-            List<Task> allTasks = new List<Task>();
-
-            // Limits Concurrent Downloads
-            SemaphoreSlim throttler = new SemaphoreSlim(concurrentDownloads);
+            var allTasks = new List<Task>();
+            var fileNameRegistry = new ConcurrentDictionary<string, object>();
 
             // Create directory if it does not exist
             if (!Directory.Exists(exportDirectory))
                 Directory.CreateDirectory(exportDirectory);
 
-            foreach (var content in contents.Results)
+            using (var throttler = new SemaphoreSlim(concurrentDownloads)) // Limits Concurrent Downloads
             {
-                await throttler.WaitAsync(cancellationToken).ConfigureAwait(false);
-                allTasks.Add(Task.Run(async () =>
+                foreach (var content in contents.Results)
                 {
-                    try
+                    await throttler.WaitAsync(cancellationToken).ConfigureAwait(false);
+                    allTasks.Add(Task.Run(async () =>
                     {
-                        var contentDetail = await GetAsync(content.Id, new[] { ContentResolveBehavior.Content },  cancellationToken).ConfigureAwait(false);
-                        var metadata = contentDetail.GetFileMetadata();
-                        string fileNameOriginal = metadata.FileName;
-
                         try
                         {
-                            var fileName = string.IsNullOrEmpty(outputExtension) ?
-                                fileNameOriginal :
-                                fileNameOriginal.Replace(Path.GetExtension(fileNameOriginal), outputExtension);
+                            var contentDetail = await GetAsync(content.Id, new[] { ContentResolveBehavior.Content }, cancellationToken).ConfigureAwait(false);
+                            var metadata = contentDetail.GetFileMetadata();
+                            var fileNameOriginal = metadata.FileName;
 
-                            if (string.IsNullOrEmpty(fileName))
-                                throw new Exception("Filename empty: " + metadata);
-
-                            var filePath = Path.Combine(exportDirectory, fileName);
-
-                            if (!new FileInfo(filePath).Exists || overwriteIfExists)
+                            try
                             {
-                                try
+                                if (string.IsNullOrEmpty(fileNameOriginal))
+                                    throw new Exception("Filename empty: " + metadata);
+
+                                var fileName = string.IsNullOrEmpty(outputExtension)
+                                    ? fileNameOriginal
+                                    : fileNameOriginal.Replace(Path.GetExtension(fileNameOriginal), outputExtension);
+
+                                var extension = Path.GetExtension(fileName);
+                                var nameNoExtension = Path.GetFileNameWithoutExtension(fileName);
+
+                                if (contentIdAsFilename)
                                 {
-                                    using (var response = await DownloadAsync(content.Id, outputFormat, cancellationToken: cancellationToken).ConfigureAwait(false))
+                                    fileName = content.Id + extension;
+                                }
+                                else
+                                {
+                                    var fileNameDiscriminator = 1;
+                                    do
                                     {
+                                        var discriminatorString = fileNameDiscriminator == 1
+                                            ? string.Empty
+                                            : $" ({fileNameDiscriminator})";
+
+                                        fileName = nameNoExtension + discriminatorString + extension;
+                                        fileNameDiscriminator++;
+                                    }
+                                    while (!fileNameRegistry.TryAdd(fileName, null));
+                                }
+
+                                var filePath = Path.Combine(exportDirectory, fileName);
+
+                                if (!new FileInfo(filePath).Exists || overwriteIfExists)
+                                {
+                                    try
+                                    {
+                                        using (var response = await DownloadAsync(content.Id, outputFormat, cancellationToken: cancellationToken).ConfigureAwait(false))
                                         using (var fileStream = File.Create(filePath))
                                         {
-                                            response.Stream.CopyTo(fileStream);
+                                            await response.Stream.CopyToAsync(fileStream).ConfigureAwait(false);
                                         }
-                                    }
 
-                                    successDelegate?.Invoke(contentDetail);
-                                }
-                                catch (Exception ex)
-                                {
-                                    errorDelegate?.Invoke(ex);
+                                        successDelegate?.Invoke(contentDetail);
+                                    }
+                                    catch (Exception ex)
+                                    {
+                                        errorDelegate?.Invoke(ex);
+                                    }
                                 }
                             }
+                            catch (Exception ex)
+                            {
+                                errorDelegate?.Invoke(ex);
+                            }
                         }
-                        catch (Exception ex)
+                        finally
                         {
-                            errorDelegate?.Invoke(ex);
+                            throttler.Release();
                         }
-                    }
-                    finally
-                    {
-                        throttler.Release();
-                    }
-                }));
-            }
+                    }));
+                }
 
-            await Task.WhenAll(allTasks).ConfigureAwait(false);
+                await Task.WhenAll(allTasks).ConfigureAwait(false);
+            }
         }
 
         /// <inheritdoc />
-        public async Task<ContentBatchOperationWithRequestIdResult> CreateManyAsync(ContentCreateManyRequest contentCreateManyRequest, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<ContentBatchOperationWithRequestIdResult> CreateManyAsync(ContentCreateManyRequest contentCreateManyRequest, TimeSpan? timeout = null, bool waitSearchDocCreation = true, CancellationToken cancellationToken = default(CancellationToken))
         {
             var businessProcess = await CreateManyCoreAsync(contentCreateManyRequest, cancellationToken).ConfigureAwait(false);
-            return await WaitForBusinessProcessAndReturnResultWithRequestId(businessProcess.Id, timeout, cancellationToken).ConfigureAwait(false);
+            return await WaitForBusinessProcessAndReturnResultWithRequestId(businessProcess.Id, timeout, waitSearchDocCreation, cancellationToken).ConfigureAwait(false);
         }
 
         /// <inheritdoc />
-        public async Task<ContentBatchOperationResult> UpdateMetadataManyAsync(ContentMetadataUpdateManyRequest updateRequest, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<ContentBatchOperationResult> UpdateMetadataManyAsync(ContentMetadataUpdateManyRequest updateRequest, TimeSpan? timeout = null, bool waitSearchDocCreation = true, CancellationToken cancellationToken = default(CancellationToken))
         {
             var businessProcess = await UpdateMetadataManyCoreAsync(updateRequest, cancellationToken).ConfigureAwait(false);
-            return await WaitForBusinessProcessAndReturnResult(businessProcess.Id, timeout, cancellationToken).ConfigureAwait(false);
+            return await WaitForBusinessProcessAndReturnResult(businessProcess.Id, timeout, waitSearchDocCreation, cancellationToken).ConfigureAwait(false);
         }
 
         /// <inheritdoc />
-        public async Task<ContentBatchOperationResult> UpdatePermissionsManyAsync(ContentPermissionsUpdateManyRequest updateManyRequest, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<ContentBatchOperationResult> UpdatePermissionsManyAsync(ContentPermissionsUpdateManyRequest updateManyRequest, TimeSpan? timeout = null, bool waitSearchDocCreation = true, CancellationToken cancellationToken = default(CancellationToken))
         {
             var businessProcess = await UpdatePermissionsManyCoreAsync(updateManyRequest, cancellationToken).ConfigureAwait(false);
-            return await WaitForBusinessProcessAndReturnResult(businessProcess.Id, timeout, cancellationToken).ConfigureAwait(false);
+            return await WaitForBusinessProcessAndReturnResult(businessProcess.Id, timeout, waitSearchDocCreation, cancellationToken).ConfigureAwait(false);
         }
 
         /// <inheritdoc />
-        public async Task<ContentBatchOperationResult> TransferOwnershipManyAsync(ContentOwnershipTransferManyRequest contentOwnershipTransferManyRequest, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<ContentBatchOperationResult> TransferOwnershipManyAsync(ContentOwnershipTransferManyRequest contentOwnershipTransferManyRequest, TimeSpan? timeout = null, bool waitSearchDocCreation = true, CancellationToken cancellationToken = default(CancellationToken))
         {
             var businessProcess = await TransferOwnershipManyCoreAsync(contentOwnershipTransferManyRequest, cancellationToken).ConfigureAwait(false);
-            return await WaitForBusinessProcessAndReturnResult(businessProcess.Id, timeout, cancellationToken).ConfigureAwait(false);
+            return await WaitForBusinessProcessAndReturnResult(businessProcess.Id, timeout, waitSearchDocCreation, cancellationToken).ConfigureAwait(false);
         }
 
         /// <inheritdoc />
-        public async Task<ContentBatchOperationResult> BatchUpdateFieldsByIdsAsync(ContentFieldsBatchUpdateRequest updateRequest, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<ContentBatchOperationResult> BatchUpdateFieldsByIdsAsync(ContentFieldsBatchUpdateRequest updateRequest, TimeSpan? timeout = null, bool waitSearchDocCreation = true, CancellationToken cancellationToken = default(CancellationToken))
         {
             var businessProcess = await BatchUpdateFieldsByIdsCoreAsync(updateRequest, cancellationToken).ConfigureAwait(false);
-            return await WaitForBusinessProcessAndReturnResult(businessProcess.Id, timeout, cancellationToken).ConfigureAwait(false);
+            return await WaitForBusinessProcessAndReturnResult(businessProcess.Id, timeout, waitSearchDocCreation, cancellationToken).ConfigureAwait(false);
         }
 
         /// <inheritdoc />
-        public async Task<ContentBatchOperationResult> BatchUpdateFieldsByFilterAsync(ContentFieldsBatchUpdateFilterRequest updateRequest, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<ContentBatchOperationResult> BatchUpdateFieldsByFilterAsync(ContentFieldsBatchUpdateFilterRequest updateRequest, TimeSpan? timeout = null, bool waitSearchDocCreation = true, CancellationToken cancellationToken = default(CancellationToken))
         {
             var businessProcess = await BatchUpdateFieldsByFilterCoreAsync(updateRequest, cancellationToken).ConfigureAwait(false);
-            return await WaitForBusinessProcessAndReturnResult(businessProcess.Id, timeout, cancellationToken).ConfigureAwait(false);
+            return await WaitForBusinessProcessAndReturnResult(businessProcess.Id, timeout, waitSearchDocCreation, cancellationToken).ConfigureAwait(false);
         }
 
         /// <inheritdoc />
-        public async Task<ContentBatchOperationResult> WaitForBusinessProcessAndReturnResult(string businessProcessId, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<ContentBatchOperationResult> WaitForBusinessProcessAndReturnResult(string businessProcessId, TimeSpan? timeout = null, bool waitSearchDocCreation = true, CancellationToken cancellationToken = default(CancellationToken))
         {
-            var result = await _businessProcessClient.WaitForCompletionAsync(businessProcessId, timeout, cancellationToken).ConfigureAwait(false);
+            var result = await _businessProcessClient.WaitForCompletionAsync(businessProcessId, timeout, waitSearchDocCreation, cancellationToken).ConfigureAwait(false);
 
             return new ContentBatchOperationResult(this, businessProcessId, result.LifeCycleHit, _businessProcessClient);
         }
 
         /// <inheritdoc />
-        public async Task<ContentBatchOperationWithRequestIdResult> WaitForBusinessProcessAndReturnResultWithRequestId(string businessProcessId, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<ContentBatchOperationWithRequestIdResult> WaitForBusinessProcessAndReturnResultWithRequestId(string businessProcessId, TimeSpan? timeout = null, bool waitSearchDocCreation = true, CancellationToken cancellationToken = default(CancellationToken))
         {
-            var result = await _businessProcessClient.WaitForCompletionAsync(businessProcessId, timeout, cancellationToken).ConfigureAwait(false);
+            var result = await _businessProcessClient.WaitForCompletionAsync(businessProcessId, timeout, waitSearchDocCreation, cancellationToken).ConfigureAwait(false);
 
             return new ContentBatchOperationWithRequestIdResult(this, businessProcessId, result.LifeCycleHit, _businessProcessClient);
         }

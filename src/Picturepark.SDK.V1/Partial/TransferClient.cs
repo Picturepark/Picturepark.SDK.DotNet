@@ -99,7 +99,7 @@ namespace Picturepark.SDK.V1
 
             if (uploadOptions.WaitForTransferCompletion)
             {
-                await _businessProcessClient.WaitForCompletionAsync(transfer.BusinessProcessId, timeout, cancellationToken).ConfigureAwait(false);
+                await _businessProcessClient.WaitForCompletionAsync(transfer.BusinessProcessId, timeout, cancellationToken: cancellationToken).ConfigureAwait(false);
             }
         }
 
@@ -107,12 +107,12 @@ namespace Picturepark.SDK.V1
         /// <param name="transfer">The transfer.</param>
         /// <param name="createRequest">The create request.</param>
         /// <param name="timeout">The timeout to wait for completion.</param>
-        /// <param name="cancellationToken">The cancellcation token.</param>
+        /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The task.</returns>
         public async Task ImportAndWaitForCompletionAsync(Transfer transfer, ImportTransferRequest createRequest, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             var importedTransfer = await ImportTransferAsync(transfer.Id, createRequest, cancellationToken).ConfigureAwait(false);
-            await _businessProcessClient.WaitForCompletionAsync(importedTransfer.BusinessProcessId, timeout, cancellationToken).ConfigureAwait(false);
+            await _businessProcessClient.WaitForCompletionAsync(importedTransfer.BusinessProcessId, timeout, cancellationToken: cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>Creates a transfer and waits for its completion.</summary>
@@ -123,7 +123,7 @@ namespace Picturepark.SDK.V1
         public async Task<CreateTransferResult> CreateAndWaitForCompletionAsync(CreateTransferRequest request, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             var transfer = await CreateAsync(request, cancellationToken).ConfigureAwait(false);
-            await _businessProcessClient.WaitForCompletionAsync(transfer.BusinessProcessId, timeout, cancellationToken).ConfigureAwait(false);
+            await _businessProcessClient.WaitForCompletionAsync(transfer.BusinessProcessId, timeout, cancellationToken: cancellationToken).ConfigureAwait(false);
 
             return new CreateTransferResult(transfer, request.Files);
         }

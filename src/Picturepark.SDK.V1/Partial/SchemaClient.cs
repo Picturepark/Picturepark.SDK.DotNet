@@ -192,7 +192,7 @@ namespace Picturepark.SDK.V1
         /// <inheritdoc />
         public async Task<SchemaBatchOperationResult> WaitForBusinessProcessAndReturnResult(string businessProcessId, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
         {
-            var result = await _businessProcessClient.WaitForCompletionAsync(businessProcessId, timeout, cancellationToken).ConfigureAwait(false);
+            var result = await _businessProcessClient.WaitForCompletionAsync(businessProcessId, timeout, cancellationToken: cancellationToken).ConfigureAwait(false);
 
             return new SchemaBatchOperationResult(this, businessProcessId, result.LifeCycleHit, _businessProcessClient);
         }
