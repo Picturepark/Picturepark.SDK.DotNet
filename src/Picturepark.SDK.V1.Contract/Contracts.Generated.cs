@@ -6602,8 +6602,8 @@ namespace Picturepark.SDK.V1.Contract
         [System.Runtime.Serialization.EnumMember(Value = @"Model3d")]
         Model3d = 19,
     
-        [System.Runtime.Serialization.EnumMember(Value = @"ContentItem")]
-        ContentItem = 20,
+        [System.Runtime.Serialization.EnumMember(Value = @"Virtual")]
+        Virtual = 20,
     
     }
     
@@ -11567,7 +11567,7 @@ namespace Picturepark.SDK.V1.Contract
         [System.ComponentModel.DataAnnotations.Required]
         public string ContentSchemaId { get; set; }
     
-        /// <summary>The content type of this content. All except ContentItem are binary files.</summary>
+        /// <summary>The content type of this content. All except Virtual are binary files.</summary>
         [Newtonsoft.Json.JsonProperty("contentType", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
@@ -12561,7 +12561,7 @@ namespace Picturepark.SDK.V1.Contract
     
         /// <summary>The content data of the content. It's a dictionary of dynamic metadata whose structure is defined in the Content schema identified by
         /// the ContentSchemaId property. Updating the Content property is only possible for virtual items (contents
-        /// whose ContentType is ContentItem).
+        /// whose ContentType is Virtual).
         /// Update of content data will be done only if this attribute has any data, i.e. if it's not null or empty.</summary>
         [Newtonsoft.Json.JsonProperty("content", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public DataDictionary Content { get; set; }

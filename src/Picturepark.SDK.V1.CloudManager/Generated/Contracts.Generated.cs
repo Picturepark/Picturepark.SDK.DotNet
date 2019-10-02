@@ -5320,8 +5320,8 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [System.Runtime.Serialization.EnumMember(Value = @"Model3d")]
         Model3d = 19,
     
-        [System.Runtime.Serialization.EnumMember(Value = @"ContentItem")]
-        ContentItem = 20,
+        [System.Runtime.Serialization.EnumMember(Value = @"Virtual")]
+        Virtual = 20,
     
     }
     
@@ -7897,6 +7897,10 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.TimeSpan LiveStreamRetentionTime { get; set; }
     
+        [Newtonsoft.Json.JsonProperty("editCollectionRetentionTime", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public System.TimeSpan EditCollectionRetentionTime { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("snapshotEnabled", Required = Newtonsoft.Json.Required.Always)]
         public bool SnapshotEnabled { get; set; }
     
@@ -9361,6 +9365,10 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.TimeSpan ReplacedOriginalsRetentionTime { get; set; }
     
+        [Newtonsoft.Json.JsonProperty("editCollectionRetentionTime", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public System.TimeSpan EditCollectionRetentionTime { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("deactivationMessage", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public TranslatedStringDictionary DeactivationMessage { get; set; }
     
@@ -9481,6 +9489,10 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [Newtonsoft.Json.JsonProperty("incompleteTransferRetentionTime", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.TimeSpan IncompleteTransferRetentionTime { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("editCollectionRetentionTime", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public System.TimeSpan EditCollectionRetentionTime { get; set; }
     
         [Newtonsoft.Json.JsonProperty("useSsl", Required = Newtonsoft.Json.Required.Always)]
         public bool UseSsl { get; set; }

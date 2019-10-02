@@ -21654,7 +21654,7 @@
           "Database",
           "Cad",
           "Model3d",
-          "ContentItem"
+          "Virtual"
         ],
         "enum": [
           "Unknown",
@@ -21677,7 +21677,7 @@
           "Database",
           "Cad",
           "Model3d",
-          "ContentItem"
+          "Virtual"
         ]
       },
       "ContentBackupFailedException": {
@@ -26816,7 +26816,7 @@
             "minLength": 1
           },
           "contentType": {
-            "description": "The content type of this content. All except ContentItem are binary files.",
+            "description": "The content type of this content. All except Virtual are binary files.",
             "minLength": 1,
             "oneOf": [
               {
@@ -27891,7 +27891,7 @@
             }
           },
           "content": {
-            "description": "The content data of the content. It's a dictionary of dynamic metadata whose structure is defined in the Content schema identified by\nthe ContentSchemaId property. Updating the Content property is only possible for virtual items (contents\nwhose ContentType is ContentItem).\nUpdate of content data will be done only if this attribute has any data, i.e. if it's not null or empty.",
+            "description": "The content data of the content. It's a dictionary of dynamic metadata whose structure is defined in the Content schema identified by\nthe ContentSchemaId property. Updating the Content property is only possible for virtual items (contents\nwhose ContentType is Virtual).\nUpdate of content data will be done only if this attribute has any data, i.e. if it's not null or empty.",
             "nullable": true,
             "oneOf": [
               {
