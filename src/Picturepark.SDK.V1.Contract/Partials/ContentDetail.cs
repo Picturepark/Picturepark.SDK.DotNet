@@ -36,27 +36,65 @@ namespace Picturepark.SDK.V1.Contract
             };
         }
 
+        /// <summary>
+        /// Returns content deserialized into the requested class
+        /// </summary>
+        /// <typeparam name="T">Content type</typeparam>
+        /// <returns>Deserialized content</returns>
         public T ContentAs<T>() => Content is T content ? content : ((JObject)Content).ToObject<T>();
 
-        public T Layer<T>(string name = null)
+        /// <summary>
+        /// Returns layer from <see cref="Metadata"/> deserialized into a custom type.
+        /// </summary>
+        /// <typeparam name="T">Type representing the layer</typeparam>
+        /// <param name="schemaId">Optional ID of the layer within the metadata dictionary. If not provided, it will be determined by schema ID defined in PictureparkSchemaAttribute on the layer class (if applied)
+        /// or the name of the type. Anonymous classes are naturally not supported.</param>
+        /// <returns>Layer metadata</returns>
+        public T Layer<T>(string schemaId = null)
         {
-            var layer = Layer(name ?? Contract.Metadata.ResolveLayerKey(typeof(T)));
+            var layer = Layer(schemaId ?? Contract.Metadata.ResolveLayerKey(typeof(T)));
             return layer != null ? layer.ToObject<T>() : default;
         }
 
-        public JObject Layer(string name)
-            => Metadata.TryGetValue(name.ToLowerCamelCase(), out var layer) ? (JObject)layer : null;
+        /// <summary>
+        /// Returns layer from <see cref="Metadata"/> based on a schema ID.
+        /// </summary>
+        /// <param name="schemaId">Schema ID of the layer within the metadata dictionary.</param>
+        /// <returns>Layer metadata</returns>
+        public JObject Layer(string schemaId)
+            => Metadata.TryGetValue(schemaId.ToLowerCamelCase(), out var layer) ? (JObject)layer : null;
 
+        /// <summary>
+        /// Tests if a layer is present in <see cref="Metadata"/> dictionary.
+        /// </summary>
+        /// <typeparam name="T">Type representing the layer</typeparam>
+        /// <param name="schemaId">OSchema ID of the layer within the metadata dictionary.</param>
+        /// <returns>True if the layer representing the type T is present in metadata dictionary, false otherwise.</returns>
         public bool HasLayer<T>() => HasLayer(Contract.Metadata.ResolveLayerKey(typeof(T)));
 
-        public bool HasLayer(string name) => Metadata.ContainsKey(name.ToLowerCamelCase());
+        /// <summary>
+        /// Tests if a layer is present in <see cref="Metadata"/> dictionary.
+        /// </summary>
+        /// <param name="schemaId">OSchema ID of the layer within the metadata dictionary.</param>
+        /// <returns>True if the layer with the provided schema ID is present in metadata dictionary, false otherwise.</returns>
+        public bool HasLayer(string schemaId) => Metadata.ContainsKey(schemaId.ToLowerCamelCase());
 
+        /// <summary>
+        /// Deserializes the values for the specified layer and gets the display values.
+        /// </summary>
+        /// <typeparam name="T">Type representing the layer</typeparam>
+        /// <returns>Deserialized display values for the layer</returns>
         public DisplayValueDictionary LayerDisplayValues<T>()
             => LayerDisplayValues(Contract.Metadata.ResolveLayerKey(typeof(T)));
 
-        public DisplayValueDictionary LayerDisplayValues(string name)
+        /// <summary>
+        /// Deserializes the values for the specified layer and gets the display values.
+        /// </summary>
+        /// <param name="schemaId">Layer schema ID</param>
+        /// <returns>Deserialized display values for the layer</returns>
+        public DisplayValueDictionary LayerDisplayValues(string schemaId)
         {
-            var layer = Layer(name);
+            var layer = Layer(schemaId);
             return layer?.GetValue("_displayValues")?.ToObject<DisplayValueDictionary>();
         }
     }
