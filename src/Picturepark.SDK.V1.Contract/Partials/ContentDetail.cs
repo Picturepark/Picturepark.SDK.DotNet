@@ -1,16 +1,10 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using Newtonsoft.Json.Linq;
+﻿using Newtonsoft.Json.Linq;
 
 namespace Picturepark.SDK.V1.Contract
 {
     /// <summary>The content detail.</summary>
     public partial class ContentDetail
     {
-        public IReadOnlyList<string> Layers => JMetadata.Properties().Select(p => p.Name).ToList();
-
-        private JObject JMetadata => (JObject)Metadata;
-
         /// <summary>Gets the content detail's file metadata.</summary>
         /// <returns>The file metadata.</returns>
         public FileMetadata GetFileMetadata()
@@ -46,24 +40,24 @@ namespace Picturepark.SDK.V1.Contract
 
         public T Layer<T>(string name = null)
         {
-            var layer = Layer(name ?? typeof(T).Name);
-            return layer.ToObject<T>();
+            var layer = Layer(name ?? Contract.Metadata.ResolveLayerKey(typeof(T)));
+            return layer != null ? layer.ToObject<T>() : default;
         }
 
         public JObject Layer(string name)
-            => (JObject)JMetadata.GetValue(name.ToLowerCamelCase());
+            => Metadata.TryGetValue(name.ToLowerCamelCase(), out var layer) ? (JObject)layer : null;
 
-        public bool HasLayer<T>() => HasLayer(typeof(T).Name);
+        public bool HasLayer<T>() => HasLayer(Contract.Metadata.ResolveLayerKey(typeof(T)));
 
-        public bool HasLayer(string name) => JMetadata.ContainsKey(name.ToLowerCamelCase());
+        public bool HasLayer(string name) => Metadata.ContainsKey(name.ToLowerCamelCase());
 
         public DisplayValueDictionary LayerDisplayValues<T>()
-            => LayerDisplayValues(typeof(T).Name);
+            => LayerDisplayValues(Contract.Metadata.ResolveLayerKey(typeof(T)));
 
         public DisplayValueDictionary LayerDisplayValues(string name)
         {
             var layer = Layer(name);
-            return layer.GetValue("_displayValues").ToObject<DisplayValueDictionary>();
+            return layer?.GetValue("_displayValues")?.ToObject<DisplayValueDictionary>();
         }
     }
 }

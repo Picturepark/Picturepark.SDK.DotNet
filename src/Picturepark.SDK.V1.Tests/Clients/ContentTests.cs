@@ -10,7 +10,6 @@ using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
-using Picturepark.SDK.V1.Contract.Extensions;
 using Xunit;
 
 namespace Picturepark.SDK.V1.Tests.Clients
@@ -484,14 +483,14 @@ namespace Picturepark.SDK.V1.Tests.Clients
             {
                 Id = contentIds[0],
                 LayerSchemaIds = new List<string> { nameof(SimpleLayer) },
-                Metadata = new SimpleLayer { Name = "Content1" }.AsMetadata()
+                Metadata = Metadata.From(new SimpleLayer { Name = "Content1" })
             };
 
             var request2 = new ContentMetadataUpdateItem
             {
                 Id = contentIds[1],
                 LayerSchemaIds = new List<string> { nameof(SimpleLayer) },
-                Metadata = new SimpleLayer { Name = "Content2" }.AsMetadata()
+                Metadata = Metadata.From(new SimpleLayer { Name = "Content2" })
             };
 
             // Act
@@ -530,7 +529,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var request = new ContentMetadataUpdateRequest
             {
                 LayerSchemaIds = new List<string> { nameof(PersonShot) },
-                Metadata = new PersonShot { Description = "test description" }.AsMetadata()
+                Metadata = Metadata.From(new PersonShot { Description = "test description" })
             };
 
             await _client.Content.UpdateMetadataAsync(contentId, request).ConfigureAwait(false);
@@ -538,7 +537,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             request = new ContentMetadataUpdateRequest
             {
                 LayerSchemaIds = new List<string> { nameof(AllDataTypesContract) },
-                Metadata = new AllDataTypesContract { IntegerField = 12345 }.AsMetadata(),
+                Metadata = Metadata.From(new AllDataTypesContract { IntegerField = 12345 }),
                 LayerSchemasUpdateOptions = UpdateOption.Merge
             };
 
@@ -559,7 +558,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var request = new ContentMetadataUpdateRequest
             {
                 LayerSchemaIds = new List<string> { nameof(PersonShot) },
-                Metadata = new PersonShot { Description = "test description" }.AsMetadata()
+                Metadata = Metadata.From(new PersonShot { Description = "test description" })
             };
 
             var contentDetail = await _client.Content.UpdateMetadataAsync(contentId, request).ConfigureAwait(false);
@@ -570,7 +569,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             request = new ContentMetadataUpdateRequest
             {
                 LayerSchemaIds = layerIds,
-                Metadata = new AllDataTypesContract { IntegerField = 12345 }.AsMetadata(),
+                Metadata = Metadata.From(new AllDataTypesContract { IntegerField = 12345 }),
                 LayerSchemasUpdateOptions = UpdateOption.Replace
             };
 
@@ -591,7 +590,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var request = new ContentMetadataUpdateRequest
             {
                 LayerSchemaIds = new List<string> { nameof(AllDataTypesContract) },
-                Metadata = new AllDataTypesContract { IntegerField = 12345 }.AsMetadata()
+                Metadata = Metadata.From(new AllDataTypesContract { IntegerField = 12345 })
             };
 
             await _client.Content.UpdateMetadataAsync(contentId, request).ConfigureAwait(false);
@@ -615,7 +614,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var request = new ContentMetadataUpdateRequest
             {
                 LayerSchemaIds = new List<string> { nameof(AllDataTypesContract) },
-                Metadata = new AllDataTypesContract { IntegerField = 12345 }.AsMetadata()
+                Metadata = Metadata.From(new AllDataTypesContract { IntegerField = 12345 })
             };
 
             await _client.Content.UpdateMetadataAsync(contentId, request).ConfigureAwait(false);
@@ -623,7 +622,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             request = new ContentMetadataUpdateRequest
             {
                 LayerSchemaIds = new List<string> { nameof(AllDataTypesContract) },
-                Metadata = new AllDataTypesContract { StringField = "test string" }.AsMetadata(),
+                Metadata = Metadata.From(new AllDataTypesContract { StringField = "test string" }),
                 SchemaFieldsUpdateOptions = UpdateOption.Replace
             };
 
