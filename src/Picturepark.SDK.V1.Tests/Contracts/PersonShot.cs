@@ -9,9 +9,9 @@ namespace Picturepark.SDK.V1.Tests.Contracts
     [PictureparkDisplayPattern(DisplayPatternType.Name, TemplateEngine.DotLiquid, "{{data.personShot.description}}")]
     public class PersonShot
     {
-        public List<Person> Persons { get; set; }
+        public IReadOnlyList<Person> Persons { get; set; }
 
-        public List<Country> Countries { get; set; }
+        public IReadOnlyList<Country> Countries { get; set; }
 
         [PictureparkSimpleAnalyzer(SimpleSearch = true)]
         public string Description { get; set; }

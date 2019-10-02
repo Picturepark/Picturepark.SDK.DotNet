@@ -3,7 +3,7 @@
   "openapi": "3.0.0",
   "info": {
     "title": "Picturepark API V1",
-    "description": "# Getting started\r\nWelcome to the reference for the Picturepark Content Platform REST API.\r\n\r\n## Client registration\r\nTo use the Picturepark API, you need first to create a new API Client. You can create clients via an Identity Server (IDS) interface directly from Content platform.\r\n\r\nGo to `Settings` / `API Clients` (https://{{customerHost}}/Settings/APIClients) and create a new API Client based on your desired authentication flow.\r\n\r\n### Client attributes\r\n\r\n| Attribute      | Description |\r\n| -------------- | ----------- |\r\n| **Allowed scopes** | Scopes which the client is allowed to access. Use can find scope name beside the respective API endpoints. |\r\n| **Redirect Uris**  | Which URI's is IDS allowed to send the authentication information to. |\r\n| **Urls (masks) safe to load** | IDS has to load some information from the CP customer instance like customer terms of service or logos. This lists the paths which are safe to load by IDS. Usually similar to Redirect Uris. |\r\n| **Allowed CORS origins** | Adds to the list of origins allowed to access the IDS authentication API. |\r\n\r\n## Authentication\r\nThe authentication process is based on [OpenID Connect](http://openid.net/connect/).\r\n\r\nThe following OAuth 2.0 flows are supported:\r\n\r\n| Flow         | Description |\r\n| ------------ | ----------- |\r\n| **Implicit** | Interactive user authentication for SPA Applications |\r\n| **Hybrid**   | Interactive user authentication with server based validation |\r\n| **Password** | Server to server, create access tokens that do not expire |\r\n\r\n### Examples\r\nExample authentication implementations can be found here:\r\n- Angular: https://github.com/Picturepark/Picturepark.SDK.TypeScript/tree/master/src/picturepark-sdk-v1-angular\r\n- HTML5 Fetch: https://github.com/Picturepark/Picturepark.SDK.TypeScript/tree/master/src/picturepark-sdk-v1-fetch\r\n- .NET: https://github.com/Picturepark/Picturepark.SDK.DotNet/tree/master/samples/Picturepark.Microsite.Example\r\n\r\n### Access token lifetime\r\nFor **Implicit** and **Hybrid** flow, the access tokens are short-lived (1 hour). You need to refresh your access token after it's expired.\r\nYou can silently refresh the token using a hidden Iframe in the browser: [Angular example](https://damienbod.com/2017/06/02/implementing-a-silent-token-renew-in-angular-for-the-openid-connect-implicit-flow/)\r\n\r\nFor the **Password** flow, you can create an access token that never expires.\r\nGo to `Settings` / `API Clients` in Content platform (https://{{customerHost}}/Settings/APIClients) and click on Tokens beside the respective client (or create a new client).\r\n\r\n**Attention: Adding long lived access tokens to a web application (adding token to Javascripts source code) will expose that token to anyone. Use with care and a very limited set of scopes.**\r\n\r\n### Urls\r\n\r\n- Live: -\r\n- Preview: https://identity.preview-picturepark.com\r\n- Stage: https://identity.stage-picturepark.com\r\n\r\n## SDKs\r\nTo simplify building applications, SDKs for the following languages/frameworks are provided and released as open source under MIT license:\r\n\r\n- .NET\r\n  - [https://github.com/Picturepark/Picturepark.SDK.DotNet](https://github.com/Picturepark/Picturepark.SDK.DotNet)\r\n  - Supports .NET 4.5+ / .NET Standard 1.3+\r\n- JavaScript / TypeScript\r\n  - [https://github.com/Picturepark/Picturepark.SDK.TypeScript](https://github.com/Picturepark/Picturepark.SDK.TypeScript)\r\n  - Supports [Angular](https://angular.io/) 4.3+ / [HTML 5 Fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)\r\n\r\nClients for other languages can be created using [Autorest](https://github.com/Azure/autorest) using the following OpenAPI provided here:\r\n- [Picturepark.SDK.Playground](https://github.com/Picturepark/Picturepark.SDK.Playground)\r\n\r\n### Compatibility matrix\r\n\r\n| SDK version | Picturepark CP version |\r\n| ----------- | ---------------------- |\r\n| `1.0.x`     | `10.0.x`               |\r\n| `1.1.x`     | `10.1.x`               |\r\n| `1.2.x`     | `10.2.x`               |\r\n| `1.3.x`     | `10.3.x`               |\r\n\r\n# Concepts\r\n\r\n## HTTP Requests\r\nTo perform API calls, you can specify the following HTTP headers:\r\n\r\n| HTTP Header               | Value                | Required |\r\n| ------------------------- | -------------------- | -------- |\r\n| Accept                    | application/json     | Yes      |\r\n| Authorization             | Bearer {accessToken} | Yes (except for publicAccess/* endpoints) |\r\n| Picturepark-CustomerAlias | Customer identifier  | Yes      |\r\n| Picturepark-Language      | en / de              | No       |\r\n\r\n## Error responses\r\nErrors in Picturepark API are returned using HTTP status codes, as well as a JSON error response object.\r\n\r\nHTTP status 4xx\r\n- Client errors (e.g. wrong data provided by client)\r\n\r\nHTTP status 5xx\r\n- Server errors (something went wrong on the server)\r\n\r\n## Request limits / quota\r\nTo protect the Picturepark API you are limited in the number of API requests per interval.\r\n\r\nIf that limit is exceeded you will get an exception with HTTP status code 429 (Too many requests).\r\n\r\nIf you need more calls per interval, contact Picturepark sales (sales@picturepark.com).\r\n\r\n## Permissions / Scopes\r\n\r\nIn order to be able to perform requests, you need the permissions.\r\n\r\n### User permissions\r\nThe authenticated user needs the permission in Picturepark to perform the request.\r\n\r\n### Scopes\r\n\r\nAdditionally, your application needs to define which scopes are required.\r\n\r\nFor all the scopes requested by your application, the users need to confirm these in the consent screen.\r\n\r\n[List of scopes](#section/Authentication)\r\n\r\n\r\n# Search\r\n\r\nMost entities have a search endpoint to search and filter.\r\n\r\nFor list items and contents, the search and filters depend on the available schemas and search configurations.\r\n\r\n\r\n## Simple search\r\n\r\n([Elastic search query string reference](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html))\r\n\r\nWith the simple search a multi field query is executed.\r\n\r\nallow_leading_wildcard is disabled.\r\n\r\nThe applicable query string syntax can be found [here](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html).\r\n\r\nThe query is executed against all indexed schema fields with a boolean flag *SimpleSearch* set to `true`.\r\n\r\nRunning the query against multiple fields enables to put the searched fields under thight control and also to expand each query term to an OR clause (field1=\"value\" or field2=\"value\").\r\n\r\n\r\n## Filtering\r\n\r\nAvailable filters:\r\n\r\n- AndFilter\r\n- OrFilter\r\n- NotFilter\r\n- DateRangeFilter\r\n- NumericRangeFilter\r\n- ExistsFilter\r\n- PrefixFilter\r\n- TermFilter\r\n- TermsFilter\r\n- GeoBoundingBoxFilter\r\n- GeoDistanceFilter\r\n- NestedFilter (Obsolete)\r\n- ChildFilter\r\n- ParentFilter",
+    "description": "# Getting started\r\nWelcome to the reference for the Picturepark Content Platform REST API.\r\n\r\n## Client registration\r\nTo use the Picturepark API, you need first to create a new API Client. You can create clients via an Identity Server (IDS) interface directly from Content platform.\r\n\r\nGo to `Settings` / `API Clients` (https://{{customerHost}}/Settings/APIClients) and create a new API Client based on your desired authentication flow.\r\n\r\n### Client attributes\r\n\r\n| Attribute      | Description |\r\n| -------------- | ----------- |\r\n| **Allowed scopes** | Scopes which the client is allowed to access. Use can find scope name beside the respective API endpoints. |\r\n| **Redirect Uris**  | Which URI's is IDS allowed to send the authentication information to. |\r\n| **Urls (masks) safe to load** | IDS has to load some information from the CP customer instance like customer terms of service or logos. This lists the paths which are safe to load by IDS. Usually similar to Redirect Uris. |\r\n| **Allowed CORS origins** | Adds to the list of origins allowed to access the IDS authentication API. |\r\n\r\n## Authentication\r\nThe authentication process is based on [OpenID Connect](http://openid.net/connect/).\r\n\r\nThe following OAuth 2.0 flows are supported:\r\n\r\n| Flow         | Description |\r\n| ------------ | ----------- |\r\n| **Hybrid**   | Interactive user authentication with server based validation |\r\n| **Password** | Server to server, create access tokens that do not expire |\r\n| **Authorization code** with PKCE | Interactive user authentication recommended for SPA's |\r\n| **Implicit** | Not recommended anymore, used mostly in legacy SPA's |\r\n\r\n### Examples\r\nExample authentication implementations can be found here:\r\n- Angular: https://github.com/Picturepark/Picturepark.SDK.TypeScript/tree/master/src/picturepark-sdk-v1-angular\r\n- HTML5 Fetch: https://github.com/Picturepark/Picturepark.SDK.TypeScript/tree/master/src/picturepark-sdk-v1-fetch\r\n- .NET: https://github.com/Picturepark/Picturepark.SDK.DotNet/tree/master/samples/Picturepark.Microsite.Example\r\n\r\n### Access token lifetime\r\nFor **Implicit**, **Hybrid** and **Authentication code** flows, the access tokens are short-lived (1 hour). You need to refresh your access token after it's expired.\r\nYou can silently refresh the token using a hidden Iframe in the browser: [Angular example](https://damienbod.com/2017/06/02/implementing-a-silent-token-renew-in-angular-for-the-openid-connect-implicit-flow/)\r\n\r\nFor the **Password** flow, you can create an access token that never expires.\r\nGo to `Settings` / `API Clients` in Content platform (https://{{customerHost}}/Settings/APIClients) and click on Tokens beside the respective client (or create a new client).\r\n\r\n**Attention: Adding long lived access tokens to a web application (adding token to Javascripts source code) will expose that token to anyone. Use with care and a very limited set of scopes.**\r\n\r\n### Urls\r\n\r\n- Live: -\r\n- Preview: https://identity.preview-picturepark.com\r\n- Stage: https://identity.stage-picturepark.com\r\n\r\n## SDKs\r\nTo simplify building applications, SDKs for the following languages/frameworks are provided and released as open source under MIT license:\r\n\r\n- .NET\r\n  - [https://github.com/Picturepark/Picturepark.SDK.DotNet](https://github.com/Picturepark/Picturepark.SDK.DotNet)\r\n  - Supports .NET 4.5+ / .NET Standard 1.3+\r\n- JavaScript / TypeScript\r\n  - [https://github.com/Picturepark/Picturepark.SDK.TypeScript](https://github.com/Picturepark/Picturepark.SDK.TypeScript)\r\n  - Supports [Angular](https://angular.io/) 4.3+ / [HTML 5 Fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)\r\n\r\nClients for other languages can be created using [Autorest](https://github.com/Azure/autorest) using the following OpenAPI provided here:\r\n- [Picturepark.SDK.Playground](https://github.com/Picturepark/Picturepark.SDK.Playground)\r\n\r\n### Compatibility matrix\r\n\r\n| SDK version | Picturepark CP version |\r\n| ----------- | ---------------------- |\r\n| `1.0.x`     | `10.0.x`               |\r\n| `1.1.x`     | `10.1.x`               |\r\n| `1.2.x`     | `10.2.x`               |\r\n| `1.3.x`     | `10.3.x`               |\r\n\r\n# Concepts\r\n\r\n## HTTP Requests\r\nTo perform API calls, you can specify the following HTTP headers:\r\n\r\n| HTTP Header               | Value                | Required |\r\n| ------------------------- | -------------------- | -------- |\r\n| Accept                    | application/json     | Yes      |\r\n| Authorization             | Bearer {accessToken} | Yes (except for publicAccess/* endpoints) |\r\n| Picturepark-CustomerAlias | Customer identifier  | Yes      |\r\n| Picturepark-Language      | en / de              | No       |\r\n\r\n## Error responses\r\nErrors in Picturepark API are returned using HTTP status codes, as well as a JSON error response object.\r\n\r\nHTTP status 4xx\r\n- Client errors (e.g. wrong data provided by client)\r\n\r\nHTTP status 5xx\r\n- Server errors (something went wrong on the server)\r\n\r\n## Request limits / quota\r\nTo protect the Picturepark API you are limited in the number of API requests per interval.\r\n\r\nIf that limit is exceeded you will get an exception with HTTP status code 429 (Too many requests).\r\n\r\nIf you need more calls per interval, contact Picturepark sales (sales@picturepark.com).\r\n\r\n## Permissions / Scopes\r\n\r\nIn order to be able to perform requests, you need the permissions.\r\n\r\n### User permissions\r\nThe authenticated user needs the permission in Picturepark to perform the request.\r\n\r\n### Scopes\r\n\r\nAdditionally, your application needs to define which scopes are required.\r\n\r\nFor all the scopes requested by your application, the users need to confirm these in the consent screen.\r\n\r\n[List of scopes](#section/Authentication)\r\n\r\n\r\n# Search\r\n\r\nMost entities have a search endpoint to search and filter.\r\n\r\nFor list items and contents, the search and filters depend on the available schemas and search configurations.\r\n\r\n\r\n## Simple search\r\n\r\n([Elastic search query string reference](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html))\r\n\r\nWith the simple search a multi field query is executed.\r\n\r\nallow_leading_wildcard is disabled.\r\n\r\nThe applicable query string syntax can be found [here](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html).\r\n\r\nThe query is executed against all indexed schema fields with a boolean flag *SimpleSearch* set to `true`.\r\n\r\nRunning the query against multiple fields enables to put the searched fields under thight control and also to expand each query term to an OR clause (field1=\"value\" or field2=\"value\").\r\n\r\n\r\n## Filtering\r\n\r\nAvailable filters:\r\n\r\n- AndFilter\r\n- OrFilter\r\n- NotFilter\r\n- DateRangeFilter\r\n- NumericRangeFilter\r\n- ExistsFilter\r\n- PrefixFilter\r\n- TermFilter\r\n- TermsFilter\r\n- GeoBoundingBoxFilter\r\n- GeoDistanceFilter\r\n- NestedFilter (Obsolete)\r\n- ChildFilter\r\n- ParentFilter",
     "contact": {
       "name": "Picturepark sales",
       "url": "http://www.picturepark.com",
@@ -25038,21 +25038,13 @@
                 "nullable": true
               },
               "defaultValues": {
-                "description": "A dictionary containing default values (used for example to populate required fields).",
-                "nullable": true,
-                "oneOf": [
-                  {
-                    "$ref": "#/components/schemas/DataDictionary"
-                  }
-                ]
+                "type": "object",
+                "description": "An object containing default values (used for example to populate required fields).",
+                "nullable": true
               }
             }
           }
         ]
-      },
-      "DataDictionary": {
-        "type": "object",
-        "additionalProperties": {}
       },
       "UnassignLayerAction": {
         "allOf": [
@@ -26108,89 +26100,93 @@
       },
       "ContentDetail": {
         "type": "object",
-        "description": "A content detail.",
+        "description": "Content detail",
         "additionalProperties": false,
         "required": [
-          "content",
           "contentSchemaId",
-          "contentType",
           "id",
-          "layerSchemaIds",
           "ownerTokenId",
+          "contentType",
           "lifeCycle"
         ],
         "properties": {
+          "contentSchemaId": {
+            "type": "string",
+            "description": "The ID of the content schema. The SchemaType of the specified schema must be Content.\nThe schema specifies the structure of the Content dictionary.",
+            "minLength": 1
+          },
+          "layerSchemaIds": {
+            "type": "array",
+            "description": "An optional list of IDs of the schemas that form the layers of the content.\nThe SchemaType of the specified schemas must be Layer.",
+            "nullable": true,
+            "items": {
+              "type": "string"
+            }
+          },
+          "brokenReferenceIds": {
+            "type": "array",
+            "description": "All the IDs of the referenced list items (tagboxes) that do not exist in the system.",
+            "nullable": true,
+            "items": {
+              "type": "string"
+            }
+          },
+          "brokenIndirectReferenceIds": {
+            "type": "array",
+            "description": "All the IDs of the indirectly referenced list items (tagboxes) that do not exist in the system.\nThey are referenced list items that reference at least a list item that do not exist in the system.",
+            "nullable": true,
+            "items": {
+              "type": "string"
+            }
+          },
+          "brokenRelationTargetIds": {
+            "type": "array",
+            "description": "All the IDs of the contents or list items target of a relation that do not exist in the system.",
+            "nullable": true,
+            "items": {
+              "type": "string"
+            }
+          },
+          "content": {
+            "type": "object",
+            "description": "The content data of the content. It's an object of dynamic metadata whose structure is defined in the Content schema identified.\nby the ContentSchemaId property.",
+            "nullable": true
+          },
+          "metadata": {
+            "type": "object",
+            "description": "The metadata belonging to the layers of the content. It's a dictionary of dynamic metadata whose structure is defined in the Layer schemas identified\nby the LayerSchemaIds property.",
+            "nullable": true,
+            "additionalProperties": {}
+          },
+          "id": {
+            "type": "string",
+            "description": "The content ID.",
+            "minLength": 1
+          },
+          "contentPermissionSetIds": {
+            "type": "array",
+            "description": "An optional list of content permission set IDs which control content permissions. These permissions control content accessibility for the users that do not own the content.",
+            "nullable": true,
+            "items": {
+              "type": "string"
+            }
+          },
+          "outputs": {
+            "type": "array",
+            "description": "The Outputs generated from the content. They identifies the rendered files generated by the system.\nThey are available only for file base contents, and they depends on the output formats configured in the system.",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/Output"
+            }
+          },
           "audit": {
-            "description": "Audit data with information regarding document creation and modification.",
+            "description": "Audit information.",
             "nullable": true,
             "oneOf": [
               {
                 "$ref": "#/components/schemas/UserAuditDetail"
               }
             ]
-          },
-          "content": {
-            "description": "The content data"
-          },
-          "contentPermissionSetIds": {
-            "type": "array",
-            "description": "An optional id list of content permission sets. Controls content accessibility outside of content ownership.",
-            "nullable": true,
-            "items": {
-              "type": "string"
-            }
-          },
-          "contentSchemaId": {
-            "type": "string",
-            "description": "The id of the content schema",
-            "minLength": 1
-          },
-          "contentType": {
-            "description": "The type of content",
-            "minLength": 1,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/ContentType"
-              }
-            ]
-          },
-          "displayValues": {
-            "description": "Contains language specific display values, rendered according to the content schema's\n             display pattern configuration.",
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/DisplayValueDictionary"
-              }
-            ]
-          },
-          "id": {
-            "type": "string",
-            "description": "The content id.",
-            "minLength": 1
-          },
-          "layerSchemaIds": {
-            "type": "array",
-            "description": "An optional list of layer schemas ids",
-            "items": {
-              "type": "string"
-            }
-          },
-          "metadata": {
-            "description": "The metadata dictionary",
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/DataDictionary"
-              }
-            ]
-          },
-          "outputs": {
-            "type": "array",
-            "description": "A list of rendering outputs for underlying digital file.",
-            "nullable": true,
-            "items": {
-              "$ref": "#/components/schemas/Output"
-            }
           },
           "ownerTokenId": {
             "type": "string",
@@ -26206,9 +26202,25 @@
               }
             ]
           },
+          "contentType": {
+            "description": "Content type.",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ContentType"
+              }
+            ]
+          },
+          "displayValues": {
+            "description": "Contains language specific display values. They are calculated values based on the template stored in the Content schema DisplayPatterns property.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/DisplayValueDictionary"
+              }
+            ]
+          },
           "lifeCycle": {
-            "description": "The lifecycle of the content.",
-            "minLength": 1,
+            "description": "The actual lifecycle value of the content. Becomes Inactive when the content is deleted.",
             "oneOf": [
               {
                 "$ref": "#/components/schemas/LifeCycle"
@@ -26223,85 +26235,6 @@
               "$ref": "#/components/schemas/ContentRight"
             }
           }
-        }
-      },
-      "UserAuditDetail": {
-        "type": "object",
-        "description": "Audit information",
-        "additionalProperties": false,
-        "required": [
-          "creationDate",
-          "modificationDate"
-        ],
-        "properties": {
-          "creationDate": {
-            "type": "string",
-            "description": "The date on which the document was created.",
-            "format": "date-time"
-          },
-          "modificationDate": {
-            "type": "string",
-            "description": "The last date on which the document was modified.",
-            "format": "date-time"
-          },
-          "createdByUser": {
-            "description": "ID of the user who created the document.",
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/User"
-              }
-            ]
-          },
-          "modifiedByUser": {
-            "description": "ID of the last user who modified the document.",
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/User"
-              }
-            ]
-          }
-        }
-      },
-      "User": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "emailAddress",
-          "isDeleted"
-        ],
-        "properties": {
-          "id": {
-            "type": "string",
-            "description": "User's Picturepark ID.",
-            "nullable": true
-          },
-          "firstName": {
-            "type": "string",
-            "description": "User's first name.",
-            "nullable": true
-          },
-          "lastName": {
-            "type": "string",
-            "description": "User's last name.",
-            "nullable": true
-          },
-          "emailAddress": {
-            "type": "string",
-            "description": "Email address of the user (doubles as username).",
-            "minLength": 1
-          },
-          "isDeleted": {
-            "type": "boolean",
-            "description": "Marks a user that was deleted from the system."
-          }
-        }
-      },
-      "DisplayValueDictionary": {
-        "type": "object",
-        "additionalProperties": {
-          "type": "string"
         }
       },
       "Output": {
@@ -26632,6 +26565,85 @@
             "additionalProperties": false
           }
         ]
+      },
+      "UserAuditDetail": {
+        "type": "object",
+        "description": "Audit information",
+        "additionalProperties": false,
+        "required": [
+          "creationDate",
+          "modificationDate"
+        ],
+        "properties": {
+          "creationDate": {
+            "type": "string",
+            "description": "The date on which the document was created.",
+            "format": "date-time"
+          },
+          "modificationDate": {
+            "type": "string",
+            "description": "The last date on which the document was modified.",
+            "format": "date-time"
+          },
+          "createdByUser": {
+            "description": "ID of the user who created the document.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/User"
+              }
+            ]
+          },
+          "modifiedByUser": {
+            "description": "ID of the last user who modified the document.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/User"
+              }
+            ]
+          }
+        }
+      },
+      "User": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "emailAddress",
+          "isDeleted"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "User's Picturepark ID.",
+            "nullable": true
+          },
+          "firstName": {
+            "type": "string",
+            "description": "User's first name.",
+            "nullable": true
+          },
+          "lastName": {
+            "type": "string",
+            "description": "User's last name.",
+            "nullable": true
+          },
+          "emailAddress": {
+            "type": "string",
+            "description": "Email address of the user (doubles as username).",
+            "minLength": 1
+          },
+          "isDeleted": {
+            "type": "boolean",
+            "description": "Marks a user that was deleted from the system."
+          }
+        }
+      },
+      "DisplayValueDictionary": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "string"
+        }
       },
       "LifeCycle": {
         "type": "string",
@@ -27640,38 +27652,39 @@
       },
       "ContentCreateRequest": {
         "type": "object",
-        "description": "A request structure for creating a content document.",
+        "description": "Request to create a content",
         "additionalProperties": false,
+        "required": [
+          "contentSchemaId"
+        ],
         "properties": {
           "contentSchemaId": {
             "type": "string",
-            "description": "The id of a schema with schema type content.",
-            "nullable": true
+            "description": "The ID of the content schema. The SchemaType of the specified schema must be Content.\nThe schema specifies the structure of the Content dictionary.",
+            "minLength": 1
           },
           "layerSchemaIds": {
             "type": "array",
-            "description": "An optional id list of schemas with schema type layer.",
+            "description": "An optional list of IDs of the schemas that form the layers of the content.\nThe SchemaType of the specified schemas must be Layer.",
             "nullable": true,
             "items": {
               "type": "string"
             }
           },
           "content": {
-            "description": "The content data of the content document.",
+            "type": "object",
+            "description": "The content data of the content. It's an object of dynamic metadata whose structure is defined in the Content schema identified by the ContentSchemaId property.",
             "nullable": true
           },
           "metadata": {
-            "description": "The layer metadata of the content document.",
+            "type": "object",
+            "description": "The dynamic data structure matching the field schematics of the schemas with type layer (LayerSchemaIds).\nThe metadata belonging to the layers of the content. It's a dictionary of dynamic metadata whose structure is defined in the Layer schemas identified\nby the LayerSchemaIds property.",
             "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/DataDictionary"
-              }
-            ]
+            "additionalProperties": {}
           },
           "contentPermissionSetIds": {
             "type": "array",
-            "description": "An optional id list of content permission sets. ",
+            "description": "An optional list of content permission set IDs which control content permissions. These permissions control content accessibility for the users that do not own the content.",
             "nullable": true,
             "items": {
               "type": "string"
@@ -27686,20 +27699,20 @@
       },
       "ContentCreateManyRequest": {
         "type": "object",
-        "description": "A request structure for creating multiple content documents.",
+        "description": "Request to create multiple contents",
         "additionalProperties": false,
         "required": [
-          "allowMissingDependencies"
+          "allowMissingDependencies",
+          "items"
         ],
         "properties": {
           "allowMissingDependencies": {
             "type": "boolean",
-            "description": "Allow storing references to missing list items / contents"
+            "description": "Allows creating contents that refer to list items or contents that don't exist in the system."
           },
           "items": {
             "type": "array",
-            "description": "Create items",
-            "nullable": true,
+            "description": "Items to be created.",
             "items": {
               "$ref": "#/components/schemas/ContentCreateRequest"
             }
@@ -27891,22 +27904,15 @@
             }
           },
           "content": {
-            "description": "The content data of the content. It's a dictionary of dynamic metadata whose structure is defined in the Content schema identified by\nthe ContentSchemaId property. Updating the Content property is only possible for virtual items (contents\nwhose ContentType is ContentItem).\nUpdate of content data will be done only if this attribute has any data, i.e. if it's not null or empty.",
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/DataDictionary"
-              }
-            ]
+            "type": "object",
+            "description": "The content data of the content. It's an object of dynamic metadata whose structure is defined in the Content schema identified by\nthe ContentSchemaId property. Updating the Content property is only possible for virtual items (contents\nwhose ContentType is ContentItem).\nUpdate of content data will be done only if this attribute has any data, i.e. if it's not null or empty.",
+            "nullable": true
           },
           "metadata": {
+            "type": "object",
             "description": "The dynamic data structure matching the field schematics of the schemas with type layer (LayerSchemaIds).\nThe metadata belonging to the layers of the content. It's a dictionary of dynamic metadata whose structure is defined in the Layer schemas identified\nby the LayerSchemaIds property.\nIf there are no data for a specified LayerSchemaId, it is treated as empty.",
             "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/DataDictionary"
-              }
-            ]
+            "additionalProperties": {}
           },
           "layerSchemasUpdateOptions": {
             "description": "Options to modify the behavior for updating the layers.\nMerge: the content is updated so that the assigned layers to the content will be a merge of the ones specified in the LayerSchemaIds property\nand the ones already existing; existing assigned layers not specified in the property are kept and missing layers are assigned.\nReplace: the content is updated so that only the layers specified in the LayerSchemaIds property are assigned to the content;\nexisting assigned layers not specified in the property are removed and missing layers are assigned.\nDefaults to Merge.",
@@ -28201,12 +28207,8 @@
             ],
             "properties": {
               "value": {
-                "description": "The dictionary containing the metadata values to add / update.",
-                "oneOf": [
-                  {
-                    "$ref": "#/components/schemas/DataDictionary"
-                  }
-                ]
+                "type": "object",
+                "description": "An object containing the metadata values to add / update."
               }
             }
           }
@@ -28226,12 +28228,8 @@
             ],
             "properties": {
               "value": {
-                "description": "The dictionary containing the metadata values to add / update.",
-                "oneOf": [
-                  {
-                    "$ref": "#/components/schemas/DataDictionary"
-                  }
-                ]
+                "type": "object",
+                "description": "An object containing the metadata values to add / update."
               }
             }
           }
@@ -28263,12 +28261,8 @@
             ],
             "properties": {
               "value": {
-                "description": "The dictionary containing the metadata values for the schema. The existing dictionary will be entirely overwritten.",
-                "oneOf": [
-                  {
-                    "$ref": "#/components/schemas/DataDictionary"
-                  }
-                ]
+                "type": "object",
+                "description": "An object containing the metadata values for the schema. The existing dictionary will be entirely overwritten."
               }
             }
           }
@@ -29448,20 +29442,30 @@
       },
       "ListItemDetail": {
         "type": "object",
-        "description": "The detail view item for the list item.",
+        "description": "List item detail",
         "additionalProperties": false,
+        "required": [
+          "id",
+          "contentSchemaId"
+        ],
         "properties": {
-          "content": {
-            "description": "The content data of the list item.",
-            "nullable": true
+          "id": {
+            "type": "string",
+            "description": "The list item ID.",
+            "minLength": 1
           },
           "contentSchemaId": {
             "type": "string",
-            "description": "The id of the schema with schema type list.",
+            "description": "The ID of the content schema. The SchemaType of the specified schema must be List.",
+            "minLength": 1
+          },
+          "content": {
+            "type": "object",
+            "description": "The content data of the list item. It's an object of dynamic metadata whose structure is defined in the Content schema specified\nby the ContentSchemaId property.",
             "nullable": true
           },
           "displayValues": {
-            "description": "Contains language specific display values, rendered according to the list schema's display pattern configuration.",
+            "description": "Contains language specific display values. They are calculated values based on the template stored in the Content schema DisplayPatterns property.",
             "nullable": true,
             "oneOf": [
               {
@@ -29469,13 +29473,32 @@
               }
             ]
           },
-          "id": {
-            "type": "string",
-            "description": "The list item id.",
-            "nullable": true
+          "brokenReferenceIds": {
+            "type": "array",
+            "description": "All the IDs of the referenced list items (tagboxes) that do not exist in the system.",
+            "nullable": true,
+            "items": {
+              "type": "string"
+            }
+          },
+          "brokenRelationTargetIds": {
+            "type": "array",
+            "description": "All the IDs of the contents or list items target of a relation that do not exist in the system.",
+            "nullable": true,
+            "items": {
+              "type": "string"
+            }
+          },
+          "brokenIndirectReferenceIds": {
+            "type": "array",
+            "description": "All the IDs of the indirectly referenced list items (tagboxes) that do not exist in the system.\nThey are referenced list items that reference at least a list item that do not exist in the system.",
+            "nullable": true,
+            "items": {
+              "type": "string"
+            }
           },
           "audit": {
-            "description": "Audit data with information regarding document creation and modification.",
+            "description": "Audit information.",
             "nullable": true,
             "oneOf": [
               {
@@ -29516,12 +29539,43 @@
       "ListItemSearchResult": {
         "allOf": [
           {
+            "$ref": "#/components/schemas/SearchBehaviorBaseResultOfListItem"
+          },
+          {
+            "type": "object",
+            "description": "Result for list item search operation",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "SearchBehaviorBaseResultOfListItem": {
+        "allOf": [
+          {
             "$ref": "#/components/schemas/BaseResultOfListItem"
           },
           {
             "type": "object",
-            "description": "Encapsulates the result of a list item search.",
-            "additionalProperties": false
+            "additionalProperties": false,
+            "required": [
+              "isSearchStringRewritten"
+            ],
+            "properties": {
+              "searchString": {
+                "type": "string",
+                "nullable": true
+              },
+              "isSearchStringRewritten": {
+                "type": "boolean"
+              },
+              "queryDebugInformation": {
+                "nullable": true,
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/QueryDebugInformation"
+                  }
+                ]
+              }
+            }
           }
         ]
       },
@@ -29556,11 +29610,20 @@
       },
       "ListItem": {
         "type": "object",
-        "description": "A document stored in the elastic search metadata index, with fields corresponding to the the schemantics of its underlying list schema.",
         "additionalProperties": false,
         "properties": {
-          "content": {
-            "description": "The content data of the list item.",
+          "audit": {
+            "description": "Audit information.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/UserAudit"
+              }
+            ]
+          },
+          "id": {
+            "type": "string",
+            "description": "The list item id.",
             "nullable": true
           },
           "contentSchemaId": {
@@ -29577,19 +29640,34 @@
               }
             ]
           },
-          "id": {
-            "type": "string",
-            "description": "The list item id.",
+          "content": {
+            "type": "object",
+            "description": "The content data of the list item.",
             "nullable": true
           },
-          "audit": {
-            "description": "Audit data with information regarding document creation and modification.",
+          "brokenReferenceIds": {
+            "type": "array",
+            "description": "All the ids of the broken references (tagboxes)",
             "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/UserAudit"
-              }
-            ]
+            "items": {
+              "type": "string"
+            }
+          },
+          "brokenRelationTargetIds": {
+            "type": "array",
+            "description": "All the target ids of the broken relations",
+            "nullable": true,
+            "items": {
+              "type": "string"
+            }
+          },
+          "brokenIndirectReferenceIds": {
+            "type": "array",
+            "description": "All the ids of the broken indirect references (tagbox that has a property that reference a broken tagbox)",
+            "nullable": true,
+            "items": {
+              "type": "string"
+            }
           }
         }
       },
@@ -29788,16 +29866,20 @@
       },
       "ListItemCreateRequest": {
         "type": "object",
-        "description": "A request structure for creating a list item document.",
+        "description": "Request to create a list item",
         "additionalProperties": false,
+        "required": [
+          "contentSchemaId"
+        ],
         "properties": {
-          "content": {
-            "description": "The content data of the list item.",
-            "nullable": true
-          },
           "contentSchemaId": {
             "type": "string",
-            "description": "The id of the schema with schema type list.",
+            "description": "The ID of the content schema. The SchemaType of the specified schema must be List.",
+            "minLength": 1
+          },
+          "content": {
+            "type": "object",
+            "description": "The content data of the list item. It's an object of dynamic metadata whose structure is defined in the Content schema.",
             "nullable": true
           },
           "requestId": {
@@ -29809,20 +29891,20 @@
       },
       "ListItemCreateManyRequest": {
         "type": "object",
-        "description": "A request structure for creating multiple list items.",
+        "description": "Request to create multiple list items",
         "additionalProperties": false,
         "required": [
-          "allowMissingDependencies"
+          "allowMissingDependencies",
+          "items"
         ],
         "properties": {
           "allowMissingDependencies": {
             "type": "boolean",
-            "description": "Allow storing references to missing list items / contents"
+            "description": "Allows creating list items that refer to list items or contents that don't exist in the system."
           },
           "items": {
             "type": "array",
-            "description": "Create items",
-            "nullable": true,
+            "description": "Items to be created.",
             "items": {
               "$ref": "#/components/schemas/ListItemCreateRequest"
             }
@@ -29831,31 +29913,32 @@
       },
       "ListItemUpdateRequest": {
         "type": "object",
-        "description": "A request structure for updating a list item.",
+        "description": "Request to update an existing list item",
         "additionalProperties": false,
         "properties": {
           "content": {
-            "description": "The content data of the list item.",
+            "type": "object",
+            "description": "The content data of the list item. It's an object of dynamic metadata whose structure is defined in the Content schema of the list item.",
             "nullable": true
           }
         }
       },
       "ListItemUpdateManyRequest": {
         "type": "object",
-        "description": "A request structure for updating multiple list items.",
+        "description": "Request to update multiple list items",
         "additionalProperties": false,
         "required": [
-          "allowMissingDependencies"
+          "allowMissingDependencies",
+          "items"
         ],
         "properties": {
           "allowMissingDependencies": {
             "type": "boolean",
-            "description": "Allow storing references to missing list items / contents"
+            "description": "Allows updating list items with references to list items or contents that don't exist in the system."
           },
           "items": {
             "type": "array",
-            "description": "Update items",
-            "nullable": true,
+            "description": "Items to be updated.",
             "items": {
               "$ref": "#/components/schemas/ListItemUpdateItem"
             }
@@ -29870,11 +29953,14 @@
           {
             "type": "object",
             "additionalProperties": false,
+            "required": [
+              "id"
+            ],
             "properties": {
               "id": {
                 "type": "string",
                 "description": "The list item id.",
-                "nullable": true
+                "minLength": 1
               }
             }
           }
@@ -32957,7 +33043,7 @@
           },
           {
             "type": "object",
-            "description": "A field that can be triggered, and store in such occasion the id of the user and the time that triggered it. The last user who triggered it and the last time in which it was triggered can be used for filtering or for\nsimple search (if enabled on the field). Such information are stored in two inner fields: \"triggeredBy\" and \"triggeredOn\". In order to be triggered in a Content or ListItem metadata dictionary, the special '\"_trigger\": true'\nshould be sent in the DataDictionary of the field itself.",
+            "description": "A field that can be triggered, and store in such occasion the id of the user and the time that triggered it. The last user who triggered it and the last time in which it was triggered can be used for filtering or for\nsimple search (if enabled on the field). Such information are stored in two inner fields: \"triggeredBy\" and \"triggeredOn\". In order to be triggered in a Content or ListItem metadata dictionary, the special '\"_trigger\": true'\nshould be sent in the data of the field itself.",
             "additionalProperties": false,
             "required": [
               "boost"
@@ -35092,21 +35178,14 @@
             }
           },
           "content": {
-            "description": "The content data.",
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/DataDictionary"
-              }
-            ]
+            "type": "object",
+            "description": "The content data. It's an object of dynamic metadata whose structure is defined in the Content schema specified\nby the ContentSchemaId property."
           },
           "metadata": {
-            "description": "The metadata dictionary.",
+            "type": "object",
+            "description": "The metadata belonging to the layers of the content. It's a dictionary of dynamic metadata whose structure is defined in the Layer schemas identified\nby the LayerSchemaIds property.",
             "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/DataDictionary"
-              }
-            ]
+            "additionalProperties": {}
           },
           "id": {
             "type": "string",
@@ -37233,12 +37312,10 @@
             }
           },
           "metadata": {
+            "type": "object",
+            "description": "The metadata to be assigned to the imported content. It's a dictionary of dynamic metadata whose structure is defined in the Layer schemas identified\nby the LayerSchemaIds property.",
             "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/DataDictionary"
-              }
-            ]
+            "additionalProperties": {}
           },
           "contentPermissionSetIds": {
             "type": "array",
@@ -37280,12 +37357,10 @@
             }
           },
           "metadata": {
+            "type": "object",
+            "description": "The metadata to be assigned to the imported content. It's a dictionary of dynamic metadata whose structure is defined in the Layer schemas identified\nby the LayerSchemaIds property.",
             "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/DataDictionary"
-              }
-            ]
+            "additionalProperties": {}
           },
           "contentPermissionSetIds": {
             "type": "array",
@@ -38006,6 +38081,10 @@
             }
           }
         }
+      },
+      "DataDictionary": {
+        "type": "object",
+        "additionalProperties": {}
       }
     },
     "securitySchemes": {

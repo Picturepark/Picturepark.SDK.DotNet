@@ -30,11 +30,7 @@ namespace Picturepark.SDK.V1.Conversion
             _contractResolver = contractResolver;
         }
 
-        public static string ResolveSchemaName(Type contract)
-        {
-            return contract.GetTypeInfo().GetCustomAttribute<PictureparkSchemaAttribute>()?.Name ??
-                   contract.Name;
-        }
+        public static string ResolveSchemaId(Type contract) => Metadata.ResolveSchemaId(contract);
 
         /// <summary>Converts a .NET type and its dependencies to a list of Picturepark schema definitions.</summary>
         /// <param name="type">The type to generate definitions for.</param>
@@ -100,7 +96,7 @@ namespace Picturepark.SDK.V1.Conversion
                     typeToReflect != typeof(TriggerObject))
                 {
                     typesToReflect.Push(baseType);
-                    parentSchemaId = ResolveSchemaName(baseType);
+                    parentSchemaId = ResolveSchemaId(baseType);
                 }
 
                 contractTypeInfo.ParentTypeName = parentSchemaId;
@@ -281,7 +277,7 @@ namespace Picturepark.SDK.V1.Conversion
                     continue;
                 }
 
-                var schemaId = ResolveSchemaName(type);
+                var schemaId = ResolveSchemaId(type);
                 if (existingSchemas.Any(s => s.Id == schemaId))
                 {
                     continue;
