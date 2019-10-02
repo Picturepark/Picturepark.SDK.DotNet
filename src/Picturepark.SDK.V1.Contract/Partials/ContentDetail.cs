@@ -68,7 +68,6 @@ namespace Picturepark.SDK.V1.Contract
         /// Tests if a layer is present in <see cref="Metadata"/> dictionary.
         /// </summary>
         /// <typeparam name="T">Type representing the layer</typeparam>
-        /// <param name="schemaId">OSchema ID of the layer within the metadata dictionary.</param>
         /// <returns>True if the layer representing the type T is present in metadata dictionary, false otherwise.</returns>
         public bool HasLayer<T>() => HasLayer(Contract.Metadata.ResolveLayerKey(typeof(T)));
 
