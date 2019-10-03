@@ -5320,8 +5320,8 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [System.Runtime.Serialization.EnumMember(Value = @"Model3d")]
         Model3d = 19,
     
-        [System.Runtime.Serialization.EnumMember(Value = @"ContentItem")]
-        ContentItem = 20,
+        [System.Runtime.Serialization.EnumMember(Value = @"Virtual")]
+        Virtual = 20,
     
     }
     
