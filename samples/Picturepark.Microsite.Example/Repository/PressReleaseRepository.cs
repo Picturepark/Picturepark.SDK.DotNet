@@ -21,7 +21,6 @@ namespace Picturepark.Microsite.Example.Repository
         {
             var searchResult = await _client.Content.SearchAsync(new ContentSearchRequest
             {
-                Start = start,
                 Limit = limit,
                 SearchString = searchString,
                 Filter = new AndFilter

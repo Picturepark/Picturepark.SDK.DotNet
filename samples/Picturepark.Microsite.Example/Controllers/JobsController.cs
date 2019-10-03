@@ -24,7 +24,6 @@ namespace Picturepark.Microsite.Example.Controllers
 			// JobsAtPicturepark
 			var searchResult = await _client.Content.SearchAsync(new ContentSearchRequest
 			{
-				Start = 0,
 				Limit = 10,
 				Filter = new TermFilter
 				{
