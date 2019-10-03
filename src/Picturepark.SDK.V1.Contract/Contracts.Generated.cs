@@ -9987,9 +9987,9 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("layerId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string LayerId { get; set; }
     
-        /// <summary>A dictionary containing default values (used for example to populate required fields).</summary>
+        /// <summary>An object containing default values (used for example to populate required fields).</summary>
         [Newtonsoft.Json.JsonProperty("defaultValues", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public DataDictionary DefaultValues { get; set; }
+        public object DefaultValues { get; set; }
     
         public string ToJson() 
         {
@@ -9999,21 +9999,6 @@ namespace Picturepark.SDK.V1.Contract
         public static AssignLayerAction FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<AssignLayerAction>(data);
-        }
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
-    public partial class DataDictionary : System.Collections.Generic.Dictionary<string, object>
-    {
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-    
-        public static DataDictionary FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<DataDictionary>(data);
         }
     
     }
@@ -10932,56 +10917,61 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    /// <summary>A content detail.</summary>
+    /// <summary>Content detail</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class ContentDetail 
     {
-        /// <summary>Audit data with information regarding document creation and modification.</summary>
-        [Newtonsoft.Json.JsonProperty("audit", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public UserAuditDetail Audit { get; set; }
-    
-        /// <summary>The content data</summary>
-        [Newtonsoft.Json.JsonProperty("content", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public object Content { get; set; }
-    
-        /// <summary>An optional id list of content permission sets. Controls content accessibility outside of content ownership.</summary>
-        [Newtonsoft.Json.JsonProperty("contentPermissionSetIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> ContentPermissionSetIds { get; set; }
-    
-        /// <summary>The id of the content schema</summary>
+        /// <summary>The ID of the content schema. The SchemaType of the specified schema must be Content.
+        /// The schema specifies the structure of the Content dictionary.</summary>
         [Newtonsoft.Json.JsonProperty("contentSchemaId", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
         public string ContentSchemaId { get; set; }
     
-        /// <summary>The type of content</summary>
-        [Newtonsoft.Json.JsonProperty("contentType", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public ContentType ContentType { get; set; }
+        /// <summary>An optional list of IDs of the schemas that form the layers of the content.
+        /// The SchemaType of the specified schemas must be Layer.</summary>
+        [Newtonsoft.Json.JsonProperty("layerSchemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> LayerSchemaIds { get; set; }
     
-        /// <summary>Contains language specific display values, rendered according to the content schema's
-        ///              display pattern configuration.</summary>
-        [Newtonsoft.Json.JsonProperty("displayValues", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public DisplayValueDictionary DisplayValues { get; set; }
+        /// <summary>All the IDs of the referenced list items (tagboxes) that do not exist in the system.</summary>
+        [Newtonsoft.Json.JsonProperty("brokenReferenceIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> BrokenReferenceIds { get; set; }
     
-        /// <summary>The content id.</summary>
+        /// <summary>All the IDs of the indirectly referenced list items (tagboxes) that do not exist in the system.
+        /// They are referenced list items that reference at least a list item that do not exist in the system.</summary>
+        [Newtonsoft.Json.JsonProperty("brokenIndirectReferenceIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> BrokenIndirectReferenceIds { get; set; }
+    
+        /// <summary>All the IDs of the contents or list items target of a relation that do not exist in the system.</summary>
+        [Newtonsoft.Json.JsonProperty("brokenRelationTargetIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> BrokenRelationTargetIds { get; set; }
+    
+        /// <summary>The content data of the content. It's an object of dynamic metadata whose structure is defined in the Content schema identified.
+        /// by the ContentSchemaId property.</summary>
+        [Newtonsoft.Json.JsonProperty("content", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public object Content { get; set; }
+    
+        /// <summary>The metadata belonging to the layers of the content. It's a dictionary of dynamic metadata whose structure is defined in the Layer schemas identified
+        /// by the LayerSchemaIds property.</summary>
+        [Newtonsoft.Json.JsonProperty("metadata", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.IDictionary<string, object> Metadata { get; set; }
+    
+        /// <summary>The content ID.</summary>
         [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
         public string Id { get; set; }
     
-        /// <summary>An optional list of layer schemas ids</summary>
-        [Newtonsoft.Json.JsonProperty("layerSchemaIds", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.Collections.Generic.ICollection<string> LayerSchemaIds { get; set; } = new System.Collections.Generic.List<string>();
+        /// <summary>An optional list of content permission set IDs which control content permissions. These permissions control content accessibility for the users that do not own the content.</summary>
+        [Newtonsoft.Json.JsonProperty("contentPermissionSetIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> ContentPermissionSetIds { get; set; }
     
-        /// <summary>The metadata dictionary</summary>
-        [Newtonsoft.Json.JsonProperty("metadata", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public DataDictionary Metadata { get; set; }
-    
-        /// <summary>A list of rendering outputs for underlying digital file.</summary>
+        /// <summary>The Outputs generated from the content. They identifies the rendered files generated by the system.
+        /// They are available only for file base contents, and they depends on the output formats configured in the system.</summary>
         [Newtonsoft.Json.JsonProperty("outputs", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<Output> Outputs { get; set; }
+    
+        /// <summary>Audit information.</summary>
+        [Newtonsoft.Json.JsonProperty("audit", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public UserAuditDetail Audit { get; set; }
     
         /// <summary>The owner token ID. Defines the content owner.</summary>
         [Newtonsoft.Json.JsonProperty("ownerTokenId", Required = Newtonsoft.Json.Required.Always)]
@@ -10992,9 +10982,19 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("owner", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public User Owner { get; set; }
     
-        /// <summary>The lifecycle of the content.</summary>
+        /// <summary>Content type.</summary>
+        [Newtonsoft.Json.JsonProperty("contentType", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public ContentType ContentType { get; set; }
+    
+        /// <summary>Contains language specific display values. They are calculated values based on the template stored in the Content schema DisplayPatterns property.</summary>
+        [Newtonsoft.Json.JsonProperty("displayValues", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public DisplayValueDictionary DisplayValues { get; set; }
+    
+        /// <summary>The actual lifecycle value of the content. Becomes Inactive when the content is deleted.</summary>
         [Newtonsoft.Json.JsonProperty("lifeCycle", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public LifeCycle LifeCycle { get; set; }
     
@@ -11010,91 +11010,6 @@ namespace Picturepark.SDK.V1.Contract
         public static ContentDetail FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentDetail>(data);
-        }
-    
-    }
-    
-    /// <summary>Audit information</summary>
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
-    public partial class UserAuditDetail 
-    {
-        /// <summary>The date on which the document was created.</summary>
-        [Newtonsoft.Json.JsonProperty("creationDate", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public System.DateTime CreationDate { get; set; }
-    
-        /// <summary>The last date on which the document was modified.</summary>
-        [Newtonsoft.Json.JsonProperty("modificationDate", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        public System.DateTime ModificationDate { get; set; }
-    
-        /// <summary>ID of the user who created the document.</summary>
-        [Newtonsoft.Json.JsonProperty("createdByUser", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public User CreatedByUser { get; set; }
-    
-        /// <summary>ID of the last user who modified the document.</summary>
-        [Newtonsoft.Json.JsonProperty("modifiedByUser", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public User ModifiedByUser { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-    
-        public static UserAuditDetail FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<UserAuditDetail>(data);
-        }
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
-    public partial class User 
-    {
-        /// <summary>User's Picturepark ID.</summary>
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Id { get; set; }
-    
-        /// <summary>User's first name.</summary>
-        [Newtonsoft.Json.JsonProperty("firstName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string FirstName { get; set; }
-    
-        /// <summary>User's last name.</summary>
-        [Newtonsoft.Json.JsonProperty("lastName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string LastName { get; set; }
-    
-        /// <summary>Email address of the user (doubles as username).</summary>
-        [Newtonsoft.Json.JsonProperty("emailAddress", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public string EmailAddress { get; set; }
-    
-        /// <summary>Marks a user that was deleted from the system.</summary>
-        [Newtonsoft.Json.JsonProperty("isDeleted", Required = Newtonsoft.Json.Required.Always)]
-        public bool IsDeleted { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-    
-        public static User FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<User>(data);
-        }
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
-    public partial class DisplayValueDictionary : System.Collections.Generic.Dictionary<string, string>
-    {
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-    
-        public static DisplayValueDictionary FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<DisplayValueDictionary>(data);
         }
     
     }
@@ -11388,6 +11303,91 @@ namespace Picturepark.SDK.V1.Contract
         public static OutputDetail FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<OutputDetail>(data);
+        }
+    
+    }
+    
+    /// <summary>Audit information</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class UserAuditDetail 
+    {
+        /// <summary>The date on which the document was created.</summary>
+        [Newtonsoft.Json.JsonProperty("creationDate", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public System.DateTime CreationDate { get; set; }
+    
+        /// <summary>The last date on which the document was modified.</summary>
+        [Newtonsoft.Json.JsonProperty("modificationDate", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public System.DateTime ModificationDate { get; set; }
+    
+        /// <summary>ID of the user who created the document.</summary>
+        [Newtonsoft.Json.JsonProperty("createdByUser", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public User CreatedByUser { get; set; }
+    
+        /// <summary>ID of the last user who modified the document.</summary>
+        [Newtonsoft.Json.JsonProperty("modifiedByUser", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public User ModifiedByUser { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static UserAuditDetail FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<UserAuditDetail>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class User 
+    {
+        /// <summary>User's Picturepark ID.</summary>
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
+        /// <summary>User's first name.</summary>
+        [Newtonsoft.Json.JsonProperty("firstName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string FirstName { get; set; }
+    
+        /// <summary>User's last name.</summary>
+        [Newtonsoft.Json.JsonProperty("lastName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string LastName { get; set; }
+    
+        /// <summary>Email address of the user (doubles as username).</summary>
+        [Newtonsoft.Json.JsonProperty("emailAddress", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public string EmailAddress { get; set; }
+    
+        /// <summary>Marks a user that was deleted from the system.</summary>
+        [Newtonsoft.Json.JsonProperty("isDeleted", Required = Newtonsoft.Json.Required.Always)]
+        public bool IsDeleted { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static User FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<User>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class DisplayValueDictionary : System.Collections.Generic.Dictionary<string, string>
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static DisplayValueDictionary FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<DisplayValueDictionary>(data);
         }
     
     }
@@ -12323,27 +12323,32 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    /// <summary>A request structure for creating a content document.</summary>
+    /// <summary>Request to create a content</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class ContentCreateRequest 
     {
-        /// <summary>The id of a schema with schema type content.</summary>
-        [Newtonsoft.Json.JsonProperty("contentSchemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        /// <summary>The ID of the content schema. The SchemaType of the specified schema must be Content.
+        /// The schema specifies the structure of the Content dictionary.</summary>
+        [Newtonsoft.Json.JsonProperty("contentSchemaId", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
         public string ContentSchemaId { get; set; }
     
-        /// <summary>An optional id list of schemas with schema type layer.</summary>
+        /// <summary>An optional list of IDs of the schemas that form the layers of the content.
+        /// The SchemaType of the specified schemas must be Layer.</summary>
         [Newtonsoft.Json.JsonProperty("layerSchemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> LayerSchemaIds { get; set; }
     
-        /// <summary>The content data of the content document.</summary>
+        /// <summary>The content data of the content. It's an object of dynamic metadata whose structure is defined in the Content schema identified by the ContentSchemaId property.</summary>
         [Newtonsoft.Json.JsonProperty("content", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public object Content { get; set; }
     
-        /// <summary>The layer metadata of the content document.</summary>
+        /// <summary>The dynamic data structure matching the field schematics of the schemas with type layer (LayerSchemaIds).
+        /// The metadata belonging to the layers of the content. It's a dictionary of dynamic metadata whose structure is defined in the Layer schemas identified
+        /// by the LayerSchemaIds property.</summary>
         [Newtonsoft.Json.JsonProperty("metadata", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public DataDictionary Metadata { get; set; }
+        public System.Collections.Generic.IDictionary<string, object> Metadata { get; set; }
     
-        /// <summary>An optional id list of content permission sets. </summary>
+        /// <summary>An optional list of content permission set IDs which control content permissions. These permissions control content accessibility for the users that do not own the content.</summary>
         [Newtonsoft.Json.JsonProperty("contentPermissionSetIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> ContentPermissionSetIds { get; set; }
     
@@ -12365,17 +12370,18 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    /// <summary>A request structure for creating multiple content documents.</summary>
+    /// <summary>Request to create multiple contents</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class ContentCreateManyRequest 
     {
-        /// <summary>Allow storing references to missing list items / contents</summary>
+        /// <summary>Allows creating contents that refer to list items or contents that don't exist in the system.</summary>
         [Newtonsoft.Json.JsonProperty("allowMissingDependencies", Required = Newtonsoft.Json.Required.Always)]
         public bool AllowMissingDependencies { get; set; }
     
-        /// <summary>Create items</summary>
-        [Newtonsoft.Json.JsonProperty("items", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<ContentCreateRequest> Items { get; set; }
+        /// <summary>Items to be created.</summary>
+        [Newtonsoft.Json.JsonProperty("items", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.Collections.Generic.ICollection<ContentCreateRequest> Items { get; set; } = new System.Collections.Generic.List<ContentCreateRequest>();
     
         public string ToJson() 
         {
@@ -12559,19 +12565,19 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("layerSchemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> LayerSchemaIds { get; set; }
     
-        /// <summary>The content data of the content. It's a dictionary of dynamic metadata whose structure is defined in the Content schema identified by
+        /// <summary>The content data of the content. It's an object of dynamic metadata whose structure is defined in the Content schema identified by
         /// the ContentSchemaId property. Updating the Content property is only possible for virtual items (contents
         /// whose ContentType is Virtual).
         /// Update of content data will be done only if this attribute has any data, i.e. if it's not null or empty.</summary>
         [Newtonsoft.Json.JsonProperty("content", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public DataDictionary Content { get; set; }
+        public object Content { get; set; }
     
         /// <summary>The dynamic data structure matching the field schematics of the schemas with type layer (LayerSchemaIds).
         /// The metadata belonging to the layers of the content. It's a dictionary of dynamic metadata whose structure is defined in the Layer schemas identified
         /// by the LayerSchemaIds property.
         /// If there are no data for a specified LayerSchemaId, it is treated as empty.</summary>
         [Newtonsoft.Json.JsonProperty("metadata", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public DataDictionary Metadata { get; set; }
+        public System.Collections.Generic.IDictionary<string, object> Metadata { get; set; }
     
         /// <summary>Options to modify the behavior for updating the layers.
         /// Merge: the content is updated so that the assigned layers to the content will be a merge of the ones specified in the LayerSchemaIds property
@@ -12877,10 +12883,10 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class MetadataValuesSchemaUpdateCommand : MetadataValuesChangeCommandBase
     {
-        /// <summary>The dictionary containing the metadata values to add / update.</summary>
+        /// <summary>An object containing the metadata values to add / update.</summary>
         [Newtonsoft.Json.JsonProperty("value", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
-        public DataDictionary Value { get; set; } = new DataDictionary();
+        public object Value { get; set; } = new object();
     
         public string ToJson() 
         {
@@ -12898,10 +12904,10 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class MetadataValuesSchemaUpsertCommand : MetadataValuesChangeCommandBase
     {
-        /// <summary>The dictionary containing the metadata values to add / update.</summary>
+        /// <summary>An object containing the metadata values to add / update.</summary>
         [Newtonsoft.Json.JsonProperty("value", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
-        public DataDictionary Value { get; set; } = new DataDictionary();
+        public object Value { get; set; } = new object();
     
         public string ToJson() 
         {
@@ -12935,10 +12941,10 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class MetadataValuesSchemaReplaceCommand : MetadataValuesChangeCommandBase
     {
-        /// <summary>The dictionary containing the metadata values for the schema. The existing dictionary will be entirely overwritten.</summary>
+        /// <summary>An object containing the metadata values for the schema. The existing dictionary will be entirely overwritten.</summary>
         [Newtonsoft.Json.JsonProperty("value", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
-        public DataDictionary Value { get; set; } = new DataDictionary();
+        public object Value { get; set; } = new object();
     
         public string ToJson() 
         {
@@ -14106,27 +14112,43 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    /// <summary>The detail view item for the list item.</summary>
+    /// <summary>List item detail</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class ListItemDetail 
     {
-        /// <summary>The content data of the list item.</summary>
+        /// <summary>The list item ID.</summary>
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public string Id { get; set; }
+    
+        /// <summary>The ID of the content schema. The SchemaType of the specified schema must be List.</summary>
+        [Newtonsoft.Json.JsonProperty("contentSchemaId", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public string ContentSchemaId { get; set; }
+    
+        /// <summary>The content data of the list item. It's an object of dynamic metadata whose structure is defined in the Content schema specified
+        /// by the ContentSchemaId property.</summary>
         [Newtonsoft.Json.JsonProperty("content", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public object Content { get; set; }
     
-        /// <summary>The id of the schema with schema type list.</summary>
-        [Newtonsoft.Json.JsonProperty("contentSchemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string ContentSchemaId { get; set; }
-    
-        /// <summary>Contains language specific display values, rendered according to the list schema's display pattern configuration.</summary>
+        /// <summary>Contains language specific display values. They are calculated values based on the template stored in the Content schema DisplayPatterns property.</summary>
         [Newtonsoft.Json.JsonProperty("displayValues", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public DisplayValueDictionary DisplayValues { get; set; }
     
-        /// <summary>The list item id.</summary>
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Id { get; set; }
+        /// <summary>All the IDs of the referenced list items (tagboxes) that do not exist in the system.</summary>
+        [Newtonsoft.Json.JsonProperty("brokenReferenceIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> BrokenReferenceIds { get; set; }
     
-        /// <summary>Audit data with information regarding document creation and modification.</summary>
+        /// <summary>All the IDs of the contents or list items target of a relation that do not exist in the system.</summary>
+        [Newtonsoft.Json.JsonProperty("brokenRelationTargetIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> BrokenRelationTargetIds { get; set; }
+    
+        /// <summary>All the IDs of the indirectly referenced list items (tagboxes) that do not exist in the system.
+        /// They are referenced list items that reference at least a list item that do not exist in the system.</summary>
+        [Newtonsoft.Json.JsonProperty("brokenIndirectReferenceIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> BrokenIndirectReferenceIds { get; set; }
+    
+        /// <summary>Audit information.</summary>
         [Newtonsoft.Json.JsonProperty("audit", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public UserAuditDetail Audit { get; set; }
     
@@ -14177,9 +14199,9 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    /// <summary>Encapsulates the result of a list item search.</summary>
+    /// <summary>Result for list item search operation</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
-    public partial class ListItemSearchResult : BaseResultOfListItem
+    public partial class ListItemSearchResult : SearchBehaviorBaseResultOfListItem
     {
         public string ToJson() 
         {
@@ -14189,6 +14211,30 @@ namespace Picturepark.SDK.V1.Contract
         public static ListItemSearchResult FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<ListItemSearchResult>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class SearchBehaviorBaseResultOfListItem : BaseResultOfListItem
+    {
+        [Newtonsoft.Json.JsonProperty("searchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string SearchString { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("isSearchStringRewritten", Required = Newtonsoft.Json.Required.Always)]
+        public bool IsSearchStringRewritten { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("queryDebugInformation", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public QueryDebugInformation QueryDebugInformation { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static SearchBehaviorBaseResultOfListItem FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SearchBehaviorBaseResultOfListItem>(data);
         }
     
     }
@@ -14221,13 +14267,16 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    /// <summary>A document stored in the elastic search metadata index, with fields corresponding to the the schemantics of its underlying list schema.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class ListItem 
     {
-        /// <summary>The content data of the list item.</summary>
-        [Newtonsoft.Json.JsonProperty("content", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public object Content { get; set; }
+        /// <summary>Audit information.</summary>
+        [Newtonsoft.Json.JsonProperty("audit", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public UserAudit Audit { get; set; }
+    
+        /// <summary>The list item id.</summary>
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
     
         /// <summary>The id of the schema with schema type list.</summary>
         [Newtonsoft.Json.JsonProperty("contentSchemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -14237,13 +14286,21 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("displayValues", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public DisplayValueDictionary DisplayValues { get; set; }
     
-        /// <summary>The list item id.</summary>
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Id { get; set; }
+        /// <summary>The content data of the list item.</summary>
+        [Newtonsoft.Json.JsonProperty("content", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public object Content { get; set; }
     
-        /// <summary>Audit data with information regarding document creation and modification.</summary>
-        [Newtonsoft.Json.JsonProperty("audit", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public UserAudit Audit { get; set; }
+        /// <summary>All the ids of the broken references (tagboxes)</summary>
+        [Newtonsoft.Json.JsonProperty("brokenReferenceIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> BrokenReferenceIds { get; set; }
+    
+        /// <summary>All the target ids of the broken relations</summary>
+        [Newtonsoft.Json.JsonProperty("brokenRelationTargetIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> BrokenRelationTargetIds { get; set; }
+    
+        /// <summary>All the ids of the broken indirect references (tagbox that has a property that reference a broken tagbox)</summary>
+        [Newtonsoft.Json.JsonProperty("brokenIndirectReferenceIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> BrokenIndirectReferenceIds { get; set; }
     
         public string ToJson() 
         {
@@ -14395,17 +14452,18 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    /// <summary>A request structure for creating a list item document.</summary>
+    /// <summary>Request to create a list item</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class ListItemCreateRequest 
     {
-        /// <summary>The content data of the list item.</summary>
+        /// <summary>The ID of the content schema. The SchemaType of the specified schema must be List.</summary>
+        [Newtonsoft.Json.JsonProperty("contentSchemaId", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public string ContentSchemaId { get; set; }
+    
+        /// <summary>The content data of the list item. It's an object of dynamic metadata whose structure is defined in the Content schema.</summary>
         [Newtonsoft.Json.JsonProperty("content", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public object Content { get; set; }
-    
-        /// <summary>The id of the schema with schema type list.</summary>
-        [Newtonsoft.Json.JsonProperty("contentSchemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string ContentSchemaId { get; set; }
     
         /// <summary>Optional client reference for this request.
         /// Will be returned back in response to make easier for clients to match request items with the respective results.
@@ -14425,17 +14483,18 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    /// <summary>A request structure for creating multiple list items.</summary>
+    /// <summary>Request to create multiple list items</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class ListItemCreateManyRequest 
     {
-        /// <summary>Allow storing references to missing list items / contents</summary>
+        /// <summary>Allows creating list items that refer to list items or contents that don't exist in the system.</summary>
         [Newtonsoft.Json.JsonProperty("allowMissingDependencies", Required = Newtonsoft.Json.Required.Always)]
         public bool AllowMissingDependencies { get; set; }
     
-        /// <summary>Create items</summary>
-        [Newtonsoft.Json.JsonProperty("items", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<ListItemCreateRequest> Items { get; set; }
+        /// <summary>Items to be created.</summary>
+        [Newtonsoft.Json.JsonProperty("items", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.Collections.Generic.ICollection<ListItemCreateRequest> Items { get; set; } = new System.Collections.Generic.List<ListItemCreateRequest>();
     
         public string ToJson() 
         {
@@ -14449,11 +14508,11 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    /// <summary>A request structure for updating a list item.</summary>
+    /// <summary>Request to update an existing list item</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class ListItemUpdateRequest 
     {
-        /// <summary>The content data of the list item.</summary>
+        /// <summary>The content data of the list item. It's an object of dynamic metadata whose structure is defined in the Content schema of the list item.</summary>
         [Newtonsoft.Json.JsonProperty("content", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public object Content { get; set; }
     
@@ -14469,17 +14528,18 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    /// <summary>A request structure for updating multiple list items.</summary>
+    /// <summary>Request to update multiple list items</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class ListItemUpdateManyRequest 
     {
-        /// <summary>Allow storing references to missing list items / contents</summary>
+        /// <summary>Allows updating list items with references to list items or contents that don't exist in the system.</summary>
         [Newtonsoft.Json.JsonProperty("allowMissingDependencies", Required = Newtonsoft.Json.Required.Always)]
         public bool AllowMissingDependencies { get; set; }
     
-        /// <summary>Update items</summary>
-        [Newtonsoft.Json.JsonProperty("items", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<ListItemUpdateItem> Items { get; set; }
+        /// <summary>Items to be updated.</summary>
+        [Newtonsoft.Json.JsonProperty("items", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.Collections.Generic.ICollection<ListItemUpdateItem> Items { get; set; } = new System.Collections.Generic.List<ListItemUpdateItem>();
     
         public string ToJson() 
         {
@@ -14497,7 +14557,8 @@ namespace Picturepark.SDK.V1.Contract
     public partial class ListItemUpdateItem : ListItemUpdateRequest
     {
         /// <summary>The list item id.</summary>
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
         public string Id { get; set; }
     
         public string ToJson() 
@@ -17353,7 +17414,7 @@ namespace Picturepark.SDK.V1.Contract
     
     /// <summary>A field that can be triggered, and store in such occasion the id of the user and the time that triggered it. The last user who triggered it and the last time in which it was triggered can be used for filtering or for
     /// simple search (if enabled on the field). Such information are stored in two inner fields: "triggeredBy" and "triggeredOn". In order to be triggered in a Content or ListItem metadata dictionary, the special '"_trigger": true'
-    /// should be sent in the DataDictionary of the field itself.</summary>
+    /// should be sent in the data of the field itself.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class FieldTrigger : FieldBase
     {
@@ -19206,14 +19267,16 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("layerSchemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> LayerSchemaIds { get; set; }
     
-        /// <summary>The content data.</summary>
+        /// <summary>The content data. It's an object of dynamic metadata whose structure is defined in the Content schema specified
+        /// by the ContentSchemaId property.</summary>
         [Newtonsoft.Json.JsonProperty("content", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
-        public DataDictionary Content { get; set; } = new DataDictionary();
+        public object Content { get; set; } = new object();
     
-        /// <summary>The metadata dictionary.</summary>
+        /// <summary>The metadata belonging to the layers of the content. It's a dictionary of dynamic metadata whose structure is defined in the Layer schemas identified
+        /// by the LayerSchemaIds property.</summary>
         [Newtonsoft.Json.JsonProperty("metadata", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public DataDictionary Metadata { get; set; }
+        public System.Collections.Generic.IDictionary<string, object> Metadata { get; set; }
     
         /// <summary>Content ID.</summary>
         [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Always)]
@@ -21095,8 +21158,10 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("layerSchemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> LayerSchemaIds { get; set; }
     
+        /// <summary>The metadata to be assigned to the imported content. It's a dictionary of dynamic metadata whose structure is defined in the Layer schemas identified
+        /// by the LayerSchemaIds property.</summary>
         [Newtonsoft.Json.JsonProperty("metadata", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public DataDictionary Metadata { get; set; }
+        public System.Collections.Generic.IDictionary<string, object> Metadata { get; set; }
     
         /// <summary>An optional id list of content permission sets. Controls content accessibility outside of content ownership.</summary>
         [Newtonsoft.Json.JsonProperty("contentPermissionSetIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -21142,8 +21207,10 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("layerSchemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> LayerSchemaIds { get; set; }
     
+        /// <summary>The metadata to be assigned to the imported content. It's a dictionary of dynamic metadata whose structure is defined in the Layer schemas identified
+        /// by the LayerSchemaIds property.</summary>
         [Newtonsoft.Json.JsonProperty("metadata", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public DataDictionary Metadata { get; set; }
+        public System.Collections.Generic.IDictionary<string, object> Metadata { get; set; }
     
         /// <summary>An optional id list of content permission sets. Controls content accessibility outside of content ownership.</summary>
         [Newtonsoft.Json.JsonProperty("contentPermissionSetIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -21810,6 +21877,21 @@ namespace Picturepark.SDK.V1.Contract
         public static UserRoleDeleteManyRequest FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<UserRoleDeleteManyRequest>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class DataDictionary : System.Collections.Generic.Dictionary<string, object>
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static DataDictionary FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<DataDictionary>(data);
         }
     
     }

@@ -354,20 +354,11 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             foreach (FileTransfer file in files.Results)
             {
-                var personTag = new DataDictionary
+                var personTag = new Person
                 {
-                    { "_refId", personId }
+                    RefId = personId
                 };
-                var metadata = new DataDictionary
-                    {
-                        {
-                            nameof(PersonShot),
-                            new DataDictionary
-                            {
-                                { "persons", new[] { personTag } },
-                            }
-                        }
-                    };
+                var metadata = Metadata.From(new PersonShot { Persons = new[] { personTag } });
                 fileTransfers.Add(new FileTransferCreateItem
                 {
                     FileId = file.Id,

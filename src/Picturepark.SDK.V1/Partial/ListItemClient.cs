@@ -40,7 +40,7 @@ namespace Picturepark.SDK.V1
                 createManyRequest.Items.Add(listItemCreateRequest);
             }
 
-            var schemaId = ClassToSchemaConverter.ResolveSchemaName(content.GetType());
+            var schemaId = ClassToSchemaConverter.ResolveSchemaId(content.GetType());
 
             createManyRequest.Items.Add(new ListItemCreateRequest
             {
