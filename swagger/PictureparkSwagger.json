@@ -5889,7 +5889,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/DisplayValueGlobalStatus"
+                  "$ref": "#/components/schemas/DisplayValueStatus"
                 }
               }
             }
@@ -29238,11 +29238,11 @@
           }
         }
       },
-      "DisplayValueGlobalStatus": {
+      "DisplayValueStatus": {
         "type": "object",
         "additionalProperties": false,
         "required": [
-          "globalState"
+          "state"
         ],
         "properties": {
           "contentOrLayerSchemaIds": {
@@ -29261,8 +29261,8 @@
               "type": "string"
             }
           },
-          "globalState": {
-            "description": "The global state of the display values compared to the schema structure (Green = ok, Red = re-rendering needed).",
+          "state": {
+            "description": "The state of the display values compared to the schema structure (Green = ok, Red = re-rendering needed).",
             "oneOf": [
               {
                 "$ref": "#/components/schemas/DisplayValuesState"
@@ -29276,11 +29276,13 @@
         "description": "",
         "x-enumNames": [
           "Green",
-          "Red"
+          "Red",
+          "RerenderingInProgress"
         ],
         "enum": [
           "Green",
-          "Red"
+          "Red",
+          "RerenderingInProgress"
         ]
       },
       "DocumentHistorySearchResult": {

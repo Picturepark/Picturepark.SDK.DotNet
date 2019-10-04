@@ -634,7 +634,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
-        System.Threading.Tasks.Task<DisplayValueGlobalStatus> GetStatusAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<DisplayValueStatus> GetStatusAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
     }
     
@@ -13716,7 +13716,7 @@ namespace Picturepark.SDK.V1.Contract
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
-    public partial class DisplayValueGlobalStatus 
+    public partial class DisplayValueStatus 
     {
         /// <summary>The schema ids (of type Content or Layer) for which the re-rendering of the display values is needed.</summary>
         [Newtonsoft.Json.JsonProperty("contentOrLayerSchemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -13726,20 +13726,20 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("listSchemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> ListSchemaIds { get; set; }
     
-        /// <summary>The global state of the display values compared to the schema structure (Green = ok, Red = re-rendering needed).</summary>
-        [Newtonsoft.Json.JsonProperty("globalState", Required = Newtonsoft.Json.Required.Always)]
+        /// <summary>The state of the display values compared to the schema structure (Green = ok, Red = re-rendering needed).</summary>
+        [Newtonsoft.Json.JsonProperty("state", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public DisplayValuesState GlobalState { get; set; }
+        public DisplayValuesState State { get; set; }
     
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
         }
     
-        public static DisplayValueGlobalStatus FromJson(string data)
+        public static DisplayValueStatus FromJson(string data)
         {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<DisplayValueGlobalStatus>(data);
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<DisplayValueStatus>(data);
         }
     
     }
@@ -13752,6 +13752,9 @@ namespace Picturepark.SDK.V1.Contract
     
         [System.Runtime.Serialization.EnumMember(Value = @"Red")]
         Red = 1,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"RerenderingInProgress")]
+        RerenderingInProgress = 2,
     
     }
     
