@@ -46,7 +46,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             var content = await _client.Content.CreateAsync(request, new[] { ContentResolveBehavior.OuterDisplayValueThumbnail }).ConfigureAwait(false);
             var expectedDisplayValue = schema.DisplayPatterns.First(dp => dp.DisplayPatternType == DisplayPatternType.Thumbnail).Templates["en"].Replace("{{data.displayPatternTest.name}}", uniqueName);
-            content.DisplayValues[DisplayPatternType.Thumbnail.ToString().ToLowerCamelCase()].Should().Be(expectedDisplayValue);
+            content.DisplayValues.Thumbnail.Should().Be(expectedDisplayValue);
 
             // Update schema's display pattern in order to turn the display value statue to red
             var uniqueId = $"{Guid.NewGuid():N}";
