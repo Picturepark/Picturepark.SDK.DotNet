@@ -17937,7 +17937,8 @@
                 "ListItemNamedCacheKeyFieldsInvalidException": "#/components/schemas/ListItemNamedCacheKeyFieldsInvalidException",
                 "SchemaTagboxFilterLookupNamedCacheSchemaIdInvalidException": "#/components/schemas/SchemaTagboxFilterLookupNamedCacheSchemaIdInvalidException",
                 "NoTagsFoundException": "#/components/schemas/NoTagsFoundException",
-                "OutputNotAvailableException": "#/components/schemas/OutputNotAvailableException"
+                "OutputNotAvailableException": "#/components/schemas/OutputNotAvailableException",
+                "DisplayValueRerenderingInProgressException": "#/components/schemas/DisplayValueRerenderingInProgressException"
               }
             },
             "additionalProperties": false,
@@ -23175,6 +23176,17 @@
         "allOf": [
           {
             "$ref": "#/components/schemas/PictureparkBusinessException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "DisplayValueRerenderingInProgressException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
           },
           {
             "type": "object",

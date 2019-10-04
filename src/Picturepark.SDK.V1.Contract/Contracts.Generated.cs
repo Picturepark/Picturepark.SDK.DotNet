@@ -2427,6 +2427,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("SchemaTagboxFilterLookupNamedCacheSchemaIdInvalidException", typeof(SchemaTagboxFilterLookupNamedCacheSchemaIdInvalidException))]
     [JsonInheritanceAttribute("NoTagsFoundException", typeof(NoTagsFoundException))]
     [JsonInheritanceAttribute("OutputNotAvailableException", typeof(OutputNotAvailableException))]
+    [JsonInheritanceAttribute("DisplayValueRerenderingInProgressException", typeof(DisplayValueRerenderingInProgressException))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     [Newtonsoft.Json.JsonObjectAttribute]
     public partial class PictureparkException : System.Exception
@@ -8048,6 +8049,22 @@ namespace Picturepark.SDK.V1.Contract
         public static OutputNotAvailableException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<OutputNotAvailableException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class DisplayValueRerenderingInProgressException : PictureparkValidationException
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static DisplayValueRerenderingInProgressException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<DisplayValueRerenderingInProgressException>(data);
         }
     
     }
@@ -14272,7 +14289,7 @@ namespace Picturepark.SDK.V1.Contract
         }
     
     }
-
+    
     /// <summary>List item detail</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class ListItemDetail 
