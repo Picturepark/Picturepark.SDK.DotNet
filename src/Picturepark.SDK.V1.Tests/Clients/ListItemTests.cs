@@ -132,9 +132,9 @@ namespace Picturepark.SDK.V1.Tests.Clients
                     new MetadataValuesSchemaUpdateCommand
                     {
                         SchemaId = nameof(Tag),
-                        Value = new DataDictionary
+                        Value = new
                         {
-                            { "name", "Foo" }
+                            name = "Foo"
                         }
                     }
                 }

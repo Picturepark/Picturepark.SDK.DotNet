@@ -5320,8 +5320,8 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [System.Runtime.Serialization.EnumMember(Value = @"Model3d")]
         Model3d = 19,
     
-        [System.Runtime.Serialization.EnumMember(Value = @"ContentItem")]
-        ContentItem = 20,
+        [System.Runtime.Serialization.EnumMember(Value = @"Virtual")]
+        Virtual = 20,
     
     }
     
@@ -11303,6 +11303,21 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         public static UserDeveloperFlagUpdateRequest FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<UserDeveloperFlagUpdateRequest>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class DataDictionary : System.Collections.Generic.Dictionary<string, object>
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static DataDictionary FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<DataDictionary>(data);
         }
     
     }

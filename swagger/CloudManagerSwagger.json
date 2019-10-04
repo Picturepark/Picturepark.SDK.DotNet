@@ -10746,7 +10746,7 @@
           "Database",
           "Cad",
           "Model3d",
-          "ContentItem"
+          "Virtual"
         ],
         "enum": [
           "Unknown",
@@ -10769,7 +10769,7 @@
           "Database",
           "Cad",
           "Model3d",
-          "ContentItem"
+          "Virtual"
         ]
       },
       "ContentBackupFailedException": {
@@ -16803,6 +16803,10 @@
             "type": "boolean"
           }
         }
+      },
+      "DataDictionary": {
+        "type": "object",
+        "additionalProperties": {}
       }
     },
     "securitySchemes": {
