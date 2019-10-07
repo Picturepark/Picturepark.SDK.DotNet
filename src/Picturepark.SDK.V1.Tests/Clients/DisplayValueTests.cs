@@ -54,7 +54,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             await _client.Schema.UpdateAsync(schema, false).ConfigureAwait(false);
 
             var displayValueStatus = await _client.DisplayValue.GetStatusAsync().ConfigureAwait(false);
-            displayValueStatus.State.Should().Be(DisplayValuesState.Red);
+            displayValueStatus.State.Should().Be(DisplayValuesState.Outdated);
             displayValueStatus.ContentOrLayerSchemaIds.Should().Contain(nameof(DisplayPatternTest));
 
             // Execute the re-rendering and await for its completion
@@ -66,7 +66,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             content.DisplayValues[DisplayPatternType.Thumbnail.ToString().ToLowerCamelCase()].Should().Be($"{uniqueName}_{uniqueId}");
 
             displayValueStatus = await _client.DisplayValue.GetStatusAsync().ConfigureAwait(false);
-            displayValueStatus.State.Should().Be(DisplayValuesState.Green);
+            displayValueStatus.State.Should().Be(DisplayValuesState.UpToDate);
             displayValueStatus.ContentOrLayerSchemaIds.Should().NotContain(nameof(DisplayPatternTest));
         }
     }

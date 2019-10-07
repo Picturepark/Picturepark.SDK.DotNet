@@ -29281,13 +29281,13 @@
         "type": "string",
         "description": "",
         "x-enumNames": [
-          "Green",
-          "Red",
+          "UpToDate",
+          "Outdated",
           "RerenderingInProgress"
         ],
         "enum": [
-          "Green",
-          "Red",
+          "UpToDate",
+          "Outdated",
           "RerenderingInProgress"
         ]
       },

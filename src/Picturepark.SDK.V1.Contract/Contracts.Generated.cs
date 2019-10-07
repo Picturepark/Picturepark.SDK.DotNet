@@ -13770,11 +13770,11 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public enum DisplayValuesState
     {
-        [System.Runtime.Serialization.EnumMember(Value = @"Green")]
-        Green = 0,
+        [System.Runtime.Serialization.EnumMember(Value = @"UpToDate")]
+        UpToDate = 0,
     
-        [System.Runtime.Serialization.EnumMember(Value = @"Red")]
-        Red = 1,
+        [System.Runtime.Serialization.EnumMember(Value = @"Outdated")]
+        Outdated = 1,
     
         [System.Runtime.Serialization.EnumMember(Value = @"RerenderingInProgress")]
         RerenderingInProgress = 2,
