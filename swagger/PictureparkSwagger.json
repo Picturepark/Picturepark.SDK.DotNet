@@ -29268,7 +29268,7 @@
             }
           },
           "state": {
-            "description": "The state of the display values compared to the schema structure (Green = ok, Red = re-rendering needed).",
+            "description": "The state of the display values compared to the schema structure (UpToDate = ok, Outdated = re-rendering needed).",
             "oneOf": [
               {
                 "$ref": "#/components/schemas/DisplayValuesState"

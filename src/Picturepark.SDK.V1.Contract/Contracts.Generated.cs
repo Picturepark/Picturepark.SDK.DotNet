@@ -13749,7 +13749,7 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("listSchemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> ListSchemaIds { get; set; }
     
-        /// <summary>The state of the display values compared to the schema structure (Green = ok, Red = re-rendering needed).</summary>
+        /// <summary>The state of the display values compared to the schema structure (UpToDate = ok, Outdated = re-rendering needed).</summary>
         [Newtonsoft.Json.JsonProperty("state", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
