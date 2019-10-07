@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Picturepark.ContentUploader
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Picturepark.ServiceProvider.Example", "Picturepark.ServiceProvider.Example\Picturepark.ServiceProvider.Example.csproj", "{641D7423-E79E-430C-B64E-34F11E4F7942}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Picturepark.Microsite.Example", "Picturepark.Microsite.Example\Picturepark.Microsite.Example.csproj", "{B9CEF6CD-CB68-47B3-8DE7-C1BA6C96D998}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Picturepark.ServiceProvider.Example.BusinessProcess", "Picturepark.ServiceProvider.Example.BusinessProcess\Picturepark.ServiceProvider.Example.BusinessProcess.csproj", "{CD610048-1699-4B95-BC3D-73DC3F3C3346}"
 EndProject
 Global
@@ -25,10 +23,6 @@ Global
 		{641D7423-E79E-430C-B64E-34F11E4F7942}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{641D7423-E79E-430C-B64E-34F11E4F7942}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{641D7423-E79E-430C-B64E-34F11E4F7942}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B9CEF6CD-CB68-47B3-8DE7-C1BA6C96D998}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B9CEF6CD-CB68-47B3-8DE7-C1BA6C96D998}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B9CEF6CD-CB68-47B3-8DE7-C1BA6C96D998}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B9CEF6CD-CB68-47B3-8DE7-C1BA6C96D998}.Release|Any CPU.Build.0 = Release|Any CPU
 		{CD610048-1699-4B95-BC3D-73DC3F3C3346}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{CD610048-1699-4B95-BC3D-73DC3F3C3346}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CD610048-1699-4B95-BC3D-73DC3F3C3346}.Release|Any CPU.ActiveCfg = Release|Any CPU
