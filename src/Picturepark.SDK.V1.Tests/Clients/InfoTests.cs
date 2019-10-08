@@ -1,5 +1,6 @@
 ﻿using Picturepark.SDK.V1.Tests.Fixtures;
 using System.Threading.Tasks;
+using FluentAssertions;
 using Picturepark.SDK.V1.Contract;
 using Xunit;
 
@@ -26,6 +27,18 @@ namespace Picturepark.SDK.V1.Tests.Clients
             Assert.NotNull(version.FileProductVersion);
             Assert.NotNull(version.FileVersion);
             Assert.NotNull(version.Release);
+        }
+
+        [Fact]
+        [Trait("Stack", "Info")]
+        public async Task ShouldGetStatus()
+        {
+            // Act
+            var status = await _client.Info.GetStatusAsync().ConfigureAwait(false);
+
+            // Assert
+            status.DisplayValuesStatus.Should().NotBeNull();
+            status.SearchIndicesStatus.Should().NotBeNull();
         }
     }
 }

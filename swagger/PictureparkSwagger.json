@@ -5797,6 +5797,162 @@
         ]
       }
     },
+    "/v1/displayvalues/rerender": {
+      "post": {
+        "tags": [
+          "DisplayValue"
+        ],
+        "summary": "Re-render the display values",
+        "description": "The re-rendering only work on those display values that are out of date or not created yet. The process is therefore based on the information returned by the \"status\" endpoint: if the status is red, the display values of the data\ncorresponding to the ContentOrLayerSchemaIds and ListSchemaIds are recalculated.\nThe operation is executed asynchronously and it is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.",
+        "operationId": "DisplayValue_Rerender",
+        "responses": {
+          "200": {
+            "description": "VersionInfo",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BusinessProcess"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "schema_write"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/displayvalues/status": {
+      "get": {
+        "tags": [
+          "DisplayValue"
+        ],
+        "summary": "Get status",
+        "description": "Get the status of the display values compared to the schema model.",
+        "operationId": "DisplayValue_GetStatus",
+        "responses": {
+          "200": {
+            "description": "VersionInfo",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DisplayValueStatus"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "schema_read"
+            ]
+          }
+        ]
+      }
+    },
     "/v1/history/search": {
       "post": {
         "tags": [
@@ -6421,6 +6577,82 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/VersionInfo"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
+    "/v1/info/status": {
+      "get": {
+        "tags": [
+          "Info"
+        ],
+        "summary": "Get status",
+        "description": "Get the status of the system data compared to the schema model.",
+        "operationId": "Info_GetStatus",
+        "responses": {
+          "200": {
+            "description": "VersionInfo",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SystemStatus"
                 }
               }
             }
@@ -17705,7 +17937,8 @@
                 "ListItemNamedCacheKeyFieldsInvalidException": "#/components/schemas/ListItemNamedCacheKeyFieldsInvalidException",
                 "SchemaTagboxFilterLookupNamedCacheSchemaIdInvalidException": "#/components/schemas/SchemaTagboxFilterLookupNamedCacheSchemaIdInvalidException",
                 "NoTagsFoundException": "#/components/schemas/NoTagsFoundException",
-                "OutputNotAvailableException": "#/components/schemas/OutputNotAvailableException"
+                "OutputNotAvailableException": "#/components/schemas/OutputNotAvailableException",
+                "DisplayValueRerenderingInProgressException": "#/components/schemas/DisplayValueRerenderingInProgressException"
               }
             },
             "additionalProperties": false,
@@ -22943,6 +23176,17 @@
         "allOf": [
           {
             "$ref": "#/components/schemas/PictureparkBusinessException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "DisplayValueRerenderingInProgressException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
           },
           {
             "type": "object",
@@ -29000,6 +29244,53 @@
           }
         }
       },
+      "DisplayValueStatus": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "state"
+        ],
+        "properties": {
+          "contentOrLayerSchemaIds": {
+            "type": "array",
+            "description": "The schema ids (of type Content or Layer) for which the re-rendering of the display values is needed.",
+            "nullable": true,
+            "items": {
+              "type": "string"
+            }
+          },
+          "listSchemaIds": {
+            "type": "array",
+            "description": "The schema ids (of type List) for which the re-rendering of the display values is needed.",
+            "nullable": true,
+            "items": {
+              "type": "string"
+            }
+          },
+          "state": {
+            "description": "The state of the display values compared to the schema structure (UpToDate = ok, Outdated = re-rendering needed).",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/DisplayValuesState"
+              }
+            ]
+          }
+        }
+      },
+      "DisplayValuesState": {
+        "type": "string",
+        "description": "",
+        "x-enumNames": [
+          "UpToDate",
+          "Outdated",
+          "RerenderingInProgress"
+        ],
+        "enum": [
+          "UpToDate",
+          "Outdated",
+          "RerenderingInProgress"
+        ]
+      },
       "DocumentHistorySearchResult": {
         "allOf": [
           {
@@ -29437,6 +29728,74 @@
             "type": "string",
             "description": "The bamboo release version. Only provided on bamboo deployments.",
             "nullable": true
+          }
+        }
+      },
+      "SystemStatus": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "searchIndicesStatus": {
+            "type": "array",
+            "description": "The status of the search indices.",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/StatusOfSearchIndexState"
+            }
+          },
+          "displayValuesStatus": {
+            "type": "array",
+            "description": "The status of the display values.",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/StatusOfDisplayValuesState"
+            }
+          }
+        }
+      },
+      "StatusOfSearchIndexState": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "state"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "state": {
+            "$ref": "#/components/schemas/SearchIndexState"
+          }
+        }
+      },
+      "SearchIndexState": {
+        "type": "string",
+        "description": "",
+        "x-enumNames": [
+          "Green",
+          "Yellow",
+          "Red"
+        ],
+        "enum": [
+          "Green",
+          "Yellow",
+          "Red"
+        ]
+      },
+      "StatusOfDisplayValuesState": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "state"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "state": {
+            "$ref": "#/components/schemas/DisplayValuesState"
           }
         }
       },
@@ -38161,6 +38520,10 @@
     {
       "name": "ContentPermissionSet",
       "description": "Endpoints to work with content permission sets.\r\n\r\n[Code examples](https://github.com/Picturepark/Picturepark.SDK.DotNet/blob/master/src/Picturepark.SDK.V1.Tests/Clients/ContentPermissionSetTests.cs)\r\n"
+    },
+    {
+      "name": "DisplayValue",
+      "description": "Endpoint to work with display values."
     },
     {
       "name": "DocumentHistory",
