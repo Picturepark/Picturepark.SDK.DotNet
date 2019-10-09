@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class ContentItem&lt;T&gt;
    | Picturepark.SDK.V1 API ">
-    <meta name="generator" content="docfx 2.16.7.0">
+    <meta name="generator" content="docfx 2.45.1.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -18,10 +18,11 @@
     <link rel="stylesheet" href="../styles/main.css">
     <meta property="docfx:navrel" content="../toc.html">
     <meta property="docfx:tocrel" content="toc.html">
+    
     <meta property="docfx:rel" content="../">
     
   </head>
-  <body data-spy="scroll" data-target="#affix">
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
     <div id="wrapper">
       <header>
         
@@ -57,11 +58,13 @@
           </div>
         </div>
       </header>
-      <div role="main" class="container body-content">
+      <div class="container body-content">
         
         <div id="search-results">
           <div class="search-list"></div>
-          <div class="sr-items"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
           <ul id="pagination"></ul>
         </div>
       </div>
@@ -75,177 +78,588 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content">
-              <h1 id="Picturepark_SDK_V1_Contract_ContentItem_1" data-uid="Picturepark.SDK.V1.Contract.ContentItem`1">Class ContentItem&lt;T&gt;
-              </h1>
-              <div class="markdown level0 summary"></div>
-              <div class="markdown level0 conceptual"></div>
-
-              <div class="inheritance">
-                <h5>Inheritance</h5>
-                <div class="level0"><span class="xref">System.Object</span></div>
-                <div class="level1"><span class="xref">ContentItem&lt;T&gt;</span></div>
-              </div>
-              
-              
-              <div class="inheritedMembers">
-                <h5>Inherited Members</h5>
-                <div>
-                  <span class="xref">System.Object.ToString()</span>
-                </div>
-                <div>
-                  <span class="xref">System.Object.Equals(System.Object)</span>
-                </div>
-                <div>
-                  <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
-                </div>
-                <div>
-                  <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
-                </div>
-                <div>
-                  <span class="xref">System.Object.GetHashCode()</span>
-                </div>
-                <div>
-                  <span class="xref">System.Object.GetType()</span>
-                </div>
-                <div>
-                  <span class="xref">System.Object.MemberwiseClone()</span>
-                </div>
-              </div>
-              
-              <h6><strong>Namespace</strong>: Picturepark.SDK.V1.Contract</h6>
-              
-              <h5 id="Picturepark_SDK_V1_Contract_ContentItem_1_syntax">Syntax</h5>
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public class ContentItem&lt;T&gt;</code></pre>
-              </div>
-
-              
-              
-              <h5 class="typeParameters">Type Parameters</h5>
-              <table>
-                <tr>
-                  <td>
-                    <span class="parametername">T</span>
-                    <p>
-                  </td>
-                </tr>
-              </table>
-              
-              
-              <h3 id="properties">Properties
-              </h3>
-              
-              
-              <a id="Picturepark_SDK_V1_Contract_ContentItem_1_Audit_" data-uid="Picturepark.SDK.V1.Contract.ContentItem`1.Audit*"></a>
-              
-              <h4 id="Picturepark_SDK_V1_Contract_ContentItem_1_Audit" data-uid="Picturepark.SDK.V1.Contract.ContentItem`1.Audit"><a href="#collapsible-Picturepark_SDK_V1_Contract_ContentItem_1_Audit" class="expander" data-toggle="collapse">Audit</a></h4>
-              
-              <div id="collapsible-Picturepark_SDK_V1_Contract_ContentItem_1_Audit" class="collapse in">
-              <div class="markdown level1 summary"></div>
-              <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
-
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public UserAudit Audit { get; set; }</code></pre>
-              </div>
-
-              
-              
-              
-              
-              <h5 class="propertyValue">Property Value</h5>
-              <table>
-                <tr>
-                  <td>
-                    <a class="xref" href="Picturepark.SDK.V1.Contract.UserAudit.html">UserAudit</a>
-                    <p>
-                  </td>
-                </tr>
-              </table>
-              
-              
-              
-              
-              
-              
-              
-              </div>
-              
-              
-              <a id="Picturepark_SDK_V1_Contract_ContentItem_1_Content_" data-uid="Picturepark.SDK.V1.Contract.ContentItem`1.Content*"></a>
-              
-              <h4 id="Picturepark_SDK_V1_Contract_ContentItem_1_Content" data-uid="Picturepark.SDK.V1.Contract.ContentItem`1.Content"><a href="#collapsible-Picturepark_SDK_V1_Contract_ContentItem_1_Content" class="expander" data-toggle="collapse">Content</a></h4>
-              
-              <div id="collapsible-Picturepark_SDK_V1_Contract_ContentItem_1_Content" class="collapse in">
-              <div class="markdown level1 summary"></div>
-              <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
-
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public T Content { get; set; }</code></pre>
-              </div>
-
-              
-              
-              
-              
-              <h5 class="propertyValue">Property Value</h5>
-              <table>
-                <tr>
-                  <td>
-                    <span class="xref">T</span>
-                    <p>
-                  </td>
-                </tr>
-              </table>
-              
-              
-              
-              
-              
-              
-              
-              </div>
-              
-              
-              <a id="Picturepark_SDK_V1_Contract_ContentItem_1_Id_" data-uid="Picturepark.SDK.V1.Contract.ContentItem`1.Id*"></a>
-              
-              <h4 id="Picturepark_SDK_V1_Contract_ContentItem_1_Id" data-uid="Picturepark.SDK.V1.Contract.ContentItem`1.Id"><a href="#collapsible-Picturepark_SDK_V1_Contract_ContentItem_1_Id" class="expander" data-toggle="collapse">Id</a></h4>
-              
-              <div id="collapsible-Picturepark_SDK_V1_Contract_ContentItem_1_Id" class="collapse in">
-              <div class="markdown level1 summary"></div>
-              <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
-
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public string Id { get; set; }</code></pre>
-              </div>
-
-              
-              
-              
-              
-              <h5 class="propertyValue">Property Value</h5>
-              <table>
-                <tr>
-                  <td>
-                    <span class="xref">System.String</span>
-                    <p>
-                  </td>
-                </tr>
-              </table>
-              
-              
-              
-              
-              
-              
-              
-              </div>
-              
-              
-                        </article>
+            <article class="content wrap" id="_content" data-uid="Picturepark.SDK.V1.Contract.ContentItem`1">
+  <h1 id="Picturepark_SDK_V1_Contract_ContentItem_1" data-uid="Picturepark.SDK.V1.Contract.ContentItem`1">Class ContentItem&lt;T&gt;
+  </h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">ContentItem&lt;T&gt;</span></div>
+  </div>
+  
+  
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">System.Object.ToString()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+  </div>
+  
+  <h6><strong>Namespace</strong>: System.Dynamic.ExpandoObject</h6>
+  
+  <h5 id="Picturepark_SDK_V1_Contract_ContentItem_1_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class ContentItem&lt;T&gt;</code></pre>
+  </div>
+  
+  
+  
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="parametername">T</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  <h3 id="properties">Properties
+  </h3>
+  
+  
+  <a id="Picturepark_SDK_V1_Contract_ContentItem_1_Audit_" data-uid="Picturepark.SDK.V1.Contract.ContentItem`1.Audit*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_Contract_ContentItem_1_Audit" data-uid="Picturepark.SDK.V1.Contract.ContentItem`1.Audit"><a href="#collapsible-Picturepark_SDK_V1_Contract_ContentItem_1_Audit" class="expander" data-toggle="collapse">Audit</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_Contract_ContentItem_1_Audit" class="collapse in">
+  <div class="markdown level1 summary"><p>Audit data with information regarding document creation and modification.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public UserAuditDetail Audit { get; set; }</code></pre>
+  </div>
+  
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.UserAuditDetail.html">UserAuditDetail</a>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="Picturepark_SDK_V1_Contract_ContentItem_1_Content_" data-uid="Picturepark.SDK.V1.Contract.ContentItem`1.Content*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_Contract_ContentItem_1_Content" data-uid="Picturepark.SDK.V1.Contract.ContentItem`1.Content"><a href="#collapsible-Picturepark_SDK_V1_Contract_ContentItem_1_Content" class="expander" data-toggle="collapse">Content</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_Contract_ContentItem_1_Content" class="collapse in">
+  <div class="markdown level1 summary"><p>The content data</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public T Content { get; set; }</code></pre>
+  </div>
+  
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">T</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="Picturepark_SDK_V1_Contract_ContentItem_1_ContentPermissionSetIds_" data-uid="Picturepark.SDK.V1.Contract.ContentItem`1.ContentPermissionSetIds*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_Contract_ContentItem_1_ContentPermissionSetIds" data-uid="Picturepark.SDK.V1.Contract.ContentItem`1.ContentPermissionSetIds"><a href="#collapsible-Picturepark_SDK_V1_Contract_ContentItem_1_ContentPermissionSetIds" class="expander" data-toggle="collapse">ContentPermissionSetIds</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_Contract_ContentItem_1_ContentPermissionSetIds" class="collapse in">
+  <div class="markdown level1 summary"><p>An optional id list of content permission sets. Controls content accessibility outside of content ownership.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ICollection&lt;string&gt; ContentPermissionSetIds { get; set; }</code></pre>
+  </div>
+  
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Collections.Generic.ICollection</span>&lt;<span class="xref">System.String</span>&gt;
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="Picturepark_SDK_V1_Contract_ContentItem_1_ContentRights_" data-uid="Picturepark.SDK.V1.Contract.ContentItem`1.ContentRights*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_Contract_ContentItem_1_ContentRights" data-uid="Picturepark.SDK.V1.Contract.ContentItem`1.ContentRights"><a href="#collapsible-Picturepark_SDK_V1_Contract_ContentItem_1_ContentRights" class="expander" data-toggle="collapse">ContentRights</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_Contract_ContentItem_1_ContentRights" class="collapse in">
+  <div class="markdown level1 summary"><p>List of content rights the user has on this content</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ICollection&lt;ContentRight&gt; ContentRights { get; set; }</code></pre>
+  </div>
+  
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Collections.Generic.ICollection</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.ContentRight.html">ContentRight</a>&gt;
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="Picturepark_SDK_V1_Contract_ContentItem_1_ContentSchemaId_" data-uid="Picturepark.SDK.V1.Contract.ContentItem`1.ContentSchemaId*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_Contract_ContentItem_1_ContentSchemaId" data-uid="Picturepark.SDK.V1.Contract.ContentItem`1.ContentSchemaId"><a href="#collapsible-Picturepark_SDK_V1_Contract_ContentItem_1_ContentSchemaId" class="expander" data-toggle="collapse">ContentSchemaId</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_Contract_ContentItem_1_ContentSchemaId" class="collapse in">
+  <div class="markdown level1 summary"><p>The id of the content schema</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string ContentSchemaId { get; set; }</code></pre>
+  </div>
+  
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.String</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="Picturepark_SDK_V1_Contract_ContentItem_1_ContentType_" data-uid="Picturepark.SDK.V1.Contract.ContentItem`1.ContentType*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_Contract_ContentItem_1_ContentType" data-uid="Picturepark.SDK.V1.Contract.ContentItem`1.ContentType"><a href="#collapsible-Picturepark_SDK_V1_Contract_ContentItem_1_ContentType" class="expander" data-toggle="collapse">ContentType</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_Contract_ContentItem_1_ContentType" class="collapse in">
+  <div class="markdown level1 summary"><p>The type of content</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ContentType ContentType { get; set; }</code></pre>
+  </div>
+  
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.ContentType.html">ContentType</a>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="Picturepark_SDK_V1_Contract_ContentItem_1_DisplayValues_" data-uid="Picturepark.SDK.V1.Contract.ContentItem`1.DisplayValues*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_Contract_ContentItem_1_DisplayValues" data-uid="Picturepark.SDK.V1.Contract.ContentItem`1.DisplayValues"><a href="#collapsible-Picturepark_SDK_V1_Contract_ContentItem_1_DisplayValues" class="expander" data-toggle="collapse">DisplayValues</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_Contract_ContentItem_1_DisplayValues" class="collapse in">
+  <div class="markdown level1 summary"><p>Contains language specific display values, rendered according to the content schema&apos;s
+             display pattern configuration.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DisplayValueDictionary DisplayValues { get; set; }</code></pre>
+  </div>
+  
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.DisplayValueDictionary.html">DisplayValueDictionary</a>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="Picturepark_SDK_V1_Contract_ContentItem_1_Id_" data-uid="Picturepark.SDK.V1.Contract.ContentItem`1.Id*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_Contract_ContentItem_1_Id" data-uid="Picturepark.SDK.V1.Contract.ContentItem`1.Id"><a href="#collapsible-Picturepark_SDK_V1_Contract_ContentItem_1_Id" class="expander" data-toggle="collapse">Id</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_Contract_ContentItem_1_Id" class="collapse in">
+  <div class="markdown level1 summary"><p>The content id.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Id { get; set; }</code></pre>
+  </div>
+  
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.String</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="Picturepark_SDK_V1_Contract_ContentItem_1_LayerSchemaIds_" data-uid="Picturepark.SDK.V1.Contract.ContentItem`1.LayerSchemaIds*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_Contract_ContentItem_1_LayerSchemaIds" data-uid="Picturepark.SDK.V1.Contract.ContentItem`1.LayerSchemaIds"><a href="#collapsible-Picturepark_SDK_V1_Contract_ContentItem_1_LayerSchemaIds" class="expander" data-toggle="collapse">LayerSchemaIds</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_Contract_ContentItem_1_LayerSchemaIds" class="collapse in">
+  <div class="markdown level1 summary"><p>An optional list of layer schemas ids</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ICollection&lt;string&gt; LayerSchemaIds { get; set; }</code></pre>
+  </div>
+  
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Collections.Generic.ICollection</span>&lt;<span class="xref">System.String</span>&gt;
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="Picturepark_SDK_V1_Contract_ContentItem_1_LifeCycle_" data-uid="Picturepark.SDK.V1.Contract.ContentItem`1.LifeCycle*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_Contract_ContentItem_1_LifeCycle" data-uid="Picturepark.SDK.V1.Contract.ContentItem`1.LifeCycle"><a href="#collapsible-Picturepark_SDK_V1_Contract_ContentItem_1_LifeCycle" class="expander" data-toggle="collapse">LifeCycle</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_Contract_ContentItem_1_LifeCycle" class="collapse in">
+  <div class="markdown level1 summary"><p>The lifecycle of the content.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public LifeCycle LifeCycle { get; set; }</code></pre>
+  </div>
+  
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.LifeCycle.html">LifeCycle</a>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="Picturepark_SDK_V1_Contract_ContentItem_1_Metadata_" data-uid="Picturepark.SDK.V1.Contract.ContentItem`1.Metadata*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_Contract_ContentItem_1_Metadata" data-uid="Picturepark.SDK.V1.Contract.ContentItem`1.Metadata"><a href="#collapsible-Picturepark_SDK_V1_Contract_ContentItem_1_Metadata" class="expander" data-toggle="collapse">Metadata</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_Contract_ContentItem_1_Metadata" class="collapse in">
+  <div class="markdown level1 summary"><p>The metadata dictionary</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IDictionary&lt;string, object&gt; Metadata { get; set; }</code></pre>
+  </div>
+  
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">IDictionary</span>&lt;<span class="xref">System.String</span>, <span class="xref">System.Object</span>&gt;
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="Picturepark_SDK_V1_Contract_ContentItem_1_Outputs_" data-uid="Picturepark.SDK.V1.Contract.ContentItem`1.Outputs*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_Contract_ContentItem_1_Outputs" data-uid="Picturepark.SDK.V1.Contract.ContentItem`1.Outputs"><a href="#collapsible-Picturepark_SDK_V1_Contract_ContentItem_1_Outputs" class="expander" data-toggle="collapse">Outputs</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_Contract_ContentItem_1_Outputs" class="collapse in">
+  <div class="markdown level1 summary"><p>A list of rendering outputs for underlying digital file.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ICollection&lt;Output&gt; Outputs { get; set; }</code></pre>
+  </div>
+  
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Collections.Generic.ICollection</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.Output.html">Output</a>&gt;
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="Picturepark_SDK_V1_Contract_ContentItem_1_Owner_" data-uid="Picturepark.SDK.V1.Contract.ContentItem`1.Owner*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_Contract_ContentItem_1_Owner" data-uid="Picturepark.SDK.V1.Contract.ContentItem`1.Owner"><a href="#collapsible-Picturepark_SDK_V1_Contract_ContentItem_1_Owner" class="expander" data-toggle="collapse">Owner</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_Contract_ContentItem_1_Owner" class="collapse in">
+  <div class="markdown level1 summary"><p>The resolved owner.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public User Owner { get; set; }</code></pre>
+  </div>
+  
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.User.html">User</a>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="Picturepark_SDK_V1_Contract_ContentItem_1_OwnerTokenId_" data-uid="Picturepark.SDK.V1.Contract.ContentItem`1.OwnerTokenId*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_Contract_ContentItem_1_OwnerTokenId" data-uid="Picturepark.SDK.V1.Contract.ContentItem`1.OwnerTokenId"><a href="#collapsible-Picturepark_SDK_V1_Contract_ContentItem_1_OwnerTokenId" class="expander" data-toggle="collapse">OwnerTokenId</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_Contract_ContentItem_1_OwnerTokenId" class="collapse in">
+  <div class="markdown level1 summary"><p>The owner token ID. Defines the content owner.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string OwnerTokenId { get; set; }</code></pre>
+  </div>
+  
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.String</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+</article>
           </div>
           <div class="contribution-panel mobile-hide">
           </div>
@@ -267,7 +681,7 @@
               <a href="#top">Back to top</a>
             </span>
             
-            <span>Copyright © 2015-2017 Microsoft<br>Generated by <strong>DocFX</strong></span>
+            <span>Generated by <strong>DocFX</strong></span>
           </div>
         </div>
       </footer>

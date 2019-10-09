@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class PrefixFilter
    | Picturepark.SDK.V1 API ">
-    <meta name="generator" content="docfx 2.16.7.0">
+    <meta name="generator" content="docfx 2.45.1.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -18,10 +18,11 @@
     <link rel="stylesheet" href="../styles/main.css">
     <meta property="docfx:navrel" content="../toc.html">
     <meta property="docfx:tocrel" content="toc.html">
+    
     <meta property="docfx:rel" content="../">
     
   </head>
-  <body data-spy="scroll" data-target="#affix">
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
     <div id="wrapper">
       <header>
         
@@ -57,11 +58,13 @@
           </div>
         </div>
       </header>
-      <div role="main" class="container body-content">
+      <div class="container body-content">
         
         <div id="search-results">
           <div class="search-list"></div>
-          <div class="sr-items"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
           <ul id="pagination"></ul>
         </div>
       </div>
@@ -75,226 +78,236 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content">
-              <h1 id="Picturepark_SDK_V1_Contract_PrefixFilter" data-uid="Picturepark.SDK.V1.Contract.PrefixFilter">Class PrefixFilter
-              </h1>
-              <div class="markdown level0 summary"><p>The PrefixFilter returns documents that have fields containing terms with a specified prefix (not analyzed).</p>
+            <article class="content wrap" id="_content" data-uid="Picturepark.SDK.V1.Contract.PrefixFilter">
+  <h1 id="Picturepark_SDK_V1_Contract_PrefixFilter" data-uid="Picturepark.SDK.V1.Contract.PrefixFilter">Class PrefixFilter
+  </h1>
+  <div class="markdown level0 summary"><p>Filters field&apos;s values based on a prefix</p>
 </div>
-              <div class="markdown level0 conceptual"></div>
-
-              <div class="inheritance">
-                <h5>Inheritance</h5>
-                <div class="level0"><span class="xref">System.Object</span></div>
-                <div class="level1"><a class="xref" href="Picturepark.SDK.V1.Contract.FilterBase.html">FilterBase</a></div>
-                <div class="level2"><span class="xref">PrefixFilter</span></div>
-              </div>
-              
-              
-              <div class="inheritedMembers">
-                <h5>Inherited Members</h5>
-                <div>
-                  <a class="xref" href="Picturepark.SDK.V1.Contract.FilterBase.html#Picturepark_SDK_V1_Contract_FilterBase_FromExpression__1_Expression_System_Func___0_System_Object___System_String_">FilterBase.FromExpression&lt;TObject&gt;(Expression&lt;Func&lt;TObject, Object&gt;&gt;, String)</a>
-                </div>
-                <div>
-                  <a class="xref" href="Picturepark.SDK.V1.Contract.FilterBase.html#Picturepark_SDK_V1_Contract_FilterBase_FromExpression__1_Expression_System_Func___0_System_Object___System_String___">FilterBase.FromExpression&lt;TObject&gt;(Expression&lt;Func&lt;TObject, Object&gt;&gt;, String[])</a>
-                </div>
-                <div>
-                  <span class="xref">System.Object.ToString()</span>
-                </div>
-                <div>
-                  <span class="xref">System.Object.Equals(System.Object)</span>
-                </div>
-                <div>
-                  <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
-                </div>
-                <div>
-                  <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
-                </div>
-                <div>
-                  <span class="xref">System.Object.GetHashCode()</span>
-                </div>
-                <div>
-                  <span class="xref">System.Object.GetType()</span>
-                </div>
-                <div>
-                  <span class="xref">System.Object.MemberwiseClone()</span>
-                </div>
-              </div>
-              
-              <h6><strong>Namespace</strong>: Picturepark.SDK.V1.Contract</h6>
-              
-              <h5 id="Picturepark_SDK_V1_Contract_PrefixFilter_syntax">Syntax</h5>
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public class PrefixFilter : FilterBase</code></pre>
-              </div>
-
-              
-              
-              
-              
-              <h3 id="properties">Properties
-              </h3>
-              
-              
-              <a id="Picturepark_SDK_V1_Contract_PrefixFilter_Field_" data-uid="Picturepark.SDK.V1.Contract.PrefixFilter.Field*"></a>
-              
-              <h4 id="Picturepark_SDK_V1_Contract_PrefixFilter_Field" data-uid="Picturepark.SDK.V1.Contract.PrefixFilter.Field"><a href="#collapsible-Picturepark_SDK_V1_Contract_PrefixFilter_Field" class="expander" data-toggle="collapse">Field</a></h4>
-              
-              <div id="collapsible-Picturepark_SDK_V1_Contract_PrefixFilter_Field" class="collapse in">
-              <div class="markdown level1 summary"><p>The elastic search index field to execute the filter on.</p>
+  <div class="markdown level0 conceptual"></div>
+  
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><a class="xref" href="Picturepark.SDK.V1.Contract.FilterBase.html">FilterBase</a></div>
+    <div class="level2"><span class="xref">PrefixFilter</span></div>
+  </div>
+  
+  
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="Picturepark.SDK.V1.Contract.FilterBase.html#Picturepark_SDK_V1_Contract_FilterBase_FromExpression__1_Expression_System_Func___0_System_Object___System_String_Picturepark_SDK_V1_Contract_Analyzer_">FilterBase.FromExpression&lt;TObject&gt;(Expression&lt;Func&lt;TObject, Object&gt;&gt;, String, Analyzer)</a>
+    </div>
+    <div>
+      <a class="xref" href="Picturepark.SDK.V1.Contract.FilterBase.html#Picturepark_SDK_V1_Contract_FilterBase_FromExpression__1_Expression_System_Func___0_Picturepark_SDK_V1_Contract_TranslatedStringDictionary___System_String_System_String_System_Boolean_">FilterBase.FromExpression&lt;TObject&gt;(Expression&lt;Func&lt;TObject, TranslatedStringDictionary&gt;&gt;, String, String, Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="Picturepark.SDK.V1.Contract.FilterBase.html#Picturepark_SDK_V1_Contract_FilterBase_FromExpression__1_Expression_System_Func___0_System_Object___System_String___">FilterBase.FromExpression&lt;TObject&gt;(Expression&lt;Func&lt;TObject, Object&gt;&gt;, String[])</a>
+    </div>
+    <div>
+      <a class="xref" href="Picturepark.SDK.V1.Contract.FilterBase.html#Picturepark_SDK_V1_Contract_FilterBase_FromExpression__1_Expression_System_Func___0_System_Object___Picturepark_SDK_V1_Contract_Analyzer_System_String___">FilterBase.FromExpression&lt;TObject&gt;(Expression&lt;Func&lt;TObject, Object&gt;&gt;, Analyzer, String[])</a>
+    </div>
+    <div>
+      <a class="xref" href="Picturepark.SDK.V1.Contract.FilterBase.html#Picturepark_SDK_V1_Contract_FilterBase_FromExpression__1_Expression_System_Func___0_Picturepark_SDK_V1_Contract_TranslatedStringDictionary___System_String_IEnumerable_System_String__">FilterBase.FromExpression&lt;TObject&gt;(Expression&lt;Func&lt;TObject, TranslatedStringDictionary&gt;&gt;, String, IEnumerable&lt;String&gt;)</a>
+    </div>
+    <div>
+      <span class="xref">System.Object.ToString()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+  </div>
+  
+  <h6><strong>Namespace</strong>: System.Dynamic.ExpandoObject</h6>
+  
+  <h5 id="Picturepark_SDK_V1_Contract_PrefixFilter_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class PrefixFilter : FilterBase</code></pre>
+  </div>
+  
+  
+  
+  
+  
+  <h3 id="properties">Properties
+  </h3>
+  
+  
+  <a id="Picturepark_SDK_V1_Contract_PrefixFilter_Field_" data-uid="Picturepark.SDK.V1.Contract.PrefixFilter.Field*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_Contract_PrefixFilter_Field" data-uid="Picturepark.SDK.V1.Contract.PrefixFilter.Field"><a href="#collapsible-Picturepark_SDK_V1_Contract_PrefixFilter_Field" class="expander" data-toggle="collapse">Field</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_Contract_PrefixFilter_Field" class="collapse in">
+  <div class="markdown level1 summary"><p>The field&apos;s name to execute the filter on. It is composed by the field ids of the hierarchy joined with &quot;.&quot;
+(i.e. personLayer.address.street).</p>
 </div>
-              <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
-
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public string Field { get; set; }</code></pre>
-              </div>
-
-              
-              
-              
-              
-              <h5 class="propertyValue">Property Value</h5>
-              <table>
-                <tr>
-                  <td>
-                    <span class="xref">System.String</span>
-                    <p>
-                  </td>
-                </tr>
-              </table>
-              
-              
-              
-              
-              
-              
-              
-              </div>
-              
-              
-              <a id="Picturepark_SDK_V1_Contract_PrefixFilter_Prefix_" data-uid="Picturepark.SDK.V1.Contract.PrefixFilter.Prefix*"></a>
-              
-              <h4 id="Picturepark_SDK_V1_Contract_PrefixFilter_Prefix" data-uid="Picturepark.SDK.V1.Contract.PrefixFilter.Prefix"><a href="#collapsible-Picturepark_SDK_V1_Contract_PrefixFilter_Prefix" class="expander" data-toggle="collapse">Prefix</a></h4>
-              
-              <div id="collapsible-Picturepark_SDK_V1_Contract_PrefixFilter_Prefix" class="collapse in">
-              <div class="markdown level1 summary"><p>The prefix term to filter on.</p>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Field { get; set; }</code></pre>
+  </div>
+  
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.String</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="Picturepark_SDK_V1_Contract_PrefixFilter_Prefix_" data-uid="Picturepark.SDK.V1.Contract.PrefixFilter.Prefix*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_Contract_PrefixFilter_Prefix" data-uid="Picturepark.SDK.V1.Contract.PrefixFilter.Prefix"><a href="#collapsible-Picturepark_SDK_V1_Contract_PrefixFilter_Prefix" class="expander" data-toggle="collapse">Prefix</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_Contract_PrefixFilter_Prefix" class="collapse in">
+  <div class="markdown level1 summary"><p>The value to be used as prefix.</p>
 </div>
-              <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
-
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public string Prefix { get; set; }</code></pre>
-              </div>
-
-              
-              
-              
-              
-              <h5 class="propertyValue">Property Value</h5>
-              <table>
-                <tr>
-                  <td>
-                    <span class="xref">System.String</span>
-                    <p>
-                  </td>
-                </tr>
-              </table>
-              
-              
-              
-              
-              
-              
-              
-              </div>
-              <h3 id="methods">Methods
-              </h3>
-              
-              
-              <a id="Picturepark_SDK_V1_Contract_PrefixFilter_FromJson_" data-uid="Picturepark.SDK.V1.Contract.PrefixFilter.FromJson*"></a>
-              
-              <h4 id="Picturepark_SDK_V1_Contract_PrefixFilter_FromJson_System_String_" data-uid="Picturepark.SDK.V1.Contract.PrefixFilter.FromJson(System.String)"><a href="#collapsible-Picturepark_SDK_V1_Contract_PrefixFilter_FromJson_System_String_" class="expander" data-toggle="collapse">FromJson(String)</a></h4>
-              
-              <div id="collapsible-Picturepark_SDK_V1_Contract_PrefixFilter_FromJson_System_String_" class="collapse in">
-              <div class="markdown level1 summary"></div>
-              <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
-
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public static PrefixFilter FromJson(string data)</code></pre>
-              </div>
-
-              <h5 class="parameters">Parameters</h5>
-              <table>
-                <tr>
-                  <td>
-                    <span class="pull-right"><span class="xref">System.String</span></span>
-                    <span class="parametername">data</span>
-                    <p>
-                  </td>
-                </tr>
-              </table>
-              
-              <h5 class="returns">Returns</h5>
-              <table>
-                <tr>
-                  <td>
-                    <a class="xref" href="Picturepark.SDK.V1.Contract.PrefixFilter.html">PrefixFilter</a>
-                    <p>
-                  </td>
-                </tr>
-              </table>
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              </div>
-              
-              
-              <a id="Picturepark_SDK_V1_Contract_PrefixFilter_ToJson_" data-uid="Picturepark.SDK.V1.Contract.PrefixFilter.ToJson*"></a>
-              
-              <h4 id="Picturepark_SDK_V1_Contract_PrefixFilter_ToJson" data-uid="Picturepark.SDK.V1.Contract.PrefixFilter.ToJson"><a href="#collapsible-Picturepark_SDK_V1_Contract_PrefixFilter_ToJson" class="expander" data-toggle="collapse">ToJson()</a></h4>
-              
-              <div id="collapsible-Picturepark_SDK_V1_Contract_PrefixFilter_ToJson" class="collapse in">
-              <div class="markdown level1 summary"></div>
-              <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
-
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public string ToJson()</code></pre>
-              </div>
-
-              
-              <h5 class="returns">Returns</h5>
-              <table>
-                <tr>
-                  <td>
-                    <span class="xref">System.String</span>
-                    <p>
-                  </td>
-                </tr>
-              </table>
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              </div>
-              
-              
-                        </article>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Prefix { get; set; }</code></pre>
+  </div>
+  
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.String</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  <h3 id="methods">Methods
+  </h3>
+  
+  
+  <a id="Picturepark_SDK_V1_Contract_PrefixFilter_FromJson_" data-uid="Picturepark.SDK.V1.Contract.PrefixFilter.FromJson*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_Contract_PrefixFilter_FromJson_System_String_" data-uid="Picturepark.SDK.V1.Contract.PrefixFilter.FromJson(System.String)"><a href="#collapsible-Picturepark_SDK_V1_Contract_PrefixFilter_FromJson_System_String_" class="expander" data-toggle="collapse">FromJson(String)</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_Contract_PrefixFilter_FromJson_System_String_" class="collapse in">
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static PrefixFilter FromJson(string data)</code></pre>
+  </div>
+  
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.String</span></span>
+        <span class="parametername">data</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PrefixFilter.html">PrefixFilter</a>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="Picturepark_SDK_V1_Contract_PrefixFilter_ToJson_" data-uid="Picturepark.SDK.V1.Contract.PrefixFilter.ToJson*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_Contract_PrefixFilter_ToJson" data-uid="Picturepark.SDK.V1.Contract.PrefixFilter.ToJson"><a href="#collapsible-Picturepark_SDK_V1_Contract_PrefixFilter_ToJson" class="expander" data-toggle="collapse">ToJson()</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_Contract_PrefixFilter_ToJson" class="collapse in">
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string ToJson()</code></pre>
+  </div>
+  
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.String</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+</article>
           </div>
           <div class="contribution-panel mobile-hide">
           </div>
@@ -316,7 +329,7 @@
               <a href="#top">Back to top</a>
             </span>
             
-            <span>Copyright © 2015-2017 Microsoft<br>Generated by <strong>DocFX</strong></span>
+            <span>Generated by <strong>DocFX</strong></span>
           </div>
         </div>
       </footer>

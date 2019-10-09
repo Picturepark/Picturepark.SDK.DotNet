@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Interface IShareClient
    | Picturepark.SDK.V1 API ">
-    <meta name="generator" content="docfx 2.16.7.0">
+    <meta name="generator" content="docfx 2.45.1.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -18,10 +18,11 @@
     <link rel="stylesheet" href="../styles/main.css">
     <meta property="docfx:navrel" content="../toc.html">
     <meta property="docfx:tocrel" content="toc.html">
+    
     <meta property="docfx:rel" content="../">
     
   </head>
-  <body data-spy="scroll" data-target="#affix">
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
     <div id="wrapper">
       <header>
         
@@ -57,11 +58,13 @@
           </div>
         </div>
       </header>
-      <div role="main" class="container body-content">
+      <div class="container body-content">
         
         <div id="search-results">
           <div class="search-list"></div>
-          <div class="sr-items"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
           <ul id="pagination"></ul>
         </div>
       </div>
@@ -75,943 +78,1113 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content">
-              <h1 id="Picturepark_SDK_V1_Contract_IShareClient" data-uid="Picturepark.SDK.V1.Contract.IShareClient">Interface IShareClient
-              </h1>
-              <div class="markdown level0 summary"></div>
-              <div class="markdown level0 conceptual"></div>
-
-              
-              
-              
-              <h6><strong>Namespace</strong>: Picturepark.SDK.V1.Contract</h6>
-              
-              <h5 id="Picturepark_SDK_V1_Contract_IShareClient_syntax">Syntax</h5>
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public interface IShareClient</code></pre>
-              </div>
-
-              
-              
-              
-              
-              <h3 id="methods">Methods
-              </h3>
-              
-              
-              <a id="Picturepark_SDK_V1_Contract_IShareClient_Aggregate_" data-uid="Picturepark.SDK.V1.Contract.IShareClient.Aggregate*"></a>
-              
-              <h4 id="Picturepark_SDK_V1_Contract_IShareClient_Aggregate_Picturepark_SDK_V1_Contract_ShareAggregationRequest_" data-uid="Picturepark.SDK.V1.Contract.IShareClient.Aggregate(Picturepark.SDK.V1.Contract.ShareAggregationRequest)"><a href="#collapsible-Picturepark_SDK_V1_Contract_IShareClient_Aggregate_Picturepark_SDK_V1_Contract_ShareAggregationRequest_" class="expander" data-toggle="collapse">Aggregate(ShareAggregationRequest)</a></h4>
-              
-              <div id="collapsible-Picturepark_SDK_V1_Contract_IShareClient_Aggregate_Picturepark_SDK_V1_Contract_ShareAggregationRequest_" class="collapse in">
-              <div class="markdown level1 summary"><p>Aggregate</p>
+            <article class="content wrap" id="_content" data-uid="Picturepark.SDK.V1.Contract.IShareClient">
+  <h1 id="Picturepark_SDK_V1_Contract_IShareClient" data-uid="Picturepark.SDK.V1.Contract.IShareClient">Interface IShareClient
+  </h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  
+  
+  
+  
+  <h6><strong>Namespace</strong>: System.Dynamic.ExpandoObject</h6>
+  
+  <h5 id="Picturepark_SDK_V1_Contract_IShareClient_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public interface IShareClient</code></pre>
+  </div>
+  
+  
+  
+  
+  
+  <h3 id="methods">Methods
+  </h3>
+  
+  
+  <a id="Picturepark_SDK_V1_Contract_IShareClient_AggregateAsync_" data-uid="Picturepark.SDK.V1.Contract.IShareClient.AggregateAsync*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_Contract_IShareClient_AggregateAsync_Picturepark_SDK_V1_Contract_ShareAggregationRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.Contract.IShareClient.AggregateAsync(Picturepark.SDK.V1.Contract.ShareAggregationRequest,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_Contract_IShareClient_AggregateAsync_Picturepark_SDK_V1_Contract_ShareAggregationRequest_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">AggregateAsync(ShareAggregationRequest, CancellationToken)</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_Contract_IShareClient_AggregateAsync_Picturepark_SDK_V1_Contract_ShareAggregationRequest_System_Threading_CancellationToken_" class="collapse in">
+  <div class="markdown level1 summary"><p>Aggregate</p>
 </div>
-              <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
-
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">ObjectAggregationResult Aggregate(ShareAggregationRequest request)</code></pre>
-              </div>
-
-              <h5 class="parameters">Parameters</h5>
-              <table>
-                <tr>
-                  <td>
-                    <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.ShareAggregationRequest.html">ShareAggregationRequest</a></span>
-                    <span class="parametername">request</span>
-                    <p><p>Aggregation request</p>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;ObjectAggregationResult&gt; AggregateAsync(ShareAggregationRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.ShareAggregationRequest.html">ShareAggregationRequest</a></span>
+        <span class="parametername">request</span>
+        <p><p>Aggregation request</p>
 </p>
-                  </td>
-                </tr>
-              </table>
-              
-              <h5 class="returns">Returns</h5>
-              <table>
-                <tr>
-                  <td>
-                    <a class="xref" href="Picturepark.SDK.V1.Contract.ObjectAggregationResult.html">ObjectAggregationResult</a>
-                    <p><p>AggregationResult</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
+        <span class="parametername">cancellationToken</span>
+        <p><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
 </p>
-                  </td>
-                </tr>
-              </table>
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              <h5 class="exceptions">Exceptions</h5>
-              <table>
-                <tr>
-                  <td>
-                    <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
-                    <p><p>A server side error occurred.</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.ObjectAggregationResult.html">ObjectAggregationResult</a>&gt;
+        <p><p>Share aggregation result</p>
 </p>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-                    <p><p>Internal server error</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <h5 class="exceptions">Exceptions</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
+        <p><p>A server side error occurred.</p>
 </p>
-                  </td>
-                </tr>
-              </table>
-              
-              </div>
-              
-              
-              <a id="Picturepark_SDK_V1_Contract_IShareClient_AggregateAsync_" data-uid="Picturepark.SDK.V1.Contract.IShareClient.AggregateAsync*"></a>
-              
-              <h4 id="Picturepark_SDK_V1_Contract_IShareClient_AggregateAsync_Picturepark_SDK_V1_Contract_ShareAggregationRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.Contract.IShareClient.AggregateAsync(Picturepark.SDK.V1.Contract.ShareAggregationRequest,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_Contract_IShareClient_AggregateAsync_Picturepark_SDK_V1_Contract_ShareAggregationRequest_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">AggregateAsync(ShareAggregationRequest, CancellationToken)</a></h4>
-              
-              <div id="collapsible-Picturepark_SDK_V1_Contract_IShareClient_AggregateAsync_Picturepark_SDK_V1_Contract_ShareAggregationRequest_System_Threading_CancellationToken_" class="collapse in">
-              <div class="markdown level1 summary"><p>Aggregate</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
+        <p><p>Entity not found</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
+        <p><p>Version conflict</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  </div>
+  
+  
+  <a id="Picturepark_SDK_V1_Contract_IShareClient_CreateAsync_" data-uid="Picturepark.SDK.V1.Contract.IShareClient.CreateAsync*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_Contract_IShareClient_CreateAsync_Picturepark_SDK_V1_Contract_ShareBaseCreateRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.Contract.IShareClient.CreateAsync(Picturepark.SDK.V1.Contract.ShareBaseCreateRequest,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_Contract_IShareClient_CreateAsync_Picturepark_SDK_V1_Contract_ShareBaseCreateRequest_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">CreateAsync(ShareBaseCreateRequest, CancellationToken)</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_Contract_IShareClient_CreateAsync_Picturepark_SDK_V1_Contract_ShareBaseCreateRequest_System_Threading_CancellationToken_" class="collapse in">
+  <div class="markdown level1 summary"><p>Create</p>
 </div>
-              <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
-
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">Task&lt;ObjectAggregationResult&gt; AggregateAsync(ShareAggregationRequest request, CancellationToken cancellationToken = null)</code></pre>
-              </div>
-
-              <h5 class="parameters">Parameters</h5>
-              <table>
-                <tr>
-                  <td>
-                    <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.ShareAggregationRequest.html">ShareAggregationRequest</a></span>
-                    <span class="parametername">request</span>
-                    <p><p>Aggregation request</p>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;CreateShareResult&gt; CreateAsync(ShareBaseCreateRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.ShareBaseCreateRequest.html">ShareBaseCreateRequest</a></span>
+        <span class="parametername">request</span>
+        <p><p>Polymorphic create contract. Use either ShareBasicCreateRequest or ShareEmbedCreateRequest</p>
 </p>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
-                    <span class="parametername">cancellationToken</span>
-                    <p><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
+        <span class="parametername">cancellationToken</span>
+        <p><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
 </p>
-                  </td>
-                </tr>
-              </table>
-              
-              <h5 class="returns">Returns</h5>
-              <table>
-                <tr>
-                  <td>
-                    <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.ObjectAggregationResult.html">ObjectAggregationResult</a>&gt;
-                    <p><p>AggregationResult</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.CreateShareResult.html">CreateShareResult</a>&gt;
+        <p><p>Create result</p>
 </p>
-                  </td>
-                </tr>
-              </table>
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              <h5 class="exceptions">Exceptions</h5>
-              <table>
-                <tr>
-                  <td>
-                    <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
-                    <p><p>A server side error occurred.</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <h5 class="exceptions">Exceptions</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
+        <p><p>A server side error occurred.</p>
 </p>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-                    <p><p>Internal server error</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.ContentNotFoundException.html">ContentNotFoundException</a>
+        <p><p>Content could not be found</p>
 </p>
-                  </td>
-                </tr>
-              </table>
-              
-              </div>
-              
-              
-              <a id="Picturepark_SDK_V1_Contract_IShareClient_Create_" data-uid="Picturepark.SDK.V1.Contract.IShareClient.Create*"></a>
-              
-              <h4 id="Picturepark_SDK_V1_Contract_IShareClient_Create_Picturepark_SDK_V1_Contract_ShareBaseCreateRequest_" data-uid="Picturepark.SDK.V1.Contract.IShareClient.Create(Picturepark.SDK.V1.Contract.ShareBaseCreateRequest)"><a href="#collapsible-Picturepark_SDK_V1_Contract_IShareClient_Create_Picturepark_SDK_V1_Contract_ShareBaseCreateRequest_" class="expander" data-toggle="collapse">Create(ShareBaseCreateRequest)</a></h4>
-              
-              <div id="collapsible-Picturepark_SDK_V1_Contract_IShareClient_Create_Picturepark_SDK_V1_Contract_ShareBaseCreateRequest_" class="collapse in">
-              <div class="markdown level1 summary"><p>Create - single</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
+        <p><p>Entity not found</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PermissionValidationException.html">PermissionValidationException</a>
+        <p><p>No permission to share</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
+        <p><p>Version conflict</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  </div>
+  
+  
+  <a id="Picturepark_SDK_V1_Contract_IShareClient_DeleteManyAsync_" data-uid="Picturepark.SDK.V1.Contract.IShareClient.DeleteManyAsync*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_Contract_IShareClient_DeleteManyAsync_Picturepark_SDK_V1_Contract_ShareDeleteManyRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.Contract.IShareClient.DeleteManyAsync(Picturepark.SDK.V1.Contract.ShareDeleteManyRequest,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_Contract_IShareClient_DeleteManyAsync_Picturepark_SDK_V1_Contract_ShareDeleteManyRequest_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">DeleteManyAsync(ShareDeleteManyRequest, CancellationToken)</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_Contract_IShareClient_DeleteManyAsync_Picturepark_SDK_V1_Contract_ShareDeleteManyRequest_System_Threading_CancellationToken_" class="collapse in">
+  <div class="markdown level1 summary"><p>Delete multiple shares</p>
 </div>
-              <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
-
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">CreateShareResult Create(ShareBaseCreateRequest request)</code></pre>
-              </div>
-
-              <h5 class="parameters">Parameters</h5>
-              <table>
-                <tr>
-                  <td>
-                    <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.ShareBaseCreateRequest.html">ShareBaseCreateRequest</a></span>
-                    <span class="parametername">request</span>
-                    <p><p>Polymorph create contract. Use either ShareBasicCreateRequest or ShareEmbedCreateRequest</p>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;BulkResponse&gt; DeleteManyAsync(ShareDeleteManyRequest deleteManyRequest, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.ShareDeleteManyRequest.html">ShareDeleteManyRequest</a></span>
+        <span class="parametername">deleteManyRequest</span>
+        <p><p>A delete many request containing the ids of the shares to delete.</p>
 </p>
-                  </td>
-                </tr>
-              </table>
-              
-              <h5 class="returns">Returns</h5>
-              <table>
-                <tr>
-                  <td>
-                    <a class="xref" href="Picturepark.SDK.V1.Contract.CreateShareResult.html">CreateShareResult</a>
-                    <p><p>Create result</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
+        <span class="parametername">cancellationToken</span>
+        <p><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
 </p>
-                  </td>
-                </tr>
-              </table>
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              <h5 class="exceptions">Exceptions</h5>
-              <table>
-                <tr>
-                  <td>
-                    <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
-                    <p><p>A server side error occurred.</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.BulkResponse.html">BulkResponse</a>&gt;
+        <p><p>BusinessProcess</p>
 </p>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <a class="xref" href="Picturepark.SDK.V1.Contract.ContentNotFoundException.html">ContentNotFoundException</a>
-                    <p><p>Submited content could not be found</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <h5 class="exceptions">Exceptions</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
+        <p><p>A server side error occurred.</p>
 </p>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <a class="xref" href="Picturepark.SDK.V1.Contract.PermissionException.html">PermissionException</a>
-                    <p><p>No permission to share</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
 </p>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-                    <p><p>Internal server error</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
+        <p><p>Entity not found</p>
 </p>
-                  </td>
-                </tr>
-              </table>
-              
-              </div>
-              
-              
-              <a id="Picturepark_SDK_V1_Contract_IShareClient_CreateAsync_" data-uid="Picturepark.SDK.V1.Contract.IShareClient.CreateAsync*"></a>
-              
-              <h4 id="Picturepark_SDK_V1_Contract_IShareClient_CreateAsync_Picturepark_SDK_V1_Contract_ShareBaseCreateRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.Contract.IShareClient.CreateAsync(Picturepark.SDK.V1.Contract.ShareBaseCreateRequest,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_Contract_IShareClient_CreateAsync_Picturepark_SDK_V1_Contract_ShareBaseCreateRequest_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">CreateAsync(ShareBaseCreateRequest, CancellationToken)</a></h4>
-              
-              <div id="collapsible-Picturepark_SDK_V1_Contract_IShareClient_CreateAsync_Picturepark_SDK_V1_Contract_ShareBaseCreateRequest_System_Threading_CancellationToken_" class="collapse in">
-              <div class="markdown level1 summary"><p>Create - single</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
+        <p><p>Version conflict</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  </div>
+  
+  
+  <a id="Picturepark_SDK_V1_Contract_IShareClient_DownloadAsync_" data-uid="Picturepark.SDK.V1.Contract.IShareClient.DownloadAsync*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_Contract_IShareClient_DownloadAsync_System_String_System_Nullable_System_Int32__System_Nullable_System_Int32__System_String_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.Contract.IShareClient.DownloadAsync(System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.String,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_Contract_IShareClient_DownloadAsync_System_String_System_Nullable_System_Int32__System_Nullable_System_Int32__System_String_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">DownloadAsync(String, Nullable&lt;Int32&gt;, Nullable&lt;Int32&gt;, String, CancellationToken)</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_Contract_IShareClient_DownloadAsync_System_String_System_Nullable_System_Int32__System_Nullable_System_Int32__System_String_System_Threading_CancellationToken_" class="collapse in">
+  <div class="markdown level1 summary"><p>Download shared outputs</p>
 </div>
-              <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
-
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">Task&lt;CreateShareResult&gt; CreateAsync(ShareBaseCreateRequest request, CancellationToken cancellationToken = null)</code></pre>
-              </div>
-
-              <h5 class="parameters">Parameters</h5>
-              <table>
-                <tr>
-                  <td>
-                    <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.ShareBaseCreateRequest.html">ShareBaseCreateRequest</a></span>
-                    <span class="parametername">request</span>
-                    <p><p>Polymorph create contract. Use either ShareBasicCreateRequest or ShareEmbedCreateRequest</p>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;FileResponse&gt; DownloadAsync(string token, int? width = default(int? ), int? height = default(int? ), string range = null, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.String</span></span>
+        <span class="parametername">token</span>
+        <p><p>Share token</p>
 </p>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
-                    <span class="parametername">cancellationToken</span>
-                    <p><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</span>
+        <span class="parametername">width</span>
+        <p><p>Optional width in pixels to resize image</p>
 </p>
-                  </td>
-                </tr>
-              </table>
-              
-              <h5 class="returns">Returns</h5>
-              <table>
-                <tr>
-                  <td>
-                    <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.CreateShareResult.html">CreateShareResult</a>&gt;
-                    <p><p>Create result</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</span>
+        <span class="parametername">height</span>
+        <p><p>Optional height in pixels to resize image</p>
 </p>
-                  </td>
-                </tr>
-              </table>
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              <h5 class="exceptions">Exceptions</h5>
-              <table>
-                <tr>
-                  <td>
-                    <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
-                    <p><p>A server side error occurred.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.String</span></span>
+        <span class="parametername">range</span>
+        <p><p>The range of bytes to download (http range header): bytes={from}-{to} (e.g. bytes=0-100000)</p>
 </p>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <a class="xref" href="Picturepark.SDK.V1.Contract.ContentNotFoundException.html">ContentNotFoundException</a>
-                    <p><p>Submited content could not be found</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
+        <span class="parametername">cancellationToken</span>
+        <p><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
 </p>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <a class="xref" href="Picturepark.SDK.V1.Contract.PermissionException.html">PermissionException</a>
-                    <p><p>No permission to share</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.FileResponse.html">FileResponse</a>&gt;
+        <p><p>HttpResponseMessage</p>
 </p>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-                    <p><p>Internal server error</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <h5 class="exceptions">Exceptions</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
+        <p><p>A server side error occurred.</p>
 </p>
-                  </td>
-                </tr>
-              </table>
-              
-              </div>
-              
-              
-              <a id="Picturepark_SDK_V1_Contract_IShareClient_DeleteMany_" data-uid="Picturepark.SDK.V1.Contract.IShareClient.DeleteMany*"></a>
-              
-              <h4 id="Picturepark_SDK_V1_Contract_IShareClient_DeleteMany_System_Collections_Generic_IEnumerable_System_String__" data-uid="Picturepark.SDK.V1.Contract.IShareClient.DeleteMany(System.Collections.Generic.IEnumerable{System.String})"><a href="#collapsible-Picturepark_SDK_V1_Contract_IShareClient_DeleteMany_System_Collections_Generic_IEnumerable_System_String__" class="expander" data-toggle="collapse">DeleteMany(IEnumerable&lt;String&gt;)</a></h4>
-              
-              <div id="collapsible-Picturepark_SDK_V1_Contract_IShareClient_DeleteMany_System_Collections_Generic_IEnumerable_System_String__" class="collapse in">
-              <div class="markdown level1 summary"><p>Delete - many</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
+        <p><p>Entity not found</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
+        <p><p>Version conflict</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  </div>
+  
+  
+  <a id="Picturepark_SDK_V1_Contract_IShareClient_DownloadWithContentIdAsync_" data-uid="Picturepark.SDK.V1.Contract.IShareClient.DownloadWithContentIdAsync*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_Contract_IShareClient_DownloadWithContentIdAsync_System_String_System_String_System_Nullable_System_Int32__System_Nullable_System_Int32__System_String_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.Contract.IShareClient.DownloadWithContentIdAsync(System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.String,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_Contract_IShareClient_DownloadWithContentIdAsync_System_String_System_String_System_Nullable_System_Int32__System_Nullable_System_Int32__System_String_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">DownloadWithContentIdAsync(String, String, Nullable&lt;Int32&gt;, Nullable&lt;Int32&gt;, String, CancellationToken)</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_Contract_IShareClient_DownloadWithContentIdAsync_System_String_System_String_System_Nullable_System_Int32__System_Nullable_System_Int32__System_String_System_Threading_CancellationToken_" class="collapse in">
+  <div class="markdown level1 summary"><p>Download shared outputs</p>
 </div>
-              <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
-
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">BulkResponse DeleteMany(IEnumerable&lt;string&gt; ids)</code></pre>
-              </div>
-
-              <h5 class="parameters">Parameters</h5>
-              <table>
-                <tr>
-                  <td>
-                    <span class="pull-right"><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">System.String</span>&gt;</span>
-                    <span class="parametername">ids</span>
-                    <p><p>A list of shareIds to delete.</p>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;FileResponse&gt; DownloadWithContentIdAsync(string token, string contentId, int? width = default(int? ), int? height = default(int? ), string range = null, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.String</span></span>
+        <span class="parametername">token</span>
+        <p><p>Share token</p>
 </p>
-                  </td>
-                </tr>
-              </table>
-              
-              <h5 class="returns">Returns</h5>
-              <table>
-                <tr>
-                  <td>
-                    <a class="xref" href="Picturepark.SDK.V1.Contract.BulkResponse.html">BulkResponse</a>
-                    <p><p>BusinessProcess</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.String</span></span>
+        <span class="parametername">contentId</span>
+        <p><p>The content id</p>
 </p>
-                  </td>
-                </tr>
-              </table>
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              <h5 class="exceptions">Exceptions</h5>
-              <table>
-                <tr>
-                  <td>
-                    <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
-                    <p><p>A server side error occurred.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</span>
+        <span class="parametername">width</span>
+        <p><p>Optional width in pixels to resize image</p>
 </p>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-                    <p><p>Internal server error</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</span>
+        <span class="parametername">height</span>
+        <p><p>Optional height in pixels to resize image</p>
 </p>
-                  </td>
-                </tr>
-              </table>
-              
-              </div>
-              
-              
-              <a id="Picturepark_SDK_V1_Contract_IShareClient_DeleteManyAsync_" data-uid="Picturepark.SDK.V1.Contract.IShareClient.DeleteManyAsync*"></a>
-              
-              <h4 id="Picturepark_SDK_V1_Contract_IShareClient_DeleteManyAsync_System_Collections_Generic_IEnumerable_System_String__System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.Contract.IShareClient.DeleteManyAsync(System.Collections.Generic.IEnumerable{System.String},System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_Contract_IShareClient_DeleteManyAsync_System_Collections_Generic_IEnumerable_System_String__System_Threading_CancellationToken_" class="expander" data-toggle="collapse">DeleteManyAsync(IEnumerable&lt;String&gt;, CancellationToken)</a></h4>
-              
-              <div id="collapsible-Picturepark_SDK_V1_Contract_IShareClient_DeleteManyAsync_System_Collections_Generic_IEnumerable_System_String__System_Threading_CancellationToken_" class="collapse in">
-              <div class="markdown level1 summary"><p>Delete - many</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.String</span></span>
+        <span class="parametername">range</span>
+        <p><p>The range of bytes to download (http range header): bytes={from}-{to} (e.g. bytes=0-100000)</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
+        <span class="parametername">cancellationToken</span>
+        <p><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.FileResponse.html">FileResponse</a>&gt;
+        <p><p>HttpResponseMessage</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <h5 class="exceptions">Exceptions</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
+        <p><p>A server side error occurred.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
+        <p><p>Entity not found</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
+        <p><p>Version conflict</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  </div>
+  
+  
+  <a id="Picturepark_SDK_V1_Contract_IShareClient_DownloadWithOutputFormatIdAsync_" data-uid="Picturepark.SDK.V1.Contract.IShareClient.DownloadWithOutputFormatIdAsync*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_Contract_IShareClient_DownloadWithOutputFormatIdAsync_System_String_System_String_System_String_System_Nullable_System_Int32__System_Nullable_System_Int32__System_String_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.Contract.IShareClient.DownloadWithOutputFormatIdAsync(System.String,System.String,System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.String,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_Contract_IShareClient_DownloadWithOutputFormatIdAsync_System_String_System_String_System_String_System_Nullable_System_Int32__System_Nullable_System_Int32__System_String_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">DownloadWithOutputFormatIdAsync(String, String, String, Nullable&lt;Int32&gt;, Nullable&lt;Int32&gt;, String, CancellationToken)</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_Contract_IShareClient_DownloadWithOutputFormatIdAsync_System_String_System_String_System_String_System_Nullable_System_Int32__System_Nullable_System_Int32__System_String_System_Threading_CancellationToken_" class="collapse in">
+  <div class="markdown level1 summary"><p>Download shared outputs</p>
 </div>
-              <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
-
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">Task&lt;BulkResponse&gt; DeleteManyAsync(IEnumerable&lt;string&gt; ids, CancellationToken cancellationToken = null)</code></pre>
-              </div>
-
-              <h5 class="parameters">Parameters</h5>
-              <table>
-                <tr>
-                  <td>
-                    <span class="pull-right"><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">System.String</span>&gt;</span>
-                    <span class="parametername">ids</span>
-                    <p><p>A list of shareIds to delete.</p>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;FileResponse&gt; DownloadWithOutputFormatIdAsync(string token, string contentId, string outputFormatId, int? width = default(int? ), int? height = default(int? ), string range = null, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.String</span></span>
+        <span class="parametername">token</span>
+        <p><p>Share token</p>
 </p>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
-                    <span class="parametername">cancellationToken</span>
-                    <p><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.String</span></span>
+        <span class="parametername">contentId</span>
+        <p><p>The content id</p>
 </p>
-                  </td>
-                </tr>
-              </table>
-              
-              <h5 class="returns">Returns</h5>
-              <table>
-                <tr>
-                  <td>
-                    <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.BulkResponse.html">BulkResponse</a>&gt;
-                    <p><p>BusinessProcess</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.String</span></span>
+        <span class="parametername">outputFormatId</span>
+        <p><p>The output format id+</p>
 </p>
-                  </td>
-                </tr>
-              </table>
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              <h5 class="exceptions">Exceptions</h5>
-              <table>
-                <tr>
-                  <td>
-                    <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
-                    <p><p>A server side error occurred.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</span>
+        <span class="parametername">width</span>
+        <p><p>Optional width in pixels to resize image</p>
 </p>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-                    <p><p>Internal server error</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</span>
+        <span class="parametername">height</span>
+        <p><p>Optional height in pixels to resize image</p>
 </p>
-                  </td>
-                </tr>
-              </table>
-              
-              </div>
-              
-              
-              <a id="Picturepark_SDK_V1_Contract_IShareClient_Get_" data-uid="Picturepark.SDK.V1.Contract.IShareClient.Get*"></a>
-              
-              <h4 id="Picturepark_SDK_V1_Contract_IShareClient_Get_System_String_" data-uid="Picturepark.SDK.V1.Contract.IShareClient.Get(System.String)"><a href="#collapsible-Picturepark_SDK_V1_Contract_IShareClient_Get_System_String_" class="expander" data-toggle="collapse">Get(String)</a></h4>
-              
-              <div id="collapsible-Picturepark_SDK_V1_Contract_IShareClient_Get_System_String_" class="collapse in">
-              <div class="markdown level1 summary"><p>Get - single</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.String</span></span>
+        <span class="parametername">range</span>
+        <p><p>The range of bytes to download (http range header): bytes={from}-{to} (e.g. bytes=0-100000)</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
+        <span class="parametername">cancellationToken</span>
+        <p><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.FileResponse.html">FileResponse</a>&gt;
+        <p><p>HttpResponseMessage</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <h5 class="exceptions">Exceptions</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
+        <p><p>A server side error occurred.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
+        <p><p>Entity not found</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
+        <p><p>Version conflict</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  </div>
+  
+  
+  <a id="Picturepark_SDK_V1_Contract_IShareClient_GetAsync_" data-uid="Picturepark.SDK.V1.Contract.IShareClient.GetAsync*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_Contract_IShareClient_GetAsync_System_String_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.Contract.IShareClient.GetAsync(System.String,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_Contract_IShareClient_GetAsync_System_String_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">GetAsync(String, CancellationToken)</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_Contract_IShareClient_GetAsync_System_String_System_Threading_CancellationToken_" class="collapse in">
+  <div class="markdown level1 summary"><p>Get</p>
 </div>
-              <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
-
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">ShareDetail Get(string id)</code></pre>
-              </div>
-
-              <h5 class="parameters">Parameters</h5>
-              <table>
-                <tr>
-                  <td>
-                    <span class="pull-right"><span class="xref">System.String</span></span>
-                    <span class="parametername">id</span>
-                    <p><p>Share Id (not token, use PublicAccess to get share by token)</p>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;ShareDetail&gt; GetAsync(string id, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.String</span></span>
+        <span class="parametername">id</span>
+        <p><p>Share Id (not token, use <a href="#operation/Share_GetShareJson">GetShareJson</a> to get share by token)</p>
 </p>
-                  </td>
-                </tr>
-              </table>
-              
-              <h5 class="returns">Returns</h5>
-              <table>
-                <tr>
-                  <td>
-                    <a class="xref" href="Picturepark.SDK.V1.Contract.ShareDetail.html">ShareDetail</a>
-                    <p><p>Polymorph share</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
+        <span class="parametername">cancellationToken</span>
+        <p><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
 </p>
-                  </td>
-                </tr>
-              </table>
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              <h5 class="exceptions">Exceptions</h5>
-              <table>
-                <tr>
-                  <td>
-                    <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
-                    <p><p>A server side error occurred.</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.ShareDetail.html">ShareDetail</a>&gt;
+        <p><p>Share detail</p>
 </p>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <a class="xref" href="Picturepark.SDK.V1.Contract.ShareNotFoundException.html">ShareNotFoundException</a>
-                    <p><p>Submited share could not be found</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <h5 class="exceptions">Exceptions</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
+        <p><p>A server side error occurred.</p>
 </p>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-                    <p><p>Internal server error</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.ShareNotFoundException.html">ShareNotFoundException</a>
+        <p><p>Share could not be found</p>
 </p>
-                  </td>
-                </tr>
-              </table>
-              
-              </div>
-              
-              
-              <a id="Picturepark_SDK_V1_Contract_IShareClient_GetAsync_" data-uid="Picturepark.SDK.V1.Contract.IShareClient.GetAsync*"></a>
-              
-              <h4 id="Picturepark_SDK_V1_Contract_IShareClient_GetAsync_System_String_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.Contract.IShareClient.GetAsync(System.String,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_Contract_IShareClient_GetAsync_System_String_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">GetAsync(String, CancellationToken)</a></h4>
-              
-              <div id="collapsible-Picturepark_SDK_V1_Contract_IShareClient_GetAsync_System_String_System_Threading_CancellationToken_" class="collapse in">
-              <div class="markdown level1 summary"><p>Get - single</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
+        <p><p>Entity not found</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
+        <p><p>Version conflict</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  </div>
+  
+  
+  <a id="Picturepark_SDK_V1_Contract_IShareClient_GetShareJsonAsync_" data-uid="Picturepark.SDK.V1.Contract.IShareClient.GetShareJsonAsync*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_Contract_IShareClient_GetShareJsonAsync_System_String_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.Contract.IShareClient.GetShareJsonAsync(System.String,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_Contract_IShareClient_GetShareJsonAsync_System_String_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">GetShareJsonAsync(String, CancellationToken)</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_Contract_IShareClient_GetShareJsonAsync_System_String_System_Threading_CancellationToken_" class="collapse in">
+  <div class="markdown level1 summary"><p>Get share json</p>
 </div>
-              <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
-
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">Task&lt;ShareDetail&gt; GetAsync(string id, CancellationToken cancellationToken = null)</code></pre>
-              </div>
-
-              <h5 class="parameters">Parameters</h5>
-              <table>
-                <tr>
-                  <td>
-                    <span class="pull-right"><span class="xref">System.String</span></span>
-                    <span class="parametername">id</span>
-                    <p><p>Share Id (not token, use PublicAccess to get share by token)</p>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;object&gt; GetShareJsonAsync(string token, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.String</span></span>
+        <span class="parametername">token</span>
+        <p><p>Share token</p>
 </p>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
-                    <span class="parametername">cancellationToken</span>
-                    <p><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
+        <span class="parametername">cancellationToken</span>
+        <p><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
 </p>
-                  </td>
-                </tr>
-              </table>
-              
-              <h5 class="returns">Returns</h5>
-              <table>
-                <tr>
-                  <td>
-                    <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.ShareDetail.html">ShareDetail</a>&gt;
-                    <p><p>Polymorph share</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">System.Object</span>&gt;
+        <p><p>ShareDetail</p>
 </p>
-                  </td>
-                </tr>
-              </table>
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              <h5 class="exceptions">Exceptions</h5>
-              <table>
-                <tr>
-                  <td>
-                    <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
-                    <p><p>A server side error occurred.</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <h5 class="exceptions">Exceptions</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
+        <p><p>A server side error occurred.</p>
 </p>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <a class="xref" href="Picturepark.SDK.V1.Contract.ShareNotFoundException.html">ShareNotFoundException</a>
-                    <p><p>Submited share could not be found</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
 </p>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-                    <p><p>Internal server error</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
+        <p><p>Entity not found</p>
 </p>
-                  </td>
-                </tr>
-              </table>
-              
-              </div>
-              
-              
-              <a id="Picturepark_SDK_V1_Contract_IShareClient_Search_" data-uid="Picturepark.SDK.V1.Contract.IShareClient.Search*"></a>
-              
-              <h4 id="Picturepark_SDK_V1_Contract_IShareClient_Search_Picturepark_SDK_V1_Contract_ShareSearchRequest_" data-uid="Picturepark.SDK.V1.Contract.IShareClient.Search(Picturepark.SDK.V1.Contract.ShareSearchRequest)"><a href="#collapsible-Picturepark_SDK_V1_Contract_IShareClient_Search_Picturepark_SDK_V1_Contract_ShareSearchRequest_" class="expander" data-toggle="collapse">Search(ShareSearchRequest)</a></h4>
-              
-              <div id="collapsible-Picturepark_SDK_V1_Contract_IShareClient_Search_Picturepark_SDK_V1_Contract_ShareSearchRequest_" class="collapse in">
-              <div class="markdown level1 summary"><p>Search</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
+        <p><p>Version conflict</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  </div>
+  
+  
+  <a id="Picturepark_SDK_V1_Contract_IShareClient_SearchAsync_" data-uid="Picturepark.SDK.V1.Contract.IShareClient.SearchAsync*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_Contract_IShareClient_SearchAsync_Picturepark_SDK_V1_Contract_ShareSearchRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.Contract.IShareClient.SearchAsync(Picturepark.SDK.V1.Contract.ShareSearchRequest,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_Contract_IShareClient_SearchAsync_Picturepark_SDK_V1_Contract_ShareSearchRequest_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">SearchAsync(ShareSearchRequest, CancellationToken)</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_Contract_IShareClient_SearchAsync_Picturepark_SDK_V1_Contract_ShareSearchRequest_System_Threading_CancellationToken_" class="collapse in">
+  <div class="markdown level1 summary"><p>Search</p>
 </div>
-              <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
-
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">ShareSearchResult Search(ShareSearchRequest request)</code></pre>
-              </div>
-
-              <h5 class="parameters">Parameters</h5>
-              <table>
-                <tr>
-                  <td>
-                    <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.ShareSearchRequest.html">ShareSearchRequest</a></span>
-                    <span class="parametername">request</span>
-                    <p><p>Search request</p>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;ShareSearchResult&gt; SearchAsync(ShareSearchRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.ShareSearchRequest.html">ShareSearchRequest</a></span>
+        <span class="parametername">request</span>
+        <p><p>Search request</p>
 </p>
-                  </td>
-                </tr>
-              </table>
-              
-              <h5 class="returns">Returns</h5>
-              <table>
-                <tr>
-                  <td>
-                    <a class="xref" href="Picturepark.SDK.V1.Contract.ShareSearchResult.html">ShareSearchResult</a>
-                    <p><p>Share search result</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
+        <span class="parametername">cancellationToken</span>
+        <p><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
 </p>
-                  </td>
-                </tr>
-              </table>
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              <h5 class="exceptions">Exceptions</h5>
-              <table>
-                <tr>
-                  <td>
-                    <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
-                    <p><p>A server side error occurred.</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.ShareSearchResult.html">ShareSearchResult</a>&gt;
+        <p><p>Share search result</p>
 </p>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-                    <p><p>Internal server error</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <h5 class="exceptions">Exceptions</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
+        <p><p>A server side error occurred.</p>
 </p>
-                  </td>
-                </tr>
-              </table>
-              
-              </div>
-              
-              
-              <a id="Picturepark_SDK_V1_Contract_IShareClient_SearchAsync_" data-uid="Picturepark.SDK.V1.Contract.IShareClient.SearchAsync*"></a>
-              
-              <h4 id="Picturepark_SDK_V1_Contract_IShareClient_SearchAsync_Picturepark_SDK_V1_Contract_ShareSearchRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.Contract.IShareClient.SearchAsync(Picturepark.SDK.V1.Contract.ShareSearchRequest,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_Contract_IShareClient_SearchAsync_Picturepark_SDK_V1_Contract_ShareSearchRequest_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">SearchAsync(ShareSearchRequest, CancellationToken)</a></h4>
-              
-              <div id="collapsible-Picturepark_SDK_V1_Contract_IShareClient_SearchAsync_Picturepark_SDK_V1_Contract_ShareSearchRequest_System_Threading_CancellationToken_" class="collapse in">
-              <div class="markdown level1 summary"><p>Search</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
+        <p><p>Entity not found</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
+        <p><p>Version conflict</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  </div>
+  
+  
+  <a id="Picturepark_SDK_V1_Contract_IShareClient_UpdateAsync_" data-uid="Picturepark.SDK.V1.Contract.IShareClient.UpdateAsync*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_Contract_IShareClient_UpdateAsync_System_String_Picturepark_SDK_V1_Contract_ShareBaseUpdateRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.Contract.IShareClient.UpdateAsync(System.String,Picturepark.SDK.V1.Contract.ShareBaseUpdateRequest,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_Contract_IShareClient_UpdateAsync_System_String_Picturepark_SDK_V1_Contract_ShareBaseUpdateRequest_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">UpdateAsync(String, ShareBaseUpdateRequest, CancellationToken)</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_Contract_IShareClient_UpdateAsync_System_String_Picturepark_SDK_V1_Contract_ShareBaseUpdateRequest_System_Threading_CancellationToken_" class="collapse in">
+  <div class="markdown level1 summary"><p>Update</p>
 </div>
-              <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
-
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">Task&lt;ShareSearchResult&gt; SearchAsync(ShareSearchRequest request, CancellationToken cancellationToken = null)</code></pre>
-              </div>
-
-              <h5 class="parameters">Parameters</h5>
-              <table>
-                <tr>
-                  <td>
-                    <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.ShareSearchRequest.html">ShareSearchRequest</a></span>
-                    <span class="parametername">request</span>
-                    <p><p>Search request</p>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;ShareDetail&gt; UpdateAsync(string id, ShareBaseUpdateRequest updateRequest, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.String</span></span>
+        <span class="parametername">id</span>
+        <p><p>The share id.</p>
 </p>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
-                    <span class="parametername">cancellationToken</span>
-                    <p><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.ShareBaseUpdateRequest.html">ShareBaseUpdateRequest</a></span>
+        <span class="parametername">updateRequest</span>
+        <p><p>The share update request.</p>
 </p>
-                  </td>
-                </tr>
-              </table>
-              
-              <h5 class="returns">Returns</h5>
-              <table>
-                <tr>
-                  <td>
-                    <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.ShareSearchResult.html">ShareSearchResult</a>&gt;
-                    <p><p>Share search result</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
+        <span class="parametername">cancellationToken</span>
+        <p><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
 </p>
-                  </td>
-                </tr>
-              </table>
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              <h5 class="exceptions">Exceptions</h5>
-              <table>
-                <tr>
-                  <td>
-                    <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
-                    <p><p>A server side error occurred.</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.ShareDetail.html">ShareDetail</a>&gt;
+        <p><p>Share detail</p>
 </p>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-                    <p><p>Internal server error</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <h5 class="exceptions">Exceptions</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
+        <p><p>A server side error occurred.</p>
 </p>
-                  </td>
-                </tr>
-              </table>
-              
-              </div>
-              
-              
-              <a id="Picturepark_SDK_V1_Contract_IShareClient_Update_" data-uid="Picturepark.SDK.V1.Contract.IShareClient.Update*"></a>
-              
-              <h4 id="Picturepark_SDK_V1_Contract_IShareClient_Update_System_String_Picturepark_SDK_V1_Contract_ShareBaseUpdateRequest_" data-uid="Picturepark.SDK.V1.Contract.IShareClient.Update(System.String,Picturepark.SDK.V1.Contract.ShareBaseUpdateRequest)"><a href="#collapsible-Picturepark_SDK_V1_Contract_IShareClient_Update_System_String_Picturepark_SDK_V1_Contract_ShareBaseUpdateRequest_" class="expander" data-toggle="collapse">Update(String, ShareBaseUpdateRequest)</a></h4>
-              
-              <div id="collapsible-Picturepark_SDK_V1_Contract_IShareClient_Update_System_String_Picturepark_SDK_V1_Contract_ShareBaseUpdateRequest_" class="collapse in">
-              <div class="markdown level1 summary"><p>Update - single</p>
-</div>
-              <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
-
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">ShareDetail Update(string id, ShareBaseUpdateRequest updateRequest)</code></pre>
-              </div>
-
-              <h5 class="parameters">Parameters</h5>
-              <table>
-                <tr>
-                  <td>
-                    <span class="pull-right"><span class="xref">System.String</span></span>
-                    <span class="parametername">id</span>
-                    <p><p>The share id.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.BusinessProcessLifeCycleNotHitException.html">BusinessProcessLifeCycleNotHitException</a>
+        <p><p>A server side error occurred.</p>
 </p>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.ShareBaseUpdateRequest.html">ShareBaseUpdateRequest</a></span>
-                    <span class="parametername">updateRequest</span>
-                    <p><p>The share update request.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
 </p>
-                  </td>
-                </tr>
-              </table>
-              
-              <h5 class="returns">Returns</h5>
-              <table>
-                <tr>
-                  <td>
-                    <a class="xref" href="Picturepark.SDK.V1.Contract.ShareDetail.html">ShareDetail</a>
-                    <p><p>Share</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
 </p>
-                  </td>
-                </tr>
-              </table>
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              <h5 class="exceptions">Exceptions</h5>
-              <table>
-                <tr>
-                  <td>
-                    <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
-                    <p><p>A server side error occurred.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
+        <p><p>Entity not found</p>
 </p>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <a class="xref" href="Picturepark.SDK.V1.Contract.BusinessProcessWaitTimeoutException.html">BusinessProcessWaitTimeoutException</a>
-                    <p><p>A server side error occurred.</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
+        <p><p>Version conflict</p>
 </p>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-                    <p><p>Internal server error</p>
-</p>
-                  </td>
-                </tr>
-              </table>
-              
-              </div>
-              
-              
-              <a id="Picturepark_SDK_V1_Contract_IShareClient_UpdateAsync_" data-uid="Picturepark.SDK.V1.Contract.IShareClient.UpdateAsync*"></a>
-              
-              <h4 id="Picturepark_SDK_V1_Contract_IShareClient_UpdateAsync_System_String_Picturepark_SDK_V1_Contract_ShareBaseUpdateRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.Contract.IShareClient.UpdateAsync(System.String,Picturepark.SDK.V1.Contract.ShareBaseUpdateRequest,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_Contract_IShareClient_UpdateAsync_System_String_Picturepark_SDK_V1_Contract_ShareBaseUpdateRequest_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">UpdateAsync(String, ShareBaseUpdateRequest, CancellationToken)</a></h4>
-              
-              <div id="collapsible-Picturepark_SDK_V1_Contract_IShareClient_UpdateAsync_System_String_Picturepark_SDK_V1_Contract_ShareBaseUpdateRequest_System_Threading_CancellationToken_" class="collapse in">
-              <div class="markdown level1 summary"><p>Update - single</p>
-</div>
-              <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
-
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">Task&lt;ShareDetail&gt; UpdateAsync(string id, ShareBaseUpdateRequest updateRequest, CancellationToken cancellationToken = null)</code></pre>
-              </div>
-
-              <h5 class="parameters">Parameters</h5>
-              <table>
-                <tr>
-                  <td>
-                    <span class="pull-right"><span class="xref">System.String</span></span>
-                    <span class="parametername">id</span>
-                    <p><p>The share id.</p>
-</p>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.ShareBaseUpdateRequest.html">ShareBaseUpdateRequest</a></span>
-                    <span class="parametername">updateRequest</span>
-                    <p><p>The share update request.</p>
-</p>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
-                    <span class="parametername">cancellationToken</span>
-                    <p><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
-</p>
-                  </td>
-                </tr>
-              </table>
-              
-              <h5 class="returns">Returns</h5>
-              <table>
-                <tr>
-                  <td>
-                    <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.ShareDetail.html">ShareDetail</a>&gt;
-                    <p><p>Share</p>
-</p>
-                  </td>
-                </tr>
-              </table>
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              <h5 class="exceptions">Exceptions</h5>
-              <table>
-                <tr>
-                  <td>
-                    <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
-                    <p><p>A server side error occurred.</p>
-</p>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <a class="xref" href="Picturepark.SDK.V1.Contract.BusinessProcessWaitTimeoutException.html">BusinessProcessWaitTimeoutException</a>
-                    <p><p>A server side error occurred.</p>
-</p>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-                    <p><p>Internal server error</p>
-</p>
-                  </td>
-                </tr>
-              </table>
-              
-              </div>
-              
-              
-                        </article>
+      </td>
+    </tr>
+  </table>
+  
+  </div>
+  
+  
+</article>
           </div>
           <div class="contribution-panel mobile-hide">
           </div>
@@ -1033,7 +1206,7 @@
               <a href="#top">Back to top</a>
             </span>
             
-            <span>Copyright © 2015-2017 Microsoft<br>Generated by <strong>DocFX</strong></span>
+            <span>Generated by <strong>DocFX</strong></span>
           </div>
         </div>
       </footer>

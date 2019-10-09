@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class SchemaCreateRequest
    | Picturepark.SDK.V1 API ">
-    <meta name="generator" content="docfx 2.16.7.0">
+    <meta name="generator" content="docfx 2.45.1.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -18,10 +18,11 @@
     <link rel="stylesheet" href="../styles/main.css">
     <meta property="docfx:navrel" content="../toc.html">
     <meta property="docfx:tocrel" content="toc.html">
+    
     <meta property="docfx:rel" content="../">
     
   </head>
-  <body data-spy="scroll" data-target="#affix">
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
     <div id="wrapper">
       <header>
         
@@ -57,11 +58,13 @@
           </div>
         </div>
       </header>
-      <div role="main" class="container body-content">
+      <div class="container body-content">
         
         <div id="search-results">
           <div class="search-list"></div>
-          <div class="sr-items"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
           <ul id="pagination"></ul>
         </div>
       </div>
@@ -75,662 +78,667 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content">
-              <h1 id="Picturepark_SDK_V1_Contract_SchemaCreateRequest" data-uid="Picturepark.SDK.V1.Contract.SchemaCreateRequest">Class SchemaCreateRequest
-              </h1>
-              <div class="markdown level0 summary"></div>
-              <div class="markdown level0 conceptual"></div>
-
-              <div class="inheritance">
-                <h5>Inheritance</h5>
-                <div class="level0"><span class="xref">System.Object</span></div>
-                <div class="level1"><span class="xref">SchemaCreateRequest</span></div>
-              </div>
-              
-              
-              <div class="inheritedMembers">
-                <h5>Inherited Members</h5>
-                <div>
-                  <span class="xref">System.Object.ToString()</span>
-                </div>
-                <div>
-                  <span class="xref">System.Object.Equals(System.Object)</span>
-                </div>
-                <div>
-                  <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
-                </div>
-                <div>
-                  <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
-                </div>
-                <div>
-                  <span class="xref">System.Object.GetHashCode()</span>
-                </div>
-                <div>
-                  <span class="xref">System.Object.GetType()</span>
-                </div>
-                <div>
-                  <span class="xref">System.Object.MemberwiseClone()</span>
-                </div>
-              </div>
-              
-              <h6><strong>Namespace</strong>: Picturepark.SDK.V1.Contract</h6>
-              
-              <h5 id="Picturepark_SDK_V1_Contract_SchemaCreateRequest_syntax">Syntax</h5>
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public class SchemaCreateRequest</code></pre>
-              </div>
-
-              
-              
-              
-              
-              <h3 id="properties">Properties
-              </h3>
-              
-              
-              <a id="Picturepark_SDK_V1_Contract_SchemaCreateRequest_Aggregations_" data-uid="Picturepark.SDK.V1.Contract.SchemaCreateRequest.Aggregations*"></a>
-              
-              <h4 id="Picturepark_SDK_V1_Contract_SchemaCreateRequest_Aggregations" data-uid="Picturepark.SDK.V1.Contract.SchemaCreateRequest.Aggregations"><a href="#collapsible-Picturepark_SDK_V1_Contract_SchemaCreateRequest_Aggregations" class="expander" data-toggle="collapse">Aggregations</a></h4>
-              
-              <div id="collapsible-Picturepark_SDK_V1_Contract_SchemaCreateRequest_Aggregations" class="collapse in">
-              <div class="markdown level1 summary"><p>An optional list of aggregations to group content documents and/or list items.</p>
+            <article class="content wrap" id="_content" data-uid="Picturepark.SDK.V1.Contract.SchemaCreateRequest">
+  <h1 id="Picturepark_SDK_V1_Contract_SchemaCreateRequest" data-uid="Picturepark.SDK.V1.Contract.SchemaCreateRequest">Class SchemaCreateRequest
+  </h1>
+  <div class="markdown level0 summary"><p>Request to create a schema</p>
 </div>
-              <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
-
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public List&lt;AggregatorBase&gt; Aggregations { get; set; }</code></pre>
-              </div>
-
-              
-              
-              
-              
-              <h5 class="propertyValue">Property Value</h5>
-              <table>
-                <tr>
-                  <td>
-                    <span class="xref">System.Collections.Generic.List</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.AggregatorBase.html">AggregatorBase</a>&gt;
-                    <p>
-                  </td>
-                </tr>
-              </table>
-              
-              
-              
-              
-              
-              
-              
-              </div>
-              
-              
-              <a id="Picturepark_SDK_V1_Contract_SchemaCreateRequest_Descriptions_" data-uid="Picturepark.SDK.V1.Contract.SchemaCreateRequest.Descriptions*"></a>
-              
-              <h4 id="Picturepark_SDK_V1_Contract_SchemaCreateRequest_Descriptions" data-uid="Picturepark.SDK.V1.Contract.SchemaCreateRequest.Descriptions"><a href="#collapsible-Picturepark_SDK_V1_Contract_SchemaCreateRequest_Descriptions" class="expander" data-toggle="collapse">Descriptions</a></h4>
-              
-              <div id="collapsible-Picturepark_SDK_V1_Contract_SchemaCreateRequest_Descriptions" class="collapse in">
-              <div class="markdown level1 summary"><p>Language specific schema descriptions.</p>
+  <div class="markdown level0 conceptual"></div>
+  
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">SchemaCreateRequest</span></div>
+  </div>
+  
+  
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">System.Object.ToString()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+  </div>
+  
+  <h6><strong>Namespace</strong>: System.Dynamic.ExpandoObject</h6>
+  
+  <h5 id="Picturepark_SDK_V1_Contract_SchemaCreateRequest_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class SchemaCreateRequest</code></pre>
+  </div>
+  
+  
+  
+  
+  
+  <h3 id="properties">Properties
+  </h3>
+  
+  
+  <a id="Picturepark_SDK_V1_Contract_SchemaCreateRequest_Aggregations_" data-uid="Picturepark.SDK.V1.Contract.SchemaCreateRequest.Aggregations*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_Contract_SchemaCreateRequest_Aggregations" data-uid="Picturepark.SDK.V1.Contract.SchemaCreateRequest.Aggregations"><a href="#collapsible-Picturepark_SDK_V1_Contract_SchemaCreateRequest_Aggregations" class="expander" data-toggle="collapse">Aggregations</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_Contract_SchemaCreateRequest_Aggregations" class="collapse in">
+  <div class="markdown level1 summary"><p>An optional list of aggregations to show grouped list item documents. When aggregations are defined for a List,
+the UI uses such information to show the available filters and grouped results.</p>
 </div>
-              <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
-
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public TranslatedStringDictionary Descriptions { get; set; }</code></pre>
-              </div>
-
-              
-              
-              
-              
-              <h5 class="propertyValue">Property Value</h5>
-              <table>
-                <tr>
-                  <td>
-                    <a class="xref" href="Picturepark.SDK.V1.Contract.TranslatedStringDictionary.html">TranslatedStringDictionary</a>
-                    <p>
-                  </td>
-                </tr>
-              </table>
-              
-              
-              
-              
-              
-              
-              
-              </div>
-              
-              
-              <a id="Picturepark_SDK_V1_Contract_SchemaCreateRequest_DisplayPatterns_" data-uid="Picturepark.SDK.V1.Contract.SchemaCreateRequest.DisplayPatterns*"></a>
-              
-              <h4 id="Picturepark_SDK_V1_Contract_SchemaCreateRequest_DisplayPatterns" data-uid="Picturepark.SDK.V1.Contract.SchemaCreateRequest.DisplayPatterns"><a href="#collapsible-Picturepark_SDK_V1_Contract_SchemaCreateRequest_DisplayPatterns" class="expander" data-toggle="collapse">DisplayPatterns</a></h4>
-              
-              <div id="collapsible-Picturepark_SDK_V1_Contract_SchemaCreateRequest_DisplayPatterns" class="collapse in">
-              <div class="markdown level1 summary"><p>Language specific DotLiquid templates. These templates will be resolved into display values in content documents and/or list items.</p>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ICollection&lt;AggregatorBase&gt; Aggregations { get; set; }</code></pre>
+  </div>
+  
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Collections.Generic.ICollection</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.AggregatorBase.html">AggregatorBase</a>&gt;
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="Picturepark_SDK_V1_Contract_SchemaCreateRequest_Descriptions_" data-uid="Picturepark.SDK.V1.Contract.SchemaCreateRequest.Descriptions*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_Contract_SchemaCreateRequest_Descriptions" data-uid="Picturepark.SDK.V1.Contract.SchemaCreateRequest.Descriptions"><a href="#collapsible-Picturepark_SDK_V1_Contract_SchemaCreateRequest_Descriptions" class="expander" data-toggle="collapse">Descriptions</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_Contract_SchemaCreateRequest_Descriptions" class="collapse in">
+  <div class="markdown level1 summary"><p>Language specific schema descriptions.</p>
 </div>
-              <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
-
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public List&lt;DisplayPattern&gt; DisplayPatterns { get; set; }</code></pre>
-              </div>
-
-              
-              
-              
-              
-              <h5 class="propertyValue">Property Value</h5>
-              <table>
-                <tr>
-                  <td>
-                    <span class="xref">System.Collections.Generic.List</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.DisplayPattern.html">DisplayPattern</a>&gt;
-                    <p>
-                  </td>
-                </tr>
-              </table>
-              
-              
-              
-              
-              
-              
-              
-              </div>
-              
-              
-              <a id="Picturepark_SDK_V1_Contract_SchemaCreateRequest_Fields_" data-uid="Picturepark.SDK.V1.Contract.SchemaCreateRequest.Fields*"></a>
-              
-              <h4 id="Picturepark_SDK_V1_Contract_SchemaCreateRequest_Fields" data-uid="Picturepark.SDK.V1.Contract.SchemaCreateRequest.Fields"><a href="#collapsible-Picturepark_SDK_V1_Contract_SchemaCreateRequest_Fields" class="expander" data-toggle="collapse">Fields</a></h4>
-              
-              <div id="collapsible-Picturepark_SDK_V1_Contract_SchemaCreateRequest_Fields" class="collapse in">
-              <div class="markdown level1 summary"><p>The schema fields. Can be empty.</p>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TranslatedStringDictionary Descriptions { get; set; }</code></pre>
+  </div>
+  
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.TranslatedStringDictionary.html">TranslatedStringDictionary</a>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="Picturepark_SDK_V1_Contract_SchemaCreateRequest_DisplayPatterns_" data-uid="Picturepark.SDK.V1.Contract.SchemaCreateRequest.DisplayPatterns*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_Contract_SchemaCreateRequest_DisplayPatterns" data-uid="Picturepark.SDK.V1.Contract.SchemaCreateRequest.DisplayPatterns"><a href="#collapsible-Picturepark_SDK_V1_Contract_SchemaCreateRequest_DisplayPatterns" class="expander" data-toggle="collapse">DisplayPatterns</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_Contract_SchemaCreateRequest_DisplayPatterns" class="collapse in">
+  <div class="markdown level1 summary"><p>Language specific DotLiquid templates. These templates will be resolved into display values in content documents and/or list items.</p>
 </div>
-              <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
-
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public List&lt;FieldBase&gt; Fields { get; set; }</code></pre>
-              </div>
-
-              
-              
-              
-              
-              <h5 class="propertyValue">Property Value</h5>
-              <table>
-                <tr>
-                  <td>
-                    <span class="xref">System.Collections.Generic.List</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.FieldBase.html">FieldBase</a>&gt;
-                    <p>
-                  </td>
-                </tr>
-              </table>
-              
-              
-              
-              
-              
-              
-              
-              </div>
-              
-              
-              <a id="Picturepark_SDK_V1_Contract_SchemaCreateRequest_Id_" data-uid="Picturepark.SDK.V1.Contract.SchemaCreateRequest.Id*"></a>
-              
-              <h4 id="Picturepark_SDK_V1_Contract_SchemaCreateRequest_Id" data-uid="Picturepark.SDK.V1.Contract.SchemaCreateRequest.Id"><a href="#collapsible-Picturepark_SDK_V1_Contract_SchemaCreateRequest_Id" class="expander" data-toggle="collapse">Id</a></h4>
-              
-              <div id="collapsible-Picturepark_SDK_V1_Contract_SchemaCreateRequest_Id" class="collapse in">
-              <div class="markdown level1 summary"><p>The schema id. Can be a slug, but must be unique throughout the whole customer setup.</p>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ICollection&lt;DisplayPattern&gt; DisplayPatterns { get; set; }</code></pre>
+  </div>
+  
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Collections.Generic.ICollection</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.DisplayPattern.html">DisplayPattern</a>&gt;
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="Picturepark_SDK_V1_Contract_SchemaCreateRequest_Fields_" data-uid="Picturepark.SDK.V1.Contract.SchemaCreateRequest.Fields*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_Contract_SchemaCreateRequest_Fields" data-uid="Picturepark.SDK.V1.Contract.SchemaCreateRequest.Fields"><a href="#collapsible-Picturepark_SDK_V1_Contract_SchemaCreateRequest_Fields" class="expander" data-toggle="collapse">Fields</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_Contract_SchemaCreateRequest_Fields" class="collapse in">
+  <div class="markdown level1 summary"><p>The schema fields.</p>
 </div>
-              <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
-
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public string Id { get; set; }</code></pre>
-              </div>
-
-              
-              
-              
-              
-              <h5 class="propertyValue">Property Value</h5>
-              <table>
-                <tr>
-                  <td>
-                    <span class="xref">System.String</span>
-                    <p>
-                  </td>
-                </tr>
-              </table>
-              
-              
-              
-              
-              
-              
-              
-              </div>
-              
-              
-              <a id="Picturepark_SDK_V1_Contract_SchemaCreateRequest_LayerSchemaIds_" data-uid="Picturepark.SDK.V1.Contract.SchemaCreateRequest.LayerSchemaIds*"></a>
-              
-              <h4 id="Picturepark_SDK_V1_Contract_SchemaCreateRequest_LayerSchemaIds" data-uid="Picturepark.SDK.V1.Contract.SchemaCreateRequest.LayerSchemaIds"><a href="#collapsible-Picturepark_SDK_V1_Contract_SchemaCreateRequest_LayerSchemaIds" class="expander" data-toggle="collapse">LayerSchemaIds</a></h4>
-              
-              <div id="collapsible-Picturepark_SDK_V1_Contract_SchemaCreateRequest_LayerSchemaIds" class="collapse in">
-              <div class="markdown level1 summary"><p>An optional id list of schemas with type layer.</p>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ICollection&lt;FieldBase&gt; Fields { get; set; }</code></pre>
+  </div>
+  
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Collections.Generic.ICollection</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.FieldBase.html">FieldBase</a>&gt;
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="Picturepark_SDK_V1_Contract_SchemaCreateRequest_FieldsOverwrite_" data-uid="Picturepark.SDK.V1.Contract.SchemaCreateRequest.FieldsOverwrite*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_Contract_SchemaCreateRequest_FieldsOverwrite" data-uid="Picturepark.SDK.V1.Contract.SchemaCreateRequest.FieldsOverwrite"><a href="#collapsible-Picturepark_SDK_V1_Contract_SchemaCreateRequest_FieldsOverwrite" class="expander" data-toggle="collapse">FieldsOverwrite</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_Contract_SchemaCreateRequest_FieldsOverwrite" class="collapse in">
+  <div class="markdown level1 summary"><p>A list of schema fields overwrite information. It is used to overwrite the field configuration coming from the parent schema.
+Only a subset of properties of a FieldSingleTagbox and FieldMultiTagbox can be be overwritten. All other properties and fields cannot.</p>
 </div>
-              <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
-
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public List&lt;string&gt; LayerSchemaIds { get; set; }</code></pre>
-              </div>
-
-              
-              
-              
-              
-              <h5 class="propertyValue">Property Value</h5>
-              <table>
-                <tr>
-                  <td>
-                    <span class="xref">System.Collections.Generic.List</span>&lt;<span class="xref">System.String</span>&gt;
-                    <p>
-                  </td>
-                </tr>
-              </table>
-              
-              
-              
-              
-              
-              
-              
-              </div>
-              
-              
-              <a id="Picturepark_SDK_V1_Contract_SchemaCreateRequest_Names_" data-uid="Picturepark.SDK.V1.Contract.SchemaCreateRequest.Names*"></a>
-              
-              <h4 id="Picturepark_SDK_V1_Contract_SchemaCreateRequest_Names" data-uid="Picturepark.SDK.V1.Contract.SchemaCreateRequest.Names"><a href="#collapsible-Picturepark_SDK_V1_Contract_SchemaCreateRequest_Names" class="expander" data-toggle="collapse">Names</a></h4>
-              
-              <div id="collapsible-Picturepark_SDK_V1_Contract_SchemaCreateRequest_Names" class="collapse in">
-              <div class="markdown level1 summary"><p>Language specific schema names.</p>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ICollection&lt;FieldOverwriteBase&gt; FieldsOverwrite { get; set; }</code></pre>
+  </div>
+  
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Collections.Generic.ICollection</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.FieldOverwriteBase.html">FieldOverwriteBase</a>&gt;
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="Picturepark_SDK_V1_Contract_SchemaCreateRequest_Id_" data-uid="Picturepark.SDK.V1.Contract.SchemaCreateRequest.Id*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_Contract_SchemaCreateRequest_Id" data-uid="Picturepark.SDK.V1.Contract.SchemaCreateRequest.Id"><a href="#collapsible-Picturepark_SDK_V1_Contract_SchemaCreateRequest_Id" class="expander" data-toggle="collapse">Id</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_Contract_SchemaCreateRequest_Id" class="collapse in">
+  <div class="markdown level1 summary"><p>The schema ID. It can be a slug, but must be unique throughout the whole customer setup.</p>
 </div>
-              <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
-
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public TranslatedStringDictionary Names { get; set; }</code></pre>
-              </div>
-
-              
-              
-              
-              
-              <h5 class="propertyValue">Property Value</h5>
-              <table>
-                <tr>
-                  <td>
-                    <a class="xref" href="Picturepark.SDK.V1.Contract.TranslatedStringDictionary.html">TranslatedStringDictionary</a>
-                    <p>
-                  </td>
-                </tr>
-              </table>
-              
-              
-              
-              
-              
-              
-              
-              </div>
-              
-              
-              <a id="Picturepark_SDK_V1_Contract_SchemaCreateRequest_ParentSchemaId_" data-uid="Picturepark.SDK.V1.Contract.SchemaCreateRequest.ParentSchemaId*"></a>
-              
-              <h4 id="Picturepark_SDK_V1_Contract_SchemaCreateRequest_ParentSchemaId" data-uid="Picturepark.SDK.V1.Contract.SchemaCreateRequest.ParentSchemaId"><a href="#collapsible-Picturepark_SDK_V1_Contract_SchemaCreateRequest_ParentSchemaId" class="expander" data-toggle="collapse">ParentSchemaId</a></h4>
-              
-              <div id="collapsible-Picturepark_SDK_V1_Contract_SchemaCreateRequest_ParentSchemaId" class="collapse in">
-              <div class="markdown level1 summary"><p>The parent schema id.</p>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Id { get; set; }</code></pre>
+  </div>
+  
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.String</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="Picturepark_SDK_V1_Contract_SchemaCreateRequest_LayerSchemaIds_" data-uid="Picturepark.SDK.V1.Contract.SchemaCreateRequest.LayerSchemaIds*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_Contract_SchemaCreateRequest_LayerSchemaIds" data-uid="Picturepark.SDK.V1.Contract.SchemaCreateRequest.LayerSchemaIds"><a href="#collapsible-Picturepark_SDK_V1_Contract_SchemaCreateRequest_LayerSchemaIds" class="expander" data-toggle="collapse">LayerSchemaIds</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_Contract_SchemaCreateRequest_LayerSchemaIds" class="collapse in">
+  <div class="markdown level1 summary"><p>An optional list of schemas&apos; IDs with type layer. For a Content schema it stores the layers that can be assigned to a content.</p>
 </div>
-              <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
-
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public string ParentSchemaId { get; set; }</code></pre>
-              </div>
-
-              
-              
-              
-              
-              <h5 class="propertyValue">Property Value</h5>
-              <table>
-                <tr>
-                  <td>
-                    <span class="xref">System.String</span>
-                    <p>
-                  </td>
-                </tr>
-              </table>
-              
-              
-              
-              
-              
-              
-              
-              </div>
-              
-              
-              <a id="Picturepark_SDK_V1_Contract_SchemaCreateRequest_Public_" data-uid="Picturepark.SDK.V1.Contract.SchemaCreateRequest.Public*"></a>
-              
-              <h4 id="Picturepark_SDK_V1_Contract_SchemaCreateRequest_Public" data-uid="Picturepark.SDK.V1.Contract.SchemaCreateRequest.Public"><a href="#collapsible-Picturepark_SDK_V1_Contract_SchemaCreateRequest_Public" class="expander" data-toggle="collapse">Public</a></h4>
-              
-              <div id="collapsible-Picturepark_SDK_V1_Contract_SchemaCreateRequest_Public" class="collapse in">
-              <div class="markdown level1 summary"><p>Opens list item document accessibility. If true SchemaPermissionSetIds must be empty.</p>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ICollection&lt;string&gt; LayerSchemaIds { get; set; }</code></pre>
+  </div>
+  
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Collections.Generic.ICollection</span>&lt;<span class="xref">System.String</span>&gt;
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="Picturepark_SDK_V1_Contract_SchemaCreateRequest_Names_" data-uid="Picturepark.SDK.V1.Contract.SchemaCreateRequest.Names*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_Contract_SchemaCreateRequest_Names" data-uid="Picturepark.SDK.V1.Contract.SchemaCreateRequest.Names"><a href="#collapsible-Picturepark_SDK_V1_Contract_SchemaCreateRequest_Names" class="expander" data-toggle="collapse">Names</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_Contract_SchemaCreateRequest_Names" class="collapse in">
+  <div class="markdown level1 summary"><p>Language specific schema names.</p>
 </div>
-              <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
-
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public bool Public { get; set; }</code></pre>
-              </div>
-
-              
-              
-              
-              
-              <h5 class="propertyValue">Property Value</h5>
-              <table>
-                <tr>
-                  <td>
-                    <span class="xref">System.Boolean</span>
-                    <p>
-                  </td>
-                </tr>
-              </table>
-              
-              
-              
-              
-              
-              
-              
-              </div>
-              
-              
-              <a id="Picturepark_SDK_V1_Contract_SchemaCreateRequest_ReferencedInContentSchemaIds_" data-uid="Picturepark.SDK.V1.Contract.SchemaCreateRequest.ReferencedInContentSchemaIds*"></a>
-              
-              <h4 id="Picturepark_SDK_V1_Contract_SchemaCreateRequest_ReferencedInContentSchemaIds" data-uid="Picturepark.SDK.V1.Contract.SchemaCreateRequest.ReferencedInContentSchemaIds"><a href="#collapsible-Picturepark_SDK_V1_Contract_SchemaCreateRequest_ReferencedInContentSchemaIds" class="expander" data-toggle="collapse">ReferencedInContentSchemaIds</a></h4>
-              
-              <div id="collapsible-Picturepark_SDK_V1_Contract_SchemaCreateRequest_ReferencedInContentSchemaIds" class="collapse in">
-              <div class="markdown level1 summary"><p>An optional id list of schemas with type content for a schema with type layer.</p>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TranslatedStringDictionary Names { get; set; }</code></pre>
+  </div>
+  
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.TranslatedStringDictionary.html">TranslatedStringDictionary</a>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="Picturepark_SDK_V1_Contract_SchemaCreateRequest_ParentSchemaId_" data-uid="Picturepark.SDK.V1.Contract.SchemaCreateRequest.ParentSchemaId*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_Contract_SchemaCreateRequest_ParentSchemaId" data-uid="Picturepark.SDK.V1.Contract.SchemaCreateRequest.ParentSchemaId"><a href="#collapsible-Picturepark_SDK_V1_Contract_SchemaCreateRequest_ParentSchemaId" class="expander" data-toggle="collapse">ParentSchemaId</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_Contract_SchemaCreateRequest_ParentSchemaId" class="collapse in">
+  <div class="markdown level1 summary"><p>The parent schema ID.</p>
 </div>
-              <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
-
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public List&lt;string&gt; ReferencedInContentSchemaIds { get; set; }</code></pre>
-              </div>
-
-              
-              
-              
-              
-              <h5 class="propertyValue">Property Value</h5>
-              <table>
-                <tr>
-                  <td>
-                    <span class="xref">System.Collections.Generic.List</span>&lt;<span class="xref">System.String</span>&gt;
-                    <p>
-                  </td>
-                </tr>
-              </table>
-              
-              
-              
-              
-              
-              
-              
-              </div>
-              
-              
-              <a id="Picturepark_SDK_V1_Contract_SchemaCreateRequest_SchemaPermissionSetIds_" data-uid="Picturepark.SDK.V1.Contract.SchemaCreateRequest.SchemaPermissionSetIds*"></a>
-              
-              <h4 id="Picturepark_SDK_V1_Contract_SchemaCreateRequest_SchemaPermissionSetIds" data-uid="Picturepark.SDK.V1.Contract.SchemaCreateRequest.SchemaPermissionSetIds"><a href="#collapsible-Picturepark_SDK_V1_Contract_SchemaCreateRequest_SchemaPermissionSetIds" class="expander" data-toggle="collapse">SchemaPermissionSetIds</a></h4>
-              
-              <div id="collapsible-Picturepark_SDK_V1_Contract_SchemaCreateRequest_SchemaPermissionSetIds" class="collapse in">
-              <div class="markdown level1 summary"><p>An optional id list of schema permission sets. Control list item document permissions. When not empty Public must be false.</p>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string ParentSchemaId { get; set; }</code></pre>
+  </div>
+  
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.String</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="Picturepark_SDK_V1_Contract_SchemaCreateRequest_ReferencedInContentSchemaIds_" data-uid="Picturepark.SDK.V1.Contract.SchemaCreateRequest.ReferencedInContentSchemaIds*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_Contract_SchemaCreateRequest_ReferencedInContentSchemaIds" data-uid="Picturepark.SDK.V1.Contract.SchemaCreateRequest.ReferencedInContentSchemaIds"><a href="#collapsible-Picturepark_SDK_V1_Contract_SchemaCreateRequest_ReferencedInContentSchemaIds" class="expander" data-toggle="collapse">ReferencedInContentSchemaIds</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_Contract_SchemaCreateRequest_ReferencedInContentSchemaIds" class="collapse in">
+  <div class="markdown level1 summary"><p>If the schema if of type Layer, the list contains the schemas with type Content
+that reference the layer.</p>
 </div>
-              <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
-
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public List&lt;string&gt; SchemaPermissionSetIds { get; set; }</code></pre>
-              </div>
-
-              
-              
-              
-              
-              <h5 class="propertyValue">Property Value</h5>
-              <table>
-                <tr>
-                  <td>
-                    <span class="xref">System.Collections.Generic.List</span>&lt;<span class="xref">System.String</span>&gt;
-                    <p>
-                  </td>
-                </tr>
-              </table>
-              
-              
-              
-              
-              
-              
-              
-              </div>
-              
-              
-              <a id="Picturepark_SDK_V1_Contract_SchemaCreateRequest_Sort_" data-uid="Picturepark.SDK.V1.Contract.SchemaCreateRequest.Sort*"></a>
-              
-              <h4 id="Picturepark_SDK_V1_Contract_SchemaCreateRequest_Sort" data-uid="Picturepark.SDK.V1.Contract.SchemaCreateRequest.Sort"><a href="#collapsible-Picturepark_SDK_V1_Contract_SchemaCreateRequest_Sort" class="expander" data-toggle="collapse">Sort</a></h4>
-              
-              <div id="collapsible-Picturepark_SDK_V1_Contract_SchemaCreateRequest_Sort" class="collapse in">
-              <div class="markdown level1 summary"><p>Sorts content documents and/or list items.</p>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ICollection&lt;string&gt; ReferencedInContentSchemaIds { get; set; }</code></pre>
+  </div>
+  
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Collections.Generic.ICollection</span>&lt;<span class="xref">System.String</span>&gt;
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="Picturepark_SDK_V1_Contract_SchemaCreateRequest_SchemaPermissionSetIds_" data-uid="Picturepark.SDK.V1.Contract.SchemaCreateRequest.SchemaPermissionSetIds*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_Contract_SchemaCreateRequest_SchemaPermissionSetIds" data-uid="Picturepark.SDK.V1.Contract.SchemaCreateRequest.SchemaPermissionSetIds"><a href="#collapsible-Picturepark_SDK_V1_Contract_SchemaCreateRequest_SchemaPermissionSetIds" class="expander" data-toggle="collapse">SchemaPermissionSetIds</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_Contract_SchemaCreateRequest_SchemaPermissionSetIds" class="collapse in">
+  <div class="markdown level1 summary"><p>An optional list of schema permission set IDs which control schema permissions.</p>
 </div>
-              <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
-
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public List&lt;SortInfo&gt; Sort { get; set; }</code></pre>
-              </div>
-
-              
-              
-              
-              
-              <h5 class="propertyValue">Property Value</h5>
-              <table>
-                <tr>
-                  <td>
-                    <span class="xref">System.Collections.Generic.List</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.SortInfo.html">SortInfo</a>&gt;
-                    <p>
-                  </td>
-                </tr>
-              </table>
-              
-              
-              
-              
-              
-              
-              
-              </div>
-              
-              
-              <a id="Picturepark_SDK_V1_Contract_SchemaCreateRequest_SortOrder_" data-uid="Picturepark.SDK.V1.Contract.SchemaCreateRequest.SortOrder*"></a>
-              
-              <h4 id="Picturepark_SDK_V1_Contract_SchemaCreateRequest_SortOrder" data-uid="Picturepark.SDK.V1.Contract.SchemaCreateRequest.SortOrder"><a href="#collapsible-Picturepark_SDK_V1_Contract_SchemaCreateRequest_SortOrder" class="expander" data-toggle="collapse">SortOrder</a></h4>
-              
-              <div id="collapsible-Picturepark_SDK_V1_Contract_SchemaCreateRequest_SortOrder" class="collapse in">
-              <div class="markdown level1 summary"><p>A simple ordering property for schemas.</p>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ICollection&lt;string&gt; SchemaPermissionSetIds { get; set; }</code></pre>
+  </div>
+  
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Collections.Generic.ICollection</span>&lt;<span class="xref">System.String</span>&gt;
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="Picturepark_SDK_V1_Contract_SchemaCreateRequest_Sort_" data-uid="Picturepark.SDK.V1.Contract.SchemaCreateRequest.Sort*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_Contract_SchemaCreateRequest_Sort" data-uid="Picturepark.SDK.V1.Contract.SchemaCreateRequest.Sort"><a href="#collapsible-Picturepark_SDK_V1_Contract_SchemaCreateRequest_Sort" class="expander" data-toggle="collapse">Sort</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_Contract_SchemaCreateRequest_Sort" class="collapse in">
+  <div class="markdown level1 summary"><p>Sorts content documents and/or list items. In order for the sorting to work properly, the Sortable property of the related field
+must be set to true. Multiple sorting is supported: they are applied in the specified order.</p>
 </div>
-              <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
-
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public int SortOrder { get; set; }</code></pre>
-              </div>
-
-              
-              
-              
-              
-              <h5 class="propertyValue">Property Value</h5>
-              <table>
-                <tr>
-                  <td>
-                    <span class="xref">System.Int32</span>
-                    <p>
-                  </td>
-                </tr>
-              </table>
-              
-              
-              
-              
-              
-              
-              
-              </div>
-              
-              
-              <a id="Picturepark_SDK_V1_Contract_SchemaCreateRequest_Types_" data-uid="Picturepark.SDK.V1.Contract.SchemaCreateRequest.Types*"></a>
-              
-              <h4 id="Picturepark_SDK_V1_Contract_SchemaCreateRequest_Types" data-uid="Picturepark.SDK.V1.Contract.SchemaCreateRequest.Types"><a href="#collapsible-Picturepark_SDK_V1_Contract_SchemaCreateRequest_Types" class="expander" data-toggle="collapse">Types</a></h4>
-              
-              <div id="collapsible-Picturepark_SDK_V1_Contract_SchemaCreateRequest_Types" class="collapse in">
-              <div class="markdown level1 summary"><p>Types control schema usage.</p>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ICollection&lt;SortInfo&gt; Sort { get; set; }</code></pre>
+  </div>
+  
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Collections.Generic.ICollection</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.SortInfo.html">SortInfo</a>&gt;
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="Picturepark_SDK_V1_Contract_SchemaCreateRequest_Types_" data-uid="Picturepark.SDK.V1.Contract.SchemaCreateRequest.Types*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_Contract_SchemaCreateRequest_Types" data-uid="Picturepark.SDK.V1.Contract.SchemaCreateRequest.Types"><a href="#collapsible-Picturepark_SDK_V1_Contract_SchemaCreateRequest_Types" class="expander" data-toggle="collapse">Types</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_Contract_SchemaCreateRequest_Types" class="collapse in">
+  <div class="markdown level1 summary"><p>List of schema types. Currently only one schema type can be assigned to this list, and it cannot be modified once the schema is created.</p>
 </div>
-              <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
-
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public List&lt;SchemaType&gt; Types { get; set; }</code></pre>
-              </div>
-
-              
-              
-              
-              
-              <h5 class="propertyValue">Property Value</h5>
-              <table>
-                <tr>
-                  <td>
-                    <span class="xref">System.Collections.Generic.List</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.SchemaType.html">SchemaType</a>&gt;
-                    <p>
-                  </td>
-                </tr>
-              </table>
-              
-              
-              
-              
-              
-              
-              
-              </div>
-              <h3 id="methods">Methods
-              </h3>
-              
-              
-              <a id="Picturepark_SDK_V1_Contract_SchemaCreateRequest_FromJson_" data-uid="Picturepark.SDK.V1.Contract.SchemaCreateRequest.FromJson*"></a>
-              
-              <h4 id="Picturepark_SDK_V1_Contract_SchemaCreateRequest_FromJson_System_String_" data-uid="Picturepark.SDK.V1.Contract.SchemaCreateRequest.FromJson(System.String)"><a href="#collapsible-Picturepark_SDK_V1_Contract_SchemaCreateRequest_FromJson_System_String_" class="expander" data-toggle="collapse">FromJson(String)</a></h4>
-              
-              <div id="collapsible-Picturepark_SDK_V1_Contract_SchemaCreateRequest_FromJson_System_String_" class="collapse in">
-              <div class="markdown level1 summary"></div>
-              <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
-
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public static SchemaCreateRequest FromJson(string data)</code></pre>
-              </div>
-
-              <h5 class="parameters">Parameters</h5>
-              <table>
-                <tr>
-                  <td>
-                    <span class="pull-right"><span class="xref">System.String</span></span>
-                    <span class="parametername">data</span>
-                    <p>
-                  </td>
-                </tr>
-              </table>
-              
-              <h5 class="returns">Returns</h5>
-              <table>
-                <tr>
-                  <td>
-                    <a class="xref" href="Picturepark.SDK.V1.Contract.SchemaCreateRequest.html">SchemaCreateRequest</a>
-                    <p>
-                  </td>
-                </tr>
-              </table>
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              </div>
-              
-              
-              <a id="Picturepark_SDK_V1_Contract_SchemaCreateRequest_ToJson_" data-uid="Picturepark.SDK.V1.Contract.SchemaCreateRequest.ToJson*"></a>
-              
-              <h4 id="Picturepark_SDK_V1_Contract_SchemaCreateRequest_ToJson" data-uid="Picturepark.SDK.V1.Contract.SchemaCreateRequest.ToJson"><a href="#collapsible-Picturepark_SDK_V1_Contract_SchemaCreateRequest_ToJson" class="expander" data-toggle="collapse">ToJson()</a></h4>
-              
-              <div id="collapsible-Picturepark_SDK_V1_Contract_SchemaCreateRequest_ToJson" class="collapse in">
-              <div class="markdown level1 summary"></div>
-              <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
-
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public string ToJson()</code></pre>
-              </div>
-
-              
-              <h5 class="returns">Returns</h5>
-              <table>
-                <tr>
-                  <td>
-                    <span class="xref">System.String</span>
-                    <p>
-                  </td>
-                </tr>
-              </table>
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              </div>
-              
-              
-                        </article>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ICollection&lt;SchemaType&gt; Types { get; set; }</code></pre>
+  </div>
+  
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Collections.Generic.ICollection</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.SchemaType.html">SchemaType</a>&gt;
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="Picturepark_SDK_V1_Contract_SchemaCreateRequest_ViewForAll_" data-uid="Picturepark.SDK.V1.Contract.SchemaCreateRequest.ViewForAll*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_Contract_SchemaCreateRequest_ViewForAll" data-uid="Picturepark.SDK.V1.Contract.SchemaCreateRequest.ViewForAll"><a href="#collapsible-Picturepark_SDK_V1_Contract_SchemaCreateRequest_ViewForAll" class="expander" data-toggle="collapse">ViewForAll</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_Contract_SchemaCreateRequest_ViewForAll" class="collapse in">
+  <div class="markdown level1 summary"><p>Defines a schema as viewable by everyone. Everyone with ManageSchema user permission is able to see the schema.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool ViewForAll { get; set; }</code></pre>
+  </div>
+  
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  <h3 id="methods">Methods
+  </h3>
+  
+  
+  <a id="Picturepark_SDK_V1_Contract_SchemaCreateRequest_FromJson_" data-uid="Picturepark.SDK.V1.Contract.SchemaCreateRequest.FromJson*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_Contract_SchemaCreateRequest_FromJson_System_String_" data-uid="Picturepark.SDK.V1.Contract.SchemaCreateRequest.FromJson(System.String)"><a href="#collapsible-Picturepark_SDK_V1_Contract_SchemaCreateRequest_FromJson_System_String_" class="expander" data-toggle="collapse">FromJson(String)</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_Contract_SchemaCreateRequest_FromJson_System_String_" class="collapse in">
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SchemaCreateRequest FromJson(string data)</code></pre>
+  </div>
+  
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.String</span></span>
+        <span class="parametername">data</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.SchemaCreateRequest.html">SchemaCreateRequest</a>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="Picturepark_SDK_V1_Contract_SchemaCreateRequest_ToJson_" data-uid="Picturepark.SDK.V1.Contract.SchemaCreateRequest.ToJson*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_Contract_SchemaCreateRequest_ToJson" data-uid="Picturepark.SDK.V1.Contract.SchemaCreateRequest.ToJson"><a href="#collapsible-Picturepark_SDK_V1_Contract_SchemaCreateRequest_ToJson" class="expander" data-toggle="collapse">ToJson()</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_Contract_SchemaCreateRequest_ToJson" class="collapse in">
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string ToJson()</code></pre>
+  </div>
+  
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.String</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+</article>
           </div>
           <div class="contribution-panel mobile-hide">
           </div>
@@ -752,7 +760,7 @@
               <a href="#top">Back to top</a>
             </span>
             
-            <span>Copyright © 2015-2017 Microsoft<br>Generated by <strong>DocFX</strong></span>
+            <span>Generated by <strong>DocFX</strong></span>
           </div>
         </div>
       </footer>

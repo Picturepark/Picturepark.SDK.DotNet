@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class ContentSearchResult
    | Picturepark.SDK.V1 API ">
-    <meta name="generator" content="docfx 2.16.7.0">
+    <meta name="generator" content="docfx 2.45.1.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -18,10 +18,11 @@
     <link rel="stylesheet" href="../styles/main.css">
     <meta property="docfx:navrel" content="../toc.html">
     <meta property="docfx:tocrel" content="toc.html">
+    
     <meta property="docfx:rel" content="../">
     
   </head>
-  <body data-spy="scroll" data-target="#affix">
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
     <div id="wrapper">
       <header>
         
@@ -57,11 +58,13 @@
           </div>
         </div>
       </header>
-      <div role="main" class="container body-content">
+      <div class="container body-content">
         
         <div id="search-results">
           <div class="search-list"></div>
-          <div class="sr-items"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
           <ul id="pagination"></ul>
         </div>
       </div>
@@ -75,200 +78,205 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content">
-              <h1 id="Picturepark_SDK_V1_Contract_ContentSearchResult" data-uid="Picturepark.SDK.V1.Contract.ContentSearchResult">Class ContentSearchResult
-              </h1>
-              <div class="markdown level0 summary"></div>
-              <div class="markdown level0 conceptual"></div>
-
-              <div class="inheritance">
-                <h5>Inheritance</h5>
-                <div class="level0"><span class="xref">System.Object</span></div>
-                <div class="level1"><a class="xref" href="Picturepark.SDK.V1.Contract.BaseResultOfContent.html">BaseResultOfContent</a></div>
-                <div class="level2"><a class="xref" href="Picturepark.SDK.V1.Contract.SearchBehaviourBaseResultOfContent.html">SearchBehaviourBaseResultOfContent</a></div>
-                <div class="level3"><span class="xref">ContentSearchResult</span></div>
-              </div>
-              
-              
-              <div class="inheritedMembers">
-                <h5>Inherited Members</h5>
-                <div>
-                  <a class="xref" href="Picturepark.SDK.V1.Contract.SearchBehaviourBaseResultOfContent.html#Picturepark_SDK_V1_Contract_SearchBehaviourBaseResultOfContent_SearchString">SearchBehaviourBaseResultOfContent.SearchString</a>
-                </div>
-                <div>
-                  <a class="xref" href="Picturepark.SDK.V1.Contract.SearchBehaviourBaseResultOfContent.html#Picturepark_SDK_V1_Contract_SearchBehaviourBaseResultOfContent_IsSearchStringRewritten">SearchBehaviourBaseResultOfContent.IsSearchStringRewritten</a>
-                </div>
-                <div>
-                  <a class="xref" href="Picturepark.SDK.V1.Contract.BaseResultOfContent.html#Picturepark_SDK_V1_Contract_BaseResultOfContent_TotalResults">BaseResultOfContent.TotalResults</a>
-                </div>
-                <div>
-                  <a class="xref" href="Picturepark.SDK.V1.Contract.BaseResultOfContent.html#Picturepark_SDK_V1_Contract_BaseResultOfContent_Results">BaseResultOfContent.Results</a>
-                </div>
-                <div>
-                  <a class="xref" href="Picturepark.SDK.V1.Contract.BaseResultOfContent.html#Picturepark_SDK_V1_Contract_BaseResultOfContent_PageToken">BaseResultOfContent.PageToken</a>
-                </div>
-                <div>
-                  <a class="xref" href="Picturepark.SDK.V1.Contract.BaseResultOfContent.html#Picturepark_SDK_V1_Contract_BaseResultOfContent_QueryDebugInformation">BaseResultOfContent.QueryDebugInformation</a>
-                </div>
-                <div>
-                  <span class="xref">System.Object.ToString()</span>
-                </div>
-                <div>
-                  <span class="xref">System.Object.Equals(System.Object)</span>
-                </div>
-                <div>
-                  <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
-                </div>
-                <div>
-                  <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
-                </div>
-                <div>
-                  <span class="xref">System.Object.GetHashCode()</span>
-                </div>
-                <div>
-                  <span class="xref">System.Object.GetType()</span>
-                </div>
-                <div>
-                  <span class="xref">System.Object.MemberwiseClone()</span>
-                </div>
-              </div>
-              
-              <h6><strong>Namespace</strong>: Picturepark.SDK.V1.Contract</h6>
-              
-              <h5 id="Picturepark_SDK_V1_Contract_ContentSearchResult_syntax">Syntax</h5>
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public class ContentSearchResult : SearchBehaviourBaseResultOfContent</code></pre>
-              </div>
-
-              
-              
-              
-              
-              <h3 id="properties">Properties
-              </h3>
-              
-              
-              <a id="Picturepark_SDK_V1_Contract_ContentSearchResult_ElapsedMilliseconds_" data-uid="Picturepark.SDK.V1.Contract.ContentSearchResult.ElapsedMilliseconds*"></a>
-              
-              <h4 id="Picturepark_SDK_V1_Contract_ContentSearchResult_ElapsedMilliseconds" data-uid="Picturepark.SDK.V1.Contract.ContentSearchResult.ElapsedMilliseconds"><a href="#collapsible-Picturepark_SDK_V1_Contract_ContentSearchResult_ElapsedMilliseconds" class="expander" data-toggle="collapse">ElapsedMilliseconds</a></h4>
-              
-              <div id="collapsible-Picturepark_SDK_V1_Contract_ContentSearchResult_ElapsedMilliseconds" class="collapse in">
-              <div class="markdown level1 summary"></div>
-              <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
-
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public long ElapsedMilliseconds { get; set; }</code></pre>
-              </div>
-
-              
-              
-              
-              
-              <h5 class="propertyValue">Property Value</h5>
-              <table>
-                <tr>
-                  <td>
-                    <span class="xref">System.Int64</span>
-                    <p>
-                  </td>
-                </tr>
-              </table>
-              
-              
-              
-              
-              
-              
-              
-              </div>
-              <h3 id="methods">Methods
-              </h3>
-              
-              
-              <a id="Picturepark_SDK_V1_Contract_ContentSearchResult_FromJson_" data-uid="Picturepark.SDK.V1.Contract.ContentSearchResult.FromJson*"></a>
-              
-              <h4 id="Picturepark_SDK_V1_Contract_ContentSearchResult_FromJson_System_String_" data-uid="Picturepark.SDK.V1.Contract.ContentSearchResult.FromJson(System.String)"><a href="#collapsible-Picturepark_SDK_V1_Contract_ContentSearchResult_FromJson_System_String_" class="expander" data-toggle="collapse">FromJson(String)</a></h4>
-              
-              <div id="collapsible-Picturepark_SDK_V1_Contract_ContentSearchResult_FromJson_System_String_" class="collapse in">
-              <div class="markdown level1 summary"></div>
-              <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
-
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public static ContentSearchResult FromJson(string data)</code></pre>
-              </div>
-
-              <h5 class="parameters">Parameters</h5>
-              <table>
-                <tr>
-                  <td>
-                    <span class="pull-right"><span class="xref">System.String</span></span>
-                    <span class="parametername">data</span>
-                    <p>
-                  </td>
-                </tr>
-              </table>
-              
-              <h5 class="returns">Returns</h5>
-              <table>
-                <tr>
-                  <td>
-                    <a class="xref" href="Picturepark.SDK.V1.Contract.ContentSearchResult.html">ContentSearchResult</a>
-                    <p>
-                  </td>
-                </tr>
-              </table>
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              </div>
-              
-              
-              <a id="Picturepark_SDK_V1_Contract_ContentSearchResult_ToJson_" data-uid="Picturepark.SDK.V1.Contract.ContentSearchResult.ToJson*"></a>
-              
-              <h4 id="Picturepark_SDK_V1_Contract_ContentSearchResult_ToJson" data-uid="Picturepark.SDK.V1.Contract.ContentSearchResult.ToJson"><a href="#collapsible-Picturepark_SDK_V1_Contract_ContentSearchResult_ToJson" class="expander" data-toggle="collapse">ToJson()</a></h4>
-              
-              <div id="collapsible-Picturepark_SDK_V1_Contract_ContentSearchResult_ToJson" class="collapse in">
-              <div class="markdown level1 summary"></div>
-              <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
-
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public string ToJson()</code></pre>
-              </div>
-
-              
-              <h5 class="returns">Returns</h5>
-              <table>
-                <tr>
-                  <td>
-                    <span class="xref">System.String</span>
-                    <p>
-                  </td>
-                </tr>
-              </table>
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              </div>
-              
-              
-                        </article>
+            <article class="content wrap" id="_content" data-uid="Picturepark.SDK.V1.Contract.ContentSearchResult">
+  <h1 id="Picturepark_SDK_V1_Contract_ContentSearchResult" data-uid="Picturepark.SDK.V1.Contract.ContentSearchResult">Class ContentSearchResult
+  </h1>
+  <div class="markdown level0 summary"><p>Result for content search operation</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><a class="xref" href="Picturepark.SDK.V1.Contract.BaseResultOfContent.html">BaseResultOfContent</a></div>
+    <div class="level2"><a class="xref" href="Picturepark.SDK.V1.Contract.SearchBehaviorBaseResultOfContent.html">SearchBehaviorBaseResultOfContent</a></div>
+    <div class="level3"><span class="xref">ContentSearchResult</span></div>
+  </div>
+  
+  
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="Picturepark.SDK.V1.Contract.SearchBehaviorBaseResultOfContent.html#Picturepark_SDK_V1_Contract_SearchBehaviorBaseResultOfContent_SearchString">SearchBehaviorBaseResultOfContent.SearchString</a>
+    </div>
+    <div>
+      <a class="xref" href="Picturepark.SDK.V1.Contract.SearchBehaviorBaseResultOfContent.html#Picturepark_SDK_V1_Contract_SearchBehaviorBaseResultOfContent_IsSearchStringRewritten">SearchBehaviorBaseResultOfContent.IsSearchStringRewritten</a>
+    </div>
+    <div>
+      <a class="xref" href="Picturepark.SDK.V1.Contract.SearchBehaviorBaseResultOfContent.html#Picturepark_SDK_V1_Contract_SearchBehaviorBaseResultOfContent_QueryDebugInformation">SearchBehaviorBaseResultOfContent.QueryDebugInformation</a>
+    </div>
+    <div>
+      <a class="xref" href="Picturepark.SDK.V1.Contract.BaseResultOfContent.html#Picturepark_SDK_V1_Contract_BaseResultOfContent_TotalResults">BaseResultOfContent.TotalResults</a>
+    </div>
+    <div>
+      <a class="xref" href="Picturepark.SDK.V1.Contract.BaseResultOfContent.html#Picturepark_SDK_V1_Contract_BaseResultOfContent_Results">BaseResultOfContent.Results</a>
+    </div>
+    <div>
+      <a class="xref" href="Picturepark.SDK.V1.Contract.BaseResultOfContent.html#Picturepark_SDK_V1_Contract_BaseResultOfContent_ElapsedMilliseconds">BaseResultOfContent.ElapsedMilliseconds</a>
+    </div>
+    <div>
+      <a class="xref" href="Picturepark.SDK.V1.Contract.BaseResultOfContent.html#Picturepark_SDK_V1_Contract_BaseResultOfContent_PageToken">BaseResultOfContent.PageToken</a>
+    </div>
+    <div>
+      <span class="xref">System.Object.ToString()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+  </div>
+  
+  <h6><strong>Namespace</strong>: System.Dynamic.ExpandoObject</h6>
+  
+  <h5 id="Picturepark_SDK_V1_Contract_ContentSearchResult_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class ContentSearchResult : SearchBehaviorBaseResultOfContent</code></pre>
+  </div>
+  
+  
+  
+  
+  
+  <h3 id="properties">Properties
+  </h3>
+  
+  
+  <a id="Picturepark_SDK_V1_Contract_ContentSearchResult_RightsAggregationsCounts_" data-uid="Picturepark.SDK.V1.Contract.ContentSearchResult.RightsAggregationsCounts*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_Contract_ContentSearchResult_RightsAggregationsCounts" data-uid="Picturepark.SDK.V1.Contract.ContentSearchResult.RightsAggregationsCounts"><a href="#collapsible-Picturepark_SDK_V1_Contract_ContentSearchResult_RightsAggregationsCounts" class="expander" data-toggle="collapse">RightsAggregationsCounts</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_Contract_ContentSearchResult_RightsAggregationsCounts" class="collapse in">
+  <div class="markdown level1 summary"><p>Result of rights aggregation count requested in rightsAggregations in the ContentSearchRequest.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ICollection&lt;ContentRightAggregationCount&gt; RightsAggregationsCounts { get; set; }</code></pre>
+  </div>
+  
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Collections.Generic.ICollection</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.ContentRightAggregationCount.html">ContentRightAggregationCount</a>&gt;
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  <h3 id="methods">Methods
+  </h3>
+  
+  
+  <a id="Picturepark_SDK_V1_Contract_ContentSearchResult_FromJson_" data-uid="Picturepark.SDK.V1.Contract.ContentSearchResult.FromJson*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_Contract_ContentSearchResult_FromJson_System_String_" data-uid="Picturepark.SDK.V1.Contract.ContentSearchResult.FromJson(System.String)"><a href="#collapsible-Picturepark_SDK_V1_Contract_ContentSearchResult_FromJson_System_String_" class="expander" data-toggle="collapse">FromJson(String)</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_Contract_ContentSearchResult_FromJson_System_String_" class="collapse in">
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ContentSearchResult FromJson(string data)</code></pre>
+  </div>
+  
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.String</span></span>
+        <span class="parametername">data</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.ContentSearchResult.html">ContentSearchResult</a>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="Picturepark_SDK_V1_Contract_ContentSearchResult_ToJson_" data-uid="Picturepark.SDK.V1.Contract.ContentSearchResult.ToJson*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_Contract_ContentSearchResult_ToJson" data-uid="Picturepark.SDK.V1.Contract.ContentSearchResult.ToJson"><a href="#collapsible-Picturepark_SDK_V1_Contract_ContentSearchResult_ToJson" class="expander" data-toggle="collapse">ToJson()</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_Contract_ContentSearchResult_ToJson" class="collapse in">
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string ToJson()</code></pre>
+  </div>
+  
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.String</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+</article>
           </div>
           <div class="contribution-panel mobile-hide">
           </div>
@@ -290,7 +298,7 @@
               <a href="#top">Back to top</a>
             </span>
             
-            <span>Copyright © 2015-2017 Microsoft<br>Generated by <strong>DocFX</strong></span>
+            <span>Generated by <strong>DocFX</strong></span>
           </div>
         </div>
       </footer>

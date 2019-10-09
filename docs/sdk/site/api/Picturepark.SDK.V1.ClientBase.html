@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class ClientBase
    | Picturepark.SDK.V1 API ">
-    <meta name="generator" content="docfx 2.16.7.0">
+    <meta name="generator" content="docfx 2.45.1.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -18,10 +18,11 @@
     <link rel="stylesheet" href="../styles/main.css">
     <meta property="docfx:navrel" content="../toc.html">
     <meta property="docfx:tocrel" content="toc.html">
+    
     <meta property="docfx:rel" content="../">
     
   </head>
-  <body data-spy="scroll" data-target="#affix">
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
     <div id="wrapper">
       <header>
         
@@ -57,11 +58,13 @@
           </div>
         </div>
       </header>
-      <div role="main" class="container body-content">
+      <div class="container body-content">
         
         <div id="search-results">
           <div class="search-list"></div>
-          <div class="sr-items"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
           <ul id="pagination"></ul>
         </div>
       </div>
@@ -75,244 +78,245 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content">
-              <h1 id="Picturepark_SDK_V1_ClientBase" data-uid="Picturepark.SDK.V1.ClientBase">Class ClientBase
-              </h1>
-              <div class="markdown level0 summary"><p>The base class for all clients.</p>
+            <article class="content wrap" id="_content" data-uid="Picturepark.SDK.V1.ClientBase">
+  <h1 id="Picturepark_SDK_V1_ClientBase" data-uid="Picturepark.SDK.V1.ClientBase">Class ClientBase
+  </h1>
+  <div class="markdown level0 summary"><p>The base class for all clients.</p>
 </div>
-              <div class="markdown level0 conceptual"></div>
-
-              <div class="inheritance">
-                <h5>Inheritance</h5>
-                <div class="level0"><span class="xref">System.Object</span></div>
-                <div class="level1"><span class="xref">ClientBase</span></div>
-              </div>
-              
-                  <div class="level2"><a class="xref" href="Picturepark.SDK.V1.BusinessProcessClient.html">BusinessProcessClient</a></div>
-                  <div class="level2"><a class="xref" href="Picturepark.SDK.V1.CloudManager.CloudBackupClient.html">CloudBackupClient</a></div>
-                  <div class="level2"><a class="xref" href="Picturepark.SDK.V1.CloudManager.CustomerClient.html">CustomerClient</a></div>
-                  <div class="level2"><a class="xref" href="Picturepark.SDK.V1.CloudManager.ServiceClient.html">ServiceClient</a></div>
-                  <div class="level2"><a class="xref" href="Picturepark.SDK.V1.CloudManager.UpdateClient.html">UpdateClient</a></div>
-                  <div class="level2"><a class="xref" href="Picturepark.SDK.V1.CloudManager.UserClient.html">UserClient</a></div>
-                  <div class="level2"><a class="xref" href="Picturepark.SDK.V1.ContentClient.html">ContentClient</a></div>
-                  <div class="level2"><a class="xref" href="Picturepark.SDK.V1.DocumentHistoryClient.html">DocumentHistoryClient</a></div>
-                  <div class="level2"><a class="xref" href="Picturepark.SDK.V1.JsonSchemaClient.html">JsonSchemaClient</a></div>
-                  <div class="level2"><a class="xref" href="Picturepark.SDK.V1.ListItemClient.html">ListItemClient</a></div>
-                  <div class="level2"><a class="xref" href="Picturepark.SDK.V1.LiveStreamClient.html">LiveStreamClient</a></div>
-                  <div class="level2"><a class="xref" href="Picturepark.SDK.V1.OutputClient.html">OutputClient</a></div>
-                  <div class="level2"><a class="xref" href="Picturepark.SDK.V1.PermissionClient.html">PermissionClient</a></div>
-                  <div class="level2"><a class="xref" href="Picturepark.SDK.V1.ProfileClient.html">ProfileClient</a></div>
-                  <div class="level2"><a class="xref" href="Picturepark.SDK.V1.PublicAccessClient.html">PublicAccessClient</a></div>
-                  <div class="level2"><a class="xref" href="Picturepark.SDK.V1.SchemaClient.html">SchemaClient</a></div>
-                  <div class="level2"><a class="xref" href="Picturepark.SDK.V1.ServiceProviderClient.html">ServiceProviderClient</a></div>
-                  <div class="level2"><a class="xref" href="Picturepark.SDK.V1.ShareClient.html">ShareClient</a></div>
-                  <div class="level2"><a class="xref" href="Picturepark.SDK.V1.TransferClient.html">TransferClient</a></div>
-                  <div class="level2"><a class="xref" href="Picturepark.SDK.V1.UserClient.html">UserClient</a></div>
-              
-              <div class="inheritedMembers">
-                <h5>Inherited Members</h5>
-                <div>
-                  <span class="xref">System.Object.ToString()</span>
-                </div>
-                <div>
-                  <span class="xref">System.Object.Equals(System.Object)</span>
-                </div>
-                <div>
-                  <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
-                </div>
-                <div>
-                  <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
-                </div>
-                <div>
-                  <span class="xref">System.Object.GetHashCode()</span>
-                </div>
-                <div>
-                  <span class="xref">System.Object.GetType()</span>
-                </div>
-                <div>
-                  <span class="xref">System.Object.MemberwiseClone()</span>
-                </div>
-              </div>
-              
-              <h6><strong>Namespace</strong>: Picturepark.SDK.V1</h6>
-              
-              <h5 id="Picturepark_SDK_V1_ClientBase_syntax">Syntax</h5>
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public abstract class ClientBase</code></pre>
-              </div>
-
-              
-              
-              
-              
-              <h3 id="constructors">Constructors
-              </h3>
-              
-              
-              <a id="Picturepark_SDK_V1_ClientBase__ctor_" data-uid="Picturepark.SDK.V1.ClientBase.#ctor*"></a>
-              
-              <h4 id="Picturepark_SDK_V1_ClientBase__ctor_Picturepark_SDK_V1_Contract_IPictureparkClientSettings_" data-uid="Picturepark.SDK.V1.ClientBase.#ctor(Picturepark.SDK.V1.Contract.IPictureparkClientSettings)"><a href="#collapsible-Picturepark_SDK_V1_ClientBase__ctor_Picturepark_SDK_V1_Contract_IPictureparkClientSettings_" class="expander" data-toggle="collapse">ClientBase(IPictureparkClientSettings)</a></h4>
-              
-              <div id="collapsible-Picturepark_SDK_V1_ClientBase__ctor_Picturepark_SDK_V1_Contract_IPictureparkClientSettings_" class="collapse in">
-              <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Picturepark.SDK.V1.ClientBase.html">ClientBase</a> class.</p>
+  <div class="markdown level0 conceptual"></div>
+  
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">ClientBase</span></div>
+  </div>
+  
+      <div class="level2"><a class="xref" href="Picturepark.SDK.V1.BusinessProcessClient.html">BusinessProcessClient</a></div>
+      <div class="level2"><a class="xref" href="Picturepark.SDK.V1.BusinessRuleClient.html">BusinessRuleClient</a></div>
+      <div class="level2"><a class="xref" href="Picturepark.SDK.V1.ChannelClient.html">ChannelClient</a></div>
+      <div class="level2"><a class="xref" href="Picturepark.SDK.V1.ContentClient.html">ContentClient</a></div>
+      <div class="level2"><a class="xref" href="Picturepark.SDK.V1.ContentPermissionSetClient.html">ContentPermissionSetClient</a></div>
+      <div class="level2"><a class="xref" href="Picturepark.SDK.V1.DisplayValueClient.html">DisplayValueClient</a></div>
+      <div class="level2"><a class="xref" href="Picturepark.SDK.V1.DocumentHistoryClient.html">DocumentHistoryClient</a></div>
+      <div class="level2"><a class="xref" href="Picturepark.SDK.V1.InfoClient.html">InfoClient</a></div>
+      <div class="level2"><a class="xref" href="Picturepark.SDK.V1.JsonSchemaClient.html">JsonSchemaClient</a></div>
+      <div class="level2"><a class="xref" href="Picturepark.SDK.V1.ListItemClient.html">ListItemClient</a></div>
+      <div class="level2"><a class="xref" href="Picturepark.SDK.V1.LiveStreamClient.html">LiveStreamClient</a></div>
+      <div class="level2"><a class="xref" href="Picturepark.SDK.V1.OutputClient.html">OutputClient</a></div>
+      <div class="level2"><a class="xref" href="Picturepark.SDK.V1.OutputFormatClient.html">OutputFormatClient</a></div>
+      <div class="level2"><a class="xref" href="Picturepark.SDK.V1.ProfileClient.html">ProfileClient</a></div>
+      <div class="level2"><a class="xref" href="Picturepark.SDK.V1.SchemaClient.html">SchemaClient</a></div>
+      <div class="level2"><a class="xref" href="Picturepark.SDK.V1.SchemaPermissionSetClient.html">SchemaPermissionSetClient</a></div>
+      <div class="level2"><a class="xref" href="Picturepark.SDK.V1.SchemaTransferClient.html">SchemaTransferClient</a></div>
+      <div class="level2"><a class="xref" href="Picturepark.SDK.V1.ShareClient.html">ShareClient</a></div>
+      <div class="level2"><a class="xref" href="Picturepark.SDK.V1.TransferClient.html">TransferClient</a></div>
+      <div class="level2"><a class="xref" href="Picturepark.SDK.V1.UserClient.html">UserClient</a></div>
+      <div class="level2"><a class="xref" href="Picturepark.SDK.V1.UserRoleClient.html">UserRoleClient</a></div>
+  
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">System.Object.ToString()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+  </div>
+  
+  <h6><strong>Namespace</strong>: System.Dynamic.ExpandoObject</h6>
+  
+  <h5 id="Picturepark_SDK_V1_ClientBase_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract class ClientBase</code></pre>
+  </div>
+  
+  
+  
+  
+  
+  <h3 id="constructors">Constructors
+  </h3>
+  
+  
+  <a id="Picturepark_SDK_V1_ClientBase__ctor_" data-uid="Picturepark.SDK.V1.ClientBase.#ctor*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_ClientBase__ctor_Picturepark_SDK_V1_Contract_IPictureparkServiceSettings_" data-uid="Picturepark.SDK.V1.ClientBase.#ctor(Picturepark.SDK.V1.Contract.IPictureparkServiceSettings)"><a href="#collapsible-Picturepark_SDK_V1_ClientBase__ctor_Picturepark_SDK_V1_Contract_IPictureparkServiceSettings_" class="expander" data-toggle="collapse">ClientBase(IPictureparkServiceSettings)</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_ClientBase__ctor_Picturepark_SDK_V1_Contract_IPictureparkServiceSettings_" class="collapse in">
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Picturepark.SDK.V1.ClientBase.html">ClientBase</a> class.</p>
 </div>
-              <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
-
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">protected ClientBase(IPictureparkClientSettings settings)</code></pre>
-              </div>
-
-              <h5 class="parameters">Parameters</h5>
-              <table>
-                <tr>
-                  <td>
-                    <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.IPictureparkClientSettings.html">IPictureparkClientSettings</a></span>
-                    <span class="parametername">settings</span>
-                    <p><p>The client settings.</p>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected ClientBase(IPictureparkServiceSettings settings)</code></pre>
+  </div>
+  
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.IPictureparkServiceSettings.html">IPictureparkServiceSettings</a></span>
+        <span class="parametername">settings</span>
+        <p><p>The client settings.</p>
 </p>
-                  </td>
-                </tr>
-              </table>
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              </div>
-              <h3 id="properties">Properties
-              </h3>
-              
-              
-              <a id="Picturepark_SDK_V1_ClientBase_BaseUrl_" data-uid="Picturepark.SDK.V1.ClientBase.BaseUrl*"></a>
-              
-              <h4 id="Picturepark_SDK_V1_ClientBase_BaseUrl" data-uid="Picturepark.SDK.V1.ClientBase.BaseUrl"><a href="#collapsible-Picturepark_SDK_V1_ClientBase_BaseUrl" class="expander" data-toggle="collapse">BaseUrl</a></h4>
-              
-              <div id="collapsible-Picturepark_SDK_V1_ClientBase_BaseUrl" class="collapse in">
-              <div class="markdown level1 summary"><p>Gets the base URL of the Picturepark API.</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  <h3 id="properties">Properties
+  </h3>
+  
+  
+  <a id="Picturepark_SDK_V1_ClientBase_BaseUrl_" data-uid="Picturepark.SDK.V1.ClientBase.BaseUrl*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_ClientBase_BaseUrl" data-uid="Picturepark.SDK.V1.ClientBase.BaseUrl"><a href="#collapsible-Picturepark_SDK_V1_ClientBase_BaseUrl" class="expander" data-toggle="collapse">BaseUrl</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_ClientBase_BaseUrl" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets the base URL of the Picturepark API.</p>
 </div>
-              <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
-
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public string BaseUrl { get; }</code></pre>
-              </div>
-
-              
-              
-              
-              
-              <h5 class="propertyValue">Property Value</h5>
-              <table>
-                <tr>
-                  <td>
-                    <span class="xref">System.String</span>
-                    <p>
-                  </td>
-                </tr>
-              </table>
-              
-              
-              
-              
-              
-              
-              
-              </div>
-              
-              
-              <a id="Picturepark_SDK_V1_ClientBase_CustomerAlias_" data-uid="Picturepark.SDK.V1.ClientBase.CustomerAlias*"></a>
-              
-              <h4 id="Picturepark_SDK_V1_ClientBase_CustomerAlias" data-uid="Picturepark.SDK.V1.ClientBase.CustomerAlias"><a href="#collapsible-Picturepark_SDK_V1_ClientBase_CustomerAlias" class="expander" data-toggle="collapse">CustomerAlias</a></h4>
-              
-              <div id="collapsible-Picturepark_SDK_V1_ClientBase_CustomerAlias" class="collapse in">
-              <div class="markdown level1 summary"><p>Gets the used customer alias.</p>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string BaseUrl { get; }</code></pre>
+  </div>
+  
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.String</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="Picturepark_SDK_V1_ClientBase_CustomerAlias_" data-uid="Picturepark.SDK.V1.ClientBase.CustomerAlias*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_ClientBase_CustomerAlias" data-uid="Picturepark.SDK.V1.ClientBase.CustomerAlias"><a href="#collapsible-Picturepark_SDK_V1_ClientBase_CustomerAlias" class="expander" data-toggle="collapse">CustomerAlias</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_ClientBase_CustomerAlias" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets the used customer alias.</p>
 </div>
-              <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
-
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public string CustomerAlias { get; }</code></pre>
-              </div>
-
-              
-              
-              
-              
-              <h5 class="propertyValue">Property Value</h5>
-              <table>
-                <tr>
-                  <td>
-                    <span class="xref">System.String</span>
-                    <p>
-                  </td>
-                </tr>
-              </table>
-              
-              
-              
-              
-              
-              
-              
-              </div>
-              <h3 id="methods">Methods
-              </h3>
-              
-              
-              <a id="Picturepark_SDK_V1_ClientBase_CreateHttpRequestMessageAsync_" data-uid="Picturepark.SDK.V1.ClientBase.CreateHttpRequestMessageAsync*"></a>
-              
-              <h4 id="Picturepark_SDK_V1_ClientBase_CreateHttpRequestMessageAsync_CancellationToken_" data-uid="Picturepark.SDK.V1.ClientBase.CreateHttpRequestMessageAsync(CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_ClientBase_CreateHttpRequestMessageAsync_CancellationToken_" class="expander" data-toggle="collapse">CreateHttpRequestMessageAsync(CancellationToken)</a></h4>
-              
-              <div id="collapsible-Picturepark_SDK_V1_ClientBase_CreateHttpRequestMessageAsync_CancellationToken_" class="collapse in">
-              <div class="markdown level1 summary"></div>
-              <div class="markdown level1 conceptual"></div>
-              <h5 class="decalaration">Declaration</h5>
-
-              <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">protected Task&lt;HttpRequestMessage&gt; CreateHttpRequestMessageAsync(CancellationToken cancellationToken)</code></pre>
-              </div>
-
-              <h5 class="parameters">Parameters</h5>
-              <table>
-                <tr>
-                  <td>
-                    <span class="pull-right"><span class="xref">CancellationToken</span></span>
-                    <span class="parametername">cancellationToken</span>
-                    <p>
-                  </td>
-                </tr>
-              </table>
-              
-              <h5 class="returns">Returns</h5>
-              <table>
-                <tr>
-                  <td>
-                    <span class="xref">Task</span>&lt;<span class="xref">HttpRequestMessage</span>&gt;
-                    <p>
-                  </td>
-                </tr>
-              </table>
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              </div>
-              
-              
-                        </article>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string CustomerAlias { get; }</code></pre>
+  </div>
+  
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.String</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  <h3 id="methods">Methods
+  </h3>
+  
+  
+  <a id="Picturepark_SDK_V1_ClientBase_CreateHttpRequestMessageAsync_" data-uid="Picturepark.SDK.V1.ClientBase.CreateHttpRequestMessageAsync*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_ClientBase_CreateHttpRequestMessageAsync_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.ClientBase.CreateHttpRequestMessageAsync(System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_ClientBase_CreateHttpRequestMessageAsync_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">CreateHttpRequestMessageAsync(CancellationToken)</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_ClientBase_CreateHttpRequestMessageAsync_System_Threading_CancellationToken_" class="collapse in">
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected Task&lt;HttpRequestMessage&gt; CreateHttpRequestMessageAsync(CancellationToken cancellationToken)</code></pre>
+  </div>
+  
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
+        <span class="parametername">cancellationToken</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">HttpRequestMessage</span>&gt;
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+</article>
           </div>
           <div class="contribution-panel mobile-hide">
           </div>
@@ -334,7 +338,7 @@
               <a href="#top">Back to top</a>
             </span>
             
-            <span>Copyright © 2015-2017 Microsoft<br>Generated by <strong>DocFX</strong></span>
+            <span>Generated by <strong>DocFX</strong></span>
           </div>
         </div>
       </footer>
