@@ -40,7 +40,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var uniqueName = $"Name_{Guid.NewGuid():N}";
             var request = new ContentCreateRequest
             {
-                Content = new { Name = uniqueName },
+                Content = new DisplayPatternTest { Name = uniqueName },
                 ContentSchemaId = nameof(DisplayPatternTest)
             };
 
@@ -48,7 +48,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var expectedDisplayValue = schema.DisplayPatterns.First(dp => dp.DisplayPatternType == DisplayPatternType.Thumbnail).Templates["en"].Replace("{{data.displayPatternTest.name}}", uniqueName);
             content.DisplayValues.Thumbnail.Should().Be(expectedDisplayValue);
 
-            // Update schema's display pattern in order to turn the display value statue to red
+            // Update schema's display pattern in order to turn the display value status to red
             var uniqueId = $"{Guid.NewGuid():N}";
             schema.DisplayPatterns.First(dp => dp.DisplayPatternType == DisplayPatternType.Thumbnail).Templates["en"] = $"{{{{data.displayPatternTest.name}}}}_{uniqueId}";
             await _client.Schema.UpdateAsync(schema, false).ConfigureAwait(false);
