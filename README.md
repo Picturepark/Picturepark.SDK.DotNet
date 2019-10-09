@@ -8,8 +8,9 @@
 
 Links:
 - [Picturepark Website](https://picturepark.com/)
-- [SDK Documentation](docs/README.md)
-- [API Documentation](https://rawgit.com/Picturepark/Picturepark.SDK.DotNet/master/docs/api/site/index.html)
+- [SDK Documentation](https://rawgit.com/Picturepark/Picturepark.SDK.DotNet/master/docs/sdk/site/index.html)
+- [API Documentation](docs/api/index.html)
+- [Getting started](docs/README.md)
 
 ## NuGet Packages
 
