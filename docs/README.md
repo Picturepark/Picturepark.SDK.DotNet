@@ -1,8 +1,9 @@
-# SDK Documentation
+# Getting started
 
-**[API Documentation](https://rawgit.com/Picturepark/Picturepark.SDK.DotNet/master/docs/api/site/index.html)**
+## Resources
+Please refer to [SDK Documentation](https://picturepark.github.io/Picturepark.SDK.DotNet/sdk/site/index.html) for detailed specification.
 
-## Usage in C#
+## Usage in .NET
 
 Install the Picturepark SDK NuGet package in your .NET project (supports .NET 4.5+ and .NET Standard 1.3+): 
 
