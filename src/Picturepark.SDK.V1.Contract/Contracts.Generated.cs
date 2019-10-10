@@ -20133,16 +20133,8 @@ namespace Picturepark.SDK.V1.Contract
     public partial class ShareBasicCreateRequest : ShareBaseCreateRequest
     {
         /// <summary>List of external mail recipients which are no Picturepark users.</summary>
-        [Newtonsoft.Json.JsonProperty("recipientsEmail", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<UserEmail> RecipientsEmail { get; set; }
-    
-        /// <summary>List of internal recipients which are Picturepark users.</summary>
-        [Newtonsoft.Json.JsonProperty("recipientsUser", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<User> RecipientsUser { get; set; }
-    
-        /// <summary>List of user roles. All assignees of these roles receive the share.</summary>
-        [Newtonsoft.Json.JsonProperty("recipientsGroup", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<UserRole> RecipientsGroup { get; set; }
+        [Newtonsoft.Json.JsonProperty("recipientEmails", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<UserEmail> RecipientEmails { get; set; }
     
         /// <summary>System language used for share (mail and detail page). en or de.</summary>
         [Newtonsoft.Json.JsonProperty("languageCode", Required = Newtonsoft.Json.Required.Always)]
@@ -20157,52 +20149,6 @@ namespace Picturepark.SDK.V1.Contract
         public static ShareBasicCreateRequest FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<ShareBasicCreateRequest>(data);
-        }
-    
-    }
-    
-    /// <summary>Represents a user role, which associates users with user rights.</summary>
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
-    public partial class UserRole : UserRoleEditable
-    {
-        /// <summary>User role ID.</summary>
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Id { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-    
-        public static UserRole FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<UserRole>(data);
-        }
-    
-    }
-    
-    /// <summary>Represents a user role, which associates users with user rights.</summary>
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
-    public partial class UserRoleEditable 
-    {
-        /// <summary>Language specific user role names.</summary>
-        [Newtonsoft.Json.JsonProperty("names", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public TranslatedStringDictionary Names { get; set; } = new TranslatedStringDictionary();
-    
-        /// <summary>All user rights for this user role.</summary>
-        [Newtonsoft.Json.JsonProperty("userRights", Required = Newtonsoft.Json.Required.Always, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.Collections.Generic.ICollection<UserRight> UserRights { get; set; } = new System.Collections.Generic.List<UserRight>();
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-    
-        public static UserRoleEditable FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<UserRoleEditable>(data);
         }
     
     }
@@ -21505,6 +21451,52 @@ namespace Picturepark.SDK.V1.Contract
         public static UserUpdateRequest FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<UserUpdateRequest>(data);
+        }
+    
+    }
+    
+    /// <summary>Represents a user role, which associates users with user rights.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class UserRole : UserRoleEditable
+    {
+        /// <summary>User role ID.</summary>
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static UserRole FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<UserRole>(data);
+        }
+    
+    }
+    
+    /// <summary>Represents a user role, which associates users with user rights.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class UserRoleEditable 
+    {
+        /// <summary>Language specific user role names.</summary>
+        [Newtonsoft.Json.JsonProperty("names", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public TranslatedStringDictionary Names { get; set; } = new TranslatedStringDictionary();
+    
+        /// <summary>All user rights for this user role.</summary>
+        [Newtonsoft.Json.JsonProperty("userRights", Required = Newtonsoft.Json.Required.Always, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.Collections.Generic.ICollection<UserRight> UserRights { get; set; } = new System.Collections.Generic.List<UserRight>();
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static UserRoleEditable FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<UserRoleEditable>(data);
         }
     
     }

@@ -36292,28 +36292,12 @@
               "languageCode"
             ],
             "properties": {
-              "recipientsEmail": {
+              "recipientEmails": {
                 "type": "array",
                 "description": "List of external mail recipients which are no Picturepark users.",
                 "nullable": true,
                 "items": {
                   "$ref": "#/components/schemas/UserEmail"
-                }
-              },
-              "recipientsUser": {
-                "type": "array",
-                "description": "List of internal recipients which are Picturepark users.",
-                "nullable": true,
-                "items": {
-                  "$ref": "#/components/schemas/User"
-                }
-              },
-              "recipientsGroup": {
-                "type": "array",
-                "description": "List of user roles. All assignees of these roles receive the share.",
-                "nullable": true,
-                "items": {
-                  "$ref": "#/components/schemas/UserRole"
                 }
               },
               "languageCode": {
@@ -36324,51 +36308,6 @@
             }
           }
         ]
-      },
-      "UserRole": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/UserRoleEditable"
-          },
-          {
-            "type": "object",
-            "description": "Represents a user role, which associates users with user rights.",
-            "additionalProperties": false,
-            "properties": {
-              "id": {
-                "type": "string",
-                "description": "User role ID.",
-                "nullable": true
-              }
-            }
-          }
-        ]
-      },
-      "UserRoleEditable": {
-        "type": "object",
-        "description": "Represents a user role, which associates users with user rights.",
-        "additionalProperties": false,
-        "required": [
-          "names",
-          "userRights"
-        ],
-        "properties": {
-          "names": {
-            "description": "Language specific user role names.",
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/TranslatedStringDictionary"
-              }
-            ]
-          },
-          "userRights": {
-            "type": "array",
-            "description": "All user rights for this user role.",
-            "items": {
-              "$ref": "#/components/schemas/UserRight"
-            }
-          }
-        }
       },
       "ShareEmbedCreateRequest": {
         "allOf": [
@@ -37853,6 +37792,51 @@
             }
           }
         ]
+      },
+      "UserRole": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/UserRoleEditable"
+          },
+          {
+            "type": "object",
+            "description": "Represents a user role, which associates users with user rights.",
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string",
+                "description": "User role ID.",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "UserRoleEditable": {
+        "type": "object",
+        "description": "Represents a user role, which associates users with user rights.",
+        "additionalProperties": false,
+        "required": [
+          "names",
+          "userRights"
+        ],
+        "properties": {
+          "names": {
+            "description": "Language specific user role names.",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/TranslatedStringDictionary"
+              }
+            ]
+          },
+          "userRights": {
+            "type": "array",
+            "description": "All user rights for this user role.",
+            "items": {
+              "$ref": "#/components/schemas/UserRight"
+            }
+          }
+        }
       },
       "UserCreateRequest": {
         "type": "object",

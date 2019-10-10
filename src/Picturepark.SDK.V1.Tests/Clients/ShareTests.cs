@@ -128,7 +128,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 Description = "Description of Basic share aaa",
                 ExpirationDate = new DateTime(2020, 12, 31),
                 Name = "Basic share aaa",
-                RecipientsEmail = new List<UserEmail>
+                RecipientEmails = new List<UserEmail>
                 {
                     _fixture.Configuration.EmailRecipient
                 },
@@ -158,7 +158,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 Description = "Description of share with wrong content ids",
                 ExpirationDate = new DateTime(2020, 12, 31),
                 Name = "Share with wrong content ids",
-                RecipientsEmail = new List<UserEmail>
+                RecipientEmails = new List<UserEmail>
                 {
                     _fixture.Configuration.EmailRecipient
                 },
