@@ -11,7 +11,7 @@
     },
     "version": "1.0",
     "x-logo": {
-      "url": "/docs/rest/picturepark-logo.png",
+      "url": "https://picturepark.github.io/Picturepark.SDK.DotNet/api/picturepark-logo.png",
       "backgroundColor": "#FFFFFF"
     }
   },

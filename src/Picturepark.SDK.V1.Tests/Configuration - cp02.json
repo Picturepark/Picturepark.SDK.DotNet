@@ -1,0 +1,10 @@
+﻿{
+    "Server": "http://cpqaw02:8085",
+    "CustomerAlias": "devsdk",
+    "AccessToken": "dce87564555f73b1b716439c8fdf08f9db5edb6527a1253c56a0263b7f869bed",
+    "EmailRecipient": {
+        "FirstName": "Firstname",
+        "LastName": "Lastname",
+        "EmailAddress": "email"
+    }
+}
