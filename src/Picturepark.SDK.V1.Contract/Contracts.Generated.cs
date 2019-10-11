@@ -9880,6 +9880,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("JoinByTransformation", typeof(JoinByTransformation))]
     [JsonInheritanceAttribute("LookupCacheTransformation", typeof(LookupCacheTransformation))]
     [JsonInheritanceAttribute("NGramTransformation", typeof(NGramTransformation))]
+    [JsonInheritanceAttribute("ProjectionTransformation", typeof(ProjectionTransformation))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public abstract partial class BusinessRuleTransformation 
     {
@@ -10001,6 +10002,26 @@ namespace Picturepark.SDK.V1.Contract
         public static NGramTransformation FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<NGramTransformation>(data);
+        }
+    
+    }
+    
+    /// <summary>Transforms a list by applying a set of transformation for each item in the list.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class ProjectionTransformation : BusinessRuleTransformation
+    {
+        /// <summary>Transformations to apply.</summary>
+        [Newtonsoft.Json.JsonProperty("transformations", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<BusinessRuleTransformation> Transformations { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static ProjectionTransformation FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ProjectionTransformation>(data);
         }
     
     }

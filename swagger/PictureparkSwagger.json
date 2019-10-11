@@ -25113,7 +25113,8 @@
             "TakeArrayValueTransformation": "#/components/schemas/TakeArrayValueTransformation",
             "JoinByTransformation": "#/components/schemas/JoinByTransformation",
             "LookupCacheTransformation": "#/components/schemas/LookupCacheTransformation",
-            "NGramTransformation": "#/components/schemas/NGramTransformation"
+            "NGramTransformation": "#/components/schemas/NGramTransformation",
+            "ProjectionTransformation": "#/components/schemas/ProjectionTransformation"
           }
         },
         "description": "Business rule transformation",
@@ -25233,6 +25234,28 @@
                 "description": "Maximum length of a word to be considered.",
                 "format": "int32",
                 "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "ProjectionTransformation": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BusinessRuleTransformation"
+          },
+          {
+            "type": "object",
+            "description": "Transforms a list by applying a set of transformation for each item in the list.",
+            "additionalProperties": false,
+            "properties": {
+              "transformations": {
+                "type": "array",
+                "description": "Transformations to apply.",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/BusinessRuleTransformation"
+                }
               }
             }
           }
