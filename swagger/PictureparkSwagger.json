@@ -9860,6 +9860,201 @@
         ]
       }
     },
+    "/v1/outputFormats/{id}/downloadFileNamePatterns": {
+      "put": {
+        "tags": [
+          "OutputFormat"
+        ],
+        "summary": "Sets the download file name patterns for an output format",
+        "description": "This is allowed for both static and dynamic formats.",
+        "operationId": "OutputFormat_SetDownloadFileNamePatterns",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "ID of the output format.",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 1
+          }
+        ],
+        "requestBody": {
+          "x-name": "patterns",
+          "description": "Dictionary containing patterns per metadata language.\nIf this is set, at least the customer's default language is required.\nSet any other language to an empty string and a fallback to the default language will occur.\nSet parameter to null to clear any already set patterns.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TranslatedStringDictionary"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 2
+        },
+        "responses": {
+          "200": {
+            "description": "Business process",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BusinessProcess"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "outputformat_write"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/outputFormats/many/downloadFileNamePatterns": {
+      "put": {
+        "tags": [
+          "OutputFormat"
+        ],
+        "summary": "Sets the download file name patterns for multiple output formats",
+        "description": "This is allowed for both static and dynamic formats.",
+        "operationId": "OutputFormat_SetDownloadFileNamePatternsMany",
+        "requestBody": {
+          "x-name": "request",
+          "description": "The request containing the patterns for each output format.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OutputFormatDownloadFileNamePatternUpdateManyRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "Business process",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BusinessProcess"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "outputformat_write"
+            ]
+          }
+        ]
+      }
+    },
     "/v1/profile": {
       "get": {
         "tags": [
@@ -17863,6 +18058,7 @@
                 "SchemaFieldAnalyzerInvalidException": "#/components/schemas/SchemaFieldAnalyzerInvalidException",
                 "SchemaFieldRelationMultipleTypesException": "#/components/schemas/SchemaFieldRelationMultipleTypesException",
                 "SchemaFieldNotRequirableException": "#/components/schemas/SchemaFieldNotRequirableException",
+                "DisplayPatternTypeNotSupportedException": "#/components/schemas/DisplayPatternTypeNotSupportedException",
                 "DeleteContentsWithReferencesException": "#/components/schemas/DeleteContentsWithReferencesException",
                 "ContentMetadataUpdateManyException": "#/components/schemas/ContentMetadataUpdateManyException",
                 "ContentNotFoundException": "#/components/schemas/ContentNotFoundException",
@@ -17938,7 +18134,8 @@
                 "SchemaTagboxFilterLookupNamedCacheSchemaIdInvalidException": "#/components/schemas/SchemaTagboxFilterLookupNamedCacheSchemaIdInvalidException",
                 "NoTagsFoundException": "#/components/schemas/NoTagsFoundException",
                 "OutputNotAvailableException": "#/components/schemas/OutputNotAvailableException",
-                "DisplayValueRerenderingInProgressException": "#/components/schemas/DisplayValueRerenderingInProgressException"
+                "DisplayValueRerenderingInProgressException": "#/components/schemas/DisplayValueRerenderingInProgressException",
+                "OutputFormatNotFoundException": "#/components/schemas/OutputFormatNotFoundException"
               }
             },
             "additionalProperties": false,
@@ -21605,13 +21802,15 @@
           "Thumbnail",
           "List",
           "Detail",
-          "Name"
+          "Name",
+          "DownloadFileName"
         ],
         "enum": [
           "Thumbnail",
           "List",
           "Detail",
-          "Name"
+          "Name",
+          "DownloadFileName"
         ]
       },
       "SchemaViewForAllException": {
@@ -21738,6 +21937,27 @@
                 "nullable": true
               },
               "schemaId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "DisplayPatternTypeNotSupportedException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "schemaId": {
+                "type": "string",
+                "nullable": true
+              },
+              "displayPatternId": {
                 "type": "string",
                 "nullable": true
               }
@@ -23191,6 +23411,23 @@
           {
             "type": "object",
             "additionalProperties": false
+          }
+        ]
+      },
+      "OutputFormatNotFoundException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkNotFoundException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "outputFormatId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
           }
         ]
       },
@@ -26626,11 +26863,6 @@
             "description": "The extension of the file.",
             "nullable": true
           },
-          "fileName": {
-            "type": "string",
-            "description": "The name of the file.",
-            "nullable": true
-          },
           "filePath": {
             "type": "string",
             "description": "The path where the file is stored.",
@@ -26645,6 +26877,11 @@
           "sha1Hash": {
             "type": "string",
             "description": "The SHA-1 hash of the file.",
+            "nullable": true
+          },
+          "originalFileName": {
+            "type": "string",
+            "description": "The original filename of the file.",
             "nullable": true
           },
           "kind": {
@@ -31719,6 +31956,15 @@
             "type": "string",
             "description": "How long should the dynamic outputs created from this format be kept.",
             "format": "time-span"
+          },
+          "downloadFileNamePatterns": {
+            "description": "Optional patterns (liquid syntax) that produce the filename for item of this output format.\nIf set, the customer's default language is required.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/TranslatedStringDictionary"
+              }
+            ]
           }
         }
       },
@@ -32707,6 +32953,47 @@
             "items": {
               "type": "string"
             }
+          }
+        }
+      },
+      "OutputFormatDownloadFileNamePatternUpdateManyRequest": {
+        "type": "object",
+        "description": "Used to change the download file name pattern for multiple formats at once.",
+        "additionalProperties": false,
+        "required": [
+          "items"
+        ],
+        "properties": {
+          "items": {
+            "type": "array",
+            "description": "Download file name update requests to be processed.",
+            "items": {
+              "$ref": "#/components/schemas/OutputFormatDownloadFileNamePatternUpdateRequestItem"
+            }
+          }
+        }
+      },
+      "OutputFormatDownloadFileNamePatternUpdateRequestItem": {
+        "type": "object",
+        "description": "Represents a change to the download file name pattern to one output format.",
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "ID of the output format to set pattern for.",
+            "minLength": 1
+          },
+          "patterns": {
+            "description": "The patterns to use per metadata language.\nThe customer's default language is required.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/TranslatedStringDictionary"
+              }
+            ]
           }
         }
       },
