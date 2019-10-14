@@ -6723,6 +6723,7 @@
                 "SchemaFieldAnalyzerInvalidException": "#/components/schemas/SchemaFieldAnalyzerInvalidException",
                 "SchemaFieldRelationMultipleTypesException": "#/components/schemas/SchemaFieldRelationMultipleTypesException",
                 "SchemaFieldNotRequirableException": "#/components/schemas/SchemaFieldNotRequirableException",
+                "DisplayPatternTypeNotSupportedException": "#/components/schemas/DisplayPatternTypeNotSupportedException",
                 "DeleteContentsWithReferencesException": "#/components/schemas/DeleteContentsWithReferencesException",
                 "ContentMetadataUpdateManyException": "#/components/schemas/ContentMetadataUpdateManyException",
                 "ContentNotFoundException": "#/components/schemas/ContentNotFoundException",
@@ -6798,7 +6799,8 @@
                 "SchemaTagboxFilterLookupNamedCacheSchemaIdInvalidException": "#/components/schemas/SchemaTagboxFilterLookupNamedCacheSchemaIdInvalidException",
                 "NoTagsFoundException": "#/components/schemas/NoTagsFoundException",
                 "OutputNotAvailableException": "#/components/schemas/OutputNotAvailableException",
-                "DisplayValueRerenderingInProgressException": "#/components/schemas/DisplayValueRerenderingInProgressException"
+                "DisplayValueRerenderingInProgressException": "#/components/schemas/DisplayValueRerenderingInProgressException",
+                "OutputFormatNotFoundException": "#/components/schemas/OutputFormatNotFoundException"
               }
             },
             "additionalProperties": false,
@@ -10465,13 +10467,15 @@
           "Thumbnail",
           "List",
           "Detail",
-          "Name"
+          "Name",
+          "DownloadFileName"
         ],
         "enum": [
           "Thumbnail",
           "List",
           "Detail",
-          "Name"
+          "Name",
+          "DownloadFileName"
         ]
       },
       "SchemaViewForAllException": {
@@ -10598,6 +10602,27 @@
                 "nullable": true
               },
               "schemaId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "DisplayPatternTypeNotSupportedException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "schemaId": {
+                "type": "string",
+                "nullable": true
+              },
+              "displayPatternId": {
                 "type": "string",
                 "nullable": true
               }
@@ -12051,6 +12076,23 @@
           {
             "type": "object",
             "additionalProperties": false
+          }
+        ]
+      },
+      "OutputFormatNotFoundException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkNotFoundException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "outputFormatId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
           }
         ]
       },
@@ -13599,6 +13641,15 @@
             "type": "string",
             "description": "How long should the dynamic outputs created from this format be kept.",
             "format": "time-span"
+          },
+          "downloadFileNamePatterns": {
+            "description": "Optional patterns (liquid syntax) that produce the filename for item of this output format.\nIf set, the customer's default language is required.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/TranslatedStringDictionary"
+              }
+            ]
           }
         }
       },
