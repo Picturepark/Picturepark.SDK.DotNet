@@ -3,6 +3,7 @@ using Picturepark.SDK.V1.Contract;
 using Picturepark.SDK.V1.Tests.Fixtures;
 using Picturepark.SDK.V1.Tests.FluentAssertions;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.IO.Compression;
 using System.Linq;
@@ -121,6 +122,10 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 request.Format.As<JpegFormat>().IsProgressive = true;
                 request.SourceOutputFormats.Audio = "Preview";
                 request.Format.As<JpegFormat>().Quality = i;
+                request.DownloadFileNamePatterns = new TranslatedStringDictionary
+                {
+                    { _fixture.DefaultLanguage, "{{ fileNamePattern }} (updated)" }
+                };
 
                 return request;
             }).ToArray();
@@ -142,6 +147,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 verifyFormat.Format.As<JpegFormat>().IsProgressive.Should().BeTrue();
                 verifyFormat.Format.As<JpegFormat>().Quality.Should().Be(j);
                 verifyFormat.SourceOutputFormats.Audio.Should().Be("Preview");
+                verifyFormat.DownloadFileNamePatterns[_fixture.DefaultLanguage].Should().Be("{{ fileNamePattern }} (updated)");
             }
         }
 
@@ -337,6 +343,50 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 filesInOutputFormat.Should().OnlyContain(f => f.Length > 0);
                 filesInOutputFormat.Should().OnlyContain(f => Path.GetExtension(f.Name) == ".jpg");
             }
+        }
+
+        [Fact]
+        [Trait("Stack", "OutputFormats")]
+        public async Task Should_change_filename_patterns_single()
+        {
+            var format = await _fixture.CreateOutputFormat().ConfigureAwait(false);
+            var pattern = "Custom-Format {{ fileNamePattern }}";
+
+            var bp = await _client.OutputFormat.SetDownloadFileNamePatternsAsync(
+                format.Id,
+                new Dictionary<string, string>
+                {
+                    { _fixture.DefaultLanguage, pattern }
+                }).ConfigureAwait(false);
+
+            await _client.BusinessProcess.WaitForCompletionAsync(bp.Id).ConfigureAwait(false);
+
+            var formatRetrieved = await _client.OutputFormat.GetAsync(format.Id).ConfigureAwait(false);
+            formatRetrieved.DownloadFileNamePatterns[_fixture.DefaultLanguage].Should().Be(pattern);
+        }
+
+        [Fact]
+        [Trait("Stack", "OutputFormats")]
+        public async Task Should_change_filename_patterns()
+        {
+            var formats = await _fixture.CreateOutputFormats(2).ConfigureAwait(false);
+            var pattern = "Custom-Format {{ fileNamePattern }}";
+
+            var bp = await _client.OutputFormat.SetDownloadFileNamePatternsManyAsync(
+                new OutputFormatDownloadFileNamePatternUpdateManyRequest
+                {
+                    Items = formats.Select(
+                        f => new OutputFormatDownloadFileNamePatternUpdateRequestItem
+                        {
+                            Id = f.Id,
+                            Patterns = new TranslatedStringDictionary { { _fixture.DefaultLanguage, pattern } }
+                        }).ToArray()
+                }).ConfigureAwait(false);
+
+            await _client.BusinessProcess.WaitForCompletionAsync(bp.Id).ConfigureAwait(false);
+
+            var formatsRetrieved = await _client.OutputFormat.GetManyAsync(formats.Select(f => f.Id)).ConfigureAwait(false);
+            formatsRetrieved.Should().OnlyContain(f => f.DownloadFileNamePatterns[_fixture.DefaultLanguage] == pattern);
         }
     }
 }
