@@ -21,5 +21,13 @@
         /// Display value for <see cref="DisplayPatternType.Thumbnail"/>
         /// </summary>
         public string Thumbnail => this[nameof(DisplayPatternType.Thumbnail).ToLowerCamelCase()];
+
+        /// <summary>
+        /// Display value for <see cref="DisplayPatternType.DownloadFileName"/>
+        /// </summary>
+        /// <remarks>
+        /// Only available for Contents.
+        /// </remarks>
+        public string DownloadFileName => this[nameof(DisplayPatternType.DownloadFileName).ToLowerCamelCase()];
     }
 }
