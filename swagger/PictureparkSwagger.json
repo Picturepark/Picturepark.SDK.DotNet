@@ -20784,10 +20784,6 @@
             "properties": {
               "value": {
                 "nullable": true
-              },
-              "expectedDataType": {
-                "type": "string",
-                "nullable": true
               }
             }
           }
