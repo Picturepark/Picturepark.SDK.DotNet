@@ -968,6 +968,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [JsonInheritanceAttribute("WrongChunkSizeException", typeof(WrongChunkSizeException))]
     [JsonInheritanceAttribute("ChunkSizeOutOfRangeException", typeof(ChunkSizeOutOfRangeException))]
     [JsonInheritanceAttribute("MaximumTransferSizeException", typeof(MaximumTransferSizeException))]
+    [JsonInheritanceAttribute("FileIdDuplicatedException", typeof(FileIdDuplicatedException))]
     [JsonInheritanceAttribute("MissingDependenciesException", typeof(MissingDependenciesException))]
     [JsonInheritanceAttribute("RelationSelfReferencingException", typeof(RelationSelfReferencingException))]
     [JsonInheritanceAttribute("InvalidChangeCommandFieldTypeInvalidException", typeof(InvalidChangeCommandFieldTypeInvalidException))]
@@ -984,6 +985,8 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [JsonInheritanceAttribute("ReferenceUpdateException", typeof(ReferenceUpdateException))]
     [JsonInheritanceAttribute("ReferencesUpdateException", typeof(ReferencesUpdateException))]
     [JsonInheritanceAttribute("DuplicatedItemAssignedException", typeof(DuplicatedItemAssignedException))]
+    [JsonInheritanceAttribute("InvalidDataTypeException", typeof(InvalidDataTypeException))]
+    [JsonInheritanceAttribute("LayerAssignmentInvalidException", typeof(LayerAssignmentInvalidException))]
     [JsonInheritanceAttribute("SchemaFieldOverwriteTypeMismatchException", typeof(SchemaFieldOverwriteTypeMismatchException))]
     [JsonInheritanceAttribute("SchemaFieldOverwriteIdException", typeof(SchemaFieldOverwriteIdException))]
     [JsonInheritanceAttribute("SchemaFieldIdDuplicatedException", typeof(SchemaFieldIdDuplicatedException))]
@@ -3563,6 +3566,25 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class FileIdDuplicatedException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("fileId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string FileId { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static FileIdDuplicatedException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<FileIdDuplicatedException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
     public partial class MissingDependenciesException : PictureparkValidationException
     {
         [Newtonsoft.Json.JsonProperty("itemIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -3951,6 +3973,47 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         public static DuplicatedItemAssignedException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<DuplicatedItemAssignedException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class InvalidDataTypeException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("value", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public object Value { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static InvalidDataTypeException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<InvalidDataTypeException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class LayerAssignmentInvalidException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("layerId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string LayerId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("value", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public object Value { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static LayerAssignmentInvalidException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<LayerAssignmentInvalidException>(data);
         }
     
     }

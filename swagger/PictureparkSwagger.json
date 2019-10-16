@@ -17991,6 +17991,7 @@
                 "WrongChunkSizeException": "#/components/schemas/WrongChunkSizeException",
                 "ChunkSizeOutOfRangeException": "#/components/schemas/ChunkSizeOutOfRangeException",
                 "MaximumTransferSizeException": "#/components/schemas/MaximumTransferSizeException",
+                "FileIdDuplicatedException": "#/components/schemas/FileIdDuplicatedException",
                 "MissingDependenciesException": "#/components/schemas/MissingDependenciesException",
                 "RelationSelfReferencingException": "#/components/schemas/RelationSelfReferencingException",
                 "InvalidChangeCommandFieldTypeInvalidException": "#/components/schemas/InvalidChangeCommandFieldTypeInvalidException",
@@ -18007,6 +18008,8 @@
                 "ReferenceUpdateException": "#/components/schemas/ReferenceUpdateException",
                 "ReferencesUpdateException": "#/components/schemas/ReferencesUpdateException",
                 "DuplicatedItemAssignedException": "#/components/schemas/DuplicatedItemAssignedException",
+                "InvalidDataTypeException": "#/components/schemas/InvalidDataTypeException",
+                "LayerAssignmentInvalidException": "#/components/schemas/LayerAssignmentInvalidException",
                 "SchemaFieldOverwriteTypeMismatchException": "#/components/schemas/SchemaFieldOverwriteTypeMismatchException",
                 "SchemaFieldOverwriteIdException": "#/components/schemas/SchemaFieldOverwriteIdException",
                 "SchemaFieldIdDuplicatedException": "#/components/schemas/SchemaFieldIdDuplicatedException",
@@ -20357,6 +20360,23 @@
           }
         ]
       },
+      "FileIdDuplicatedException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "fileId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
       "MissingDependenciesException": {
         "allOf": [
           {
@@ -20747,6 +20767,42 @@
               },
               "itemPath": {
                 "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "InvalidDataTypeException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "value": {
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "LayerAssignmentInvalidException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "layerId": {
+                "type": "string",
+                "nullable": true
+              },
+              "value": {
                 "nullable": true
               }
             }
@@ -37951,10 +38007,13 @@
       "FileTransferCreateItem": {
         "type": "object",
         "additionalProperties": false,
+        "required": [
+          "fileId"
+        ],
         "properties": {
           "fileId": {
             "type": "string",
-            "nullable": true
+            "minLength": 1
           },
           "layerSchemaIds": {
             "type": "array",
