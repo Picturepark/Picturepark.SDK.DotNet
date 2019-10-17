@@ -31057,7 +31057,8 @@
           "TransferCleanup",
           "ImportCompletedWithErrors",
           "UploadCompletedWithErrors",
-          "UploadCancellationInProgress"
+          "UploadCancellationInProgress",
+          "ImportDone"
         ],
         "enum": [
           "Draft",
@@ -31075,7 +31076,8 @@
           "TransferCleanup",
           "ImportCompletedWithErrors",
           "UploadCompletedWithErrors",
-          "UploadCancellationInProgress"
+          "UploadCancellationInProgress",
+          "ImportDone"
         ]
       },
       "ReindexEvent": {

@@ -15340,6 +15340,9 @@ namespace Picturepark.SDK.V1.Contract
         [System.Runtime.Serialization.EnumMember(Value = @"UploadCancellationInProgress")]
         UploadCancellationInProgress = 15,
     
+        [System.Runtime.Serialization.EnumMember(Value = @"ImportDone")]
+        ImportDone = 16,
+    
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
