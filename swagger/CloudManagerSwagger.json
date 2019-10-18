@@ -15283,6 +15283,10 @@
             "type": "integer",
             "format": "int32"
           },
+          "storagePath": {
+            "type": "string",
+            "nullable": true
+          },
           "defaultContentPermissionSetIds": {
             "type": "array",
             "nullable": true,

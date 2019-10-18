@@ -27,6 +27,7 @@
     "userRetentionTime": "01:00:00",
     "successfulTransferRetentionTime": "30.00:00:00",
     "incompleteTransferRetentionTime": "30.00:00:00",
+    "editCollectionRetentionTime": "7.00:00:00",
     "apiCallsPerMinute": 1000,
     "languageConfiguration": {
         "systemLanguages": [ "en", "de" ],
@@ -53,7 +54,7 @@
                 "kind": "OriginalFormat"
             },
             "id": "Original",
-            "retentionTime": "7.00:00:00" 
+            "retentionTime": "7.00:00:00"
         },
         {
             "names": {
