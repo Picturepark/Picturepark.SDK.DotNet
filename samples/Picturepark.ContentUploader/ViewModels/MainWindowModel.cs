@@ -124,7 +124,7 @@ namespace Picturepark.ContentUploader.ViewModels
                     var fileName = Path.GetFileName(FilePath);
 
                     var accessToken = await GetAccessTokenAsync();
-                    var authClient = new AccessTokenAuthClient(ApiServer, accessToken, CustomerAlias);
+                    var authClient = new AccessTokenAuthClient(ApiServer.TrimEnd('/'), accessToken, CustomerAlias);
                     using (var client = new PictureparkService(new PictureparkServiceSettings(authClient)))
                     {
                         try
@@ -159,7 +159,7 @@ namespace Picturepark.ContentUploader.ViewModels
 
             var settings = new OidcSettings
             {
-                Authority = IdentityServer,
+                Authority = IdentityServer.TrimEnd('/'),
                 ClientId = ClientId,
                 ClientSecret = ClientSecret,
                 RedirectUri = RedirectUri,
@@ -204,7 +204,9 @@ namespace Picturepark.ContentUploader.ViewModels
 
                 using (var key = Registry.ClassesRoot.CreateSubKey(@"*\shell\PictureparkContentUploader\command"))
                     key.SetValue("", "\"" + Assembly.GetEntryAssembly().Location + "\" %1");
-            });
+
+                MessageBox.Show("Context menu successfully registered.", "Picturepark SDK ContentUploader", MessageBoxButton.OK, MessageBoxImage.Information);
+            }); 
         }
 
         private async Task UnregisterContextMenuAsync()
@@ -212,6 +214,8 @@ namespace Picturepark.ContentUploader.ViewModels
             await RunTaskAsync(() =>
             {
                 Registry.ClassesRoot.DeleteSubKeyTree(@"*\shell\PictureparkContentUploader");
+
+                MessageBox.Show("Context menu successfully unregistered.", "Picturepark SDK ContentUploader", MessageBoxButton.OK, MessageBoxImage.Information);
             });
         }
     }
