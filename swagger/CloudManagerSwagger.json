@@ -15158,14 +15158,6 @@
           "lifeCycle": {
             "$ref": "#/components/schemas/LifeCycle"
           },
-          "deactivationMessage": {
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/TranslatedStringDictionary"
-              }
-            ]
-          },
           "snapshotEnabled": {
             "type": "boolean"
           },
