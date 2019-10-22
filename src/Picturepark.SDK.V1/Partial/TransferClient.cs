@@ -177,7 +177,7 @@ namespace Picturepark.SDK.V1
                         using (var fileStream = File.OpenRead(fileLocation.AbsoluteSourcePath))
                         {
                             var currentChunkSize = chunkSize;
-                            var position = (number - 1) * chunkSize;
+                            var position = (number - 1) * (long)chunkSize;
 
                             // last chunk may have a different size.
                             if (number == totalChunks)
