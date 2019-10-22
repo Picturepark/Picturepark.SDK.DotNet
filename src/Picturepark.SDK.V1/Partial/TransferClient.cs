@@ -180,6 +180,9 @@ namespace Picturepark.SDK.V1
                             var position = (number - 1) * (long)chunkSize;
 
                             // last chunk may have a different size.
+                            // not using long because
+                            // - fileStream.Read's count argument is int
+                            // - position for the last chunk is already close to the end of the file
                             if (number == totalChunks)
                             {
                                 currentChunkSize = (int)(fileSize - position);
