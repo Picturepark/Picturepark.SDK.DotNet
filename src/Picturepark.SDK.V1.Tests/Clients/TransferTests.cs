@@ -548,6 +548,23 @@ namespace Picturepark.SDK.V1.Tests.Clients
             businessProcess.BusinessProcess.LastReportedProgress.Should().NotBeNull();
         }
 
+        [Fact]
+        [Trait("Stack", "Transfers")]
+        public async Task ShouldUseTargetFileNameForWebLinkDownloads()
+        {
+            // Act
+            var result = await CreateWebTransferAsync(
+                new[]
+                {
+                    ("http://cdn1.spiegel.de/images/image-733178-900_breitwand_180x67-zgpe-733178.jpg", "image.jpg")
+                }).ConfigureAwait(false);
+
+            // Assert
+            var files = await _client.Transfer.SearchFilesByTransferIdAsync(result.Transfer.Id).ConfigureAwait(false);
+            files.Results.Should().HaveCount(1);
+            files.Results.Single().Name.Should().Be("image.jpg");
+        }
+
         private async Task<(CreateTransferResult, string fileId)> CreateFileTransferAsync()
         {
             var transferName = new Random().Next(1000, 9999).ToString();
@@ -571,7 +588,12 @@ namespace Picturepark.SDK.V1.Tests.Clients
             return (createTransferResult, fileId);
         }
 
-        private async Task<CreateTransferResult> CreateWebTransferAsync(List<string> urls)
+        private async Task<CreateTransferResult> CreateWebTransferAsync(IReadOnlyList<string> urls)
+        {
+            return await CreateWebTransferAsync(urls.Select(url => (url, (string)null)).ToArray()).ConfigureAwait(false);
+        }
+
+        private async Task<CreateTransferResult> CreateWebTransferAsync(IReadOnlyList<(string url, string targetFileName)> urls)
         {
             var transferName = "UrlImport " + new Random().Next(1000, 9999);
 
@@ -579,9 +601,10 @@ namespace Picturepark.SDK.V1.Tests.Clients
             {
                 Name = transferName,
                 TransferType = TransferType.WebDownload,
-                WebLinks = urls.Select(url => new TransferWebLink
+                WebLinks = urls.Select(item => new TransferWebLink
                 {
-                    Url = url,
+                    Url = item.url,
+                    FileName = item.targetFileName,
                     RequestId = Guid.NewGuid().ToString()
                 }).ToList()
             };
