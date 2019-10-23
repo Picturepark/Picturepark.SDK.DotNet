@@ -200,41 +200,57 @@ namespace Picturepark.SDK.V1.Tests.Clients
             }
             finally
             {
-                await _client.UserRole.DeleteManyAsync(new UserRoleDeleteManyRequest { Ids = result.Rows.Select(r => r.Id).ToArray() }).ConfigureAwait(false);
+                await Delete(result.Rows.Select(r => r.Id)).ConfigureAwait(false);
             }
         }
 
-        private async Task Delete(IEnumerable<UserRole> roles)
-        {
-            await _client.UserRole.DeleteManyAsync(new UserRoleDeleteManyRequest
-            {
-                Ids = roles.Select(r => r.Id).ToArray()
-            });
-        }
+        private Task Delete(IEnumerable<UserRole> roles) => Delete(roles.Where(r => r != null).Select(r => r.Id));
+
+        private Task Delete(IEnumerable<string> roleIds) =>
+            _client.UserRole.DeleteManyAsync(new UserRoleDeleteManyRequest { Ids = roleIds.ToArray() });
 
         private async Task<UserRole[]> CreateRoles()
         {
-            var role1 = await _client.UserRole.CreateAsync(new UserRoleCreateRequest
-            {
-                Names = new TranslatedStringDictionary(new Dictionary<string, string>
-                {
-                    { "en", JamesBond }
-                }),
-                UserRights = new[] { UserRight.ManageTransfer }
-            }).ConfigureAwait(false);
+            UserRoleDetail role1 = null;
+            UserRoleDetail role2 = null;
 
-            // Asserts
-            role1.Audit.CreatedByUser.Should().BeResolved();
-            role1.Audit.ModifiedByUser.Should().BeResolved();
-
-            var role2 = await _client.UserRole.CreateAsync(new UserRoleCreateRequest
+            try
             {
-                Names = new TranslatedStringDictionary(new Dictionary<string, string>
+                role1 = await _client.UserRole.CreateAsync(new UserRoleCreateRequest
                 {
-                    { "en", PeterGriffin }
-                }),
-                UserRights = new[] { UserRight.ManageChannels }
-            }).ConfigureAwait(false);
+                    Names = new TranslatedStringDictionary(new Dictionary<string, string>
+                    {
+                        { "en", JamesBond }
+                    }),
+                    UserRights = new[] { UserRight.ManageTransfer }
+                }).ConfigureAwait(false);
+
+                // Asserts
+                role1.Audit.CreatedByUser.Should().BeResolved();
+                role1.Audit.ModifiedByUser.Should().BeResolved();
+            }
+            catch
+            {
+                await Delete(new[] { role1 }).ConfigureAwait(false);
+                throw;
+            }
+
+            try
+            {
+                role2 = await _client.UserRole.CreateAsync(new UserRoleCreateRequest
+                {
+                    Names = new TranslatedStringDictionary(new Dictionary<string, string>
+                    {
+                        { "en", PeterGriffin }
+                    }),
+                    UserRights = new[] { UserRight.ManageChannels }
+                }).ConfigureAwait(false);
+            }
+            catch
+            {
+                await Delete(new[] { role1, role2 } ).ConfigureAwait(false);
+                throw;
+            }
 
             return new[] { role1, role2 };
         }
