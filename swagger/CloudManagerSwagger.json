@@ -6696,6 +6696,7 @@
                 "CustomerNotFoundException": "#/components/schemas/CustomerNotFoundException",
                 "CustomerNotActiveException": "#/components/schemas/CustomerNotActiveException",
                 "CustomerBoostValuesInvalidException": "#/components/schemas/CustomerBoostValuesInvalidException",
+                "SnapshotRetentionTimeTooShortException": "#/components/schemas/SnapshotRetentionTimeTooShortException",
                 "ConfigurationIndexNotFoundException": "#/components/schemas/ConfigurationIndexNotFoundException",
                 "DuplicateSearchIndexDocException": "#/components/schemas/DuplicateSearchIndexDocException",
                 "SearchIndexDocNotFoundException": "#/components/schemas/SearchIndexDocNotFoundException",
@@ -8082,6 +8083,31 @@
           {
             "type": "object",
             "additionalProperties": false
+          }
+        ]
+      },
+      "SnapshotRetentionTimeTooShortException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "snapshotRetentionTime",
+              "minimumRetentionTime"
+            ],
+            "properties": {
+              "snapshotRetentionTime": {
+                "type": "string",
+                "format": "time-span"
+              },
+              "minimumRetentionTime": {
+                "type": "string",
+                "format": "time-span"
+              }
+            }
           }
         ]
       },
@@ -15157,14 +15183,6 @@
           },
           "lifeCycle": {
             "$ref": "#/components/schemas/LifeCycle"
-          },
-          "deactivationMessage": {
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/TranslatedStringDictionary"
-              }
-            ]
           },
           "snapshotEnabled": {
             "type": "boolean"

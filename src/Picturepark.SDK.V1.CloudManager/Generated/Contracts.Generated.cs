@@ -929,6 +929,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [JsonInheritanceAttribute("CustomerNotFoundException", typeof(CustomerNotFoundException))]
     [JsonInheritanceAttribute("CustomerNotActiveException", typeof(CustomerNotActiveException))]
     [JsonInheritanceAttribute("CustomerBoostValuesInvalidException", typeof(CustomerBoostValuesInvalidException))]
+    [JsonInheritanceAttribute("SnapshotRetentionTimeTooShortException", typeof(SnapshotRetentionTimeTooShortException))]
     [JsonInheritanceAttribute("ConfigurationIndexNotFoundException", typeof(ConfigurationIndexNotFoundException))]
     [JsonInheritanceAttribute("DuplicateSearchIndexDocException", typeof(DuplicateSearchIndexDocException))]
     [JsonInheritanceAttribute("SearchIndexDocNotFoundException", typeof(SearchIndexDocNotFoundException))]
@@ -2481,6 +2482,30 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         public static CustomerBoostValuesInvalidException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<CustomerBoostValuesInvalidException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class SnapshotRetentionTimeTooShortException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("snapshotRetentionTime", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public System.TimeSpan SnapshotRetentionTime { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("minimumRetentionTime", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public System.TimeSpan MinimumRetentionTime { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static SnapshotRetentionTimeTooShortException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SnapshotRetentionTimeTooShortException>(data);
         }
     
     }
@@ -9583,9 +9608,6 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public LifeCycle LifeCycle { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("deactivationMessage", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public TranslatedStringDictionary DeactivationMessage { get; set; }
     
         [Newtonsoft.Json.JsonProperty("snapshotEnabled", Required = Newtonsoft.Json.Required.Always)]
         public bool SnapshotEnabled { get; set; }
