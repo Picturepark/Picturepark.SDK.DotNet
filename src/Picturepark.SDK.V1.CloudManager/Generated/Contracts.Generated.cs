@@ -868,6 +868,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [JsonInheritanceAttribute("UserRoleAssignedException", typeof(UserRoleAssignedException))]
     [JsonInheritanceAttribute("UserNotFoundException", typeof(UserNotFoundException))]
     [JsonInheritanceAttribute("UserInactiveOrDeletedException", typeof(UserInactiveOrDeletedException))]
+    [JsonInheritanceAttribute("InactiveOrDeletedUserRefusedAccessException", typeof(InactiveOrDeletedUserRefusedAccessException))]
     [JsonInheritanceAttribute("TermsOfServiceNotNewestException", typeof(TermsOfServiceNotNewestException))]
     [JsonInheritanceAttribute("IllegalAuthorizationStateTransitionException", typeof(IllegalAuthorizationStateTransitionException))]
     [JsonInheritanceAttribute("TermsOfServiceConsentRequiredException", typeof(TermsOfServiceConsentRequiredException))]
@@ -1330,7 +1331,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     [Newtonsoft.Json.JsonObjectAttribute]
-    public partial class UserInactiveOrDeletedException : PictureparkForbiddenException
+    public partial class UserInactiveOrDeletedException : PictureparkValidationException
     {
         public string ToJson() 
         {
@@ -1340,6 +1341,22 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         public static UserInactiveOrDeletedException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<UserInactiveOrDeletedException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class InactiveOrDeletedUserRefusedAccessException : PictureparkForbiddenException
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static InactiveOrDeletedUserRefusedAccessException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<InactiveOrDeletedUserRefusedAccessException>(data);
         }
     
     }
