@@ -17883,6 +17883,7 @@
                 "UserRoleAssignedException": "#/components/schemas/UserRoleAssignedException",
                 "UserNotFoundException": "#/components/schemas/UserNotFoundException",
                 "UserInactiveOrDeletedException": "#/components/schemas/UserInactiveOrDeletedException",
+                "InactiveOrDeletedUserRefusedAccessException": "#/components/schemas/InactiveOrDeletedUserRefusedAccessException",
                 "TermsOfServiceNotNewestException": "#/components/schemas/TermsOfServiceNotNewestException",
                 "IllegalAuthorizationStateTransitionException": "#/components/schemas/IllegalAuthorizationStateTransitionException",
                 "TermsOfServiceConsentRequiredException": "#/components/schemas/TermsOfServiceConsentRequiredException",
@@ -18347,6 +18348,17 @@
         ]
       },
       "UserInactiveOrDeletedException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "InactiveOrDeletedUserRefusedAccessException": {
         "allOf": [
           {
             "$ref": "#/components/schemas/PictureparkForbiddenException"
