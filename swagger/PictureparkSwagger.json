@@ -37102,6 +37102,11 @@
                 "type": "string",
                 "description": "URL of the item.",
                 "minLength": 1
+              },
+              "fileName": {
+                "type": "string",
+                "description": "Optional target filename of the file.",
+                "nullable": true
               }
             }
           }
