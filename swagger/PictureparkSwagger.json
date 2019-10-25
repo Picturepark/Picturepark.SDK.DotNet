@@ -18140,7 +18140,8 @@
                 "NoTagsFoundException": "#/components/schemas/NoTagsFoundException",
                 "OutputNotAvailableException": "#/components/schemas/OutputNotAvailableException",
                 "DisplayValueRerenderingInProgressException": "#/components/schemas/DisplayValueRerenderingInProgressException",
-                "OutputFormatNotFoundException": "#/components/schemas/OutputFormatNotFoundException"
+                "OutputFormatNotFoundException": "#/components/schemas/OutputFormatNotFoundException",
+                "OutputFormatSourceNotDefinedException": "#/components/schemas/OutputFormatSourceNotDefinedException"
               }
             },
             "additionalProperties": false,
@@ -23512,6 +23513,23 @@
         "allOf": [
           {
             "$ref": "#/components/schemas/PictureparkNotFoundException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "outputFormatId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "OutputFormatSourceNotDefinedException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
           },
           {
             "type": "object",
