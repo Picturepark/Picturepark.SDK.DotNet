@@ -29863,6 +29863,7 @@
           "name",
           "customerAlias",
           "identityServerUrl",
+          "apiUrl",
           "enableQueryDetails",
           "languageConfiguration",
           "languages",
@@ -29888,7 +29889,12 @@
           },
           "identityServerUrl": {
             "type": "string",
-            "description": "The base url of identity server to authenticate the user using OpenID Connect.",
+            "description": "The base URL of identity server to authenticate the user using OpenID Connect.",
+            "minLength": 1
+          },
+          "apiUrl": {
+            "type": "string",
+            "description": "The base API URL.",
             "minLength": 1
           },
           "enableQueryDetails": {
