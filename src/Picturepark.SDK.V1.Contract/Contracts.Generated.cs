@@ -14208,10 +14208,15 @@ namespace Picturepark.SDK.V1.Contract
         [System.ComponentModel.DataAnnotations.Required]
         public string CustomerAlias { get; set; }
     
-        /// <summary>The base url of identity server to authenticate the user using OpenID Connect.</summary>
+        /// <summary>The base URL of identity server to authenticate the user using OpenID Connect.</summary>
         [Newtonsoft.Json.JsonProperty("identityServerUrl", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
         public string IdentityServerUrl { get; set; }
+    
+        /// <summary>The base API URL.</summary>
+        [Newtonsoft.Json.JsonProperty("apiUrl", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public string ApiUrl { get; set; }
     
         /// <summary>Information if the query details can be enabled when searching. For debug purposes only.</summary>
         [Newtonsoft.Json.JsonProperty("enableQueryDetails", Required = Newtonsoft.Json.Required.Always)]
