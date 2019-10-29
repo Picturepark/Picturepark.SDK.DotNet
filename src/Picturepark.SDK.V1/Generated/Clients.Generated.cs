@@ -21155,7 +21155,7 @@ namespace Picturepark.SDK.V1
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Get file</summary>
-        /// <param name="fileTransferId">ID of filetransfer.</param>
+        /// <param name="fileTransferId">ID of file transfer.</param>
         /// <returns>FileTransferDetail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -21283,7 +21283,7 @@ namespace Picturepark.SDK.V1
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Search for files</summary>
-        /// <param name="request">The filetransfer search request</param>
+        /// <param name="request">The file transfer search request</param>
         /// <returns>FileTransferSearchResult</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -21533,7 +21533,7 @@ namespace Picturepark.SDK.V1
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Delete files</summary>
-        /// <param name="request">The filetransfer delete request</param>
+        /// <param name="request">The file transfer delete request</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
