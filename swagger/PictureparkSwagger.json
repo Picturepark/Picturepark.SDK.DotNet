@@ -15365,17 +15365,6 @@
             "nullable": true
           },
           {
-            "name": "relativePath",
-            "in": "query",
-            "required": true,
-            "description": "Relative path of the uploading file.",
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 1
-          },
-          {
             "name": "chunkNumber",
             "in": "query",
             "required": true,
@@ -15384,7 +15373,7 @@
               "type": "integer",
               "format": "int64"
             },
-            "x-position": 2
+            "x-position": 1
           },
           {
             "name": "currentChunkSize",
@@ -15395,7 +15384,7 @@
               "type": "integer",
               "format": "int64"
             },
-            "x-position": 3
+            "x-position": 2
           },
           {
             "name": "totalSize",
@@ -15406,7 +15395,7 @@
               "type": "integer",
               "format": "int64"
             },
-            "x-position": 4
+            "x-position": 3
           },
           {
             "name": "totalChunks",
@@ -15417,7 +15406,7 @@
               "type": "integer",
               "format": "int64"
             },
-            "x-position": 5
+            "x-position": 4
           },
           {
             "name": "transferId",
@@ -15427,7 +15416,7 @@
             "schema": {
               "type": "string"
             },
-            "x-position": 6
+            "x-position": 5
           },
           {
             "name": "requestId",
@@ -15437,7 +15426,7 @@
             "schema": {
               "type": "string"
             },
-            "x-position": 7
+            "x-position": 6
           }
         ],
         "responses": {

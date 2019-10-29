@@ -1633,7 +1633,6 @@ namespace Picturepark.SDK.V1.Contract
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Upload file</summary>
-        /// <param name="relativePath">Relative path of the uploading file.</param>
         /// <param name="chunkNumber">Current chunk number. Starts at 1.</param>
         /// <param name="currentChunkSize">Size in bytes of the current chunk.</param>
         /// <param name="totalSize">Total size in bytes of the uploading file.</param>
@@ -1647,7 +1646,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
-        System.Threading.Tasks.Task UploadFileAsync(string relativePath, long chunkNumber, long currentChunkSize, long totalSize, long totalChunks, string transferId, string requestId, FileParameter formFile = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task UploadFileAsync(long chunkNumber, long currentChunkSize, long totalSize, long totalChunks, string transferId, string requestId, FileParameter formFile = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
     }
     
