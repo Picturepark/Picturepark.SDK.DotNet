@@ -516,8 +516,8 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             weTriggeredCancellation.Should().BeFalse();
             exception.InnerExceptions.Should().NotBeNullOrEmpty();
-            exception.InnerExceptions.Should().HaveCount(files.Count);
             exception.InnerExceptions.Should().OnlyContain(ex => ex is ChunkSizeOutOfRangeException);
+            exception.InnerExceptions.Should().HaveCount(files.Count);
         }
 
         [Fact]
