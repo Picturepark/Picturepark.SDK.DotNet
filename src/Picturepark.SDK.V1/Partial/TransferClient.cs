@@ -91,7 +91,7 @@ namespace Picturepark.SDK.V1
                     {
                         exceptions.Add(ex);
                         uploadOptions.ErrorDelegate?.Invoke(ex);
-                        continue;
+                        break;
                     }
 
                     tasks.Add(Task.Run(async () =>
