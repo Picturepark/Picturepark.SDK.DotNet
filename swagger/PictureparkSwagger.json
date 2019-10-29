@@ -14432,6 +14432,7 @@
           "Transfer"
         ],
         "summary": "Delete transfer",
+        "description": "A transfer cannot be deleted if it's currently in the UploadInProgress or ImportInProgress state.",
         "operationId": "Transfer_Delete",
         "parameters": [
           {
@@ -14604,7 +14605,7 @@
           "Transfer"
         ],
         "summary": "Cancel transfer",
-        "description": "Requests cancellation of transfer.",
+        "description": "Requests cancellation of transfer.\nNote: Transfers can only be cancelled when state is UploadInProgress.",
         "operationId": "Transfer_CancelTransfer",
         "parameters": [
           {
@@ -14687,6 +14688,7 @@
           "Transfer"
         ],
         "summary": "Create transfer",
+        "description": "For transfers of type FileUpload or FileUploadAutoImport, after creating the transfer, wait for the returned BusinessProcess to hit the \"Created\" state before attempting to upload files.",
         "operationId": "Transfer_Create",
         "requestBody": {
           "x-name": "request",
@@ -14807,7 +14809,7 @@
             "name": "fileTransferId",
             "in": "path",
             "required": true,
-            "description": "ID of filetransfer.",
+            "description": "ID of file transfer.",
             "schema": {
               "type": "string"
             },
@@ -14893,7 +14895,7 @@
         "operationId": "Transfer_SearchFiles",
         "requestBody": {
           "x-name": "request",
-          "description": "The filetransfer search request",
+          "description": "The file transfer search request",
           "content": {
             "application/json": {
               "schema": {
@@ -15061,7 +15063,7 @@
         "operationId": "Transfer_DeleteFiles",
         "requestBody": {
           "x-name": "request",
-          "description": "The filetransfer delete request",
+          "description": "The file transfer delete request",
           "content": {
             "application/json": {
               "schema": {
@@ -15141,7 +15143,7 @@
           "Transfer"
         ],
         "summary": "Import transfer",
-        "description": "This triggers the import of a Transfer, creating Contents. All items in the Transfer will be enqueued for rendering.\n\nWait for completion on the Business process ID that is returned to wait for import completion.",
+        "description": "This triggers the import of a Transfer, creating Contents. All items in the Transfer will be enqueued for rendering.\n\nWait for completion on the Business process ID that is returned to wait for import completion.\nNote: Before attempting to import a Transfer, the transfer has to be in the TransferReady state.",
         "operationId": "Transfer_ImportTransfer",
         "parameters": [
           {
@@ -15244,7 +15246,7 @@
           "Transfer"
         ],
         "summary": "Import transfer partially",
-        "description": "This triggers the import of selected items in a Transfer, creating contents. All imported items will be enqueued for rendering.\n\nWait for TransferReady, ImportCompleted states on the Business process ID that is returned to wait for partial import completion.\n\nIf no files remain to be imported in the Transfer it will be marked as ImportCompleted.",
+        "description": "This triggers the import of selected items in a Transfer, creating contents. All imported items will be enqueued for rendering.\n\nWait for completion on the Business process ID that is returned to wait for import completion.\n\nTransfer will transition to state ImportDone if no files of the transfer remain for import.\nTransfer will transition to state TransferReady if any files of the transfer remain for import.",
         "operationId": "Transfer_PartialImport",
         "parameters": [
           {
@@ -15347,7 +15349,7 @@
           "Transfer"
         ],
         "summary": "Upload file",
-        "description": "Uploads the specified chunk data.\n\nUse `Content-Type: multipart/form-data` for uploading chunk data.",
+        "description": "Uploads the specified chunk data.\n\nUse `Content-Type: multipart/form-data` for uploading chunk data.\nThe chunk data should be uploaded using the name `formFile`.\n            \nTo upload a file, split it into chunks of reasonable size (accepted range is 1MB-100MB). The last chunk may be smaller than 1MB.",
         "operationId": "Transfer_UploadFile",
         "parameters": [
           {
@@ -15363,17 +15365,6 @@
             "nullable": true
           },
           {
-            "name": "relativePath",
-            "in": "query",
-            "required": true,
-            "description": "Relative path of the uploading file.",
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 1
-          },
-          {
             "name": "chunkNumber",
             "in": "query",
             "required": true,
@@ -15382,7 +15373,7 @@
               "type": "integer",
               "format": "int64"
             },
-            "x-position": 2
+            "x-position": 1
           },
           {
             "name": "currentChunkSize",
@@ -15393,7 +15384,7 @@
               "type": "integer",
               "format": "int64"
             },
-            "x-position": 3
+            "x-position": 2
           },
           {
             "name": "totalSize",
@@ -15404,7 +15395,7 @@
               "type": "integer",
               "format": "int64"
             },
-            "x-position": 4
+            "x-position": 3
           },
           {
             "name": "totalChunks",
@@ -15415,7 +15406,7 @@
               "type": "integer",
               "format": "int64"
             },
-            "x-position": 5
+            "x-position": 4
           },
           {
             "name": "transferId",
@@ -15425,7 +15416,7 @@
             "schema": {
               "type": "string"
             },
-            "x-position": 6
+            "x-position": 5
           },
           {
             "name": "requestId",
@@ -15435,7 +15426,7 @@
             "schema": {
               "type": "string"
             },
-            "x-position": 7
+            "x-position": 6
           }
         ],
         "responses": {
@@ -29863,6 +29854,7 @@
           "name",
           "customerAlias",
           "identityServerUrl",
+          "apiUrl",
           "enableQueryDetails",
           "languageConfiguration",
           "languages",
@@ -29888,7 +29880,12 @@
           },
           "identityServerUrl": {
             "type": "string",
-            "description": "The base url of identity server to authenticate the user using OpenID Connect.",
+            "description": "The base URL of identity server to authenticate the user using OpenID Connect.",
+            "minLength": 1
+          },
+          "apiUrl": {
+            "type": "string",
+            "description": "The base API URL.",
             "minLength": 1
           },
           "enableQueryDetails": {
@@ -37058,7 +37055,7 @@
           },
           "files": {
             "type": "array",
-            "description": "Files uploaded in transfer.",
+            "description": "Files uploaded in transfer.\nThe client is responsible for uploading files to backend.\nRequired when TransferType is FileUpload or FileUploadAutoImport.",
             "nullable": true,
             "items": {
               "$ref": "#/components/schemas/TransferUploadFile"
@@ -37066,7 +37063,7 @@
           },
           "webLinks": {
             "type": "array",
-            "description": "Weblinks downloaded in transfer.",
+            "description": "Weblinks downloaded in transfer.\nThe backend will download files using HTTP, therefore public access to files is needed.\nRequired when TransferType is WebDownload.",
             "nullable": true,
             "items": {
               "$ref": "#/components/schemas/TransferWebLink"
@@ -37079,7 +37076,7 @@
           },
           "createCollection": {
             "type": "boolean",
-            "description": "A value indicating whether to create a Collection after importing the transfer."
+            "description": "A value indicating whether to create a collection after importing the transfer."
           }
         }
       },
@@ -38973,7 +38970,7 @@
     },
     {
       "name": "Transfer",
-      "description": "Endpoints to work with transfers.\r\n\r\nUsual process to import file as content:\r\n- Create transfer\r\n- Upload files to this transfer\r\n- ImportTransfer or PartialImportTransfer\r\n\r\n[Code examples](https://github.com/Picturepark/Picturepark.SDK.DotNet/blob/master/src/Picturepark.SDK.V1.Tests/Clients/TransferTests.cs)\r\n"
+      "description": "Endpoints to work with transfers.\r\n\r\nTo import a set of files into CP:\r\n\r\n1. Create transfer\r\n2. Wait for transfer creation to complete (WaitForStates \"Created\" on BusinessProcess)\r\n3. Upload files to this transfer\r\n4. Wait for transfer to be ready (WaitForCompletion on BusinessProcess)\r\n5. Import transfer using ImportTransfer or ImportTransferPartial\r\n6. Wait for import to complete (WaitForCompletion on BusinessProcess)\r\n\r\nConsult the [code examples](https://github.com/Picturepark/Picturepark.SDK.DotNet/blob/master/src/Picturepark.SDK.V1.Tests/Clients/TransferTests.cs) or the docs of the endpoints mentioned above for more details.\r\n"
     },
     {
       "name": "User",

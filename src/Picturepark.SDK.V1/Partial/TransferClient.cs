@@ -248,7 +248,6 @@ namespace Picturepark.SDK.V1
             CancellationToken ct)
         {
             var sourceFileName = Path.GetFileName(fileLocation.AbsoluteSourcePath);
-            var targetFileName = fileLocation.UploadAs;
 
             using (var fileStream = File.OpenRead(fileLocation.AbsoluteSourcePath))
             {
@@ -270,7 +269,6 @@ namespace Picturepark.SDK.V1
                 using (var memoryStream = new MemoryStream(buffer))
                 {
                     await UploadFileAsync(
-                        targetFileName,
                         number,
                         chunkSize,
                         fileSize,

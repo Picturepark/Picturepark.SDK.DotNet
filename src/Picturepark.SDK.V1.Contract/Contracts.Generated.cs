@@ -1567,7 +1567,7 @@ namespace Picturepark.SDK.V1.Contract
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Get file</summary>
-        /// <param name="fileTransferId">ID of filetransfer.</param>
+        /// <param name="fileTransferId">ID of file transfer.</param>
         /// <returns>FileTransferDetail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -1578,7 +1578,7 @@ namespace Picturepark.SDK.V1.Contract
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Search for files</summary>
-        /// <param name="request">The filetransfer search request</param>
+        /// <param name="request">The file transfer search request</param>
         /// <returns>FileTransferSearchResult</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -1599,7 +1599,7 @@ namespace Picturepark.SDK.V1.Contract
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Delete files</summary>
-        /// <param name="request">The filetransfer delete request</param>
+        /// <param name="request">The file transfer delete request</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -1633,7 +1633,6 @@ namespace Picturepark.SDK.V1.Contract
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Upload file</summary>
-        /// <param name="relativePath">Relative path of the uploading file.</param>
         /// <param name="chunkNumber">Current chunk number. Starts at 1.</param>
         /// <param name="currentChunkSize">Size in bytes of the current chunk.</param>
         /// <param name="totalSize">Total size in bytes of the uploading file.</param>
@@ -1647,7 +1646,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
-        System.Threading.Tasks.Task UploadFileAsync(string relativePath, long chunkNumber, long currentChunkSize, long totalSize, long totalChunks, string transferId, string requestId, FileParameter formFile = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task UploadFileAsync(long chunkNumber, long currentChunkSize, long totalSize, long totalChunks, string transferId, string requestId, FileParameter formFile = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
     }
     
@@ -14208,10 +14207,15 @@ namespace Picturepark.SDK.V1.Contract
         [System.ComponentModel.DataAnnotations.Required]
         public string CustomerAlias { get; set; }
     
-        /// <summary>The base url of identity server to authenticate the user using OpenID Connect.</summary>
+        /// <summary>The base URL of identity server to authenticate the user using OpenID Connect.</summary>
         [Newtonsoft.Json.JsonProperty("identityServerUrl", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
         public string IdentityServerUrl { get; set; }
+    
+        /// <summary>The base API URL.</summary>
+        [Newtonsoft.Json.JsonProperty("apiUrl", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public string ApiUrl { get; set; }
     
         /// <summary>Information if the query details can be enabled when searching. For debug purposes only.</summary>
         [Newtonsoft.Json.JsonProperty("enableQueryDetails", Required = Newtonsoft.Json.Required.Always)]
@@ -20702,11 +20706,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public TransferType TransferType { get; set; }
     
-        /// <summary>Files uploaded in transfer.</summary>
+        /// <summary>Files uploaded in transfer.
+        /// The client is responsible for uploading files to backend.
+        /// Required when TransferType is FileUpload or FileUploadAutoImport.</summary>
         [Newtonsoft.Json.JsonProperty("files", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<TransferUploadFile> Files { get; set; }
     
-        /// <summary>Weblinks downloaded in transfer.</summary>
+        /// <summary>Weblinks downloaded in transfer.
+        /// The backend will download files using HTTP, therefore public access to files is needed.
+        /// Required when TransferType is WebDownload.</summary>
         [Newtonsoft.Json.JsonProperty("webLinks", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<TransferWebLink> WebLinks { get; set; }
     
@@ -20714,7 +20722,7 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("collectionName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string CollectionName { get; set; }
     
-        /// <summary>A value indicating whether to create a Collection after importing the transfer.</summary>
+        /// <summary>A value indicating whether to create a collection after importing the transfer.</summary>
         [Newtonsoft.Json.JsonProperty("createCollection", Required = Newtonsoft.Json.Required.Always)]
         public bool CreateCollection { get; set; }
     

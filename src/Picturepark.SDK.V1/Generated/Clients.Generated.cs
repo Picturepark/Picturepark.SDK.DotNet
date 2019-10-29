@@ -21155,7 +21155,7 @@ namespace Picturepark.SDK.V1
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Get file</summary>
-        /// <param name="fileTransferId">ID of filetransfer.</param>
+        /// <param name="fileTransferId">ID of file transfer.</param>
         /// <returns>FileTransferDetail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -21283,7 +21283,7 @@ namespace Picturepark.SDK.V1
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Search for files</summary>
-        /// <param name="request">The filetransfer search request</param>
+        /// <param name="request">The file transfer search request</param>
         /// <returns>FileTransferSearchResult</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -21533,7 +21533,7 @@ namespace Picturepark.SDK.V1
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Delete files</summary>
-        /// <param name="request">The filetransfer delete request</param>
+        /// <param name="request">The file transfer delete request</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -21919,7 +21919,6 @@ namespace Picturepark.SDK.V1
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Upload file</summary>
-        /// <param name="relativePath">Relative path of the uploading file.</param>
         /// <param name="chunkNumber">Current chunk number. Starts at 1.</param>
         /// <param name="currentChunkSize">Size in bytes of the current chunk.</param>
         /// <param name="totalSize">Total size in bytes of the uploading file.</param>
@@ -21933,7 +21932,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
-        public async System.Threading.Tasks.Task UploadFileAsync(string relativePath, long chunkNumber, long currentChunkSize, long totalSize, long totalChunks, string transferId, string requestId, FileParameter formFile = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task UploadFileAsync(long chunkNumber, long currentChunkSize, long totalSize, long totalChunks, string transferId, string requestId, FileParameter formFile = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (transferId == null)
                 throw new System.ArgumentNullException("transferId");
@@ -21957,7 +21956,6 @@ namespace Picturepark.SDK.V1
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/transfers/{transferId}/files/{requestId}/upload?");
             urlBuilder_.Replace("{transferId}", System.Uri.EscapeDataString(ConvertToString(transferId, System.Globalization.CultureInfo.InvariantCulture)));
             urlBuilder_.Replace("{requestId}", System.Uri.EscapeDataString(ConvertToString(requestId, System.Globalization.CultureInfo.InvariantCulture)));
-            urlBuilder_.Append(System.Uri.EscapeDataString("relativePath") + "=").Append(System.Uri.EscapeDataString(relativePath != null ? ConvertToString(relativePath, System.Globalization.CultureInfo.InvariantCulture) : "")).Append("&");
             urlBuilder_.Append(System.Uri.EscapeDataString("chunkNumber") + "=").Append(System.Uri.EscapeDataString(ConvertToString(chunkNumber, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             urlBuilder_.Append(System.Uri.EscapeDataString("currentChunkSize") + "=").Append(System.Uri.EscapeDataString(ConvertToString(currentChunkSize, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             urlBuilder_.Append(System.Uri.EscapeDataString("totalSize") + "=").Append(System.Uri.EscapeDataString(ConvertToString(totalSize, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
