@@ -6,6 +6,7 @@ using Picturepark.SDK.V1.Contract;
 using Xunit;
 using Picturepark.SDK.V1.Tests.Fixtures;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using FluentAssertions;
 
 namespace Picturepark.SDK.V1.Tests.Clients
@@ -127,7 +128,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 Description = "Description of Basic share aaa",
                 ExpirationDate = new DateTime(2020, 12, 31),
                 Name = "Basic share aaa",
-                RecipientsEmail = new List<UserEmail>
+                RecipientEmails = new List<UserEmail>
                 {
                     _fixture.Configuration.EmailRecipient
                 },
@@ -157,7 +158,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 Description = "Description of share with wrong content ids",
                 ExpirationDate = new DateTime(2020, 12, 31),
                 Name = "Share with wrong content ids",
-                RecipientsEmail = new List<UserEmail>
+                RecipientEmails = new List<UserEmail>
                 {
                     _fixture.Configuration.EmailRecipient
                 },
@@ -394,6 +395,105 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 // Assert
                 Assert.NotNull(result);
             }
+        }
+
+        [Fact]
+        [Trait("Stack", "Shares")]
+        public async Task ShouldContainDynamicOutputsBasic()
+        {
+            var (formatIdOriginal, formatIdPreview, shareContents) = await PrepareDynamicOutputFormatTest();
+
+            var shareFullCreateResult = await CreateShare(new ShareBasicCreateRequest()
+            {
+                Contents = shareContents,
+                OutputAccess = OutputAccess.Full,
+                Name = formatIdOriginal + "-share",
+                LanguageCode = "en"
+            }).ConfigureAwait(false);
+
+            var sharePreviewCreateResult = await CreateShare(new ShareBasicCreateRequest()
+            {
+                Contents = shareContents,
+                OutputAccess = OutputAccess.Preview,
+                Name = formatIdPreview + "-share",
+                LanguageCode = "en"
+            }).ConfigureAwait(false);
+
+            await AssertSharesContainCorrectOutputs(shareFullCreateResult.ShareId, sharePreviewCreateResult.ShareId, formatIdOriginal, formatIdPreview);
+        }
+
+        [Fact]
+        [Trait("Stack", "Shares")]
+        public async Task ShouldContainDynamicOutputsEmbed()
+        {
+            var (formatIdOriginal, formatIdPreview, shareContents) = await PrepareDynamicOutputFormatTest();
+
+            var shareFullCreateResult = await CreateShare(new ShareEmbedCreateRequest()
+            {
+                Contents = shareContents,
+                OutputAccess = OutputAccess.Full,
+                Name = formatIdOriginal + "-share"
+            }).ConfigureAwait(false);
+
+            var sharePreviewCreateResult = await CreateShare(new ShareEmbedCreateRequest()
+            {
+                Contents = shareContents,
+                OutputAccess = OutputAccess.Preview,
+                Name = formatIdPreview + "-share"
+            }).ConfigureAwait(false);
+
+            await AssertSharesContainCorrectOutputs(shareFullCreateResult.ShareId, sharePreviewCreateResult.ShareId, formatIdOriginal, formatIdPreview);
+        }
+
+        private async Task AssertSharesContainCorrectOutputs(
+            string shareFullId,
+            string sharePreviewId,
+            string formatIdOriginal,
+            string formatIdPreview)
+        {
+            var shareFull = await _client.Share.GetAsync(shareFullId).ConfigureAwait(false);
+            var sharePreview = await _client.Share.GetAsync(sharePreviewId).ConfigureAwait(false);
+
+            shareFull.ContentSelections.Single().Outputs.Should().Contain(o => o.OutputFormatId == formatIdPreview);
+            shareFull.ContentSelections.Single().Outputs.Should().Contain(o => o.OutputFormatId == formatIdOriginal);
+
+            sharePreview.ContentSelections.Single().Outputs.Should().Contain(o => o.OutputFormatId == formatIdPreview);
+            sharePreview.ContentSelections.Single().Outputs.Should().NotContain(o => o.OutputFormatId == formatIdOriginal);
+        }
+
+        private async Task<(string outputFormatIdOriginal, string outputFormatIdPreview, ICollection<ShareContent> shareContent)> PrepareDynamicOutputFormatTest([CallerMemberName] string testName = null)
+        {
+            var formats = new[] { "Original", "Preview" }.Select(sourceFormat =>
+            {
+                var uniqueName = string.Join("-", testName, sourceFormat, Guid.NewGuid().ToString("N"));
+                var formatName = uniqueName + "-OF";
+                return new OutputFormat
+                {
+                    Id = formatName,
+                    Names = new TranslatedStringDictionary
+                    {
+                        { "en", formatName }
+                    },
+                    Dynamic = true,
+                    Format = new JpegFormat
+                    {
+                        Quality = 95
+                    },
+                    SourceOutputFormats = new SourceOutputFormats
+                    {
+                        Image = sourceFormat
+                    }
+                };
+            }).ToList();
+
+            await _client.OutputFormat.CreateManyAsync(new OutputFormatCreateManyRequest { Items = formats }).ConfigureAwait(false);
+
+            var contentToShare = await _fixture.GetRandomContentIdAsync("fileMetadata.fileExtension:.jpg", 10).ConfigureAwait(false);
+            return (
+                formats[0].Id,
+                formats[1].Id,
+                new[] { new ShareContent { ContentId = contentToShare } }
+            );
         }
 
         private async Task<List<ShareContent>> GetRandomShareContent(int count = 2)

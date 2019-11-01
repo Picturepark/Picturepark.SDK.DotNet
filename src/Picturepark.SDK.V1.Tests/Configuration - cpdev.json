@@ -1,0 +1,10 @@
+﻿{
+    "Server": "http://CPDEVAPI01:8085",
+    "CustomerAlias": "sdktest",
+    "AccessToken": "f3b33468afa55d008139d2932f31bff0adb4fa1026bd9630817d35d4ebc4ea82",
+    "EmailRecipient": {
+        "FirstName": "Firstname",
+        "LastName": "Lastname",
+        "EmailAddress": "email"
+    }
+}

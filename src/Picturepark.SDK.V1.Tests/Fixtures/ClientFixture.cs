@@ -119,5 +119,10 @@ namespace Picturepark.SDK.V1.Tests.Fixtures
 
             return new PictureparkService(settings, httpClient);
         }
+
+        protected async Task SetupSchema<T>() where T : class
+        {
+            await SchemaHelper.CreateSchemasIfNotExistentAsync<T>(Client).ConfigureAwait(false);
+        }
     }
 }

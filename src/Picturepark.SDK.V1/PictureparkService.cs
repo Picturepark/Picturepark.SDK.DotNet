@@ -64,6 +64,8 @@ namespace Picturepark.SDK.V1
 
         public IBusinessRuleClient BusinessRule { get; private set; }
 
+        public IDisplayValueClient DisplayValue { get; private set; }
+
         public void Dispose()
         {
             if (_httpClient != null)
@@ -76,7 +78,6 @@ namespace Picturepark.SDK.V1
         private void Initialize(IPictureparkServiceSettings settings, HttpClient httpClient)
         {
             Output = new OutputClient(settings, httpClient);
-            OutputFormat = new OutputFormatClient(settings, httpClient);
             BusinessProcess = new BusinessProcessClient(settings, httpClient);
             DocumentHistory = new DocumentHistoryClient(settings, httpClient);
             JsonSchema = new JsonSchemaClient(settings, httpClient);
@@ -87,14 +88,16 @@ namespace Picturepark.SDK.V1
             UserRole = new UserRoleClient(settings, httpClient);
             Info = new InfoClient(settings, httpClient);
             Schema = new SchemaClient(Info, BusinessProcess, settings, httpClient);
-            Transfer = new TransferClient((BusinessProcessClient)BusinessProcess, settings, httpClient);
-            ListItem = new ListItemClient((BusinessProcessClient)BusinessProcess, settings, httpClient);
+            Transfer = new TransferClient(BusinessProcess, settings, httpClient);
+            ListItem = new ListItemClient(BusinessProcess, settings, httpClient);
             LiveStream = new LiveStreamClient(settings, httpClient);
-            Content = new ContentClient((BusinessProcessClient)BusinessProcess, settings, httpClient);
+            Content = new ContentClient(BusinessProcess, settings, httpClient);
             Profile = new ProfileClient(settings, httpClient);
             SchemaTransfer = new SchemaTransferClient(settings, httpClient);
             Channel = new ChannelClient(settings, httpClient);
             BusinessRule = new BusinessRuleClient(settings, httpClient);
+            OutputFormat = new OutputFormatClient(BusinessProcess, settings, httpClient);
+            DisplayValue = new DisplayValueClient(settings, httpClient);
         }
     }
 }

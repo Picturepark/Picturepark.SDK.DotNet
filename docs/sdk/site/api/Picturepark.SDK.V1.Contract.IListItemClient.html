@@ -1,0 +1,2453 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Interface IListItemClient
+   | Picturepark.SDK.V1 API </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Interface IListItemClient
+   | Picturepark.SDK.V1 API ">
+    <meta name="generator" content="docfx 2.45.1.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Picturepark.SDK.V1.Contract.IListItemClient">
+  <h1 id="Picturepark_SDK_V1_Contract_IListItemClient" data-uid="Picturepark.SDK.V1.Contract.IListItemClient">Interface IListItemClient
+  </h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  
+  
+  
+  
+  <h6><strong>Namespace</strong>: System.Dynamic.ExpandoObject</h6>
+  
+  <h5 id="Picturepark_SDK_V1_Contract_IListItemClient_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public interface IListItemClient</code></pre>
+  </div>
+  
+  
+  
+  
+  
+  <h3 id="methods">Methods
+  </h3>
+  
+  
+  <a id="Picturepark_SDK_V1_Contract_IListItemClient_AggregateAsync_" data-uid="Picturepark.SDK.V1.Contract.IListItemClient.AggregateAsync*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_Contract_IListItemClient_AggregateAsync_Picturepark_SDK_V1_Contract_ListItemAggregationRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.Contract.IListItemClient.AggregateAsync(Picturepark.SDK.V1.Contract.ListItemAggregationRequest,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_Contract_IListItemClient_AggregateAsync_Picturepark_SDK_V1_Contract_ListItemAggregationRequest_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">AggregateAsync(ListItemAggregationRequest, CancellationToken)</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_Contract_IListItemClient_AggregateAsync_Picturepark_SDK_V1_Contract_ListItemAggregationRequest_System_Threading_CancellationToken_" class="collapse in">
+  <div class="markdown level1 summary"><p>Aggregate list items</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;ObjectAggregationResult&gt; AggregateAsync(ListItemAggregationRequest listItemAggregationRequest, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.ListItemAggregationRequest.html">ListItemAggregationRequest</a></span>
+        <span class="parametername">listItemAggregationRequest</span>
+        <p><p>The list item aggregation request.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
+        <span class="parametername">cancellationToken</span>
+        <p><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.ObjectAggregationResult.html">ObjectAggregationResult</a>&gt;
+        <p><p>Object aggregation result</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <h5 class="exceptions">Exceptions</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
+        <p><p>A server side error occurred.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
+        <p><p>Entity not found</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
+        <p><p>Version conflict</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  </div>
+  
+  
+  <a id="Picturepark_SDK_V1_Contract_IListItemClient_BatchUpdateFieldsByFilterAsync_" data-uid="Picturepark.SDK.V1.Contract.IListItemClient.BatchUpdateFieldsByFilterAsync*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_Contract_IListItemClient_BatchUpdateFieldsByFilterAsync_Picturepark_SDK_V1_Contract_ListItemFieldsBatchUpdateFilterRequest_System_Nullable_System_TimeSpan__System_Boolean_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.Contract.IListItemClient.BatchUpdateFieldsByFilterAsync(Picturepark.SDK.V1.Contract.ListItemFieldsBatchUpdateFilterRequest,System.Nullable{System.TimeSpan},System.Boolean,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_Contract_IListItemClient_BatchUpdateFieldsByFilterAsync_Picturepark_SDK_V1_Contract_ListItemFieldsBatchUpdateFilterRequest_System_Nullable_System_TimeSpan__System_Boolean_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">BatchUpdateFieldsByFilterAsync(ListItemFieldsBatchUpdateFilterRequest, Nullable&lt;TimeSpan&gt;, Boolean, CancellationToken)</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_Contract_IListItemClient_BatchUpdateFieldsByFilterAsync_Picturepark_SDK_V1_Contract_ListItemFieldsBatchUpdateFilterRequest_System_Nullable_System_TimeSpan__System_Boolean_System_Threading_CancellationToken_" class="collapse in">
+  <div class="markdown level1 summary"><p>Batch update fields - by filter</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;ListItemBatchOperationResult&gt; BatchUpdateFieldsByFilterAsync(ListItemFieldsBatchUpdateFilterRequest updateRequest, TimeSpan? timeout = default(TimeSpan? ), bool waitSearchDocCreation = true, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.ListItemFieldsBatchUpdateFilterRequest.html">ListItemFieldsBatchUpdateFilterRequest</a></span>
+        <span class="parametername">updateRequest</span>
+        <p><p>The metadata update request.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Nullable</span>&lt;<span class="xref">System.TimeSpan</span>&gt;</span>
+        <span class="parametername">timeout</span>
+        <p><p>Timeout to wait for business process to complete.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Boolean</span></span>
+        <span class="parametername">waitSearchDocCreation</span>
+        <p><p>Wait for the creation of the search document and the rendered display values.
+By default the method waits for the search documents creation. Passing false, the method will return when the main entities have been updated and the creation of the search documents has been enqueued but not yet performed.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
+        <span class="parametername">cancellationToken</span>
+        <p><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">ListItemBatchOperationResult</span>&gt;
+        <p><p>The <see cref="!:BatchOperationResult&lt;ListItemDetail>"></see>.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <h5 class="exceptions">Exceptions</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
+        <p><p>A server side error occurred.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
+        <p><p>Entity not found</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
+        <p><p>Version conflict</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  </div>
+  
+  
+  <a id="Picturepark_SDK_V1_Contract_IListItemClient_BatchUpdateFieldsByIdsAsync_" data-uid="Picturepark.SDK.V1.Contract.IListItemClient.BatchUpdateFieldsByIdsAsync*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_Contract_IListItemClient_BatchUpdateFieldsByIdsAsync_Picturepark_SDK_V1_Contract_ListItemFieldsBatchUpdateRequest_System_Nullable_System_TimeSpan__System_Boolean_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.Contract.IListItemClient.BatchUpdateFieldsByIdsAsync(Picturepark.SDK.V1.Contract.ListItemFieldsBatchUpdateRequest,System.Nullable{System.TimeSpan},System.Boolean,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_Contract_IListItemClient_BatchUpdateFieldsByIdsAsync_Picturepark_SDK_V1_Contract_ListItemFieldsBatchUpdateRequest_System_Nullable_System_TimeSpan__System_Boolean_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">BatchUpdateFieldsByIdsAsync(ListItemFieldsBatchUpdateRequest, Nullable&lt;TimeSpan&gt;, Boolean, CancellationToken)</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_Contract_IListItemClient_BatchUpdateFieldsByIdsAsync_Picturepark_SDK_V1_Contract_ListItemFieldsBatchUpdateRequest_System_Nullable_System_TimeSpan__System_Boolean_System_Threading_CancellationToken_" class="collapse in">
+  <div class="markdown level1 summary"><p>Batch update fields - by ids</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;ListItemBatchOperationResult&gt; BatchUpdateFieldsByIdsAsync(ListItemFieldsBatchUpdateRequest updateRequest, TimeSpan? timeout = default(TimeSpan? ), bool waitSearchDocCreation = true, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.ListItemFieldsBatchUpdateRequest.html">ListItemFieldsBatchUpdateRequest</a></span>
+        <span class="parametername">updateRequest</span>
+        <p><p>The metadata update request.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Nullable</span>&lt;<span class="xref">System.TimeSpan</span>&gt;</span>
+        <span class="parametername">timeout</span>
+        <p><p>Timeout to wait for business process to complete.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Boolean</span></span>
+        <span class="parametername">waitSearchDocCreation</span>
+        <p><p>Wait for the creation of the search document and the rendered display values.
+By default the method waits for the search documents creation. Passing false, the method will return when the main entities have been updated and the creation of the search documents has been enqueued but not yet performed.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
+        <span class="parametername">cancellationToken</span>
+        <p><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">ListItemBatchOperationResult</span>&gt;
+        <p><p>BusinessProcess</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <h5 class="exceptions">Exceptions</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
+        <p><p>A server side error occurred.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
+        <p><p>Entity not found</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
+        <p><p>Version conflict</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  </div>
+  
+  
+  <a id="Picturepark_SDK_V1_Contract_IListItemClient_CreateAsync_" data-uid="Picturepark.SDK.V1.Contract.IListItemClient.CreateAsync*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_Contract_IListItemClient_CreateAsync_Picturepark_SDK_V1_Contract_ListItemCreateRequest_System_Collections_Generic_IEnumerable_Picturepark_SDK_V1_Contract_ListItemResolveBehavior__System_Nullable_System_Boolean__System_Nullable_System_TimeSpan__System_Nullable_System_Boolean__System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.Contract.IListItemClient.CreateAsync(Picturepark.SDK.V1.Contract.ListItemCreateRequest,System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.Contract.ListItemResolveBehavior},System.Nullable{System.Boolean},System.Nullable{System.TimeSpan},System.Nullable{System.Boolean},System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_Contract_IListItemClient_CreateAsync_Picturepark_SDK_V1_Contract_ListItemCreateRequest_System_Collections_Generic_IEnumerable_Picturepark_SDK_V1_Contract_ListItemResolveBehavior__System_Nullable_System_Boolean__System_Nullable_System_TimeSpan__System_Nullable_System_Boolean__System_Threading_CancellationToken_" class="expander" data-toggle="collapse">CreateAsync(ListItemCreateRequest, IEnumerable&lt;ListItemResolveBehavior&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;TimeSpan&gt;, Nullable&lt;Boolean&gt;, CancellationToken)</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_Contract_IListItemClient_CreateAsync_Picturepark_SDK_V1_Contract_ListItemCreateRequest_System_Collections_Generic_IEnumerable_Picturepark_SDK_V1_Contract_ListItemResolveBehavior__System_Nullable_System_Boolean__System_Nullable_System_TimeSpan__System_Nullable_System_Boolean__System_Threading_CancellationToken_" class="collapse in">
+  <div class="markdown level1 summary"><p>Create list item</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;ListItemDetail&gt; CreateAsync(ListItemCreateRequest listItemCreateRequest, IEnumerable&lt;ListItemResolveBehavior&gt; resolveBehaviors = null, bool? allowMissingDependencies = default(bool? ), TimeSpan? timeout = default(TimeSpan? ), bool? waitSearchDocCreation = default(bool? ), CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.ListItemCreateRequest.html">ListItemCreateRequest</a></span>
+        <span class="parametername">listItemCreateRequest</span>
+        <p><p>List item create request.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.ListItemResolveBehavior.html">ListItemResolveBehavior</a>&gt;</span>
+        <span class="parametername">resolveBehaviors</span>
+        <p><p>List of enums that control which parts of the list item are resolved and returned.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</span>
+        <span class="parametername">allowMissingDependencies</span>
+        <p><p>Allows creating list items that refer to list items or contents that don&apos;t exist in the system.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Nullable</span>&lt;<span class="xref">System.TimeSpan</span>&gt;</span>
+        <span class="parametername">timeout</span>
+        <p><p>Maximum time to wait for the operation to complete. If timeout is exceeded, the operation is not aborted but continues anyhow.
+            Only the waiting is aborted, and the calls returned.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</span>
+        <span class="parametername">waitSearchDocCreation</span>
+        <p><p>Wait for the creation of the search document and the rendered display values.
+            By default the endpoint waits for the search document creation. Passing false, the endpoint will return when the main entity has been created and the creation of the search document has been enqueued but not yet performed.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
+        <span class="parametername">cancellationToken</span>
+        <p><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.ListItemDetail.html">ListItemDetail</a>&gt;
+        <p><p>List item detail</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <h5 class="exceptions">Exceptions</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
+        <p><p>A server side error occurred.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.BusinessProcessLifeCycleNotHitException.html">BusinessProcessLifeCycleNotHitException</a>
+        <p><p>A server side error occurred.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
+        <p><p>Entity not found</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
+        <p><p>Version conflict</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  </div>
+  
+  
+  <a id="Picturepark_SDK_V1_Contract_IListItemClient_CreateFromObjectAsync_" data-uid="Picturepark.SDK.V1.Contract.IListItemClient.CreateFromObjectAsync*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_Contract_IListItemClient_CreateFromObjectAsync_System_Object_System_Boolean_System_Nullable_System_TimeSpan__System_Boolean_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.Contract.IListItemClient.CreateFromObjectAsync(System.Object,System.Boolean,System.Nullable{System.TimeSpan},System.Boolean,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_Contract_IListItemClient_CreateFromObjectAsync_System_Object_System_Boolean_System_Nullable_System_TimeSpan__System_Boolean_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">CreateFromObjectAsync(Object, Boolean, Nullable&lt;TimeSpan&gt;, Boolean, CancellationToken)</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_Contract_IListItemClient_CreateFromObjectAsync_System_Object_System_Boolean_System_Nullable_System_TimeSpan__System_Boolean_System_Threading_CancellationToken_" class="collapse in">
+  <div class="markdown level1 summary"><p>Creates a <a class="xref" href="Picturepark.SDK.V1.Contract.ListItem.html">ListItem</a>s based on an object and its references.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;ListItemBatchOperationWithRequestIdResult&gt; CreateFromObjectAsync(object content, bool allowMissingDependencies = false, TimeSpan? timeout = default(TimeSpan? ), bool waitSearchDocCreation = true, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Object</span></span>
+        <span class="parametername">content</span>
+        <p><p>The object to create <a class="xref" href="Picturepark.SDK.V1.Contract.ListItem.html">ListItem</a>s from.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Boolean</span></span>
+        <span class="parametername">allowMissingDependencies</span>
+        <p><p>Allow creating <a class="xref" href="Picturepark.SDK.V1.Contract.ListItem.html">ListItem</a>s that refer to list items or contents that don&apos;t exist in the system.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Nullable</span>&lt;<span class="xref">System.TimeSpan</span>&gt;</span>
+        <span class="parametername">timeout</span>
+        <p><p>Timeout to wait for business process to complete.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Boolean</span></span>
+        <span class="parametername">waitSearchDocCreation</span>
+        <p><p>Wait for the creation of the search document and the rendered display values.
+By default the method waits for the search document creation. Passing false, the method will return when the main entity has been created and the creation of the search document has been enqueued but not yet performed.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
+        <span class="parametername">cancellationToken</span>
+        <p><p>The cancellation token.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">ListItemBatchOperationWithRequestIdResult</span>&gt;
+        <p><p>The created <a class="xref" href="Picturepark.SDK.V1.Contract.ListItem.html">ListItem</a>s.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <h5 class="exceptions">Exceptions</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
+        <p><p>A server side error occurred.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  </div>
+  
+  
+  <a id="Picturepark_SDK_V1_Contract_IListItemClient_CreateManyAsync_" data-uid="Picturepark.SDK.V1.Contract.IListItemClient.CreateManyAsync*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_Contract_IListItemClient_CreateManyAsync_Picturepark_SDK_V1_Contract_ListItemCreateManyRequest_System_Nullable_System_TimeSpan__System_Boolean_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.Contract.IListItemClient.CreateManyAsync(Picturepark.SDK.V1.Contract.ListItemCreateManyRequest,System.Nullable{System.TimeSpan},System.Boolean,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_Contract_IListItemClient_CreateManyAsync_Picturepark_SDK_V1_Contract_ListItemCreateManyRequest_System_Nullable_System_TimeSpan__System_Boolean_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">CreateManyAsync(ListItemCreateManyRequest, Nullable&lt;TimeSpan&gt;, Boolean, CancellationToken)</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_Contract_IListItemClient_CreateManyAsync_Picturepark_SDK_V1_Contract_ListItemCreateManyRequest_System_Nullable_System_TimeSpan__System_Boolean_System_Threading_CancellationToken_" class="collapse in">
+  <div class="markdown level1 summary"><p>Creates multiple <a class="xref" href="Picturepark.SDK.V1.Contract.ListItem.html">ListItem</a>s.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;ListItemBatchOperationWithRequestIdResult&gt; CreateManyAsync(ListItemCreateManyRequest createManyRequest, TimeSpan? timeout = default(TimeSpan? ), bool waitSearchDocCreation = true, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.ListItemCreateManyRequest.html">ListItemCreateManyRequest</a></span>
+        <span class="parametername">createManyRequest</span>
+        <p><p>The create many request.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Nullable</span>&lt;<span class="xref">System.TimeSpan</span>&gt;</span>
+        <span class="parametername">timeout</span>
+        <p><p>Timeout to wait for business process to complete.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Boolean</span></span>
+        <span class="parametername">waitSearchDocCreation</span>
+        <p><p>Wait for the creation of the search document and the rendered display values.
+By default the method waits for the search documents creation. Passing false, the method will return when the main entities have been created and the creation of the search documents has been enqueued but not yet performed.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
+        <span class="parametername">cancellationToken</span>
+        <p><p>The cancellation token.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">ListItemBatchOperationWithRequestIdResult</span>&gt;
+        <p><p>The <see cref="!:BatchOperationResult&lt;ListItemDetail>"></see>.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <h5 class="exceptions">Exceptions</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
+        <p><p>A server side error occurred.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>The business process has not been completed.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  </div>
+  
+  
+  <a id="Picturepark_SDK_V1_Contract_IListItemClient_DeleteAsync_" data-uid="Picturepark.SDK.V1.Contract.IListItemClient.DeleteAsync*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_Contract_IListItemClient_DeleteAsync_System_String_System_Nullable_System_Boolean__System_Nullable_System_TimeSpan__System_Nullable_System_Boolean__System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.Contract.IListItemClient.DeleteAsync(System.String,System.Nullable{System.Boolean},System.Nullable{System.TimeSpan},System.Nullable{System.Boolean},System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_Contract_IListItemClient_DeleteAsync_System_String_System_Nullable_System_Boolean__System_Nullable_System_TimeSpan__System_Nullable_System_Boolean__System_Threading_CancellationToken_" class="expander" data-toggle="collapse">DeleteAsync(String, Nullable&lt;Boolean&gt;, Nullable&lt;TimeSpan&gt;, Nullable&lt;Boolean&gt;, CancellationToken)</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_Contract_IListItemClient_DeleteAsync_System_String_System_Nullable_System_Boolean__System_Nullable_System_TimeSpan__System_Nullable_System_Boolean__System_Threading_CancellationToken_" class="collapse in">
+  <div class="markdown level1 summary"><p>Delete list item</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task DeleteAsync(string listItemId, bool? forceReferenceRemoval = default(bool? ), TimeSpan? timeout = default(TimeSpan? ), bool? waitSearchDocCreation = default(bool? ), CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.String</span></span>
+        <span class="parametername">listItemId</span>
+        <p><p>The ID of the list item to delete.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</span>
+        <span class="parametername">forceReferenceRemoval</span>
+        <p><p>A value indicating whether references to the list item should be removed.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Nullable</span>&lt;<span class="xref">System.TimeSpan</span>&gt;</span>
+        <span class="parametername">timeout</span>
+        <p><p>Maximum time to wait for the operation to complete. If timeout is exceeded, the operation is not aborted but continues anyhow.
+            Only the waiting is aborted, and the calls returned.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</span>
+        <span class="parametername">waitSearchDocCreation</span>
+        <p><p>Wait for the creation of the search document and the rendered display values.
+            By default the endpoint waits for the search document creation. Passing false, the endpoint will return when the main entity has been created and the creation of the search document has been enqueued but not yet performed.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
+        <span class="parametername">cancellationToken</span>
+        <p><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Threading.Tasks.Task</span>
+        <p><p>Ok</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <h5 class="exceptions">Exceptions</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
+        <p><p>A server side error occurred.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.BusinessProcessLifeCycleNotHitException.html">BusinessProcessLifeCycleNotHitException</a>
+        <p><p>The specified wait timeout exceeded</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
+        <p><p>Entity not found</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
+        <p><p>Version conflict</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  </div>
+  
+  
+  <a id="Picturepark_SDK_V1_Contract_IListItemClient_DeleteManyAsync_" data-uid="Picturepark.SDK.V1.Contract.IListItemClient.DeleteManyAsync*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_Contract_IListItemClient_DeleteManyAsync_Picturepark_SDK_V1_Contract_ListItemDeleteManyRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.Contract.IListItemClient.DeleteManyAsync(Picturepark.SDK.V1.Contract.ListItemDeleteManyRequest,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_Contract_IListItemClient_DeleteManyAsync_Picturepark_SDK_V1_Contract_ListItemDeleteManyRequest_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">DeleteManyAsync(ListItemDeleteManyRequest, CancellationToken)</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_Contract_IListItemClient_DeleteManyAsync_Picturepark_SDK_V1_Contract_ListItemDeleteManyRequest_System_Threading_CancellationToken_" class="collapse in">
+  <div class="markdown level1 summary"><p>Delete multiple list items</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;BusinessProcess&gt; DeleteManyAsync(ListItemDeleteManyRequest deleteManyRequest, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.ListItemDeleteManyRequest.html">ListItemDeleteManyRequest</a></span>
+        <span class="parametername">deleteManyRequest</span>
+        <p><p>List item delete many request.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
+        <span class="parametername">cancellationToken</span>
+        <p><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.BusinessProcess.html">BusinessProcess</a>&gt;
+        <p><p>Business process</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <h5 class="exceptions">Exceptions</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
+        <p><p>A server side error occurred.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
+        <p><p>Entity not found</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
+        <p><p>Version conflict</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  </div>
+  
+  
+  <a id="Picturepark_SDK_V1_Contract_IListItemClient_DeleteManyByFilterAsync_" data-uid="Picturepark.SDK.V1.Contract.IListItemClient.DeleteManyByFilterAsync*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_Contract_IListItemClient_DeleteManyByFilterAsync_Picturepark_SDK_V1_Contract_ListItemDeleteManyFilterRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.Contract.IListItemClient.DeleteManyByFilterAsync(Picturepark.SDK.V1.Contract.ListItemDeleteManyFilterRequest,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_Contract_IListItemClient_DeleteManyByFilterAsync_Picturepark_SDK_V1_Contract_ListItemDeleteManyFilterRequest_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">DeleteManyByFilterAsync(ListItemDeleteManyFilterRequest, CancellationToken)</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_Contract_IListItemClient_DeleteManyByFilterAsync_Picturepark_SDK_V1_Contract_ListItemDeleteManyFilterRequest_System_Threading_CancellationToken_" class="collapse in">
+  <div class="markdown level1 summary"><p>Delete multiple list items - by filter</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;BusinessProcess&gt; DeleteManyByFilterAsync(ListItemDeleteManyFilterRequest deleteManyFilterRequest, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.ListItemDeleteManyFilterRequest.html">ListItemDeleteManyFilterRequest</a></span>
+        <span class="parametername">deleteManyFilterRequest</span>
+        <p><p>Delete many by filter request.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
+        <span class="parametername">cancellationToken</span>
+        <p><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.BusinessProcess.html">BusinessProcess</a>&gt;
+        <p><p>Business process</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <h5 class="exceptions">Exceptions</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
+        <p><p>A server side error occurred.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
+        <p><p>Entity not found</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
+        <p><p>Version conflict</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  </div>
+  
+  
+  <a id="Picturepark_SDK_V1_Contract_IListItemClient_GetAndConvertToAsync_" data-uid="Picturepark.SDK.V1.Contract.IListItemClient.GetAndConvertToAsync*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_Contract_IListItemClient_GetAndConvertToAsync__1_System_String_System_String_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.Contract.IListItemClient.GetAndConvertToAsync``1(System.String,System.String,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_Contract_IListItemClient_GetAndConvertToAsync__1_System_String_System_String_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">GetAndConvertToAsync&lt;T&gt;(String, String, CancellationToken)</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_Contract_IListItemClient_GetAndConvertToAsync__1_System_String_System_String_System_Threading_CancellationToken_" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets an existing list item and converts its content to the requested type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;T&gt; GetAndConvertToAsync&lt;T&gt;(string listItemId, string schemaId, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.String</span></span>
+        <span class="parametername">listItemId</span>
+        <p><p>The list item ID.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.String</span></span>
+        <span class="parametername">schemaId</span>
+        <p><p>The schema ID of the requested type.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
+        <span class="parametername">cancellationToken</span>
+        <p><p>The cancellation token.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;T&gt;
+        <p><p>The converted object.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="parametername">T</span>
+        <p><p>The requested content type.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  <h5 class="exceptions">Exceptions</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
+        <p><p>A server side error occurred.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  </div>
+  
+  
+  <a id="Picturepark_SDK_V1_Contract_IListItemClient_GetAsync_" data-uid="Picturepark.SDK.V1.Contract.IListItemClient.GetAsync*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_Contract_IListItemClient_GetAsync_System_String_System_Collections_Generic_IEnumerable_Picturepark_SDK_V1_Contract_ListItemResolveBehavior__System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.Contract.IListItemClient.GetAsync(System.String,System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.Contract.ListItemResolveBehavior},System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_Contract_IListItemClient_GetAsync_System_String_System_Collections_Generic_IEnumerable_Picturepark_SDK_V1_Contract_ListItemResolveBehavior__System_Threading_CancellationToken_" class="expander" data-toggle="collapse">GetAsync(String, IEnumerable&lt;ListItemResolveBehavior&gt;, CancellationToken)</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_Contract_IListItemClient_GetAsync_System_String_System_Collections_Generic_IEnumerable_Picturepark_SDK_V1_Contract_ListItemResolveBehavior__System_Threading_CancellationToken_" class="collapse in">
+  <div class="markdown level1 summary"><p>Get list item</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;ListItemDetail&gt; GetAsync(string listItemId, IEnumerable&lt;ListItemResolveBehavior&gt; resolveBehaviors = null, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.String</span></span>
+        <span class="parametername">listItemId</span>
+        <p><p>The list item ID.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.ListItemResolveBehavior.html">ListItemResolveBehavior</a>&gt;</span>
+        <span class="parametername">resolveBehaviors</span>
+        <p><p>List of enums that control which parts of the list item are resolved and returned.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
+        <span class="parametername">cancellationToken</span>
+        <p><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.ListItemDetail.html">ListItemDetail</a>&gt;
+        <p><p>List item detail</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <h5 class="exceptions">Exceptions</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
+        <p><p>A server side error occurred.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.ListItemNotFoundException.html">ListItemNotFoundException</a>
+        <p><p>List item not found</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
+        <p><p>Entity not found</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
+        <p><p>Version conflict</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  </div>
+  
+  
+  <a id="Picturepark_SDK_V1_Contract_IListItemClient_GetManyAndConvertToAsync_" data-uid="Picturepark.SDK.V1.Contract.IListItemClient.GetManyAndConvertToAsync*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_Contract_IListItemClient_GetManyAndConvertToAsync__1_IEnumerable_System_String__System_String_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.Contract.IListItemClient.GetManyAndConvertToAsync``1(IEnumerable{System.String},System.String,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_Contract_IListItemClient_GetManyAndConvertToAsync__1_IEnumerable_System_String__System_String_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">GetManyAndConvertToAsync&lt;T&gt;(IEnumerable&lt;String&gt;, String, CancellationToken)</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_Contract_IListItemClient_GetManyAndConvertToAsync__1_IEnumerable_System_String__System_String_System_Threading_CancellationToken_" class="collapse in">
+  <div class="markdown level1 summary"><p>Gets a list of existing list items and converts their content to the requested type</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;ICollection&lt;T&gt;&gt; GetManyAndConvertToAsync&lt;T&gt;(IEnumerable&lt;string&gt; listItemIds, string schemaId, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">IEnumerable</span>&lt;<span class="xref">System.String</span>&gt;</span>
+        <span class="parametername">listItemIds</span>
+        <p><p>The list of list item IDs.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.String</span></span>
+        <span class="parametername">schemaId</span>
+        <p><p>The schema ID of the requested type.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
+        <span class="parametername">cancellationToken</span>
+        <p><p>The cancellation token.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">ICollection</span>&lt;T&gt;&gt;
+        <p><p>The list of converted objects.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="parametername">T</span>
+        <p><p>The requested content type.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  <h5 class="exceptions">Exceptions</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
+        <p><p>A server side error occurred.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  </div>
+  
+  
+  <a id="Picturepark_SDK_V1_Contract_IListItemClient_GetManyAsync_" data-uid="Picturepark.SDK.V1.Contract.IListItemClient.GetManyAsync*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_Contract_IListItemClient_GetManyAsync_System_Collections_Generic_IEnumerable_System_String__System_Collections_Generic_IEnumerable_Picturepark_SDK_V1_Contract_ListItemResolveBehavior__System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.Contract.IListItemClient.GetManyAsync(System.Collections.Generic.IEnumerable{System.String},System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.Contract.ListItemResolveBehavior},System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_Contract_IListItemClient_GetManyAsync_System_Collections_Generic_IEnumerable_System_String__System_Collections_Generic_IEnumerable_Picturepark_SDK_V1_Contract_ListItemResolveBehavior__System_Threading_CancellationToken_" class="expander" data-toggle="collapse">GetManyAsync(IEnumerable&lt;String&gt;, IEnumerable&lt;ListItemResolveBehavior&gt;, CancellationToken)</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_Contract_IListItemClient_GetManyAsync_System_Collections_Generic_IEnumerable_System_String__System_Collections_Generic_IEnumerable_Picturepark_SDK_V1_Contract_ListItemResolveBehavior__System_Threading_CancellationToken_" class="collapse in">
+  <div class="markdown level1 summary"><p>Get multiple list items</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;ICollection&lt;ListItemDetail&gt;&gt; GetManyAsync(IEnumerable&lt;string&gt; ids, IEnumerable&lt;ListItemResolveBehavior&gt; resolveBehaviors = null, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">System.String</span>&gt;</span>
+        <span class="parametername">ids</span>
+        <p><p>List of list item IDs.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.ListItemResolveBehavior.html">ListItemResolveBehavior</a>&gt;</span>
+        <span class="parametername">resolveBehaviors</span>
+        <p><p>List of enums that control which parts of the list items are resolved and returned.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
+        <span class="parametername">cancellationToken</span>
+        <p><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">System.Collections.Generic.ICollection</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.ListItemDetail.html">ListItemDetail</a>&gt;&gt;
+        <p><p>List of list item details</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <h5 class="exceptions">Exceptions</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
+        <p><p>A server side error occurred.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.ListItemNotFoundException.html">ListItemNotFoundException</a>
+        <p><p>One or more list items not found</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
+        <p><p>Entity not found</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
+        <p><p>Version conflict</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  </div>
+  
+  
+  <a id="Picturepark_SDK_V1_Contract_IListItemClient_GetReferencesToListItemAsync_" data-uid="Picturepark.SDK.V1.Contract.IListItemClient.GetReferencesToListItemAsync*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_Contract_IListItemClient_GetReferencesToListItemAsync_System_String_Picturepark_SDK_V1_Contract_ListItemReferencesRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.Contract.IListItemClient.GetReferencesToListItemAsync(System.String,Picturepark.SDK.V1.Contract.ListItemReferencesRequest,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_Contract_IListItemClient_GetReferencesToListItemAsync_System_String_Picturepark_SDK_V1_Contract_ListItemReferencesRequest_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">GetReferencesToListItemAsync(String, ListItemReferencesRequest, CancellationToken)</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_Contract_IListItemClient_GetReferencesToListItemAsync_System_String_Picturepark_SDK_V1_Contract_ListItemReferencesRequest_System_Threading_CancellationToken_" class="collapse in">
+  <div class="markdown level1 summary"><p>Get list item references</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;ListItemReferencesResult&gt; GetReferencesToListItemAsync(string listItemId, ListItemReferencesRequest listItemReferencesRequest, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.String</span></span>
+        <span class="parametername">listItemId</span>
+        <p><p>The ID of the list item.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.ListItemReferencesRequest.html">ListItemReferencesRequest</a></span>
+        <span class="parametername">listItemReferencesRequest</span>
+        <p><p>Request options to specify how many references to fetch.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
+        <span class="parametername">cancellationToken</span>
+        <p><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.ListItemReferencesResult.html">ListItemReferencesResult</a>&gt;
+        <p><p>List item references</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <h5 class="exceptions">Exceptions</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
+        <p><p>A server side error occurred.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
+        <p><p>Entity not found</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
+        <p><p>Version conflict</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  </div>
+  
+  
+  <a id="Picturepark_SDK_V1_Contract_IListItemClient_GetReferencesToListItemsAsync_" data-uid="Picturepark.SDK.V1.Contract.IListItemClient.GetReferencesToListItemsAsync*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_Contract_IListItemClient_GetReferencesToListItemsAsync_Picturepark_SDK_V1_Contract_ListItemManyReferencesRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.Contract.IListItemClient.GetReferencesToListItemsAsync(Picturepark.SDK.V1.Contract.ListItemManyReferencesRequest,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_Contract_IListItemClient_GetReferencesToListItemsAsync_Picturepark_SDK_V1_Contract_ListItemManyReferencesRequest_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">GetReferencesToListItemsAsync(ListItemManyReferencesRequest, CancellationToken)</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_Contract_IListItemClient_GetReferencesToListItemsAsync_Picturepark_SDK_V1_Contract_ListItemManyReferencesRequest_System_Threading_CancellationToken_" class="collapse in">
+  <div class="markdown level1 summary"><p>Get multiple list items references</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;ListItemReferencesResult&gt; GetReferencesToListItemsAsync(ListItemManyReferencesRequest listItemManyReferencesRequest, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.ListItemManyReferencesRequest.html">ListItemManyReferencesRequest</a></span>
+        <span class="parametername">listItemManyReferencesRequest</span>
+        <p><p>ListItemManyReferencesRequest</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
+        <span class="parametername">cancellationToken</span>
+        <p><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.ListItemReferencesResult.html">ListItemReferencesResult</a>&gt;
+        <p><p>A list of references per list item.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <h5 class="exceptions">Exceptions</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
+        <p><p>A server side error occurred.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
+        <p><p>Entity not found</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
+        <p><p>Version conflict</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  </div>
+  
+  
+  <a id="Picturepark_SDK_V1_Contract_IListItemClient_RestoreAsync_" data-uid="Picturepark.SDK.V1.Contract.IListItemClient.RestoreAsync*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_Contract_IListItemClient_RestoreAsync_System_String_System_Nullable_System_Boolean__System_Nullable_System_TimeSpan__System_Nullable_System_Boolean__System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.Contract.IListItemClient.RestoreAsync(System.String,System.Nullable{System.Boolean},System.Nullable{System.TimeSpan},System.Nullable{System.Boolean},System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_Contract_IListItemClient_RestoreAsync_System_String_System_Nullable_System_Boolean__System_Nullable_System_TimeSpan__System_Nullable_System_Boolean__System_Threading_CancellationToken_" class="expander" data-toggle="collapse">RestoreAsync(String, Nullable&lt;Boolean&gt;, Nullable&lt;TimeSpan&gt;, Nullable&lt;Boolean&gt;, CancellationToken)</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_Contract_IListItemClient_RestoreAsync_System_String_System_Nullable_System_Boolean__System_Nullable_System_TimeSpan__System_Nullable_System_Boolean__System_Threading_CancellationToken_" class="collapse in">
+  <div class="markdown level1 summary"><p>Restore list item</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task RestoreAsync(string listItemId, bool? allowMissingDependencies = default(bool? ), TimeSpan? timeout = default(TimeSpan? ), bool? waitSearchDocCreation = default(bool? ), CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.String</span></span>
+        <span class="parametername">listItemId</span>
+        <p><p>The list item ID.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</span>
+        <span class="parametername">allowMissingDependencies</span>
+        <p><p>Allows restoring list items that refer to list items or contents that don&apos;t exist in the system.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Nullable</span>&lt;<span class="xref">System.TimeSpan</span>&gt;</span>
+        <span class="parametername">timeout</span>
+        <p><p>Maximum time to wait for the operation to complete. If timeout is exceeded, the operation is not aborted but continues anyhow.
+            Only the waiting is aborted, and the calls returned.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</span>
+        <span class="parametername">waitSearchDocCreation</span>
+        <p><p>Wait for the creation of the search document and the rendered display values.
+            By default the endpoint waits for the search document creation. Passing false, the endpoint will return when the main entity has been created and the creation of the search document has been enqueued but not yet performed.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
+        <span class="parametername">cancellationToken</span>
+        <p><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Threading.Tasks.Task</span>
+        <p><p>Ok</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <h5 class="exceptions">Exceptions</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
+        <p><p>A server side error occurred.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.BusinessProcessLifeCycleNotHitException.html">BusinessProcessLifeCycleNotHitException</a>
+        <p><p>The specified wait timeout exceeded</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
+        <p><p>Entity not found</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
+        <p><p>Version conflict</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  </div>
+  
+  
+  <a id="Picturepark_SDK_V1_Contract_IListItemClient_RestoreManyAsync_" data-uid="Picturepark.SDK.V1.Contract.IListItemClient.RestoreManyAsync*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_Contract_IListItemClient_RestoreManyAsync_Picturepark_SDK_V1_Contract_ListItemRestoreManyRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.Contract.IListItemClient.RestoreManyAsync(Picturepark.SDK.V1.Contract.ListItemRestoreManyRequest,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_Contract_IListItemClient_RestoreManyAsync_Picturepark_SDK_V1_Contract_ListItemRestoreManyRequest_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">RestoreManyAsync(ListItemRestoreManyRequest, CancellationToken)</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_Contract_IListItemClient_RestoreManyAsync_Picturepark_SDK_V1_Contract_ListItemRestoreManyRequest_System_Threading_CancellationToken_" class="collapse in">
+  <div class="markdown level1 summary"><p>Restore multiple list items</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;BusinessProcess&gt; RestoreManyAsync(ListItemRestoreManyRequest restoreManyRequest, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.ListItemRestoreManyRequest.html">ListItemRestoreManyRequest</a></span>
+        <span class="parametername">restoreManyRequest</span>
+        <p><p>List item restore many request.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
+        <span class="parametername">cancellationToken</span>
+        <p><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.BusinessProcess.html">BusinessProcess</a>&gt;
+        <p><p>Business process</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <h5 class="exceptions">Exceptions</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
+        <p><p>A server side error occurred.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
+        <p><p>Entity not found</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
+        <p><p>Version conflict</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  </div>
+  
+  
+  <a id="Picturepark_SDK_V1_Contract_IListItemClient_SearchAsync_" data-uid="Picturepark.SDK.V1.Contract.IListItemClient.SearchAsync*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_Contract_IListItemClient_SearchAsync_Picturepark_SDK_V1_Contract_ListItemSearchRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.Contract.IListItemClient.SearchAsync(Picturepark.SDK.V1.Contract.ListItemSearchRequest,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_Contract_IListItemClient_SearchAsync_Picturepark_SDK_V1_Contract_ListItemSearchRequest_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">SearchAsync(ListItemSearchRequest, CancellationToken)</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_Contract_IListItemClient_SearchAsync_Picturepark_SDK_V1_Contract_ListItemSearchRequest_System_Threading_CancellationToken_" class="collapse in">
+  <div class="markdown level1 summary"><p>Search list items</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;ListItemSearchResult&gt; SearchAsync(ListItemSearchRequest listItemSearchRequest, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.ListItemSearchRequest.html">ListItemSearchRequest</a></span>
+        <span class="parametername">listItemSearchRequest</span>
+        <p><p>The list item search request.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
+        <span class="parametername">cancellationToken</span>
+        <p><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.ListItemSearchResult.html">ListItemSearchResult</a>&gt;
+        <p><p>List item search result</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <h5 class="exceptions">Exceptions</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
+        <p><p>A server side error occurred.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
+        <p><p>Entity not found</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
+        <p><p>Version conflict</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  </div>
+  
+  
+  <a id="Picturepark_SDK_V1_Contract_IListItemClient_UpdateAsync_" data-uid="Picturepark.SDK.V1.Contract.IListItemClient.UpdateAsync*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_Contract_IListItemClient_UpdateAsync_System_String_Picturepark_SDK_V1_Contract_ListItemUpdateRequest_IEnumerable_Picturepark_SDK_V1_Contract_ListItemResolveBehavior__System_Boolean_System_Nullable_System_TimeSpan__System_Boolean_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.Contract.IListItemClient.UpdateAsync(System.String,Picturepark.SDK.V1.Contract.ListItemUpdateRequest,IEnumerable{Picturepark.SDK.V1.Contract.ListItemResolveBehavior},System.Boolean,System.Nullable{System.TimeSpan},System.Boolean,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_Contract_IListItemClient_UpdateAsync_System_String_Picturepark_SDK_V1_Contract_ListItemUpdateRequest_IEnumerable_Picturepark_SDK_V1_Contract_ListItemResolveBehavior__System_Boolean_System_Nullable_System_TimeSpan__System_Boolean_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">UpdateAsync(String, ListItemUpdateRequest, IEnumerable&lt;ListItemResolveBehavior&gt;, Boolean, Nullable&lt;TimeSpan&gt;, Boolean, CancellationToken)</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_Contract_IListItemClient_UpdateAsync_System_String_Picturepark_SDK_V1_Contract_ListItemUpdateRequest_IEnumerable_Picturepark_SDK_V1_Contract_ListItemResolveBehavior__System_Boolean_System_Nullable_System_TimeSpan__System_Boolean_System_Threading_CancellationToken_" class="collapse in">
+  <div class="markdown level1 summary"><p>Updates a list item</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;ListItemDetail&gt; UpdateAsync(string listItemId, ListItemUpdateRequest updateRequest, IEnumerable&lt;ListItemResolveBehavior&gt; resolveBehaviors = null, bool allowMissingDependencies = false, TimeSpan? timeout = default(TimeSpan? ), bool waitSearchDocCreation = true, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.String</span></span>
+        <span class="parametername">listItemId</span>
+        <p><p>The list item ID.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.ListItemUpdateRequest.html">ListItemUpdateRequest</a></span>
+        <span class="parametername">updateRequest</span>
+        <p><p>The update request.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">IEnumerable</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.ListItemResolveBehavior.html">ListItemResolveBehavior</a>&gt;</span>
+        <span class="parametername">resolveBehaviors</span>
+        <p><p>List of enum that control which parts of the list item are resolved and returned.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Boolean</span></span>
+        <span class="parametername">allowMissingDependencies</span>
+        <p><p>Allow creating <a class="xref" href="Picturepark.SDK.V1.Contract.ListItem.html">ListItem</a>s that refer to list items or contents that don&apos;t exist in the system.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Nullable</span>&lt;<span class="xref">System.TimeSpan</span>&gt;</span>
+        <span class="parametername">timeout</span>
+        <p><p>The timeout in milliseconds to wait for completion.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Boolean</span></span>
+        <span class="parametername">waitSearchDocCreation</span>
+        <p><p>Wait for the creation of the search document and the rendered display values.
+By default the method waits for the search document creation. Passing false, the method will return when the main entity has been updated and the creation of the search document has been enqueued but not yet performed.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
+        <span class="parametername">cancellationToken</span>
+        <p><p>The cancellation token.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.ListItemDetail.html">ListItemDetail</a>&gt;
+        <p><p>The updated <a class="xref" href="Picturepark.SDK.V1.Contract.ListItemDetail.html">ListItemDetail</a>.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="Picturepark_SDK_V1_Contract_IListItemClient_UpdateAsync_" data-uid="Picturepark.SDK.V1.Contract.IListItemClient.UpdateAsync*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_Contract_IListItemClient_UpdateAsync_System_String_System_Object_IEnumerable_Picturepark_SDK_V1_Contract_ListItemResolveBehavior__System_Boolean_System_Nullable_System_TimeSpan__System_Boolean_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.Contract.IListItemClient.UpdateAsync(System.String,System.Object,IEnumerable{Picturepark.SDK.V1.Contract.ListItemResolveBehavior},System.Boolean,System.Nullable{System.TimeSpan},System.Boolean,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_Contract_IListItemClient_UpdateAsync_System_String_System_Object_IEnumerable_Picturepark_SDK_V1_Contract_ListItemResolveBehavior__System_Boolean_System_Nullable_System_TimeSpan__System_Boolean_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">UpdateAsync(String, Object, IEnumerable&lt;ListItemResolveBehavior&gt;, Boolean, Nullable&lt;TimeSpan&gt;, Boolean, CancellationToken)</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_Contract_IListItemClient_UpdateAsync_System_String_System_Object_IEnumerable_Picturepark_SDK_V1_Contract_ListItemResolveBehavior__System_Boolean_System_Nullable_System_TimeSpan__System_Boolean_System_Threading_CancellationToken_" class="collapse in">
+  <div class="markdown level1 summary"><p>Updates a list item by providing its content</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;ListItemDetail&gt; UpdateAsync(string listItemId, object content, IEnumerable&lt;ListItemResolveBehavior&gt; resolveBehaviors = null, bool allowMissingDependencies = false, TimeSpan? timeout = default(TimeSpan? ), bool waitSearchDocCreation = true, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.String</span></span>
+        <span class="parametername">listItemId</span>
+        <p><p>The list item ID.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Object</span></span>
+        <span class="parametername">content</span>
+        <p><p>The content which must match the item&apos;s schema ID.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">IEnumerable</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.ListItemResolveBehavior.html">ListItemResolveBehavior</a>&gt;</span>
+        <span class="parametername">resolveBehaviors</span>
+        <p><p>List of enum that control which parts of the list item are resolved and returned.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Boolean</span></span>
+        <span class="parametername">allowMissingDependencies</span>
+        <p><p>Allow creating <a class="xref" href="Picturepark.SDK.V1.Contract.ListItem.html">ListItem</a>s that refer to list items or contents that don&apos;t exist in the system.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Nullable</span>&lt;<span class="xref">System.TimeSpan</span>&gt;</span>
+        <span class="parametername">timeout</span>
+        <p><p>The timeout in milliseconds to wait for completion.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Boolean</span></span>
+        <span class="parametername">waitSearchDocCreation</span>
+        <p><p>Wait for the creation of the search document and the rendered display values.
+By default the method waits for the search document creation. Passing false, the method will return when the main entity has been updated and the creation of the search document has been enqueued but not yet performed.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
+        <span class="parametername">cancellationToken</span>
+        <p><p>The cancellation token.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.ListItemDetail.html">ListItemDetail</a>&gt;
+        <p><p>The updated <a class="xref" href="Picturepark.SDK.V1.Contract.ListItemDetail.html">ListItemDetail</a>.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="Picturepark_SDK_V1_Contract_IListItemClient_UpdateManyAsync_" data-uid="Picturepark.SDK.V1.Contract.IListItemClient.UpdateManyAsync*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_Contract_IListItemClient_UpdateManyAsync_Picturepark_SDK_V1_Contract_ListItemUpdateManyRequest_System_Nullable_System_TimeSpan__System_Boolean_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.Contract.IListItemClient.UpdateManyAsync(Picturepark.SDK.V1.Contract.ListItemUpdateManyRequest,System.Nullable{System.TimeSpan},System.Boolean,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_Contract_IListItemClient_UpdateManyAsync_Picturepark_SDK_V1_Contract_ListItemUpdateManyRequest_System_Nullable_System_TimeSpan__System_Boolean_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">UpdateManyAsync(ListItemUpdateManyRequest, Nullable&lt;TimeSpan&gt;, Boolean, CancellationToken)</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_Contract_IListItemClient_UpdateManyAsync_Picturepark_SDK_V1_Contract_ListItemUpdateManyRequest_System_Nullable_System_TimeSpan__System_Boolean_System_Threading_CancellationToken_" class="collapse in">
+  <div class="markdown level1 summary"><p>Update - many</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;ListItemBatchOperationResult&gt; UpdateManyAsync(ListItemUpdateManyRequest listItemUpdateManyRequest, TimeSpan? timeout = default(TimeSpan? ), bool waitSearchDocCreation = true, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.ListItemUpdateManyRequest.html">ListItemUpdateManyRequest</a></span>
+        <span class="parametername">listItemUpdateManyRequest</span>
+        <p><p>List item update many request.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Nullable</span>&lt;<span class="xref">System.TimeSpan</span>&gt;</span>
+        <span class="parametername">timeout</span>
+        <p><p>Timeout to wait for business process to complete.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Boolean</span></span>
+        <span class="parametername">waitSearchDocCreation</span>
+        <p><p>Wait for the creation of the search document and the rendered display values.
+By default the method waits for the search documents creation. Passing false, the method will return when the main entities have been updated and the creation of the search documents has been enqueued but not yet performed.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
+        <span class="parametername">cancellationToken</span>
+        <p><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">ListItemBatchOperationResult</span>&gt;
+        <p><p>The <see cref="!:BatchOperationResult&lt;ListItemDetail>"></see>.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <h5 class="exceptions">Exceptions</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
+        <p><p>A server side error occurred.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
+        <p><p>Entity not found</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
+        <p><p>Version conflict</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  </div>
+  
+  
+  <a id="Picturepark_SDK_V1_Contract_IListItemClient_WaitForBusinessProcessAndReturnResult_" data-uid="Picturepark.SDK.V1.Contract.IListItemClient.WaitForBusinessProcessAndReturnResult*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_Contract_IListItemClient_WaitForBusinessProcessAndReturnResult_System_String_System_Nullable_System_TimeSpan__System_Boolean_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.Contract.IListItemClient.WaitForBusinessProcessAndReturnResult(System.String,System.Nullable{System.TimeSpan},System.Boolean,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_Contract_IListItemClient_WaitForBusinessProcessAndReturnResult_System_String_System_Nullable_System_TimeSpan__System_Boolean_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">WaitForBusinessProcessAndReturnResult(String, Nullable&lt;TimeSpan&gt;, Boolean, CancellationToken)</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_Contract_IListItemClient_WaitForBusinessProcessAndReturnResult_System_String_System_Nullable_System_TimeSpan__System_Boolean_System_Threading_CancellationToken_" class="collapse in">
+  <div class="markdown level1 summary"><p>Waits for a business process and returns a <see cref="!:ListItemBatchOperationResult"></see>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;ListItemBatchOperationResult&gt; WaitForBusinessProcessAndReturnResult(string businessProcessId, TimeSpan? timeout = default(TimeSpan? ), bool waitSearchDocCreation = true, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.String</span></span>
+        <span class="parametername">businessProcessId</span>
+        <p><p>The business process id.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Nullable</span>&lt;<span class="xref">System.TimeSpan</span>&gt;</span>
+        <span class="parametername">timeout</span>
+        <p><p>The timeout to wait on the business process.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Boolean</span></span>
+        <span class="parametername">waitSearchDocCreation</span>
+        <p><p>Wait for the creation of the search documents and the rendered display values</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
+        <span class="parametername">cancellationToken</span>
+        <p><p>The cancellation token.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">ListItemBatchOperationResult</span>&gt;
+        <p><p>The <see cref="!:ListItemBatchOperationResult"></see>.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="Picturepark_SDK_V1_Contract_IListItemClient_WaitForBusinessProcessAndReturnResultWithRequestId_" data-uid="Picturepark.SDK.V1.Contract.IListItemClient.WaitForBusinessProcessAndReturnResultWithRequestId*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_Contract_IListItemClient_WaitForBusinessProcessAndReturnResultWithRequestId_System_String_System_Nullable_System_TimeSpan__System_Boolean_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.Contract.IListItemClient.WaitForBusinessProcessAndReturnResultWithRequestId(System.String,System.Nullable{System.TimeSpan},System.Boolean,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_Contract_IListItemClient_WaitForBusinessProcessAndReturnResultWithRequestId_System_String_System_Nullable_System_TimeSpan__System_Boolean_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">WaitForBusinessProcessAndReturnResultWithRequestId(String, Nullable&lt;TimeSpan&gt;, Boolean, CancellationToken)</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_Contract_IListItemClient_WaitForBusinessProcessAndReturnResultWithRequestId_System_String_System_Nullable_System_TimeSpan__System_Boolean_System_Threading_CancellationToken_" class="collapse in">
+  <div class="markdown level1 summary"><p>Waits for a business process and returns a <see cref="!:ListItemBatchOperationWithRequestIdResult"></see>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;ListItemBatchOperationWithRequestIdResult&gt; WaitForBusinessProcessAndReturnResultWithRequestId(string businessProcessId, TimeSpan? timeout = default(TimeSpan? ), bool waitSearchDocCreation = true, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.String</span></span>
+        <span class="parametername">businessProcessId</span>
+        <p><p>The business process id.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Nullable</span>&lt;<span class="xref">System.TimeSpan</span>&gt;</span>
+        <span class="parametername">timeout</span>
+        <p><p>The timeout to wait on the business process.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Boolean</span></span>
+        <span class="parametername">waitSearchDocCreation</span>
+        <p><p>Wait for the creation of the search documents and the rendered display values</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
+        <span class="parametername">cancellationToken</span>
+        <p><p>The cancellation token.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">ListItemBatchOperationWithRequestIdResult</span>&gt;
+        <p><p>The <see cref="!:ListItemBatchOperationWithRequestIdResult"></see>.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+</article>
+          </div>
+          <div class="contribution-panel mobile-hide">
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

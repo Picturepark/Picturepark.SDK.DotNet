@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using FluentAssertions;
 using Newtonsoft.Json.Linq;
@@ -97,7 +98,31 @@ namespace Picturepark.SDK.V1.Tests.Clients
             // Assert
             var currentTransfer = await _client.Transfer.GetAsync(result.Transfer.Id).ConfigureAwait(false);
 
-            Assert.Equal(TransferState.Created, currentTransfer.State);
+            new[] { TransferState.TransferReady, TransferState.UploadCancellationInProgress, TransferState.UploadCancelled }.Should()
+                .Contain(currentTransfer.State);
+        }
+
+        [Fact]
+        [Trait("Stack", "Transfers")]
+        public async Task ShouldWaitForCompletionAndStateShouldBeTransferReady()
+        {
+            // Arrange
+            var transferName = new Random().Next(1000, 9999).ToString();
+            var files = new FileLocations[]
+            {
+                Path.Combine(_fixture.ExampleFilesBasePath, "0030_JabLtzJl8bc.jpg")
+            };
+
+            var result = await _client.Transfer.UploadFilesAsync(transferName, files, new UploadOptions()).ConfigureAwait(false);
+
+            // Act
+            var waitResult = await _client.BusinessProcess.WaitForCompletionAsync(result.Transfer.BusinessProcessId).ConfigureAwait(false);
+
+            // Assert
+            waitResult.LifeCycleHit.Should().Be(BusinessProcessLifeCycle.Succeeded);
+
+            var transfer = await _client.Transfer.GetAsync(result.Transfer.Id).ConfigureAwait(false);
+            transfer.State.Should().Be(TransferState.TransferReady);
         }
 
         [Fact]
@@ -329,20 +354,11 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             foreach (FileTransfer file in files.Results)
             {
-                var personTag = new DataDictionary
+                var personTag = new Person
                 {
-                    { "_refId", personId }
+                    RefId = personId
                 };
-                var metadata = new DataDictionary
-                    {
-                        {
-                            nameof(PersonShot),
-                            new DataDictionary
-                            {
-                                { "persons", new[] { personTag } },
-                            }
-                        }
-                    };
+                var metadata = Metadata.From(new PersonShot { Persons = new[] { personTag } });
                 fileTransfers.Add(new FileTransferCreateItem
                 {
                     FileId = file.Id,
@@ -466,6 +482,46 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
         [Fact]
         [Trait("Stack", "Transfers")]
+        public async Task ShouldReportChunkSizeRangeErrorQuickly()
+        {
+            var file = Path.GetTempFileName();
+            File.WriteAllBytes(file, Enumerable.Repeat((byte)42, 1024 * 1024).ToArray()); // 1MiB
+
+            var files = Enumerable.Range(0, 20).Select(x => new FileLocations(file)).ToList();
+
+            var weTriggeredCancellation = false;
+
+            var exception = await Assert.ThrowsAnyAsync<AggregateException>(
+                async () =>
+                {
+                    using (var cts = new CancellationTokenSource(TimeSpan.FromMinutes(1)))
+                    using (cts.Token.Register(() => weTriggeredCancellation = true))
+                    {
+                        await _client.Transfer.UploadFilesAsync(
+                            nameof(ShouldReportChunkSizeRangeErrorQuickly),
+                            files,
+                            new UploadOptions
+                            {
+                                ChunkSize = 1024, // this is out of range, needs to be between 1 and 100 MiB and given in Bytes
+                                ConcurrentUploads = 10,
+                                WaitForTransferCompletion = false
+                            },
+                            TimeSpan.FromMinutes(2),
+                            cts.Token
+                        ).ConfigureAwait(false);
+                    }
+                }).ConfigureAwait(false);
+
+            File.Delete(file);
+
+            weTriggeredCancellation.Should().BeFalse();
+            exception.InnerExceptions.Should().NotBeNullOrEmpty();
+            exception.InnerExceptions.Should().OnlyContain(ex => ex is ChunkSizeOutOfRangeException);
+            exception.InnerExceptions.Should().HaveCount(files.Count);
+        }
+
+        [Fact]
+        [Trait("Stack", "Transfers")]
         public async Task ShouldUploadAndReportLastProgressTimeStamp()
         {
             // Arrange
@@ -492,6 +548,23 @@ namespace Picturepark.SDK.V1.Tests.Clients
             businessProcess.BusinessProcess.LastReportedProgress.Should().NotBeNull();
         }
 
+        [Fact]
+        [Trait("Stack", "Transfers")]
+        public async Task ShouldUseTargetFileNameForWebLinkDownloads()
+        {
+            // Act
+            var result = await CreateWebTransferAsync(
+                new[]
+                {
+                    ("http://cdn1.spiegel.de/images/image-733178-900_breitwand_180x67-zgpe-733178.jpg", "image.jpg")
+                }).ConfigureAwait(false);
+
+            // Assert
+            var files = await _client.Transfer.SearchFilesByTransferIdAsync(result.Transfer.Id).ConfigureAwait(false);
+            files.Results.Should().HaveCount(1);
+            files.Results.Single().Name.Should().Be("image.jpg");
+        }
+
         private async Task<(CreateTransferResult, string fileId)> CreateFileTransferAsync()
         {
             var transferName = new Random().Next(1000, 9999).ToString();
@@ -515,7 +588,12 @@ namespace Picturepark.SDK.V1.Tests.Clients
             return (createTransferResult, fileId);
         }
 
-        private async Task<CreateTransferResult> CreateWebTransferAsync(List<string> urls)
+        private async Task<CreateTransferResult> CreateWebTransferAsync(IReadOnlyList<string> urls)
+        {
+            return await CreateWebTransferAsync(urls.Select(url => (url, (string)null)).ToArray()).ConfigureAwait(false);
+        }
+
+        private async Task<CreateTransferResult> CreateWebTransferAsync(IReadOnlyList<(string url, string targetFileName)> urls)
         {
             var transferName = "UrlImport " + new Random().Next(1000, 9999);
 
@@ -523,9 +601,10 @@ namespace Picturepark.SDK.V1.Tests.Clients
             {
                 Name = transferName,
                 TransferType = TransferType.WebDownload,
-                WebLinks = urls.Select(url => new TransferWebLink
+                WebLinks = urls.Select(item => new TransferWebLink
                 {
-                    Url = url,
+                    Url = item.url,
+                    FileName = item.targetFileName,
                     RequestId = Guid.NewGuid().ToString()
                 }).ToList()
             };

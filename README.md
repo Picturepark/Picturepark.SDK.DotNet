@@ -8,8 +8,9 @@
 
 Links:
 - [Picturepark Website](https://picturepark.com/)
-- [SDK Documentation](docs/README.md)
-- [API Documentation](https://rawgit.com/Picturepark/Picturepark.SDK.DotNet/master/docs/api/site/index.html)
+- [SDK Documentation](https://picturepark.github.io/Picturepark.SDK.DotNet/sdk/site/index.html)
+- [API Documentation](https://picturepark.github.io/Picturepark.SDK.DotNet/api/index.html)
+- [Getting started](docs/README.md)
 
 ## NuGet Packages
 
@@ -17,21 +18,30 @@ Links:
 
 - **[Picturepark.SDK.V1](https://www.nuget.org/packages/Picturepark.SDK.V1) (.NET Standard 1.3+ & .NET 4.5+):** 
     - Client implementations to access the Picturepark server
-    - [SDK Documentation](docs/README.md)
-    - [API Documentation](https://rawgit.com/Picturepark/Picturepark.SDK.DotNet/master/docs/api/site/api/Picturepark.SDK.V1.html)
+    - [Getting started](docs/README.md)
+    - [SDK Documentation](https://picturepark.github.io/Picturepark.SDK.DotNet/sdk/site/api/Picturepark.SDK.V1.html)
 - **[Picturepark.SDK.V1.Contract](https://www.nuget.org/packages/Picturepark.SDK.V1.Contract) (.NET Standard 1.3+ & .NET 4.5+):** 
     - DTO classes and client interfaces 
-    - [API Documentation](https://rawgit.com/Picturepark/Picturepark.SDK.DotNet/master/docs/api/site/api/Picturepark.SDK.V1.Contract.html)
+    - [SDK Documentation](https://picturepark.github.io/Picturepark.SDK.DotNet/sdk/site/api/Picturepark.SDK.V1.Contract.html)
 - **[Picturepark.SDK.V1.Localization](https://www.nuget.org/packages/Picturepark.SDK.V1.Localization) (.NET Standard 1.3+ & .NET 4.5+):** 
     - Utilities to translate server messages
-    - [API Documentation](https://rawgit.com/Picturepark/Picturepark.SDK.DotNet/master/docs/api/site/api/Picturepark.SDK.V1.Localization.html)
+    - [SDK Documentation](https://picturepark.github.io/Picturepark.SDK.DotNet/sdk/site/api/Picturepark.SDK.V1.Localization.html)
 
 **Management APIs**:
 
 - **[Picturepark.SDK.V1.CloudManager](https://www.nuget.org/packages/Picturepark.SDK.V1.CloudManager) (.NET Standard 1.3+ & .NET 4.5+)**
-    - [API Documentation](https://rawgit.com/Picturepark/Picturepark.SDK.DotNet/master/docs/api/site/api/Picturepark.SDK.V1.CloudManager.html)
+    - [SDK Documentation](https://picturepark.github.io/Picturepark.SDK.DotNet/sdk/site/api/Picturepark.SDK.V1.CloudManager.html)
 - **[Picturepark.SDK.V1.ServiceProvider](https://www.nuget.org/packages/Picturepark.SDK.V1.ServiceProvider) (.NET Standard 1.6+ & .NET 4.6+)**
-    - [API Documentation](https://rawgit.com/Picturepark/Picturepark.SDK.DotNet/master/docs/api/site/api/Picturepark.SDK.V1.ServiceProvider.html)
+    - [SDK Documentation](https://picturepark.github.io/Picturepark.SDK.DotNet/sdk/site/api/Picturepark.SDK.V1.ServiceProvider.html)
+
+## Compatibility matrix
+
+| SDK version | Picturepark CP version |
+| ----------- | ---------------------- |
+| `1.0.x`     | `10.0.x`               |
+| `1.1.x`     | `10.1.x`               |
+| `1.2.x`     | `10.2.x`               |
+| `1.3.x`     | `10.3.x`               |
 
 ## SDK Development
 

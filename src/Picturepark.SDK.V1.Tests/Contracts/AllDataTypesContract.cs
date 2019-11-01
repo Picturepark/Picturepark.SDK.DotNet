@@ -21,18 +21,18 @@ namespace Picturepark.SDK.V1.Tests.Contracts
     public class AllDataTypesContract
     {
         [PictureparkNameTranslation("Yes or no")]
-        public bool BooleanField { get; set; }
+        public bool? BooleanField { get; set; }
 
         [PictureparkDate]
         [JsonConverter(typeof(DateFieldConverter))]
-        public DateTime DateField { get; set; }
+        public DateTime? DateField { get; set; }
 
         [PictureparkDateTime]
-        public DateTime DateTimeField { get; set; }
+        public DateTime? DateTimeField { get; set; }
 
         //// public List<DateTime> DateTimeArrayField { get; set; }
 
-        public decimal DecimalField { get; set; }
+        public decimal? DecimalField { get; set; }
 
         // Correct?
         ////public Dictionary<string, string> DictionaryField { get; set; }
@@ -42,7 +42,7 @@ namespace Picturepark.SDK.V1.Tests.Contracts
 
         public GeoPoint GeoPointField { get; set; }
 
-        public int IntegerField { get; set; }
+        public int? IntegerField { get; set; }
 
         ////public List<int> IntegerArrayField { get; set; }
 

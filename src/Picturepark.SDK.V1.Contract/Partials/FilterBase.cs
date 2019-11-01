@@ -79,7 +79,7 @@ namespace Picturepark.SDK.V1.Contract
             var systemSchemaAttr = typeof(TObject).GetTypeInfo().GetCustomAttribute<PictureparkSystemSchemaAttribute>();
 
             var maybeSchemaName =
-                schemaAttr != null || systemSchemaAttr != null ? (schemaAttr?.Name ?? typeof(TObject).Name).ToLowerCamelCase() : null;
+                schemaAttr != null || systemSchemaAttr != null ? (schemaAttr?.Id ?? typeof(TObject).Name).ToLowerCamelCase() : null;
 
             var nameAndMaybeSchema = (maybeSchemaName, PropertyHelper.GetLowerCamelCasePropertyPath(propertyExpression)).JoinByDot();
 

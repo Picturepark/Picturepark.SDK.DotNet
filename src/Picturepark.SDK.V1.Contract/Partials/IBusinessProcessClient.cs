@@ -33,7 +33,8 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>The wait result.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <param name="waitForContinuationCompletion">Waits for the completion of the continuation business process (if existing, recursively). Default to true.</param>
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        Task<BusinessProcessWaitForLifeCycleResult> WaitForCompletionAsync(string processId, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<BusinessProcessWaitForLifeCycleResult> WaitForCompletionAsync(string processId, TimeSpan? timeout = null, bool waitForContinuationCompletion = true, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

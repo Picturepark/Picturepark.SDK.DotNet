@@ -1,9 +1,9 @@
 ﻿{
-  "x-generator": "NSwag v13.0.1.0 (NJsonSchema v10.0.19.0 (Newtonsoft.Json v11.0.0.0))",
+  "x-generator": "NSwag v13.0.6.0 (NJsonSchema v10.0.23.0 (Newtonsoft.Json v11.0.0.0))",
   "openapi": "3.0.0",
   "info": {
     "title": "Picturepark API V1",
-    "description": "# Getting started\r\nWelcome to the reference for the Picturepark Content Platform REST API.\r\n\r\n## Client registration\r\nTo use the Picturepark API, you need first to create a new API Client. You can create clients via an Identity Server (IDS) interface directly from Content platform.\r\n\r\nGo to `Settings` / `API Clients` (https://{{customerHost}}/Settings/APIClients) and create a new API Client based on your desired authentication flow.\r\n\r\n### Client attributes\r\n\r\n| Attribute      | Description |\r\n| -------------- | ----------- |\r\n| **Allowed scopes** | Scopes which the client is allowed to access. Use can find scope name beside the respective API endpoints. |\r\n| **Redirect Uris**  | Which URI's is IDS allowed to send the authentication information to. |\r\n| **Urls (masks) safe to load** | IDS has to load some information from the CP customer instance like customer terms of service or logos. This lists the paths which are safe to load by IDS. Usually similar to Redirect Uris. |\r\n| **Allowed CORS origins** | Adds to the list of origins allowed to access the IDS authentication API. |\r\n\r\n## Authentication\r\nThe authentication process is based on [OpenID Connect](http://openid.net/connect/).\r\n\r\nThe following OAuth 2.0 flows are supported:\r\n\r\n| Flow         | Description |\r\n| ------------ | ----------- |\r\n| **Implicit** | Interactive user authentication for SPA Applications |\r\n| **Hybrid**   | Interactive user authentication with server based validation |\r\n| **Password** | Server to server, create access tokens that do not expire |\r\n\r\n### Examples\r\nExample authentication implementations can be found here:\r\n- Angular: https://github.com/Picturepark/Picturepark.SDK.TypeScript/tree/master/src/picturepark-sdk-v1-angular\r\n- HTML5 Fetch: https://github.com/Picturepark/Picturepark.SDK.TypeScript/tree/master/src/picturepark-sdk-v1-fetch\r\n- .NET: https://github.com/Picturepark/Picturepark.SDK.DotNet/tree/master/samples/Picturepark.Microsite.Example\r\n\r\n### Access token lifetime\r\nFor **Implicit** and **Hybrid** flow, the access tokens are short-lived (1 hour). You need to refresh your access token after it's expired.\r\nYou can silently refresh the token using a hidden Iframe in the browser: [Angular example](https://damienbod.com/2017/06/02/implementing-a-silent-token-renew-in-angular-for-the-openid-connect-implicit-flow/)\r\n\r\nFor the **Password** flow, you can create an access token that never expires.\r\nGo to `Settings` / `API Clients` in Content platform (https://{{customerHost}}/Settings/APIClients) and click on Tokens beside the respective client (or create a new client).\r\n\r\n**Attention: Adding long lived access tokens to a web application (adding token to Javascripts source code) will expose that token to anyone. Use with care and a very limited set of scopes.**\r\n\r\n### Urls\r\n\r\n- Live: -\r\n- Preview: https://identity.preview-picturepark.com\r\n- Stage: https://identity.stage-picturepark.com\r\n\r\n## SDKs\r\nTo simplify building applications, SDKs for the following languages/frameworks are provided and released as open source under MIT license:\r\n\r\n- .NET\r\n  - [https://github.com/Picturepark/Picturepark.SDK.DotNet](https://github.com/Picturepark/Picturepark.SDK.DotNet)\r\n  - Supports .NET 4.5+ / .NET Standard 1.3+\r\n- JavaScript / TypeScript\r\n  - [https://github.com/Picturepark/Picturepark.SDK.TypeScript](https://github.com/Picturepark/Picturepark.SDK.TypeScript)\r\n  - Supports [Angular](https://angular.io/) 4.3+ / [HTML 5 Fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)\r\n\r\nClients for other languages can be created using [Autorest](https://github.com/Azure/autorest) using the following OpenAPI provided here:\r\n- [Picturepark.SDK.Playground](https://github.com/Picturepark/Picturepark.SDK.Playground)\r\n\r\n\r\n# Concepts\r\n\r\n## HTTP Requests\r\nTo perform API calls, you can specify the following HTTP headers:\r\n\r\n| HTTP Header               | Value                | Required |\r\n| ------------------------- | -------------------- | -------- |\r\n| Accept                    | application/json     | Yes      |\r\n| Authorization             | Bearer {accessToken} | Yes (except for publicAccess/* endpoints) |\r\n| Picturepark-CustomerAlias | Customer identifier  | Yes      |\r\n| Picturepark-Language      | en / de              | No       |\r\n\r\n## Error responses\r\nErrors in Picturepark API are returned using HTTP status codes, as well as a JSON error response object.\r\n\r\nHTTP status 4xx\r\n- Client errors (e.g. wrong data provided by client)\r\n\r\nHTTP status 5xx\r\n- Server errors (something went wrong on the server)\r\n\r\n## Request limits / quota\r\nTo protect the Picturepark API you are limited in the number of API requests per interval.\r\n\r\nIf that limit is exceeded you will get an exception with HTTP status code 429 (Too many requests).\r\n\r\nIf you need more calls per interval, contact Picturepark sales (sales@picturepark.com).\r\n\r\n## Permissions / Scopes\r\n\r\nIn order to be able to perform requests, you need the permissions.\r\n\r\n### User permissions\r\nThe authenticated user needs the permission in Picturepark to perform the request.\r\n\r\n### Scopes\r\n\r\nAdditionally, your application needs to define which scopes are required.\r\n\r\nFor all the scopes requested by your application, the users need to confirm these in the consent screen.\r\n\r\n[List of scopes](#section/Authentication)\r\n\r\n\r\n# Search\r\n\r\nMost entities have a search endpoint to search and filter.\r\n\r\nFor list items and contents, the search and filters depend on the available schemas and search configurations.\r\n\r\n\r\n## Simple search\r\n\r\n([Elastic search query string reference](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html))\r\n\r\nWith the simple search a multi field query is executed.\r\n\r\nallow_leading_wildcard is disabled.\r\n\r\nThe applicable query string syntax can be found [here](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html).\r\n\r\nThe query is executed against all indexed schema fields with a boolean flag *SimpleSearch* set to `true`.\r\n\r\nRunning the query against multiple fields enables to put the searched fields under thight control and also to expand each query term to an OR clause (field1=\"value\" or field2=\"value\").\r\n\r\n\r\n## Filtering\r\n\r\nAvailable filters:\r\n\r\n- AndFilter\r\n- OrFilter\r\n- NotFilter\r\n- DateRangeFilter\r\n- NumericRangeFilter\r\n- ExistsFilter\r\n- PrefixFilter\r\n- TermFilter\r\n- TermsFilter\r\n- GeoBoundingBoxFilter\r\n- GeoDistanceFilter\r\n- NestedFilter (Obsolete)\r\n- ChildFilter\r\n- ParentFilter",
+    "description": "# Getting started\r\nWelcome to the reference for the Picturepark Content Platform REST API.\r\n\r\n## Client registration\r\nTo use the Picturepark API, you need first to create a new API Client. You can create clients via an Identity Server (IDS) interface directly from Content platform.\r\n\r\nGo to `Settings` / `API Clients` (https://{{customerHost}}/Settings/APIClients) and create a new API Client based on your desired authentication flow.\r\n\r\n### Client attributes\r\n\r\n| Attribute      | Description |\r\n| -------------- | ----------- |\r\n| **Allowed scopes** | Scopes which the client is allowed to access. Use can find scope name beside the respective API endpoints. |\r\n| **Redirect Uris**  | Which URI's is IDS allowed to send the authentication information to. |\r\n| **Urls (masks) safe to load** | IDS has to load some information from the CP customer instance like customer terms of service or logos. This lists the paths which are safe to load by IDS. Usually similar to Redirect Uris. |\r\n| **Allowed CORS origins** | Adds to the list of origins allowed to access the IDS authentication API. |\r\n\r\n## Authentication\r\nThe authentication process is based on [OpenID Connect](http://openid.net/connect/).\r\n\r\nThe following OAuth 2.0 flows are supported:\r\n\r\n| Flow         | Description |\r\n| ------------ | ----------- |\r\n| **Hybrid**   | Interactive user authentication with server based validation |\r\n| **Password** | Server to server, create access tokens that do not expire |\r\n| **Authorization code** with PKCE | Interactive user authentication recommended for SPA's |\r\n| **Implicit** | Not recommended anymore, used mostly in legacy SPA's |\r\n\r\n### Examples\r\nExample authentication implementations can be found here:\r\n- Angular: https://github.com/Picturepark/Picturepark.SDK.TypeScript/tree/master/src/picturepark-sdk-v1-angular\r\n- HTML5 Fetch: https://github.com/Picturepark/Picturepark.SDK.TypeScript/tree/master/src/picturepark-sdk-v1-fetch\r\n- .NET: https://github.com/Picturepark/Picturepark.SDK.DotNet/tree/master/samples/Picturepark.Microsite.Example\r\n\r\n### Access token lifetime\r\nFor **Implicit**, **Hybrid** and **Authentication code** flows, the access tokens are short-lived (1 hour). You need to refresh your access token after it's expired.\r\nYou can silently refresh the token using a hidden Iframe in the browser: [Angular example](https://damienbod.com/2017/06/02/implementing-a-silent-token-renew-in-angular-for-the-openid-connect-implicit-flow/)\r\n\r\nFor the **Password** flow, you can create an access token that never expires.\r\nGo to `Settings` / `API Clients` in Content platform (https://{{customerHost}}/Settings/APIClients) and click on Tokens beside the respective client (or create a new client).\r\n\r\n**Attention: Adding long lived access tokens to a web application (adding token to Javascripts source code) will expose that token to anyone. Use with care and a very limited set of scopes.**\r\n\r\n### Urls\r\n\r\n- Live: -\r\n- Preview: https://identity.preview-picturepark.com\r\n- Stage: https://identity.stage-picturepark.com\r\n\r\n## SDKs\r\nTo simplify building applications, SDKs for the following languages/frameworks are provided and released as open source under MIT license:\r\n\r\n- .NET\r\n  - [https://github.com/Picturepark/Picturepark.SDK.DotNet](https://github.com/Picturepark/Picturepark.SDK.DotNet)\r\n  - Supports .NET 4.5+ / .NET Standard 1.3+\r\n- JavaScript / TypeScript\r\n  - [https://github.com/Picturepark/Picturepark.SDK.TypeScript](https://github.com/Picturepark/Picturepark.SDK.TypeScript)\r\n  - Supports [Angular](https://angular.io/) 4.3+ / [HTML 5 Fetch](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)\r\n\r\nClients for other languages can be created using [Autorest](https://github.com/Azure/autorest) using the following OpenAPI provided here:\r\n- [Picturepark.SDK.Playground](https://github.com/Picturepark/Picturepark.SDK.Playground)\r\n\r\n### Compatibility matrix\r\n\r\n| SDK version | Picturepark CP version |\r\n| ----------- | ---------------------- |\r\n| `1.0.x`     | `10.0.x`               |\r\n| `1.1.x`     | `10.1.x`               |\r\n| `1.2.x`     | `10.2.x`               |\r\n| `1.3.x`     | `10.3.x`               |\r\n\r\n# Concepts\r\n\r\n## HTTP Requests\r\nTo perform API calls, you can specify the following HTTP headers:\r\n\r\n| HTTP Header               | Value                | Required |\r\n| ------------------------- | -------------------- | -------- |\r\n| Accept                    | application/json     | Yes      |\r\n| Authorization             | Bearer {accessToken} | Yes (except for publicAccess/* endpoints) |\r\n| Picturepark-CustomerAlias | Customer identifier  | Yes      |\r\n| Picturepark-Language      | en / de              | No       |\r\n\r\n## Error responses\r\nErrors in Picturepark API are returned using HTTP status codes, as well as a JSON error response object.\r\n\r\nHTTP status 4xx\r\n- Client errors (e.g. wrong data provided by client)\r\n\r\nHTTP status 5xx\r\n- Server errors (something went wrong on the server)\r\n\r\n## Request limits / quota\r\nTo protect the Picturepark API you are limited in the number of API requests per interval.\r\n\r\nIf that limit is exceeded you will get an exception with HTTP status code 429 (Too many requests).\r\n\r\nIf you need more calls per interval, contact Picturepark sales (sales@picturepark.com).\r\n\r\n## Permissions / Scopes\r\n\r\nIn order to be able to perform requests, you need the permissions.\r\n\r\n### User permissions\r\nThe authenticated user needs the permission in Picturepark to perform the request.\r\n\r\n### Scopes\r\n\r\nAdditionally, your application needs to define which scopes are required.\r\n\r\nFor all the scopes requested by your application, the users need to confirm these in the consent screen.\r\n\r\n[List of scopes](#section/Authentication)\r\n\r\n\r\n# Search\r\n\r\nMost entities have a search endpoint to search and filter.\r\n\r\nFor list items and contents, the search and filters depend on the available schemas and search configurations.\r\n\r\n\r\n## Simple search\r\n\r\n([Elastic search query string reference](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html))\r\n\r\nWith the simple search a multi field query is executed.\r\n\r\nallow_leading_wildcard is disabled.\r\n\r\nThe applicable query string syntax can be found [here](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html).\r\n\r\nThe query is executed against all indexed schema fields with a boolean flag *SimpleSearch* set to `true`.\r\n\r\nRunning the query against multiple fields enables to put the searched fields under thight control and also to expand each query term to an OR clause (field1=\"value\" or field2=\"value\").\r\n\r\n\r\n## Filtering\r\n\r\nAvailable filters:\r\n\r\n- AndFilter\r\n- OrFilter\r\n- NotFilter\r\n- DateRangeFilter\r\n- NumericRangeFilter\r\n- ExistsFilter\r\n- PrefixFilter\r\n- TermFilter\r\n- TermsFilter\r\n- GeoBoundingBoxFilter\r\n- GeoDistanceFilter\r\n- NestedFilter (Obsolete)\r\n- ChildFilter\r\n- ParentFilter",
     "contact": {
       "name": "Picturepark sales",
       "url": "http://www.picturepark.com",
@@ -11,7 +11,7 @@
     },
     "version": "1.0",
     "x-logo": {
-      "url": "/docs/rest/picturepark-logo.png",
+      "url": "https://picturepark.github.io/Picturepark.SDK.DotNet/api/picturepark-logo.png",
       "backgroundColor": "#FFFFFF"
     }
   },
@@ -372,6 +372,16 @@
               "nullable": true
             },
             "x-position": 2
+          },
+          {
+            "name": "waitForContinuationCompletion",
+            "in": "query",
+            "description": "Waits for the completion of the continuation business process (if existing, recursively). Default to true.",
+            "schema": {
+              "type": "boolean",
+              "default": true
+            },
+            "x-position": 3
           }
         ],
         "responses": {
@@ -529,6 +539,511 @@
           {
             "Bearer": [
               "businessprocess_read"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/businessProcesses/{processId}": {
+      "get": {
+        "tags": [
+          "BusinessProcess"
+        ],
+        "summary": "Get business process",
+        "operationId": "BusinessProcess_Get",
+        "parameters": [
+          {
+            "name": "processId",
+            "in": "path",
+            "required": true,
+            "description": "The business process id.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "BusinessProcess",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BusinessProcess"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "businessprocess_read"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/businessProcesses": {
+      "post": {
+        "tags": [
+          "BusinessProcess"
+        ],
+        "summary": "Create business process",
+        "operationId": "BusinessProcess_Create",
+        "requestBody": {
+          "x-name": "request",
+          "description": "The business process create request.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BusinessProcessCreateRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "BusinessProcess",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BusinessProcess"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "businessprocess_write"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/businessProcesses/{processId}/state": {
+      "put": {
+        "tags": [
+          "BusinessProcess"
+        ],
+        "summary": "Change business process state",
+        "description": "Only available for business processes created through BusinessProcessCreateRequest).",
+        "operationId": "BusinessProcess_ChangeState",
+        "parameters": [
+          {
+            "name": "processId",
+            "in": "path",
+            "required": true,
+            "description": "The business process id.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1
+          }
+        ],
+        "requestBody": {
+          "x-name": "request",
+          "description": "The business process state change request.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BusinessProcessStateChangeRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 2
+        },
+        "responses": {
+          "200": {
+            "description": "BusinessProcess",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BusinessProcess"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Business process is not driven externally, no state changes are allowed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BusinessProcessNotExternalException"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "businessprocess_write"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/businessProcesses/{processId}/notification": {
+      "put": {
+        "tags": [
+          "BusinessProcess"
+        ],
+        "summary": "Update business process notification",
+        "description": "Only available for business processes created through BusinessProcessCreateRequest).",
+        "operationId": "BusinessProcess_UpdateNotification",
+        "parameters": [
+          {
+            "name": "processId",
+            "in": "path",
+            "required": true,
+            "description": "The business process id.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1
+          }
+        ],
+        "requestBody": {
+          "x-name": "request",
+          "description": "The business process notification update request.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BusinessProcessNotificationUpdateRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 2
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          },
+          "403": {
+            "description": "Business process is not driven externally, no notification changes are allowed.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BusinessProcessNotExternalException"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "businessprocess_write"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/businessProcesses/{processId}/cancel": {
+      "post": {
+        "tags": [
+          "BusinessProcess"
+        ],
+        "summary": "Cancel business process",
+        "description": "Only available if the business process indicates supports for cancellation in SupportsCancellation.",
+        "operationId": "BusinessProcess_Cancel",
+        "parameters": [
+          {
+            "name": "processId",
+            "in": "path",
+            "required": true,
+            "description": "The business process id.",
+            "schema": {
+              "type": "string"
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          },
+          "400": {
+            "description": "Business process does not support cancellation.\nor\nValidation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            },
+            "x-expectedSchemas": [
+              {
+                "description": "Business process does not support cancellation.",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/BusinessProcessCancellationNotSupportedException"
+                    }
+                  ]
+                }
+              },
+              {
+                "description": "Validation exception",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkValidationException"
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "businessprocess_write"
             ]
           }
         ]
@@ -1307,6 +1822,16 @@
               "nullable": true
             },
             "x-position": 3
+          },
+          {
+            "name": "waitSearchDocCreation",
+            "in": "query",
+            "description": "Wait for the creation of the search document and the rendered display values.\n            By default the endpoint waits for the search document creation. Passing false, the endpoint will return when the main entity has been created and the creation of the search document has been enqueued but not yet performed.",
+            "schema": {
+              "type": "boolean",
+              "default": true
+            },
+            "x-position": 4
           }
         ],
         "responses": {
@@ -1573,6 +2098,16 @@
               "nullable": true
             },
             "x-position": 4
+          },
+          {
+            "name": "waitSearchDocCreation",
+            "in": "query",
+            "description": "Wait for the creation of the search document and the rendered display values.\n            By default the endpoint waits for the search document creation. Passing false, the endpoint will return when the main entity has been created and the creation of the search document has been enqueued but not yet performed.",
+            "schema": {
+              "type": "boolean",
+              "default": true
+            },
+            "x-position": 5
           }
         ],
         "requestBody": {
@@ -2825,6 +3360,16 @@
               "nullable": true
             },
             "x-position": 3
+          },
+          {
+            "name": "waitSearchDocCreation",
+            "in": "query",
+            "description": "Wait for the creation of the search document and the rendered display values.\n            By default the endpoint waits for the search document creation. Passing false, the endpoint will return when the main entity has been created and the creation of the search document has been enqueued but not yet performed.",
+            "schema": {
+              "type": "boolean",
+              "default": true
+            },
+            "x-position": 4
           }
         ],
         "responses": {
@@ -3161,6 +3706,16 @@
               "nullable": true
             },
             "x-position": 5
+          },
+          {
+            "name": "waitSearchDocCreation",
+            "in": "query",
+            "description": "Wait for the creation of the search document and the rendered display values.\n            By default the endpoint waits for the search document creation. Passing false, the endpoint will return when the main entity has been created and the creation of the search document has been enqueued but not yet performed.",
+            "schema": {
+              "type": "boolean",
+              "default": true
+            },
+            "x-position": 6
           }
         ],
         "requestBody": {
@@ -3313,6 +3868,16 @@
               "nullable": true
             },
             "x-position": 4
+          },
+          {
+            "name": "waitSearchDocCreation",
+            "in": "query",
+            "description": "Wait for the creation of the search document and the rendered display values.\n            By default the endpoint waits for the search document creation. Passing false, the endpoint will return when the main entity has been created and the creation of the search document has been enqueued but not yet performed.",
+            "schema": {
+              "type": "boolean",
+              "default": true
+            },
+            "x-position": 5
           }
         ],
         "requestBody": {
@@ -3657,6 +4222,16 @@
               "nullable": true
             },
             "x-position": 3
+          },
+          {
+            "name": "waitSearchDocCreation",
+            "in": "query",
+            "description": "Wait for the creation of the search document and the rendered display values.\n            By default the endpoint waits for the search document creation. Passing false, the endpoint will return when the main entity has been created and the creation of the search document has been enqueued but not yet performed.",
+            "schema": {
+              "type": "boolean",
+              "default": true
+            },
+            "x-position": 4
           }
         ],
         "requestBody": {
@@ -5222,6 +5797,162 @@
         ]
       }
     },
+    "/v1/displayvalues/rerender": {
+      "post": {
+        "tags": [
+          "DisplayValue"
+        ],
+        "summary": "Re-render the display values",
+        "description": "The re-rendering only work on those display values that are out of date or not created yet. The process is therefore based on the information returned by the \"status\" endpoint: if the status is red, the display values of the data\ncorresponding to the ContentOrLayerSchemaIds and ListSchemaIds are recalculated.\nThe operation is executed asynchronously and it is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.",
+        "operationId": "DisplayValue_Rerender",
+        "responses": {
+          "200": {
+            "description": "VersionInfo",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BusinessProcess"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "schema_write"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/displayvalues/status": {
+      "get": {
+        "tags": [
+          "DisplayValue"
+        ],
+        "summary": "Get status",
+        "description": "Get the status of the display values compared to the schema model.",
+        "operationId": "DisplayValue_GetStatus",
+        "responses": {
+          "200": {
+            "description": "VersionInfo",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DisplayValueStatus"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "schema_read"
+            ]
+          }
+        ]
+      }
+    },
     "/v1/history/search": {
       "post": {
         "tags": [
@@ -5907,6 +6638,82 @@
         ]
       }
     },
+    "/v1/info/status": {
+      "get": {
+        "tags": [
+          "Info"
+        ],
+        "summary": "Get status",
+        "description": "Get the status of the system data compared to the schema model.",
+        "operationId": "Info_GetStatus",
+        "responses": {
+          "200": {
+            "description": "VersionInfo",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SystemStatus"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": []
+          }
+        ]
+      }
+    },
     "/v1/jsonSchemas/{schemaId}": {
       "get": {
         "tags": [
@@ -6174,6 +6981,16 @@
               "nullable": true
             },
             "x-position": 5
+          },
+          {
+            "name": "waitSearchDocCreation",
+            "in": "query",
+            "description": "Wait for the creation of the search document and the rendered display values.\n            By default the endpoint waits for the search document creation. Passing false, the endpoint will return when the main entity has been created and the creation of the search document has been enqueued but not yet performed.",
+            "schema": {
+              "type": "boolean",
+              "default": true
+            },
+            "x-position": 6
           }
         ],
         "requestBody": {
@@ -6297,6 +7114,16 @@
               "nullable": true
             },
             "x-position": 3
+          },
+          {
+            "name": "waitSearchDocCreation",
+            "in": "query",
+            "description": "Wait for the creation of the search document and the rendered display values.\n            By default the endpoint waits for the search document creation. Passing false, the endpoint will return when the main entity has been created and the creation of the search document has been enqueued but not yet performed.",
+            "schema": {
+              "type": "boolean",
+              "default": true
+            },
+            "x-position": 4
           }
         ],
         "responses": {
@@ -6563,6 +7390,16 @@
               "nullable": true
             },
             "x-position": 4
+          },
+          {
+            "name": "waitSearchDocCreation",
+            "in": "query",
+            "description": "Wait for the creation of the search document and the rendered display values.\n            By default the endpoint waits for the search document creation. Passing false, the endpoint will return when the main entity has been created and the creation of the search document has been enqueued but not yet performed.",
+            "schema": {
+              "type": "boolean",
+              "default": true
+            },
+            "x-position": 5
           }
         ],
         "requestBody": {
@@ -7255,6 +8092,16 @@
               "nullable": true
             },
             "x-position": 3
+          },
+          {
+            "name": "waitSearchDocCreation",
+            "in": "query",
+            "description": "Wait for the creation of the search document and the rendered display values.\n            By default the endpoint waits for the search document creation. Passing false, the endpoint will return when the main entity has been created and the creation of the search document has been enqueued but not yet performed.",
+            "schema": {
+              "type": "boolean",
+              "default": true
+            },
+            "x-position": 4
           }
         ],
         "responses": {
@@ -8371,7 +9218,7 @@
           "OutputFormat"
         ],
         "summary": "Update output format",
-        "description": "Updates the output format specified by the ID and based on supplied request.",
+        "description": "Updates the output format specified by the ID and based on supplied request.\nThe operation is executed asynchronous and is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.",
         "operationId": "OutputFormat_Update",
         "parameters": [
           {
@@ -8400,11 +9247,11 @@
         },
         "responses": {
           "200": {
-            "description": "Updated output format",
+            "description": "Business process",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/OutputFormatDetail"
+                  "$ref": "#/components/schemas/BusinessProcess"
                 }
               }
             }
@@ -8472,7 +9319,7 @@
           "OutputFormat"
         ],
         "summary": "Delete output format",
-        "description": "Deletes the output format specified by the ID.",
+        "description": "Deletes the output format specified by the ID.\nThe operation is executed asynchronous and is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.",
         "operationId": "OutputFormat_Delete",
         "parameters": [
           {
@@ -8488,7 +9335,14 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "Business process",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BusinessProcess"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -8555,7 +9409,7 @@
           "OutputFormat"
         ],
         "summary": "Create output format",
-        "description": "Creates new output format based on supplied request.",
+        "description": "Creates new output format based on supplied request.\nThe operation is executed asynchronous and is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.",
         "operationId": "OutputFormat_Create",
         "requestBody": {
           "x-name": "request",
@@ -8572,11 +9426,11 @@
         },
         "responses": {
           "200": {
-            "description": "Output format",
+            "description": "Business process",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/OutputFormatDetail"
+                  "$ref": "#/components/schemas/BusinessProcess"
                 }
               }
             }
@@ -8741,7 +9595,7 @@
           "OutputFormat"
         ],
         "summary": "Create multiple output formats",
-        "description": "Creates new output formats based on supplied requests.",
+        "description": "Creates new output formats based on supplied requests.\nThe operation is executed asynchronous and is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.",
         "operationId": "OutputFormat_CreateMany",
         "requestBody": {
           "x-name": "request",
@@ -8758,11 +9612,11 @@
         },
         "responses": {
           "200": {
-            "description": "Bulk response with information about created output formats",
+            "description": "Business process",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BulkResponse"
+                  "$ref": "#/components/schemas/BusinessProcess"
                 }
               }
             }
@@ -8830,7 +9684,7 @@
           "OutputFormat"
         ],
         "summary": "Update multiple output formats",
-        "description": "Updates the output formats specified by the IDs and based on supplied request.",
+        "description": "Updates the output formats specified by the IDs and based on supplied request.\nThe operation is executed asynchronous and is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.",
         "operationId": "OutputFormat_UpdateMany",
         "requestBody": {
           "x-name": "request",
@@ -8847,11 +9701,11 @@
         },
         "responses": {
           "200": {
-            "description": "Bulk response with information about updated output formats",
+            "description": "Business process",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BulkResponse"
+                  "$ref": "#/components/schemas/BusinessProcess"
                 }
               }
             }
@@ -8921,7 +9775,7 @@
           "OutputFormat"
         ],
         "summary": "Delete multiple output formats",
-        "description": "Deletes the output formats specified by the IDs.",
+        "description": "Deletes the output formats specified by the IDs.\nThe operation is executed asynchronous and is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.",
         "operationId": "OutputFormat_DeleteMany",
         "requestBody": {
           "x-name": "request",
@@ -8938,11 +9792,206 @@
         },
         "responses": {
           "200": {
-            "description": "Bulk response with information about success or failure",
+            "description": "Business process",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BulkResponse"
+                  "$ref": "#/components/schemas/BusinessProcess"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "outputformat_write"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/outputFormats/{id}/downloadFileNamePatterns": {
+      "put": {
+        "tags": [
+          "OutputFormat"
+        ],
+        "summary": "Sets the download file name patterns for an output format",
+        "description": "This is allowed for both static and dynamic formats.",
+        "operationId": "OutputFormat_SetDownloadFileNamePatterns",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "ID of the output format.",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 1
+          }
+        ],
+        "requestBody": {
+          "x-name": "patterns",
+          "description": "Dictionary containing patterns per metadata language.\nIf this is set, at least the customer's default language is required.\nSet any other language to an empty string and a fallback to the default language will occur.\nSet parameter to null to clear any already set patterns.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TranslatedStringDictionary"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 2
+        },
+        "responses": {
+          "200": {
+            "description": "Business process",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BusinessProcess"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "outputformat_write"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/outputFormats/many/downloadFileNamePatterns": {
+      "put": {
+        "tags": [
+          "OutputFormat"
+        ],
+        "summary": "Sets the download file name patterns for multiple output formats",
+        "description": "This is allowed for both static and dynamic formats.",
+        "operationId": "OutputFormat_SetDownloadFileNamePatternsMany",
+        "requestBody": {
+          "x-name": "request",
+          "description": "The request containing the patterns for each output format.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OutputFormatDownloadFileNamePatternUpdateManyRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "Business process",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BusinessProcess"
                 }
               }
             }
@@ -13383,6 +14432,7 @@
           "Transfer"
         ],
         "summary": "Delete transfer",
+        "description": "A transfer cannot be deleted if it's currently in the UploadInProgress or ImportInProgress state.",
         "operationId": "Transfer_Delete",
         "parameters": [
           {
@@ -13555,7 +14605,7 @@
           "Transfer"
         ],
         "summary": "Cancel transfer",
-        "description": "Requests cancellation of transfer.",
+        "description": "Requests cancellation of transfer.\nNote: Transfers can only be cancelled when state is UploadInProgress.",
         "operationId": "Transfer_CancelTransfer",
         "parameters": [
           {
@@ -13638,6 +14688,7 @@
           "Transfer"
         ],
         "summary": "Create transfer",
+        "description": "For transfers of type FileUpload or FileUploadAutoImport, after creating the transfer, wait for the returned BusinessProcess to hit the \"Created\" state before attempting to upload files.",
         "operationId": "Transfer_Create",
         "requestBody": {
           "x-name": "request",
@@ -13758,7 +14809,7 @@
             "name": "fileTransferId",
             "in": "path",
             "required": true,
-            "description": "ID of filetransfer.",
+            "description": "ID of file transfer.",
             "schema": {
               "type": "string"
             },
@@ -13844,7 +14895,7 @@
         "operationId": "Transfer_SearchFiles",
         "requestBody": {
           "x-name": "request",
-          "description": "The filetransfer search request",
+          "description": "The file transfer search request",
           "content": {
             "application/json": {
               "schema": {
@@ -14012,7 +15063,7 @@
         "operationId": "Transfer_DeleteFiles",
         "requestBody": {
           "x-name": "request",
-          "description": "The filetransfer delete request",
+          "description": "The file transfer delete request",
           "content": {
             "application/json": {
               "schema": {
@@ -14092,7 +15143,7 @@
           "Transfer"
         ],
         "summary": "Import transfer",
-        "description": "This triggers the import of a Transfer, creating Contents. All items in the Transfer will be enqueued for rendering.\n\nWait for completion on the Business process ID that is returned to wait for import completion.",
+        "description": "This triggers the import of a Transfer, creating Contents. All items in the Transfer will be enqueued for rendering.\n\nWait for completion on the Business process ID that is returned to wait for import completion.\nNote: Before attempting to import a Transfer, the transfer has to be in the TransferReady state.",
         "operationId": "Transfer_ImportTransfer",
         "parameters": [
           {
@@ -14195,7 +15246,7 @@
           "Transfer"
         ],
         "summary": "Import transfer partially",
-        "description": "This triggers the import of selected items in a Transfer, creating contents. All imported items will be enqueued for rendering.\n\nWait for TransferReady, ImportCompleted states on the Business process ID that is returned to wait for partial import completion.\n\nIf no files remain to be imported in the Transfer it will be marked as ImportCompleted.",
+        "description": "This triggers the import of selected items in a Transfer, creating contents. All imported items will be enqueued for rendering.\n\nWait for completion on the Business process ID that is returned to wait for import completion.\n\nTransfer will transition to state ImportDone if no files of the transfer remain for import.\nTransfer will transition to state TransferReady if any files of the transfer remain for import.",
         "operationId": "Transfer_PartialImport",
         "parameters": [
           {
@@ -14298,7 +15349,7 @@
           "Transfer"
         ],
         "summary": "Upload file",
-        "description": "Uploads the specified chunk data.\n\nUse `Content-Type: multipart/form-data` for uploading chunk data.",
+        "description": "Uploads the specified chunk data.\n\nUse `Content-Type: multipart/form-data` for uploading chunk data.\nThe chunk data should be uploaded using the name `formFile`.\n            \nTo upload a file, split it into chunks of reasonable size (accepted range is 1MB-100MB). The last chunk may be smaller than 1MB.",
         "operationId": "Transfer_UploadFile",
         "parameters": [
           {
@@ -14314,17 +15365,6 @@
             "nullable": true
           },
           {
-            "name": "relativePath",
-            "in": "query",
-            "required": true,
-            "description": "Relative path of the uploading file.",
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 1
-          },
-          {
             "name": "chunkNumber",
             "in": "query",
             "required": true,
@@ -14333,7 +15373,7 @@
               "type": "integer",
               "format": "int64"
             },
-            "x-position": 2
+            "x-position": 1
           },
           {
             "name": "currentChunkSize",
@@ -14344,7 +15384,7 @@
               "type": "integer",
               "format": "int64"
             },
-            "x-position": 3
+            "x-position": 2
           },
           {
             "name": "totalSize",
@@ -14355,7 +15395,7 @@
               "type": "integer",
               "format": "int64"
             },
-            "x-position": 4
+            "x-position": 3
           },
           {
             "name": "totalChunks",
@@ -14366,7 +15406,7 @@
               "type": "integer",
               "format": "int64"
             },
-            "x-position": 5
+            "x-position": 4
           },
           {
             "name": "transferId",
@@ -14376,7 +15416,7 @@
             "schema": {
               "type": "string"
             },
-            "x-position": 6
+            "x-position": 5
           },
           {
             "name": "requestId",
@@ -14386,7 +15426,7 @@
             "schema": {
               "type": "string"
             },
-            "x-position": 7
+            "x-position": 6
           }
         ],
         "responses": {
@@ -16719,6 +17759,11 @@
             "format": "date-time",
             "nullable": true
           },
+          "continuationBusinessProcessId": {
+            "type": "string",
+            "description": "Id of the business process that will be automatically started after the completion of the current one, if any.",
+            "nullable": true
+          },
           "kind": {
             "type": "string"
           }
@@ -16829,6 +17874,7 @@
                 "UserRoleAssignedException": "#/components/schemas/UserRoleAssignedException",
                 "UserNotFoundException": "#/components/schemas/UserNotFoundException",
                 "UserInactiveOrDeletedException": "#/components/schemas/UserInactiveOrDeletedException",
+                "InactiveOrDeletedUserRefusedAccessException": "#/components/schemas/InactiveOrDeletedUserRefusedAccessException",
                 "TermsOfServiceNotNewestException": "#/components/schemas/TermsOfServiceNotNewestException",
                 "IllegalAuthorizationStateTransitionException": "#/components/schemas/IllegalAuthorizationStateTransitionException",
                 "TermsOfServiceConsentRequiredException": "#/components/schemas/TermsOfServiceConsentRequiredException",
@@ -16857,6 +17903,7 @@
                 "OutputNotFoundException": "#/components/schemas/OutputNotFoundException",
                 "UnableToCreateOrModifyStaticOutputFormatException": "#/components/schemas/UnableToCreateOrModifyStaticOutputFormatException",
                 "NotSupportedFileMappingException": "#/components/schemas/NotSupportedFileMappingException",
+                "NotSupportedFileMappingForDynamicFormatException": "#/components/schemas/NotSupportedFileMappingForDynamicFormatException",
                 "NotSupportedFileExtensionException": "#/components/schemas/NotSupportedFileExtensionException",
                 "DuplicateOutputFormatIdException": "#/components/schemas/DuplicateOutputFormatIdException",
                 "OutputFormatResizingNotSupportedException": "#/components/schemas/OutputFormatResizingNotSupportedException",
@@ -16879,6 +17926,7 @@
                 "OwnerTokenInUseException": "#/components/schemas/OwnerTokenInUseException",
                 "InvalidValueFormatException": "#/components/schemas/InvalidValueFormatException",
                 "ItemIdDuplicatedException": "#/components/schemas/ItemIdDuplicatedException",
+                "RequestSizeLimitExceededException": "#/components/schemas/RequestSizeLimitExceededException",
                 "CustomerViolationException": "#/components/schemas/CustomerViolationException",
                 "CustomerAliasNotFoundException": "#/components/schemas/CustomerAliasNotFoundException",
                 "CustomerAliasInUseException": "#/components/schemas/CustomerAliasInUseException",
@@ -16888,6 +17936,7 @@
                 "CustomerNotFoundException": "#/components/schemas/CustomerNotFoundException",
                 "CustomerNotActiveException": "#/components/schemas/CustomerNotActiveException",
                 "CustomerBoostValuesInvalidException": "#/components/schemas/CustomerBoostValuesInvalidException",
+                "SnapshotRetentionTimeTooShortException": "#/components/schemas/SnapshotRetentionTimeTooShortException",
                 "ConfigurationIndexNotFoundException": "#/components/schemas/ConfigurationIndexNotFoundException",
                 "DuplicateSearchIndexDocException": "#/components/schemas/DuplicateSearchIndexDocException",
                 "SearchIndexDocNotFoundException": "#/components/schemas/SearchIndexDocNotFoundException",
@@ -16935,6 +17984,7 @@
                 "WrongChunkSizeException": "#/components/schemas/WrongChunkSizeException",
                 "ChunkSizeOutOfRangeException": "#/components/schemas/ChunkSizeOutOfRangeException",
                 "MaximumTransferSizeException": "#/components/schemas/MaximumTransferSizeException",
+                "FileIdDuplicatedException": "#/components/schemas/FileIdDuplicatedException",
                 "MissingDependenciesException": "#/components/schemas/MissingDependenciesException",
                 "RelationSelfReferencingException": "#/components/schemas/RelationSelfReferencingException",
                 "InvalidChangeCommandFieldTypeInvalidException": "#/components/schemas/InvalidChangeCommandFieldTypeInvalidException",
@@ -16951,6 +18001,8 @@
                 "ReferenceUpdateException": "#/components/schemas/ReferenceUpdateException",
                 "ReferencesUpdateException": "#/components/schemas/ReferencesUpdateException",
                 "DuplicatedItemAssignedException": "#/components/schemas/DuplicatedItemAssignedException",
+                "InvalidDataTypeException": "#/components/schemas/InvalidDataTypeException",
+                "LayerAssignmentInvalidException": "#/components/schemas/LayerAssignmentInvalidException",
                 "SchemaFieldOverwriteTypeMismatchException": "#/components/schemas/SchemaFieldOverwriteTypeMismatchException",
                 "SchemaFieldOverwriteIdException": "#/components/schemas/SchemaFieldOverwriteIdException",
                 "SchemaFieldIdDuplicatedException": "#/components/schemas/SchemaFieldIdDuplicatedException",
@@ -16991,6 +18043,7 @@
                 "SchemaIdException": "#/components/schemas/SchemaIdException",
                 "SchemaInUseException": "#/components/schemas/SchemaInUseException",
                 "SchemaNotFoundException": "#/components/schemas/SchemaNotFoundException",
+                "SchemaCountLimitReachedException": "#/components/schemas/SchemaCountLimitReachedException",
                 "SystemSchemaInvalidModificationException": "#/components/schemas/SystemSchemaInvalidModificationException",
                 "SchemaFieldRelationSchemaSystemSchemaException": "#/components/schemas/SchemaFieldRelationSchemaSystemSchemaException",
                 "SchemaFieldRelationSchemaTypeUnsupportedException": "#/components/schemas/SchemaFieldRelationSchemaTypeUnsupportedException",
@@ -17001,6 +18054,7 @@
                 "SchemaFieldAnalyzerInvalidException": "#/components/schemas/SchemaFieldAnalyzerInvalidException",
                 "SchemaFieldRelationMultipleTypesException": "#/components/schemas/SchemaFieldRelationMultipleTypesException",
                 "SchemaFieldNotRequirableException": "#/components/schemas/SchemaFieldNotRequirableException",
+                "DisplayPatternTypeNotSupportedException": "#/components/schemas/DisplayPatternTypeNotSupportedException",
                 "DeleteContentsWithReferencesException": "#/components/schemas/DeleteContentsWithReferencesException",
                 "ContentMetadataUpdateManyException": "#/components/schemas/ContentMetadataUpdateManyException",
                 "ContentNotFoundException": "#/components/schemas/ContentNotFoundException",
@@ -17012,6 +18066,9 @@
                 "BusinessProcessNotFoundException": "#/components/schemas/BusinessProcessNotFoundException",
                 "BusinessProcessDefinitionNotFoundException": "#/components/schemas/BusinessProcessDefinitionNotFoundException",
                 "BusinessProcessDefinitionCreateException": "#/components/schemas/BusinessProcessDefinitionCreateException",
+                "BusinessProcessNotExternalException": "#/components/schemas/BusinessProcessNotExternalException",
+                "BusinessProcessCancellationNotSupportedException": "#/components/schemas/BusinessProcessCancellationNotSupportedException",
+                "BusinessProcessContinuationException": "#/components/schemas/BusinessProcessContinuationException",
                 "SchemaFieldImportMismatchException": "#/components/schemas/SchemaFieldImportMismatchException",
                 "SchemaFieldImportRelatedSchemaMismatchException": "#/components/schemas/SchemaFieldImportRelatedSchemaMismatchException",
                 "SchemaFieldImportTypeMismatchException": "#/components/schemas/SchemaFieldImportTypeMismatchException",
@@ -17052,7 +18109,30 @@
                 "BusinessRuleRefIdsMissingException": "#/components/schemas/BusinessRuleRefIdsMissingException",
                 "BusinessRulePathInvalidException": "#/components/schemas/BusinessRulePathInvalidException",
                 "BusinessRuleFieldIdInvalidException": "#/components/schemas/BusinessRuleFieldIdInvalidException",
-                "BusinessRuleContentPermissionSetIdsMissingException": "#/components/schemas/BusinessRuleContentPermissionSetIdsMissingException"
+                "BusinessRuleContentPermissionSetIdsMissingException": "#/components/schemas/BusinessRuleContentPermissionSetIdsMissingException",
+                "BusinessRuleFieldPathInvalidException": "#/components/schemas/BusinessRuleFieldPathInvalidException",
+                "BusinessRulePolygonInvalidException": "#/components/schemas/BusinessRulePolygonInvalidException",
+                "BusinessRuleArrayIndexInvalidException": "#/components/schemas/BusinessRuleArrayIndexInvalidException",
+                "BusinessRuleDictionaryKeyInvalidException": "#/components/schemas/BusinessRuleDictionaryKeyInvalidException",
+                "BusinessRuleProjectionTransformationsMissingException": "#/components/schemas/BusinessRuleProjectionTransformationsMissingException",
+                "BusinessRuleInvalidVariableNameException": "#/components/schemas/BusinessRuleInvalidVariableNameException",
+                "BusinessRuleTransformationGroupTransformationsMissingException": "#/components/schemas/BusinessRuleTransformationGroupTransformationsMissingException",
+                "BusinessRuleTransformationGroupInputsMissingException": "#/components/schemas/BusinessRuleTransformationGroupInputsMissingException",
+                "BusinessRuleNamedCacheNameInvalidException": "#/components/schemas/BusinessRuleNamedCacheNameInvalidException",
+                "BusinessRuleNGramTransformationSizeInvalidException": "#/components/schemas/BusinessRuleNGramTransformationSizeInvalidException",
+                "BusinessRuleNGramTransformationMinWordLengthInvalidException": "#/components/schemas/BusinessRuleNGramTransformationMinWordLengthInvalidException",
+                "BusinessRuleNGramTransformationMaxWordLengthInvalidException": "#/components/schemas/BusinessRuleNGramTransformationMaxWordLengthInvalidException",
+                "NamedCacheConfigurationException": "#/components/schemas/NamedCacheConfigurationException",
+                "NamedCacheNameMissingException": "#/components/schemas/NamedCacheNameMissingException",
+                "NamedCacheNameDuplicationException": "#/components/schemas/NamedCacheNameDuplicationException",
+                "ListItemNamedCacheSchemaIdInvalidException": "#/components/schemas/ListItemNamedCacheSchemaIdInvalidException",
+                "ListItemNamedCacheKeyFieldsInvalidException": "#/components/schemas/ListItemNamedCacheKeyFieldsInvalidException",
+                "SchemaTagboxFilterLookupNamedCacheSchemaIdInvalidException": "#/components/schemas/SchemaTagboxFilterLookupNamedCacheSchemaIdInvalidException",
+                "NoTagsFoundException": "#/components/schemas/NoTagsFoundException",
+                "OutputNotAvailableException": "#/components/schemas/OutputNotAvailableException",
+                "DisplayValueRerenderingInProgressException": "#/components/schemas/DisplayValueRerenderingInProgressException",
+                "OutputFormatNotFoundException": "#/components/schemas/OutputFormatNotFoundException",
+                "OutputFormatSourceNotDefinedException": "#/components/schemas/OutputFormatSourceNotDefinedException"
               }
             },
             "additionalProperties": false,
@@ -17260,6 +18340,17 @@
         ]
       },
       "UserInactiveOrDeletedException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "InactiveOrDeletedUserRefusedAccessException": {
         "allOf": [
           {
             "$ref": "#/components/schemas/PictureparkForbiddenException"
@@ -17706,6 +18797,17 @@
           }
         ]
       },
+      "NotSupportedFileMappingForDynamicFormatException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/NotSupportedFileMappingException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
       "NotSupportedFileExtensionException": {
         "allOf": [
           {
@@ -18066,6 +19168,17 @@
           }
         ]
       },
+      "RequestSizeLimitExceededException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
       "CustomerViolationException": {
         "allOf": [
           {
@@ -18222,6 +19335,31 @@
           {
             "type": "object",
             "additionalProperties": false
+          }
+        ]
+      },
+      "SnapshotRetentionTimeTooShortException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "snapshotRetentionTime",
+              "minimumRetentionTime"
+            ],
+            "properties": {
+              "snapshotRetentionTime": {
+                "type": "string",
+                "format": "time-span"
+              },
+              "minimumRetentionTime": {
+                "type": "string",
+                "format": "time-span"
+              }
+            }
           }
         ]
       },
@@ -18622,128 +19760,10 @@
               "debugInformation": {
                 "type": "string",
                 "nullable": true
-              },
-              "serverError": {
-                "nullable": true,
-                "oneOf": [
-                  {
-                    "$ref": "#/components/schemas/StorageServerError"
-                  }
-                ]
               }
             }
           }
         ]
-      },
-      "StorageServerError": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "status"
-        ],
-        "properties": {
-          "error": {
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/StorageError"
-              }
-            ]
-          },
-          "status": {
-            "type": "integer",
-            "format": "int32"
-          }
-        }
-      },
-      "StorageError": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "index": {
-            "type": "string",
-            "nullable": true
-          },
-          "reason": {
-            "type": "string",
-            "nullable": true
-          },
-          "resourceId": {
-            "type": "string",
-            "nullable": true
-          },
-          "resourceType": {
-            "type": "string",
-            "nullable": true
-          },
-          "type": {
-            "type": "string",
-            "nullable": true
-          },
-          "rootCause": {
-            "type": "array",
-            "nullable": true,
-            "items": {
-              "$ref": "#/components/schemas/StorageRootCause"
-            }
-          },
-          "causedBy": {
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/StorageCausedBy"
-              }
-            ]
-          }
-        }
-      },
-      "StorageRootCause": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "index": {
-            "type": "string",
-            "nullable": true
-          },
-          "reason": {
-            "type": "string",
-            "nullable": true
-          },
-          "resourceId": {
-            "type": "string",
-            "nullable": true
-          },
-          "resourceType": {
-            "type": "string",
-            "nullable": true
-          },
-          "type": {
-            "type": "string",
-            "nullable": true
-          }
-        }
-      },
-      "StorageCausedBy": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "reason": {
-            "type": "string",
-            "nullable": true
-          },
-          "type": {
-            "type": "string",
-            "nullable": true
-          },
-          "innerCausedBy": {
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/StorageCausedBy"
-              }
-            ]
-          }
-        }
       },
       "PermissionOwnershipTransferException": {
         "allOf": [
@@ -18790,7 +19810,8 @@
           "ManageLiveStream",
           "ManageDocumentHistory",
           "ManageAllShares",
-          "ManageOutputFormats"
+          "ManageOutputFormats",
+          "ManageBusinessProcesses"
         ],
         "enum": [
           "ManageContent",
@@ -18811,7 +19832,8 @@
           "ManageLiveStream",
           "ManageDocumentHistory",
           "ManageAllShares",
-          "ManageOutputFormats"
+          "ManageOutputFormats",
+          "ManageBusinessProcesses"
         ]
       },
       "PermissionSetNotFoundException": {
@@ -19368,6 +20390,23 @@
           }
         ]
       },
+      "FileIdDuplicatedException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "fileId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
       "MissingDependenciesException": {
         "allOf": [
           {
@@ -19758,6 +20797,42 @@
               },
               "itemPath": {
                 "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "InvalidDataTypeException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "value": {
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "LayerAssignmentInvalidException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "layerId": {
+                "type": "string",
+                "nullable": true
+              },
+              "value": {
                 "nullable": true
               }
             }
@@ -20680,6 +21755,17 @@
           }
         ]
       },
+      "SchemaCountLimitReachedException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkBusinessException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
       "SystemSchemaInvalidModificationException": {
         "allOf": [
           {
@@ -20802,13 +21888,15 @@
           "Thumbnail",
           "List",
           "Detail",
-          "Name"
+          "Name",
+          "DownloadFileName"
         ],
         "enum": [
           "Thumbnail",
           "List",
           "Detail",
-          "Name"
+          "Name",
+          "DownloadFileName"
         ]
       },
       "SchemaViewForAllException": {
@@ -20935,6 +22023,27 @@
                 "nullable": true
               },
               "schemaId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "DisplayPatternTypeNotSupportedException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "schemaId": {
+                "type": "string",
+                "nullable": true
+              },
+              "displayPatternId": {
                 "type": "string",
                 "nullable": true
               }
@@ -21084,7 +22193,7 @@
           "Database",
           "Cad",
           "Model3d",
-          "ContentItem"
+          "Virtual"
         ],
         "enum": [
           "Unknown",
@@ -21107,7 +22216,7 @@
           "Database",
           "Cad",
           "Model3d",
-          "ContentItem"
+          "Virtual"
         ]
       },
       "ContentBackupFailedException": {
@@ -21246,6 +22355,69 @@
                 "items": {
                   "type": "string"
                 }
+              }
+            }
+          }
+        ]
+      },
+      "BusinessProcessNotExternalException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkForbiddenException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "businessProcessId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "BusinessProcessCancellationNotSupportedException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "businessProcessId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "BusinessProcessContinuationException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkBusinessException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "continuationBusinessProcessId": {
+                "type": "string",
+                "nullable": true
+              },
+              "precedingBusinessProcessId": {
+                "type": "string",
+                "nullable": true
+              },
+              "precedingBusinessProcessException": {
+                "nullable": true,
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/PictureparkException"
+                  }
+                ]
               }
             }
           }
@@ -22000,6 +23172,365 @@
           {
             "type": "object",
             "additionalProperties": false
+          }
+        ]
+      },
+      "BusinessRuleFieldPathInvalidException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "fieldPath": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "BusinessRulePolygonInvalidException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "BusinessRuleArrayIndexInvalidException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "index": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "BusinessRuleDictionaryKeyInvalidException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "key": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "BusinessRuleProjectionTransformationsMissingException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "BusinessRuleInvalidVariableNameException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "name": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "BusinessRuleTransformationGroupTransformationsMissingException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "BusinessRuleTransformationGroupInputsMissingException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "BusinessRuleNamedCacheNameInvalidException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "cacheName": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "BusinessRuleNGramTransformationSizeInvalidException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "size",
+              "minSize",
+              "maxSize"
+            ],
+            "properties": {
+              "size": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "minSize": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "maxSize": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          }
+        ]
+      },
+      "BusinessRuleNGramTransformationMinWordLengthInvalidException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "minWordLength"
+            ],
+            "properties": {
+              "minWordLength": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          }
+        ]
+      },
+      "BusinessRuleNGramTransformationMaxWordLengthInvalidException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "maxWordLength"
+            ],
+            "properties": {
+              "maxWordLength": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          }
+        ]
+      },
+      "NamedCacheConfigurationException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "innerExceptions": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "NamedCacheNameMissingException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "NamedCacheNameDuplicationException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "name": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "ListItemNamedCacheSchemaIdInvalidException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "schemaId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "ListItemNamedCacheKeyFieldsInvalidException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "SchemaTagboxFilterLookupNamedCacheSchemaIdInvalidException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "schemaId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "NoTagsFoundException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkBusinessException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "OutputNotAvailableException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkBusinessException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "DisplayValueRerenderingInProgressException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "OutputFormatNotFoundException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkNotFoundException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "outputFormatId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "OutputFormatSourceNotDefinedException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "outputFormatId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
           }
         ]
       },
@@ -23095,6 +24626,141 @@
           }
         }
       },
+      "BusinessProcessCreateRequest": {
+        "type": "object",
+        "description": "Create request to create a BusinessProcess.",
+        "additionalProperties": false,
+        "required": [
+          "supportsCancellation",
+          "initialState"
+        ],
+        "properties": {
+          "supportsCancellation": {
+            "type": "boolean",
+            "description": "Indicates if the system starting the business process supports cancellation."
+          },
+          "notification": {
+            "description": "Notification data to send to the user when creating the business process.\nSet to null to not create a notification.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/BusinessProcessNotificationUpdate"
+              }
+            ]
+          },
+          "initialState": {
+            "type": "string",
+            "description": "Initial state of the business process.",
+            "minLength": 1
+          }
+        }
+      },
+      "BusinessProcessNotificationUpdate": {
+        "type": "object",
+        "description": "Notification update for a business process.",
+        "additionalProperties": false,
+        "required": [
+          "title",
+          "message",
+          "eventType"
+        ],
+        "properties": {
+          "title": {
+            "description": "The title the message that is shown to the user should have.",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/TranslatedStringDictionary"
+              }
+            ]
+          },
+          "message": {
+            "description": "The message shown to the user.",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/TranslatedStringDictionary"
+              }
+            ]
+          },
+          "navigationLink": {
+            "type": "string",
+            "description": "An optional navigation link that allows the user to jump to a page giving more information\nabout the process.",
+            "nullable": true
+          },
+          "eventType": {
+            "description": "The event type of the notification.",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/NotificationEventType"
+              }
+            ]
+          }
+        }
+      },
+      "NotificationEventType": {
+        "type": "string",
+        "description": "",
+        "x-enumNames": [
+          "Pending",
+          "InProgress",
+          "Success",
+          "Error",
+          "Warning",
+          "Information"
+        ],
+        "enum": [
+          "Pending",
+          "InProgress",
+          "Success",
+          "Error",
+          "Warning",
+          "Information"
+        ]
+      },
+      "BusinessProcessStateChangeRequest": {
+        "type": "object",
+        "description": "Transitions the business process to a new state and/or life cycle.",
+        "additionalProperties": false,
+        "required": [
+          "state",
+          "lifeCycle"
+        ],
+        "properties": {
+          "state": {
+            "type": "string",
+            "description": "The new state of the business process.",
+            "minLength": 1
+          },
+          "lifeCycle": {
+            "description": "The new life cycle of the business process.",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/BusinessProcessLifeCycle"
+              }
+            ]
+          },
+          "notification": {
+            "description": "An optional notification update to be posted together with the transition.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/BusinessProcessNotificationUpdate"
+              }
+            ]
+          }
+        }
+      },
+      "BusinessProcessNotificationUpdateRequest": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BusinessProcessNotificationUpdate"
+          },
+          {
+            "type": "object",
+            "description": "Updates the notification of a business process without changing the state or the life cycle.",
+            "additionalProperties": false
+          }
+        ]
+      },
       "BusinessRuleConfiguration": {
         "type": "object",
         "description": "Represents the business rule configuration.",
@@ -23113,6 +24779,14 @@
             "nullable": true,
             "items": {
               "$ref": "#/components/schemas/BusinessRule"
+            }
+          },
+          "caches": {
+            "type": "array",
+            "description": "Named caches.",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/NamedCacheConfigurationBase"
             }
           }
         }
@@ -23230,6 +24904,14 @@
                   }
                 ]
               },
+              "transformationGroups": {
+                "type": "array",
+                "description": "Optional transformations to apply.",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/BusinessRuleTransformationGroup"
+                }
+              },
               "actions": {
                 "type": "array",
                 "description": "The actions that are performed when this rule triggers.",
@@ -23258,7 +24940,15 @@
             "MatchRegexCondition": "#/components/schemas/MatchRegexCondition",
             "TagboxItemAssignedCondition": "#/components/schemas/TagboxItemAssignedCondition",
             "TagboxItemUnassignedCondition": "#/components/schemas/TagboxItemUnassignedCondition",
-            "ContentSchemaCondition": "#/components/schemas/ContentSchemaCondition"
+            "ContentSchemaCondition": "#/components/schemas/ContentSchemaCondition",
+            "NumberCompareCondition": "#/components/schemas/NumberCompareCondition",
+            "ContentRelationItemAssignedCondition": "#/components/schemas/ContentRelationItemAssignedCondition",
+            "ContentRelationItemUnassignedCondition": "#/components/schemas/ContentRelationItemUnassignedCondition",
+            "GeoPointWithinPolygonCondition": "#/components/schemas/GeoPointWithinPolygonCondition",
+            "ContentPermissionSetsChangedCondition": "#/components/schemas/ContentPermissionSetsChangedCondition",
+            "ContentRelationItemsChangedCondition": "#/components/schemas/ContentRelationItemsChangedCondition",
+            "LayersChangedCondition": "#/components/schemas/LayersChangedCondition",
+            "TagboxItemsChangedCondition": "#/components/schemas/TagboxItemsChangedCondition"
           }
         },
         "description": "Conditions on which a business rule is executed",
@@ -23438,6 +25128,11 @@
                 "type": "string",
                 "description": "Regular expression",
                 "nullable": true
+              },
+              "storeIn": {
+                "type": "string",
+                "description": "Optional variable name to store the matched regex groups in",
+                "nullable": true
               }
             }
           }
@@ -23510,6 +25205,402 @@
           }
         ]
       },
+      "NumberCompareCondition": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BusinessRuleCondition"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "mode",
+              "value"
+            ],
+            "properties": {
+              "fieldPath": {
+                "type": "string",
+                "description": "JSON path to the field.",
+                "nullable": true
+              },
+              "mode": {
+                "description": "Mode to use for comparison.",
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/BusinessRuleNumberCompareConditionMode"
+                  }
+                ]
+              },
+              "value": {
+                "type": "number",
+                "description": "Value to compare to.",
+                "format": "double"
+              }
+            }
+          }
+        ]
+      },
+      "BusinessRuleNumberCompareConditionMode": {
+        "type": "string",
+        "description": "",
+        "x-enumNames": [
+          "LessThan",
+          "LessThanEqual",
+          "Equal",
+          "GreaterThanEqual",
+          "GreaterThan"
+        ],
+        "enum": [
+          "LessThan",
+          "LessThanEqual",
+          "Equal",
+          "GreaterThanEqual",
+          "GreaterThan"
+        ]
+      },
+      "ContentRelationItemAssignedCondition": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BusinessRuleCondition"
+          },
+          {
+            "type": "object",
+            "description": "Matches when a relationship entry in a relationship field matching the field path string (JSON path) is newly assigned.",
+            "additionalProperties": false,
+            "properties": {
+              "contentId": {
+                "type": "string",
+                "description": "Content id that should be matched against.",
+                "nullable": true
+              },
+              "fieldPath": {
+                "type": "string",
+                "description": "JSON path to the field",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "ContentRelationItemUnassignedCondition": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BusinessRuleCondition"
+          },
+          {
+            "type": "object",
+            "description": "Matches when a relationship entry in a relationship field matching the field path string (JSON path) is removed.",
+            "additionalProperties": false,
+            "properties": {
+              "contentId": {
+                "type": "string",
+                "description": "Content id that should be matched against.",
+                "nullable": true
+              },
+              "fieldPath": {
+                "type": "string",
+                "description": "JSON path to the field",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "GeoPointWithinPolygonCondition": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BusinessRuleCondition"
+          },
+          {
+            "type": "object",
+            "description": "Matches when the geo point from the field specified by the field path is inside the specified polygon.",
+            "additionalProperties": false,
+            "properties": {
+              "fieldPath": {
+                "type": "string",
+                "description": "JSON path to the field",
+                "nullable": true
+              },
+              "polygon": {
+                "type": "array",
+                "description": "List of points that form the polygon for the geo fence.\nMust include at least 3 points.",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/LatLon"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "LatLon": {
+        "type": "object",
+        "description": "Stores a coordinate",
+        "additionalProperties": false,
+        "required": [
+          "lat",
+          "lon"
+        ],
+        "properties": {
+          "lat": {
+            "type": "number",
+            "description": "Latitude",
+            "format": "double"
+          },
+          "lon": {
+            "type": "number",
+            "description": "Longitude",
+            "format": "double"
+          }
+        }
+      },
+      "ContentPermissionSetsChangedCondition": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BusinessRuleCondition"
+          },
+          {
+            "type": "object",
+            "description": "Matches whenever the assigned content permission sets changed.",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "ContentRelationItemsChangedCondition": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BusinessRuleCondition"
+          },
+          {
+            "type": "object",
+            "description": "Matches whenever the assigned content(s) in a relationship field changed.",
+            "additionalProperties": false,
+            "properties": {
+              "fieldPath": {
+                "type": "string",
+                "description": "JSON path to the field",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "LayersChangedCondition": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BusinessRuleCondition"
+          },
+          {
+            "type": "object",
+            "description": "Matches whenever the assigned layers of a content changed.",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "TagboxItemsChangedCondition": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BusinessRuleCondition"
+          },
+          {
+            "type": "object",
+            "description": "Matches whenever the assigned item(s) in a tagbox changed.",
+            "additionalProperties": false,
+            "properties": {
+              "fieldPath": {
+                "type": "string",
+                "description": "JSON path to the field",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "BusinessRuleTransformationGroup": {
+        "type": "object",
+        "description": "Business rule transformation group:\nA group of transformations to run for the specified inputs",
+        "additionalProperties": false,
+        "properties": {
+          "inputs": {
+            "type": "array",
+            "description": "The inputs of the transformation group.",
+            "nullable": true,
+            "items": {
+              "type": "string"
+            }
+          },
+          "transformations": {
+            "type": "array",
+            "description": "A list of transformations to apply.",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/BusinessRuleTransformation"
+            }
+          },
+          "storeIn": {
+            "type": "string",
+            "description": "Variable name where the final result should be stored in.",
+            "nullable": true
+          }
+        }
+      },
+      "BusinessRuleTransformation": {
+        "type": "object",
+        "discriminator": {
+          "propertyName": "kind",
+          "mapping": {
+            "TakeDictionaryValueTransformation": "#/components/schemas/TakeDictionaryValueTransformation",
+            "TakeArrayValueTransformation": "#/components/schemas/TakeArrayValueTransformation",
+            "JoinByTransformation": "#/components/schemas/JoinByTransformation",
+            "LookupCacheTransformation": "#/components/schemas/LookupCacheTransformation",
+            "NGramTransformation": "#/components/schemas/NGramTransformation",
+            "ProjectionTransformation": "#/components/schemas/ProjectionTransformation"
+          }
+        },
+        "description": "Business rule transformation",
+        "x-abstract": true,
+        "additionalProperties": false,
+        "required": [
+          "kind"
+        ],
+        "properties": {
+          "kind": {
+            "type": "string"
+          }
+        }
+      },
+      "TakeDictionaryValueTransformation": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BusinessRuleTransformation"
+          },
+          {
+            "type": "object",
+            "description": "Takes an item from a dictionary by its key.",
+            "additionalProperties": false,
+            "properties": {
+              "key": {
+                "type": "string",
+                "description": "Key of the item.",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "TakeArrayValueTransformation": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BusinessRuleTransformation"
+          },
+          {
+            "type": "object",
+            "description": "Takes an item from an array by its index.",
+            "additionalProperties": false,
+            "properties": {
+              "index": {
+                "type": "string",
+                "description": "Index of the item.",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "JoinByTransformation": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BusinessRuleTransformation"
+          },
+          {
+            "type": "object",
+            "description": "Joins the input by a configurable separator",
+            "additionalProperties": false,
+            "properties": {
+              "separator": {
+                "type": "string",
+                "description": "Separator to use.",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "LookupCacheTransformation": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BusinessRuleTransformation"
+          },
+          {
+            "type": "object",
+            "description": "Uses a named cache to lookup a value.",
+            "additionalProperties": false,
+            "properties": {
+              "namedCache": {
+                "type": "string",
+                "description": "Name of the cache to use.",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "NGramTransformation": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BusinessRuleTransformation"
+          },
+          {
+            "type": "object",
+            "description": "Produces N-grams based on splitting a text on whitespace characters.\nRemoves punctuation as well.",
+            "additionalProperties": false,
+            "required": [
+              "size",
+              "minWordLength"
+            ],
+            "properties": {
+              "size": {
+                "type": "integer",
+                "description": "Maximum size of n-grams to produce.\nSettings this to 3 will produce unigrams, bigrams, trigrams.",
+                "format": "int32"
+              },
+              "minWordLength": {
+                "type": "integer",
+                "description": "Minimum length of a word to be considered.",
+                "format": "int32"
+              },
+              "maxWordLength": {
+                "type": "integer",
+                "description": "Maximum length of a word to be considered.",
+                "format": "int32",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "ProjectionTransformation": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BusinessRuleTransformation"
+          },
+          {
+            "type": "object",
+            "description": "Transforms a list by applying a set of transformation for each item in the list.",
+            "additionalProperties": false,
+            "properties": {
+              "transformations": {
+                "type": "array",
+                "description": "Transformations to apply.",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/BusinessRuleTransformation"
+                }
+              }
+            }
+          }
+        ]
+      },
       "BusinessRuleAction": {
         "type": "object",
         "discriminator": {
@@ -23522,7 +25613,8 @@
             "UnassignTagboxItemsAction": "#/components/schemas/UnassignTagboxItemsAction",
             "AssignContentPermissionSetsAction": "#/components/schemas/AssignContentPermissionSetsAction",
             "UnassignContentPermissionSetsAction": "#/components/schemas/UnassignContentPermissionSetsAction",
-            "ProduceMessageAction": "#/components/schemas/ProduceMessageAction"
+            "ProduceMessageAction": "#/components/schemas/ProduceMessageAction",
+            "AssignTagboxItemsInLayerAction": "#/components/schemas/AssignTagboxItemsInLayerAction"
           }
         },
         "description": "Action to be performed by a business rule",
@@ -23553,21 +25645,13 @@
                 "nullable": true
               },
               "defaultValues": {
-                "description": "A dictionary containing default values (used for example to populate required fields).",
-                "nullable": true,
-                "oneOf": [
-                  {
-                    "$ref": "#/components/schemas/DataDictionary"
-                  }
-                ]
+                "type": "object",
+                "description": "An object containing default values (used for example to populate required fields).",
+                "nullable": true
               }
             }
           }
         ]
-      },
-      "DataDictionary": {
-        "type": "object",
-        "additionalProperties": {}
       },
       "UnassignLayerAction": {
         "allOf": [
@@ -23647,12 +25731,8 @@
                 "nullable": true
               },
               "refIds": {
-                "type": "array",
                 "description": "List of refIds of the items that should be assigned.",
-                "nullable": true,
-                "items": {
-                  "type": "string"
-                }
+                "nullable": true
               },
               "replace": {
                 "type": "boolean",
@@ -23683,12 +25763,8 @@
                 "nullable": true
               },
               "refIds": {
-                "type": "array",
                 "description": "List of refIds of the items that should be removed.",
-                "nullable": true,
-                "items": {
-                  "type": "string"
-                }
+                "nullable": true
               }
             }
           }
@@ -23708,12 +25784,8 @@
             ],
             "properties": {
               "permissionSetIds": {
-                "type": "array",
                 "description": "IDs of the permission sets to assign.",
-                "nullable": true,
-                "items": {
-                  "type": "string"
-                }
+                "nullable": true
               },
               "replace": {
                 "type": "boolean",
@@ -23734,12 +25806,8 @@
             "additionalProperties": false,
             "properties": {
               "permissionSetIds": {
-                "type": "array",
                 "description": "IDs of the permission sets to unassign.",
-                "nullable": true,
-                "items": {
-                  "type": "string"
-                }
+                "nullable": true
               }
             }
           }
@@ -23753,6 +25821,36 @@
           {
             "type": "object",
             "additionalProperties": false
+          }
+        ]
+      },
+      "AssignTagboxItemsInLayerAction": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BusinessRuleAction"
+          },
+          {
+            "type": "object",
+            "description": "Assigns a set of list item ids to all multi tag boxes in a layer where the\nfilter defined on the tagbox does allow assignment of the ID.",
+            "additionalProperties": false,
+            "required": [
+              "replace"
+            ],
+            "properties": {
+              "namedCache": {
+                "type": "string",
+                "description": "Named cache to use for lookup, should be of type SchemaTagboxFilterLookupNamedCacheConfiguration",
+                "nullable": true
+              },
+              "refIds": {
+                "description": "List of refIds of the items that should be assigned.",
+                "nullable": true
+              },
+              "replace": {
+                "type": "boolean",
+                "description": "Indicates where the assignment should be additive to the already assigned tags\nor if existing tags should be replaced."
+              }
+            }
           }
         ]
       },
@@ -23775,6 +25873,99 @@
           }
         ]
       },
+      "NamedCacheConfigurationBase": {
+        "type": "object",
+        "discriminator": {
+          "propertyName": "kind",
+          "mapping": {
+            "ListItemNamedCacheConfiguration": "#/components/schemas/ListItemNamedCacheConfiguration",
+            "SchemaTagboxFilterLookupNamedCacheConfiguration": "#/components/schemas/SchemaTagboxFilterLookupNamedCacheConfiguration"
+          }
+        },
+        "description": "Named cache configuration",
+        "x-abstract": true,
+        "additionalProperties": false,
+        "required": [
+          "caseSensitive",
+          "kind"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Name of named cache.",
+            "nullable": true
+          },
+          "caseSensitive": {
+            "type": "boolean",
+            "description": "Indicates if the lookup should be cache sensitive."
+          },
+          "kind": {
+            "type": "string"
+          }
+        }
+      },
+      "ListItemNamedCacheConfiguration": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/NamedCacheConfigurationBase"
+          },
+          {
+            "type": "object",
+            "description": "List item named cache",
+            "additionalProperties": false,
+            "required": [
+              "includeAllSchemaChildren"
+            ],
+            "properties": {
+              "schemaId": {
+                "type": "string",
+                "description": "ID of the schema to cache (should have SchemaType = List)",
+                "nullable": true
+              },
+              "keyFields": {
+                "type": "array",
+                "description": "List of IDs of fields to use as a composite key",
+                "nullable": true,
+                "items": {
+                  "type": "string"
+                }
+              },
+              "filter": {
+                "description": "An optional filter to narrow down the cached list items",
+                "nullable": true,
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/FilterBase"
+                  }
+                ]
+              },
+              "includeAllSchemaChildren": {
+                "type": "boolean",
+                "description": "Include child schemas when caching list items"
+              }
+            }
+          }
+        ]
+      },
+      "SchemaTagboxFilterLookupNamedCacheConfiguration": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/NamedCacheConfigurationBase"
+          },
+          {
+            "type": "object",
+            "description": "Creates a cache for all multi tag boxes in a schema\nLookup key is then in the format [ fieldId, refId ], returns the refId if matched by the filter",
+            "additionalProperties": false,
+            "properties": {
+              "schemaId": {
+                "type": "string",
+                "description": "The layer id.",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
       "BusinessRuleConfigurationUpdateRequest": {
         "type": "object",
         "description": "Update request for changing business rule configuration",
@@ -23789,10 +25980,18 @@
           },
           "rules": {
             "type": "array",
-            "description": "Rules",
+            "description": "Rules.",
             "nullable": true,
             "items": {
               "$ref": "#/components/schemas/BusinessRule"
+            }
+          },
+          "caches": {
+            "type": "array",
+            "description": "Named caches.",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/NamedCacheConfigurationBase"
             }
           }
         }
@@ -24508,89 +26707,93 @@
       },
       "ContentDetail": {
         "type": "object",
-        "description": "A content detail.",
+        "description": "Content detail",
         "additionalProperties": false,
         "required": [
-          "content",
           "contentSchemaId",
-          "contentType",
           "id",
-          "layerSchemaIds",
           "ownerTokenId",
+          "contentType",
           "lifeCycle"
         ],
         "properties": {
+          "contentSchemaId": {
+            "type": "string",
+            "description": "The ID of the content schema. The SchemaType of the specified schema must be Content.\nThe schema specifies the structure of the Content dictionary.",
+            "minLength": 1
+          },
+          "layerSchemaIds": {
+            "type": "array",
+            "description": "An optional list of IDs of the schemas that form the layers of the content.\nThe SchemaType of the specified schemas must be Layer.",
+            "nullable": true,
+            "items": {
+              "type": "string"
+            }
+          },
+          "brokenReferenceIds": {
+            "type": "array",
+            "description": "All the IDs of the referenced list items (tagboxes) that do not exist in the system.",
+            "nullable": true,
+            "items": {
+              "type": "string"
+            }
+          },
+          "brokenIndirectReferenceIds": {
+            "type": "array",
+            "description": "All the IDs of the indirectly referenced list items (tagboxes) that do not exist in the system.\nThey are referenced list items that reference at least a list item that do not exist in the system.",
+            "nullable": true,
+            "items": {
+              "type": "string"
+            }
+          },
+          "brokenRelationTargetIds": {
+            "type": "array",
+            "description": "All the IDs of the contents or list items target of a relation that do not exist in the system.",
+            "nullable": true,
+            "items": {
+              "type": "string"
+            }
+          },
+          "content": {
+            "type": "object",
+            "description": "The content data of the content. It's an object of dynamic metadata whose structure is defined in the Content schema identified.\nby the ContentSchemaId property.",
+            "nullable": true
+          },
+          "metadata": {
+            "type": "object",
+            "description": "The metadata belonging to the layers of the content. It's a dictionary of dynamic metadata whose structure is defined in the Layer schemas identified\nby the LayerSchemaIds property.",
+            "nullable": true,
+            "additionalProperties": {}
+          },
+          "id": {
+            "type": "string",
+            "description": "The content ID.",
+            "minLength": 1
+          },
+          "contentPermissionSetIds": {
+            "type": "array",
+            "description": "An optional list of content permission set IDs which control content permissions. These permissions control content accessibility for the users that do not own the content.",
+            "nullable": true,
+            "items": {
+              "type": "string"
+            }
+          },
+          "outputs": {
+            "type": "array",
+            "description": "The Outputs generated from the content. They identifies the rendered files generated by the system.\nThey are available only for file base contents, and they depends on the output formats configured in the system.",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/Output"
+            }
+          },
           "audit": {
-            "description": "Audit data with information regarding document creation and modification.",
+            "description": "Audit information.",
             "nullable": true,
             "oneOf": [
               {
                 "$ref": "#/components/schemas/UserAuditDetail"
               }
             ]
-          },
-          "content": {
-            "description": "The content data"
-          },
-          "contentPermissionSetIds": {
-            "type": "array",
-            "description": "An optional id list of content permission sets. Controls content accessibility outside of content ownership.",
-            "nullable": true,
-            "items": {
-              "type": "string"
-            }
-          },
-          "contentSchemaId": {
-            "type": "string",
-            "description": "The id of the content schema",
-            "minLength": 1
-          },
-          "contentType": {
-            "description": "The type of content",
-            "minLength": 1,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/ContentType"
-              }
-            ]
-          },
-          "displayValues": {
-            "description": "Contains language specific display values, rendered according to the content schema's\n             display pattern configuration.",
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/DisplayValueDictionary"
-              }
-            ]
-          },
-          "id": {
-            "type": "string",
-            "description": "The content id.",
-            "minLength": 1
-          },
-          "layerSchemaIds": {
-            "type": "array",
-            "description": "An optional list of layer schemas ids",
-            "items": {
-              "type": "string"
-            }
-          },
-          "metadata": {
-            "description": "The metadata dictionary",
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/DataDictionary"
-              }
-            ]
-          },
-          "outputs": {
-            "type": "array",
-            "description": "A list of rendering outputs for underlying digital file.",
-            "nullable": true,
-            "items": {
-              "$ref": "#/components/schemas/Output"
-            }
           },
           "ownerTokenId": {
             "type": "string",
@@ -24606,9 +26809,25 @@
               }
             ]
           },
+          "contentType": {
+            "description": "Content type.",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ContentType"
+              }
+            ]
+          },
+          "displayValues": {
+            "description": "Contains language specific display values. They are calculated values based on the template stored in the Content schema DisplayPatterns property.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/DisplayValueDictionary"
+              }
+            ]
+          },
           "lifeCycle": {
-            "description": "The lifecycle of the content.",
-            "minLength": 1,
+            "description": "The actual lifecycle value of the content. Becomes Inactive when the content is deleted.",
             "oneOf": [
               {
                 "$ref": "#/components/schemas/LifeCycle"
@@ -24625,80 +26844,6 @@
           }
         }
       },
-      "UserAuditDetail": {
-        "type": "object",
-        "description": "Audit information",
-        "additionalProperties": false,
-        "required": [
-          "creationDate",
-          "modificationDate"
-        ],
-        "properties": {
-          "creationDate": {
-            "type": "string",
-            "description": "The date on which the document was created.",
-            "format": "date-time"
-          },
-          "modificationDate": {
-            "type": "string",
-            "description": "The last date on which the document was modified.",
-            "format": "date-time"
-          },
-          "createdByUser": {
-            "description": "ID of the user who created the document.",
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/User"
-              }
-            ]
-          },
-          "modifiedByUser": {
-            "description": "ID of the last user who modified the document.",
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/User"
-              }
-            ]
-          }
-        }
-      },
-      "User": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "emailAddress"
-        ],
-        "properties": {
-          "id": {
-            "type": "string",
-            "description": "User's Picturepark ID.",
-            "nullable": true
-          },
-          "firstName": {
-            "type": "string",
-            "description": "User's first name.",
-            "nullable": true
-          },
-          "lastName": {
-            "type": "string",
-            "description": "User's last name.",
-            "nullable": true
-          },
-          "emailAddress": {
-            "type": "string",
-            "description": "Email address of the user (doubles as username).",
-            "minLength": 1
-          }
-        }
-      },
-      "DisplayValueDictionary": {
-        "type": "object",
-        "additionalProperties": {
-          "type": "string"
-        }
-      },
       "Output": {
         "type": "object",
         "discriminator": {
@@ -24710,19 +26855,19 @@
         "description": "Output",
         "additionalProperties": false,
         "required": [
-          "id",
           "outputFormatId",
           "contentId",
           "renderingState",
           "attemptsLeft",
           "fileVersion",
+          "dynamicRendering",
           "kind"
         ],
         "properties": {
           "id": {
             "type": "string",
-            "description": "The ID of the output.",
-            "minLength": 1
+            "description": "The ID of the output. Can be null for dynamic outputs which are not rendered yet.",
+            "nullable": true
           },
           "outputFormatId": {
             "type": "string",
@@ -24767,6 +26912,10 @@
             "type": "integer",
             "description": "Version counter incremented every time this output is rendered (or in case of Original when new original is uploaded).",
             "format": "int32"
+          },
+          "dynamicRendering": {
+            "type": "boolean",
+            "description": "Whether this Output belongs to a dynamic OutputFormat"
           },
           "kind": {
             "type": "string"
@@ -24817,11 +26966,6 @@
             "description": "The extension of the file.",
             "nullable": true
           },
-          "fileName": {
-            "type": "string",
-            "description": "The name of the file.",
-            "nullable": true
-          },
           "filePath": {
             "type": "string",
             "description": "The path where the file is stored.",
@@ -24836,6 +26980,11 @@
           "sha1Hash": {
             "type": "string",
             "description": "The SHA-1 hash of the file.",
+            "nullable": true
+          },
+          "originalFileName": {
+            "type": "string",
+            "description": "The original filename of the file.",
             "nullable": true
           },
           "kind": {
@@ -25024,6 +27173,85 @@
           }
         ]
       },
+      "UserAuditDetail": {
+        "type": "object",
+        "description": "Audit information",
+        "additionalProperties": false,
+        "required": [
+          "creationDate",
+          "modificationDate"
+        ],
+        "properties": {
+          "creationDate": {
+            "type": "string",
+            "description": "The date on which the document was created.",
+            "format": "date-time"
+          },
+          "modificationDate": {
+            "type": "string",
+            "description": "The last date on which the document was modified.",
+            "format": "date-time"
+          },
+          "createdByUser": {
+            "description": "ID of the user who created the document.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/User"
+              }
+            ]
+          },
+          "modifiedByUser": {
+            "description": "ID of the last user who modified the document.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/User"
+              }
+            ]
+          }
+        }
+      },
+      "User": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "emailAddress",
+          "isDeleted"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "User's Picturepark ID.",
+            "nullable": true
+          },
+          "firstName": {
+            "type": "string",
+            "description": "User's first name.",
+            "nullable": true
+          },
+          "lastName": {
+            "type": "string",
+            "description": "User's last name.",
+            "nullable": true
+          },
+          "emailAddress": {
+            "type": "string",
+            "description": "Email address of the user (doubles as username).",
+            "minLength": 1
+          },
+          "isDeleted": {
+            "type": "boolean",
+            "description": "Marks a user that was deleted from the system."
+          }
+        }
+      },
+      "DisplayValueDictionary": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "string"
+        }
+      },
       "LifeCycle": {
         "type": "string",
         "description": "Lifecycle",
@@ -25207,7 +27435,7 @@
             "minLength": 1
           },
           "contentType": {
-            "description": "The content type of this content. All except ContentItem are binary files.",
+            "description": "The content type of this content. All except Virtual are binary files.",
             "minLength": 1,
             "oneOf": [
               {
@@ -26031,38 +28259,39 @@
       },
       "ContentCreateRequest": {
         "type": "object",
-        "description": "A request structure for creating a content document.",
+        "description": "Request to create a content",
         "additionalProperties": false,
+        "required": [
+          "contentSchemaId"
+        ],
         "properties": {
           "contentSchemaId": {
             "type": "string",
-            "description": "The id of a schema with schema type content.",
-            "nullable": true
+            "description": "The ID of the content schema. The SchemaType of the specified schema must be Content.\nThe schema specifies the structure of the Content dictionary.",
+            "minLength": 1
           },
           "layerSchemaIds": {
             "type": "array",
-            "description": "An optional id list of schemas with schema type layer.",
+            "description": "An optional list of IDs of the schemas that form the layers of the content.\nThe SchemaType of the specified schemas must be Layer.",
             "nullable": true,
             "items": {
               "type": "string"
             }
           },
           "content": {
-            "description": "The content data of the content document.",
+            "type": "object",
+            "description": "The content data of the content. It's an object of dynamic metadata whose structure is defined in the Content schema identified by the ContentSchemaId property.",
             "nullable": true
           },
           "metadata": {
-            "description": "The layer metadata of the content document.",
+            "type": "object",
+            "description": "The dynamic data structure matching the field schematics of the schemas with type layer (LayerSchemaIds).\nThe metadata belonging to the layers of the content. It's a dictionary of dynamic metadata whose structure is defined in the Layer schemas identified\nby the LayerSchemaIds property.",
             "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/DataDictionary"
-              }
-            ]
+            "additionalProperties": {}
           },
           "contentPermissionSetIds": {
             "type": "array",
-            "description": "An optional id list of content permission sets. ",
+            "description": "An optional list of content permission set IDs which control content permissions. These permissions control content accessibility for the users that do not own the content.",
             "nullable": true,
             "items": {
               "type": "string"
@@ -26077,20 +28306,20 @@
       },
       "ContentCreateManyRequest": {
         "type": "object",
-        "description": "A request structure for creating multiple content documents.",
+        "description": "Request to create multiple contents",
         "additionalProperties": false,
         "required": [
-          "allowMissingDependencies"
+          "allowMissingDependencies",
+          "items"
         ],
         "properties": {
           "allowMissingDependencies": {
             "type": "boolean",
-            "description": "Allow storing references to missing list items / contents"
+            "description": "Allows creating contents that refer to list items or contents that don't exist in the system."
           },
           "items": {
             "type": "array",
-            "description": "Create items",
-            "nullable": true,
+            "description": "Items to be created.",
             "items": {
               "$ref": "#/components/schemas/ContentCreateRequest"
             }
@@ -26282,22 +28511,15 @@
             }
           },
           "content": {
-            "description": "The content data of the content. It's a dictionary of dynamic metadata whose structure is defined in the Content schema identified by\nthe ContentSchemaId property. Updating the Content property is only possible for virtual items (contents\nwhose ContentType is ContentItem).\nUpdate of content data will be done only if this attribute has any data, i.e. if it's not null or empty.",
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/DataDictionary"
-              }
-            ]
+            "type": "object",
+            "description": "The content data of the content. It's an object of dynamic metadata whose structure is defined in the Content schema identified by\nthe ContentSchemaId property. Updating the Content property is only possible for virtual items (contents\nwhose ContentType is Virtual).\nUpdate of content data will be done only if this attribute has any data, i.e. if it's not null or empty.",
+            "nullable": true
           },
           "metadata": {
+            "type": "object",
             "description": "The dynamic data structure matching the field schematics of the schemas with type layer (LayerSchemaIds).\nThe metadata belonging to the layers of the content. It's a dictionary of dynamic metadata whose structure is defined in the Layer schemas identified\nby the LayerSchemaIds property.\nIf there are no data for a specified LayerSchemaId, it is treated as empty.",
             "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/DataDictionary"
-              }
-            ]
+            "additionalProperties": {}
           },
           "layerSchemasUpdateOptions": {
             "description": "Options to modify the behavior for updating the layers.\nMerge: the content is updated so that the assigned layers to the content will be a merge of the ones specified in the LayerSchemaIds property\nand the ones already existing; existing assigned layers not specified in the property are kept and missing layers are assigned.\nReplace: the content is updated so that only the layers specified in the LayerSchemaIds property are assigned to the content;\nexisting assigned layers not specified in the property are removed and missing layers are assigned.\nDefaults to Merge.",
@@ -26592,12 +28814,8 @@
             ],
             "properties": {
               "value": {
-                "description": "The dictionary containing the metadata values to add / update.",
-                "oneOf": [
-                  {
-                    "$ref": "#/components/schemas/DataDictionary"
-                  }
-                ]
+                "type": "object",
+                "description": "An object containing the metadata values to add / update."
               }
             }
           }
@@ -26617,12 +28835,8 @@
             ],
             "properties": {
               "value": {
-                "description": "The dictionary containing the metadata values to add / update.",
-                "oneOf": [
-                  {
-                    "$ref": "#/components/schemas/DataDictionary"
-                  }
-                ]
+                "type": "object",
+                "description": "An object containing the metadata values to add / update."
               }
             }
           }
@@ -26654,12 +28868,8 @@
             ],
             "properties": {
               "value": {
-                "description": "The dictionary containing the metadata values for the schema. The existing dictionary will be entirely overwritten.",
-                "oneOf": [
-                  {
-                    "$ref": "#/components/schemas/DataDictionary"
-                  }
-                ]
+                "type": "object",
+                "description": "An object containing the metadata values for the schema. The existing dictionary will be entirely overwritten."
               }
             }
           }
@@ -27397,6 +29607,53 @@
           }
         }
       },
+      "DisplayValueStatus": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "state"
+        ],
+        "properties": {
+          "contentOrLayerSchemaIds": {
+            "type": "array",
+            "description": "The schema ids (of type Content or Layer) for which the re-rendering of the display values is needed.",
+            "nullable": true,
+            "items": {
+              "type": "string"
+            }
+          },
+          "listSchemaIds": {
+            "type": "array",
+            "description": "The schema ids (of type List) for which the re-rendering of the display values is needed.",
+            "nullable": true,
+            "items": {
+              "type": "string"
+            }
+          },
+          "state": {
+            "description": "The state of the display values compared to the schema structure (UpToDate = ok, Outdated = re-rendering needed).",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/DisplayValuesState"
+              }
+            ]
+          }
+        }
+      },
+      "DisplayValuesState": {
+        "type": "string",
+        "description": "",
+        "x-enumNames": [
+          "UpToDate",
+          "Outdated",
+          "RerenderingInProgress"
+        ],
+        "enum": [
+          "UpToDate",
+          "Outdated",
+          "RerenderingInProgress"
+        ]
+      },
       "DocumentHistorySearchResult": {
         "allOf": [
           {
@@ -27615,6 +29872,7 @@
           "name",
           "customerAlias",
           "identityServerUrl",
+          "apiUrl",
           "enableQueryDetails",
           "languageConfiguration",
           "languages",
@@ -27640,7 +29898,12 @@
           },
           "identityServerUrl": {
             "type": "string",
-            "description": "The base url of identity server to authenticate the user using OpenID Connect.",
+            "description": "The base URL of identity server to authenticate the user using OpenID Connect.",
+            "minLength": 1
+          },
+          "apiUrl": {
+            "type": "string",
+            "description": "The base API URL.",
             "minLength": 1
           },
           "enableQueryDetails": {
@@ -27837,22 +30100,100 @@
           }
         }
       },
-      "ListItemDetail": {
+      "SystemStatus": {
         "type": "object",
-        "description": "The detail view item for the list item.",
         "additionalProperties": false,
         "properties": {
-          "content": {
-            "description": "The content data of the list item.",
+          "searchIndicesStatus": {
+            "type": "array",
+            "description": "The status of the search indices.",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/StatusOfSearchIndexState"
+            }
+          },
+          "displayValuesStatus": {
+            "type": "array",
+            "description": "The status of the display values.",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/StatusOfDisplayValuesState"
+            }
+          }
+        }
+      },
+      "StatusOfSearchIndexState": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "state"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
             "nullable": true
+          },
+          "state": {
+            "$ref": "#/components/schemas/SearchIndexState"
+          }
+        }
+      },
+      "SearchIndexState": {
+        "type": "string",
+        "description": "",
+        "x-enumNames": [
+          "Green",
+          "Yellow",
+          "Red"
+        ],
+        "enum": [
+          "Green",
+          "Yellow",
+          "Red"
+        ]
+      },
+      "StatusOfDisplayValuesState": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "state"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "state": {
+            "$ref": "#/components/schemas/DisplayValuesState"
+          }
+        }
+      },
+      "ListItemDetail": {
+        "type": "object",
+        "description": "List item detail",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "contentSchemaId"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The list item ID.",
+            "minLength": 1
           },
           "contentSchemaId": {
             "type": "string",
-            "description": "The id of the schema with schema type list.",
+            "description": "The ID of the content schema. The SchemaType of the specified schema must be List.",
+            "minLength": 1
+          },
+          "content": {
+            "type": "object",
+            "description": "The content data of the list item. It's an object of dynamic metadata whose structure is defined in the Content schema specified\nby the ContentSchemaId property.",
             "nullable": true
           },
           "displayValues": {
-            "description": "Contains language specific display values, rendered according to the list schema's display pattern configuration.",
+            "description": "Contains language specific display values. They are calculated values based on the template stored in the Content schema DisplayPatterns property.",
             "nullable": true,
             "oneOf": [
               {
@@ -27860,13 +30201,32 @@
               }
             ]
           },
-          "id": {
-            "type": "string",
-            "description": "The list item id.",
-            "nullable": true
+          "brokenReferenceIds": {
+            "type": "array",
+            "description": "All the IDs of the referenced list items (tagboxes) that do not exist in the system.",
+            "nullable": true,
+            "items": {
+              "type": "string"
+            }
+          },
+          "brokenRelationTargetIds": {
+            "type": "array",
+            "description": "All the IDs of the contents or list items target of a relation that do not exist in the system.",
+            "nullable": true,
+            "items": {
+              "type": "string"
+            }
+          },
+          "brokenIndirectReferenceIds": {
+            "type": "array",
+            "description": "All the IDs of the indirectly referenced list items (tagboxes) that do not exist in the system.\nThey are referenced list items that reference at least a list item that do not exist in the system.",
+            "nullable": true,
+            "items": {
+              "type": "string"
+            }
           },
           "audit": {
-            "description": "Audit data with information regarding document creation and modification.",
+            "description": "Audit information.",
             "nullable": true,
             "oneOf": [
               {
@@ -27907,12 +30267,43 @@
       "ListItemSearchResult": {
         "allOf": [
           {
+            "$ref": "#/components/schemas/SearchBehaviorBaseResultOfListItem"
+          },
+          {
+            "type": "object",
+            "description": "Result for list item search operation",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "SearchBehaviorBaseResultOfListItem": {
+        "allOf": [
+          {
             "$ref": "#/components/schemas/BaseResultOfListItem"
           },
           {
             "type": "object",
-            "description": "Encapsulates the result of a list item search.",
-            "additionalProperties": false
+            "additionalProperties": false,
+            "required": [
+              "isSearchStringRewritten"
+            ],
+            "properties": {
+              "searchString": {
+                "type": "string",
+                "nullable": true
+              },
+              "isSearchStringRewritten": {
+                "type": "boolean"
+              },
+              "queryDebugInformation": {
+                "nullable": true,
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/QueryDebugInformation"
+                  }
+                ]
+              }
+            }
           }
         ]
       },
@@ -27947,11 +30338,20 @@
       },
       "ListItem": {
         "type": "object",
-        "description": "A document stored in the elastic search metadata index, with fields corresponding to the the schemantics of its underlying list schema.",
         "additionalProperties": false,
         "properties": {
-          "content": {
-            "description": "The content data of the list item.",
+          "audit": {
+            "description": "Audit information.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/UserAudit"
+              }
+            ]
+          },
+          "id": {
+            "type": "string",
+            "description": "The list item id.",
             "nullable": true
           },
           "contentSchemaId": {
@@ -27968,19 +30368,34 @@
               }
             ]
           },
-          "id": {
-            "type": "string",
-            "description": "The list item id.",
+          "content": {
+            "type": "object",
+            "description": "The content data of the list item.",
             "nullable": true
           },
-          "audit": {
-            "description": "Audit data with information regarding document creation and modification.",
+          "brokenReferenceIds": {
+            "type": "array",
+            "description": "All the ids of the broken references (tagboxes)",
             "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/UserAudit"
-              }
-            ]
+            "items": {
+              "type": "string"
+            }
+          },
+          "brokenRelationTargetIds": {
+            "type": "array",
+            "description": "All the target ids of the broken relations",
+            "nullable": true,
+            "items": {
+              "type": "string"
+            }
+          },
+          "brokenIndirectReferenceIds": {
+            "type": "array",
+            "description": "All the ids of the broken indirect references (tagbox that has a property that reference a broken tagbox)",
+            "nullable": true,
+            "items": {
+              "type": "string"
+            }
           }
         }
       },
@@ -28179,16 +30594,20 @@
       },
       "ListItemCreateRequest": {
         "type": "object",
-        "description": "A request structure for creating a list item document.",
+        "description": "Request to create a list item",
         "additionalProperties": false,
+        "required": [
+          "contentSchemaId"
+        ],
         "properties": {
-          "content": {
-            "description": "The content data of the list item.",
-            "nullable": true
-          },
           "contentSchemaId": {
             "type": "string",
-            "description": "The id of the schema with schema type list.",
+            "description": "The ID of the content schema. The SchemaType of the specified schema must be List.",
+            "minLength": 1
+          },
+          "content": {
+            "type": "object",
+            "description": "The content data of the list item. It's an object of dynamic metadata whose structure is defined in the Content schema.",
             "nullable": true
           },
           "requestId": {
@@ -28200,20 +30619,20 @@
       },
       "ListItemCreateManyRequest": {
         "type": "object",
-        "description": "A request structure for creating multiple list items.",
+        "description": "Request to create multiple list items",
         "additionalProperties": false,
         "required": [
-          "allowMissingDependencies"
+          "allowMissingDependencies",
+          "items"
         ],
         "properties": {
           "allowMissingDependencies": {
             "type": "boolean",
-            "description": "Allow storing references to missing list items / contents"
+            "description": "Allows creating list items that refer to list items or contents that don't exist in the system."
           },
           "items": {
             "type": "array",
-            "description": "Create items",
-            "nullable": true,
+            "description": "Items to be created.",
             "items": {
               "$ref": "#/components/schemas/ListItemCreateRequest"
             }
@@ -28222,31 +30641,32 @@
       },
       "ListItemUpdateRequest": {
         "type": "object",
-        "description": "A request structure for updating a list item.",
+        "description": "Request to update an existing list item",
         "additionalProperties": false,
         "properties": {
           "content": {
-            "description": "The content data of the list item.",
+            "type": "object",
+            "description": "The content data of the list item. It's an object of dynamic metadata whose structure is defined in the Content schema of the list item.",
             "nullable": true
           }
         }
       },
       "ListItemUpdateManyRequest": {
         "type": "object",
-        "description": "A request structure for updating multiple list items.",
+        "description": "Request to update multiple list items",
         "additionalProperties": false,
         "required": [
-          "allowMissingDependencies"
+          "allowMissingDependencies",
+          "items"
         ],
         "properties": {
           "allowMissingDependencies": {
             "type": "boolean",
-            "description": "Allow storing references to missing list items / contents"
+            "description": "Allows updating list items with references to list items or contents that don't exist in the system."
           },
           "items": {
             "type": "array",
-            "description": "Update items",
-            "nullable": true,
+            "description": "Items to be updated.",
             "items": {
               "$ref": "#/components/schemas/ListItemUpdateItem"
             }
@@ -28261,11 +30681,14 @@
           {
             "type": "object",
             "additionalProperties": false,
+            "required": [
+              "id"
+            ],
             "properties": {
               "id": {
                 "type": "string",
                 "description": "The list item id.",
-                "nullable": true
+                "minLength": 1
               }
             }
           }
@@ -28626,7 +31049,8 @@
             "ConfigurationChangeEvent": "#/components/schemas/ConfigurationChangeEvent",
             "CustomerChangeEvent": "#/components/schemas/CustomerChangeEvent",
             "SearchReindexCompletedEvent": "#/components/schemas/SearchReindexCompletedEvent",
-            "BusinessRuleFiredEvent": "#/components/schemas/BusinessRuleFiredEvent"
+            "BusinessRuleFiredEvent": "#/components/schemas/BusinessRuleFiredEvent",
+            "BusinessProcessCancellationRequestedEvent": "#/components/schemas/BusinessProcessCancellationRequestedEvent"
           }
         },
         "additionalProperties": false,
@@ -28686,7 +31110,8 @@
           "TransferCleanup",
           "ImportCompletedWithErrors",
           "UploadCompletedWithErrors",
-          "UploadCancellationInProgress"
+          "UploadCancellationInProgress",
+          "ImportDone"
         ],
         "enum": [
           "Draft",
@@ -28704,7 +31129,8 @@
           "TransferCleanup",
           "ImportCompletedWithErrors",
           "UploadCompletedWithErrors",
-          "UploadCancellationInProgress"
+          "UploadCancellationInProgress",
+          "ImportDone"
         ]
       },
       "ReindexEvent": {
@@ -29099,6 +31525,23 @@
             }
           }
         }
+      },
+      "BusinessProcessCancellationRequestedEvent": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ApplicationEvent"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "businessProcessId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
       },
       "Message": {
         "type": "object",
@@ -29624,6 +32067,15 @@
             "type": "string",
             "description": "How long should the dynamic outputs created from this format be kept.",
             "format": "time-span"
+          },
+          "downloadFileNamePatterns": {
+            "description": "Optional patterns (liquid syntax) that produce the filename for item of this output format.\nIf set, the customer's default language is required.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/TranslatedStringDictionary"
+              }
+            ]
           }
         }
       },
@@ -30615,6 +33067,47 @@
           }
         }
       },
+      "OutputFormatDownloadFileNamePatternUpdateManyRequest": {
+        "type": "object",
+        "description": "Used to change the download file name pattern for multiple formats at once.",
+        "additionalProperties": false,
+        "required": [
+          "items"
+        ],
+        "properties": {
+          "items": {
+            "type": "array",
+            "description": "Download file name update requests to be processed.",
+            "items": {
+              "$ref": "#/components/schemas/OutputFormatDownloadFileNamePatternUpdateRequestItem"
+            }
+          }
+        }
+      },
+      "OutputFormatDownloadFileNamePatternUpdateRequestItem": {
+        "type": "object",
+        "description": "Represents a change to the download file name pattern to one output format.",
+        "additionalProperties": false,
+        "required": [
+          "id"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "ID of the output format to set pattern for.",
+            "minLength": 1
+          },
+          "patterns": {
+            "description": "The patterns to use per metadata language.\nThe customer's default language is required.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/TranslatedStringDictionary"
+              }
+            ]
+          }
+        }
+      },
       "UserProfile": {
         "type": "object",
         "description": "User profile.",
@@ -31330,7 +33823,7 @@
           },
           {
             "type": "object",
-            "description": "A field that can be triggered, and store in such occasion the id of the user and the time that triggered it. The last user who triggered it and the last time in which it was triggered can be used for filtering or for\nsimple search (if enabled on the field). Such information are stored in two inner fields: \"triggeredBy\" and \"triggeredOn\". In order to be triggered in a Content or ListItem metadata dictionary, the special '\"_trigger\": true'\nshould be sent in the DataDictionary of the field itself.",
+            "description": "A field that can be triggered, and store in such occasion the id of the user and the time that triggered it. The last user who triggered it and the last time in which it was triggered can be used for filtering or for\nsimple search (if enabled on the field). Such information are stored in two inner fields: \"triggeredBy\" and \"triggeredOn\". In order to be triggered in a Content or ListItem metadata dictionary, the special '\"_trigger\": true'\nshould be sent in the data of the field itself.",
             "additionalProperties": false,
             "required": [
               "boost"
@@ -32680,7 +35173,7 @@
         "properties": {
           "transferUserId": {
             "type": "string",
-            "description": "The id of the user to whom the schema has to be transfered to.",
+            "description": "The id of the user to whom the schema has to be transferred to.",
             "nullable": true
           }
         }
@@ -32964,7 +35457,7 @@
           },
           "transferUserId": {
             "type": "string",
-            "description": "The id of user to whom the schemas have to be transfered to.",
+            "description": "The id of user to whom the schemas have to be transferred to.",
             "nullable": true
           }
         }
@@ -33465,21 +35958,14 @@
             }
           },
           "content": {
-            "description": "The content data.",
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/DataDictionary"
-              }
-            ]
+            "type": "object",
+            "description": "The content data. It's an object of dynamic metadata whose structure is defined in the Content schema specified\nby the ContentSchemaId property."
           },
           "metadata": {
-            "description": "The metadata dictionary.",
+            "type": "object",
+            "description": "The metadata belonging to the layers of the content. It's a dictionary of dynamic metadata whose structure is defined in the Layer schemas identified\nby the LayerSchemaIds property.",
             "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/DataDictionary"
-              }
-            ]
+            "additionalProperties": {}
           },
           "id": {
             "type": "string",
@@ -33532,6 +36018,7 @@
         "required": [
           "contentId",
           "outputFormatId",
+          "dynamicRendering",
           "kind"
         ],
         "properties": {
@@ -33563,6 +36050,10 @@
                 "$ref": "#/components/schemas/OutputDataBase"
               }
             ]
+          },
+          "dynamicRendering": {
+            "type": "boolean",
+            "description": "Whether this Output belongs to a dynamic OutputFormat"
           },
           "kind": {
             "type": "string"
@@ -34222,28 +36713,12 @@
               "languageCode"
             ],
             "properties": {
-              "recipientsEmail": {
+              "recipientEmails": {
                 "type": "array",
                 "description": "List of external mail recipients which are no Picturepark users.",
                 "nullable": true,
                 "items": {
                   "$ref": "#/components/schemas/UserEmail"
-                }
-              },
-              "recipientsUser": {
-                "type": "array",
-                "description": "List of internal recipients which are Picturepark users.",
-                "nullable": true,
-                "items": {
-                  "$ref": "#/components/schemas/User"
-                }
-              },
-              "recipientsGroup": {
-                "type": "array",
-                "description": "List of user roles. All assignees of these roles receive the share.",
-                "nullable": true,
-                "items": {
-                  "$ref": "#/components/schemas/UserRole"
                 }
               },
               "languageCode": {
@@ -34254,51 +36729,6 @@
             }
           }
         ]
-      },
-      "UserRole": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/UserRoleEditable"
-          },
-          {
-            "type": "object",
-            "description": "Represents a user role, which associates users with user rights.",
-            "additionalProperties": false,
-            "properties": {
-              "id": {
-                "type": "string",
-                "description": "User role ID.",
-                "nullable": true
-              }
-            }
-          }
-        ]
-      },
-      "UserRoleEditable": {
-        "type": "object",
-        "description": "Represents a user role, which associates users with user rights.",
-        "additionalProperties": false,
-        "required": [
-          "names",
-          "userRights"
-        ],
-        "properties": {
-          "names": {
-            "description": "Language specific user role names.",
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/TranslatedStringDictionary"
-              }
-            ]
-          },
-          "userRights": {
-            "type": "array",
-            "description": "All user rights for this user role.",
-            "items": {
-              "$ref": "#/components/schemas/UserRight"
-            }
-          }
-        }
       },
       "ShareEmbedCreateRequest": {
         "allOf": [
@@ -34643,7 +37073,7 @@
           },
           "files": {
             "type": "array",
-            "description": "Files uploaded in transfer.",
+            "description": "Files uploaded in transfer.\nThe client is responsible for uploading files to backend.\nRequired when TransferType is FileUpload or FileUploadAutoImport.",
             "nullable": true,
             "items": {
               "$ref": "#/components/schemas/TransferUploadFile"
@@ -34651,7 +37081,7 @@
           },
           "webLinks": {
             "type": "array",
-            "description": "Weblinks downloaded in transfer.",
+            "description": "Weblinks downloaded in transfer.\nThe backend will download files using HTTP, therefore public access to files is needed.\nRequired when TransferType is WebDownload.",
             "nullable": true,
             "items": {
               "$ref": "#/components/schemas/TransferWebLink"
@@ -34664,7 +37094,7 @@
           },
           "createCollection": {
             "type": "boolean",
-            "description": "A value indicating whether to create a Collection after importing the transfer."
+            "description": "A value indicating whether to create a collection after importing the transfer."
           }
         }
       },
@@ -34725,6 +37155,11 @@
                 "type": "string",
                 "description": "URL of the item.",
                 "minLength": 1
+              },
+              "fileName": {
+                "type": "string",
+                "description": "Optional target filename of the file.",
+                "nullable": true
               }
             }
           }
@@ -35601,12 +38036,10 @@
             }
           },
           "metadata": {
+            "type": "object",
+            "description": "The metadata to be assigned to the imported content. It's a dictionary of dynamic metadata whose structure is defined in the Layer schemas identified\nby the LayerSchemaIds property.",
             "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/DataDictionary"
-              }
-            ]
+            "additionalProperties": {}
           },
           "contentPermissionSetIds": {
             "type": "array",
@@ -35634,10 +38067,13 @@
       "FileTransferCreateItem": {
         "type": "object",
         "additionalProperties": false,
+        "required": [
+          "fileId"
+        ],
         "properties": {
           "fileId": {
             "type": "string",
-            "nullable": true
+            "minLength": 1
           },
           "layerSchemaIds": {
             "type": "array",
@@ -35648,12 +38084,10 @@
             }
           },
           "metadata": {
+            "type": "object",
+            "description": "The metadata to be assigned to the imported content. It's a dictionary of dynamic metadata whose structure is defined in the Layer schemas identified\nby the LayerSchemaIds property.",
             "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/DataDictionary"
-              }
-            ]
+            "additionalProperties": {}
           },
           "contentPermissionSetIds": {
             "type": "array",
@@ -35787,6 +38221,51 @@
             }
           }
         ]
+      },
+      "UserRole": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/UserRoleEditable"
+          },
+          {
+            "type": "object",
+            "description": "Represents a user role, which associates users with user rights.",
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string",
+                "description": "User role ID.",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "UserRoleEditable": {
+        "type": "object",
+        "description": "Represents a user role, which associates users with user rights.",
+        "additionalProperties": false,
+        "required": [
+          "names",
+          "userRights"
+        ],
+        "properties": {
+          "names": {
+            "description": "Language specific user role names.",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/TranslatedStringDictionary"
+              }
+            ]
+          },
+          "userRights": {
+            "type": "array",
+            "description": "All user rights for this user role.",
+            "items": {
+              "$ref": "#/components/schemas/UserRight"
+            }
+          }
+        }
       },
       "UserCreateRequest": {
         "type": "object",
@@ -36374,6 +38853,10 @@
             }
           }
         }
+      },
+      "DataDictionary": {
+        "type": "object",
+        "additionalProperties": {}
       }
     },
     "securitySchemes": {
@@ -36390,6 +38873,8 @@
               "picturepark_account": "Have no idea.",
               "businessprocess_read": "Read business processes",
               "businessprocess_write": "Write business processes",
+              "businessrule_read": "Read business rule",
+              "businessrule_write": "Write business rule",
               "channel_read": "Read channels",
               "channel_write": "Write channels",
               "content_read": "Read content",
@@ -36450,6 +38935,10 @@
       "description": "Endpoints to work with content permission sets.\r\n\r\n[Code examples](https://github.com/Picturepark/Picturepark.SDK.DotNet/blob/master/src/Picturepark.SDK.V1.Tests/Clients/ContentPermissionSetTests.cs)\r\n"
     },
     {
+      "name": "DisplayValue",
+      "description": "Endpoint to work with display values."
+    },
+    {
       "name": "DocumentHistory",
       "description": "Endpoints to work with history of documents.\r\n\r\nMost entities provide a history of changes. E.g. update metadata of a content. You can see and search the history of documents.\r\n\r\nYou can use a diff [CompareWithCurrent](#operation/DocumentHistory_CompareWithCurrent) and [CompareWithVersion](#operation/DocumentHistory_CompareWithVersion) to get a json diff and see what exactly has changed.\r\n\r\n[Code examples](https://github.com/Picturepark/Picturepark.SDK.DotNet/blob/master/src/Picturepark.SDK.V1.Tests/Clients/DocumentHistoryTests.cs)\r\n"
     },
@@ -36499,7 +38988,7 @@
     },
     {
       "name": "Transfer",
-      "description": "Endpoints to work with transfers.\r\n\r\nUsual process to import file as content:\r\n- Create transfer\r\n- Upload files to this transfer\r\n- ImportTransfer or PartialImportTransfer\r\n\r\n[Code examples](https://github.com/Picturepark/Picturepark.SDK.DotNet/blob/master/src/Picturepark.SDK.V1.Tests/Clients/TransferTests.cs)\r\n"
+      "description": "Endpoints to work with transfers.\r\n\r\nTo import a set of files into CP:\r\n\r\n1. Create transfer\r\n2. Wait for transfer creation to complete (WaitForStates \"Created\" on BusinessProcess)\r\n3. Upload files to this transfer\r\n4. Wait for transfer to be ready (WaitForCompletion on BusinessProcess)\r\n5. Import transfer using ImportTransfer or ImportTransferPartial\r\n6. Wait for import to complete (WaitForCompletion on BusinessProcess)\r\n\r\nConsult the [code examples](https://github.com/Picturepark/Picturepark.SDK.DotNet/blob/master/src/Picturepark.SDK.V1.Tests/Clients/TransferTests.cs) or the docs of the endpoints mentioned above for more details.\r\n"
     },
     {
       "name": "User",

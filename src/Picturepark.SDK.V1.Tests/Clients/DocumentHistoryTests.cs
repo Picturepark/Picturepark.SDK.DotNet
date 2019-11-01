@@ -85,9 +85,9 @@ namespace Picturepark.SDK.V1.Tests.Clients
                     new MetadataValuesSchemaUpsertCommand
                     {
                         SchemaId = schema.Id,
-                        Value = new DataDictionary
+                        Value = new
                         {
-                            { "name", location }
+                            name = location
                         }
                     }
                 }
