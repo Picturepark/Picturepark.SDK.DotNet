@@ -38862,15 +38862,13 @@
     "securitySchemes": {
       "Bearer": {
         "type": "oauth2",
-        "description": "OAuth2",
+        "description": "Picturepark uses Bearer authentication scheme. User of the API has to specify a Bearer token in Authorization header of the request.",
         "name": "Authorization",
         "in": "header",
         "flows": {
-          "implicit": {
-            "authorizationUrl": "http://localhost:8081/connect/authorize",
+          "password": {
             "scopes": {
-              "picturepark_api": "Full access to Picturepark API",
-              "picturepark_account": "Have no idea.",
+              "picturepark_api": "Required to access the Picturepark API",
               "businessprocess_read": "Read business processes",
               "businessprocess_write": "Write business processes",
               "businessrule_read": "Read business rule",
