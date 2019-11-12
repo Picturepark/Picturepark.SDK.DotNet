@@ -10055,6 +10055,112 @@
         ]
       }
     },
+    "/v1/outputFormats/preview": {
+      "post": {
+        "tags": [
+          "OutputFormat"
+        ],
+        "summary": "Preview OutputFormat",
+        "description": "Request rendering of the given OutputFormat for a given content.",
+        "operationId": "OutputFormat_RenderFormatPreview",
+        "requestBody": {
+          "x-name": "request",
+          "description": "Information about the OutputFormat as well as which Content to use for the preview.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OutputFormatRenderPreviewRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "Rendered file",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          },
+          "206": {
+            "description": "Rendered file",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          },
+          "412": {
+            "description": ""
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "outputformat_write"
+            ]
+          }
+        ]
+      }
+    },
     "/v1/profile": {
       "get": {
         "tags": [
@@ -17883,6 +17989,7 @@
                 "UnauthorizedException": "#/components/schemas/UnauthorizedException",
                 "UserUnlockDisallowedException": "#/components/schemas/UserUnlockDisallowedException",
                 "RenderingException": "#/components/schemas/RenderingException",
+                "FormatNotApplicableForRenderingException": "#/components/schemas/FormatNotApplicableForRenderingException",
                 "ServiceProviderDeleteException": "#/components/schemas/ServiceProviderDeleteException",
                 "ServiceProviderCreateException": "#/components/schemas/ServiceProviderCreateException",
                 "ServiceProviderNotFoundException": "#/components/schemas/ServiceProviderNotFoundException",
@@ -18462,6 +18569,47 @@
             "type": "object",
             "additionalProperties": false
           }
+        ]
+      },
+      "FormatNotApplicableForRenderingException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/RenderingException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "contentRenderingType"
+            ],
+            "properties": {
+              "contentRenderingType": {
+                "$ref": "#/components/schemas/RenderingService"
+              },
+              "outputFormatId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "RenderingService": {
+        "type": "string",
+        "description": "",
+        "x-enumNames": [
+          "Unknown",
+          "Image",
+          "Document",
+          "Video",
+          "Audio"
+        ],
+        "enum": [
+          "Unknown",
+          "Image",
+          "Document",
+          "Video",
+          "Audio"
         ]
       },
       "ServiceProviderDeleteException": {
@@ -32029,22 +32177,49 @@
         ]
       },
       "OutputFormatEditable": {
-        "type": "object",
-        "description": "Represents the editable part of the output format.",
-        "additionalProperties": false,
-        "required": [
-          "retentionTime"
-        ],
-        "properties": {
-          "names": {
-            "description": "Language specific names.",
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/TranslatedStringDictionary"
-              }
-            ]
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/OutputFormatRenderingSpecification"
           },
+          {
+            "type": "object",
+            "description": "Represents the editable part of the output format.",
+            "additionalProperties": false,
+            "required": [
+              "retentionTime"
+            ],
+            "properties": {
+              "names": {
+                "description": "Language specific names.",
+                "nullable": true,
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/TranslatedStringDictionary"
+                  }
+                ]
+              },
+              "retentionTime": {
+                "type": "string",
+                "description": "How long should the dynamic outputs created from this format be kept.",
+                "format": "time-span"
+              },
+              "downloadFileNamePatterns": {
+                "description": "Optional patterns (liquid syntax) that produce the filename for item of this output format.\nIf set, the customer's default language is required.",
+                "nullable": true,
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/TranslatedStringDictionary"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "OutputFormatRenderingSpecification": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
           "sourceOutputFormats": {
             "description": "Which output format should be used as a source of data.",
             "nullable": true,
@@ -32060,20 +32235,6 @@
             "oneOf": [
               {
                 "$ref": "#/components/schemas/FormatBase"
-              }
-            ]
-          },
-          "retentionTime": {
-            "type": "string",
-            "description": "How long should the dynamic outputs created from this format be kept.",
-            "format": "time-span"
-          },
-          "downloadFileNamePatterns": {
-            "description": "Optional patterns (liquid syntax) that produce the filename for item of this output format.\nIf set, the customer's default language is required.",
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/TranslatedStringDictionary"
               }
             ]
           }
@@ -33103,6 +33264,26 @@
             "oneOf": [
               {
                 "$ref": "#/components/schemas/TranslatedStringDictionary"
+              }
+            ]
+          }
+        }
+      },
+      "OutputFormatRenderPreviewRequest": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "contentId": {
+            "type": "string",
+            "description": "The content for which the format should be rendered",
+            "nullable": true
+          },
+          "outputFormat": {
+            "description": "The format which should be rendered.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/OutputFormatRenderingSpecification"
               }
             ]
           }
