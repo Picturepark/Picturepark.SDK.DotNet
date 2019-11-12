@@ -16336,6 +16336,7 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>Used to specify how to render derived outputs</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class OutputFormatRenderingSpecification 
     {
@@ -17359,6 +17360,7 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>Specifies for which content a given format should be rendered</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class OutputFormatRenderPreviewRequest 
     {

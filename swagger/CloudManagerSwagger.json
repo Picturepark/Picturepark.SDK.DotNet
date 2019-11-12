@@ -13892,6 +13892,7 @@
       },
       "OutputFormatRenderingSpecification": {
         "type": "object",
+        "description": "Used to specify how to render derived outputs",
         "additionalProperties": false,
         "properties": {
           "sourceOutputFormats": {
