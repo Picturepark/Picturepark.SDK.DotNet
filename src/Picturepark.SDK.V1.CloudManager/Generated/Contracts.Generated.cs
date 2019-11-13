@@ -877,6 +877,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [JsonInheritanceAttribute("UnauthorizedException", typeof(UnauthorizedException))]
     [JsonInheritanceAttribute("UserUnlockDisallowedException", typeof(UserUnlockDisallowedException))]
     [JsonInheritanceAttribute("RenderingException", typeof(RenderingException))]
+    [JsonInheritanceAttribute("FormatNotApplicableForRenderingException", typeof(FormatNotApplicableForRenderingException))]
     [JsonInheritanceAttribute("ServiceProviderDeleteException", typeof(ServiceProviderDeleteException))]
     [JsonInheritanceAttribute("ServiceProviderCreateException", typeof(ServiceProviderCreateException))]
     [JsonInheritanceAttribute("ServiceProviderNotFoundException", typeof(ServiceProviderNotFoundException))]
@@ -1493,6 +1494,50 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<RenderingException>(data);
         }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class FormatNotApplicableForRenderingException : RenderingException
+    {
+        [Newtonsoft.Json.JsonProperty("contentRenderingType", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public RenderingService ContentRenderingType { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("outputFormatId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string OutputFormatId { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static FormatNotApplicableForRenderingException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<FormatNotApplicableForRenderingException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public enum RenderingService
+    {
+        [System.Runtime.Serialization.EnumMember(Value = @"Unknown")]
+        Unknown = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Image")]
+        Image = 1,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Document")]
+        Document = 2,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Video")]
+        Video = 3,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Audio")]
+        Audio = 4,
     
     }
     
@@ -8414,19 +8459,11 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
     /// <summary>Represents the editable part of the output format.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
-    public partial class OutputFormatEditable 
+    public partial class OutputFormatEditable : OutputFormatRenderingSpecification
     {
         /// <summary>Language specific names.</summary>
         [Newtonsoft.Json.JsonProperty("names", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public TranslatedStringDictionary Names { get; set; }
-    
-        /// <summary>Which output format should be used as a source of data.</summary>
-        [Newtonsoft.Json.JsonProperty("sourceOutputFormats", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public SourceOutputFormats SourceOutputFormats { get; set; }
-    
-        /// <summary>Information about the technical format of the data, e.g. JPEG, AAC or video still.</summary>
-        [Newtonsoft.Json.JsonProperty("format", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public FormatBase Format { get; set; }
     
         /// <summary>How long should the dynamic outputs created from this format be kept.</summary>
         [Newtonsoft.Json.JsonProperty("retentionTime", Required = Newtonsoft.Json.Required.Always)]
@@ -8462,6 +8499,30 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         public static TranslatedStringDictionary FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<TranslatedStringDictionary>(data);
+        }
+    
+    }
+    
+    /// <summary>Used to specify how to render derived outputs</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class OutputFormatRenderingSpecification 
+    {
+        /// <summary>Which output format should be used as a source of data.</summary>
+        [Newtonsoft.Json.JsonProperty("sourceOutputFormats", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public SourceOutputFormats SourceOutputFormats { get; set; }
+    
+        /// <summary>Information about the technical format of the data, e.g. JPEG, AAC or video still.</summary>
+        [Newtonsoft.Json.JsonProperty("format", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public FormatBase Format { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static OutputFormatRenderingSpecification FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<OutputFormatRenderingSpecification>(data);
         }
     
     }

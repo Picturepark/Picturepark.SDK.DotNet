@@ -6644,6 +6644,7 @@
                 "UnauthorizedException": "#/components/schemas/UnauthorizedException",
                 "UserUnlockDisallowedException": "#/components/schemas/UserUnlockDisallowedException",
                 "RenderingException": "#/components/schemas/RenderingException",
+                "FormatNotApplicableForRenderingException": "#/components/schemas/FormatNotApplicableForRenderingException",
                 "ServiceProviderDeleteException": "#/components/schemas/ServiceProviderDeleteException",
                 "ServiceProviderCreateException": "#/components/schemas/ServiceProviderCreateException",
                 "ServiceProviderNotFoundException": "#/components/schemas/ServiceProviderNotFoundException",
@@ -7223,6 +7224,47 @@
             "type": "object",
             "additionalProperties": false
           }
+        ]
+      },
+      "FormatNotApplicableForRenderingException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/RenderingException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "contentRenderingType"
+            ],
+            "properties": {
+              "contentRenderingType": {
+                "$ref": "#/components/schemas/RenderingService"
+              },
+              "outputFormatId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "RenderingService": {
+        "type": "string",
+        "description": "",
+        "x-enumNames": [
+          "Unknown",
+          "Image",
+          "Document",
+          "Video",
+          "Audio"
+        ],
+        "enum": [
+          "Unknown",
+          "Image",
+          "Document",
+          "Video",
+          "Audio"
         ]
       },
       "ServiceProviderDeleteException": {
@@ -13802,22 +13844,57 @@
         ]
       },
       "OutputFormatEditable": {
-        "type": "object",
-        "description": "Represents the editable part of the output format.",
-        "additionalProperties": false,
-        "required": [
-          "retentionTime"
-        ],
-        "properties": {
-          "names": {
-            "description": "Language specific names.",
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/TranslatedStringDictionary"
-              }
-            ]
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/OutputFormatRenderingSpecification"
           },
+          {
+            "type": "object",
+            "description": "Represents the editable part of the output format.",
+            "additionalProperties": false,
+            "required": [
+              "retentionTime"
+            ],
+            "properties": {
+              "names": {
+                "description": "Language specific names.",
+                "nullable": true,
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/TranslatedStringDictionary"
+                  }
+                ]
+              },
+              "retentionTime": {
+                "type": "string",
+                "description": "How long should the dynamic outputs created from this format be kept.",
+                "format": "time-span"
+              },
+              "downloadFileNamePatterns": {
+                "description": "Optional patterns (liquid syntax) that produce the filename for item of this output format.\nIf set, the customer's default language is required.",
+                "nullable": true,
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/TranslatedStringDictionary"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "TranslatedStringDictionary": {
+        "type": "object",
+        "description": "A custom dictionary type to distinguish language specific class properties.",
+        "additionalProperties": {
+          "type": "string"
+        }
+      },
+      "OutputFormatRenderingSpecification": {
+        "type": "object",
+        "description": "Used to specify how to render derived outputs",
+        "additionalProperties": false,
+        "properties": {
           "sourceOutputFormats": {
             "description": "Which output format should be used as a source of data.",
             "nullable": true,
@@ -13835,28 +13912,7 @@
                 "$ref": "#/components/schemas/FormatBase"
               }
             ]
-          },
-          "retentionTime": {
-            "type": "string",
-            "description": "How long should the dynamic outputs created from this format be kept.",
-            "format": "time-span"
-          },
-          "downloadFileNamePatterns": {
-            "description": "Optional patterns (liquid syntax) that produce the filename for item of this output format.\nIf set, the customer's default language is required.",
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/TranslatedStringDictionary"
-              }
-            ]
           }
-        }
-      },
-      "TranslatedStringDictionary": {
-        "type": "object",
-        "description": "A custom dictionary type to distinguish language specific class properties.",
-        "additionalProperties": {
-          "type": "string"
         }
       },
       "SourceOutputFormats": {
