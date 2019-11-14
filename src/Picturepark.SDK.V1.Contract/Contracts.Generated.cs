@@ -16360,18 +16360,23 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>Defines the source used for rendering an OutputFormat depending on the type of content</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class SourceOutputFormats 
     {
+        /// <summary>The source to be used for content of type Image</summary>
         [Newtonsoft.Json.JsonProperty("image", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Image { get; set; }
     
+        /// <summary>The source to be used for content of type Video</summary>
         [Newtonsoft.Json.JsonProperty("video", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Video { get; set; }
     
+        /// <summary>The source to be used for content of type Document</summary>
         [Newtonsoft.Json.JsonProperty("document", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Document { get; set; }
     
+        /// <summary>The source to be used for content of type Audio</summary>
         [Newtonsoft.Json.JsonProperty("audio", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Audio { get; set; }
     
@@ -16419,45 +16424,54 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>Base class for ImageFormats such as JPEG, PNG, TIFF, ...</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public abstract partial class ImageFormatBase : FormatBase
     {
+        /// <summary>Color profile to use. Colorspace is derived from the chosen profile.</summary>
         [Newtonsoft.Json.JsonProperty("colorProfile", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public ColorProfile? ColorProfile { get; set; }
     
+        /// <summary>The method of conversion for color spaces (e.g. CMYK to RGB). Further information can be found here: http://www.colourphil.co.uk/rendering_intents.shtml</summary>
         [Newtonsoft.Json.JsonProperty("colorTransformationIntent", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public ColorTransformationIntent ColorTransformationIntent { get; set; }
     
+        /// <summary>Horizontal resolution in dpi (dots per inch)</summary>
         [Newtonsoft.Json.JsonProperty("horizontalResolution", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public double? HorizontalResolution { get; set; }
     
+        /// <summary>Vertical resolution in dpi (dots per inch)</summary>
         [Newtonsoft.Json.JsonProperty("verticalResolution", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public double? VerticalResolution { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("renderFirstFrameOnly", Required = Newtonsoft.Json.Required.Always)]
-        public bool RenderFirstFrameOnly { get; set; }
-    
+        /// <summary>Copy clipping paths from input.</summary>
         [Newtonsoft.Json.JsonProperty("keepClippingPath", Required = Newtonsoft.Json.Required.Always)]
         public bool KeepClippingPath { get; set; }
     
+        /// <summary>Copy Exif metadata from input.</summary>
         [Newtonsoft.Json.JsonProperty("cloneExif", Required = Newtonsoft.Json.Required.Always)]
         public bool CloneExif { get; set; }
     
+        /// <summary>Copy Iptc metadata from input.</summary>
         [Newtonsoft.Json.JsonProperty("cloneIptc", Required = Newtonsoft.Json.Required.Always)]
         public bool CloneIptc { get; set; }
     
+        /// <summary>Copy AdobeResources from input.</summary>
         [Newtonsoft.Json.JsonProperty("cloneAdobeResources", Required = Newtonsoft.Json.Required.Always)]
         public bool CloneAdobeResources { get; set; }
     
+        /// <summary>Copy Xmp metadata from input.</summary>
         [Newtonsoft.Json.JsonProperty("cloneXmp", Required = Newtonsoft.Json.Required.Always)]
         public bool CloneXmp { get; set; }
     
+        /// <summary>Allows resizing of the image.</summary>
         [Newtonsoft.Json.JsonProperty("resizeAction", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public ResizeAction ResizeAction { get; set; }
     
+        /// <summary>A collection of actions to be applied during rendering.</summary>
         [Newtonsoft.Json.JsonProperty("actions", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<ImageActionBase> Actions { get; set; }
     
@@ -16473,6 +16487,7 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>Available color profiles</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public enum ColorProfile
     {
@@ -16568,6 +16583,7 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>http://www.colourphil.co.uk/rendering_intents.shtml</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public enum ColorTransformationIntent
     {
@@ -16588,16 +16604,19 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    /// <summary>Does not implement the IImageAction interface. The ResizeAction is directly exposed within ImageFormat.</summary>
+    /// <summary>Specifies image resize parameters.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class ResizeAction 
     {
+        /// <summary>Target width for the output.</summary>
         [Newtonsoft.Json.JsonProperty("width", Required = Newtonsoft.Json.Required.Always)]
         public int Width { get; set; }
     
+        /// <summary>Target height for the output.</summary>
         [Newtonsoft.Json.JsonProperty("height", Required = Newtonsoft.Json.Required.Always)]
         public int Height { get; set; }
     
+        /// <summary>Specifies additional resize behaviour.</summary>
         [Newtonsoft.Json.JsonProperty("resizeMode", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
@@ -16615,6 +16634,7 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>Specifies how the dimensions of a ResizeAction are applied to the content</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public enum ResizeMode
     {
@@ -16649,14 +16669,17 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>An ImageAction that allows different forms of modifying alpha information in an image.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class AlphaHandlingAction : ImageActionBase
     {
+        /// <summary>Specifies the kind of alpha handling to be applied.</summary>
         [Newtonsoft.Json.JsonProperty("alphaHandling", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public AlphaHandling AlphaHandling { get; set; }
     
+        /// <summary>Specifies potentially needed color information for alpha handling. Must be given in RGB hex format (8 bit per channel).</summary>
         [Newtonsoft.Json.JsonProperty("replacementRgbColorHexCode", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ReplacementRgbColorHexCode { get; set; }
     
@@ -16672,6 +16695,7 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>Specifies the kind of AlphaHandling to be applied to an image</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public enum AlphaHandling
     {
@@ -16686,18 +16710,23 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>An ImageAction that allows cropping an image.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class CropAction : ImageActionBase
     {
+        /// <summary>X-Coordinate of top left point of the cropping rectangle.</summary>
         [Newtonsoft.Json.JsonProperty("x", Required = Newtonsoft.Json.Required.Always)]
         public int X { get; set; }
     
+        /// <summary>Y-Coordinate of top left point of the cropping rectangle.</summary>
         [Newtonsoft.Json.JsonProperty("y", Required = Newtonsoft.Json.Required.Always)]
         public int Y { get; set; }
     
+        /// <summary>Width of the cropping rectangle.</summary>
         [Newtonsoft.Json.JsonProperty("width", Required = Newtonsoft.Json.Required.Always)]
         public int Width { get; set; }
     
+        /// <summary>Height of the cropping rectangle.</summary>
         [Newtonsoft.Json.JsonProperty("height", Required = Newtonsoft.Json.Required.Always)]
         public int Height { get; set; }
     
@@ -16713,15 +16742,19 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>Increases a sharpness of an image by using the unsharp mask technique.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class UnsharpenMaskAction : ImageActionBase
     {
+        /// <summary>Unsharp mask amount (the difference between blurred and original image).</summary>
         [Newtonsoft.Json.JsonProperty("amount", Required = Newtonsoft.Json.Required.Always)]
         public double Amount { get; set; }
     
+        /// <summary>Blur radius used to produce unfocused version of the image.</summary>
         [Newtonsoft.Json.JsonProperty("radius", Required = Newtonsoft.Json.Required.Always)]
         public double Radius { get; set; }
     
+        /// <summary>The threshold value for the unsharp mask in range [0, 1]</summary>
         [Newtonsoft.Json.JsonProperty("threshold", Required = Newtonsoft.Json.Required.Always)]
         public double Threshold { get; set; }
     
@@ -16737,33 +16770,39 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>An ImageAction that allows rendering a watermark to an image</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class WatermarkAction : ImageActionBase
     {
+        /// <summary>Identifies the image to be used as watermark</summary>
         [Newtonsoft.Json.JsonProperty("watermarkFilePath", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string WatermarkFilePath { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("watermarkText", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string WatermarkText { get; set; }
-    
+        /// <summary>Margin to the left border of the image, in pixels</summary>
         [Newtonsoft.Json.JsonProperty("marginLeft", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int? MarginLeft { get; set; }
     
+        /// <summary>Margin to the top of the image, in pixels</summary>
         [Newtonsoft.Json.JsonProperty("marginTop", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int? MarginTop { get; set; }
     
+        /// <summary>Margin to the right border of the image, in pixels</summary>
         [Newtonsoft.Json.JsonProperty("marginRight", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int? MarginRight { get; set; }
     
+        /// <summary>Margin to the bottom of the image, in pixels</summary>
         [Newtonsoft.Json.JsonProperty("marginBottom", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int? MarginBottom { get; set; }
     
+        /// <summary>Scales the opacity of the watermark</summary>
         [Newtonsoft.Json.JsonProperty("opacity", Required = Newtonsoft.Json.Required.Always)]
         public double Opacity { get; set; }
     
+        /// <summary>Scales the watermark width according to the size of the final image.</summary>
         [Newtonsoft.Json.JsonProperty("widthRatio", Required = Newtonsoft.Json.Required.Always)]
         public double WidthRatio { get; set; }
     
+        /// <summary>Scales the watermark height according to the size of the final image.</summary>
         [Newtonsoft.Json.JsonProperty("heightRatio", Required = Newtonsoft.Json.Required.Always)]
         public double HeightRatio { get; set; }
     
@@ -16779,6 +16818,7 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>Special format that represents the original.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class OriginalFormat : FormatBase
     {
@@ -16797,15 +16837,19 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>Renders a JPEG image.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class JpegFormat : ImageFormatBase
     {
+        /// <summary>Compression quality. Must be in range [0,100] and defaults to 80.</summary>
         [Newtonsoft.Json.JsonProperty("quality", Required = Newtonsoft.Json.Required.Always)]
         public int Quality { get; set; }
     
+        /// <summary>Whether to use progressive encoding or not.</summary>
         [Newtonsoft.Json.JsonProperty("isProgressive", Required = Newtonsoft.Json.Required.Always)]
         public bool IsProgressive { get; set; }
     
+        /// <summary>Whether to use chroma subsampling or not.</summary>
         [Newtonsoft.Json.JsonProperty("chromaSubsamplingEnabled", Required = Newtonsoft.Json.Required.Always)]
         public bool ChromaSubsamplingEnabled { get; set; }
     
@@ -16824,9 +16868,11 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>Renders a PNG image.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class PngFormat : ImageFormatBase
     {
+        /// <summary>Whether the image is interlaced or not.</summary>
         [Newtonsoft.Json.JsonProperty("interlaced", Required = Newtonsoft.Json.Required.Always)]
         public bool Interlaced { get; set; }
     
@@ -16845,17 +16891,21 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>Renders a TIFF image</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class TiffFormat : ImageFormatBase
     {
+        /// <summary>Specifies whether color channels should be premultiplied with alpha (associated alpha) or not (unassociated alpha).</summary>
         [Newtonsoft.Json.JsonProperty("alphaPremultiplied", Required = Newtonsoft.Json.Required.Always)]
         public bool AlphaPremultiplied { get; set; }
     
+        /// <summary>Specifies the compression type to use.</summary>
         [Newtonsoft.Json.JsonProperty("compressionType", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public CompressionType CompressionType { get; set; }
     
+        /// <summary>Preserve (including size affecting changes) unspecified extraChannels.</summary>
         [Newtonsoft.Json.JsonProperty("includeUnspecifiedTiffExtraChannels", Required = Newtonsoft.Json.Required.Always)]
         public bool IncludeUnspecifiedTiffExtraChannels { get; set; }
     
@@ -16874,6 +16924,7 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>Available compression types.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public enum CompressionType
     {
@@ -16891,6 +16942,7 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>Base class for rendering video.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public abstract partial class VideoFormatBase : FormatBase
     {
@@ -16906,11 +16958,13 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>Renders H.264 in mp4 container.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class Mp4VideoFormat : VideoFormatBase
     {
+        /// <summary>Allows resizing of the video.</summary>
         [Newtonsoft.Json.JsonProperty("resizeAction", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public ResizeAction2 ResizeAction { get; set; }
+        public ResizeAction ResizeAction { get; set; }
     
         /// <summary>Gets or sets the encoding audio codec.</summary>
         [Newtonsoft.Json.JsonProperty("audioCodec", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -16937,32 +16991,7 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
-    public partial class ResizeAction2 
-    {
-        [Newtonsoft.Json.JsonProperty("width", Required = Newtonsoft.Json.Required.Always)]
-        public int Width { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("height", Required = Newtonsoft.Json.Required.Always)]
-        public int Height { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("resizeMode", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public ResizeMode ResizeMode { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-    
-        public static ResizeAction2 FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<ResizeAction2>(data);
-        }
-    
-    }
-    
+    /// <summary>Base class for rendering audio.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public abstract partial class AudioFormatBase : FormatBase
     {
@@ -16978,6 +17007,7 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>Video rendering preset, see http://dev.beandog.org/x264_preset_reference.html for more information.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public enum Preset
     {
@@ -17007,15 +17037,19 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>Generates a sprite image of the input video.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class VideoSpriteFormat : VideoFormatBase
     {
+        /// <summary>Specifies the dimensions of a single frame in the sprite.</summary>
         [Newtonsoft.Json.JsonProperty("spriteResizeAction", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public ResizeAction2 SpriteResizeAction { get; set; }
+        public ResizeAction SpriteResizeAction { get; set; }
     
+        /// <summary>Limit for the number of frames to generate.</summary>
         [Newtonsoft.Json.JsonProperty("maxNumberOfSprites", Required = Newtonsoft.Json.Required.Always)]
         public int MaxNumberOfSprites { get; set; }
     
+        /// <summary>JPEG-quality to use for the sprite.</summary>
         [Newtonsoft.Json.JsonProperty("quality", Required = Newtonsoft.Json.Required.Always)]
         public int Quality { get; set; }
     
@@ -17040,6 +17074,7 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("extension", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Extension { get; set; }
     
+        /// <summary>Specifies the position from which to produce the image.</summary>
         [Newtonsoft.Json.JsonProperty("positionInSeconds", Required = Newtonsoft.Json.Required.Always)]
         public int PositionInSeconds { get; set; }
     
@@ -17055,6 +17090,7 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>Specifies Aac encoding for the output and additional settings for the encoder.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class AacAudioFormat : AudioFormatBase
     {
@@ -17073,7 +17109,7 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Coder Coder { get; set; }
     
-        /// <summary>Gets or sets the bitrate of the encoding.</summary>
+        /// <summary>Gets or sets the bitrate of the encoding in kbps.</summary>
         [Newtonsoft.Json.JsonProperty("bitrate", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int? Bitrate { get; set; }
     
@@ -17110,6 +17146,7 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>Audio coders</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public enum Coder
     {
@@ -17124,6 +17161,7 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>Generates a waveform image from an Audio source.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class AudioStillFormat : AudioFormatBase
     {
@@ -17142,17 +17180,18 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>Renders an MP3 audio file.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class Mp3AudioFormat : AudioFormatBase
     {
         [Newtonsoft.Json.JsonProperty("extension", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Extension { get; set; }
     
-        /// <summary>Gets or sets the encoding bitrate.</summary>
+        /// <summary>Gets or sets the encoding bitrate. This setting and Quality are mutually exclusive.</summary>
         [Newtonsoft.Json.JsonProperty("bitrate", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int? Bitrate { get; set; }
     
-        /// <summary>Gets or sets the encoding quality.
+        /// <summary>Gets or sets the encoding quality. This setting and Bitrate are mutually exclusive.
         /// Values can be set it range of 0 to 9, where a lower value is a higher quality.</summary>
         [Newtonsoft.Json.JsonProperty("quality", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int? Quality { get; set; }
@@ -17169,6 +17208,7 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>Base class for rendering documents.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public abstract partial class DocumentFormatBase : FormatBase
     {
@@ -17184,6 +17224,7 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>Renders a TIFF preview image.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class DocumentStillFormat : DocumentFormatBase
     {
@@ -17205,19 +17246,22 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class PdfFormat : DocumentFormatBase
     {
-        /// <summary>JpegQuality parameter value must be between 0 and 100.</summary>
+        /// <summary>Specifies compression quality used for ReduceFileSize.</summary>
         [Newtonsoft.Json.JsonProperty("jpegQuality", Required = Newtonsoft.Json.Required.Always)]
         public int JpegQuality { get; set; }
     
+        /// <summary>Whether to linearize the output for fast web viewing.</summary>
         [Newtonsoft.Json.JsonProperty("fastWebView", Required = Newtonsoft.Json.Required.Always)]
         public bool FastWebView { get; set; }
     
+        /// <summary>Whether to apply measures to decrease output size or not.</summary>
         [Newtonsoft.Json.JsonProperty("reduceFileSize", Required = Newtonsoft.Json.Required.Always)]
         public bool ReduceFileSize { get; set; }
     
         [Newtonsoft.Json.JsonProperty("extension", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Extension { get; set; }
     
+        /// <summary>Whether to extract document full text from this output.</summary>
         [Newtonsoft.Json.JsonProperty("extractFullText", Required = Newtonsoft.Json.Required.Always)]
         public bool ExtractFullText { get; set; }
     
