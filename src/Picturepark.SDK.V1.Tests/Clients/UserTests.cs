@@ -1,4 +1,5 @@
-﻿using FluentAssertions;
+﻿using System;
+using FluentAssertions;
 using Picturepark.SDK.V1.Contract;
 using Picturepark.SDK.V1.Tests.Fixtures;
 using Picturepark.SDK.V1.Tests.FluentAssertions;
@@ -29,6 +30,31 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             // Assert
             Assert.True(searchResult.Results.Any());
+        }
+
+        [Fact]
+        [Trait("Stack", "Users")]
+        public async Task ShouldSearchAndAggregateAllTogether()
+        {
+            // Arrange
+            var sharedName = $"Name_{Guid.NewGuid():N}";
+            var user1 = await CreateUser(sharedName).ConfigureAwait(false);
+            var user2 = await CreateUser(sharedName).ConfigureAwait(false);
+            var user3 = await CreateUser().ConfigureAwait(false);
+
+            // Act
+            var searchRequest = new UserSearchRequest
+            {
+                Filter = FilterBase.FromExpression<User>(user => user.Id, user1.Id, user2.Id, user3.Id),
+                Aggregators = new[] { new TermsAggregator { Field = nameof(User.FirstName).ToLowerCamelCase(), Name = "userNameAggregation" } }
+            };
+            var searchResult = await _client.User.SearchAsync(searchRequest).ConfigureAwait(false);
+
+            // Assert
+            searchResult.Results.Should().HaveCount(3).And.Subject.Select(r => r.Id).Should().BeEquivalentTo(user1.Id, user2.Id, user3.Id);
+            var aggregationResults = searchResult.AggregationResults.Should().HaveCount(1).And.Subject.First().AggregationResultItems.Should().HaveCount(2).And.Subject;
+            aggregationResults.Where(ar => ar.Name == sharedName).Should().HaveCount(1).And.Subject.First().Count.Should().Be(2);
+            aggregationResults.Where(ar => ar.Name != sharedName).Should().HaveCount(1).And.Subject.First().Count.Should().Be(1);
         }
 
         [Fact]
@@ -164,17 +190,8 @@ namespace Picturepark.SDK.V1.Tests.Clients
         [Trait("Stack", "Users")]
         public async Task ShouldCreateSingleUser()
         {
-            // Arrange
-            var request = new UserCreateRequest
-            {
-                FirstName = "Test",
-                LastName = "User",
-                EmailAddress = $"test.user_{System.Guid.NewGuid()}@test.picturepark.com",
-                LanguageCode = "en"
-            };
-
             // Act
-            var user = await _client.User.CreateAsync(request).ConfigureAwait(false);
+            var user = await CreateUser().ConfigureAwait(false);
 
             // Assert
             user.Should().NotBeNull();
@@ -190,6 +207,19 @@ namespace Picturepark.SDK.V1.Tests.Clients
             });
 
             await Task.WhenAll(lockRequests).ConfigureAwait(false);
+        }
+
+        private async Task<UserDetail> CreateUser(string firstName = null, string lastName = null, string emailAddress = null)
+        {
+            var request = new UserCreateRequest
+            {
+                FirstName = firstName ?? $"Test_{System.Guid.NewGuid():N}",
+                LastName = lastName ?? $"Use_{System.Guid.NewGuid():N}",
+                EmailAddress = emailAddress ?? $"test.user_{System.Guid.NewGuid():N}@test.picturepark.com",
+                LanguageCode = "en"
+            };
+
+            return await _client.User.CreateAsync(request).ConfigureAwait(false);
         }
     }
 }
