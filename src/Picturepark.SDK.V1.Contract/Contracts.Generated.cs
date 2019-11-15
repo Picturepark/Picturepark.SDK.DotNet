@@ -2262,6 +2262,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("PartialOperationNotSupportedException", typeof(PartialOperationNotSupportedException))]
     [JsonInheritanceAttribute("ContractMismatchException", typeof(ContractMismatchException))]
     [JsonInheritanceAttribute("InvalidArgumentException", typeof(InvalidArgumentException))]
+    [JsonInheritanceAttribute("ArgumentRangeException", typeof(ArgumentRangeException))]
     [JsonInheritanceAttribute("UnknownException", typeof(UnknownException))]
     [JsonInheritanceAttribute("OwnerTokenInUseException", typeof(OwnerTokenInUseException))]
     [JsonInheritanceAttribute("InvalidValueFormatException", typeof(InvalidValueFormatException))]
@@ -2473,6 +2474,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("DisplayValueRerenderingInProgressException", typeof(DisplayValueRerenderingInProgressException))]
     [JsonInheritanceAttribute("OutputFormatNotFoundException", typeof(OutputFormatNotFoundException))]
     [JsonInheritanceAttribute("OutputFormatSourceNotDefinedException", typeof(OutputFormatSourceNotDefinedException))]
+    [JsonInheritanceAttribute("OutputFormatRetentionTimeOutOfRangeException", typeof(OutputFormatRetentionTimeOutOfRangeException))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     [Newtonsoft.Json.JsonObjectAttribute]
     public partial class PictureparkException : System.Exception
@@ -3627,6 +3629,28 @@ namespace Picturepark.SDK.V1.Contract
         public static InvalidArgumentException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<InvalidArgumentException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public abstract partial class ArgumentRangeException : InvalidArgumentException
+    {
+        [Newtonsoft.Json.JsonProperty("minAcceptableValue", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string MinAcceptableValue { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("maxAcceptableValue", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string MaxAcceptableValue { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static ArgumentRangeException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ArgumentRangeException>(data);
         }
     
     }
@@ -8317,6 +8341,25 @@ namespace Picturepark.SDK.V1.Contract
         public static OutputFormatSourceNotDefinedException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<OutputFormatSourceNotDefinedException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class OutputFormatRetentionTimeOutOfRangeException : ArgumentRangeException
+    {
+        [Newtonsoft.Json.JsonProperty("outputFormatId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string OutputFormatId { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static OutputFormatRetentionTimeOutOfRangeException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<OutputFormatRetentionTimeOutOfRangeException>(data);
         }
     
     }
@@ -16722,7 +16765,7 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    /// <summary>Increases a sharpness of an image by using the unsharp mask technique.</summary>
+    /// <summary>Increases sharpness of an image by using the unsharp mask technique.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class UnsharpenMaskAction : ImageActionBase
     {

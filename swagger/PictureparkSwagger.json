@@ -18029,6 +18029,7 @@
                 "PartialOperationNotSupportedException": "#/components/schemas/PartialOperationNotSupportedException",
                 "ContractMismatchException": "#/components/schemas/ContractMismatchException",
                 "InvalidArgumentException": "#/components/schemas/InvalidArgumentException",
+                "ArgumentRangeException": "#/components/schemas/ArgumentRangeException",
                 "UnknownException": "#/components/schemas/UnknownException",
                 "OwnerTokenInUseException": "#/components/schemas/OwnerTokenInUseException",
                 "InvalidValueFormatException": "#/components/schemas/InvalidValueFormatException",
@@ -18239,7 +18240,8 @@
                 "OutputNotAvailableException": "#/components/schemas/OutputNotAvailableException",
                 "DisplayValueRerenderingInProgressException": "#/components/schemas/DisplayValueRerenderingInProgressException",
                 "OutputFormatNotFoundException": "#/components/schemas/OutputFormatNotFoundException",
-                "OutputFormatSourceNotDefinedException": "#/components/schemas/OutputFormatSourceNotDefinedException"
+                "OutputFormatSourceNotDefinedException": "#/components/schemas/OutputFormatSourceNotDefinedException",
+                "OutputFormatRetentionTimeOutOfRangeException": "#/components/schemas/OutputFormatRetentionTimeOutOfRangeException"
               }
             },
             "additionalProperties": false,
@@ -19253,6 +19255,28 @@
                 "nullable": true
               },
               "argumentValue": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "ArgumentRangeException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/InvalidArgumentException"
+          },
+          {
+            "type": "object",
+            "x-abstract": true,
+            "additionalProperties": false,
+            "properties": {
+              "minAcceptableValue": {
+                "type": "string",
+                "nullable": true
+              },
+              "maxAcceptableValue": {
                 "type": "string",
                 "nullable": true
               }
@@ -23669,6 +23693,23 @@
         "allOf": [
           {
             "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "outputFormatId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "OutputFormatRetentionTimeOutOfRangeException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ArgumentRangeException"
           },
           {
             "type": "object",
@@ -32588,7 +32629,7 @@
           },
           {
             "type": "object",
-            "description": "Increases a sharpness of an image by using the unsharp mask technique.",
+            "description": "Increases sharpness of an image by using the unsharp mask technique.",
             "additionalProperties": false,
             "required": [
               "amount",
