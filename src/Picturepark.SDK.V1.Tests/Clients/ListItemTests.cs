@@ -51,6 +51,33 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
         [Fact]
         [Trait("Stack", "ListItem")]
+        public async Task ShouldSearchAndAggregateObjectsAllTogether()
+        {
+            // Arrange
+            var fieldName = nameof(Country).ToLowerCamelCase() + "." + nameof(Country.RegionCode).ToLowerCamelCase();
+            var request = new ListItemSearchRequest
+            {
+                SearchString = "*",
+                SchemaIds = new List<string> { nameof(Country) },
+                Aggregators = new List<AggregatorBase>
+                {
+                    new TermsAggregator { Name = fieldName, Field = fieldName, Size = 20 }
+                }
+            };
+
+            // Act
+            var result = await _client.ListItem.SearchAsync(request).ConfigureAwait(false);
+
+            // Assert
+            result.Results.Should().HaveCountGreaterThan(0).And.Subject.Should().OnlyContain(li => li.ContentSchemaId == nameof(Country));
+
+            AggregationResult aggregationResult = result.AggregationResults.SingleOrDefault(i => i.Name == fieldName);
+            aggregationResult.Should().NotBeNull();
+            aggregationResult.AggregationResultItems.Should().HaveCount(20);
+        }
+
+        [Fact]
+        [Trait("Stack", "ListItem")]
         public async Task ShouldCreateAndUpdateObject()
         {
             // Arrange
