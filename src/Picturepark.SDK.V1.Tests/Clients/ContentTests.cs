@@ -158,6 +158,43 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
         [Fact]
         [Trait("Stack", "Contents")]
+        public async Task ShouldSearchAndAggregateAllTogether()
+        {
+            var request = new ContentSearchRequest
+            {
+                SearchString = string.Empty,
+                Aggregators = new List<AggregatorBase>
+                {
+                    new TermsAggregator { Name = "Aggregator1", Field = "contentType", Size = 10 }
+                }
+            };
+
+            // Second Aggregator
+            var ranges = new List<NumericRangeForAggregator>
+            {
+                new NumericRangeForAggregator { From = null, To = 499, Names = new TranslatedStringDictionary { { "en", "Aggregator2a" } } },
+                new NumericRangeForAggregator { From = 500, To = 5000, Names = new TranslatedStringDictionary { { "en", "Aggregator2b" } } }
+            };
+
+            var numRangeAggregator = new NumericRangeAggregator()
+            {
+                Name = "NumberAggregator",
+                Field = "Original.Width",
+                Ranges = ranges
+            };
+
+            request.Aggregators.Add(numRangeAggregator);
+            var result = await _client.Content.SearchAsync(request).ConfigureAwait(false);
+            result.Results.Should().HaveCountGreaterThan(0);
+            result.AggregationResults.Should().HaveCount(2);
+            foreach (var resultAggregationResult in result.AggregationResults)
+            {
+                resultAggregationResult.AggregationResultItems.Should().HaveCountGreaterThan(1);
+            }
+        }
+
+        [Fact]
+        [Trait("Stack", "Contents")]
         public async Task ShouldAggregateByChannel()
         {
             // Arrange
@@ -181,7 +218,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
         [Fact]
         [Trait("Stack", "Contents")]
-        public async Task ShouldAggregateByChannelWithTermsAggregator()
+        public async Task ShouldAggregateOnChannelWithTermsAggregator()
         {
             // Arrange
             var channelId = "rootChannel";
@@ -204,6 +241,32 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             Assert.NotNull(permissionSetResults);
             Assert.True(permissionSetResults.AggregationResultItems.Count > 0);
+        }
+
+        [Fact]
+        [Trait("Stack", "Contents")]
+        public async Task ShouldSearchAndAggregateOnChannelWithTermsAggregator()
+        {
+            // Arrange
+            var channelId = "rootChannel";
+            var request = new ContentSearchRequest
+            {
+                ChannelId = channelId,
+                SearchString = string.Empty,
+                Aggregators = new List<AggregatorBase>
+                {
+                    new TermsAggregator { Name = "Permissions", Field = "permissionSetIds", Size = 10 }
+                }
+            };
+
+            // Act
+            var result = await _client.Content.SearchAsync(request).ConfigureAwait(false);
+
+            // Assert
+            result.Results.Should().HaveCountGreaterThan(0);
+            var permissionSetAggregationResults = result.AggregationResults.SingleOrDefault(i => i.Name == "Permissions");
+            permissionSetAggregationResults.Should().NotBeNull();
+            permissionSetAggregationResults.AggregationResultItems.Should().HaveCountGreaterThan(0);
         }
 
         [Fact]

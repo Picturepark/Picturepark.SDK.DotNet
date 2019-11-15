@@ -27455,7 +27455,7 @@
       "ContentSearchResult": {
         "allOf": [
           {
-            "$ref": "#/components/schemas/SearchBehaviorBaseResultOfContent"
+            "$ref": "#/components/schemas/SearchBehaviorWithAggregationBaseResultOfContent"
           },
           {
             "type": "object",
@@ -27495,6 +27495,98 @@
             "type": "integer",
             "description": "Found document count.",
             "format": "int64"
+          }
+        }
+      },
+      "SearchBehaviorWithAggregationBaseResultOfContent": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/SearchBehaviorBaseResultOfContent"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "aggregationResults": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/AggregationResult"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "AggregationResult": {
+        "type": "object",
+        "description": "Result of an aggregation",
+        "additionalProperties": false,
+        "required": [
+          "name"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Name of the aggregation.",
+            "minLength": 1
+          },
+          "sumOtherDocCount": {
+            "type": "integer",
+            "description": "When there are lots of unique terms, Elastic Search only returns the top terms; this number is the sum of the document counts for all buckets that are not part of the response.",
+            "format": "int64",
+            "nullable": true
+          },
+          "aggregationResultItems": {
+            "type": "array",
+            "description": "Items returned for the aggregation. Each item consists of a bucket with the matched value and the number of matches.\nOptionally inner aggregations for further drill down can be available.",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/AggregationResultItem"
+            }
+          }
+        }
+      },
+      "AggregationResultItem": {
+        "type": "object",
+        "description": "Aggregation result item",
+        "additionalProperties": false,
+        "required": [
+          "name",
+          "count",
+          "active"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Value matched.",
+            "minLength": 1
+          },
+          "count": {
+            "type": "integer",
+            "description": "Number of items matched.",
+            "format": "int64"
+          },
+          "filter": {
+            "description": "Ready to use filter to filter the data based on the aggregation result values.\nIt can be passed as one of the aggregation filters of an aggregation query: it returns documents meeting the aggregation condition.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/AggregationFilter"
+              }
+            ]
+          },
+          "active": {
+            "type": "boolean",
+            "description": "True if the current result item matches on of the aggregation filters sent in the query."
+          },
+          "aggregationResults": {
+            "type": "array",
+            "description": "Inner aggregation results, if inner aggregations were provided in the query.",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/AggregationResult"
+            }
           }
         }
       },
@@ -27637,29 +27729,122 @@
         }
       },
       "ContentSearchRequest": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ContentAggregationOnChannelRequest"
+          },
+          {
+            "type": "object",
+            "description": "Request to search contents",
+            "additionalProperties": false,
+            "required": [
+              "limit",
+              "debugMode"
+            ],
+            "properties": {
+              "displayPatternIds": {
+                "type": "array",
+                "description": "Limits the display values included in the search response. Defaults to all display values.",
+                "nullable": true,
+                "items": {
+                  "type": "string"
+                }
+              },
+              "sort": {
+                "type": "array",
+                "description": "Sorts the search results. Sorting on a field not marked as Sortable in the Content schema will throw an exception.",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/SortInfo"
+                }
+              },
+              "limit": {
+                "type": "integer",
+                "description": "Limits the document count of the result set.",
+                "format": "int32",
+                "default": 30
+              },
+              "pageToken": {
+                "type": "string",
+                "description": "The token used to retrieve the next page of results. It must be null on first request and only filled with the returned pageToken to request next page of results.",
+                "nullable": true
+              },
+              "rightsFilter": {
+                "type": "array",
+                "description": "Limits the contents to the ones the user has the specified ContentRights.",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/ContentRight"
+                }
+              },
+              "rightsAggregations": {
+                "type": "array",
+                "description": "Returns the aggregated document counts to the ones the user has the specified ContentRights.\nProduces the rightsAggregationCounts on the ContentSearchResult. View will be ignored as the totalResults already gives this information.",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/ContentRight"
+                }
+              },
+              "debugMode": {
+                "type": "boolean",
+                "description": "Enable debug mode: additional debug information regarding the query execution and reason of the matched documents are returned in the ContentSearchResult.\nWarning! It severely affects performance."
+              },
+              "aggregators": {
+                "type": "array",
+                "description": "List of aggregators that defines how the items should be aggregated.",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/AggregatorBase"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "ContentAggregationOnChannelRequest": {
         "type": "object",
-        "description": "Request to search contents",
+        "description": "Request to aggregate contents based on the aggregators defined on a channel",
         "additionalProperties": false,
         "required": [
-          "limit",
           "lifeCycleFilter",
           "brokenDependenciesFilter",
-          "searchType",
-          "debugMode"
+          "searchType"
         ],
         "properties": {
-          "channelId": {
+          "searchString": {
             "type": "string",
-            "description": "Limits the simple search fields to the fields available in the specified channel.",
+            "description": "Limits the search by using a query string filter. The Lucene query string syntax is supported.",
             "nullable": true
           },
-          "displayPatternIds": {
+          "searchBehaviors": {
             "type": "array",
-            "description": "Limits the display values included in the search response. Defaults to all display values.",
+            "description": "An optional list of search behaviors. All the passed behaviors will be applied.",
             "nullable": true,
             "items": {
-              "type": "string"
+              "$ref": "#/components/schemas/SearchBehavior"
             }
+          },
+          "filter": {
+            "description": "An optional search filter. Limits the document result set.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/FilterBase"
+              }
+            ]
+          },
+          "aggregationFilters": {
+            "type": "array",
+            "description": "Special filters used to filter down the aggregations' values on specific conditions. The behavior is different when\nfiltering an aggregation that matches the same AggregationName or another aggregation.\nIn the first case, the filter is put in \"or\" with (eventual) other existing filters. In the second case it is put in \"and\".",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/AggregationFilter"
+            }
+          },
+          "channelId": {
+            "type": "string",
+            "description": "Limits the simple search fields to the fields available in the specified channel. Defaults to RootChannel.\nFor the ContentAggregationOnChannelRequest only, the existing aggregation saved on the channel are retrieved and used to perform the aggregation.",
+            "nullable": true
           },
           "searchLanguages": {
             "type": "array",
@@ -27671,52 +27856,11 @@
           },
           "collectionId": {
             "type": "string",
-            "description": "Limits the search among the contents belonging to the specified collection.",
+            "description": "Limit the search to the contents belonging to the specified collection.",
             "nullable": true
-          },
-          "searchString": {
-            "type": "string",
-            "description": "The string used to query the data. The Lucene query string syntax is supported.",
-            "nullable": true
-          },
-          "searchBehaviors": {
-            "type": "array",
-            "description": "An optional list of search behaviors. All the passed behaviors will be applied in the specified order.",
-            "nullable": true,
-            "items": {
-              "$ref": "#/components/schemas/SearchBehavior"
-            }
-          },
-          "sort": {
-            "type": "array",
-            "description": "Sorts the search results. Sorting on a field not marked as Sortable in the Content schema will throw an exception.",
-            "nullable": true,
-            "items": {
-              "$ref": "#/components/schemas/SortInfo"
-            }
-          },
-          "limit": {
-            "type": "integer",
-            "description": "Limits the number of the returned schemas. Defaults to 30.",
-            "format": "int32",
-            "default": 30
-          },
-          "pageToken": {
-            "type": "string",
-            "description": "The token used to retrieve the next page of results. It must be null on first request and only filled with the returned pageToken to request next page of results.",
-            "nullable": true
-          },
-          "filter": {
-            "description": "An optional filter to limit the contents.",
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/FilterBase"
-              }
-            ]
           },
           "lifeCycleFilter": {
-            "description": "Limits the search to the contents that have the specified life cycle state. Defaults to ActiveOnly.",
+            "description": "Limits the aggregation to the contents that have the specified life cycle state. Defaults to ActiveOnly.",
             "default": "ActiveOnly",
             "oneOf": [
               {
@@ -27725,29 +27869,13 @@
             ]
           },
           "brokenDependenciesFilter": {
-            "description": "Limits the search to the contents that have or not have broken references. By default it includes both.",
+            "description": "Limits the aggregation to the contents that have or not have broken references. By default it includes both.",
             "default": "All",
             "oneOf": [
               {
                 "$ref": "#/components/schemas/BrokenDependenciesFilter"
               }
             ]
-          },
-          "rightsFilter": {
-            "type": "array",
-            "description": "Limits the contents to the ones the user has the specified ContentRights.",
-            "nullable": true,
-            "items": {
-              "$ref": "#/components/schemas/ContentRight"
-            }
-          },
-          "rightsAggregations": {
-            "type": "array",
-            "description": "Returns the aggregated document counts to the ones the user has the specified ContentRights.\nProduces the rightsAggregationCounts on the ContentSearchResult. View will be ignored as the totalResults already gives this information.",
-            "nullable": true,
-            "items": {
-              "$ref": "#/components/schemas/ContentRight"
-            }
           },
           "searchType": {
             "description": "Type of search to be performed: search only in metadata, only in the extracted fulltext from the file or both. Default to Metadata.",
@@ -27757,10 +27885,6 @@
                 "$ref": "#/components/schemas/ContentSearchType"
               }
             ]
-          },
-          "debugMode": {
-            "type": "boolean",
-            "description": "Enable debug mode: additional debug information regarding the query execution and reason of the matched documents are returned in the ContentSearchResult.\nWarning! It severely affects performance."
           }
         }
       },
@@ -27850,78 +27974,6 @@
           }
         }
       },
-      "AggregationResult": {
-        "type": "object",
-        "description": "Result of an aggregation",
-        "additionalProperties": false,
-        "required": [
-          "name"
-        ],
-        "properties": {
-          "name": {
-            "type": "string",
-            "description": "Name of the aggregation.",
-            "minLength": 1
-          },
-          "sumOtherDocCount": {
-            "type": "integer",
-            "description": "When there are lots of unique terms, Elastic Search only returns the top terms; this number is the sum of the document counts for all buckets that are not part of the response.",
-            "format": "int64",
-            "nullable": true
-          },
-          "aggregationResultItems": {
-            "type": "array",
-            "description": "Items returned for the aggregation. Each item consists of a bucket with the matched value and the number of matches.\nOptionally inner aggregations for further drill down can be available.",
-            "nullable": true,
-            "items": {
-              "$ref": "#/components/schemas/AggregationResultItem"
-            }
-          }
-        }
-      },
-      "AggregationResultItem": {
-        "type": "object",
-        "description": "Aggregation result item",
-        "additionalProperties": false,
-        "required": [
-          "name",
-          "count",
-          "active"
-        ],
-        "properties": {
-          "name": {
-            "type": "string",
-            "description": "Value matched.",
-            "minLength": 1
-          },
-          "count": {
-            "type": "integer",
-            "description": "Number of items matched.",
-            "format": "int64"
-          },
-          "filter": {
-            "description": "Ready to use filter to filter the data based on the aggregation result values.\nIt can be passed as one of the aggregation filters of an aggregation query: it returns documents meeting the aggregation condition.",
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/AggregationFilter"
-              }
-            ]
-          },
-          "active": {
-            "type": "boolean",
-            "description": "True if the current result item matches on of the aggregation filters sent in the query."
-          },
-          "aggregationResults": {
-            "type": "array",
-            "description": "Inner aggregation results, if inner aggregations were provided in the query.",
-            "nullable": true,
-            "items": {
-              "$ref": "#/components/schemas/AggregationResult"
-            }
-          }
-        }
-      },
       "ContentAggregationRequest": {
         "allOf": [
           {
@@ -27937,7 +27989,7 @@
             "properties": {
               "aggregators": {
                 "type": "array",
-                "description": "List of aggregators that defines how the contents should be aggregated.",
+                "description": "List of aggregators that defines how the items should be aggregated.",
                 "items": {
                   "$ref": "#/components/schemas/AggregatorBase"
                 }
@@ -27945,93 +27997,6 @@
             }
           }
         ]
-      },
-      "ContentAggregationOnChannelRequest": {
-        "type": "object",
-        "description": "Request to aggregate contents based on the aggregators defined on a channel",
-        "additionalProperties": false,
-        "required": [
-          "lifeCycleFilter",
-          "brokenDependenciesFilter",
-          "searchType"
-        ],
-        "properties": {
-          "searchString": {
-            "type": "string",
-            "description": "The string used to query the list items to aggregate. The Lucene query string syntax is supported.",
-            "nullable": true
-          },
-          "searchBehaviors": {
-            "type": "array",
-            "description": "An optional list of search behaviors. All the passed behaviors will be applied in the specified order.",
-            "nullable": true,
-            "items": {
-              "$ref": "#/components/schemas/SearchBehavior"
-            }
-          },
-          "filter": {
-            "description": "An optional filter to limit the contents to aggregate on.",
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/FilterBase"
-              }
-            ]
-          },
-          "aggregationFilters": {
-            "type": "array",
-            "description": "Special filters used to filter down the aggregations' values on specific conditions. The behavior is different when\nfiltering an aggregation that matches the same AggregationName or another aggregation.\nIn the first case, the filter is put in \"or\" with (eventual) other existing filters. In the second case it is put in \"and\".",
-            "nullable": true,
-            "items": {
-              "$ref": "#/components/schemas/AggregationFilter"
-            }
-          },
-          "channelId": {
-            "type": "string",
-            "description": "Limits the simple search fields to the fields available in the specified channel. Defaults to RootChannel.\nFor the ContentAggregationOnChannelRequest only, the existing aggregation saved on the channel are retrieved and used to perform the aggregation.",
-            "nullable": true
-          },
-          "searchLanguages": {
-            "type": "array",
-            "description": "When searching in multi language fields, limit the searchable fields to the ones corresponding to the specified languages.\nIf not specified, all metadata languages defined in the system are used.",
-            "nullable": true,
-            "items": {
-              "type": "string"
-            }
-          },
-          "collectionId": {
-            "type": "string",
-            "description": "Limit the search to the contents belonging to the specified collection.",
-            "nullable": true
-          },
-          "lifeCycleFilter": {
-            "description": "Limits the aggregation to the contents that have the specified life cycle state. Defaults to ActiveOnly.",
-            "default": "ActiveOnly",
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/LifeCycleFilter"
-              }
-            ]
-          },
-          "brokenDependenciesFilter": {
-            "description": "Limits the aggregation to the contents that have or not have broken references. By default it includes both.",
-            "default": "All",
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/BrokenDependenciesFilter"
-              }
-            ]
-          },
-          "searchType": {
-            "description": "Type of search to be performed: search only in metadata, only in the extracted fulltext from the file or both. Default to Metadata.",
-            "default": "Metadata",
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/ContentSearchType"
-              }
-            ]
-          }
-        }
       },
       "ContentReferencesResult": {
         "type": "object",
@@ -30415,12 +30380,32 @@
       "ListItemSearchResult": {
         "allOf": [
           {
-            "$ref": "#/components/schemas/SearchBehaviorBaseResultOfListItem"
+            "$ref": "#/components/schemas/SearchBehaviorWithAggregationBaseResultOfListItem"
           },
           {
             "type": "object",
             "description": "Result for list item search operation",
             "additionalProperties": false
+          }
+        ]
+      },
+      "SearchBehaviorWithAggregationBaseResultOfListItem": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/SearchBehaviorBaseResultOfListItem"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "aggregationResults": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/AggregationResult"
+                }
+              }
+            }
           }
         ]
       },
@@ -30548,116 +30533,68 @@
         }
       },
       "ListItemSearchRequest": {
-        "type": "object",
-        "description": "Request to search list items",
-        "additionalProperties": false,
-        "required": [
-          "limit",
-          "includeAllSchemaChildren",
-          "brokenDependenciesFilter",
-          "debugMode",
-          "lifeCycleFilter"
-        ],
-        "properties": {
-          "searchString": {
-            "type": "string",
-            "description": "The string used to query the data. The Lucene query string syntax is supported.",
-            "nullable": true
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ListItemSearchAndAggregationBaseRequest"
           },
-          "searchBehaviors": {
-            "type": "array",
-            "description": "An optional list of search behaviors. All the passed behaviors will be applied in the specified order.",
-            "nullable": true,
-            "items": {
-              "$ref": "#/components/schemas/SearchBehavior"
-            }
-          },
-          "sort": {
-            "type": "array",
-            "description": "Sorts the search results. Sorting on a field not marked as Sortable in the Content schema will throw an exception.",
-            "nullable": true,
-            "items": {
-              "$ref": "#/components/schemas/SortInfo"
-            }
-          },
-          "limit": {
-            "type": "integer",
-            "description": "Limits the number of the returned schemas. Defaults to 30.",
-            "format": "int32",
-            "default": 30
-          },
-          "pageToken": {
-            "type": "string",
-            "description": "The token used to retrieve the next page of results. It must be null on first request and only filled with the returned pageToken to request next page of results.",
-            "nullable": true
-          },
-          "filter": {
-            "description": "An optional filter to limit the list items.",
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/FilterBase"
+          {
+            "type": "object",
+            "description": "Request to search list items",
+            "additionalProperties": false,
+            "required": [
+              "limit",
+              "debugMode"
+            ],
+            "properties": {
+              "sort": {
+                "type": "array",
+                "description": "Fields and respective directions requested to sort the search results. Sorting on a not indexed field will throw an exception.",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/SortInfo"
+                }
+              },
+              "limit": {
+                "type": "integer",
+                "description": "Limits the document count of the result set.",
+                "format": "int32",
+                "default": 30
+              },
+              "pageToken": {
+                "type": "string",
+                "description": "The token used to retrieve the next page of results. It must be null on first request and only filled with the returned pageToken to request next page of results.",
+                "nullable": true
+              },
+              "debugMode": {
+                "type": "boolean",
+                "description": "Enable debug mode: additional debug information regarding the query execution and reason of the matched documents are returned in the ListItemSearchResult.\nWarning! It severely affects performance."
+              },
+              "resolveBehaviors": {
+                "type": "array",
+                "description": "List of enums that control which parts of the list item are resolved and returned.",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/ListItemResolveBehavior"
+                }
+              },
+              "aggregators": {
+                "type": "array",
+                "description": "List of aggregators that defines how the items should be aggregated.",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/AggregatorBase"
+                }
               }
-            ]
-          },
-          "includeAllSchemaChildren": {
-            "type": "boolean",
-            "description": "Broadens the search to include all schema descendant list items."
-          },
-          "schemaIds": {
-            "type": "array",
-            "description": "Limits the search among the list items of the provided schemas.",
-            "nullable": true,
-            "items": {
-              "type": "string"
-            }
-          },
-          "brokenDependenciesFilter": {
-            "description": "Limits the search to the list items that have or not have broken references. By default it includes both.",
-            "default": "All",
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/BrokenDependenciesFilter"
-              }
-            ]
-          },
-          "searchLanguages": {
-            "type": "array",
-            "description": "When searching in multi language fields, limit the searchable fields to the ones corresponding to the specified languages.\nIf not specified, all metadata languages defined in the system are used.",
-            "nullable": true,
-            "items": {
-              "type": "string"
-            }
-          },
-          "debugMode": {
-            "type": "boolean",
-            "description": "Enable debug mode: additional debug information regarding the query execution and reason of the matched documents are returned in the ListItemSearchResult.\nWarning! It severely affects performance."
-          },
-          "lifeCycleFilter": {
-            "description": "Limits the search to the list items that have the specified life cycle state. Defaults to ActiveOnly.",
-            "default": "ActiveOnly",
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/LifeCycleFilter"
-              }
-            ]
-          },
-          "resolveBehaviors": {
-            "type": "array",
-            "description": "List of enums that control which parts of the list item are resolved and returned.",
-            "nullable": true,
-            "items": {
-              "$ref": "#/components/schemas/ListItemResolveBehavior"
             }
           }
-        }
+        ]
       },
-      "ListItemAggregationRequest": {
+      "ListItemSearchAndAggregationBaseRequest": {
         "type": "object",
         "description": "Request to aggregate list items",
+        "x-abstract": true,
         "additionalProperties": false,
         "required": [
-          "aggregators",
           "includeAllSchemaChildren",
           "brokenDependenciesFilter",
           "lifeCycleFilter"
@@ -30665,19 +30602,19 @@
         "properties": {
           "searchString": {
             "type": "string",
-            "description": "The string used to query the list items to aggregate. The Lucene query string syntax is supported.",
+            "description": "Limits the search by using a query string filter. The Lucene query string syntax is supported.",
             "nullable": true
           },
           "searchBehaviors": {
             "type": "array",
-            "description": "An optional list of search behaviors. All the passed behaviors will be applied in the specified order.",
+            "description": "An optional list of search behaviors. All the passed behaviors will be applied.",
             "nullable": true,
             "items": {
               "$ref": "#/components/schemas/SearchBehavior"
             }
           },
           "filter": {
-            "description": "An optional filter to limit the list items to aggregate on.",
+            "description": "An optional search filter. Limits the document result set.",
             "nullable": true,
             "oneOf": [
               {
@@ -30691,13 +30628,6 @@
             "nullable": true,
             "items": {
               "$ref": "#/components/schemas/AggregationFilter"
-            }
-          },
-          "aggregators": {
-            "type": "array",
-            "description": "List of aggregators that defines how the list item should be aggregated.",
-            "items": {
-              "$ref": "#/components/schemas/AggregatorBase"
             }
           },
           "includeAllSchemaChildren": {
@@ -30739,6 +30669,30 @@
             ]
           }
         }
+      },
+      "ListItemAggregationRequest": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ListItemSearchAndAggregationBaseRequest"
+          },
+          {
+            "type": "object",
+            "description": "Request to aggregate list items",
+            "additionalProperties": false,
+            "required": [
+              "aggregators"
+            ],
+            "properties": {
+              "aggregators": {
+                "type": "array",
+                "description": "List of aggregators that defines how the items should be aggregated.",
+                "items": {
+                  "$ref": "#/components/schemas/AggregatorBase"
+                }
+              }
+            }
+          }
+        ]
       },
       "ListItemCreateRequest": {
         "type": "object",
@@ -36596,12 +36550,32 @@
       "ShareSearchResult": {
         "allOf": [
           {
-            "$ref": "#/components/schemas/SearchBehaviorBaseResultOfShare"
+            "$ref": "#/components/schemas/SearchBehaviorWithAggregationBaseResultOfShare"
           },
           {
             "type": "object",
             "description": "Result for share search operation",
             "additionalProperties": false
+          }
+        ]
+      },
+      "SearchBehaviorWithAggregationBaseResultOfShare": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/SearchBehaviorBaseResultOfShare"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "aggregationResults": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/AggregationResult"
+                }
+              }
+            }
           }
         ]
       },
@@ -36724,64 +36698,58 @@
         }
       },
       "ShareSearchRequest": {
-        "type": "object",
-        "description": "Request to search shares",
-        "additionalProperties": false,
-        "required": [
-          "limit",
-          "debugMode"
-        ],
-        "properties": {
-          "searchString": {
-            "type": "string",
-            "description": "Limits the search by using a query string filter. The Lucene query string syntax is supported.",
-            "nullable": true
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ShareSearchAndAggregationBaseRequest"
           },
-          "searchBehaviors": {
-            "type": "array",
-            "description": "An optional list of search behaviors. All the passed behaviors will be applied.",
-            "nullable": true,
-            "items": {
-              "$ref": "#/components/schemas/SearchBehavior"
-            }
-          },
-          "sort": {
-            "type": "array",
-            "description": "Fields and respective directions requested to sort the search results. Sorting on a not indexed field will throw an exception.",
-            "nullable": true,
-            "items": {
-              "$ref": "#/components/schemas/SortInfo"
-            }
-          },
-          "limit": {
-            "type": "integer",
-            "description": "Limits the document count of the result set.",
-            "format": "int32",
-            "default": 30
-          },
-          "pageToken": {
-            "type": "string",
-            "description": "The token used to retrieve the next page of results. It must be null on first request and only filled with the returned pageToken to request next page of results.",
-            "nullable": true
-          },
-          "filter": {
-            "description": "An optional search filter. Limits the document result set.",
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/FilterBase"
+          {
+            "type": "object",
+            "description": "Request to search shares",
+            "additionalProperties": false,
+            "required": [
+              "limit",
+              "debugMode"
+            ],
+            "properties": {
+              "limit": {
+                "type": "integer",
+                "description": "Limits the document count of the result set.",
+                "format": "int32",
+                "default": 30
+              },
+              "sort": {
+                "type": "array",
+                "description": "Fields and respective directions requested to sort the search results. Sorting on a not indexed field will throw an exception.",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/SortInfo"
+                }
+              },
+              "pageToken": {
+                "type": "string",
+                "description": "The token used to retrieve the next page of results. It must be null on first request and only filled with the returned pageToken to request next page of results.",
+                "nullable": true
+              },
+              "debugMode": {
+                "type": "boolean",
+                "description": "Enable debug mode to get as result of the Searched additional debug information. Warning! It severely affects performance."
+              },
+              "aggregators": {
+                "type": "array",
+                "description": "List of aggregators that defines how the items should be aggregated.",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/AggregatorBase"
+                }
               }
-            ]
-          },
-          "debugMode": {
-            "type": "boolean",
-            "description": "Enable debug mode to get as result of the Searched additional debug information. Warning! It severely affects performance."
+            }
           }
-        }
+        ]
       },
-      "ShareAggregationRequest": {
+      "ShareSearchAndAggregationBaseRequest": {
         "type": "object",
         "description": "Request to aggregate shares based on the specified aggregators",
+        "x-abstract": true,
         "additionalProperties": false,
         "properties": {
           "searchString": {
@@ -36795,14 +36763,6 @@
             "nullable": true,
             "items": {
               "$ref": "#/components/schemas/SearchBehavior"
-            }
-          },
-          "sort": {
-            "type": "array",
-            "description": "Fields and respective directions requested to sort the search results. Sorting on a not indexed field will throw an exception.",
-            "nullable": true,
-            "items": {
-              "$ref": "#/components/schemas/SortInfo"
             }
           },
           "filter": {
@@ -36821,16 +36781,32 @@
             "items": {
               "$ref": "#/components/schemas/AggregationFilter"
             }
-          },
-          "aggregators": {
-            "type": "array",
-            "description": "List of aggregators that defines how the list item should be aggregated.",
-            "nullable": true,
-            "items": {
-              "$ref": "#/components/schemas/AggregatorBase"
-            }
           }
         }
+      },
+      "ShareAggregationRequest": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ShareSearchAndAggregationBaseRequest"
+          },
+          {
+            "type": "object",
+            "description": "Request to aggregate shares based on the specified aggregators",
+            "additionalProperties": false,
+            "required": [
+              "aggregators"
+            ],
+            "properties": {
+              "aggregators": {
+                "type": "array",
+                "description": "List of aggregators that defines how the items should be aggregated.",
+                "items": {
+                  "$ref": "#/components/schemas/AggregatorBase"
+                }
+              }
+            }
+          }
+        ]
       },
       "CreateShareResult": {
         "type": "object",
@@ -38555,12 +38531,32 @@
       "UserSearchResult": {
         "allOf": [
           {
-            "$ref": "#/components/schemas/SearchBehaviorBaseResultOfUserWithRoles"
+            "$ref": "#/components/schemas/SearchBehaviorWithAggregationBaseResultOfUserWithRoles"
           },
           {
             "type": "object",
             "description": "Holds results of the user search.",
             "additionalProperties": false
+          }
+        ]
+      },
+      "SearchBehaviorWithAggregationBaseResultOfUserWithRoles": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/SearchBehaviorBaseResultOfUserWithRoles"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "aggregationResults": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/AggregationResult"
+                }
+              }
+            }
           }
         ]
       },
@@ -38691,13 +38687,61 @@
         }
       },
       "UserSearchRequest": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/UserSearchAndAggregationBaseRequest"
+          },
+          {
+            "type": "object",
+            "description": "Represents user search request.",
+            "additionalProperties": false,
+            "required": [
+              "limit",
+              "debugMode"
+            ],
+            "properties": {
+              "sort": {
+                "type": "array",
+                "description": "Fields and respective directions requested to sort the search results. Sorting on a not indexed field will throw an exception.",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/SortInfo"
+                }
+              },
+              "limit": {
+                "type": "integer",
+                "description": "Limits the document count of the result set.",
+                "format": "int32",
+                "default": 30
+              },
+              "pageToken": {
+                "type": "string",
+                "description": "The token used to retrieve the next page of results. It must be null on first request and only filled with the returned pageToken to request next page of results.",
+                "nullable": true
+              },
+              "debugMode": {
+                "type": "boolean",
+                "description": "Enable debug mode to get as result of the Searched additional debug information. Warning! Severely affects performance."
+              },
+              "aggregators": {
+                "type": "array",
+                "description": "List of aggregators that defines how the items should be aggregated.",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/AggregatorBase"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "UserSearchAndAggregationBaseRequest": {
         "type": "object",
-        "description": "Represents user search request.",
+        "description": "Represents an aggregation request over users.",
+        "x-abstract": true,
         "additionalProperties": false,
         "required": [
-          "limit",
           "lifeCycleFilter",
-          "debugMode",
           "includeServiceUser"
         ],
         "properties": {
@@ -38714,27 +38758,8 @@
               "$ref": "#/components/schemas/SearchBehavior"
             }
           },
-          "sort": {
-            "type": "array",
-            "description": "Fields and respective directions requested to sort the search results.",
-            "nullable": true,
-            "items": {
-              "$ref": "#/components/schemas/SortInfo"
-            }
-          },
-          "limit": {
-            "type": "integer",
-            "description": "Limits the document count of the result set. Defaults to 30.",
-            "format": "int32",
-            "default": 30
-          },
-          "pageToken": {
-            "type": "string",
-            "description": "The token used to retrieve the next page of results. It must be null on first request and only filled with the returned pageToken to request next page of results.",
-            "nullable": true
-          },
           "filter": {
-            "description": "Filter applied to users.",
+            "description": "An optional search filter. Limits the document result set.",
             "nullable": true,
             "oneOf": [
               {
@@ -38758,50 +38783,6 @@
               "$ref": "#/components/schemas/UserRight"
             }
           },
-          "debugMode": {
-            "type": "boolean",
-            "description": "Enable debug mode to get as result of the Searched additional debug information. Warning! Severely affects performance."
-          },
-          "includeServiceUser": {
-            "type": "boolean"
-          }
-        }
-      },
-      "UserAggregationRequest": {
-        "type": "object",
-        "description": "Represents an aggregation request over users.",
-        "additionalProperties": false,
-        "properties": {
-          "searchString": {
-            "type": "string",
-            "description": "Limits the search by using a query string filter. The Lucene query string syntax is supported.",
-            "nullable": true
-          },
-          "searchBehaviors": {
-            "type": "array",
-            "description": "An optional list of search behaviors. All the passed behaviors will be applied.",
-            "nullable": true,
-            "items": {
-              "$ref": "#/components/schemas/SearchBehavior"
-            }
-          },
-          "sort": {
-            "type": "array",
-            "description": "Fields and respective directions requested to sort the search results.",
-            "nullable": true,
-            "items": {
-              "$ref": "#/components/schemas/SortInfo"
-            }
-          },
-          "filter": {
-            "description": "An optional search filter. Limits the content document result set.",
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/FilterBase"
-              }
-            ]
-          },
           "aggregationFilters": {
             "type": "array",
             "description": "Special filters used to filter down the aggregations' values on specific conditions. The behavior is different when\nfiltering an aggregation that matches the same AggregationName or another aggregation.\nIn the first case, the filter is put in \"or\" with (eventual) other existing filters. In the second case it is put in \"and\".",
@@ -38810,15 +38791,34 @@
               "$ref": "#/components/schemas/AggregationFilter"
             }
           },
-          "aggregators": {
-            "type": "array",
-            "description": "List of aggregators used while evaluating the request.",
-            "nullable": true,
-            "items": {
-              "$ref": "#/components/schemas/AggregatorBase"
-            }
+          "includeServiceUser": {
+            "type": "boolean"
           }
         }
+      },
+      "UserAggregationRequest": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/UserSearchAndAggregationBaseRequest"
+          },
+          {
+            "type": "object",
+            "description": "Represents an aggregation request over users.",
+            "additionalProperties": false,
+            "required": [
+              "aggregators"
+            ],
+            "properties": {
+              "aggregators": {
+                "type": "array",
+                "description": "List of aggregators that defines how the items should be aggregated.",
+                "items": {
+                  "$ref": "#/components/schemas/AggregatorBase"
+                }
+              }
+            }
+          }
+        ]
       },
       "UserLockRequest": {
         "type": "object",
