@@ -11879,6 +11879,118 @@
             ]
           }
         ]
+      },
+      "put": {
+        "tags": [
+          "Schema"
+        ],
+        "summary": "Update multiple schema",
+        "description": "Updates multiple existing schemas.\nPrefer this whenever you have updates for multiple schemas.",
+        "operationId": "Schema_UpdateMany",
+        "requestBody": {
+          "x-name": "request",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SchemaUpdateManyRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "BusinessProcess which can be awaited.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BusinessProcess"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Argument must not be null\nor\nValidation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            },
+            "x-expectedSchemas": [
+              {
+                "description": "Argument must not be null",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkArgumentNullException"
+                    }
+                  ]
+                }
+              },
+              {
+                "description": "Validation exception",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkValidationException"
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "schema_write"
+            ]
+          }
+        ]
       }
     },
     "/v1/schemas/many/ownership": {
@@ -35552,7 +35664,7 @@
         "properties": {
           "schemas": {
             "type": "array",
-            "description": "The schemas to create. Cyclic dependencies between schemas are supported, if the\nare all in the same request.",
+            "description": "The schemas to create. Cyclic dependencies between schemas are supported, if they\nare all in the same request.",
             "items": {
               "$ref": "#/components/schemas/SchemaCreateRequest"
             }
@@ -35670,6 +35782,45 @@
             }
           }
         }
+      },
+      "SchemaUpdateManyRequest": {
+        "type": "object",
+        "description": "Request to update multiple schemas",
+        "additionalProperties": false,
+        "required": [
+          "schemas"
+        ],
+        "properties": {
+          "schemas": {
+            "type": "array",
+            "description": "The schemas to update.",
+            "items": {
+              "$ref": "#/components/schemas/SchemaUpdateItem"
+            }
+          }
+        }
+      },
+      "SchemaUpdateItem": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/SchemaUpdateRequest"
+          },
+          {
+            "type": "object",
+            "description": "Item to update a schema",
+            "additionalProperties": false,
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "description": "Id of the schema to update",
+                "minLength": 1
+              }
+            }
+          }
+        ]
       },
       "SchemaDeleteResult": {
         "type": "object",

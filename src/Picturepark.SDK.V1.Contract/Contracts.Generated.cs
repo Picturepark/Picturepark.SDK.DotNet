@@ -19292,7 +19292,7 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class SchemaCreateManyRequest 
     {
-        /// <summary>The schemas to create. Cyclic dependencies between schemas are supported, if the
+        /// <summary>The schemas to create. Cyclic dependencies between schemas are supported, if they
         /// are all in the same request.</summary>
         [Newtonsoft.Json.JsonProperty("schemas", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
@@ -19390,6 +19390,48 @@ namespace Picturepark.SDK.V1.Contract
         public static SchemaUpdateRequest FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaUpdateRequest>(data);
+        }
+    
+    }
+    
+    /// <summary>Request to update multiple schemas</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class SchemaUpdateManyRequest 
+    {
+        /// <summary>The schemas to update.</summary>
+        [Newtonsoft.Json.JsonProperty("schemas", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.Collections.Generic.ICollection<SchemaUpdateItem> Schemas { get; set; } = new System.Collections.Generic.List<SchemaUpdateItem>();
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static SchemaUpdateManyRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaUpdateManyRequest>(data);
+        }
+    
+    }
+    
+    /// <summary>Item to update a schema</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class SchemaUpdateItem : SchemaUpdateRequest
+    {
+        /// <summary>Id of the schema to update</summary>
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public string Id { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static SchemaUpdateItem FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaUpdateItem>(data);
         }
     
     }
