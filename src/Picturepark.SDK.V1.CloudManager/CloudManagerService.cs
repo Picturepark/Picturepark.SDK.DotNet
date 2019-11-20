@@ -14,8 +14,7 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <param name="settings">The service settings.</param>
         public CloudManagerService(ICloudManagerServiceSettings settings)
         {
-            _httpClient = new HttpClient();
-            _httpClient.Timeout = settings.HttpTimeout;
+            _httpClient = new HttpClient { Timeout = settings.HttpTimeout };
 
             Initialize(settings, _httpClient);
         }
@@ -48,6 +47,8 @@ namespace Picturepark.SDK.V1.CloudManager
 
         public IMaintenanceClient Maintenance { get; private set; }
 
+        public IGlobalConfigurationClient GlobalConfiguration { get; private set; }
+
         public void Dispose()
         {
             if (_httpClient != null)
@@ -69,6 +70,7 @@ namespace Picturepark.SDK.V1.CloudManager
             CustomerServiceProvider = new CustomerServiceProviderClient(settings, httpClient);
             ContentBackup = new ContentBackupClient(settings, httpClient);
             Maintenance = new MaintenanceClient(settings, httpClient);
+            GlobalConfiguration = new GlobalConfigurationClient(settings, httpClient);
         }
     }
 }
