@@ -68,6 +68,30 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="ApiException">A server side error occurred.</exception>
         Task<SchemaUpdateResult> UpdateAsync(SchemaDetail schemaDetail, bool enableForBinaryFiles, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken));
 
+        /// <summary>Updates schemas using the given request.</summary>
+        /// <param name="request">The <see cref="SchemaUpdateManyRequest"/>.</param>
+        /// <param name="timeout">Maximum time to wait for the underlying business process to complete.</param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>The <see cref="SchemaBatchOperationResult"/>.</returns>
+        Task<SchemaBatchOperationResult> UpdateManyAsync(
+            SchemaUpdateManyRequest request,
+            TimeSpan? timeout = null,
+            CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Update the given enumerable of <see cref="SchemaDetail"/>.
+        /// </summary>
+        /// <param name="schemaDetails">The schema details.</param>
+        /// <param name="enableForBinaryFiles">Specifies whether to enable the schemas for binary files.</param>
+        /// <param name="timeout">Maximum time to wait for the underlying business process to complete.</param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>The <see cref="SchemaBatchOperationResult"/>.</returns>
+        Task<SchemaBatchOperationResult> UpdateManyAsync(
+            IEnumerable<SchemaDetail> schemaDetails,
+            bool enableForBinaryFiles,
+            TimeSpan? timeout = null,
+            CancellationToken cancellationToken = default(CancellationToken));
+
         /// <summary>Checks whether a schema ID already exists.</summary>
         /// <param name="schemaId">The schema ID.</param>
         /// <param name="cancellationToken">The cancellation token.</param>

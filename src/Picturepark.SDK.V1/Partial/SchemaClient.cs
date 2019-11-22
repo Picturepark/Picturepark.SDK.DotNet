@@ -67,19 +67,8 @@ namespace Picturepark.SDK.V1
         public async Task<SchemaCreateResult> CreateAsync(SchemaDetail schemaDetail, bool enableForBinaryFiles, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             // Map schema to binary schemas
-            if (enableForBinaryFiles && schemaDetail.Types.Contains(SchemaType.Layer))
-            {
-                var binarySchemas = new List<string>
-                {
-                    nameof(FileMetadata),
-                    nameof(AudioMetadata),
-                    nameof(DocumentMetadata),
-                    nameof(ImageMetadata),
-                    nameof(VideoMetadata),
-                };
-
-                schemaDetail.ReferencedInContentSchemaIds = binarySchemas;
-            }
+            if (enableForBinaryFiles)
+                EnableForBinaryFiles(schemaDetail);
 
             return await CreateAsync(schemaDetail, timeout, cancellationToken).ConfigureAwait(false);
         }
@@ -97,19 +86,8 @@ namespace Picturepark.SDK.V1
             // Map schema to binary schemas
             foreach (var schemaDetail in schemaDetails)
             {
-                if (enableForBinaryFiles && schemaDetail.Types.Contains(SchemaType.Layer))
-                {
-                    var binarySchemas = new List<string>
-                    {
-                        nameof(FileMetadata),
-                        nameof(AudioMetadata),
-                        nameof(DocumentMetadata),
-                        nameof(ImageMetadata),
-                        nameof(VideoMetadata),
-                    };
-
-                    schemaDetail.ReferencedInContentSchemaIds = binarySchemas;
-                }
+                if (enableForBinaryFiles)
+                    EnableForBinaryFiles(schemaDetail);
 
                 var createRequest = MapSchemaDetailToCreateRequest(schemaDetail);
                 request.Schemas.Add(createRequest);
@@ -147,36 +125,45 @@ namespace Picturepark.SDK.V1
         /// <exception cref="ApiException">A server side error occurred.</exception>
         public async Task<SchemaUpdateResult> UpdateAsync(SchemaDetail schemaDetail, bool enableForBinaryFiles, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
         {
-            if (enableForBinaryFiles && schemaDetail.Types.Contains(SchemaType.Layer))
-            {
-                var binarySchemas = new List<string>
-                {
-                    nameof(FileMetadata),
-                    nameof(AudioMetadata),
-                    nameof(DocumentMetadata),
-                    nameof(ImageMetadata),
-                    nameof(VideoMetadata),
-                };
+            if (enableForBinaryFiles)
+                EnableForBinaryFiles(schemaDetail);
 
-                schemaDetail.ReferencedInContentSchemaIds = binarySchemas;
+            var updateRequest = MapSchemaDetailToUpdateRequest(schemaDetail);
+            return await UpdateAsync(schemaDetail.Id, updateRequest, timeout, cancellationToken).ConfigureAwait(false);
+        }
+
+        /// <inheritdoc />
+        public async Task<SchemaBatchOperationResult> UpdateManyAsync(SchemaUpdateManyRequest request, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var businessProcess = await UpdateManyCoreAsync(request, cancellationToken).ConfigureAwait(false);
+            return await WaitForBusinessProcessAndReturnResult(businessProcess.Id, timeout, cancellationToken).ConfigureAwait(false);
+        }
+
+        /// <inheritdoc />
+        public async Task<SchemaBatchOperationResult> UpdateManyAsync(
+            IEnumerable<SchemaDetail> schemaDetails,
+            bool enableForBinaryFiles,
+            TimeSpan? timeout = null,
+            CancellationToken cancellationToken = default(CancellationToken))
+        {
+            if (!schemaDetails.Any())
+            {
+                return SchemaBatchOperationResult.Empty;
             }
 
-            var updateRequest = new SchemaUpdateRequest
-            {
-                Aggregations = schemaDetail.Aggregations,
-                Descriptions = schemaDetail.Descriptions,
-                DisplayPatterns = schemaDetail.DisplayPatterns,
-                Fields = schemaDetail.Fields,
-                SchemaPermissionSetIds = schemaDetail.SchemaPermissionSetIds,
-                Names = schemaDetail.Names,
-                ViewForAll = schemaDetail.ViewForAll,
-                ReferencedInContentSchemaIds = schemaDetail.ReferencedInContentSchemaIds,
-                Sort = schemaDetail.Sort,
-                LayerSchemaIds = schemaDetail.LayerSchemaIds,
-                FieldsOverwrite = schemaDetail.FieldsOverwrite
-            };
+            var request = new SchemaUpdateManyRequest();
 
-            return await UpdateAsync(schemaDetail.Id, updateRequest, timeout, cancellationToken).ConfigureAwait(false);
+            // Map schema to binary schemas
+            foreach (var schemaDetail in schemaDetails)
+            {
+                if (enableForBinaryFiles)
+                    EnableForBinaryFiles(schemaDetail);
+
+                var updateRequest = MapSchemaDetailToUpdateRequest(schemaDetail);
+                request.Schemas.Add(updateRequest);
+            }
+
+            return await UpdateManyAsync(request, timeout, cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>Checks whether a schema ID already exists.</summary>
@@ -217,6 +204,44 @@ namespace Picturepark.SDK.V1
             };
 
             return createRequest;
+        }
+
+        private SchemaUpdateItem MapSchemaDetailToUpdateRequest(SchemaDetail schemaDetail)
+        {
+            var updateRequest = new SchemaUpdateItem
+            {
+                Id = schemaDetail.Id,
+                Aggregations = schemaDetail.Aggregations,
+                Descriptions = schemaDetail.Descriptions,
+                DisplayPatterns = schemaDetail.DisplayPatterns,
+                Fields = schemaDetail.Fields,
+                SchemaPermissionSetIds = schemaDetail.SchemaPermissionSetIds,
+                Names = schemaDetail.Names,
+                ViewForAll = schemaDetail.ViewForAll,
+                ReferencedInContentSchemaIds = schemaDetail.ReferencedInContentSchemaIds,
+                Sort = schemaDetail.Sort,
+                LayerSchemaIds = schemaDetail.LayerSchemaIds,
+                FieldsOverwrite = schemaDetail.FieldsOverwrite
+            };
+
+            return updateRequest;
+        }
+
+        private void EnableForBinaryFiles(SchemaDetail schemaDetail)
+        {
+            if (schemaDetail.Types.Contains(SchemaType.Layer))
+            {
+                var binarySchemas = new List<string>
+                {
+                    nameof(FileMetadata),
+                    nameof(AudioMetadata),
+                    nameof(DocumentMetadata),
+                    nameof(ImageMetadata),
+                    nameof(VideoMetadata),
+                };
+
+                schemaDetail.ReferencedInContentSchemaIds = binarySchemas;
+            }
         }
     }
 }
