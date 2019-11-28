@@ -2471,6 +2471,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("SchemaTagboxFilterLookupNamedCacheSchemaIdInvalidException", typeof(SchemaTagboxFilterLookupNamedCacheSchemaIdInvalidException))]
     [JsonInheritanceAttribute("NoTagsFoundException", typeof(NoTagsFoundException))]
     [JsonInheritanceAttribute("OutputNotAvailableException", typeof(OutputNotAvailableException))]
+    [JsonInheritanceAttribute("ModelNotFoundException", typeof(ModelNotFoundException))]
     [JsonInheritanceAttribute("DisplayValueRerenderingInProgressException", typeof(DisplayValueRerenderingInProgressException))]
     [JsonInheritanceAttribute("OutputFormatNotFoundException", typeof(OutputFormatNotFoundException))]
     [JsonInheritanceAttribute("OutputFormatSourceNotDefinedException", typeof(OutputFormatSourceNotDefinedException))]
@@ -4691,6 +4692,9 @@ namespace Picturepark.SDK.V1.Contract
     [Newtonsoft.Json.JsonObjectAttribute]
     public partial class PermissionSetValidationException : PictureparkValidationException
     {
+        [Newtonsoft.Json.JsonProperty("permissionSetId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string PermissionSetId { get; set; }
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -8293,6 +8297,22 @@ namespace Picturepark.SDK.V1.Contract
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class ModelNotFoundException : PictureparkNotFoundException
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static ModelNotFoundException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ModelNotFoundException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
     public partial class DisplayValueRerenderingInProgressException : PictureparkValidationException
     {
         public string ToJson() 
@@ -10332,6 +10352,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("UnassignContentPermissionSetsAction", typeof(UnassignContentPermissionSetsAction))]
     [JsonInheritanceAttribute("ProduceMessageAction", typeof(ProduceMessageAction))]
     [JsonInheritanceAttribute("AssignTagboxItemsInLayerAction", typeof(AssignTagboxItemsInLayerAction))]
+    [JsonInheritanceAttribute("EnqueueTaggingAction", typeof(EnqueueTaggingAction))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public abstract partial class BusinessRuleAction 
     {
@@ -10575,6 +10596,112 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>Enqueue content for tagging</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class EnqueueTaggingAction : BusinessRuleAction
+    {
+        /// <summary>Options to use while tagging.</summary>
+        [Newtonsoft.Json.JsonProperty("options", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public TaggingOptionsBase Options { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static EnqueueTaggingAction FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<EnqueueTaggingAction>(data);
+        }
+    
+    }
+    
+    /// <summary>Options for tagging</summary>
+    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
+    [JsonInheritanceAttribute("ClarifaiTaggingOptions", typeof(ClarifaiTaggingOptions))]
+    [JsonInheritanceAttribute("SimulatedTaggingOptions", typeof(SimulatedTaggingOptions))]
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public abstract partial class TaggingOptionsBase 
+    {
+        /// <summary>Override for the output format ID to tag.</summary>
+        [Newtonsoft.Json.JsonProperty("tagOutputFormatId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string TagOutputFormatId { get; set; }
+    
+        /// <summary>Override for the cache to use.</summary>
+        [Newtonsoft.Json.JsonProperty("keywordLookupCacheName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string KeywordLookupCacheName { get; set; }
+    
+        /// <summary>Override for the layer to assign.</summary>
+        [Newtonsoft.Json.JsonProperty("taggingLayerId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string TaggingLayerId { get; set; }
+    
+        /// <summary>Override for the field id where found tags are stored.</summary>
+        [Newtonsoft.Json.JsonProperty("foundTagsFieldId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string FoundTagsFieldId { get; set; }
+    
+        /// <summary>Override for the field id where not found tags are stored.</summary>
+        [Newtonsoft.Json.JsonProperty("missingKeywordsFieldId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string MissingKeywordsFieldId { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static TaggingOptionsBase FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<TaggingOptionsBase>(data);
+        }
+    
+    }
+    
+    /// <summary>Options for clarifai tagging</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class ClarifaiTaggingOptions : TaggingOptionsBase
+    {
+        /// <summary>Override for the model to use</summary>
+        [Newtonsoft.Json.JsonProperty("model", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Model { get; set; }
+    
+        /// <summary>Override for the language to use</summary>
+        [Newtonsoft.Json.JsonProperty("language", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Language { get; set; }
+    
+        /// <summary>Minimum value a concept must have to be considered</summary>
+        [Newtonsoft.Json.JsonProperty("minimumValue", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string MinimumValue { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static ClarifaiTaggingOptions FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ClarifaiTaggingOptions>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class SimulatedTaggingOptions : TaggingOptionsBase
+    {
+        /// <summary>Number of keywords to assign.</summary>
+        [Newtonsoft.Json.JsonProperty("numberOfKeywords", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string NumberOfKeywords { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static SimulatedTaggingOptions FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SimulatedTaggingOptions>(data);
+        }
+    
+    }
+    
     /// <summary>A business rule expressed as a script</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class BusinessRuleScript : BusinessRule
@@ -10599,6 +10726,7 @@ namespace Picturepark.SDK.V1.Contract
     [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
     [JsonInheritanceAttribute("ListItemNamedCacheConfiguration", typeof(ListItemNamedCacheConfiguration))]
     [JsonInheritanceAttribute("SchemaTagboxFilterLookupNamedCacheConfiguration", typeof(SchemaTagboxFilterLookupNamedCacheConfiguration))]
+    [JsonInheritanceAttribute("InverseListItemNamedCacheConfiguration", typeof(InverseListItemNamedCacheConfiguration))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public abstract partial class NamedCacheConfigurationBase 
     {
@@ -10671,6 +10799,37 @@ namespace Picturepark.SDK.V1.Contract
         public static SchemaTagboxFilterLookupNamedCacheConfiguration FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaTagboxFilterLookupNamedCacheConfiguration>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class InverseListItemNamedCacheConfiguration : NamedCacheConfigurationBase
+    {
+        /// <summary>ID of the schema to cache (should have SchemaType = List)</summary>
+        [Newtonsoft.Json.JsonProperty("schemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string SchemaId { get; set; }
+    
+        /// <summary>ID of the field that yields the value</summary>
+        [Newtonsoft.Json.JsonProperty("valueField", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ValueField { get; set; }
+    
+        /// <summary>An optional filter to narrow down the cached list items</summary>
+        [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public FilterBase Filter { get; set; }
+    
+        /// <summary>Include child schemas when caching list items</summary>
+        [Newtonsoft.Json.JsonProperty("includeAllSchemaChildren", Required = Newtonsoft.Json.Required.Always)]
+        public bool IncludeAllSchemaChildren { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static InverseListItemNamedCacheConfiguration FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<InverseListItemNamedCacheConfiguration>(data);
         }
     
     }

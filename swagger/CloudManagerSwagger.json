@@ -7195,6 +7195,7 @@
                 "SchemaTagboxFilterLookupNamedCacheSchemaIdInvalidException": "#/components/schemas/SchemaTagboxFilterLookupNamedCacheSchemaIdInvalidException",
                 "NoTagsFoundException": "#/components/schemas/NoTagsFoundException",
                 "OutputNotAvailableException": "#/components/schemas/OutputNotAvailableException",
+                "ModelNotFoundException": "#/components/schemas/ModelNotFoundException",
                 "DisplayValueRerenderingInProgressException": "#/components/schemas/DisplayValueRerenderingInProgressException",
                 "OutputFormatNotFoundException": "#/components/schemas/OutputFormatNotFoundException",
                 "OutputFormatSourceNotDefinedException": "#/components/schemas/OutputFormatSourceNotDefinedException",
@@ -9190,7 +9191,13 @@
           {
             "type": "object",
             "description": "This exception is an abstract base for permission set validation.",
-            "additionalProperties": false
+            "additionalProperties": false,
+            "properties": {
+              "permissionSetId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
           }
         ]
       },
@@ -12618,6 +12625,17 @@
           }
         ]
       },
+      "ModelNotFoundException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkNotFoundException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
       "DisplayValueRerenderingInProgressException": {
         "allOf": [
           {
@@ -13977,23 +13995,23 @@
           "kind"
         ],
         "properties": {
-          "tagOutputFormatId": {
+          "defaultTagOutputFormatId": {
             "type": "string",
             "nullable": true
           },
-          "keywordLookupCacheName": {
+          "defaultKeywordLookupCacheName": {
             "type": "string",
             "nullable": true
           },
-          "taggingLayerId": {
+          "defaultTaggingLayerId": {
             "type": "string",
             "nullable": true
           },
-          "foundTagsFieldId": {
+          "defaultFoundTagsFieldId": {
             "type": "string",
             "nullable": true
           },
-          "missingKeywordsFieldId": {
+          "defaultMissingKeywordsFieldId": {
             "type": "string",
             "nullable": true
           },
@@ -14011,7 +14029,8 @@
             "type": "object",
             "additionalProperties": false,
             "required": [
-              "useDownloadLink"
+              "useDownloadLink",
+              "defaultMinimumValue"
             ],
             "properties": {
               "apiToken": {
@@ -14020,6 +14039,18 @@
               },
               "useDownloadLink": {
                 "type": "boolean"
+              },
+              "defaultModel": {
+                "type": "string",
+                "nullable": true
+              },
+              "defaultLanguageCode": {
+                "type": "string",
+                "nullable": true
+              },
+              "defaultMinimumValue": {
+                "type": "number",
+                "format": "decimal"
               }
             }
           }
@@ -14034,10 +14065,10 @@
             "type": "object",
             "additionalProperties": false,
             "required": [
-              "numberOfKeywords"
+              "defaultNumberOfKeywords"
             ],
             "properties": {
-              "numberOfKeywords": {
+              "defaultNumberOfKeywords": {
                 "type": "integer",
                 "format": "int32"
               }
