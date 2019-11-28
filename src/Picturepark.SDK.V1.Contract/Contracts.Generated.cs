@@ -4691,6 +4691,9 @@ namespace Picturepark.SDK.V1.Contract
     [Newtonsoft.Json.JsonObjectAttribute]
     public partial class PermissionSetValidationException : PictureparkValidationException
     {
+        [Newtonsoft.Json.JsonProperty("permissionSetId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string PermissionSetId { get; set; }
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -19860,10 +19863,6 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("expired", Required = Newtonsoft.Json.Required.Always)]
         public bool Expired { get; set; }
     
-        /// <summary>Configuration for template to use on the share detail page.</summary>
-        [Newtonsoft.Json.JsonProperty("template", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public TemplateBase Template { get; set; }
-    
         /// <summary>Defined access for contents in share.</summary>
         [Newtonsoft.Json.JsonProperty("outputAccess", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
@@ -20217,88 +20216,6 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
-    [JsonInheritanceAttribute("CardTemplate", typeof(CardTemplate))]
-    [JsonInheritanceAttribute("ListTemplate", typeof(ListTemplate))]
-    [JsonInheritanceAttribute("BasicTemplate", typeof(BasicTemplate))]
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
-    public abstract partial class TemplateBase 
-    {
-        [Newtonsoft.Json.JsonProperty("width", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? Width { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("height", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? Height { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-    
-        public static TemplateBase FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<TemplateBase>(data);
-        }
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
-    public partial class CardTemplate : TemplateBase
-    {
-        [Newtonsoft.Json.JsonProperty("showNavigation", Required = Newtonsoft.Json.Required.Always)]
-        public bool ShowNavigation { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("showOverlay", Required = Newtonsoft.Json.Required.Always)]
-        public bool ShowOverlay { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("showLogo", Required = Newtonsoft.Json.Required.Always)]
-        public bool ShowLogo { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("showFooter", Required = Newtonsoft.Json.Required.Always)]
-        public bool ShowFooter { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-    
-        public static CardTemplate FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<CardTemplate>(data);
-        }
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
-    public partial class ListTemplate : TemplateBase
-    {
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-    
-        public static ListTemplate FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<ListTemplate>(data);
-        }
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
-    public partial class BasicTemplate : TemplateBase
-    {
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-    
-        public static BasicTemplate FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<BasicTemplate>(data);
-        }
-    
-    }
-    
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public enum OutputAccess
     {
@@ -20588,10 +20505,6 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("layerSchemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> LayerSchemaIds { get; set; }
     
-        /// <summary>Configuration for template to use on the share detail page.</summary>
-        [Newtonsoft.Json.JsonProperty("template", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public TemplateBase Template { get; set; }
-    
         /// <summary>Access for content outputs in share.</summary>
         [Newtonsoft.Json.JsonProperty("outputAccess", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
@@ -20702,10 +20615,6 @@ namespace Picturepark.SDK.V1.Contract
         /// <summary>List of content layers to share.</summary>
         [Newtonsoft.Json.JsonProperty("layerSchemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> LayerSchemaIds { get; set; }
-    
-        /// <summary>Configuration for template to use on the share detail page.</summary>
-        [Newtonsoft.Json.JsonProperty("template", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public TemplateBase Template { get; set; }
     
         /// <summary>Access for content outputs in share.</summary>
         [Newtonsoft.Json.JsonProperty("outputAccess", Required = Newtonsoft.Json.Required.Always)]

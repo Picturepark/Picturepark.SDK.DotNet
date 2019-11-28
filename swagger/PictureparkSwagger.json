@@ -20345,7 +20345,13 @@
           {
             "type": "object",
             "description": "This exception is an abstract base for permission set validation.",
-            "additionalProperties": false
+            "additionalProperties": false,
+            "properties": {
+              "permissionSetId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
           }
         ]
       },
@@ -36265,15 +36271,6 @@
             "type": "boolean",
             "description": "Info if share is already expired."
           },
-          "template": {
-            "description": "Configuration for template to use on the share detail page.",
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/TemplateBase"
-              }
-            ]
-          },
           "outputAccess": {
             "description": "Defined access for contents in share.",
             "minLength": 1,
@@ -36641,90 +36638,6 @@
           }
         }
       },
-      "TemplateBase": {
-        "type": "object",
-        "discriminator": {
-          "propertyName": "kind",
-          "mapping": {
-            "CardTemplate": "#/components/schemas/CardTemplate",
-            "ListTemplate": "#/components/schemas/ListTemplate",
-            "BasicTemplate": "#/components/schemas/BasicTemplate"
-          }
-        },
-        "x-abstract": true,
-        "additionalProperties": false,
-        "required": [
-          "kind"
-        ],
-        "properties": {
-          "width": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "height": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "kind": {
-            "type": "string"
-          }
-        }
-      },
-      "CardTemplate": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/TemplateBase"
-          },
-          {
-            "type": "object",
-            "additionalProperties": false,
-            "required": [
-              "showNavigation",
-              "showOverlay",
-              "showLogo",
-              "showFooter"
-            ],
-            "properties": {
-              "showNavigation": {
-                "type": "boolean"
-              },
-              "showOverlay": {
-                "type": "boolean"
-              },
-              "showLogo": {
-                "type": "boolean"
-              },
-              "showFooter": {
-                "type": "boolean"
-              }
-            }
-          }
-        ]
-      },
-      "ListTemplate": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/TemplateBase"
-          },
-          {
-            "type": "object",
-            "additionalProperties": false
-          }
-        ]
-      },
-      "BasicTemplate": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/TemplateBase"
-          },
-          {
-            "type": "object",
-            "additionalProperties": false
-          }
-        ]
-      },
       "OutputAccess": {
         "type": "string",
         "description": "",
@@ -37062,15 +36975,6 @@
               "type": "string"
             }
           },
-          "template": {
-            "description": "Configuration for template to use on the share detail page.",
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/TemplateBase"
-              }
-            ]
-          },
           "outputAccess": {
             "description": "Access for content outputs in share.",
             "minLength": 1,
@@ -37197,15 +37101,6 @@
             "items": {
               "type": "string"
             }
-          },
-          "template": {
-            "description": "Configuration for template to use on the share detail page.",
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/TemplateBase"
-              }
-            ]
           },
           "outputAccess": {
             "description": "Access for content outputs in share.",

@@ -9190,7 +9190,13 @@
           {
             "type": "object",
             "description": "This exception is an abstract base for permission set validation.",
-            "additionalProperties": false
+            "additionalProperties": false,
+            "properties": {
+              "permissionSetId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
           }
         ]
       },
