@@ -13306,6 +13306,7 @@
           "documentHistoryRetentionTime",
           "liveStreamRetentionTime",
           "editCollectionRetentionTime",
+          "replacedOriginalsRetentionTime",
           "snapshotEnabled",
           "snapshotFullbackupScheduleTime",
           "snapshotRetentionTime",
@@ -13475,6 +13476,10 @@
             "format": "time-span"
           },
           "editCollectionRetentionTime": {
+            "type": "string",
+            "format": "time-span"
+          },
+          "replacedOriginalsRetentionTime": {
             "type": "string",
             "format": "time-span"
           },
@@ -15198,6 +15203,7 @@
           "successfulTransferRetentionTime",
           "incompleteTransferRetentionTime",
           "editCollectionRetentionTime",
+          "replacedOriginalsRetentionTime",
           "useSsl",
           "enableQueryDetails",
           "apiCallsPerMinute"
@@ -15261,6 +15267,10 @@
             "format": "time-span"
           },
           "editCollectionRetentionTime": {
+            "type": "string",
+            "format": "time-span"
+          },
+          "replacedOriginalsRetentionTime": {
             "type": "string",
             "format": "time-span"
           },
