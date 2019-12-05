@@ -6,6 +6,7 @@ using Picturepark.SDK.V1.Tests.Fixtures;
 using Picturepark.SDK.V1.Tests.FluentAssertions;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Net.Http;
@@ -269,7 +270,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             permissionSetAggregationResults.AggregationResultItems.Should().HaveCountGreaterThan(0);
         }
 
-        [Fact]
+        [Fact(Skip = "It must be re-enabled when url is accessible")]
         [Trait("Stack", "Contents")]
         public async Task ShouldCreateDownloadLinkForSingleFile()
         {
@@ -919,25 +920,42 @@ namespace Picturepark.SDK.V1.Tests.Clients
         [Trait("Stack", "Contents")]
         public async Task ShouldDownloadSingleResized()
         {
-            // Download a resized version of an image file
+            // Arrange
+            var resizeTarget = 200;
+
             var contentId = await _fixture.GetRandomContentIdAsync("fileMetadata.fileExtension:.jpg", 20).ConfigureAwait(false);
+            contentId.Should().NotBeNullOrEmpty();
 
-            Assert.False(string.IsNullOrEmpty(contentId));
-            ContentDetail contentDetail = await _client.Content.GetAsync(contentId, new[] { ContentResolveBehavior.Content }).ConfigureAwait(false);
+            var contentDetail = await _client.Content.GetAsync(contentId, new[] { ContentResolveBehavior.Content }).ConfigureAwait(false);
 
-            var fileMetadata = contentDetail.GetFileMetadata();
-            var fileName = new Random().Next(0, 999999) + "-" + fileMetadata.FileName + ".jpg";
+            var imageMetadata = contentDetail.ContentAs<ImageMetadata>();
+            var fileName = nameof(ShouldDownloadSingleResized) + new Random().Next(0, 999999) + "-" + imageMetadata.FileName + ".jpg";
             var filePath = Path.Combine(_fixture.TempDirectory, fileName);
+
+            var sourceAspectRatio = (float)imageMetadata.Width / imageMetadata.Height;
 
             if (File.Exists(filePath))
                 File.Delete(filePath);
 
-            using (var response = await _client.Content.DownloadAsync(contentId, "Original", 200, 200).ConfigureAwait(false))
+            // Act
+            using (var response = await _client.Content.DownloadAsync(contentId, "Original", resizeTarget, resizeTarget).ConfigureAwait(false))
             {
                 await response.Stream.WriteToFileAsync(filePath).ConfigureAwait(false);
             }
 
-            Assert.True(File.Exists(filePath));
+            // Assert
+            File.Exists(filePath).Should().BeTrue();
+
+            using (var bitmap = new Bitmap(filePath))
+            {
+                Math.Max(bitmap.Width, bitmap.Height).Should().Be(resizeTarget, "should resize to target");
+
+                var resizedAspectRatio = (float)bitmap.Width / bitmap.Height;
+                resizedAspectRatio.Should().BeInRange(
+                    0.98f * sourceAspectRatio,
+                    1.02f * sourceAspectRatio,
+                    "should keep aspect ratio");
+            }
         }
 
         [Fact]
