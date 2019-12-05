@@ -18114,6 +18114,7 @@
                 "EnvironmentNotDeactivatedException": "#/components/schemas/EnvironmentNotDeactivatedException",
                 "EnvironmentNotFoundException": "#/components/schemas/EnvironmentNotFoundException",
                 "EnvironmentDeactivationException": "#/components/schemas/EnvironmentDeactivationException",
+                "CustomerClonesNotAcceptedException": "#/components/schemas/CustomerClonesNotAcceptedException",
                 "ShareNotFoundException": "#/components/schemas/ShareNotFoundException",
                 "ShareByTokenNotFoundException": "#/components/schemas/ShareByTokenNotFoundException",
                 "TokenGenerationException": "#/components/schemas/TokenGenerationException",
@@ -18354,7 +18355,8 @@
                 "DisplayValueRerenderingInProgressException": "#/components/schemas/DisplayValueRerenderingInProgressException",
                 "OutputFormatNotFoundException": "#/components/schemas/OutputFormatNotFoundException",
                 "OutputFormatSourceNotDefinedException": "#/components/schemas/OutputFormatSourceNotDefinedException",
-                "OutputFormatRetentionTimeOutOfRangeException": "#/components/schemas/OutputFormatRetentionTimeOutOfRangeException"
+                "OutputFormatRetentionTimeOutOfRangeException": "#/components/schemas/OutputFormatRetentionTimeOutOfRangeException",
+                "CollectionSizeLimitExceededException": "#/components/schemas/CollectionSizeLimitExceededException"
               }
             },
             "additionalProperties": false,
@@ -18929,6 +18931,17 @@
           }
         ]
       },
+      "CustomerClonesNotAcceptedException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
       "ShareNotFoundException": {
         "allOf": [
           {
@@ -19460,7 +19473,25 @@
           },
           {
             "type": "object",
-            "additionalProperties": false
+            "additionalProperties": false,
+            "required": [
+              "limit",
+              "requestedAmount"
+            ],
+            "properties": {
+              "argumentName": {
+                "type": "string",
+                "nullable": true
+              },
+              "limit": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "requestedAmount": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
           }
         ]
       },
@@ -23848,6 +23879,30 @@
               "outputFormatId": {
                 "type": "string",
                 "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "CollectionSizeLimitExceededException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "limit"
+            ],
+            "properties": {
+              "collectionId": {
+                "type": "string",
+                "nullable": true
+              },
+              "limit": {
+                "type": "integer",
+                "format": "int32"
               }
             }
           }
