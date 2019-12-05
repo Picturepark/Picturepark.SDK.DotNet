@@ -244,7 +244,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             Assert.True(permissionSetResults.AggregationResultItems.Count > 0);
         }
 
-        [Fact]
+        [Fact(Skip = "It must be re-enabled when url is accessible")]
         [Trait("Stack", "Contents")]
         public async Task ShouldSearchAndAggregateOnChannelWithTermsAggregator()
         {
@@ -309,7 +309,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             }
         }
 
-        [Fact]
+        [Fact(Skip = "It must be re-enabled when url is accessible")]
         [Trait("Stack", "Contents")]
         public async Task ShouldCreateDownloadLinkForMultipeFiles()
         {
