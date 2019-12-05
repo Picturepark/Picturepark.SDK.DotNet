@@ -1163,6 +1163,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [JsonInheritanceAttribute("SchemaTagboxFilterLookupNamedCacheSchemaIdInvalidException", typeof(SchemaTagboxFilterLookupNamedCacheSchemaIdInvalidException))]
     [JsonInheritanceAttribute("NoTagsFoundException", typeof(NoTagsFoundException))]
     [JsonInheritanceAttribute("OutputNotAvailableException", typeof(OutputNotAvailableException))]
+    [JsonInheritanceAttribute("ModelNotFoundException", typeof(ModelNotFoundException))]
     [JsonInheritanceAttribute("DisplayValueRerenderingInProgressException", typeof(DisplayValueRerenderingInProgressException))]
     [JsonInheritanceAttribute("OutputFormatNotFoundException", typeof(OutputFormatNotFoundException))]
     [JsonInheritanceAttribute("OutputFormatSourceNotDefinedException", typeof(OutputFormatSourceNotDefinedException))]
@@ -3383,6 +3384,9 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [Newtonsoft.Json.JsonObjectAttribute]
     public partial class PermissionSetValidationException : PictureparkValidationException
     {
+        [Newtonsoft.Json.JsonProperty("permissionSetId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string PermissionSetId { get; set; }
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -6985,6 +6989,22 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class ModelNotFoundException : PictureparkNotFoundException
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static ModelNotFoundException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ModelNotFoundException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
     public partial class DisplayValueRerenderingInProgressException : PictureparkValidationException
     {
         public string ToJson() 
@@ -8332,20 +8352,20 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public abstract partial class TaggingConfigurationBase 
     {
-        [Newtonsoft.Json.JsonProperty("tagOutputFormatId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string TagOutputFormatId { get; set; }
+        [Newtonsoft.Json.JsonProperty("defaultTagOutputFormatId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string DefaultTagOutputFormatId { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("keywordLookupCacheName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string KeywordLookupCacheName { get; set; }
+        [Newtonsoft.Json.JsonProperty("defaultKeywordLookupCacheName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string DefaultKeywordLookupCacheName { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("taggingLayerId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string TaggingLayerId { get; set; }
+        [Newtonsoft.Json.JsonProperty("defaultTaggingLayerId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string DefaultTaggingLayerId { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("foundTagsFieldId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string FoundTagsFieldId { get; set; }
+        [Newtonsoft.Json.JsonProperty("defaultFoundTagsFieldId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string DefaultFoundTagsFieldId { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("missingKeywordsFieldId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string MissingKeywordsFieldId { get; set; }
+        [Newtonsoft.Json.JsonProperty("defaultMissingKeywordsFieldId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string DefaultMissingKeywordsFieldId { get; set; }
     
         public string ToJson() 
         {
@@ -8368,6 +8388,15 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [Newtonsoft.Json.JsonProperty("useDownloadLink", Required = Newtonsoft.Json.Required.Always)]
         public bool UseDownloadLink { get; set; }
     
+        [Newtonsoft.Json.JsonProperty("defaultModel", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string DefaultModel { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("defaultLanguageCode", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string DefaultLanguageCode { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("defaultMinimumValue", Required = Newtonsoft.Json.Required.Always)]
+        public decimal DefaultMinimumValue { get; set; }
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -8383,8 +8412,8 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class SimulatedTaggingConfiguration : TaggingConfigurationBase
     {
-        [Newtonsoft.Json.JsonProperty("numberOfKeywords", Required = Newtonsoft.Json.Required.Always)]
-        public int NumberOfKeywords { get; set; }
+        [Newtonsoft.Json.JsonProperty("defaultNumberOfKeywords", Required = Newtonsoft.Json.Required.Always)]
+        public int DefaultNumberOfKeywords { get; set; }
     
         public string ToJson() 
         {

@@ -18350,6 +18350,7 @@
                 "SchemaTagboxFilterLookupNamedCacheSchemaIdInvalidException": "#/components/schemas/SchemaTagboxFilterLookupNamedCacheSchemaIdInvalidException",
                 "NoTagsFoundException": "#/components/schemas/NoTagsFoundException",
                 "OutputNotAvailableException": "#/components/schemas/OutputNotAvailableException",
+                "ModelNotFoundException": "#/components/schemas/ModelNotFoundException",
                 "DisplayValueRerenderingInProgressException": "#/components/schemas/DisplayValueRerenderingInProgressException",
                 "OutputFormatNotFoundException": "#/components/schemas/OutputFormatNotFoundException",
                 "OutputFormatSourceNotDefinedException": "#/components/schemas/OutputFormatSourceNotDefinedException",
@@ -20345,7 +20346,13 @@
           {
             "type": "object",
             "description": "This exception is an abstract base for permission set validation.",
-            "additionalProperties": false
+            "additionalProperties": false,
+            "properties": {
+              "permissionSetId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
           }
         ]
       },
@@ -23773,6 +23780,17 @@
           }
         ]
       },
+      "ModelNotFoundException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkNotFoundException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
       "DisplayValueRerenderingInProgressException": {
         "allOf": [
           {
@@ -25915,7 +25933,8 @@
             "AssignContentPermissionSetsAction": "#/components/schemas/AssignContentPermissionSetsAction",
             "UnassignContentPermissionSetsAction": "#/components/schemas/UnassignContentPermissionSetsAction",
             "ProduceMessageAction": "#/components/schemas/ProduceMessageAction",
-            "AssignTagboxItemsInLayerAction": "#/components/schemas/AssignTagboxItemsInLayerAction"
+            "AssignTagboxItemsInLayerAction": "#/components/schemas/AssignTagboxItemsInLayerAction",
+            "EnqueueTaggingAction": "#/components/schemas/EnqueueTaggingAction"
           }
         },
         "description": "Action to be performed by a business rule",
@@ -26155,6 +26174,122 @@
           }
         ]
       },
+      "EnqueueTaggingAction": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BusinessRuleAction"
+          },
+          {
+            "type": "object",
+            "description": "Enqueue content for tagging",
+            "additionalProperties": false,
+            "properties": {
+              "options": {
+                "description": "Options to use while tagging.",
+                "nullable": true,
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/TaggingOptionsBase"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "TaggingOptionsBase": {
+        "type": "object",
+        "discriminator": {
+          "propertyName": "kind",
+          "mapping": {
+            "ClarifaiTaggingOptions": "#/components/schemas/ClarifaiTaggingOptions",
+            "SimulatedTaggingOptions": "#/components/schemas/SimulatedTaggingOptions"
+          }
+        },
+        "description": "Options for tagging",
+        "x-abstract": true,
+        "additionalProperties": false,
+        "required": [
+          "kind"
+        ],
+        "properties": {
+          "tagOutputFormatId": {
+            "type": "string",
+            "description": "Override for the output format ID to tag.",
+            "nullable": true
+          },
+          "keywordLookupCacheName": {
+            "type": "string",
+            "description": "Override for the cache to use.",
+            "nullable": true
+          },
+          "taggingLayerId": {
+            "type": "string",
+            "description": "Override for the layer to assign.",
+            "nullable": true
+          },
+          "foundTagsFieldId": {
+            "type": "string",
+            "description": "Override for the field id where found tags are stored.",
+            "nullable": true
+          },
+          "missingKeywordsFieldId": {
+            "type": "string",
+            "description": "Override for the field id where not found tags are stored.",
+            "nullable": true
+          },
+          "kind": {
+            "type": "string"
+          }
+        }
+      },
+      "ClarifaiTaggingOptions": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/TaggingOptionsBase"
+          },
+          {
+            "type": "object",
+            "description": "Options for clarifai tagging",
+            "additionalProperties": false,
+            "properties": {
+              "model": {
+                "type": "string",
+                "description": "Override for the model to use",
+                "nullable": true
+              },
+              "language": {
+                "type": "string",
+                "description": "Override for the language to use",
+                "nullable": true
+              },
+              "minimumValue": {
+                "type": "string",
+                "description": "Minimum value a concept must have to be considered",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "SimulatedTaggingOptions": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/TaggingOptionsBase"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "numberOfKeywords": {
+                "type": "string",
+                "description": "Number of keywords to assign.",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
       "BusinessRuleScript": {
         "allOf": [
           {
@@ -26180,7 +26315,8 @@
           "propertyName": "kind",
           "mapping": {
             "ListItemNamedCacheConfiguration": "#/components/schemas/ListItemNamedCacheConfiguration",
-            "SchemaTagboxFilterLookupNamedCacheConfiguration": "#/components/schemas/SchemaTagboxFilterLookupNamedCacheConfiguration"
+            "SchemaTagboxFilterLookupNamedCacheConfiguration": "#/components/schemas/SchemaTagboxFilterLookupNamedCacheConfiguration",
+            "InverseListItemNamedCacheConfiguration": "#/components/schemas/InverseListItemNamedCacheConfiguration"
           }
         },
         "description": "Named cache configuration",
@@ -26262,6 +26398,45 @@
                 "type": "string",
                 "description": "The layer id.",
                 "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "InverseListItemNamedCacheConfiguration": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/NamedCacheConfigurationBase"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "includeAllSchemaChildren"
+            ],
+            "properties": {
+              "schemaId": {
+                "type": "string",
+                "description": "ID of the schema to cache (should have SchemaType = List)",
+                "nullable": true
+              },
+              "valueField": {
+                "type": "string",
+                "description": "ID of the field that yields the value",
+                "nullable": true
+              },
+              "filter": {
+                "description": "An optional filter to narrow down the cached list items",
+                "nullable": true,
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/FilterBase"
+                  }
+                ]
+              },
+              "includeAllSchemaChildren": {
+                "type": "boolean",
+                "description": "Include child schemas when caching list items"
               }
             }
           }
