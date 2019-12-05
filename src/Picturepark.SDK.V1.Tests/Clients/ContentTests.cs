@@ -270,7 +270,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             permissionSetAggregationResults.AggregationResultItems.Should().HaveCountGreaterThan(0);
         }
 
-        [Fact]
+        [Fact(Skip = "It must be re-enabled when url is accessible")]
         [Trait("Stack", "Contents")]
         public async Task ShouldCreateDownloadLinkForSingleFile()
         {
