@@ -26,8 +26,7 @@ namespace Picturepark.SDK.V1.Contract
                     {
                         ContentId = i.Id,
                         OutputFormatIds = i.Outputs.Select(output => output.OutputFormatId).ToArray()
-                    }).ToArray(),
-                Template = Template
+                    }).ToArray()
             };
 
             update?.Invoke(result);
