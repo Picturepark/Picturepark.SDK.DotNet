@@ -27386,6 +27386,7 @@
         "description": "Output",
         "additionalProperties": false,
         "required": [
+          "id",
           "outputFormatId",
           "contentId",
           "renderingState",
@@ -27398,7 +27399,7 @@
           "id": {
             "type": "string",
             "description": "The ID of the output. Can be null for dynamic outputs which are not rendered yet.",
-            "nullable": true
+            "minLength": 1
           },
           "outputFormatId": {
             "type": "string",
@@ -30855,6 +30856,9 @@
       "ListItem": {
         "type": "object",
         "additionalProperties": false,
+        "required": [
+          "id"
+        ],
         "properties": {
           "audit": {
             "description": "Audit information.",
@@ -30868,7 +30872,7 @@
           "id": {
             "type": "string",
             "description": "The list item id.",
-            "nullable": true
+            "minLength": 1
           },
           "contentSchemaId": {
             "type": "string",
@@ -32207,12 +32211,13 @@
         "type": "object",
         "additionalProperties": false,
         "required": [
+          "id",
           "timestamp"
         ],
         "properties": {
           "id": {
             "type": "string",
-            "nullable": true
+            "minLength": 1
           },
           "document": {
             "type": "string",
@@ -35456,6 +35461,7 @@
         "description": "A schema",
         "additionalProperties": false,
         "required": [
+          "id",
           "fieldCount",
           "childCount",
           "level",
@@ -35465,7 +35471,7 @@
           "id": {
             "type": "string",
             "description": "The schema ID. It is unique throughout the whole customer setup.",
-            "nullable": true
+            "minLength": 1
           },
           "parentSchemaId": {
             "type": "string",
@@ -38756,11 +38762,14 @@
             "type": "object",
             "description": "Represents a user role, which associates users with user rights.",
             "additionalProperties": false,
+            "required": [
+              "id"
+            ],
             "properties": {
               "id": {
                 "type": "string",
                 "description": "User role ID.",
-                "nullable": true
+                "minLength": 1
               }
             }
           }
@@ -38936,6 +38945,7 @@
         "description": "User information retrieved via search",
         "additionalProperties": false,
         "required": [
+          "id",
           "emailAddress",
           "authorizationState",
           "lifeCycle",
@@ -38954,7 +38964,7 @@
           "id": {
             "type": "string",
             "description": "User's Picturepark ID.",
-            "nullable": true
+            "minLength": 1
           },
           "firstName": {
             "type": "string",

@@ -10099,7 +10099,8 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         public System.Collections.Generic.ICollection<string> UserRoleIds { get; set; }
     
         /// <summary>User's Picturepark ID.</summary>
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
         public string Id { get; set; }
     
         /// <summary>User's first name.</summary>
