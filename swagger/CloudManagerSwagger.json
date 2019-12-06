@@ -6959,6 +6959,7 @@
                 "EnvironmentNotDeactivatedException": "#/components/schemas/EnvironmentNotDeactivatedException",
                 "EnvironmentNotFoundException": "#/components/schemas/EnvironmentNotFoundException",
                 "EnvironmentDeactivationException": "#/components/schemas/EnvironmentDeactivationException",
+                "CustomerClonesNotAcceptedException": "#/components/schemas/CustomerClonesNotAcceptedException",
                 "ShareNotFoundException": "#/components/schemas/ShareNotFoundException",
                 "ShareByTokenNotFoundException": "#/components/schemas/ShareByTokenNotFoundException",
                 "TokenGenerationException": "#/components/schemas/TokenGenerationException",
@@ -7199,7 +7200,8 @@
                 "DisplayValueRerenderingInProgressException": "#/components/schemas/DisplayValueRerenderingInProgressException",
                 "OutputFormatNotFoundException": "#/components/schemas/OutputFormatNotFoundException",
                 "OutputFormatSourceNotDefinedException": "#/components/schemas/OutputFormatSourceNotDefinedException",
-                "OutputFormatRetentionTimeOutOfRangeException": "#/components/schemas/OutputFormatRetentionTimeOutOfRangeException"
+                "OutputFormatRetentionTimeOutOfRangeException": "#/components/schemas/OutputFormatRetentionTimeOutOfRangeException",
+                "CollectionSizeLimitExceededException": "#/components/schemas/CollectionSizeLimitExceededException"
               }
             },
             "additionalProperties": false,
@@ -7774,6 +7776,17 @@
           }
         ]
       },
+      "CustomerClonesNotAcceptedException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
       "ShareNotFoundException": {
         "allOf": [
           {
@@ -8305,7 +8318,25 @@
           },
           {
             "type": "object",
-            "additionalProperties": false
+            "additionalProperties": false,
+            "required": [
+              "limit",
+              "requestedAmount"
+            ],
+            "properties": {
+              "argumentName": {
+                "type": "string",
+                "nullable": true
+              },
+              "limit": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "requestedAmount": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
           }
         ]
       },
@@ -12698,6 +12729,30 @@
           }
         ]
       },
+      "CollectionSizeLimitExceededException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "limit"
+            ],
+            "properties": {
+              "collectionId": {
+                "type": "string",
+                "nullable": true
+              },
+              "limit": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          }
+        ]
+      },
       "SnapshotRepository": {
         "type": "object",
         "additionalProperties": false,
@@ -13725,7 +13780,9 @@
           "snapshotFullbackupScheduleTime",
           "snapshotRetentionTime",
           "contentBackupState",
-          "apiCallsPerMinute"
+          "apiCallsPerMinute",
+          "enableSupportUserRegistrationEmailNotification",
+          "enableSupportUserRegistrationNotification"
         ],
         "properties": {
           "alias": {
@@ -13938,6 +13995,12 @@
               "type": "number",
               "format": "double"
             }
+          },
+          "enableSupportUserRegistrationEmailNotification": {
+            "type": "boolean"
+          },
+          "enableSupportUserRegistrationNotification": {
+            "type": "boolean"
           }
         }
       },
@@ -15323,7 +15386,10 @@
           "replacedOriginalsRetentionTime",
           "editCollectionRetentionTime",
           "contentBackupState",
-          "apiCallsPerMinute"
+          "apiCallsPerMinute",
+          "enableSupportUserRegistrationEmailNotification",
+          "enableSupportUserRegistrationNotification",
+          "isClone"
         ],
         "properties": {
           "id": {
@@ -15431,6 +15497,10 @@
             "nullable": true
           },
           "businessRuleCatalog": {
+            "type": "string",
+            "nullable": true
+          },
+          "metadataItemCollectionCatalog": {
             "type": "string",
             "nullable": true
           },
@@ -15648,6 +15718,15 @@
               "type": "number",
               "format": "double"
             }
+          },
+          "enableSupportUserRegistrationEmailNotification": {
+            "type": "boolean"
+          },
+          "enableSupportUserRegistrationNotification": {
+            "type": "boolean"
+          },
+          "isClone": {
+            "type": "boolean"
           }
         }
       },
@@ -15695,7 +15774,9 @@
           "replacedOriginalsRetentionTime",
           "useSsl",
           "enableQueryDetails",
-          "apiCallsPerMinute"
+          "apiCallsPerMinute",
+          "enableSupportUserRegistrationEmailNotification",
+          "enableSupportUserRegistrationNotification"
         ],
         "properties": {
           "id": {
@@ -15840,6 +15921,12 @@
             "items": {
               "type": "string"
             }
+          },
+          "enableSupportUserRegistrationEmailNotification": {
+            "type": "boolean"
+          },
+          "enableSupportUserRegistrationNotification": {
+            "type": "boolean"
           }
         }
       },
@@ -16620,7 +16707,8 @@
           "Reference",
           "DocumentHistorySteady",
           "Statistics",
-          "BusinessRule"
+          "BusinessRule",
+          "MetadataItemCollection"
         ],
         "enum": [
           "Configuration",
@@ -16647,7 +16735,8 @@
           "Reference",
           "DocumentHistorySteady",
           "Statistics",
-          "BusinessRule"
+          "BusinessRule",
+          "MetadataItemCollection"
         ]
       },
       "IndexState": {
