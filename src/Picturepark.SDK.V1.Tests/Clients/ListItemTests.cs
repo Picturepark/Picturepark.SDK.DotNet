@@ -520,6 +520,36 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
         [Fact]
         [Trait("Stack", "ListItem")]
+        public async Task ShouldUpdateWithContentReplaceIfUpdateOptionSetToReplace()
+        {
+            // Arrange
+            await SchemaHelper.CreateSchemasIfNotExistentAsync<Person>(_client).ConfigureAwait(false);
+
+            // Create object
+            var objectName = "Superclub" + new Random().Next(0, 999999);
+            var listItem = new ListItemCreateRequest
+            {
+                ContentSchemaId = nameof(Club),
+                Content = new Club { Name = objectName, Country = "Switzerland" }
+            };
+            var clubItem = await _client.ListItem.CreateAsync(listItem, new[] { ListItemResolveBehavior.Content }).ConfigureAwait(false);
+
+            var club = clubItem.ConvertTo<Club>();
+            club.Country.Should().Be("Switzerland");
+
+            // Act
+            club.Country = null;
+
+            await _client.ListItem.UpdateAsync(clubItem.Id, club, UpdateOption.Replace).ConfigureAwait(false);
+            var updateClub = await _client.ListItem.GetAndConvertToAsync<Club>(clubItem.Id, nameof(Club)).ConfigureAwait(false);
+
+            // Assert
+            updateClub.Name.Should().Be(objectName);
+            updateClub.Country.Should().BeNull();
+        }
+
+        [Fact]
+        [Trait("Stack", "ListItem")]
         public async Task ShouldUpdateMany()
         {
             // Arrange
@@ -810,7 +840,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                         Trigger = true
                     }
                 },
-                new[] { ListItemResolveBehavior.Content }).ConfigureAwait(false);
+                resolveBehaviors: new[] { ListItemResolveBehavior.Content }).ConfigureAwait(false);
 
             var updated = result.ConvertTo<TriggerList>();
 
@@ -827,7 +857,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var previousTriggerDate = updated.Trigger.TriggeredOn;
 
             // assert
-            result = await _client.ListItem.UpdateAsync(listItemId, updated, new[] { ListItemResolveBehavior.Content }).ConfigureAwait(false);
+            result = await _client.ListItem.UpdateAsync(listItemId, updated, resolveBehaviors: new[] { ListItemResolveBehavior.Content }).ConfigureAwait(false);
             updated = result.ConvertTo<TriggerList>();
 
             updated.Trigger.TriggeredOn.Should().Be(previousTriggerDate);
