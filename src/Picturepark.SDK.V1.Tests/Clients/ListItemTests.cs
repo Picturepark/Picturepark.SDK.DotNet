@@ -523,7 +523,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldUpdateWithContentReplaceIfUpdateOptionSetToReplace()
         {
             // Arrange
-            await SchemaHelper.CreateSchemasIfNotExistentAsync<Person>(_client).ConfigureAwait(false);
+            await SchemaHelper.CreateSchemasIfNotExistentAsync<Club>(_client).ConfigureAwait(false);
 
             // Create object
             var objectName = "Superclub" + new Random().Next(0, 999999);
