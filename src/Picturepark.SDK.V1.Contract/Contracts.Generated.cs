@@ -13146,15 +13146,22 @@ namespace Picturepark.SDK.V1.Contract
         public UpdateOption LayerSchemasUpdateOptions { get; set; } = Picturepark.SDK.V1.Contract.UpdateOption.Merge;
     
         /// <summary>Options to modify the behavior for updating the values of schemas.
-        /// Merge: the values specified in the Content and Metadata dictionaries are merged to the existing values of the corresponding
-        /// schema on the content.
-        /// Replace: the values specified in the Content and Metadata dictionaries entirely replace any existing value of the
-        /// corresponding schema on the content.
+        /// Merge: the values specified in the Metadata dictionary are merged to the existing values of the corresponding schema on the content.
+        /// Replace: the values specified in the Metadata dictionary entirely replace any existing value of the corresponding schema on the content.
         /// Defaults to Merge.</summary>
-        [Newtonsoft.Json.JsonProperty("schemaFieldsUpdateOptions", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("layerFieldsUpdateOptions", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public UpdateOption SchemaFieldsUpdateOptions { get; set; } = Picturepark.SDK.V1.Contract.UpdateOption.Merge;
+        public UpdateOption LayerFieldsUpdateOptions { get; set; } = Picturepark.SDK.V1.Contract.UpdateOption.Merge;
+    
+        /// <summary>Options to modify the behavior for updating the content.
+        /// Merge: the values specified in the Content object are merged to the existing content.
+        /// Replace: the values specified in the Content object entirely replace the content.
+        /// Defaults to Merge.</summary>
+        [Newtonsoft.Json.JsonProperty("contentFieldsUpdateOptions", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public UpdateOption ContentFieldsUpdateOptions { get; set; } = Picturepark.SDK.V1.Contract.UpdateOption.Merge;
     
         public string ToJson() 
         {
@@ -15202,6 +15209,15 @@ namespace Picturepark.SDK.V1.Contract
         /// <summary>The content data of the list item. It's an object of dynamic metadata whose structure is defined in the Content schema of the list item.</summary>
         [Newtonsoft.Json.JsonProperty("content", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public object Content { get; set; }
+    
+        /// <summary>Options to modify the behavior for updating the content.
+        /// Merge: the values specified in the Content object are merged to the existing content.
+        /// Replace: the values specified in the Content object entirely replace any existing content.
+        /// Defaults to Merge.</summary>
+        [Newtonsoft.Json.JsonProperty("contentFieldsUpdateOptions", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public UpdateOption ContentFieldsUpdateOptions { get; set; } = Picturepark.SDK.V1.Contract.UpdateOption.Merge;
     
         public string ToJson() 
         {

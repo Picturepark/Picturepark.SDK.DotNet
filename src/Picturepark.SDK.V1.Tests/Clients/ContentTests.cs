@@ -416,7 +416,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             }).ConfigureAwait(false);
             var listItemId = listItems.Results.First().Id;
 
-            var assignLayerWithTagbox = new ContentMetadataUpdateRequest()
+            var assignLayerWithTagbox = new ContentMetadataUpdateRequest
             {
                 LayerSchemaIds = new List<string>() { nameof(AllDataTypesContract) },
                 Metadata = Metadata.From(
@@ -424,7 +424,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                     {
                         MultiTagboxField = new List<SimpleReferenceObject> { new SimpleReferenceObject { RefId = listItemId } }
                     }),
-                SchemaFieldsUpdateOptions = UpdateOption.Replace
+                LayerFieldsUpdateOptions = UpdateOption.Replace
             };
 
             // Act
@@ -647,6 +647,26 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
         [Fact]
         [Trait("Stack", "Contents")]
+        public async Task ShouldReplaceContentOnMetadataUpdate()
+        {
+            // Arrange
+            var content = await CreateContentItem().ConfigureAwait(false);
+
+            // Act
+            var request = new ContentMetadataUpdateRequest
+            {
+                Content = new object(),
+                ContentFieldsUpdateOptions = UpdateOption.Replace
+            };
+
+            var contentDetail = await _client.Content.UpdateMetadataAsync(content.Id, request, new[] { ContentResolveBehavior.Content }).ConfigureAwait(false);
+
+            // Assert
+            contentDetail.ContentAs<ContentItem>().Name.Should().BeNull();
+        }
+
+        [Fact]
+        [Trait("Stack", "Contents")]
         public async Task ShouldMergeFieldsOnMetadataUpdate()
         {
             // Arrange
@@ -687,7 +707,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             {
                 LayerSchemaIds = new List<string> { nameof(AllDataTypesContract) },
                 Metadata = Metadata.From(new AllDataTypesContract { StringField = "test string" }),
-                SchemaFieldsUpdateOptions = UpdateOption.Replace
+                LayerFieldsUpdateOptions = UpdateOption.Replace
             };
 
             // Act
@@ -1584,6 +1604,32 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             // Assert
             new DirectoryInfo(targetFolder).EnumerateFiles("*").Should().HaveCountGreaterOrEqualTo(numberOfUploads);
+        }
+
+        private async Task<ContentDetail> CreateContentItem()
+        {
+            // Arrange
+            var contentSchema = await SchemaHelper.CreateSchemasIfNotExistentAsync<ContentItem>(_client).ConfigureAwait(false);
+
+            var content = await _client.Content.CreateAsync(new ContentCreateRequest
+            {
+                ContentSchemaId = contentSchema.Id,
+                Content = new ContentItem
+                {
+                    Name = "Jozef"
+                }
+            }).ConfigureAwait(false);
+
+            // Act
+            var contentDetail = await _client.Content
+                .GetAsync(content.Id)
+                .ConfigureAwait(false);
+
+            contentDetail.Id.Should().Be(content.Id);
+            contentDetail.Should().NotBeNull();
+            contentDetail.Content.Should().NotBeNull();
+
+            return contentDetail;
         }
 
         private async Task<ContentDetail> CreateContentReferencingSimpleField(params ContentResolveBehavior[] behaviors)
