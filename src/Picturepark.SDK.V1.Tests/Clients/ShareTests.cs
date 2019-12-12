@@ -432,7 +432,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             // Assert
             var transferResult = await _client.Transfer.SearchFilesByTransferIdAsync(createTransferResult.Transfer.Id).ConfigureAwait(false);
-            var contentIds = transferResult.Results.Select(r => r.ContentId).ToList();
+            var contentIds = transferResult.Select(r => r.ContentId).ToList();
 
             Assert.Equal(importFilePaths.Count, contentIds.Count);
 
