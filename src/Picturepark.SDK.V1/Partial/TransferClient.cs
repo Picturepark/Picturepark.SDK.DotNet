@@ -24,22 +24,39 @@ namespace Picturepark.SDK.V1
 
         /// <summary>Searches files of a given transfer ID.</summary>
         /// <param name="transferId">The transfer ID.</param>
-        /// <param name="limit">The maximum number of search results.</param>
+        /// <param name="limit">The maximum number of search results. Use null to retrieve all files in a transfer.</param>
         /// <returns>The result.</returns>
-        public async Task<FileTransferSearchResult> SearchFilesByTransferIdAsync(string transferId, int limit = 20)
+        public async Task<IReadOnlyCollection<FileTransfer>> SearchFilesByTransferIdAsync(string transferId, int? limit = null)
         {
-            var request = new FileTransferSearchRequest()
-            {
-                Limit = limit,
-                SearchString = "*",
-                Filter = new TermFilter
-                {
-                    Field = "transferId",
-                    Term = transferId
-                }
-            };
+            var results = new List<FileTransfer>();
 
-            return await SearchFilesAsync(request).ConfigureAwait(false);
+            string pageToken = null;
+
+            do
+            {
+                var request = new FileTransferSearchRequest()
+                {
+                    Limit = 500,
+                    SearchString = "*",
+                    PageToken = pageToken,
+                    Filter = new TermFilter
+                    {
+                        Field = "transferId",
+                        Term = transferId
+                    }
+                };
+
+                var result = await SearchFilesAsync(request).ConfigureAwait(false);
+                pageToken = result.PageToken;
+
+                if (limit != null && results.Count + result.Results.Count > limit)
+                    results.AddRange(result.Results.Take(limit.Value - results.Count));
+                else
+                    results.AddRange(result.Results);
+            }
+            while (pageToken != null && (limit == null || results.Count < limit.Value));
+
+            return results;
         }
 
         /// <summary>Uploads multiple files from the filesystem.</summary>

@@ -13,10 +13,12 @@ namespace Picturepark.SDK.V1.CloudManager.Tests
         {
             var customerCreateJson = System.IO.File.ReadAllText(@".\data\customer-create.json");
 
-            var jsonSettings = new JsonSerializerSettings();
-            jsonSettings.Culture = System.Globalization.CultureInfo.InvariantCulture;
-            jsonSettings.NullValueHandling = NullValueHandling.Ignore;
-            jsonSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+            var jsonSettings = new JsonSerializerSettings
+            {
+                Culture = System.Globalization.CultureInfo.InvariantCulture,
+                NullValueHandling = NullValueHandling.Ignore,
+                ContractResolver = new CamelCasePropertyNamesContractResolver()
+            };
 
             // This request will not fail if the Contracts.Generated.cs is patched temporarily
             // [...] foreach (var type in System.Reflection.CustomAttributeExtensions.GetCustomAttributes<JsonInheritanceAttribute>(System.Reflection.IntrospectionExtensions.GetTypeInfo(objectType), false /* HACK: PP9-5050, true*/))

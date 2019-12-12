@@ -11,7 +11,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="transferId">The transfer ID.</param>
         /// <param name="limit">The maximum number of search results.</param>
         /// <returns>The result.</returns>
-        Task<FileTransferSearchResult> SearchFilesByTransferIdAsync(string transferId, int limit = 20);
+        Task<IReadOnlyCollection<FileTransfer>> SearchFilesByTransferIdAsync(string transferId, int? limit = null);
 
         /// <summary>Uploads multiple files from the filesystem.</summary>
         /// <param name="transferName">The name of the created transfer.</param>
