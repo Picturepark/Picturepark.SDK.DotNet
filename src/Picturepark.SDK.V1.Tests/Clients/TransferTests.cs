@@ -311,7 +311,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 ConcurrentUploads = 4,
                 ChunkSize = 1024 * 1024,
                 SuccessDelegate = Console.WriteLine,
-                ErrorDelegate = Console.WriteLine
+                ErrorDelegate = args => Console.WriteLine(args.Exception)
             };
 
             var createTransferResult = await _client.Transfer.UploadFilesAsync(transferName, importFilePaths, uploadOptions).ConfigureAwait(false);
@@ -416,7 +416,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 ConcurrentUploads = 4,
                 ChunkSize = 1024 * 1024,
                 SuccessDelegate = Console.WriteLine,
-                ErrorDelegate = Console.WriteLine
+                ErrorDelegate = args => Console.WriteLine(args.Exception)
             };
             var createTransferResult = await _client.Transfer.UploadFilesAsync(transferName, importFilePaths, uploadOptions).ConfigureAwait(false);
 
@@ -438,23 +438,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
         [Fact]
         [Trait("Stack", "Transfers")]
-        public async Task ShouldRespectTimeoutWhileUploading()
-        {
-            var transferName = Guid.NewGuid().ToString();
-
-            var ex = await Assert.ThrowsAnyAsync<Exception>(
-                async () =>
-                    await _client.Transfer.UploadFilesAsync(
-                        transferName,
-                        new FileLocations[0],
-                        new UploadOptions { WaitForTransferCompletion = true },
-                        TimeSpan.FromMilliseconds(1)).ConfigureAwait(false)).ConfigureAwait(false);
-
-            Assert.Contains(ex.GetType(), new[] { typeof(BusinessProcessLifeCycleNotHitException), typeof(BusinessProcessStateNotHitException) });
-        }
-
-        [Fact]
-        [Trait("Stack", "Transfers")]
         public async Task ShouldUploadSameFileTwiceInSameTransfer()
         {
             // Arrange
@@ -472,7 +455,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 new UploadOptions()
                 {
                     WaitForTransferCompletion = true,
-                    ErrorDelegate = Console.WriteLine,
+                    ErrorDelegate = args => Console.WriteLine(args.Exception),
                     SuccessDelegate = Console.WriteLine
                 }).ConfigureAwait(false);
 
@@ -539,7 +522,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 new UploadOptions()
                 {
                     WaitForTransferCompletion = false,
-                    ErrorDelegate = Console.WriteLine,
+                    ErrorDelegate = args => Console.WriteLine(args.Exception),
                     SuccessDelegate = Console.WriteLine
                 }).ConfigureAwait(false);
 
@@ -563,6 +546,77 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var files = await _client.Transfer.SearchFilesByTransferIdAsync(result.Transfer.Id).ConfigureAwait(false);
             files.Should().HaveCount(1);
             files.Single().Name.Should().Be("image.jpg");
+        }
+
+        [Fact]
+        [Trait("Stack", "Transfers")]
+        public async Task ShouldCallErrorDelegateForBlacklistedFile()
+        {
+            // Arrange
+            var blacklist = await _fixture.Client.Transfer.GetBlacklistAsync().ConfigureAwait(false);
+            var filename = blacklist.Items.First().Match;
+            var called = false;
+
+            var options = new UploadOptions
+            {
+                ErrorDelegate = args => called = true
+            };
+
+            // Act
+            await _fixture.Client.Transfer.UploadFilesAsync(
+                $"{Guid.NewGuid():N}",
+                new[] { new FileLocations(filename) },
+                options).ConfigureAwait(false);
+
+            // Assert
+            called.Should().BeTrue();
+        }
+
+        [Fact]
+        [Trait("Stack", "Transfers")]
+        public async Task ShouldReturnEmptyResultIfAllFilesBlacklisted()
+        {
+            // Arrange
+            var blacklist = await _fixture.Client.Transfer.GetBlacklistAsync().ConfigureAwait(false);
+            var filename = blacklist.Items.First().Match;
+
+            // Act
+            var result = await _fixture.Client.Transfer.UploadFilesAsync(
+                $"{Guid.NewGuid():N}",
+                new[] { new FileLocations(filename) },
+                null).ConfigureAwait(false);
+
+            // Assert
+            result.Transfer.Should().BeNull();
+            result.FileUploads.Should().BeEmpty();
+        }
+
+        [Fact]
+        [Trait("Stack", "Transfers")]
+        public async Task ShouldCallErrorDelegateWhenFileDoesNotExist()
+        {
+            // Arrange
+            var filename = $"{Guid.NewGuid():N}";
+
+            (FileLocations file, Exception ex) errorDelegateArgs = (null, null);
+
+            var options = new UploadOptions
+            {
+                ErrorDelegate = args => errorDelegateArgs = args
+            };
+
+            // Act
+            await _fixture.Client.Transfer.UploadFilesAsync(
+                $"{Guid.NewGuid():N}",
+                new[]
+                {
+                    new FileLocations(filename),
+                },
+                options).ConfigureAwait(false);
+
+            // Assert
+            errorDelegateArgs.file.AbsoluteSourcePath.Should().Be(filename);
+            errorDelegateArgs.ex.Should().NotBeNull();
         }
 
         private async Task<(CreateTransferResult, string fileId)> CreateFileTransferAsync()

@@ -51,7 +51,13 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="files">The file names of the transfer.</param>
         /// <param name="timeout">The timeout to wait for completion.</param>
         /// <param name="cancellationToken">The cancellation token.</param>
+        /// <param name="uploadOptions">The upload options.</param>
         /// <returns>The transfer.</returns>
-        Task<CreateTransferResult> CreateAndWaitForCompletionAsync(string transferName, IEnumerable<FileLocations> files, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<CreateTransferResult> CreateAndWaitForCompletionAsync(
+            string transferName,
+            IEnumerable<FileLocations> files,
+            TimeSpan? timeout = null,
+            CancellationToken cancellationToken = default,
+            UploadOptions uploadOptions = null);
     }
 }

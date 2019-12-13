@@ -1395,7 +1395,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var uploadOptions = new UploadOptions
             {
                 SuccessDelegate = Console.WriteLine,
-                ErrorDelegate = Console.WriteLine
+                ErrorDelegate = args => Console.WriteLine(args.Exception)
             };
 
             await _client.Transfer.UploadFilesAsync(createTransferResult.Transfer, filePaths, uploadOptions).ConfigureAwait(false);

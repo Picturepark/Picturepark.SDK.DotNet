@@ -18,6 +18,6 @@ namespace Picturepark.SDK.V1.Contract
         public Action<FileLocations> SuccessDelegate { get; set; } = null;
 
         /// <summary>Gets or sets the error delegate which is called when file upload failed.</summary>
-        public Action<Exception> ErrorDelegate { get; set; } = null;
+        public Action<(FileLocations File, Exception Exception)> ErrorDelegate { get; set; } = null;
     }
 }
