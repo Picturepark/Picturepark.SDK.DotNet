@@ -438,23 +438,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
         [Fact]
         [Trait("Stack", "Transfers")]
-        public async Task ShouldRespectTimeoutWhileUploading()
-        {
-            var transferName = Guid.NewGuid().ToString();
-
-            var ex = await Assert.ThrowsAnyAsync<Exception>(
-                async () =>
-                    await _client.Transfer.UploadFilesAsync(
-                        transferName,
-                        new[] { new FileLocations($"{Guid.NewGuid():N}"), },
-                        new UploadOptions { WaitForTransferCompletion = true },
-                        TimeSpan.FromMilliseconds(1)).ConfigureAwait(false)).ConfigureAwait(false);
-
-            Assert.Contains(ex.GetType(), new[] { typeof(BusinessProcessLifeCycleNotHitException), typeof(BusinessProcessStateNotHitException) });
-        }
-
-        [Fact]
-        [Trait("Stack", "Transfers")]
         public async Task ShouldUploadSameFileTwiceInSameTransfer()
         {
             // Arrange
