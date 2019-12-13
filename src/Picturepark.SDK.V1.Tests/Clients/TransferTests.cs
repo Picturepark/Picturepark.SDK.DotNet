@@ -446,7 +446,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 async () =>
                     await _client.Transfer.UploadFilesAsync(
                         transferName,
-                        new FileLocations[0],
+                        new[] { new FileLocations($"{Guid.NewGuid():N}"), },
                         new UploadOptions { WaitForTransferCompletion = true },
                         TimeSpan.FromMilliseconds(1)).ConfigureAwait(false)).ConfigureAwait(false);
 
@@ -628,38 +628,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 new[]
                 {
                     new FileLocations(filename),
-                },
-                options).ConfigureAwait(false);
-
-            // Assert
-            errorDelegateArgs.file.AbsoluteSourcePath.Should().Be(filename);
-            errorDelegateArgs.ex.Should().NotBeNull();
-        }
-
-        [Fact]
-        [Trait("Stack", "Transfers")]
-        public async Task ShouldCallErrorDelegateWhenFileDoesNotExist1()
-        {
-            // Arrange
-            var filename = $"{Guid.NewGuid():N}";
-            var existing = $"{Guid.NewGuid():N}";
-            File.WriteAllText(existing, "foo");
-
-            (FileLocations file, Exception ex) errorDelegateArgs = (null, null);
-
-            var options = new UploadOptions
-            {
-                ErrorDelegate = args => errorDelegateArgs = args,
-                WaitForTransferCompletion = true
-            };
-
-            // Act
-            await _fixture.Client.Transfer.UploadFilesAsync(
-                $"{Guid.NewGuid():N}",
-                new[]
-                {
-                    new FileLocations(filename),
-                    new FileLocations(existing),
                 },
                 options).ConfigureAwait(false);
 
