@@ -28996,7 +28996,8 @@
         "additionalProperties": false,
         "required": [
           "layerSchemasUpdateOptions",
-          "schemaFieldsUpdateOptions"
+          "layerFieldsUpdateOptions",
+          "contentFieldsUpdateOptions"
         ],
         "properties": {
           "layerSchemaIds": {
@@ -29027,8 +29028,17 @@
               }
             ]
           },
-          "schemaFieldsUpdateOptions": {
-            "description": "Options to modify the behavior for updating the values of schemas.\nMerge: the values specified in the Content and Metadata dictionaries are merged to the existing values of the corresponding\nschema on the content.\nReplace: the values specified in the Content and Metadata dictionaries entirely replace any existing value of the\ncorresponding schema on the content.\nDefaults to Merge.",
+          "layerFieldsUpdateOptions": {
+            "description": "Options to modify the behavior for updating the values of schemas.\nMerge: the values specified in the Metadata dictionary are merged to the existing values of the corresponding schema on the content.\nReplace: the values specified in the Metadata dictionary entirely replace any existing value of the corresponding schema on the content.\nDefaults to Merge.",
+            "default": "Merge",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/UpdateOption"
+              }
+            ]
+          },
+          "contentFieldsUpdateOptions": {
+            "description": "Options to modify the behavior for updating the content.\nMerge: the values specified in the Content object are merged to the existing content.\nReplace: the values specified in the Content object entirely replace the content.\nDefaults to Merge.",
             "default": "Merge",
             "oneOf": [
               {
@@ -31132,11 +31142,23 @@
         "type": "object",
         "description": "Request to update an existing list item",
         "additionalProperties": false,
+        "required": [
+          "contentFieldsUpdateOptions"
+        ],
         "properties": {
           "content": {
             "type": "object",
             "description": "The content data of the list item. It's an object of dynamic metadata whose structure is defined in the Content schema of the list item.",
             "nullable": true
+          },
+          "contentFieldsUpdateOptions": {
+            "description": "Options to modify the behavior for updating the content.\nMerge: the values specified in the Content object are merged to the existing content.\nReplace: the values specified in the Content object entirely replace any existing content.\nDefaults to Merge.",
+            "default": "Merge",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/UpdateOption"
+              }
+            ]
           }
         }
       },

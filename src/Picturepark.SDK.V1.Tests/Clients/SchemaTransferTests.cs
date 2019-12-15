@@ -68,7 +68,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             var request = new SchemaImportRequest()
             {
-                FileTransferId = fileTransfers.Results.First().Id,
+                FileTransferId = fileTransfers.First().Id,
                 AllowMissingDependencies = true,
                 ImportListItems = false
             };

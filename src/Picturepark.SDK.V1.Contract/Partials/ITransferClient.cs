@@ -11,7 +11,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="transferId">The transfer ID.</param>
         /// <param name="limit">The maximum number of search results.</param>
         /// <returns>The result.</returns>
-        Task<FileTransferSearchResult> SearchFilesByTransferIdAsync(string transferId, int limit = 20);
+        Task<IReadOnlyCollection<FileTransfer>> SearchFilesByTransferIdAsync(string transferId, int? limit = null);
 
         /// <summary>Uploads multiple files from the filesystem.</summary>
         /// <param name="transferName">The name of the created transfer.</param>
@@ -51,7 +51,13 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="files">The file names of the transfer.</param>
         /// <param name="timeout">The timeout to wait for completion.</param>
         /// <param name="cancellationToken">The cancellation token.</param>
+        /// <param name="uploadOptions">The upload options.</param>
         /// <returns>The transfer.</returns>
-        Task<CreateTransferResult> CreateAndWaitForCompletionAsync(string transferName, IEnumerable<FileLocations> files, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<CreateTransferResult> CreateAndWaitForCompletionAsync(
+            string transferName,
+            IEnumerable<FileLocations> files,
+            TimeSpan? timeout = null,
+            CancellationToken cancellationToken = default,
+            UploadOptions uploadOptions = null);
     }
 }

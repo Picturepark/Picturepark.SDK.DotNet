@@ -416,7 +416,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             }).ConfigureAwait(false);
             var listItemId = listItems.Results.First().Id;
 
-            var assignLayerWithTagbox = new ContentMetadataUpdateRequest()
+            var assignLayerWithTagbox = new ContentMetadataUpdateRequest
             {
                 LayerSchemaIds = new List<string>() { nameof(AllDataTypesContract) },
                 Metadata = Metadata.From(
@@ -424,7 +424,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                     {
                         MultiTagboxField = new List<SimpleReferenceObject> { new SimpleReferenceObject { RefId = listItemId } }
                     }),
-                SchemaFieldsUpdateOptions = UpdateOption.Replace
+                LayerFieldsUpdateOptions = UpdateOption.Replace
             };
 
             // Act
@@ -647,6 +647,26 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
         [Fact]
         [Trait("Stack", "Contents")]
+        public async Task ShouldReplaceContentOnMetadataUpdate()
+        {
+            // Arrange
+            var content = await CreateContentItem().ConfigureAwait(false);
+
+            // Act
+            var request = new ContentMetadataUpdateRequest
+            {
+                Content = new object(),
+                ContentFieldsUpdateOptions = UpdateOption.Replace
+            };
+
+            var contentDetail = await _client.Content.UpdateMetadataAsync(content.Id, request, new[] { ContentResolveBehavior.Content }).ConfigureAwait(false);
+
+            // Assert
+            contentDetail.ContentAs<ContentItem>().Name.Should().BeNull();
+        }
+
+        [Fact]
+        [Trait("Stack", "Contents")]
         public async Task ShouldMergeFieldsOnMetadataUpdate()
         {
             // Arrange
@@ -687,7 +707,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             {
                 LayerSchemaIds = new List<string> { nameof(AllDataTypesContract) },
                 Metadata = Metadata.From(new AllDataTypesContract { StringField = "test string" }),
-                SchemaFieldsUpdateOptions = UpdateOption.Replace
+                LayerFieldsUpdateOptions = UpdateOption.Replace
             };
 
             // Act
@@ -1375,7 +1395,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var uploadOptions = new UploadOptions
             {
                 SuccessDelegate = Console.WriteLine,
-                ErrorDelegate = Console.WriteLine
+                ErrorDelegate = args => Console.WriteLine(args.Exception)
             };
 
             await _client.Transfer.UploadFilesAsync(createTransferResult.Transfer, filePaths, uploadOptions).ConfigureAwait(false);
@@ -1571,9 +1591,11 @@ namespace Picturepark.SDK.V1.Tests.Clients
                     files,
                     new UploadOptions { WaitForTransferCompletion = true }).ConfigureAwait(false);
 
-                await _client.Transfer
+                var result = await _client.Transfer
                     .ImportTransferAsync(transfer.Transfer.Id, new ImportTransferRequest())
                     .ConfigureAwait(false);
+
+                await _client.BusinessProcess.WaitForCompletionAsync(result.BusinessProcessId).ConfigureAwait(false);
             }
 
             var contents = await _client.Content.SearchAsync(new ContentSearchRequest { SearchString = "fileMetadata.fileName:0559_BYu8ITUWMfc.jpg" }).ConfigureAwait(false);
@@ -1584,6 +1606,32 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             // Assert
             new DirectoryInfo(targetFolder).EnumerateFiles("*").Should().HaveCountGreaterOrEqualTo(numberOfUploads);
+        }
+
+        private async Task<ContentDetail> CreateContentItem()
+        {
+            // Arrange
+            var contentSchema = await SchemaHelper.CreateSchemasIfNotExistentAsync<ContentItem>(_client).ConfigureAwait(false);
+
+            var content = await _client.Content.CreateAsync(new ContentCreateRequest
+            {
+                ContentSchemaId = contentSchema.Id,
+                Content = new ContentItem
+                {
+                    Name = "Jozef"
+                }
+            }).ConfigureAwait(false);
+
+            // Act
+            var contentDetail = await _client.Content
+                .GetAsync(content.Id)
+                .ConfigureAwait(false);
+
+            contentDetail.Id.Should().Be(content.Id);
+            contentDetail.Should().NotBeNull();
+            contentDetail.Content.Should().NotBeNull();
+
+            return contentDetail;
         }
 
         private async Task<ContentDetail> CreateContentReferencingSimpleField(params ContentResolveBehavior[] behaviors)
