@@ -27386,7 +27386,6 @@
         "description": "Output",
         "additionalProperties": false,
         "required": [
-          "id",
           "outputFormatId",
           "contentId",
           "renderingState",
@@ -27399,7 +27398,7 @@
           "id": {
             "type": "string",
             "description": "The ID of the output. Can be null for dynamic outputs which are not rendered yet.",
-            "minLength": 1
+            "nullable": true
           },
           "outputFormatId": {
             "type": "string",

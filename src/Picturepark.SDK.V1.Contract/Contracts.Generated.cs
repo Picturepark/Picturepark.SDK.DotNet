@@ -11597,8 +11597,7 @@ namespace Picturepark.SDK.V1.Contract
     public partial class Output 
     {
         /// <summary>The ID of the output. Can be null for dynamic outputs which are not rendered yet.</summary>
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
     
         /// <summary>The ID of the output format this output represents.</summary>
