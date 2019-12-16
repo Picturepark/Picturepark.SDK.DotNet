@@ -15975,6 +15975,7 @@
         "description": "User information retrieved via search",
         "additionalProperties": false,
         "required": [
+          "id",
           "emailAddress",
           "authorizationState",
           "lifeCycle",
@@ -15993,7 +15994,7 @@
           "id": {
             "type": "string",
             "description": "User's Picturepark ID.",
-            "nullable": true
+            "minLength": 1
           },
           "firstName": {
             "type": "string",
