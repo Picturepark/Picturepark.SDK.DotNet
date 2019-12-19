@@ -8646,8 +8646,9 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     public partial class OutputFormatEditable : OutputFormatRenderingSpecification
     {
         /// <summary>Language specific names.</summary>
-        [Newtonsoft.Json.JsonProperty("names", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public TranslatedStringDictionary Names { get; set; }
+        [Newtonsoft.Json.JsonProperty("names", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public TranslatedStringDictionary Names { get; set; } = new TranslatedStringDictionary();
     
         /// <summary>How long should the dynamic outputs created from this format be kept.</summary>
         [Newtonsoft.Json.JsonProperty("retentionTime", Required = Newtonsoft.Json.Required.Always)]
