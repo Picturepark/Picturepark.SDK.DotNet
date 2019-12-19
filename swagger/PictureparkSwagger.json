@@ -27077,6 +27077,7 @@
         "additionalProperties": false,
         "required": [
           "sortOrder",
+          "names",
           "viewForAll"
         ],
         "properties": {
@@ -27096,12 +27097,7 @@
             "format": "int32"
           },
           "names": {
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/TranslatedStringDictionary"
-              }
-            ]
+            "$ref": "#/components/schemas/TranslatedStringDictionary"
           },
           "searchIndexId": {
             "type": "string",
@@ -27161,6 +27157,7 @@
         "additionalProperties": false,
         "required": [
           "sortOrder",
+          "names",
           "viewForAll"
         ],
         "properties": {
@@ -27176,12 +27173,7 @@
             "format": "int32"
           },
           "names": {
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/TranslatedStringDictionary"
-              }
-            ]
+            "$ref": "#/components/schemas/TranslatedStringDictionary"
           },
           "searchIndexId": {
             "type": "string",
@@ -29514,6 +29506,7 @@
         "additionalProperties": false,
         "required": [
           "id",
+          "names",
           "exclusive",
           "ownerTokenId"
         ],
@@ -29523,12 +29516,7 @@
             "minLength": 1
           },
           "names": {
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/TranslatedStringDictionary"
-              }
-            ]
+            "$ref": "#/components/schemas/TranslatedStringDictionary"
           },
           "userRolesRights": {
             "type": "array",
@@ -29639,16 +29627,12 @@
         "x-abstract": true,
         "additionalProperties": false,
         "required": [
+          "names",
           "exclusive"
         ],
         "properties": {
           "names": {
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/TranslatedStringDictionary"
-              }
-            ]
+            "$ref": "#/components/schemas/TranslatedStringDictionary"
           },
           "userRolesRights": {
             "type": "array",
@@ -29723,14 +29707,12 @@
         "type": "object",
         "x-abstract": true,
         "additionalProperties": false,
+        "required": [
+          "names"
+        ],
         "properties": {
           "names": {
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/TranslatedStringDictionary"
-              }
-            ]
+            "$ref": "#/components/schemas/TranslatedStringDictionary"
           },
           "userRolesRights": {
             "type": "array",
@@ -30019,7 +30001,8 @@
         "additionalProperties": false,
         "required": [
           "id",
-          "exclusive"
+          "exclusive",
+          "names"
         ],
         "properties": {
           "id": {
@@ -30033,7 +30016,6 @@
           },
           "names": {
             "description": "Language specific permission set names.",
-            "nullable": true,
             "oneOf": [
               {
                 "$ref": "#/components/schemas/TranslatedStringDictionary"
@@ -32549,12 +32531,12 @@
             "description": "Represents the editable part of the output format.",
             "additionalProperties": false,
             "required": [
+              "names",
               "retentionTime"
             ],
             "properties": {
               "names": {
                 "description": "Language specific names.",
-                "nullable": true,
                 "oneOf": [
                   {
                     "$ref": "#/components/schemas/TranslatedStringDictionary"
@@ -36121,6 +36103,7 @@
         "additionalProperties": false,
         "required": [
           "id",
+          "names",
           "exclusive",
           "ownerTokenId"
         ],
@@ -36130,12 +36113,7 @@
             "minLength": 1
           },
           "names": {
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/TranslatedStringDictionary"
-              }
-            ]
+            "$ref": "#/components/schemas/TranslatedStringDictionary"
           },
           "userRolesRights": {
             "type": "array",
@@ -36209,16 +36187,12 @@
         "x-abstract": true,
         "additionalProperties": false,
         "required": [
+          "names",
           "exclusive"
         ],
         "properties": {
           "names": {
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/TranslatedStringDictionary"
-              }
-            ]
+            "$ref": "#/components/schemas/TranslatedStringDictionary"
           },
           "userRolesRights": {
             "type": "array",
@@ -36276,14 +36250,12 @@
         "type": "object",
         "x-abstract": true,
         "additionalProperties": false,
+        "required": [
+          "names"
+        ],
         "properties": {
           "names": {
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/TranslatedStringDictionary"
-              }
-            ]
+            "$ref": "#/components/schemas/TranslatedStringDictionary"
           },
           "userRolesRights": {
             "type": "array",

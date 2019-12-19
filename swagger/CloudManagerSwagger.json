@@ -14306,12 +14306,12 @@
             "description": "Represents the editable part of the output format.",
             "additionalProperties": false,
             "required": [
+              "names",
               "retentionTime"
             ],
             "properties": {
               "names": {
                 "description": "Language specific names.",
-                "nullable": true,
                 "oneOf": [
                   {
                     "$ref": "#/components/schemas/TranslatedStringDictionary"
