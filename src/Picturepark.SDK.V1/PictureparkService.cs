@@ -66,6 +66,8 @@ namespace Picturepark.SDK.V1
 
         public IDisplayValueClient DisplayValue { get; private set; }
 
+        public IMetadataClient Metadata { get; private set; }
+
         public void Dispose()
         {
             if (_httpClient != null)
@@ -98,6 +100,7 @@ namespace Picturepark.SDK.V1
             BusinessRule = new BusinessRuleClient(settings, httpClient);
             OutputFormat = new OutputFormatClient(BusinessProcess, settings, httpClient);
             DisplayValue = new DisplayValueClient(settings, httpClient);
+            Metadata = new MetadataClient(settings, httpClient);
         }
     }
 }

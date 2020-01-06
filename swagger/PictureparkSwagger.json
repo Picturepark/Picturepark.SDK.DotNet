@@ -6648,7 +6648,7 @@
         "operationId": "Info_GetStatus",
         "responses": {
           "200": {
-            "description": "VersionInfo",
+            "description": "SystemStatus",
             "content": {
               "application/json": {
                 "schema": {
@@ -8820,6 +8820,162 @@
           {
             "Bearer": [
               "livestream_read"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/metadata/status": {
+      "get": {
+        "tags": [
+          "Metadata"
+        ],
+        "summary": "Get status",
+        "description": "Get the status of the metadata items (contents and list items) compared to the schema model.",
+        "operationId": "Metadata_GetStatus",
+        "responses": {
+          "200": {
+            "description": "MetadataStatus",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MetadataStatus"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "schema_read"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/metadata/many/updateOutdated": {
+      "post": {
+        "tags": [
+          "Metadata"
+        ],
+        "summary": "Update outdated",
+        "description": "Update outdated metadata items (contents and list items). The changes to the schemas are enforced: data related to removed fields are deleted; eventual references to removed fields are dropped; calculated values are recalculated;\nthe ids of the schemas' fields the could not be reused become available again.\nThe operation can take a long time and it is therefore executed asynchronously and not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.",
+        "operationId": "Metadata_UpdateOutdated",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BusinessProcess"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Not authorized"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "schema_write"
             ]
           }
         ]
@@ -18198,6 +18354,7 @@
                 "DeleteListItemsWithReferencesException": "#/components/schemas/DeleteListItemsWithReferencesException",
                 "ListItemUpdateManyException": "#/components/schemas/ListItemUpdateManyException",
                 "ListItemSchemaMismatchException": "#/components/schemas/ListItemSchemaMismatchException",
+                "ListItemsUpdateInProgressException": "#/components/schemas/ListItemsUpdateInProgressException",
                 "TransferInfoNotFoundException": "#/components/schemas/TransferInfoNotFoundException",
                 "FileTransferNotFoundException": "#/components/schemas/FileTransferNotFoundException",
                 "InvalidTransferTypeException": "#/components/schemas/InvalidTransferTypeException",
@@ -18283,6 +18440,7 @@
                 "ContentFileReplaceTypeMismatchException": "#/components/schemas/ContentFileReplaceTypeMismatchException",
                 "ContentBackupFailedException": "#/components/schemas/ContentBackupFailedException",
                 "ContentLayerSameRootException": "#/components/schemas/ContentLayerSameRootException",
+                "ContentsUpdateInProgressException": "#/components/schemas/ContentsUpdateInProgressException",
                 "BusinessProcessEngineRequestException": "#/components/schemas/BusinessProcessEngineRequestException",
                 "BusinessProcessNotFoundException": "#/components/schemas/BusinessProcessNotFoundException",
                 "BusinessProcessDefinitionNotFoundException": "#/components/schemas/BusinessProcessDefinitionNotFoundException",
@@ -20542,6 +20700,17 @@
           }
         ]
       },
+      "ListItemsUpdateInProgressException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
       "TransferInfoNotFoundException": {
         "allOf": [
           {
@@ -22606,6 +22775,17 @@
             }
           }
         }
+      },
+      "ContentsUpdateInProgressException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
       },
       "BusinessProcessEngineRequestException": {
         "allOf": [
@@ -30607,6 +30787,14 @@
             "items": {
               "$ref": "#/components/schemas/StatusOfDisplayValuesState"
             }
+          },
+          "metadataStatus": {
+            "type": "array",
+            "description": "The status of the contents and list items.",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/StatusOfMetadataState"
+            }
           }
         }
       },
@@ -30655,6 +30843,36 @@
             "$ref": "#/components/schemas/DisplayValuesState"
           }
         }
+      },
+      "StatusOfMetadataState": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "state"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "state": {
+            "$ref": "#/components/schemas/MetadataState"
+          }
+        }
+      },
+      "MetadataState": {
+        "type": "string",
+        "description": "The state of the contents and list items",
+        "x-enumNames": [
+          "UpToDate",
+          "Outdated",
+          "UpdateInProgress"
+        ],
+        "enum": [
+          "UpToDate",
+          "Outdated",
+          "UpdateInProgress"
+        ]
       },
       "ListItemDetail": {
         "type": "object",
@@ -32317,6 +32535,51 @@
             "type": "string",
             "description": "To get a large amount of data, page token returned from the response can be used to get all data.",
             "nullable": true
+          }
+        }
+      },
+      "MetadataStatus": {
+        "type": "object",
+        "description": "The overall status of the contents and list items in comparison to the actual schemas' structure",
+        "additionalProperties": false,
+        "required": [
+          "state"
+        ],
+        "properties": {
+          "contentOrLayerSchemaIds": {
+            "type": "array",
+            "description": "The schema ids (of type Content or Layer) for which the contents are outdated and need to be updated.",
+            "nullable": true,
+            "items": {
+              "type": "string"
+            }
+          },
+          "listSchemaIds": {
+            "type": "array",
+            "description": "The schema ids (of type List) for which the the list items are outdated and need to be updated.",
+            "nullable": true,
+            "items": {
+              "type": "string"
+            }
+          },
+          "state": {
+            "description": "The global state of the Contents and ListItems compared to the schema structure (Green = ok, Red = update needed).",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/MetadataState"
+              }
+            ]
+          },
+          "fieldIdsToCleanup": {
+            "type": "object",
+            "description": "The field ids that that cannot be used and needs to be cleaned up after updating the outdated contents and list items.",
+            "nullable": true,
+            "additionalProperties": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
           }
         }
       },
@@ -39507,6 +39770,10 @@
     {
       "name": "LiveStream",
       "description": "Endpoints to access live stream information.\r\n\r\nYou can also use [ServiceProviders](https://www.nuget.org/packages/Picturepark.SDK.V1.ServiceProvider/) to get a live stream of messages.\r\n\r\n[Code examples](https://github.com/Picturepark/Picturepark.SDK.DotNet/tree/master/samples/Picturepark.ServiceProvider.Example)\r\n"
+    },
+    {
+      "name": "Metadata",
+      "description": "Endpoints to work with metadata items (contents and list items).\r\n\r\n[Code examples](https://github.com/Picturepark/Picturepark.SDK.DotNet/blob/master/src/Picturepark.SDK.V1.Tests/Clients/MetadataTests.cs)\r\n"
     },
     {
       "name": "Output",

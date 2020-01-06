@@ -7043,6 +7043,7 @@
                 "DeleteListItemsWithReferencesException": "#/components/schemas/DeleteListItemsWithReferencesException",
                 "ListItemUpdateManyException": "#/components/schemas/ListItemUpdateManyException",
                 "ListItemSchemaMismatchException": "#/components/schemas/ListItemSchemaMismatchException",
+                "ListItemsUpdateInProgressException": "#/components/schemas/ListItemsUpdateInProgressException",
                 "TransferInfoNotFoundException": "#/components/schemas/TransferInfoNotFoundException",
                 "FileTransferNotFoundException": "#/components/schemas/FileTransferNotFoundException",
                 "InvalidTransferTypeException": "#/components/schemas/InvalidTransferTypeException",
@@ -7128,6 +7129,7 @@
                 "ContentFileReplaceTypeMismatchException": "#/components/schemas/ContentFileReplaceTypeMismatchException",
                 "ContentBackupFailedException": "#/components/schemas/ContentBackupFailedException",
                 "ContentLayerSameRootException": "#/components/schemas/ContentLayerSameRootException",
+                "ContentsUpdateInProgressException": "#/components/schemas/ContentsUpdateInProgressException",
                 "BusinessProcessEngineRequestException": "#/components/schemas/BusinessProcessEngineRequestException",
                 "BusinessProcessNotFoundException": "#/components/schemas/BusinessProcessNotFoundException",
                 "BusinessProcessDefinitionNotFoundException": "#/components/schemas/BusinessProcessDefinitionNotFoundException",
@@ -9387,6 +9389,17 @@
           }
         ]
       },
+      "ListItemsUpdateInProgressException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
       "TransferInfoNotFoundException": {
         "allOf": [
           {
@@ -11451,6 +11464,17 @@
             }
           }
         }
+      },
+      "ContentsUpdateInProgressException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
       },
       "BusinessProcessEngineRequestException": {
         "allOf": [
