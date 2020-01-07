@@ -14055,6 +14055,16 @@
               "type": "string"
             },
             "x-position": 1
+          },
+          {
+            "name": "lang",
+            "in": "query",
+            "description": "Language code",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 2
           }
         ],
         "responses": {
