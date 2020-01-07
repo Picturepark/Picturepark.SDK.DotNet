@@ -20060,20 +20060,26 @@ namespace Picturepark.SDK.V1
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Get share json</summary>
         /// <param name="token">Share token</param>
+        /// <param name="lang">Language code</param>
         /// <returns>ShareDetail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
-        public async System.Threading.Tasks.Task<object> GetShareJsonAsync(string token, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<object> GetShareJsonAsync(string token, string lang = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (token == null)
                 throw new System.ArgumentNullException("token");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/shares/json/{token}");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/shares/json/{token}?");
             urlBuilder_.Replace("{token}", System.Uri.EscapeDataString(ConvertToString(token, System.Globalization.CultureInfo.InvariantCulture)));
+            if (lang != null) 
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("lang") + "=").Append(System.Uri.EscapeDataString(ConvertToString(lang, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            urlBuilder_.Length--;
     
             var client_ = _httpClient;
             try
