@@ -1486,13 +1486,14 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Get share json</summary>
         /// <param name="token">Share token</param>
+        /// <param name="lang">Language code</param>
         /// <returns>ShareDetail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
-        System.Threading.Tasks.Task<object> GetShareJsonAsync(string token, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<object> GetShareJsonAsync(string token, string lang = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Download shared outputs</summary>
@@ -2343,7 +2344,6 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("DeleteListItemsWithReferencesException", typeof(DeleteListItemsWithReferencesException))]
     [JsonInheritanceAttribute("ListItemUpdateManyException", typeof(ListItemUpdateManyException))]
     [JsonInheritanceAttribute("ListItemSchemaMismatchException", typeof(ListItemSchemaMismatchException))]
-    [JsonInheritanceAttribute("ListItemsUpdateInProgressException", typeof(ListItemsUpdateInProgressException))]
     [JsonInheritanceAttribute("TransferInfoNotFoundException", typeof(TransferInfoNotFoundException))]
     [JsonInheritanceAttribute("FileTransferNotFoundException", typeof(FileTransferNotFoundException))]
     [JsonInheritanceAttribute("InvalidTransferTypeException", typeof(InvalidTransferTypeException))]
@@ -2370,6 +2370,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("DuplicatedItemAssignedException", typeof(DuplicatedItemAssignedException))]
     [JsonInheritanceAttribute("InvalidDataTypeException", typeof(InvalidDataTypeException))]
     [JsonInheritanceAttribute("LayerAssignmentInvalidException", typeof(LayerAssignmentInvalidException))]
+    [JsonInheritanceAttribute("OutdatedMetadataUpdateInProgressException", typeof(OutdatedMetadataUpdateInProgressException))]
     [JsonInheritanceAttribute("SchemaFieldOverwriteTypeMismatchException", typeof(SchemaFieldOverwriteTypeMismatchException))]
     [JsonInheritanceAttribute("SchemaFieldOverwriteIdException", typeof(SchemaFieldOverwriteIdException))]
     [JsonInheritanceAttribute("SchemaFieldIdDuplicatedException", typeof(SchemaFieldIdDuplicatedException))]
@@ -2429,7 +2430,6 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("ContentFileReplaceTypeMismatchException", typeof(ContentFileReplaceTypeMismatchException))]
     [JsonInheritanceAttribute("ContentBackupFailedException", typeof(ContentBackupFailedException))]
     [JsonInheritanceAttribute("ContentLayerSameRootException", typeof(ContentLayerSameRootException))]
-    [JsonInheritanceAttribute("ContentsUpdateInProgressException", typeof(ContentsUpdateInProgressException))]
     [JsonInheritanceAttribute("BusinessProcessEngineRequestException", typeof(BusinessProcessEngineRequestException))]
     [JsonInheritanceAttribute("BusinessProcessNotFoundException", typeof(BusinessProcessNotFoundException))]
     [JsonInheritanceAttribute("BusinessProcessDefinitionNotFoundException", typeof(BusinessProcessDefinitionNotFoundException))]
@@ -4920,22 +4920,6 @@ namespace Picturepark.SDK.V1.Contract
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     [Newtonsoft.Json.JsonObjectAttribute]
-    public partial class ListItemsUpdateInProgressException : PictureparkValidationException
-    {
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-    
-        public static ListItemsUpdateInProgressException FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<ListItemsUpdateInProgressException>(data);
-        }
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
-    [Newtonsoft.Json.JsonObjectAttribute]
     public partial class TransferInfoNotFoundException : PictureparkNotFoundException
     {
         [Newtonsoft.Json.JsonProperty("transferInfoId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -5552,6 +5536,22 @@ namespace Picturepark.SDK.V1.Contract
         public static LayerAssignmentInvalidException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<LayerAssignmentInvalidException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class OutdatedMetadataUpdateInProgressException : PictureparkValidationException
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static OutdatedMetadataUpdateInProgressException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<OutdatedMetadataUpdateInProgressException>(data);
         }
     
     }
@@ -7018,22 +7018,6 @@ namespace Picturepark.SDK.V1.Contract
         public static LayerIdsByRootSchema FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<LayerIdsByRootSchema>(data);
-        }
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
-    [Newtonsoft.Json.JsonObjectAttribute]
-    public partial class ContentsUpdateInProgressException : PictureparkValidationException
-    {
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-    
-        public static ContentsUpdateInProgressException FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentsUpdateInProgressException>(data);
         }
     
     }

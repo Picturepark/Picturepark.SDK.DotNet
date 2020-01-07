@@ -7137,7 +7137,6 @@
                 "DeleteListItemsWithReferencesException": "#/components/schemas/DeleteListItemsWithReferencesException",
                 "ListItemUpdateManyException": "#/components/schemas/ListItemUpdateManyException",
                 "ListItemSchemaMismatchException": "#/components/schemas/ListItemSchemaMismatchException",
-                "ListItemsUpdateInProgressException": "#/components/schemas/ListItemsUpdateInProgressException",
                 "TransferInfoNotFoundException": "#/components/schemas/TransferInfoNotFoundException",
                 "FileTransferNotFoundException": "#/components/schemas/FileTransferNotFoundException",
                 "InvalidTransferTypeException": "#/components/schemas/InvalidTransferTypeException",
@@ -7164,6 +7163,7 @@
                 "DuplicatedItemAssignedException": "#/components/schemas/DuplicatedItemAssignedException",
                 "InvalidDataTypeException": "#/components/schemas/InvalidDataTypeException",
                 "LayerAssignmentInvalidException": "#/components/schemas/LayerAssignmentInvalidException",
+                "OutdatedMetadataUpdateInProgressException": "#/components/schemas/OutdatedMetadataUpdateInProgressException",
                 "SchemaFieldOverwriteTypeMismatchException": "#/components/schemas/SchemaFieldOverwriteTypeMismatchException",
                 "SchemaFieldOverwriteIdException": "#/components/schemas/SchemaFieldOverwriteIdException",
                 "SchemaFieldIdDuplicatedException": "#/components/schemas/SchemaFieldIdDuplicatedException",
@@ -7223,7 +7223,6 @@
                 "ContentFileReplaceTypeMismatchException": "#/components/schemas/ContentFileReplaceTypeMismatchException",
                 "ContentBackupFailedException": "#/components/schemas/ContentBackupFailedException",
                 "ContentLayerSameRootException": "#/components/schemas/ContentLayerSameRootException",
-                "ContentsUpdateInProgressException": "#/components/schemas/ContentsUpdateInProgressException",
                 "BusinessProcessEngineRequestException": "#/components/schemas/BusinessProcessEngineRequestException",
                 "BusinessProcessNotFoundException": "#/components/schemas/BusinessProcessNotFoundException",
                 "BusinessProcessDefinitionNotFoundException": "#/components/schemas/BusinessProcessDefinitionNotFoundException",
@@ -9483,17 +9482,6 @@
           }
         ]
       },
-      "ListItemsUpdateInProgressException": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/PictureparkValidationException"
-          },
-          {
-            "type": "object",
-            "additionalProperties": false
-          }
-        ]
-      },
       "TransferInfoNotFoundException": {
         "allOf": [
           {
@@ -10110,6 +10098,17 @@
                 "nullable": true
               }
             }
+          }
+        ]
+      },
+      "OutdatedMetadataUpdateInProgressException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
           }
         ]
       },
@@ -11558,17 +11557,6 @@
             }
           }
         }
-      },
-      "ContentsUpdateInProgressException": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/PictureparkValidationException"
-          },
-          {
-            "type": "object",
-            "additionalProperties": false
-          }
-        ]
       },
       "BusinessProcessEngineRequestException": {
         "allOf": [
