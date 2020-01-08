@@ -12957,7 +12957,8 @@
             "type": "object",
             "additionalProperties": false,
             "required": [
-              "resetServiceProviders"
+              "resetServiceProviders",
+              "skipUpdateAfterRestore"
             ],
             "properties": {
               "customerAlias": {
@@ -12969,6 +12970,9 @@
                 "nullable": true
               },
               "resetServiceProviders": {
+                "type": "boolean"
+              },
+              "skipUpdateAfterRestore": {
                 "type": "boolean"
               }
             }
