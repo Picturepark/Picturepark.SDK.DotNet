@@ -7084,6 +7084,7 @@
                 "DuplicateSchemaInfoException": "#/components/schemas/DuplicateSchemaInfoException",
                 "SchemaFieldNumberRangeException": "#/components/schemas/SchemaFieldNumberRangeException",
                 "SchemaInUseContentSchemaException": "#/components/schemas/SchemaInUseContentSchemaException",
+                "LayerAssignmentInUseWithContentsException": "#/components/schemas/LayerAssignmentInUseWithContentsException",
                 "SchemaInUseListItemException": "#/components/schemas/SchemaInUseListItemException",
                 "SchemaInUseContentException": "#/components/schemas/SchemaInUseContentException",
                 "SchemaInUseFieldException": "#/components/schemas/SchemaInUseFieldException",
@@ -10368,6 +10369,30 @@
                 "nullable": true
               },
               "contentSchemaIds": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "LayerAssignmentInUseWithContentsException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "schemaId": {
+                "type": "string",
+                "nullable": true
+              },
+              "usedAssignmentSchemaIds": {
                 "type": "array",
                 "nullable": true,
                 "items": {
