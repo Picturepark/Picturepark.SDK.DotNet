@@ -7345,6 +7345,9 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [Newtonsoft.Json.JsonProperty("resetServiceProviders", Required = Newtonsoft.Json.Required.Always)]
         public bool ResetServiceProviders { get; set; }
     
+        [Newtonsoft.Json.JsonProperty("skipUpdateAfterRestore", Required = Newtonsoft.Json.Required.Always)]
+        public bool SkipUpdateAfterRestore { get; set; }
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
