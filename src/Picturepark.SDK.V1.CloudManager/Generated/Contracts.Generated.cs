@@ -932,6 +932,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [JsonInheritanceAttribute("ShareByTokenNotFoundException", typeof(ShareByTokenNotFoundException))]
     [JsonInheritanceAttribute("TokenGenerationException", typeof(TokenGenerationException))]
     [JsonInheritanceAttribute("ShareExpiredException", typeof(ShareExpiredException))]
+    [JsonInheritanceAttribute("ShareSizeLimitExceededException", typeof(ShareSizeLimitExceededException))]
     [JsonInheritanceAttribute("OutputIdNotFoundException", typeof(OutputIdNotFoundException))]
     [JsonInheritanceAttribute("OutputNotFoundException", typeof(OutputNotFoundException))]
     [JsonInheritanceAttribute("UnableToCreateOrModifyStaticOutputFormatException", typeof(UnableToCreateOrModifyStaticOutputFormatException))]
@@ -1906,6 +1907,28 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         public static ShareExpiredException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<ShareExpiredException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class ShareSizeLimitExceededException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("shareId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ShareId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("limit", Required = Newtonsoft.Json.Required.Always)]
+        public int Limit { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static ShareSizeLimitExceededException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ShareSizeLimitExceededException>(data);
         }
     
     }

@@ -6964,6 +6964,7 @@
                 "ShareByTokenNotFoundException": "#/components/schemas/ShareByTokenNotFoundException",
                 "TokenGenerationException": "#/components/schemas/TokenGenerationException",
                 "ShareExpiredException": "#/components/schemas/ShareExpiredException",
+                "ShareSizeLimitExceededException": "#/components/schemas/ShareSizeLimitExceededException",
                 "OutputIdNotFoundException": "#/components/schemas/OutputIdNotFoundException",
                 "OutputNotFoundException": "#/components/schemas/OutputNotFoundException",
                 "UnableToCreateOrModifyStaticOutputFormatException": "#/components/schemas/UnableToCreateOrModifyStaticOutputFormatException",
@@ -7854,6 +7855,30 @@
               "token": {
                 "type": "string",
                 "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "ShareSizeLimitExceededException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "limit"
+            ],
+            "properties": {
+              "shareId": {
+                "type": "string",
+                "nullable": true
+              },
+              "limit": {
+                "type": "integer",
+                "format": "int32"
               }
             }
           }

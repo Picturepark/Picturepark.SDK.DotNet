@@ -18129,6 +18129,7 @@
                 "ShareByTokenNotFoundException": "#/components/schemas/ShareByTokenNotFoundException",
                 "TokenGenerationException": "#/components/schemas/TokenGenerationException",
                 "ShareExpiredException": "#/components/schemas/ShareExpiredException",
+                "ShareSizeLimitExceededException": "#/components/schemas/ShareSizeLimitExceededException",
                 "OutputIdNotFoundException": "#/components/schemas/OutputIdNotFoundException",
                 "OutputNotFoundException": "#/components/schemas/OutputNotFoundException",
                 "UnableToCreateOrModifyStaticOutputFormatException": "#/components/schemas/UnableToCreateOrModifyStaticOutputFormatException",
@@ -19019,6 +19020,30 @@
               "token": {
                 "type": "string",
                 "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "ShareSizeLimitExceededException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "limit"
+            ],
+            "properties": {
+              "shareId": {
+                "type": "string",
+                "nullable": true
+              },
+              "limit": {
+                "type": "integer",
+                "format": "int32"
               }
             }
           }
@@ -30401,7 +30426,9 @@
           "languages",
           "outputFormats",
           "boostValues",
-          "modificationDate"
+          "modificationDate",
+          "baseUrl",
+          "logosUrl"
         ],
         "properties": {
           "customerId": {
@@ -30474,6 +30501,16 @@
           "modificationDate": {
             "type": "string",
             "format": "date-time",
+            "minLength": 1
+          },
+          "baseUrl": {
+            "type": "string",
+            "description": "Url to access Frontend service",
+            "minLength": 1
+          },
+          "logosUrl": {
+            "type": "string",
+            "description": "Base bath to access logos of customer (including trailing slash), available images: name, full, small, background",
             "minLength": 1
           }
         }
