@@ -533,23 +533,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
         [Fact]
         [Trait("Stack", "Transfers")]
-        public async Task ShouldUseTargetFileNameForWebLinkDownloads()
-        {
-            // Act
-            var result = await CreateWebTransferAsync(
-                new[]
-                {
-                    ("http://cdn1.spiegel.de/images/image-733178-900_breitwand_180x67-zgpe-733178.jpg", "image.jpg")
-                }).ConfigureAwait(false);
-
-            // Assert
-            var files = await _client.Transfer.SearchFilesByTransferIdAsync(result.Transfer.Id).ConfigureAwait(false);
-            files.Should().HaveCount(1);
-            files.Single().Name.Should().Be("image.jpg");
-        }
-
-        [Fact]
-        [Trait("Stack", "Transfers")]
         public async Task ShouldCallErrorDelegateForBlacklistedFile()
         {
             // Arrange

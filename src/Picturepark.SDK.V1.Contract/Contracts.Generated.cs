@@ -2265,6 +2265,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("ShareByTokenNotFoundException", typeof(ShareByTokenNotFoundException))]
     [JsonInheritanceAttribute("TokenGenerationException", typeof(TokenGenerationException))]
     [JsonInheritanceAttribute("ShareExpiredException", typeof(ShareExpiredException))]
+    [JsonInheritanceAttribute("ShareSizeLimitExceededException", typeof(ShareSizeLimitExceededException))]
     [JsonInheritanceAttribute("OutputIdNotFoundException", typeof(OutputIdNotFoundException))]
     [JsonInheritanceAttribute("OutputNotFoundException", typeof(OutputNotFoundException))]
     [JsonInheritanceAttribute("UnableToCreateOrModifyStaticOutputFormatException", typeof(UnableToCreateOrModifyStaticOutputFormatException))]
@@ -2386,6 +2387,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("DuplicateSchemaInfoException", typeof(DuplicateSchemaInfoException))]
     [JsonInheritanceAttribute("SchemaFieldNumberRangeException", typeof(SchemaFieldNumberRangeException))]
     [JsonInheritanceAttribute("SchemaInUseContentSchemaException", typeof(SchemaInUseContentSchemaException))]
+    [JsonInheritanceAttribute("LayerAssignmentInUseWithContentsException", typeof(LayerAssignmentInUseWithContentsException))]
     [JsonInheritanceAttribute("SchemaInUseListItemException", typeof(SchemaInUseListItemException))]
     [JsonInheritanceAttribute("SchemaInUseContentException", typeof(SchemaInUseContentException))]
     [JsonInheritanceAttribute("SchemaInUseFieldException", typeof(SchemaInUseFieldException))]
@@ -3239,6 +3241,28 @@ namespace Picturepark.SDK.V1.Contract
         public static ShareExpiredException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<ShareExpiredException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class ShareSizeLimitExceededException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("shareId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ShareId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("limit", Required = Newtonsoft.Json.Required.Always)]
+        public int Limit { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static ShareSizeLimitExceededException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ShareSizeLimitExceededException>(data);
         }
     
     }
@@ -5909,6 +5933,28 @@ namespace Picturepark.SDK.V1.Contract
         public static SchemaInUseContentSchemaException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaInUseContentSchemaException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class LayerAssignmentInUseWithContentsException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("schemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string SchemaId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("usedAssignmentSchemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> UsedAssignmentSchemaIds { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static LayerAssignmentInUseWithContentsException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<LayerAssignmentInUseWithContentsException>(data);
         }
     
     }
@@ -14609,6 +14655,16 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("modificationDate", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
         public System.DateTime ModificationDate { get; set; }
+    
+        /// <summary>Url to access Frontend service</summary>
+        [Newtonsoft.Json.JsonProperty("baseUrl", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public string BaseUrl { get; set; }
+    
+        /// <summary>Base bath to access logos of customer (including trailing slash), available images: name, full, small, background</summary>
+        [Newtonsoft.Json.JsonProperty("logosUrl", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public string LogosUrl { get; set; }
     
         public string ToJson() 
         {

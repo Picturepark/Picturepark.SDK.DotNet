@@ -7058,6 +7058,7 @@
                 "ShareByTokenNotFoundException": "#/components/schemas/ShareByTokenNotFoundException",
                 "TokenGenerationException": "#/components/schemas/TokenGenerationException",
                 "ShareExpiredException": "#/components/schemas/ShareExpiredException",
+                "ShareSizeLimitExceededException": "#/components/schemas/ShareSizeLimitExceededException",
                 "OutputIdNotFoundException": "#/components/schemas/OutputIdNotFoundException",
                 "OutputNotFoundException": "#/components/schemas/OutputNotFoundException",
                 "UnableToCreateOrModifyStaticOutputFormatException": "#/components/schemas/UnableToCreateOrModifyStaticOutputFormatException",
@@ -7179,6 +7180,7 @@
                 "DuplicateSchemaInfoException": "#/components/schemas/DuplicateSchemaInfoException",
                 "SchemaFieldNumberRangeException": "#/components/schemas/SchemaFieldNumberRangeException",
                 "SchemaInUseContentSchemaException": "#/components/schemas/SchemaInUseContentSchemaException",
+                "LayerAssignmentInUseWithContentsException": "#/components/schemas/LayerAssignmentInUseWithContentsException",
                 "SchemaInUseListItemException": "#/components/schemas/SchemaInUseListItemException",
                 "SchemaInUseContentException": "#/components/schemas/SchemaInUseContentException",
                 "SchemaInUseFieldException": "#/components/schemas/SchemaInUseFieldException",
@@ -7948,6 +7950,30 @@
               "token": {
                 "type": "string",
                 "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "ShareSizeLimitExceededException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "limit"
+            ],
+            "properties": {
+              "shareId": {
+                "type": "string",
+                "nullable": true
+              },
+              "limit": {
+                "type": "integer",
+                "format": "int32"
               }
             }
           }
@@ -10474,6 +10500,30 @@
                 "nullable": true
               },
               "contentSchemaIds": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "LayerAssignmentInUseWithContentsException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "schemaId": {
+                "type": "string",
+                "nullable": true
+              },
+              "usedAssignmentSchemaIds": {
                 "type": "array",
                 "nullable": true,
                 "items": {
@@ -13063,7 +13113,8 @@
             "type": "object",
             "additionalProperties": false,
             "required": [
-              "resetServiceProviders"
+              "resetServiceProviders",
+              "skipUpdateAfterRestore"
             ],
             "properties": {
               "customerAlias": {
@@ -13075,6 +13126,9 @@
                 "nullable": true
               },
               "resetServiceProviders": {
+                "type": "boolean"
+              },
+              "skipUpdateAfterRestore": {
                 "type": "boolean"
               }
             }
