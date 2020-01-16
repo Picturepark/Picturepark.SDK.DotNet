@@ -13531,6 +13531,17 @@
               "type": "string"
             },
             "x-position": 1
+          },
+          {
+            "name": "timeout",
+            "in": "query",
+            "description": "Optional timeout to wait for the request to complete",
+            "schema": {
+              "type": "string",
+              "format": "time-span",
+              "nullable": true
+            },
+            "x-position": 3
           }
         ],
         "requestBody": {
@@ -13830,6 +13841,19 @@
         "summary": "Create",
         "description": "Create a new share (basic or embed).",
         "operationId": "Share_Create",
+        "parameters": [
+          {
+            "name": "timeout",
+            "in": "query",
+            "description": "Optional timeout to wait for the request to complete",
+            "schema": {
+              "type": "string",
+              "format": "time-span",
+              "nullable": true
+            },
+            "x-position": 2
+          }
+        ],
         "requestBody": {
           "x-name": "request",
           "description": "Polymorphic create contract. Use either ShareBasicCreateRequest or ShareEmbedCreateRequest",
@@ -13955,6 +13979,19 @@
         "summary": "Delete multiple shares",
         "description": "Deletes multiple shares. Returns a bulk response with information about successful and failed rows.",
         "operationId": "Share_DeleteMany",
+        "parameters": [
+          {
+            "name": "timeout",
+            "in": "query",
+            "description": "Optional timeout to wait for the request to complete",
+            "schema": {
+              "type": "string",
+              "format": "time-span",
+              "nullable": true
+            },
+            "x-position": 2
+          }
+        ],
         "requestBody": {
           "x-name": "deleteManyRequest",
           "description": "A delete many request containing the ids of the shares to delete.",
