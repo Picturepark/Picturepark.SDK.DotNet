@@ -45,5 +45,7 @@ namespace Picturepark.SDK.V1.Contract
         IBusinessRuleClient BusinessRule { get; }
 
         IDisplayValueClient DisplayValue { get; }
+
+        IMetadataClient Metadata { get; }
     }
 }
