@@ -2894,9 +2894,10 @@ namespace Picturepark.SDK.V1
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="ContentNotFoundException">One or more contents not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="RequestSizeLimitExceededException">List of IDs exceeded maximum size</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
-        /// <exception cref="PictureparkValidationException">Validation exception</exception>
         public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<ContentDetail>> GetManyAsync(System.Collections.Generic.IEnumerable<string> ids, System.Collections.Generic.IEnumerable<ContentResolveBehavior> resolveBehaviors = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
@@ -2950,6 +2951,16 @@ namespace Picturepark.SDK.V1
                             throw responseObject_;
                         }
                         else
+                        if (status_ == "400") 
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkValidationException>(response_, headers_).ConfigureAwait(false);
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkValidationException();
+                            responseObject_.Data.Add("HttpStatus", status_);
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
+                        }
+                        else
                         if (status_ == "500") 
                         {
                             var objectResponse_ = await ReadObjectResponseAsync<PictureparkException>(response_, headers_).ConfigureAwait(false);
@@ -2976,16 +2987,6 @@ namespace Picturepark.SDK.V1
                         {
                             var objectResponse_ = await ReadObjectResponseAsync<PictureparkConflictException>(response_, headers_).ConfigureAwait(false);
                             var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkConflictException();
-                            responseObject_.Data.Add("HttpStatus", status_);
-                            responseObject_.Data.Add("HttpHeaders", headers_);
-                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
-                            throw responseObject_;
-                        }
-                        else
-                        if (status_ == "400") 
-                        {
-                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkValidationException>(response_, headers_).ConfigureAwait(false);
-                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkValidationException();
                             responseObject_.Data.Add("HttpStatus", status_);
                             responseObject_.Data.Add("HttpHeaders", headers_);
                             responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
@@ -10344,9 +10345,10 @@ namespace Picturepark.SDK.V1
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="ListItemNotFoundException">One or more list items not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="RequestSizeLimitExceededException">List of IDs exceeded maximum size</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
-        /// <exception cref="PictureparkValidationException">Validation exception</exception>
         public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<ListItemDetail>> GetManyAsync(System.Collections.Generic.IEnumerable<string> ids, System.Collections.Generic.IEnumerable<ListItemResolveBehavior> resolveBehaviors = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
@@ -10400,6 +10402,16 @@ namespace Picturepark.SDK.V1
                             throw responseObject_;
                         }
                         else
+                        if (status_ == "400") 
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkValidationException>(response_, headers_).ConfigureAwait(false);
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkValidationException();
+                            responseObject_.Data.Add("HttpStatus", status_);
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
+                        }
+                        else
                         if (status_ == "500") 
                         {
                             var objectResponse_ = await ReadObjectResponseAsync<PictureparkException>(response_, headers_).ConfigureAwait(false);
@@ -10426,16 +10438,6 @@ namespace Picturepark.SDK.V1
                         {
                             var objectResponse_ = await ReadObjectResponseAsync<PictureparkConflictException>(response_, headers_).ConfigureAwait(false);
                             var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkConflictException();
-                            responseObject_.Data.Add("HttpStatus", status_);
-                            responseObject_.Data.Add("HttpHeaders", headers_);
-                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
-                            throw responseObject_;
-                        }
-                        else
-                        if (status_ == "400") 
-                        {
-                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkValidationException>(response_, headers_).ConfigureAwait(false);
-                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkValidationException();
                             responseObject_.Data.Add("HttpStatus", status_);
                             responseObject_.Data.Add("HttpHeaders", headers_);
                             responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
@@ -13274,10 +13276,11 @@ namespace Picturepark.SDK.V1
         /// <param name="request">Request containing options to filter which outputs should be reset.</param>
         /// <returns>Business process tracking the resetting</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="RequestSizeLimitExceededException">List of IDs in request exceeded maximum size</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
-        /// <exception cref="PictureparkValidationException">Validation exception</exception>
         public async System.Threading.Tasks.Task<BusinessProcess> ResetRetryAttemptsAsync(OutputResetRetryAttemptsRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
@@ -13318,6 +13321,16 @@ namespace Picturepark.SDK.V1
                             return objectResponse_.Object;
                         }
                         else
+                        if (status_ == "400") 
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkValidationException>(response_, headers_).ConfigureAwait(false);
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkValidationException();
+                            responseObject_.Data.Add("HttpStatus", status_);
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
+                        }
+                        else
                         if (status_ == "500") 
                         {
                             var objectResponse_ = await ReadObjectResponseAsync<PictureparkException>(response_, headers_).ConfigureAwait(false);
@@ -13354,16 +13367,6 @@ namespace Picturepark.SDK.V1
                         {
                             var objectResponse_ = await ReadObjectResponseAsync<PictureparkConflictException>(response_, headers_).ConfigureAwait(false);
                             var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkConflictException();
-                            responseObject_.Data.Add("HttpStatus", status_);
-                            responseObject_.Data.Add("HttpHeaders", headers_);
-                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
-                            throw responseObject_;
-                        }
-                        else
-                        if (status_ == "400") 
-                        {
-                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkValidationException>(response_, headers_).ConfigureAwait(false);
-                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkValidationException();
                             responseObject_.Data.Add("HttpStatus", status_);
                             responseObject_.Data.Add("HttpHeaders", headers_);
                             responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
@@ -14033,10 +14036,11 @@ namespace Picturepark.SDK.V1
         /// <param name="ids">Output format IDs to get information about. If this is omitted, all output formats in the system will be returned.</param>
         /// <returns>Output formats</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="RequestSizeLimitExceededException">List of IDs exceeded maximum size</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
-        /// <exception cref="PictureparkValidationException">Validation exception</exception>
         public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<OutputFormatDetail>> GetManyAsync(System.Collections.Generic.IEnumerable<string> ids = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
@@ -14079,6 +14083,16 @@ namespace Picturepark.SDK.V1
                             return objectResponse_.Object;
                         }
                         else
+                        if (status_ == "400") 
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkValidationException>(response_, headers_).ConfigureAwait(false);
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkValidationException();
+                            responseObject_.Data.Add("HttpStatus", status_);
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
+                        }
+                        else
                         if (status_ == "500") 
                         {
                             var objectResponse_ = await ReadObjectResponseAsync<PictureparkException>(response_, headers_).ConfigureAwait(false);
@@ -14115,16 +14129,6 @@ namespace Picturepark.SDK.V1
                         {
                             var objectResponse_ = await ReadObjectResponseAsync<PictureparkConflictException>(response_, headers_).ConfigureAwait(false);
                             var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkConflictException();
-                            responseObject_.Data.Add("HttpStatus", status_);
-                            responseObject_.Data.Add("HttpHeaders", headers_);
-                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
-                            throw responseObject_;
-                        }
-                        else
-                        if (status_ == "400") 
-                        {
-                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkValidationException>(response_, headers_).ConfigureAwait(false);
-                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkValidationException();
                             responseObject_.Data.Add("HttpStatus", status_);
                             responseObject_.Data.Add("HttpHeaders", headers_);
                             responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
@@ -15957,10 +15961,11 @@ namespace Picturepark.SDK.V1
         /// <param name="ids">Comma separated list of schema IDs.</param>
         /// <returns>List of schema details</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="RequestSizeLimitExceededException">List of IDs exceeded maximum size</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
-        /// <exception cref="PictureparkValidationException">Validation exception</exception>
         public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<SchemaDetail>> GetManyAsync(System.Collections.Generic.IEnumerable<string> ids = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
@@ -16003,6 +16008,16 @@ namespace Picturepark.SDK.V1
                             return objectResponse_.Object;
                         }
                         else
+                        if (status_ == "400") 
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkValidationException>(response_, headers_).ConfigureAwait(false);
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkValidationException();
+                            responseObject_.Data.Add("HttpStatus", status_);
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
+                        }
+                        else
                         if (status_ == "500") 
                         {
                             var objectResponse_ = await ReadObjectResponseAsync<PictureparkException>(response_, headers_).ConfigureAwait(false);
@@ -16039,16 +16054,6 @@ namespace Picturepark.SDK.V1
                         {
                             var objectResponse_ = await ReadObjectResponseAsync<PictureparkConflictException>(response_, headers_).ConfigureAwait(false);
                             var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkConflictException();
-                            responseObject_.Data.Add("HttpStatus", status_);
-                            responseObject_.Data.Add("HttpHeaders", headers_);
-                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
-                            throw responseObject_;
-                        }
-                        else
-                        if (status_ == "400") 
-                        {
-                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkValidationException>(response_, headers_).ConfigureAwait(false);
-                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkValidationException();
                             responseObject_.Data.Add("HttpStatus", status_);
                             responseObject_.Data.Add("HttpHeaders", headers_);
                             responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
@@ -16738,10 +16743,11 @@ namespace Picturepark.SDK.V1
         /// <param name="schemaId">The schema ID.</param>
         /// <returns>Referenced schema details</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="RequestSizeLimitExceededException">List of IDs exceeded maximum size</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
-        /// <exception cref="PictureparkValidationException">Validation exception</exception>
         public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<SchemaDetail>> GetReferencedAsync(string schemaId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (schemaId == null)
@@ -16783,6 +16789,16 @@ namespace Picturepark.SDK.V1
                             return objectResponse_.Object;
                         }
                         else
+                        if (status_ == "400") 
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkValidationException>(response_, headers_).ConfigureAwait(false);
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkValidationException();
+                            responseObject_.Data.Add("HttpStatus", status_);
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
+                        }
+                        else
                         if (status_ == "500") 
                         {
                             var objectResponse_ = await ReadObjectResponseAsync<PictureparkException>(response_, headers_).ConfigureAwait(false);
@@ -16819,16 +16835,6 @@ namespace Picturepark.SDK.V1
                         {
                             var objectResponse_ = await ReadObjectResponseAsync<PictureparkConflictException>(response_, headers_).ConfigureAwait(false);
                             var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkConflictException();
-                            responseObject_.Data.Add("HttpStatus", status_);
-                            responseObject_.Data.Add("HttpHeaders", headers_);
-                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
-                            throw responseObject_;
-                        }
-                        else
-                        if (status_ == "400") 
-                        {
-                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkValidationException>(response_, headers_).ConfigureAwait(false);
-                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkValidationException();
                             responseObject_.Data.Add("HttpStatus", status_);
                             responseObject_.Data.Add("HttpHeaders", headers_);
                             responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
@@ -23501,10 +23507,11 @@ namespace Picturepark.SDK.V1
         /// <param name="ids">User IDs.</param>
         /// <returns>Details of all the users who were found</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="RequestSizeLimitExceededException">List of IDs exceeded maximum size</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
-        /// <exception cref="PictureparkValidationException">Validation exception</exception>
         public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<UserDetail>> GetManyAsync(System.Collections.Generic.IEnumerable<string> ids, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
@@ -23544,6 +23551,16 @@ namespace Picturepark.SDK.V1
                             return objectResponse_.Object;
                         }
                         else
+                        if (status_ == "400") 
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkValidationException>(response_, headers_).ConfigureAwait(false);
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkValidationException();
+                            responseObject_.Data.Add("HttpStatus", status_);
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
+                        }
+                        else
                         if (status_ == "500") 
                         {
                             var objectResponse_ = await ReadObjectResponseAsync<PictureparkException>(response_, headers_).ConfigureAwait(false);
@@ -23580,16 +23597,6 @@ namespace Picturepark.SDK.V1
                         {
                             var objectResponse_ = await ReadObjectResponseAsync<PictureparkConflictException>(response_, headers_).ConfigureAwait(false);
                             var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkConflictException();
-                            responseObject_.Data.Add("HttpStatus", status_);
-                            responseObject_.Data.Add("HttpHeaders", headers_);
-                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
-                            throw responseObject_;
-                        }
-                        else
-                        if (status_ == "400") 
-                        {
-                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkValidationException>(response_, headers_).ConfigureAwait(false);
-                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkValidationException();
                             responseObject_.Data.Add("HttpStatus", status_);
                             responseObject_.Data.Add("HttpHeaders", headers_);
                             responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
@@ -24755,10 +24762,11 @@ namespace Picturepark.SDK.V1
         /// <param name="ids">User role IDs to get information about.</param>
         /// <returns>List of user roles</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="RequestSizeLimitExceededException">List of IDs exceeded maximum size</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
-        /// <exception cref="PictureparkValidationException">Validation exception</exception>
         public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<UserRoleDetail>> GetManyAsync(System.Collections.Generic.IEnumerable<string> ids, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
@@ -24798,6 +24806,16 @@ namespace Picturepark.SDK.V1
                             return objectResponse_.Object;
                         }
                         else
+                        if (status_ == "400") 
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkValidationException>(response_, headers_).ConfigureAwait(false);
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkValidationException();
+                            responseObject_.Data.Add("HttpStatus", status_);
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
+                        }
+                        else
                         if (status_ == "500") 
                         {
                             var objectResponse_ = await ReadObjectResponseAsync<PictureparkException>(response_, headers_).ConfigureAwait(false);
@@ -24834,16 +24852,6 @@ namespace Picturepark.SDK.V1
                         {
                             var objectResponse_ = await ReadObjectResponseAsync<PictureparkConflictException>(response_, headers_).ConfigureAwait(false);
                             var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkConflictException();
-                            responseObject_.Data.Add("HttpStatus", status_);
-                            responseObject_.Data.Add("HttpHeaders", headers_);
-                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
-                            throw responseObject_;
-                        }
-                        else
-                        if (status_ == "400") 
-                        {
-                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkValidationException>(response_, headers_).ConfigureAwait(false);
-                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkValidationException();
                             responseObject_.Data.Add("HttpStatus", status_);
                             responseObject_.Data.Add("HttpHeaders", headers_);
                             responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
