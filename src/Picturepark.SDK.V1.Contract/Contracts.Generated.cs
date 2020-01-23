@@ -20970,6 +20970,10 @@ namespace Picturepark.SDK.V1.Contract
         [System.ComponentModel.DataAnnotations.Required]
         public string LanguageCode { get; set; }
     
+        /// <summary>Set to true to disable the creation of notifications and emails to recipients.</summary>
+        [Newtonsoft.Json.JsonProperty("suppressNotifications", Required = Newtonsoft.Json.Required.Always)]
+        public bool SuppressNotifications { get; set; }
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
