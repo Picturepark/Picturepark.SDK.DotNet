@@ -226,9 +226,10 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="ContentNotFoundException">One or more contents not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="RequestSizeLimitExceededException">List of IDs exceeded maximum size</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
-        /// <exception cref="PictureparkValidationException">Validation exception</exception>
         System.Threading.Tasks.Task<System.Collections.Generic.ICollection<ContentDetail>> GetManyAsync(System.Collections.Generic.IEnumerable<string> ids, System.Collections.Generic.IEnumerable<ContentResolveBehavior> resolveBehaviors = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
@@ -787,9 +788,10 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="ListItemNotFoundException">One or more list items not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="RequestSizeLimitExceededException">List of IDs exceeded maximum size</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
-        /// <exception cref="PictureparkValidationException">Validation exception</exception>
         System.Threading.Tasks.Task<System.Collections.Generic.ICollection<ListItemDetail>> GetManyAsync(System.Collections.Generic.IEnumerable<string> ids, System.Collections.Generic.IEnumerable<ListItemResolveBehavior> resolveBehaviors = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
@@ -978,10 +980,11 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="request">Request containing options to filter which outputs should be reset.</param>
         /// <returns>Business process tracking the resetting</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="RequestSizeLimitExceededException">List of IDs in request exceeded maximum size</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
-        /// <exception cref="PictureparkValidationException">Validation exception</exception>
         System.Threading.Tasks.Task<BusinessProcess> ResetRetryAttemptsAsync(OutputResetRetryAttemptsRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
     }
@@ -1005,10 +1008,11 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="ids">Output format IDs to get information about. If this is omitted, all output formats in the system will be returned.</param>
         /// <returns>Output formats</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="RequestSizeLimitExceededException">List of IDs exceeded maximum size</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
-        /// <exception cref="PictureparkValidationException">Validation exception</exception>
         System.Threading.Tasks.Task<System.Collections.Generic.ICollection<OutputFormatDetail>> GetManyAsync(System.Collections.Generic.IEnumerable<string> ids = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
@@ -1138,10 +1142,11 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="ids">Comma separated list of schema IDs.</param>
         /// <returns>List of schema details</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="RequestSizeLimitExceededException">List of IDs exceeded maximum size</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
-        /// <exception cref="PictureparkValidationException">Validation exception</exception>
         System.Threading.Tasks.Task<System.Collections.Generic.ICollection<SchemaDetail>> GetManyAsync(System.Collections.Generic.IEnumerable<string> ids = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
@@ -1199,10 +1204,11 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="schemaId">The schema ID.</param>
         /// <returns>Referenced schema details</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="RequestSizeLimitExceededException">List of IDs exceeded maximum size</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
-        /// <exception cref="PictureparkValidationException">Validation exception</exception>
         System.Threading.Tasks.Task<System.Collections.Generic.ICollection<SchemaDetail>> GetReferencedAsync(string schemaId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
@@ -1753,10 +1759,11 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="ids">User IDs.</param>
         /// <returns>Details of all the users who were found</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="RequestSizeLimitExceededException">List of IDs exceeded maximum size</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
-        /// <exception cref="PictureparkValidationException">Validation exception</exception>
         System.Threading.Tasks.Task<System.Collections.Generic.ICollection<UserDetail>> GetManyAsync(System.Collections.Generic.IEnumerable<string> ids, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
@@ -1860,10 +1867,11 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="ids">User role IDs to get information about.</param>
         /// <returns>List of user roles</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="RequestSizeLimitExceededException">List of IDs exceeded maximum size</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
-        /// <exception cref="PictureparkValidationException">Validation exception</exception>
         System.Threading.Tasks.Task<System.Collections.Generic.ICollection<UserRoleDetail>> GetManyAsync(System.Collections.Generic.IEnumerable<string> ids, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
@@ -8551,7 +8559,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <summary>Enable debug mode: additional debug information regarding the query execution and reason of the matched documents are returned in the BusinessProcessSearchResult.
         /// Warning! It severely affects performance.</summary>
         [Newtonsoft.Json.JsonProperty("debugMode", Required = Newtonsoft.Json.Required.Always)]
-        public bool DebugMode { get; set; }
+        public bool DebugMode { get; set; } = false;
     
         public string ToJson() 
         {
@@ -12397,7 +12405,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <summary>Enable debug mode: additional debug information regarding the query execution and reason of the matched documents are returned in the ContentSearchResult.
         /// Warning! It severely affects performance.</summary>
         [Newtonsoft.Json.JsonProperty("debugMode", Required = Newtonsoft.Json.Required.Always)]
-        public bool DebugMode { get; set; }
+        public bool DebugMode { get; set; } = false;
     
         /// <summary>List of aggregators that defines how the items should be aggregated.</summary>
         [Newtonsoft.Json.JsonProperty("aggregators", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -14326,7 +14334,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <summary>Enable debug mode: additional debug information regarding the query execution and reason of the matched documents are returned in the result.
         /// Warning! It severely affects performance.</summary>
         [Newtonsoft.Json.JsonProperty("debugMode", Required = Newtonsoft.Json.Required.Always)]
-        public bool DebugMode { get; set; }
+        public bool DebugMode { get; set; } = false;
     
         /// <summary>When searching in multi language fields, limit the searchable fields to the ones corresponding to the specified languages.
         /// If not specified, all metadata languages defined in the system are used.</summary>
@@ -15194,7 +15202,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <summary>Enable debug mode: additional debug information regarding the query execution and reason of the matched documents are returned in the ListItemSearchResult.
         /// Warning! It severely affects performance.</summary>
         [Newtonsoft.Json.JsonProperty("debugMode", Required = Newtonsoft.Json.Required.Always)]
-        public bool DebugMode { get; set; }
+        public bool DebugMode { get; set; } = false;
     
         /// <summary>List of enums that control which parts of the list item are resolved and returned.</summary>
         [Newtonsoft.Json.JsonProperty("resolveBehaviors", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
@@ -19416,7 +19424,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <summary>Enable debug mode: additional debug information regarding the query execution and reason of the matched documents are returned in the SchemaSearchResult.
         /// Warning! It severely affects performance.</summary>
         [Newtonsoft.Json.JsonProperty("debugMode", Required = Newtonsoft.Json.Required.Always)]
-        public bool DebugMode { get; set; }
+        public bool DebugMode { get; set; } = false;
     
         /// <summary>When searching in multi language fields, limit the searchable fields to the ones corresponding to the specified languages.
         /// If not specified, all metadata languages in the system are used.</summary>
@@ -20794,7 +20802,7 @@ namespace Picturepark.SDK.V1.Contract
     
         /// <summary>Enable debug mode to get as result of the Searched additional debug information. Warning! It severely affects performance.</summary>
         [Newtonsoft.Json.JsonProperty("debugMode", Required = Newtonsoft.Json.Required.Always)]
-        public bool DebugMode { get; set; }
+        public bool DebugMode { get; set; } = false;
     
         /// <summary>List of aggregators that defines how the items should be aggregated.</summary>
         [Newtonsoft.Json.JsonProperty("aggregators", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -21249,7 +21257,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <summary>Enable debug mode: additional debug information regarding the query execution and reason of the matched documents are returned in the TransferSearchResult.
         /// Warning! It severely affects performance.</summary>
         [Newtonsoft.Json.JsonProperty("debugMode", Required = Newtonsoft.Json.Required.Always)]
-        public bool DebugMode { get; set; }
+        public bool DebugMode { get; set; } = false;
     
         public string ToJson() 
         {
@@ -22543,7 +22551,7 @@ namespace Picturepark.SDK.V1.Contract
     
         /// <summary>Enable debug mode to get as result of the Searched additional debug information. Warning! Severely affects performance.</summary>
         [Newtonsoft.Json.JsonProperty("debugMode", Required = Newtonsoft.Json.Required.Always)]
-        public bool DebugMode { get; set; }
+        public bool DebugMode { get; set; } = false;
     
         /// <summary>List of aggregators that defines how the items should be aggregated.</summary>
         [Newtonsoft.Json.JsonProperty("aggregators", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -22807,7 +22815,7 @@ namespace Picturepark.SDK.V1.Contract
     
         /// <summary>Enable debug mode to get as result of the Searched additional debug information. Warning! It severely affects performance.</summary>
         [Newtonsoft.Json.JsonProperty("debugMode", Required = Newtonsoft.Json.Required.Always)]
-        public bool DebugMode { get; set; }
+        public bool DebugMode { get; set; } = false;
     
         /// <summary>Which languages to search against when using the search string.</summary>
         [Newtonsoft.Json.JsonProperty("searchLanguages", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]

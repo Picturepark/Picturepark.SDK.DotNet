@@ -1927,7 +1927,7 @@
           "Content"
         ],
         "summary": "Get multiple contents",
-        "description": "Gets multiple content details by IDs.",
+        "description": "Gets multiple content details by IDs.\nCan fetch 100 contents at most.",
         "operationId": "Content_GetMany",
         "parameters": [
           {
@@ -2008,6 +2008,40 @@
               }
             ]
           },
+          "400": {
+            "description": "List of IDs exceeded maximum size\nor\nValidation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            },
+            "x-expectedSchemas": [
+              {
+                "description": "List of IDs exceeded maximum size",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/RequestSizeLimitExceededException"
+                    }
+                  ]
+                }
+              },
+              {
+                "description": "Validation exception",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkValidationException"
+                    }
+                  ]
+                }
+              }
+            ]
+          },
           "500": {
             "description": "Internal server error",
             "content": {
@@ -2030,16 +2064,6 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/PictureparkConflictException"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Validation exception",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkValidationException"
                 }
               }
             }
@@ -7219,7 +7243,7 @@
           "ListItem"
         ],
         "summary": "Get multiple list items",
-        "description": "Gets multiple list item details by IDs.",
+        "description": "Gets multiple list item details by IDs.\nCan fetch 100 list items at most.",
         "operationId": "ListItem_GetMany",
         "parameters": [
           {
@@ -7300,6 +7324,40 @@
               }
             ]
           },
+          "400": {
+            "description": "List of IDs exceeded maximum size\nor\nValidation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            },
+            "x-expectedSchemas": [
+              {
+                "description": "List of IDs exceeded maximum size",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/RequestSizeLimitExceededException"
+                    }
+                  ]
+                }
+              },
+              {
+                "description": "Validation exception",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkValidationException"
+                    }
+                  ]
+                }
+              }
+            ]
+          },
           "500": {
             "description": "Internal server error",
             "content": {
@@ -7322,16 +7380,6 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/PictureparkConflictException"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Validation exception",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkValidationException"
                 }
               }
             }
@@ -9194,7 +9242,7 @@
           "Output"
         ],
         "summary": "Resets retry attempts counter on failed (optionally also completed) outputs and they will be subsequently picked up for re-rendering.",
-        "description": "The number the counters are reset to is determined by a global configuration value. If OutputIds are specified, the rest of the fields are ignored.",
+        "description": "The number the counters are reset to is determined by a global configuration value. If OutputIds are specified, the rest of the fields are ignored.\nCan reset 100 outputs at most.",
         "operationId": "Output_ResetRetryAttempts",
         "requestBody": {
           "x-name": "request",
@@ -9219,6 +9267,40 @@
                 }
               }
             }
+          },
+          "400": {
+            "description": "List of IDs in request exceeded maximum size\nor\nValidation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            },
+            "x-expectedSchemas": [
+              {
+                "description": "List of IDs in request exceeded maximum size",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/RequestSizeLimitExceededException"
+                    }
+                  ]
+                }
+              },
+              {
+                "description": "Validation exception",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkValidationException"
+                    }
+                  ]
+                }
+              }
+            ]
           },
           "500": {
             "description": "Internal server error",
@@ -9252,16 +9334,6 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/PictureparkConflictException"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Validation exception",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkValidationException"
                 }
               }
             }
@@ -9654,7 +9726,7 @@
           "OutputFormat"
         ],
         "summary": "Get multiple output formats",
-        "description": "Gets multiple output format details by the output format IDs.",
+        "description": "Gets multiple output format details by the output format IDs.\nCan fetch 100 output formats at most or all if IDs are omitted.",
         "operationId": "OutputFormat_GetMany",
         "parameters": [
           {
@@ -9685,6 +9757,40 @@
                 }
               }
             }
+          },
+          "400": {
+            "description": "List of IDs exceeded maximum size\nor\nValidation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            },
+            "x-expectedSchemas": [
+              {
+                "description": "List of IDs exceeded maximum size",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/RequestSizeLimitExceededException"
+                    }
+                  ]
+                }
+              },
+              {
+                "description": "Validation exception",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkValidationException"
+                    }
+                  ]
+                }
+              }
+            ]
           },
           "500": {
             "description": "Internal server error",
@@ -9718,16 +9824,6 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/PictureparkConflictException"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Validation exception",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkValidationException"
                 }
               }
             }
@@ -11003,7 +11099,7 @@
           "Schema"
         ],
         "summary": "Get multiple schemas",
-        "description": "Gets multiple schema details by given schema IDs.",
+        "description": "Gets multiple schema details by given schema IDs.\nCan fetch 100 schema details at most.",
         "operationId": "Schema_GetMany",
         "parameters": [
           {
@@ -11034,6 +11130,40 @@
                 }
               }
             }
+          },
+          "400": {
+            "description": "List of IDs exceeded maximum size\nor\nValidation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            },
+            "x-expectedSchemas": [
+              {
+                "description": "List of IDs exceeded maximum size",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/RequestSizeLimitExceededException"
+                    }
+                  ]
+                }
+              },
+              {
+                "description": "Validation exception",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkValidationException"
+                    }
+                  ]
+                }
+              }
+            ]
           },
           "500": {
             "description": "Internal server error",
@@ -11067,16 +11197,6 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/PictureparkConflictException"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Validation exception",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkValidationException"
                 }
               }
             }
@@ -11623,6 +11743,7 @@
           "Schema"
         ],
         "summary": "Gets all schemas referenced by the schema specified in ",
+        "description": "Can fetch referencing schemas for 100 schemas at most.",
         "operationId": "Schema_GetReferenced",
         "parameters": [
           {
@@ -11649,6 +11770,40 @@
                 }
               }
             }
+          },
+          "400": {
+            "description": "List of IDs exceeded maximum size\nor\nValidation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            },
+            "x-expectedSchemas": [
+              {
+                "description": "List of IDs exceeded maximum size",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/RequestSizeLimitExceededException"
+                    }
+                  ]
+                }
+              },
+              {
+                "description": "Validation exception",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkValidationException"
+                    }
+                  ]
+                }
+              }
+            ]
           },
           "500": {
             "description": "Internal server error",
@@ -11682,16 +11837,6 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/PictureparkConflictException"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Validation exception",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkValidationException"
                 }
               }
             }
@@ -16378,7 +16523,7 @@
           "User"
         ],
         "summary": "Get multiple users",
-        "description": "Retrieves multiple users. IDs which are not found are ignored.",
+        "description": "Can fetch 100 users at most.",
         "operationId": "User_GetMany",
         "parameters": [
           {
@@ -16410,6 +16555,40 @@
                 }
               }
             }
+          },
+          "400": {
+            "description": "List of IDs exceeded maximum size\nor\nValidation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            },
+            "x-expectedSchemas": [
+              {
+                "description": "List of IDs exceeded maximum size",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/RequestSizeLimitExceededException"
+                    }
+                  ]
+                }
+              },
+              {
+                "description": "Validation exception",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkValidationException"
+                    }
+                  ]
+                }
+              }
+            ]
           },
           "500": {
             "description": "Internal server error",
@@ -16443,16 +16622,6 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/PictureparkConflictException"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Validation exception",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkValidationException"
                 }
               }
             }
@@ -17182,6 +17351,7 @@
           "UserRole"
         ],
         "summary": "Get multiple user roles",
+        "description": "Can fetch 100 user roles at once.",
         "operationId": "UserRole_GetMany",
         "parameters": [
           {
@@ -17213,6 +17383,40 @@
                 }
               }
             }
+          },
+          "400": {
+            "description": "List of IDs exceeded maximum size\nor\nValidation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            },
+            "x-expectedSchemas": [
+              {
+                "description": "List of IDs exceeded maximum size",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/RequestSizeLimitExceededException"
+                    }
+                  ]
+                }
+              },
+              {
+                "description": "Validation exception",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkValidationException"
+                    }
+                  ]
+                }
+              }
+            ]
           },
           "500": {
             "description": "Internal server error",
@@ -17246,16 +17450,6 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/PictureparkConflictException"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Validation exception",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkValidationException"
                 }
               }
             }
@@ -24217,7 +24411,8 @@
           },
           "debugMode": {
             "type": "boolean",
-            "description": "Enable debug mode: additional debug information regarding the query execution and reason of the matched documents are returned in the BusinessProcessSearchResult.\nWarning! It severely affects performance."
+            "description": "Enable debug mode: additional debug information regarding the query execution and reason of the matched documents are returned in the BusinessProcessSearchResult.\nWarning! It severely affects performance.",
+            "default": false
           }
         }
       },
@@ -28427,7 +28622,8 @@
               },
               "debugMode": {
                 "type": "boolean",
-                "description": "Enable debug mode: additional debug information regarding the query execution and reason of the matched documents are returned in the ContentSearchResult.\nWarning! It severely affects performance."
+                "description": "Enable debug mode: additional debug information regarding the query execution and reason of the matched documents are returned in the ContentSearchResult.\nWarning! It severely affects performance.",
+                "default": false
               },
               "aggregators": {
                 "type": "array",
@@ -30348,7 +30544,8 @@
           },
           "debugMode": {
             "type": "boolean",
-            "description": "Enable debug mode: additional debug information regarding the query execution and reason of the matched documents are returned in the result.\nWarning! It severely affects performance."
+            "description": "Enable debug mode: additional debug information regarding the query execution and reason of the matched documents are returned in the result.\nWarning! It severely affects performance.",
+            "default": false
           },
           "searchLanguages": {
             "type": "array",
@@ -31260,7 +31457,8 @@
               },
               "debugMode": {
                 "type": "boolean",
-                "description": "Enable debug mode: additional debug information regarding the query execution and reason of the matched documents are returned in the ListItemSearchResult.\nWarning! It severely affects performance."
+                "description": "Enable debug mode: additional debug information regarding the query execution and reason of the matched documents are returned in the ListItemSearchResult.\nWarning! It severely affects performance.",
+                "default": false
               },
               "resolveBehaviors": {
                 "type": "array",
@@ -35948,7 +36146,8 @@
           },
           "debugMode": {
             "type": "boolean",
-            "description": "Enable debug mode: additional debug information regarding the query execution and reason of the matched documents are returned in the SchemaSearchResult.\nWarning! It severely affects performance."
+            "description": "Enable debug mode: additional debug information regarding the query execution and reason of the matched documents are returned in the SchemaSearchResult.\nWarning! It severely affects performance.",
+            "default": false
           },
           "searchLanguages": {
             "type": "array",
@@ -37420,7 +37619,8 @@
               },
               "debugMode": {
                 "type": "boolean",
-                "description": "Enable debug mode to get as result of the Searched additional debug information. Warning! It severely affects performance."
+                "description": "Enable debug mode to get as result of the Searched additional debug information. Warning! It severely affects performance.",
+                "default": false
               },
               "aggregators": {
                 "type": "array",
@@ -37933,7 +38133,8 @@
           },
           "debugMode": {
             "type": "boolean",
-            "description": "Enable debug mode: additional debug information regarding the query execution and reason of the matched documents are returned in the TransferSearchResult.\nWarning! It severely affects performance."
+            "description": "Enable debug mode: additional debug information regarding the query execution and reason of the matched documents are returned in the TransferSearchResult.\nWarning! It severely affects performance.",
+            "default": false
           }
         }
       },
@@ -39400,7 +39601,8 @@
               },
               "debugMode": {
                 "type": "boolean",
-                "description": "Enable debug mode to get as result of the Searched additional debug information. Warning! Severely affects performance."
+                "description": "Enable debug mode to get as result of the Searched additional debug information. Warning! Severely affects performance.",
+                "default": false
               },
               "aggregators": {
                 "type": "array",
@@ -39685,7 +39887,8 @@
           },
           "debugMode": {
             "type": "boolean",
-            "description": "Enable debug mode to get as result of the Searched additional debug information. Warning! It severely affects performance."
+            "description": "Enable debug mode to get as result of the Searched additional debug information. Warning! It severely affects performance.",
+            "default": false
           },
           "searchLanguages": {
             "type": "array",
