@@ -16460,7 +16460,7 @@
       },
       "AuthorizationState": {
         "type": "string",
-        "description": "User authorization state.",
+        "description": "User authorization state",
         "x-enumNames": [
           "Reviewed",
           "ToBeReviewed",

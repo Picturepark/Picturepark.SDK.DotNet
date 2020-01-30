@@ -16029,7 +16029,7 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    /// <summary>User authorization state.</summary>
+    /// <summary>User authorization state</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.0.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public enum AuthorizationState
     {
