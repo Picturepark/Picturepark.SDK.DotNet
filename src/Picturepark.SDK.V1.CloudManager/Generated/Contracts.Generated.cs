@@ -8385,6 +8385,10 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.TimeSpan UserRetentionTime { get; set; }
     
+        [Newtonsoft.Json.JsonProperty("ownerTokenRetentionTime", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public System.TimeSpan OwnerTokenRetentionTime { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("successfulTransferRetentionTime", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.TimeSpan SuccessfulTransferRetentionTime { get; set; }
@@ -9924,6 +9928,10 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.TimeSpan UserRetentionTime { get; set; }
     
+        [Newtonsoft.Json.JsonProperty("ownerTokenRetentionTime", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public System.TimeSpan OwnerTokenRetentionTime { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("documentHistoryRetentionTime", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.TimeSpan DocumentHistoryRetentionTime { get; set; }
@@ -10058,6 +10066,10 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [Newtonsoft.Json.JsonProperty("userRetentionTime", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.TimeSpan UserRetentionTime { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("ownerTokenRetentionTime", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public System.TimeSpan OwnerTokenRetentionTime { get; set; }
     
         [Newtonsoft.Json.JsonProperty("documentHistoryRetentionTime", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]

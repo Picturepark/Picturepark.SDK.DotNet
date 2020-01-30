@@ -14174,6 +14174,7 @@
           "contentRetentionTime",
           "listItemRetentionTime",
           "userRetentionTime",
+          "ownerTokenRetentionTime",
           "successfulTransferRetentionTime",
           "incompleteTransferRetentionTime",
           "documentHistoryRetentionTime",
@@ -14331,6 +14332,10 @@
             "format": "time-span"
           },
           "userRetentionTime": {
+            "type": "string",
+            "format": "time-span"
+          },
+          "ownerTokenRetentionTime": {
             "type": "string",
             "format": "time-span"
           },
@@ -15785,6 +15790,7 @@
           "contentRetentionTime",
           "listItemRetentionTime",
           "userRetentionTime",
+          "ownerTokenRetentionTime",
           "documentHistoryRetentionTime",
           "liveStreamRetentionTime",
           "successfulTransferRetentionTime",
@@ -16063,6 +16069,10 @@
             "type": "string",
             "format": "time-span"
           },
+          "ownerTokenRetentionTime": {
+            "type": "string",
+            "format": "time-span"
+          },
           "documentHistoryRetentionTime": {
             "type": "string",
             "format": "time-span"
@@ -16172,6 +16182,7 @@
           "contentRetentionTime",
           "listItemRetentionTime",
           "userRetentionTime",
+          "ownerTokenRetentionTime",
           "documentHistoryRetentionTime",
           "snapshotRetentionTime",
           "successfulTransferRetentionTime",
@@ -16223,6 +16234,10 @@
             "format": "time-span"
           },
           "userRetentionTime": {
+            "type": "string",
+            "format": "time-span"
+          },
+          "ownerTokenRetentionTime": {
             "type": "string",
             "format": "time-span"
           },
