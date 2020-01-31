@@ -16735,6 +16735,7 @@
           "User"
         ],
         "summary": "Lock / unlock user",
+        "description": "Does not affect AuthorizationState of user",
         "operationId": "User_Lock",
         "parameters": [
           {
@@ -16830,6 +16831,7 @@
           "User"
         ],
         "summary": "Change user's review state",
+        "description": "Users with AuthorizationState != ToBeReviewed are considered reviewed.",
         "operationId": "User_Review",
         "parameters": [
           {
@@ -16925,7 +16927,7 @@
           "User"
         ],
         "summary": "Invite user",
-        "description": "Formally invites a user, e.g. sends an invitation email.",
+        "description": "Formally invites a user, e.g. sends an invitation email. Transitions AuthorizationState to Invited, implicitly reviews user.",
         "operationId": "User_Invite",
         "parameters": [
           {
@@ -32301,7 +32303,7 @@
       },
       "AuthorizationState": {
         "type": "string",
-        "description": "User authorization state.",
+        "description": "User authorization state",
         "x-enumNames": [
           "Reviewed",
           "ToBeReviewed",
@@ -40114,7 +40116,7 @@
     },
     {
       "name": "User",
-      "description": "Endpoints for user retrieval and manipulation.\r\n\r\n[Code examples](https://github.com/Picturepark/Picturepark.SDK.DotNet/blob/master/src/Picturepark.SDK.V1.Tests/Clients/UserTests.cs)\r\n"
+      "description": "Endpoints for user retrieval and manipulation.\r\n\r\n- AuthorizationState.Reviewed: User is allowed to log in\r\n- AuthorizationState.ToBeReviewed: User cannot access Picturepark, needs to be invited or reviewed first\r\n- AuthorizationState.Invited: User did not log in since last invitation\r\n- AuthorizationState.UserTriggeredDeactivation: User requested deactivation of account\r\n\r\n[Code examples](https://github.com/Picturepark/Picturepark.SDK.DotNet/blob/master/src/Picturepark.SDK.V1.Tests/Clients/UserTests.cs)\r\n"
     },
     {
       "name": "UserRole",
