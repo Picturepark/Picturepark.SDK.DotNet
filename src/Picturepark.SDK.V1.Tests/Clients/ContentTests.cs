@@ -6,6 +6,7 @@ using Picturepark.SDK.V1.Tests.Fixtures;
 using Picturepark.SDK.V1.Tests.FluentAssertions;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Net.Http;
@@ -158,6 +159,43 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
         [Fact]
         [Trait("Stack", "Contents")]
+        public async Task ShouldSearchAndAggregateAllTogether()
+        {
+            var request = new ContentSearchRequest
+            {
+                SearchString = string.Empty,
+                Aggregators = new List<AggregatorBase>
+                {
+                    new TermsAggregator { Name = "Aggregator1", Field = "contentType", Size = 10 }
+                }
+            };
+
+            // Second Aggregator
+            var ranges = new List<NumericRangeForAggregator>
+            {
+                new NumericRangeForAggregator { From = null, To = 499, Names = new TranslatedStringDictionary { { "en", "Aggregator2a" } } },
+                new NumericRangeForAggregator { From = 500, To = 5000, Names = new TranslatedStringDictionary { { "en", "Aggregator2b" } } }
+            };
+
+            var numRangeAggregator = new NumericRangeAggregator()
+            {
+                Name = "NumberAggregator",
+                Field = "Original.Width",
+                Ranges = ranges
+            };
+
+            request.Aggregators.Add(numRangeAggregator);
+            var result = await _client.Content.SearchAsync(request).ConfigureAwait(false);
+            result.Results.Should().HaveCountGreaterThan(0);
+            result.AggregationResults.Should().HaveCount(2);
+            foreach (var resultAggregationResult in result.AggregationResults)
+            {
+                resultAggregationResult.AggregationResultItems.Should().HaveCountGreaterThan(1);
+            }
+        }
+
+        [Fact]
+        [Trait("Stack", "Contents")]
         public async Task ShouldAggregateByChannel()
         {
             // Arrange
@@ -181,7 +219,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
         [Fact]
         [Trait("Stack", "Contents")]
-        public async Task ShouldAggregateByChannelWithTermsAggregator()
+        public async Task ShouldAggregateOnChannelWithTermsAggregator()
         {
             // Arrange
             var channelId = "rootChannel";
@@ -204,6 +242,32 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             Assert.NotNull(permissionSetResults);
             Assert.True(permissionSetResults.AggregationResultItems.Count > 0);
+        }
+
+        [Fact(Skip = "It must be re-enabled when url is accessible")]
+        [Trait("Stack", "Contents")]
+        public async Task ShouldSearchAndAggregateOnChannelWithTermsAggregator()
+        {
+            // Arrange
+            var channelId = "rootChannel";
+            var request = new ContentSearchRequest
+            {
+                ChannelId = channelId,
+                SearchString = string.Empty,
+                Aggregators = new List<AggregatorBase>
+                {
+                    new TermsAggregator { Name = "Permissions", Field = "permissionSetIds", Size = 10 }
+                }
+            };
+
+            // Act
+            var result = await _client.Content.SearchAsync(request).ConfigureAwait(false);
+
+            // Assert
+            result.Results.Should().HaveCountGreaterThan(0);
+            var permissionSetAggregationResults = result.AggregationResults.SingleOrDefault(i => i.Name == "Permissions");
+            permissionSetAggregationResults.Should().NotBeNull();
+            permissionSetAggregationResults.AggregationResultItems.Should().HaveCountGreaterThan(0);
         }
 
         [Fact(Skip = "It must be re-enabled when url is accessible")]
@@ -352,7 +416,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             }).ConfigureAwait(false);
             var listItemId = listItems.Results.First().Id;
 
-            var assignLayerWithTagbox = new ContentMetadataUpdateRequest()
+            var assignLayerWithTagbox = new ContentMetadataUpdateRequest
             {
                 LayerSchemaIds = new List<string>() { nameof(AllDataTypesContract) },
                 Metadata = Metadata.From(
@@ -360,7 +424,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                     {
                         MultiTagboxField = new List<SimpleReferenceObject> { new SimpleReferenceObject { RefId = listItemId } }
                     }),
-                SchemaFieldsUpdateOptions = UpdateOption.Replace
+                LayerFieldsUpdateOptions = UpdateOption.Replace
             };
 
             // Act
@@ -583,6 +647,26 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
         [Fact]
         [Trait("Stack", "Contents")]
+        public async Task ShouldReplaceContentOnMetadataUpdate()
+        {
+            // Arrange
+            var content = await CreateContentItem().ConfigureAwait(false);
+
+            // Act
+            var request = new ContentMetadataUpdateRequest
+            {
+                Content = new object(),
+                ContentFieldsUpdateOptions = UpdateOption.Replace
+            };
+
+            var contentDetail = await _client.Content.UpdateMetadataAsync(content.Id, request, new[] { ContentResolveBehavior.Content }).ConfigureAwait(false);
+
+            // Assert
+            contentDetail.ContentAs<ContentItem>().Name.Should().BeNull();
+        }
+
+        [Fact]
+        [Trait("Stack", "Contents")]
         public async Task ShouldMergeFieldsOnMetadataUpdate()
         {
             // Arrange
@@ -623,7 +707,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             {
                 LayerSchemaIds = new List<string> { nameof(AllDataTypesContract) },
                 Metadata = Metadata.From(new AllDataTypesContract { StringField = "test string" }),
-                SchemaFieldsUpdateOptions = UpdateOption.Replace
+                LayerFieldsUpdateOptions = UpdateOption.Replace
             };
 
             // Act
@@ -856,25 +940,42 @@ namespace Picturepark.SDK.V1.Tests.Clients
         [Trait("Stack", "Contents")]
         public async Task ShouldDownloadSingleResized()
         {
-            // Download a resized version of an image file
+            // Arrange
+            var resizeTarget = 200;
+
             var contentId = await _fixture.GetRandomContentIdAsync("fileMetadata.fileExtension:.jpg", 20).ConfigureAwait(false);
+            contentId.Should().NotBeNullOrEmpty();
 
-            Assert.False(string.IsNullOrEmpty(contentId));
-            ContentDetail contentDetail = await _client.Content.GetAsync(contentId, new[] { ContentResolveBehavior.Content }).ConfigureAwait(false);
+            var contentDetail = await _client.Content.GetAsync(contentId, new[] { ContentResolveBehavior.Content }).ConfigureAwait(false);
 
-            var fileMetadata = contentDetail.GetFileMetadata();
-            var fileName = new Random().Next(0, 999999) + "-" + fileMetadata.FileName + ".jpg";
+            var imageMetadata = contentDetail.ContentAs<ImageMetadata>();
+            var fileName = nameof(ShouldDownloadSingleResized) + new Random().Next(0, 999999) + "-" + imageMetadata.FileName + ".jpg";
             var filePath = Path.Combine(_fixture.TempDirectory, fileName);
+
+            var sourceAspectRatio = (float)imageMetadata.Width / imageMetadata.Height;
 
             if (File.Exists(filePath))
                 File.Delete(filePath);
 
-            using (var response = await _client.Content.DownloadAsync(contentId, "Original", 200, 200).ConfigureAwait(false))
+            // Act
+            using (var response = await _client.Content.DownloadAsync(contentId, "Original", resizeTarget, resizeTarget).ConfigureAwait(false))
             {
                 await response.Stream.WriteToFileAsync(filePath).ConfigureAwait(false);
             }
 
-            Assert.True(File.Exists(filePath));
+            // Assert
+            File.Exists(filePath).Should().BeTrue();
+
+            using (var bitmap = new Bitmap(filePath))
+            {
+                Math.Max(bitmap.Width, bitmap.Height).Should().Be(resizeTarget, "should resize to target");
+
+                var resizedAspectRatio = (float)bitmap.Width / bitmap.Height;
+                resizedAspectRatio.Should().BeInRange(
+                    0.98f * sourceAspectRatio,
+                    1.02f * sourceAspectRatio,
+                    "should keep aspect ratio");
+            }
         }
 
         [Fact]
@@ -1294,7 +1395,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var uploadOptions = new UploadOptions
             {
                 SuccessDelegate = Console.WriteLine,
-                ErrorDelegate = Console.WriteLine
+                ErrorDelegate = args => Console.WriteLine(args.Exception)
             };
 
             await _client.Transfer.UploadFilesAsync(createTransferResult.Transfer, filePaths, uploadOptions).ConfigureAwait(false);
@@ -1490,9 +1591,11 @@ namespace Picturepark.SDK.V1.Tests.Clients
                     files,
                     new UploadOptions { WaitForTransferCompletion = true }).ConfigureAwait(false);
 
-                await _client.Transfer
+                var result = await _client.Transfer
                     .ImportTransferAsync(transfer.Transfer.Id, new ImportTransferRequest())
                     .ConfigureAwait(false);
+
+                await _client.BusinessProcess.WaitForCompletionAsync(result.BusinessProcessId).ConfigureAwait(false);
             }
 
             var contents = await _client.Content.SearchAsync(new ContentSearchRequest { SearchString = "fileMetadata.fileName:0559_BYu8ITUWMfc.jpg" }).ConfigureAwait(false);
@@ -1503,6 +1606,32 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             // Assert
             new DirectoryInfo(targetFolder).EnumerateFiles("*").Should().HaveCountGreaterOrEqualTo(numberOfUploads);
+        }
+
+        private async Task<ContentDetail> CreateContentItem()
+        {
+            // Arrange
+            var contentSchema = await SchemaHelper.CreateSchemasIfNotExistentAsync<ContentItem>(_client).ConfigureAwait(false);
+
+            var content = await _client.Content.CreateAsync(new ContentCreateRequest
+            {
+                ContentSchemaId = contentSchema.Id,
+                Content = new ContentItem
+                {
+                    Name = "Jozef"
+                }
+            }).ConfigureAwait(false);
+
+            // Act
+            var contentDetail = await _client.Content
+                .GetAsync(content.Id)
+                .ConfigureAwait(false);
+
+            contentDetail.Id.Should().Be(content.Id);
+            contentDetail.Should().NotBeNull();
+            contentDetail.Content.Should().NotBeNull();
+
+            return contentDetail;
         }
 
         private async Task<ContentDetail> CreateContentReferencingSimpleField(params ContentResolveBehavior[] behaviors)

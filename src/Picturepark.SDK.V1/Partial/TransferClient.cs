@@ -24,22 +24,39 @@ namespace Picturepark.SDK.V1
 
         /// <summary>Searches files of a given transfer ID.</summary>
         /// <param name="transferId">The transfer ID.</param>
-        /// <param name="limit">The maximum number of search results.</param>
+        /// <param name="limit">The maximum number of search results. Use null to retrieve all files in a transfer.</param>
         /// <returns>The result.</returns>
-        public async Task<FileTransferSearchResult> SearchFilesByTransferIdAsync(string transferId, int limit = 20)
+        public async Task<IReadOnlyCollection<FileTransfer>> SearchFilesByTransferIdAsync(string transferId, int? limit = null)
         {
-            var request = new FileTransferSearchRequest()
-            {
-                Limit = limit,
-                SearchString = "*",
-                Filter = new TermFilter
-                {
-                    Field = "transferId",
-                    Term = transferId
-                }
-            };
+            var results = new List<FileTransfer>();
 
-            return await SearchFilesAsync(request).ConfigureAwait(false);
+            string pageToken = null;
+
+            do
+            {
+                var request = new FileTransferSearchRequest()
+                {
+                    Limit = 500,
+                    SearchString = "*",
+                    PageToken = pageToken,
+                    Filter = new TermFilter
+                    {
+                        Field = "transferId",
+                        Term = transferId
+                    }
+                };
+
+                var result = await SearchFilesAsync(request).ConfigureAwait(false);
+                pageToken = result.PageToken;
+
+                if (limit != null && results.Count + result.Results.Count > limit)
+                    results.AddRange(result.Results.Take(limit.Value - results.Count));
+                else
+                    results.AddRange(result.Results);
+            }
+            while (pageToken != null && (limit == null || results.Count < limit.Value));
+
+            return results;
         }
 
         /// <summary>Uploads multiple files from the filesystem.</summary>
@@ -53,7 +70,10 @@ namespace Picturepark.SDK.V1
         {
             var fileLocations = files as FileLocations[] ?? files.ToArray();
 
-            var result = await CreateAndWaitForCompletionAsync(transferName, fileLocations, timeout, cancellationToken).ConfigureAwait(false);
+            var result = await CreateAndWaitForCompletionAsync(transferName, fileLocations, timeout, cancellationToken, uploadOptions).ConfigureAwait(false);
+            if (result.Transfer == null)
+                return result;
+
             await UploadFilesAsync(result.Transfer, fileLocations, uploadOptions, timeout, cancellationToken).ConfigureAwait(false);
             return result;
         }
@@ -69,7 +89,8 @@ namespace Picturepark.SDK.V1
         {
             uploadOptions = uploadOptions ?? new UploadOptions();
 
-            var filteredFileNames = await FilterFilesByBlacklist(files).ConfigureAwait(false);
+            var filteredFileNames = await FilterFilesByBlacklist(files, uploadOptions.ErrorDelegate).ConfigureAwait(false);
+            int atLeastOneFailed = 1;
 
             // Limit concurrent uploads
             // while limiting the chunks would be sufficient to enforce the concurrentUploads setting,
@@ -90,7 +111,7 @@ namespace Picturepark.SDK.V1
                     catch (Exception ex)
                     {
                         exceptions.Add(ex);
-                        uploadOptions.ErrorDelegate?.Invoke(ex);
+                        uploadOptions.ErrorDelegate?.Invoke((file, ex));
                         break;
                     }
 
@@ -101,10 +122,10 @@ namespace Picturepark.SDK.V1
                         try
                         {
                             await UploadFileAsync(chunkLimiter, transfer.Id, ourFile.Identifier, ourFile, uploadOptions.ChunkSize, cancellationToken).ConfigureAwait(false);
+                            Interlocked.CompareExchange(ref atLeastOneFailed, 0, 1);
                         }
                         catch (Exception ex)
                         {
-                            exceptions.Add(ex);
                             caughtException = ex;
                         }
                         finally
@@ -116,9 +137,16 @@ namespace Picturepark.SDK.V1
                         try
                         {
                             if (caughtException == null)
+                            {
                                 uploadOptions.SuccessDelegate?.Invoke(ourFile);
+                            }
                             else
-                                uploadOptions.ErrorDelegate?.Invoke(caughtException);
+                            {
+                                if (uploadOptions.ErrorDelegate != null)
+                                    uploadOptions.ErrorDelegate.Invoke((file, caughtException));
+                                else
+                                    exceptions.Add(caughtException);
+                            }
                         }
                         catch
                         {
@@ -131,6 +159,13 @@ namespace Picturepark.SDK.V1
 
                 if (exceptions.Any())
                     throw new AggregateException(exceptions);
+            }
+
+            // all failed, cancel transfer and return
+            if (atLeastOneFailed == 1)
+            {
+                await CancelTransferAsync(transfer.Id, cancellationToken: cancellationToken).ConfigureAwait(false);
+                return;
             }
 
             if (uploadOptions.WaitForTransferCompletion)
@@ -169,10 +204,15 @@ namespace Picturepark.SDK.V1
         /// <param name="files">The file names of the transfer.</param>
         /// <param name="timeout">The timeout to wait for completion.</param>
         /// <param name="cancellationToken">The cancellation token.</param>
+        /// <param name="uploadOptions">The upload options.</param>
         /// <returns>The transfer.</returns>
-        public async Task<CreateTransferResult> CreateAndWaitForCompletionAsync(string transferName, IEnumerable<FileLocations> files, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<CreateTransferResult> CreateAndWaitForCompletionAsync(string transferName, IEnumerable<FileLocations> files, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken), UploadOptions uploadOptions = null)
         {
-            var filteredFileNames = await FilterFilesByBlacklist(files).ConfigureAwait(false);
+            var filteredFileNames = await FilterFilesByBlacklist(files, uploadOptions?.ErrorDelegate).ConfigureAwait(false);
+            if (!filteredFileNames.Any())
+            {
+                return new CreateTransferResult(null, Enumerable.Empty<TransferUploadFile>());
+            }
 
             var request = new CreateTransferRequest
             {
@@ -297,10 +337,23 @@ namespace Picturepark.SDK.V1
             }
         }
 
-        private async Task<IEnumerable<FileLocations>> FilterFilesByBlacklist(IEnumerable<FileLocations> files)
+        private async Task<IEnumerable<FileLocations>> FilterFilesByBlacklist(IEnumerable<FileLocations> files, Action<(FileLocations, Exception)> errorDelegate)
         {
             var blacklist = await GetCachedBlacklist().ConfigureAwait(false);
-            return files.Where(i => !blacklist.Contains(Path.GetFileName(i.AbsoluteSourcePath)?.ToLowerInvariant()));
+            var okFiles = new List<FileLocations>();
+
+            foreach (var file in files)
+            {
+                if (blacklist.Contains(Path.GetFileName(file.AbsoluteSourcePath)?.ToLowerInvariant()))
+                {
+                    errorDelegate?.Invoke((file, new ArgumentException($"File {file} cannot be uploaded, file name is blacklisted")));
+                    continue;
+                }
+
+                okFiles.Add(file);
+            }
+
+            return okFiles;
         }
 
         private async Task<ISet<string>> GetCachedBlacklist()

@@ -28,6 +28,9 @@
     "successfulTransferRetentionTime": "30.00:00:00",
     "incompleteTransferRetentionTime": "30.00:00:00",
     "editCollectionRetentionTime": "7.00:00:00",
+    "replacedOriginalsRetentionTime": "7.00:00:00",
+    "enableSupportUserRegistrationEmailNotification": true,
+    "enableSupportUserRegistrationNotification": true,
     "apiCallsPerMinute": 1000,
     "languageConfiguration": {
         "systemLanguages": [ "en", "de" ],

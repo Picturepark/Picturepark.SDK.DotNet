@@ -60,6 +60,74 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
         [Fact]
         [Trait("Stack", "Shares")]
+        public async Task ShouldSearchAndAggregateAllTogether()
+        {
+            // Arrange
+            var name = "Embed share to search and aggregate" + new Random().Next(0, 999999);
+            var description1 = "Description of Embed share 1";
+            var description2 = "Description of Embed share 2";
+
+            var shareResult1 = await CreateShare(new ShareEmbedCreateRequest
+            {
+                Contents = await GetRandomShareContent().ConfigureAwait(false),
+                Description = description1,
+                ExpirationDate = new DateTime(2020, 12, 31),
+                Name = name
+            }).ConfigureAwait(false);
+            var shareResult2 = await CreateShare(new ShareEmbedCreateRequest
+            {
+                Contents = await GetRandomShareContent().ConfigureAwait(false),
+                Description = description2,
+                ExpirationDate = new DateTime(2020, 12, 31),
+                Name = name
+            }).ConfigureAwait(false);
+
+            // Act
+            var request = new ShareSearchRequest
+            {
+                Filter = new AndFilter
+                {
+                    Filters = new List<FilterBase>
+                    {
+                        FilterBase.FromExpression<Share>(i => i.ShareType, ShareType.Embed.ToString()),
+                        FilterBase.FromExpression<Share>(i => i.Name, name)
+                    }
+                },
+                Aggregators = new List<AggregatorBase>
+                {
+                    new TermsAggregator
+                    {
+                        Field = nameof(Share.ShareType).ToLowerCamelCase(),
+                        Size = 10,
+                        Name = "ShareType"
+                    },
+                    new TermsAggregator
+                    {
+                        Field = "description",
+                        Size = 10,
+                        Name = "descriptionAggregation"
+                    }
+                }
+            };
+
+            var result = await _client.Share.SearchAsync(request).ConfigureAwait(false);
+
+            // Assert
+            result.Results.Should().HaveCount(2).And.Subject.Select(r => r.Id).Should().BeEquivalentTo(shareResult1.ShareId, shareResult2.ShareId);
+
+            var shareTypeAggregation = result.AggregationResults.FirstOrDefault(ar => ar.Name == "ShareType");
+            shareTypeAggregation.Should().NotBeNull();
+            shareTypeAggregation.AggregationResultItems.Should().HaveCount(1).And.Subject.First(ar => ar.Name == ShareType.Embed.ToString()).Count.Should().Be(2);
+
+            var descriptionAggregation = result.AggregationResults.FirstOrDefault(ar => ar.Name == "descriptionAggregation");
+            descriptionAggregation.Should().NotBeNull();
+            descriptionAggregation.AggregationResultItems.Should().HaveCount(2);
+            descriptionAggregation.AggregationResultItems.Where(ar => ar.Name == description1).Should().HaveCount(1).And.Subject.First().Count.Should().Be(1);
+            descriptionAggregation.AggregationResultItems.Where(ar => ar.Name == description2).Should().HaveCount(1).And.Subject.First().Count.Should().Be(1);
+        }
+
+        [Fact]
+        [Trait("Stack", "Shares")]
         public async Task ShouldUpdateEmbed()
         {
             // Arrange
@@ -349,7 +417,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var uploadOptions = new UploadOptions
             {
                 SuccessDelegate = Console.WriteLine,
-                ErrorDelegate = Console.WriteLine
+                ErrorDelegate = args => Console.WriteLine(args.Exception)
             };
             var createTransferResult = await _client.Transfer.UploadFilesAsync(transferName, importFilePaths, uploadOptions).ConfigureAwait(false);
 
@@ -364,7 +432,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             // Assert
             var transferResult = await _client.Transfer.SearchFilesByTransferIdAsync(createTransferResult.Transfer.Id).ConfigureAwait(false);
-            var contentIds = transferResult.Results.Select(r => r.ContentId).ToList();
+            var contentIds = transferResult.Select(r => r.ContentId).ToList();
 
             Assert.Equal(importFilePaths.Count, contentIds.Count);
 

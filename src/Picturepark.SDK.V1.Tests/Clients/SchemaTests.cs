@@ -8,6 +8,7 @@ using Picturepark.SDK.V1.Tests.FluentAssertions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Threading.Tasks;
 using Xunit;
 
@@ -468,6 +469,34 @@ namespace Picturepark.SDK.V1.Tests.Clients
             );
         }
 
+        [Fact]
+        [Trait("Stack", "Schema")]
+        public async Task ShouldUpdateMany()
+        {
+            // Arrange
+            var schemaRequests = await _client.Schema.GenerateSchemasAsync(typeof(Thing)).ConfigureAwait(false);
+            var schemas = await _fixture.RandomizeSchemaIdsAndCreateMany(schemaRequests).ConfigureAwait(false);
+
+            // Act
+            foreach (var childSchema in schemas.Where(s => s.ParentSchemaId != null))
+            {
+                if (childSchema.Fields.Single(f => f.Id == "color") is FieldString fieldString)
+                    fieldString.Boost = 50;
+            }
+
+            // assert
+            var result = await _client.Schema.UpdateManyAsync(schemas.Where(s => s.ParentSchemaId != null), false).ConfigureAwait(false);
+            var detail = await result.FetchDetail().ConfigureAwait(false);
+
+            detail.SucceededItems.Should().HaveCount(2);
+
+            foreach (var childSchema in detail.SucceededItems.Where(s => s.ParentSchemaId != null))
+            {
+                childSchema.Fields.Should().HaveCount(2);
+                childSchema.Fields.Single(f => f.Id == "color").Should().BeOfType<FieldString>().Which.Boost.Should().Be(50);
+            }
+        }
+
         private void AppendSchemaIdSuffix(SchemaDetail schema, int schemaSuffix)
             => _fixture.AppendSchemaIdSuffix(schema, schemaSuffix);
 
@@ -487,6 +516,28 @@ namespace Picturepark.SDK.V1.Tests.Clients
             public string Name { get; set; }
 
             public IList<Employee> Supervisors { get; set; }
+        }
+
+        [PictureparkSchema(SchemaType.List)]
+        [KnownType(typeof(Table))]
+        [KnownType(typeof(Chair))]
+        public class Thing
+        {
+            public string Name { get; set; }
+        }
+
+        [PictureparkSchema(SchemaType.List)]
+        public class Table : Thing
+        {
+            [PictureparkSearch(Boost = 100)]
+            public string Color { get; set; }
+        }
+
+        [PictureparkSchema(SchemaType.List)]
+        public class Chair : Thing
+        {
+            [PictureparkSearch(Boost = 100)]
+            public string Color { get; set; }
         }
     }
 }

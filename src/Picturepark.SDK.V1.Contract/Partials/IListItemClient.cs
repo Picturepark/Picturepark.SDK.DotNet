@@ -93,6 +93,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <summary>Updates a list item by providing its content</summary>
         /// <param name="listItemId">The list item ID.</param>
         /// <param name="content">The content which must match the item's schema ID.</param>
+        /// <param name="updateOption">Fields update option, Merge will merge the values specified in the Content object with the existing content, while Replace will replace the existing content with the values from the request </param>
         /// <param name="resolveBehaviors">List of enum that control which parts of the list item are resolved and returned.</param>
         /// <param name="allowMissingDependencies">Allow creating <see cref="ListItem"/>s that refer to list items or contents that don't exist in the system.</param>
         /// <param name="timeout">The timeout in milliseconds to wait for completion.</param>
@@ -100,7 +101,7 @@ namespace Picturepark.SDK.V1.Contract
         /// By default the method waits for the search document creation. Passing false, the method will return when the main entity has been updated and the creation of the search document has been enqueued but not yet performed.</param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The updated <see cref="ListItemDetail"/>.</returns>
-        Task<ListItemDetail> UpdateAsync(string listItemId, object content, IEnumerable<ListItemResolveBehavior> resolveBehaviors = null, bool allowMissingDependencies = false, TimeSpan? timeout = null, bool waitSearchDocCreation = true, CancellationToken cancellationToken = default(CancellationToken));
+        Task<ListItemDetail> UpdateAsync(string listItemId, object content, UpdateOption updateOption = UpdateOption.Merge, IEnumerable<ListItemResolveBehavior> resolveBehaviors = null, bool allowMissingDependencies = false, TimeSpan? timeout = null, bool waitSearchDocCreation = true, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>Updates a list item</summary>
         /// <param name="listItemId">The list item ID.</param>

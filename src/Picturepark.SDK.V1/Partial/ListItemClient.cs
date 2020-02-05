@@ -106,11 +106,12 @@ namespace Picturepark.SDK.V1
         }
 
         /// <inheritdoc />
-        public async Task<ListItemDetail> UpdateAsync(string listItemId, object content, IEnumerable<ListItemResolveBehavior> resolveBehaviors = null, bool allowMissingDependencies = false, TimeSpan? timeout = null, bool waitSearchDocCreation = true, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<ListItemDetail> UpdateAsync(string listItemId, object content, UpdateOption updateOption = UpdateOption.Merge, IEnumerable<ListItemResolveBehavior> resolveBehaviors = null, bool allowMissingDependencies = false, TimeSpan? timeout = null, bool waitSearchDocCreation = true, CancellationToken cancellationToken = default(CancellationToken))
         {
-            var updateRequest = new ListItemUpdateRequest()
+            var updateRequest = new ListItemUpdateRequest
             {
-                Content = content
+                Content = content,
+                ContentFieldsUpdateOptions = updateOption
             };
 
             return await UpdateAsync(listItemId, updateRequest, resolveBehaviors, allowMissingDependencies, timeout, waitSearchDocCreation, cancellationToken).ConfigureAwait(false);

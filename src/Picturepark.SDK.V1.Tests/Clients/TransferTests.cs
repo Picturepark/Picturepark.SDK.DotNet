@@ -190,8 +190,8 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var fileTransfers = await _client.Transfer.SearchFilesByTransferIdAsync(createTransferResult.Transfer.Id).ConfigureAwait(false);
 
             // Assert
-            fileTransfers.Results.Should().HaveCount(2);
-            fileTransfers.Results.Should().OnlyContain(fileTransfer => urlsAndIds.Any(urlAndId =>
+            fileTransfers.Should().HaveCount(2);
+            fileTransfers.Should().OnlyContain(fileTransfer => urlsAndIds.Any(urlAndId =>
                 fileTransfer.RequestId == fileTransfer.Identifier && fileTransfer.RequestId == urlAndId.id));
         }
 
@@ -311,7 +311,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 ConcurrentUploads = 4,
                 ChunkSize = 1024 * 1024,
                 SuccessDelegate = Console.WriteLine,
-                ErrorDelegate = Console.WriteLine
+                ErrorDelegate = args => Console.WriteLine(args.Exception)
             };
 
             var createTransferResult = await _client.Transfer.UploadFilesAsync(transferName, importFilePaths, uploadOptions).ConfigureAwait(false);
@@ -323,7 +323,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 {
                     new FileTransferCreateItem
                     {
-                        FileId = uploadFiles.Results.First().Id
+                        FileId = uploadFiles.First().Id
                     }
                 }
             }).ConfigureAwait(false);
@@ -332,7 +332,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             // Assert
             var result = await _client.Transfer.SearchFilesByTransferIdAsync(transfer.Id, numberOfUploadFiles).ConfigureAwait(false);
-            result.Results.Should().ContainSingle(x => x.State == FileTransferState.ImportCompleted);
+            result.Should().ContainSingle(x => x.State == FileTransferState.ImportCompleted);
         }
 
         [Fact]
@@ -352,7 +352,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var createTransferResult = await CreateWebTransferAsync(urls).ConfigureAwait(false);
             var files = await _client.Transfer.SearchFilesByTransferIdAsync(createTransferResult.Transfer.Id, 1).ConfigureAwait(false);
 
-            foreach (FileTransfer file in files.Results)
+            foreach (FileTransfer file in files)
             {
                 var personTag = new Person
                 {
@@ -380,7 +380,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             waitResult.LifeCycleHit.Should().Be(BusinessProcessLifeCycle.Succeeded);
 
             var result = await _client.Transfer.SearchFilesByTransferIdAsync(createTransferResult.Transfer.Id).ConfigureAwait(false);
-            var contentIds = result.Results.Select(r => r.ContentId);
+            var contentIds = result.Select(r => r.ContentId);
             contentIds.Should().HaveCount(1);
 
             var createdContent = await _client.Content.GetAsync(contentIds.First(), new[] { ContentResolveBehavior.Metadata }).ConfigureAwait(false);
@@ -416,7 +416,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 ConcurrentUploads = 4,
                 ChunkSize = 1024 * 1024,
                 SuccessDelegate = Console.WriteLine,
-                ErrorDelegate = Console.WriteLine
+                ErrorDelegate = args => Console.WriteLine(args.Exception)
             };
             var createTransferResult = await _client.Transfer.UploadFilesAsync(transferName, importFilePaths, uploadOptions).ConfigureAwait(false);
 
@@ -431,26 +431,9 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             // Assert
             var result = await _client.Transfer.SearchFilesByTransferIdAsync(createTransferResult.Transfer.Id).ConfigureAwait(false);
-            var contentIds = result.Results.Select(r => r.ContentId);
+            var contentIds = result.Select(r => r.ContentId);
 
             Assert.Equal(importFilePaths.Count(), contentIds.Count());
-        }
-
-        [Fact]
-        [Trait("Stack", "Transfers")]
-        public async Task ShouldRespectTimeoutWhileUploading()
-        {
-            var transferName = Guid.NewGuid().ToString();
-
-            var ex = await Assert.ThrowsAnyAsync<Exception>(
-                async () =>
-                    await _client.Transfer.UploadFilesAsync(
-                        transferName,
-                        new FileLocations[0],
-                        new UploadOptions { WaitForTransferCompletion = true },
-                        TimeSpan.FromMilliseconds(1)).ConfigureAwait(false)).ConfigureAwait(false);
-
-            Assert.Contains(ex.GetType(), new[] { typeof(BusinessProcessLifeCycleNotHitException), typeof(BusinessProcessStateNotHitException) });
         }
 
         [Fact]
@@ -472,7 +455,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 new UploadOptions()
                 {
                     WaitForTransferCompletion = true,
-                    ErrorDelegate = Console.WriteLine,
+                    ErrorDelegate = args => Console.WriteLine(args.Exception),
                     SuccessDelegate = Console.WriteLine
                 }).ConfigureAwait(false);
 
@@ -539,7 +522,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 new UploadOptions()
                 {
                     WaitForTransferCompletion = false,
-                    ErrorDelegate = Console.WriteLine,
+                    ErrorDelegate = args => Console.WriteLine(args.Exception),
                     SuccessDelegate = Console.WriteLine
                 }).ConfigureAwait(false);
 
@@ -550,19 +533,73 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
         [Fact]
         [Trait("Stack", "Transfers")]
-        public async Task ShouldUseTargetFileNameForWebLinkDownloads()
+        public async Task ShouldCallErrorDelegateForBlacklistedFile()
         {
+            // Arrange
+            var blacklist = await _fixture.Client.Transfer.GetBlacklistAsync().ConfigureAwait(false);
+            var filename = blacklist.Items.First().Match;
+            var called = false;
+
+            var options = new UploadOptions
+            {
+                ErrorDelegate = args => called = true
+            };
+
             // Act
-            var result = await CreateWebTransferAsync(
-                new[]
-                {
-                    ("http://cdn1.spiegel.de/images/image-733178-900_breitwand_180x67-zgpe-733178.jpg", "image.jpg")
-                }).ConfigureAwait(false);
+            await _fixture.Client.Transfer.UploadFilesAsync(
+                $"{Guid.NewGuid():N}",
+                new[] { new FileLocations(filename) },
+                options).ConfigureAwait(false);
 
             // Assert
-            var files = await _client.Transfer.SearchFilesByTransferIdAsync(result.Transfer.Id).ConfigureAwait(false);
-            files.Results.Should().HaveCount(1);
-            files.Results.Single().Name.Should().Be("image.jpg");
+            called.Should().BeTrue();
+        }
+
+        [Fact]
+        [Trait("Stack", "Transfers")]
+        public async Task ShouldReturnEmptyResultIfAllFilesBlacklisted()
+        {
+            // Arrange
+            var blacklist = await _fixture.Client.Transfer.GetBlacklistAsync().ConfigureAwait(false);
+            var filename = blacklist.Items.First().Match;
+
+            // Act
+            var result = await _fixture.Client.Transfer.UploadFilesAsync(
+                $"{Guid.NewGuid():N}",
+                new[] { new FileLocations(filename) },
+                null).ConfigureAwait(false);
+
+            // Assert
+            result.Transfer.Should().BeNull();
+            result.FileUploads.Should().BeEmpty();
+        }
+
+        [Fact]
+        [Trait("Stack", "Transfers")]
+        public async Task ShouldCallErrorDelegateWhenFileDoesNotExist()
+        {
+            // Arrange
+            var filename = $"{Guid.NewGuid():N}";
+
+            (FileLocations file, Exception ex) errorDelegateArgs = (null, null);
+
+            var options = new UploadOptions
+            {
+                ErrorDelegate = args => errorDelegateArgs = args
+            };
+
+            // Act
+            await _fixture.Client.Transfer.UploadFilesAsync(
+                $"{Guid.NewGuid():N}",
+                new[]
+                {
+                    new FileLocations(filename),
+                },
+                options).ConfigureAwait(false);
+
+            // Assert
+            errorDelegateArgs.file.AbsoluteSourcePath.Should().Be(filename);
+            errorDelegateArgs.ex.Should().NotBeNull();
         }
 
         private async Task<(CreateTransferResult, string fileId)> CreateFileTransferAsync()

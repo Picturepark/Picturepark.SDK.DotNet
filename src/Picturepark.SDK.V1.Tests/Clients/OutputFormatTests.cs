@@ -388,5 +388,49 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var formatsRetrieved = await _client.OutputFormat.GetManyAsync(formats.Select(f => f.Id)).ConfigureAwait(false);
             formatsRetrieved.Should().OnlyContain(f => f.DownloadFileNamePatterns[_fixture.DefaultLanguage] == pattern);
         }
+
+        [Fact]
+        [Trait("Stack", "OutputFormats")]
+        public async Task ShouldAllowPreviewOfFormat()
+        {
+            // Arrange
+            var contentId = await _fixture.GetRandomContentIdAsync("fileMetadata.fileExtension:.jpg", 20).ConfigureAwait(false);
+            var format = new OutputFormatRenderingSpecification
+            {
+                SourceOutputFormats = new SourceOutputFormats
+                {
+                    Image = "Original"
+                },
+                Format = new JpegFormat
+                {
+                    Quality = 75,
+                    ResizeAction = new ResizeAction
+                    {
+                        Height = 133,
+                        Width = 337
+                    }
+                }
+            };
+            var previewRequest = new OutputFormatRenderPreviewRequest
+            {
+                ContentId = contentId,
+                OutputFormat = format
+            };
+
+            var fileName = nameof(ShouldAllowPreviewOfFormat) + new Random().Next(0, 999999) + "-" + contentId + ".jpg";
+            var filePath = Path.Combine(_fixture.TempDirectory, fileName);
+
+            if (File.Exists(filePath))
+                File.Delete(filePath);
+
+            // Act
+            using (var response = await _client.OutputFormat.RenderFormatPreviewAsync(previewRequest).ConfigureAwait(false))
+                await response.Stream.WriteToFileAsync(filePath).ConfigureAwait(false);
+
+            // Assert
+            var fileInfo = new FileInfo(filePath);
+            fileInfo.Exists.Should().BeTrue();
+            fileInfo.Length.Should().BeGreaterThan(0);
+        }
     }
 }

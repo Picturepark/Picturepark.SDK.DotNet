@@ -35,6 +35,7 @@
         "ShareAccessClient.DownloadWithOutputFormatIdAsync",
         "SchemaClient.ExistsAsync",
         "SchemaClient.CreateManyAsync",
+        "SchemaClient.UpdateManyAsync",
         "JsonSchemaClient.GetAsync",
         "LiveStreamClient.GetMessageAsync",
         "OutputFormatClient.CreateAsync",
