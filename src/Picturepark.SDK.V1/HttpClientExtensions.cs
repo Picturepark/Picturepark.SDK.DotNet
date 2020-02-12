@@ -22,7 +22,7 @@ namespace Picturepark.SDK.V1
                     if (ex.StatusCode != (int)HttpStatusCode.GatewayTimeout)
                         throw;
                 }
-                catch (TaskCanceledException)
+                catch (TaskCanceledException) when (!cancellationToken.IsCancellationRequested)
                 {
                     var finished = false;
 
