@@ -27470,7 +27470,8 @@
           "Schema",
           "User",
           "ContentPermissionSet",
-          "Owner"
+          "Owner",
+          "UserRole"
         ],
         "enum": [
           "Content",
@@ -27478,7 +27479,8 @@
           "Schema",
           "User",
           "ContentPermissionSet",
-          "Owner"
+          "Owner",
+          "UserRole"
         ]
       },
       "TermsEnumAggregator": {

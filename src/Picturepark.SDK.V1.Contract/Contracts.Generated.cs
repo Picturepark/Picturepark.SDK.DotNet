@@ -11428,6 +11428,9 @@ namespace Picturepark.SDK.V1.Contract
         [System.Runtime.Serialization.EnumMember(Value = @"Owner")]
         Owner = 5,
     
+        [System.Runtime.Serialization.EnumMember(Value = @"UserRole")]
+        UserRole = 6,
+    
     }
     
     /// <summary>A multi-bucket value aggregator used for aggregations on indexed enum values.</summary>
