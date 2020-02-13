@@ -139,6 +139,12 @@ namespace Picturepark.SDK.V1
             return new ListItemBatchOperationWithRequestIdResult(this, businessProcessId, result.LifeCycleHit, _businessProcessClient);
         }
 
+        public async Task<ListItemReferencesResult> GetReferencesToListItemAsync(string id, ListItemReferencesRequest request, CancellationToken cancellationToken = default)
+            => await GetReferencesAsync(id, request, cancellationToken).ConfigureAwait(false);
+
+        public async Task<ListItemReferencesResult> GetReferencesToListItemsAsync(ListItemManyReferencesRequest request, CancellationToken cancellationToken = default)
+            => await GetReferencesManyAsync(request, cancellationToken).ConfigureAwait(false);
+
         private bool IsSimpleType(Type type)
         {
             return

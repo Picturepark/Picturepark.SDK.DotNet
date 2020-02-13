@@ -1592,7 +1592,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                     new UploadOptions { WaitForTransferCompletion = true }).ConfigureAwait(false);
 
                 var result = await _client.Transfer
-                    .ImportTransferAsync(transfer.Transfer.Id, new ImportTransferRequest())
+                    .ImportAsync(transfer.Transfer.Id, new ImportTransferRequest())
                     .ConfigureAwait(false);
 
                 await _client.BusinessProcess.WaitForCompletionAsync(result.BusinessProcessId).ConfigureAwait(false);
