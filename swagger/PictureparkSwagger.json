@@ -15915,6 +15915,97 @@
         ]
       }
     },
+    "/v1/Users/many/lock": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Change lock state of multiple users",
+        "description": "Does not affect AuthorizationState of users The operation is executed asynchronously and is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.",
+        "operationId": "User_LockMany",
+        "requestBody": {
+          "x-name": "request",
+          "description": "Information about users to update and the desired lock state",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserLockManyRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "Business process",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BusinessProcess"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "user_write"
+            ]
+          }
+        ]
+      }
+    },
     "/v1/Users/{id}/review": {
       "post": {
         "tags": [
@@ -15952,6 +16043,97 @@
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "user_write"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/Users/many/review": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Change Review state of multiple users",
+        "description": "Users with AuthorizationState != ToBeReviewed are considered reviewed. The operation is executed asynchronously and is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.",
+        "operationId": "User_ReviewMany",
+        "requestBody": {
+          "x-name": "request",
+          "description": "Information about users to update and the desired review state",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserReviewManyRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "Business process",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BusinessProcess"
+                }
+              }
+            }
           },
           "400": {
             "description": "Validation exception",
@@ -16096,6 +16278,97 @@
         ]
       }
     },
+    "/v1/Users/many/invite": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Invite multiple users",
+        "description": "Formally invites users, e.g. sends an invitation email. Transitions to Invited, implicitly reviews user. The operation is executed asynchronously and is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.",
+        "operationId": "User_InviteMany",
+        "requestBody": {
+          "x-name": "request",
+          "description": "Information about users to invite",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserInviteManyRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "Business process",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BusinessProcess"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "user_write"
+            ]
+          }
+        ]
+      }
+    },
     "/v1/Users/{id}/reinvite": {
       "post": {
         "tags": [
@@ -16180,6 +16453,187 @@
         ]
       }
     },
+    "/v1/Users/many/reinvite": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Reinvite users",
+        "description": "Formally re-invites users, e.g. sends an invitation email. The operation is executed asynchronously and is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.",
+        "operationId": "User_ReInviteMany",
+        "requestBody": {
+          "x-name": "request",
+          "description": "Information about users to reinvite",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserReinviteManyRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "Business process",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BusinessProcess"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "user_write"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/Users/many/assignUserRoles": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Assign or unassign userRoles",
+        "operationId": "User_AssignUserRoles",
+        "requestBody": {
+          "x-name": "request",
+          "description": "Information about users to modify and kind of operation",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserRoleAssignManyRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "Business process",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BusinessProcess"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "user_write"
+            ]
+          }
+        ]
+      }
+    },
     "/v1/Users/{id}/delete": {
       "post": {
         "tags": [
@@ -16192,7 +16646,7 @@
             "name": "id",
             "in": "path",
             "required": true,
-            "description": "User ID to action on.",
+            "description": "User ID.",
             "schema": {
               "type": "string",
               "nullable": true
@@ -16202,7 +16656,7 @@
         ],
         "requestBody": {
           "x-name": "request",
-          "description": "Request with details regarding the deletion.",
+          "description": "Details of the user deletion..",
           "content": {
             "application/json": {
               "schema": {
@@ -16215,7 +16669,7 @@
         },
         "responses": {
           "200": {
-            "description": "OK"
+            "description": null
           },
           "400": {
             "description": "Validation exception",
@@ -22941,7 +23395,7 @@
             "format": "int64"
           },
           "error": {
-            "description": "If the operation did not succeeded, this contains error information.",
+            "description": "If the operation did not succeed, this contains error information.",
             "nullable": true,
             "oneOf": [
               {
@@ -36721,6 +37175,49 @@
           }
         }
       },
+      "UserLockManyRequest": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/UserManyRequestBase"
+          },
+          {
+            "type": "object",
+            "description": "Request update of lock state of multiple users",
+            "additionalProperties": false,
+            "required": [
+              "lock"
+            ],
+            "properties": {
+              "lock": {
+                "description": "Information regarding desired lock state",
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/UserLockRequest"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "UserManyRequestBase": {
+        "type": "object",
+        "description": "Base class for requests affecting multiple users",
+        "x-abstract": true,
+        "additionalProperties": false,
+        "required": [
+          "userIds"
+        ],
+        "properties": {
+          "userIds": {
+            "type": "array",
+            "description": "User IDs. Must not contain more than 1000 elements.",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
       "UserReviewRequest": {
         "type": "object",
         "description": "Holds additional information for user review.",
@@ -36731,6 +37228,102 @@
             "description": "Indicates the requested review state of the user.\nIf _true_ is specified, user will be transitioned into _reviewed_ state. _False_ will put the user back into _to be reviewed_ state."
           }
         }
+      },
+      "UserReviewManyRequest": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/UserManyRequestBase"
+          },
+          {
+            "type": "object",
+            "description": "Review many request",
+            "additionalProperties": false,
+            "required": [
+              "review"
+            ],
+            "properties": {
+              "review": {
+                "description": "Requested review state of user.",
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/UserReviewRequest"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "UserInviteManyRequest": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/UserManyRequestBase"
+          },
+          {
+            "type": "object",
+            "description": "Request for inviting users (applies to users in states ToBeReviewed + Reviewed)",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "UserReinviteManyRequest": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/UserManyRequestBase"
+          },
+          {
+            "type": "object",
+            "description": "Request for re-inviting users (applies to users in states Invited)",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "UserRoleAssignManyRequest": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/UserManyRequestBase"
+          },
+          {
+            "type": "object",
+            "description": "Request to change role assignment of users",
+            "additionalProperties": false,
+            "required": [
+              "userRoleIds",
+              "operation"
+            ],
+            "properties": {
+              "userRoleIds": {
+                "type": "array",
+                "description": "Users roles to modify",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "operation": {
+                "description": "Defines how to apply specified UserRoleIds to UserIds",
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/UserRoleAssignmentOperationType"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "UserRoleAssignmentOperationType": {
+        "type": "string",
+        "description": "User role assignment operation type",
+        "x-enumNames": [
+          "Add",
+          "Remove",
+          "Update"
+        ],
+        "enum": [
+          "Add",
+          "Remove",
+          "Update"
+        ]
       },
       "UserDeleteRequest": {
         "type": "object",
