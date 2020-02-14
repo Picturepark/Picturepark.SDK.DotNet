@@ -2207,6 +2207,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("UserRolesNotFoundException", typeof(UserRolesNotFoundException))]
     [JsonInheritanceAttribute("UnauthorizedException", typeof(UnauthorizedException))]
     [JsonInheritanceAttribute("UserUnlockDisallowedException", typeof(UserUnlockDisallowedException))]
+    [JsonInheritanceAttribute("UserAlreadyInRequestedLockStateException", typeof(UserAlreadyInRequestedLockStateException))]
     [JsonInheritanceAttribute("RenderingException", typeof(RenderingException))]
     [JsonInheritanceAttribute("FormatNotApplicableForRenderingException", typeof(FormatNotApplicableForRenderingException))]
     [JsonInheritanceAttribute("DocumentVersionNotFoundException", typeof(DocumentVersionNotFoundException))]
@@ -2743,6 +2744,28 @@ namespace Picturepark.SDK.V1.Contract
         public static UserUnlockDisallowedException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<UserUnlockDisallowedException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class UserAlreadyInRequestedLockStateException : PictureparkBusinessException
+    {
+        [Newtonsoft.Json.JsonProperty("affectedUserId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string AffectedUserId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("userIsLocked", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool UserIsLocked { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static UserAlreadyInRequestedLockStateException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<UserAlreadyInRequestedLockStateException>(data);
         }
     
     }
@@ -21873,7 +21896,8 @@ namespace Picturepark.SDK.V1.Contract
     public partial class UserLockRequest 
     {
         /// <summary>Indicates the requested lock state of the user.
-        /// If _true_ was specified, the user will be _locked_. _False_ will unlock the previously _locked_ user.</summary>
+        /// If _true_ was specified, the user will be _locked_. _False_ will unlock the previously _locked_ user.
+        /// If User is already in desired state, this will be returned as error.</summary>
         [Newtonsoft.Json.JsonProperty("lock", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool Lock { get; set; }
     
@@ -21893,10 +21917,11 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class UserLockManyRequest : UserManyRequestBase
     {
-        /// <summary>Information regarding desired lock state</summary>
+        /// <summary>Indicates the requested lock state of the users.
+        /// If _true_ was specified, the users will be _locked_. _False_ will unlock the previously _locked_ users.
+        /// Users which are already in desired state will be returned as errors.</summary>
         [Newtonsoft.Json.JsonProperty("lock", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public UserLockRequest Lock { get; set; } = new UserLockRequest();
+        public bool Lock { get; set; }
     
         public string ToJson() 
         {
@@ -21914,7 +21939,7 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     public abstract partial class UserManyRequestBase 
     {
-        /// <summary>User IDs. Must not contain more than 1000 elements.</summary>
+        /// <summary>User IDs.</summary>
         [Newtonsoft.Json.JsonProperty("userIds", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
         public System.Collections.Generic.ICollection<string> UserIds { get; set; } = new System.Collections.Generic.List<string>();
@@ -21956,10 +21981,10 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class UserReviewManyRequest : UserManyRequestBase
     {
-        /// <summary>Requested review state of user.</summary>
-        [Newtonsoft.Json.JsonProperty("review", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public UserReviewRequest Review { get; set; } = new UserReviewRequest();
+        /// <summary>Indicates the requested review state of the user.
+        /// If _true_ is specified, user will be transitioned into _reviewed_ state. _False_ will put the user back into _to be reviewed_ state.</summary>
+        [Newtonsoft.Json.JsonProperty("reviewed", Required = Newtonsoft.Json.Required.Always)]
+        public bool Reviewed { get; set; }
     
         public string ToJson() 
         {
@@ -22005,7 +22030,7 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    /// <summary>Request to change role assignment of users</summary>
+    /// <summary>Request to update role assignment of users.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class UserRoleAssignManyRequest : UserManyRequestBase
     {
@@ -22014,7 +22039,8 @@ namespace Picturepark.SDK.V1.Contract
         [System.ComponentModel.DataAnnotations.Required]
         public System.Collections.Generic.ICollection<string> UserRoleIds { get; set; } = new System.Collections.Generic.List<string>();
     
-        /// <summary>Defines how to apply specified UserRoleIds to UserIds</summary>
+        /// <summary>Defines how to apply specified UserRoleIds to UserIds
+        /// If an operation results in no change for a user, that user will be returned as succeeded.</summary>
         [Newtonsoft.Json.JsonProperty("operation", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
