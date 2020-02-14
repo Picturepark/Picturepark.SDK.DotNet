@@ -54,6 +54,8 @@ namespace Picturepark.SDK.V1.Tests.Contracts
         public List<Pet> OwnsPets { get; set; }
 
         public List<Addresses> Addresses { get; set; }
+
+        public List<AddressesPlus> AddressesPlus { get; set; }
     }
 
     public class SoccerTrainer : Person
@@ -65,6 +67,7 @@ namespace Picturepark.SDK.V1.Tests.Contracts
         public List<Club> PreviousClubs { get; set; }
     }
 
+    // Do not use JsonInheritanceConverter with struct schemas: serialization and deserialization of fieldset and relationship fields would not work properly.
     [PictureparkSchema(SchemaType.Struct)]
     public class Addresses
     {
@@ -72,6 +75,13 @@ namespace Picturepark.SDK.V1.Tests.Contracts
         public string Name { get; set; }
 
         public Pet SecurityPet { get; set; }
+    }
+
+    // Do not use JsonInheritanceConverter with struct schemas: serialization and deserialization of fieldset and relationship fields would not work properly.
+    [PictureparkSchema(SchemaType.Struct)]
+    public class AddressesPlus : Addresses
+    {
+        public int Number { get; set; }
     }
 
     [PictureparkReference]
