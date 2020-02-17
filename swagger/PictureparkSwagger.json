@@ -15914,7 +15914,7 @@
           "User"
         ],
         "summary": "Lock / unlock user",
-        "description": "Does not affect AuthorizationState of user",
+        "description": "Does not affect AuthorizationState of user.\nIf User is already in desired state, this will be returned as error.",
         "operationId": "User_Lock",
         "parameters": [
           {
@@ -15945,6 +15945,97 @@
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "user_write"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/Users/many/lock": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Change lock state of multiple users",
+        "description": "Does not affect AuthorizationState of users\nUsers which are already in desired state will be returned as errors. The operation is executed asynchronously and is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.",
+        "operationId": "User_LockMany",
+        "requestBody": {
+          "x-name": "request",
+          "description": "Information about users to update and the desired lock state",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserLockManyRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "Business process",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BusinessProcess"
+                }
+              }
+            }
           },
           "400": {
             "description": "Validation exception",
@@ -16102,6 +16193,97 @@
         ]
       }
     },
+    "/v1/Users/many/review": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Change Review state of multiple users",
+        "description": "Users with AuthorizationState != ToBeReviewed are considered reviewed. The operation is executed asynchronously and is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.",
+        "operationId": "User_ReviewMany",
+        "requestBody": {
+          "x-name": "request",
+          "description": "Information about users to update and the desired review state",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserReviewManyRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "Business process",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BusinessProcess"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "user_write"
+            ]
+          }
+        ]
+      }
+    },
     "/v1/Users/{id}/invite": {
       "post": {
         "tags": [
@@ -16126,6 +16308,97 @@
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "user_write"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/Users/many/invite": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Invite multiple users",
+        "description": "Formally invites users, e.g. sends an invitation email. Transitions to Invited, implicitly reviews user. The operation is executed asynchronously and is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.",
+        "operationId": "User_InviteMany",
+        "requestBody": {
+          "x-name": "request",
+          "description": "Information about users to invite",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserInviteManyRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "Business process",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BusinessProcess"
+                }
+              }
+            }
           },
           "400": {
             "description": "Validation exception",
@@ -16270,6 +16543,187 @@
         ]
       }
     },
+    "/v1/Users/many/reinvite": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Reinvite users",
+        "description": "Formally re-invites users, e.g. sends an invitation email. The operation is executed asynchronously and is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.",
+        "operationId": "User_ReInviteMany",
+        "requestBody": {
+          "x-name": "request",
+          "description": "Information about users to reinvite",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserReinviteManyRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "Business process",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BusinessProcess"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "user_write"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/Users/many/assignUserRoles": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Assign or unassign userRoles",
+        "operationId": "User_AssignUserRoles",
+        "requestBody": {
+          "x-name": "request",
+          "description": "Information about users to modify and kind of operation",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserRoleAssignManyRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "Business process",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BusinessProcess"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "user_write"
+            ]
+          }
+        ]
+      }
+    },
     "/v1/Users/{id}/delete": {
       "post": {
         "tags": [
@@ -16282,7 +16736,7 @@
             "name": "id",
             "in": "path",
             "required": true,
-            "description": "User ID to action on.",
+            "description": "User ID.",
             "schema": {
               "type": "string",
               "nullable": true
@@ -16292,7 +16746,7 @@
         ],
         "requestBody": {
           "x-name": "request",
-          "description": "Request with details regarding the deletion.",
+          "description": "Details of the user deletion..",
           "content": {
             "application/json": {
               "schema": {
@@ -16305,7 +16759,7 @@
         },
         "responses": {
           "200": {
-            "description": "OK"
+            "description": null
           },
           "400": {
             "description": "Validation exception",
@@ -17525,6 +17979,26 @@
           {
             "type": "object",
             "additionalProperties": false
+          }
+        ]
+      },
+      "UserAlreadyInRequestedLockStateException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkBusinessException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "affectedUserId": {
+                "type": "string",
+                "nullable": true
+              },
+              "userIsLocked": {
+                "type": "boolean"
+              }
+            }
           }
         ]
       },
@@ -23031,7 +23505,7 @@
             "format": "int64"
           },
           "error": {
-            "description": "If the operation did not succeeded, this contains error information.",
+            "description": "If the operation did not succeed, this contains error information.",
             "nullable": true,
             "oneOf": [
               {
@@ -25383,13 +25857,103 @@
       "BusinessRuleTraceLogSearchResult": {
         "allOf": [
           {
-            "$ref": "#/components/schemas/SearchBehaviorBaseResultOfBusinessRuleTraceLog"
+            "$ref": "#/components/schemas/SearchBehaviorWithAggregationBaseResultOfBusinessRuleTraceLog"
           },
           {
             "type": "object",
             "additionalProperties": false
           }
         ]
+      },
+      "SearchBehaviorWithAggregationBaseResultOfBusinessRuleTraceLog": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/SearchBehaviorBaseResultOfBusinessRuleTraceLog"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "aggregationResults": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/AggregationResult"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "AggregationResult": {
+        "type": "object",
+        "description": "Result of an aggregation",
+        "additionalProperties": false,
+        "required": [
+          "name"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Name of the aggregation.",
+            "minLength": 1
+          },
+          "sumOtherDocCount": {
+            "type": "integer",
+            "description": "When there are lots of unique terms, Elastic Search only returns the top terms; this number is the sum of the document counts for all buckets that are not part of the response.",
+            "format": "int64",
+            "nullable": true
+          },
+          "aggregationResultItems": {
+            "type": "array",
+            "description": "Items returned for the aggregation. Each item consists of a bucket with the matched value and the number of matches.\nOptionally inner aggregations for further drill down can be available.",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/AggregationResultItem"
+            }
+          }
+        }
+      },
+      "AggregationResultItem": {
+        "type": "object",
+        "description": "Aggregation result item",
+        "additionalProperties": false,
+        "required": [
+          "name"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Value matched.",
+            "minLength": 1
+          },
+          "count": {
+            "type": "integer",
+            "description": "Number of items matched.",
+            "format": "int64"
+          },
+          "filter": {
+            "description": "Ready to use filter to filter the data based on the aggregation result values.\nIt can be passed as one of the aggregation filters of an aggregation query: it returns documents meeting the aggregation condition.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/AggregationFilter"
+              }
+            ]
+          },
+          "active": {
+            "type": "boolean",
+            "description": "True if the current result item matches on of the aggregation filters sent in the query."
+          },
+          "aggregationResults": {
+            "type": "array",
+            "description": "Inner aggregation results, if inner aggregations were provided in the query.",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/AggregationResult"
+            }
+          }
+        }
       },
       "SearchBehaviorBaseResultOfBusinessRuleTraceLog": {
         "allOf": [
@@ -25663,17 +26227,25 @@
         "type": "object",
         "additionalProperties": false,
         "properties": {
-          "searchString": {
-            "type": "string",
-            "description": "Limits the search by using a query string filter. The Lucene query string syntax is supported.",
-            "nullable": true
+          "debugMode": {
+            "type": "boolean",
+            "description": "Enable debug mode to get as result of the Searched additional debug information. Warning! Severely affects performance.",
+            "default": false
           },
-          "searchBehaviors": {
+          "aggregationFilters": {
             "type": "array",
-            "description": "An optional list of search behaviors. All the passed behaviors will be applied.",
+            "description": "Special filters used to filter down the aggregations' values on specific conditions. The behavior is different when\nfiltering an aggregation that matches the same AggregationName or another aggregation.\nIn the first case, the filter is put in \"or\" with (eventual) other existing filters. In the second case it is put in \"and\".",
             "nullable": true,
             "items": {
-              "$ref": "#/components/schemas/SearchBehavior"
+              "$ref": "#/components/schemas/AggregationFilter"
+            }
+          },
+          "aggregators": {
+            "type": "array",
+            "description": "List of aggregators that defines how the items should be aggregated.",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/AggregatorBase"
             }
           },
           "filter": {
@@ -25688,12 +26260,26 @@
           "limit": {
             "type": "integer",
             "description": "Limits the document count of the result set.",
-            "format": "int32"
+            "format": "int32",
+            "default": 30
           },
           "pageToken": {
             "type": "string",
             "description": "The token used to retrieve the next page of results. It must be null on first request and only filled with the returned pageToken to request next page of results.",
             "nullable": true
+          },
+          "searchString": {
+            "type": "string",
+            "description": "Limits the search by using a query string filter. The Lucene query string syntax is supported.",
+            "nullable": true
+          },
+          "searchBehaviors": {
+            "type": "array",
+            "description": "An optional list of search behaviors. All the passed behaviors will be applied.",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/SearchBehavior"
+            }
           },
           "sort": {
             "type": "array",
@@ -25702,141 +26288,6 @@
             "items": {
               "$ref": "#/components/schemas/SortInfo"
             }
-          },
-          "debugMode": {
-            "type": "boolean",
-            "description": "Enable debug mode to get as result of the Searched additional debug information. Warning! Severely affects performance.",
-            "default": false
-          }
-        }
-      },
-      "SortInfo": {
-        "type": "object",
-        "description": "Sorting information",
-        "additionalProperties": false,
-        "properties": {
-          "field": {
-            "type": "string",
-            "description": "The field's ID to sort on.",
-            "nullable": true
-          },
-          "direction": {
-            "description": "The sort direction (ascending/descending).",
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/SortDirection"
-              }
-            ]
-          }
-        }
-      },
-      "SortDirection": {
-        "type": "string",
-        "description": "The sort direction",
-        "x-enumNames": [
-          "Asc",
-          "Desc"
-        ],
-        "enum": [
-          "Asc",
-          "Desc"
-        ]
-      },
-      "Channel": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "id",
-          "sortOrder",
-          "searchIndexId",
-          "names",
-          "sort",
-          "aggregations",
-          "extendedSimpleSearchFields",
-          "grantedUserRoleIds",
-          "missingResultsDisplayPatterns",
-          "audit"
-        ],
-        "properties": {
-          "id": {
-            "type": "string",
-            "description": "ID of channel.",
-            "minLength": 1
-          },
-          "sortOrder": {
-            "type": "integer",
-            "description": "Numeric sort order of the channel. Channels are returned ordered by this field.",
-            "format": "int32"
-          },
-          "searchIndexId": {
-            "type": "string",
-            "description": "The search index ID where the channel requests the content from. Only RootContentSearchIndex is supported.",
-            "minLength": 1
-          },
-          "filter": {
-            "description": "An optional search filter. Limits the content document result set on each search and aggregation request.",
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/FilterBase"
-              }
-            ]
-          },
-          "names": {
-            "description": "Language specific names.",
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/TranslatedStringDictionary"
-              }
-            ]
-          },
-          "sort": {
-            "type": "array",
-            "description": "Default sort order specified for the channel to sort the results of a content search.",
-            "items": {
-              "$ref": "#/components/schemas/SortInfo"
-            }
-          },
-          "aggregations": {
-            "type": "array",
-            "description": "An optional list of aggregators. These aggregations are added by default on each aggregation requests.",
-            "items": {
-              "$ref": "#/components/schemas/AggregatorBase"
-            }
-          },
-          "extendedSimpleSearchFields": {
-            "type": "array",
-            "description": "An Optional list of fields. These fields extend the list of simple search fields outside the bounds of any schema field configuration.",
-            "items": {
-              "type": "string"
-            }
-          },
-          "grantedUserRoleIds": {
-            "type": "array",
-            "description": "User roles granted access to the channel.",
-            "items": {
-              "type": "string"
-            }
-          },
-          "missingResultsDisplayPatterns": {
-            "description": "Display pattern to use for rendering details when 0 results are returned",
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/TranslatedStringDictionary"
-              }
-            ]
-          },
-          "audit": {
-            "description": "Audit information.",
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/UserAudit"
-              }
-            ]
-          },
-          "viewForAll": {
-            "type": "boolean",
-            "description": "Grants rights to all the users to view the channel."
           }
         }
       },
@@ -26213,6 +26664,136 @@
             }
           }
         ]
+      },
+      "SortInfo": {
+        "type": "object",
+        "description": "Sorting information",
+        "additionalProperties": false,
+        "properties": {
+          "field": {
+            "type": "string",
+            "description": "The field's ID to sort on.",
+            "nullable": true
+          },
+          "direction": {
+            "description": "The sort direction (ascending/descending).",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/SortDirection"
+              }
+            ]
+          }
+        }
+      },
+      "SortDirection": {
+        "type": "string",
+        "description": "The sort direction",
+        "x-enumNames": [
+          "Asc",
+          "Desc"
+        ],
+        "enum": [
+          "Asc",
+          "Desc"
+        ]
+      },
+      "Channel": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "sortOrder",
+          "searchIndexId",
+          "names",
+          "sort",
+          "aggregations",
+          "extendedSimpleSearchFields",
+          "grantedUserRoleIds",
+          "missingResultsDisplayPatterns",
+          "audit"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "ID of channel.",
+            "minLength": 1
+          },
+          "sortOrder": {
+            "type": "integer",
+            "description": "Numeric sort order of the channel. Channels are returned ordered by this field.",
+            "format": "int32"
+          },
+          "searchIndexId": {
+            "type": "string",
+            "description": "The search index ID where the channel requests the content from. Only RootContentSearchIndex is supported.",
+            "minLength": 1
+          },
+          "filter": {
+            "description": "An optional search filter. Limits the content document result set on each search and aggregation request.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/FilterBase"
+              }
+            ]
+          },
+          "names": {
+            "description": "Language specific names.",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/TranslatedStringDictionary"
+              }
+            ]
+          },
+          "sort": {
+            "type": "array",
+            "description": "Default sort order specified for the channel to sort the results of a content search.",
+            "items": {
+              "$ref": "#/components/schemas/SortInfo"
+            }
+          },
+          "aggregations": {
+            "type": "array",
+            "description": "An optional list of aggregators. These aggregations are added by default on each aggregation requests.",
+            "items": {
+              "$ref": "#/components/schemas/AggregatorBase"
+            }
+          },
+          "extendedSimpleSearchFields": {
+            "type": "array",
+            "description": "An Optional list of fields. These fields extend the list of simple search fields outside the bounds of any schema field configuration.",
+            "items": {
+              "type": "string"
+            }
+          },
+          "grantedUserRoleIds": {
+            "type": "array",
+            "description": "User roles granted access to the channel.",
+            "items": {
+              "type": "string"
+            }
+          },
+          "missingResultsDisplayPatterns": {
+            "description": "Display pattern to use for rendering details when 0 results are returned",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/TranslatedStringDictionary"
+              }
+            ]
+          },
+          "audit": {
+            "description": "Audit information.",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/UserAudit"
+              }
+            ]
+          },
+          "viewForAll": {
+            "type": "boolean",
+            "description": "Grants rights to all the users to view the channel."
+          }
+        }
       },
       "UserAudit": {
         "type": "object",
@@ -28752,76 +29333,6 @@
             }
           }
         ]
-      },
-      "AggregationResult": {
-        "type": "object",
-        "description": "Result of an aggregation",
-        "additionalProperties": false,
-        "required": [
-          "name"
-        ],
-        "properties": {
-          "name": {
-            "type": "string",
-            "description": "Name of the aggregation.",
-            "minLength": 1
-          },
-          "sumOtherDocCount": {
-            "type": "integer",
-            "description": "When there are lots of unique terms, Elastic Search only returns the top terms; this number is the sum of the document counts for all buckets that are not part of the response.",
-            "format": "int64",
-            "nullable": true
-          },
-          "aggregationResultItems": {
-            "type": "array",
-            "description": "Items returned for the aggregation. Each item consists of a bucket with the matched value and the number of matches.\nOptionally inner aggregations for further drill down can be available.",
-            "nullable": true,
-            "items": {
-              "$ref": "#/components/schemas/AggregationResultItem"
-            }
-          }
-        }
-      },
-      "AggregationResultItem": {
-        "type": "object",
-        "description": "Aggregation result item",
-        "additionalProperties": false,
-        "required": [
-          "name"
-        ],
-        "properties": {
-          "name": {
-            "type": "string",
-            "description": "Value matched.",
-            "minLength": 1
-          },
-          "count": {
-            "type": "integer",
-            "description": "Number of items matched.",
-            "format": "int64"
-          },
-          "filter": {
-            "description": "Ready to use filter to filter the data based on the aggregation result values.\nIt can be passed as one of the aggregation filters of an aggregation query: it returns documents meeting the aggregation condition.",
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/AggregationFilter"
-              }
-            ]
-          },
-          "active": {
-            "type": "boolean",
-            "description": "True if the current result item matches on of the aggregation filters sent in the query."
-          },
-          "aggregationResults": {
-            "type": "array",
-            "description": "Inner aggregation results, if inner aggregations were provided in the query.",
-            "nullable": true,
-            "items": {
-              "$ref": "#/components/schemas/AggregationResult"
-            }
-          }
-        }
       },
       "SearchBehaviorBaseResultOfContent": {
         "allOf": [
@@ -37161,7 +37672,46 @@
         "properties": {
           "lock": {
             "type": "boolean",
-            "description": "Indicates the requested lock state of the user.\nIf _true_ was specified, the user will be _locked_. _False_ will unlock the previously _locked_ user."
+            "description": "Indicates the requested lock state of the user.\nIf _true_ was specified, the user will be _locked_. _False_ will unlock the previously _locked_ user.\nIf User is already in desired state, this will be returned as error."
+          }
+        }
+      },
+      "UserLockManyRequest": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/UserManyRequestBase"
+          },
+          {
+            "type": "object",
+            "description": "Request update of lock state of multiple users",
+            "additionalProperties": false,
+            "required": [
+              "lock"
+            ],
+            "properties": {
+              "lock": {
+                "type": "boolean",
+                "description": "Indicates the requested lock state of the users.\nIf _true_ was specified, the users will be _locked_. _False_ will unlock the previously _locked_ users.\nUsers which are already in desired state will be returned as errors."
+              }
+            }
+          }
+        ]
+      },
+      "UserManyRequestBase": {
+        "type": "object",
+        "description": "Base class for requests affecting multiple users",
+        "x-abstract": true,
+        "additionalProperties": false,
+        "required": [
+          "userIds"
+        ],
+        "properties": {
+          "userIds": {
+            "type": "array",
+            "description": "User IDs.",
+            "items": {
+              "type": "string"
+            }
           }
         }
       },
@@ -37175,6 +37725,98 @@
             "description": "Indicates the requested review state of the user.\nIf _true_ is specified, user will be transitioned into _reviewed_ state. _False_ will put the user back into _to be reviewed_ state."
           }
         }
+      },
+      "UserReviewManyRequest": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/UserManyRequestBase"
+          },
+          {
+            "type": "object",
+            "description": "Review many request",
+            "additionalProperties": false,
+            "required": [
+              "reviewed"
+            ],
+            "properties": {
+              "reviewed": {
+                "type": "boolean",
+                "description": "Indicates the requested review state of the user.\nIf _true_ is specified, user will be transitioned into _reviewed_ state. _False_ will put the user back into _to be reviewed_ state."
+              }
+            }
+          }
+        ]
+      },
+      "UserInviteManyRequest": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/UserManyRequestBase"
+          },
+          {
+            "type": "object",
+            "description": "Request for inviting users (applies to users in states ToBeReviewed + Reviewed)",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "UserReinviteManyRequest": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/UserManyRequestBase"
+          },
+          {
+            "type": "object",
+            "description": "Request for re-inviting users (applies to users in states Invited)",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "UserRoleAssignManyRequest": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/UserManyRequestBase"
+          },
+          {
+            "type": "object",
+            "description": "Request to update role assignment of users.",
+            "additionalProperties": false,
+            "required": [
+              "userRoleIds",
+              "operation"
+            ],
+            "properties": {
+              "userRoleIds": {
+                "type": "array",
+                "description": "Users roles to modify",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "operation": {
+                "description": "Defines how to apply specified UserRoleIds to UserIds\nIf an operation results in no change for a user, that user will be returned as succeeded.",
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/UserRoleAssignmentOperationType"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "UserRoleAssignmentOperationType": {
+        "type": "string",
+        "description": "User role assignment operation type",
+        "x-enumNames": [
+          "Add",
+          "Remove",
+          "Update"
+        ],
+        "enum": [
+          "Add",
+          "Remove",
+          "Update"
+        ]
       },
       "UserDeleteRequest": {
         "type": "object",

@@ -7477,6 +7477,26 @@
           }
         ]
       },
+      "UserAlreadyInRequestedLockStateException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkBusinessException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "affectedUserId": {
+                "type": "string",
+                "nullable": true
+              },
+              "userIsLocked": {
+                "type": "boolean"
+              }
+            }
+          }
+        ]
+      },
       "RenderingException": {
         "allOf": [
           {
