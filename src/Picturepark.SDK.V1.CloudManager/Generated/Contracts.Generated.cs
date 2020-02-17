@@ -1041,7 +1041,6 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [JsonInheritanceAttribute("UserRolesNotFoundException", typeof(UserRolesNotFoundException))]
     [JsonInheritanceAttribute("UnauthorizedException", typeof(UnauthorizedException))]
     [JsonInheritanceAttribute("UserUnlockDisallowedException", typeof(UserUnlockDisallowedException))]
-    [JsonInheritanceAttribute("UserAlreadyInRequestedLockStateException", typeof(UserAlreadyInRequestedLockStateException))]
     [JsonInheritanceAttribute("RenderingException", typeof(RenderingException))]
     [JsonInheritanceAttribute("FormatNotApplicableForRenderingException", typeof(FormatNotApplicableForRenderingException))]
     [JsonInheritanceAttribute("DocumentVersionNotFoundException", typeof(DocumentVersionNotFoundException))]
@@ -1587,28 +1586,6 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         public static UserUnlockDisallowedException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<UserUnlockDisallowedException>(data);
-        }
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
-    [Newtonsoft.Json.JsonObjectAttribute]
-    public partial class UserAlreadyInRequestedLockStateException : PictureparkBusinessException
-    {
-        [Newtonsoft.Json.JsonProperty("affectedUserId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string AffectedUserId { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("userIsLocked", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool UserIsLocked { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-    
-        public static UserAlreadyInRequestedLockStateException FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<UserAlreadyInRequestedLockStateException>(data);
         }
     
     }
