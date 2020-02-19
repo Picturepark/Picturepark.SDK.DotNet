@@ -1178,6 +1178,96 @@
         ]
       }
     },
+    "/v1/BusinessRules/traceLog/search": {
+      "post": {
+        "tags": [
+          "BusinessRule"
+        ],
+        "summary": "Search traces business rule",
+        "operationId": "BusinessRule_SearchTraces",
+        "requestBody": {
+          "x-name": "request",
+          "description": "Request",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BusinessRuleTraceLogSearchRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": null,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BusinessRuleTraceLogSearchResult"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "businessrule_write"
+            ]
+          }
+        ]
+      }
+    },
     "/v1/Channels": {
       "get": {
         "tags": [
@@ -24470,6 +24560,10 @@
               }
             ]
           },
+          "enableTracing": {
+            "type": "boolean",
+            "description": "Enable trace logs for this rule."
+          },
           "kind": {
             "type": "string"
           }
@@ -24579,6 +24673,11 @@
           "kind"
         ],
         "properties": {
+          "traceRefId": {
+            "type": "string",
+            "description": "Optional trace log reference ID set by the system when EnableTracing is set to true on the associated rule.",
+            "nullable": true
+          },
           "kind": {
             "type": "string"
           }
@@ -25054,6 +25153,11 @@
             "type": "string",
             "description": "Variable name where the final result should be stored in.",
             "nullable": true
+          },
+          "traceRefId": {
+            "type": "string",
+            "description": "Optional trace log reference ID set by the system when EnableTracing is set to true on the associated rule.",
+            "nullable": true
           }
         }
       },
@@ -25077,6 +25181,11 @@
           "kind"
         ],
         "properties": {
+          "traceRefId": {
+            "type": "string",
+            "description": "Optional trace log reference ID set by the system when EnableTracing is set to true on the associated rule.",
+            "nullable": true
+          },
           "kind": {
             "type": "string"
           }
@@ -25234,6 +25343,11 @@
           "kind"
         ],
         "properties": {
+          "traceRefId": {
+            "type": "string",
+            "description": "Optional trace log reference ID set by the system when EnableTracing is set to true on the associated rule.",
+            "nullable": true
+          },
           "kind": {
             "type": "string"
           }
@@ -25740,39 +25854,402 @@
           }
         }
       },
-      "Channel": {
+      "BusinessRuleTraceLogSearchResult": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/SearchBehaviorWithAggregationBaseResultOfBusinessRuleTraceLog"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "SearchBehaviorWithAggregationBaseResultOfBusinessRuleTraceLog": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/SearchBehaviorBaseResultOfBusinessRuleTraceLog"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "aggregationResults": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/AggregationResult"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "AggregationResult": {
+        "type": "object",
+        "description": "Result of an aggregation",
+        "additionalProperties": false,
+        "required": [
+          "name"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Name of the aggregation.",
+            "minLength": 1
+          },
+          "sumOtherDocCount": {
+            "type": "integer",
+            "description": "When there are lots of unique terms, Elastic Search only returns the top terms; this number is the sum of the document counts for all buckets that are not part of the response.",
+            "format": "int64",
+            "nullable": true
+          },
+          "aggregationResultItems": {
+            "type": "array",
+            "description": "Items returned for the aggregation. Each item consists of a bucket with the matched value and the number of matches.\nOptionally inner aggregations for further drill down can be available.",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/AggregationResultItem"
+            }
+          }
+        }
+      },
+      "AggregationResultItem": {
+        "type": "object",
+        "description": "Aggregation result item",
+        "additionalProperties": false,
+        "required": [
+          "name"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Value matched.",
+            "minLength": 1
+          },
+          "count": {
+            "type": "integer",
+            "description": "Number of items matched.",
+            "format": "int64"
+          },
+          "filter": {
+            "description": "Ready to use filter to filter the data based on the aggregation result values.\nIt can be passed as one of the aggregation filters of an aggregation query: it returns documents meeting the aggregation condition.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/AggregationFilter"
+              }
+            ]
+          },
+          "active": {
+            "type": "boolean",
+            "description": "True if the current result item matches on of the aggregation filters sent in the query."
+          },
+          "aggregationResults": {
+            "type": "array",
+            "description": "Inner aggregation results, if inner aggregations were provided in the query.",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/AggregationResult"
+            }
+          }
+        }
+      },
+      "SearchBehaviorBaseResultOfBusinessRuleTraceLog": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BaseResultOfBusinessRuleTraceLog"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "searchString": {
+                "type": "string",
+                "nullable": true
+              },
+              "isSearchStringRewritten": {
+                "type": "boolean"
+              },
+              "queryDebugInformation": {
+                "nullable": true,
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/QueryDebugInformation"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "BaseResultOfBusinessRuleTraceLog": {
         "type": "object",
         "additionalProperties": false,
         "required": [
-          "id",
-          "sortOrder",
-          "searchIndexId",
-          "names",
-          "sort",
-          "aggregations",
-          "extendedSimpleSearchFields",
-          "grantedUserRoleIds",
-          "missingResultsDisplayPatterns",
-          "audit"
+          "results"
         ],
         "properties": {
-          "id": {
-            "type": "string",
-            "description": "ID of channel.",
-            "minLength": 1
-          },
-          "sortOrder": {
+          "totalResults": {
             "type": "integer",
-            "description": "Numeric sort order of the channel. Channels are returned ordered by this field.",
-            "format": "int32"
+            "format": "int64"
           },
-          "searchIndexId": {
+          "results": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BusinessRuleTraceLog"
+            }
+          },
+          "elapsedMilliseconds": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "pageToken": {
             "type": "string",
-            "description": "The search index ID where the channel requests the content from. Only RootContentSearchIndex is supported.",
-            "minLength": 1
+            "nullable": true
+          }
+        }
+      },
+      "BusinessRuleTraceLog": {
+        "type": "object",
+        "description": "Contains a trace for a single document affected by potentially multiple business rules being evaluated and executed.",
+        "additionalProperties": false,
+        "properties": {
+          "documentId": {
+            "type": "string",
+            "description": "ID of the document.",
+            "nullable": true
+          },
+          "documentType": {
+            "description": "Type of the document.",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/BusinessRuleTriggerDocType"
+              }
+            ]
+          },
+          "ruleIds": {
+            "type": "array",
+            "description": "IDs of rules that were traced for this document.",
+            "nullable": true,
+            "items": {
+              "type": "string"
+            }
+          },
+          "rules": {
+            "type": "array",
+            "description": "Detailed information about rules traced.",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/BusinessRuleTracedRule"
+            }
+          },
+          "validationErrors": {
+            "type": "array",
+            "description": "Validation errors occuring after all rules have ran.",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/ErrorResponse"
+            }
+          },
+          "generalErrors": {
+            "type": "array",
+            "description": "General errors occuring when saving the document.",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/ErrorResponse"
+            }
+          }
+        }
+      },
+      "BusinessRuleTracedRule": {
+        "type": "object",
+        "description": "Traced Business rule",
+        "additionalProperties": false,
+        "properties": {
+          "configuration": {
+            "description": "Configuration of the rule as it was running. Enriched with trace ref IDs.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/BusinessRule"
+              }
+            ]
+          },
+          "evaluations": {
+            "type": "array",
+            "description": "Evaluations performed for this rule.",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/BusinessRuleTracedEvaluation"
+            }
+          }
+        }
+      },
+      "BusinessRuleTracedEvaluation": {
+        "type": "object",
+        "description": "Evaluation trace of a business rule",
+        "additionalProperties": false,
+        "properties": {
+          "conditionSatisfied": {
+            "type": "boolean",
+            "description": "Indicates if the rule was found to be executable."
+          },
+          "conditions": {
+            "type": "array",
+            "description": "Detailed evaluation results for each condition.",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/BusinessRuleTracedEvaluationCondition"
+            }
+          },
+          "transformationGroups": {
+            "type": "array",
+            "description": "Detailed results for transformation groups.",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/BusinessRuleTracedTransformationGroup"
+            }
+          },
+          "actions": {
+            "type": "array",
+            "description": "Detailed steps performed by actions.",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/BusinessRuleTracedAction"
+            }
+          },
+          "variables": {
+            "type": "object",
+            "description": "State of variables after all transformation groups were ran.",
+            "nullable": true,
+            "additionalProperties": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "BusinessRuleTracedEvaluationCondition": {
+        "type": "object",
+        "description": "Detail trace for business rule condition",
+        "additionalProperties": false,
+        "properties": {
+          "traceRefId": {
+            "type": "string",
+            "description": "Trace reference ID of condition.",
+            "nullable": true
+          },
+          "satisfied": {
+            "type": "boolean",
+            "description": "Indicates if this condition evaluated to true."
+          },
+          "reason": {
+            "type": "string",
+            "description": "Additional reason why condition evaluated to given result.",
+            "nullable": true
+          }
+        }
+      },
+      "BusinessRuleTracedTransformationGroup": {
+        "type": "object",
+        "description": "Trace of transformation group",
+        "additionalProperties": false,
+        "properties": {
+          "traceRefId": {
+            "type": "string",
+            "description": "Trace reference ID of transformation group.",
+            "nullable": true
+          },
+          "input": {
+            "type": "string",
+            "description": "Serialized JSON of input for group",
+            "nullable": true
+          },
+          "output": {
+            "type": "string",
+            "description": "Serialized JSON of output for group",
+            "nullable": true
+          },
+          "transformations": {
+            "type": "array",
+            "description": "Detailed traces for each step performed by transformations in group.",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/BusinessRuleTracedTransformation"
+            }
+          }
+        }
+      },
+      "BusinessRuleTracedTransformation": {
+        "type": "object",
+        "description": "Trace of single transformation step",
+        "additionalProperties": false,
+        "properties": {
+          "traceRefId": {
+            "type": "string",
+            "description": "Trace reference ID of transformation.",
+            "nullable": true
+          },
+          "input": {
+            "type": "string",
+            "description": "Serialized JSON of input of transformation",
+            "nullable": true
+          },
+          "output": {
+            "type": "string",
+            "description": "Serialized JSON of output of transformation",
+            "nullable": true
+          }
+        }
+      },
+      "BusinessRuleTracedAction": {
+        "type": "object",
+        "description": "Detailed trace for business rule action",
+        "additionalProperties": false,
+        "properties": {
+          "traceRefId": {
+            "type": "string",
+            "description": "Trace reference ID of action",
+            "nullable": true
+          },
+          "documentModified": {
+            "type": "boolean",
+            "description": "Indicates if the action modified the document"
+          },
+          "text": {
+            "type": "string",
+            "description": "Additional information provided by the trace",
+            "nullable": true
+          }
+        }
+      },
+      "BusinessRuleTraceLogSearchRequest": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "debugMode": {
+            "type": "boolean",
+            "description": "Enable debug mode to get as result of the Searched additional debug information. Warning! Severely affects performance.",
+            "default": false
+          },
+          "aggregationFilters": {
+            "type": "array",
+            "description": "Special filters used to filter down the aggregations' values on specific conditions. The behavior is different when\nfiltering an aggregation that matches the same AggregationName or another aggregation.\nIn the first case, the filter is put in \"or\" with (eventual) other existing filters. In the second case it is put in \"and\".",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/AggregationFilter"
+            }
+          },
+          "aggregators": {
+            "type": "array",
+            "description": "List of aggregators that defines how the items should be aggregated.",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/AggregatorBase"
+            }
           },
           "filter": {
-            "description": "An optional search filter. Limits the content document result set on each search and aggregation request.",
+            "description": "An optional search filter. Limits the document result set.",
             "nullable": true,
             "oneOf": [
               {
@@ -25780,95 +26257,39 @@
               }
             ]
           },
-          "names": {
-            "description": "Language specific names.",
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/TranslatedStringDictionary"
-              }
-            ]
+          "limit": {
+            "type": "integer",
+            "description": "Limits the document count of the result set.",
+            "format": "int32",
+            "default": 30
+          },
+          "pageToken": {
+            "type": "string",
+            "description": "The token used to retrieve the next page of results. It must be null on first request and only filled with the returned pageToken to request next page of results.",
+            "nullable": true
+          },
+          "searchString": {
+            "type": "string",
+            "description": "Limits the search by using a query string filter. The Lucene query string syntax is supported.",
+            "nullable": true
+          },
+          "searchBehaviors": {
+            "type": "array",
+            "description": "An optional list of search behaviors. All the passed behaviors will be applied.",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/SearchBehavior"
+            }
           },
           "sort": {
             "type": "array",
-            "description": "Default sort order specified for the channel to sort the results of a content search.",
+            "description": "Fields and respective directions requested to sort the search results. Sorting on a not indexed field will throw an exception.",
+            "nullable": true,
             "items": {
               "$ref": "#/components/schemas/SortInfo"
             }
-          },
-          "aggregations": {
-            "type": "array",
-            "description": "An optional list of aggregators. These aggregations are added by default on each aggregation requests.",
-            "items": {
-              "$ref": "#/components/schemas/AggregatorBase"
-            }
-          },
-          "extendedSimpleSearchFields": {
-            "type": "array",
-            "description": "An Optional list of fields. These fields extend the list of simple search fields outside the bounds of any schema field configuration.",
-            "items": {
-              "type": "string"
-            }
-          },
-          "grantedUserRoleIds": {
-            "type": "array",
-            "description": "User roles granted access to the channel.",
-            "items": {
-              "type": "string"
-            }
-          },
-          "missingResultsDisplayPatterns": {
-            "description": "Display pattern to use for rendering details when 0 results are returned",
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/TranslatedStringDictionary"
-              }
-            ]
-          },
-          "audit": {
-            "description": "Audit information.",
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/UserAudit"
-              }
-            ]
-          },
-          "viewForAll": {
-            "type": "boolean",
-            "description": "Grants rights to all the users to view the channel."
           }
         }
-      },
-      "SortInfo": {
-        "type": "object",
-        "description": "Sorting information",
-        "additionalProperties": false,
-        "properties": {
-          "field": {
-            "type": "string",
-            "description": "The field's ID to sort on.",
-            "nullable": true
-          },
-          "direction": {
-            "description": "The sort direction (ascending/descending).",
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/SortDirection"
-              }
-            ]
-          }
-        }
-      },
-      "SortDirection": {
-        "type": "string",
-        "description": "The sort direction",
-        "x-enumNames": [
-          "Asc",
-          "Desc"
-        ],
-        "enum": [
-          "Asc",
-          "Desc"
-        ]
       },
       "AggregatorBase": {
         "type": "object",
@@ -26243,6 +26664,136 @@
             }
           }
         ]
+      },
+      "SortInfo": {
+        "type": "object",
+        "description": "Sorting information",
+        "additionalProperties": false,
+        "properties": {
+          "field": {
+            "type": "string",
+            "description": "The field's ID to sort on.",
+            "nullable": true
+          },
+          "direction": {
+            "description": "The sort direction (ascending/descending).",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/SortDirection"
+              }
+            ]
+          }
+        }
+      },
+      "SortDirection": {
+        "type": "string",
+        "description": "The sort direction",
+        "x-enumNames": [
+          "Asc",
+          "Desc"
+        ],
+        "enum": [
+          "Asc",
+          "Desc"
+        ]
+      },
+      "Channel": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "sortOrder",
+          "searchIndexId",
+          "names",
+          "sort",
+          "aggregations",
+          "extendedSimpleSearchFields",
+          "grantedUserRoleIds",
+          "missingResultsDisplayPatterns",
+          "audit"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "ID of channel.",
+            "minLength": 1
+          },
+          "sortOrder": {
+            "type": "integer",
+            "description": "Numeric sort order of the channel. Channels are returned ordered by this field.",
+            "format": "int32"
+          },
+          "searchIndexId": {
+            "type": "string",
+            "description": "The search index ID where the channel requests the content from. Only RootContentSearchIndex is supported.",
+            "minLength": 1
+          },
+          "filter": {
+            "description": "An optional search filter. Limits the content document result set on each search and aggregation request.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/FilterBase"
+              }
+            ]
+          },
+          "names": {
+            "description": "Language specific names.",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/TranslatedStringDictionary"
+              }
+            ]
+          },
+          "sort": {
+            "type": "array",
+            "description": "Default sort order specified for the channel to sort the results of a content search.",
+            "items": {
+              "$ref": "#/components/schemas/SortInfo"
+            }
+          },
+          "aggregations": {
+            "type": "array",
+            "description": "An optional list of aggregators. These aggregations are added by default on each aggregation requests.",
+            "items": {
+              "$ref": "#/components/schemas/AggregatorBase"
+            }
+          },
+          "extendedSimpleSearchFields": {
+            "type": "array",
+            "description": "An Optional list of fields. These fields extend the list of simple search fields outside the bounds of any schema field configuration.",
+            "items": {
+              "type": "string"
+            }
+          },
+          "grantedUserRoleIds": {
+            "type": "array",
+            "description": "User roles granted access to the channel.",
+            "items": {
+              "type": "string"
+            }
+          },
+          "missingResultsDisplayPatterns": {
+            "description": "Display pattern to use for rendering details when 0 results are returned",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/TranslatedStringDictionary"
+              }
+            ]
+          },
+          "audit": {
+            "description": "Audit information.",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/UserAudit"
+              }
+            ]
+          },
+          "viewForAll": {
+            "type": "boolean",
+            "description": "Grants rights to all the users to view the channel."
+          }
+        }
       },
       "UserAudit": {
         "type": "object",
@@ -28782,76 +29333,6 @@
             }
           }
         ]
-      },
-      "AggregationResult": {
-        "type": "object",
-        "description": "Result of an aggregation",
-        "additionalProperties": false,
-        "required": [
-          "name"
-        ],
-        "properties": {
-          "name": {
-            "type": "string",
-            "description": "Name of the aggregation.",
-            "minLength": 1
-          },
-          "sumOtherDocCount": {
-            "type": "integer",
-            "description": "When there are lots of unique terms, Elastic Search only returns the top terms; this number is the sum of the document counts for all buckets that are not part of the response.",
-            "format": "int64",
-            "nullable": true
-          },
-          "aggregationResultItems": {
-            "type": "array",
-            "description": "Items returned for the aggregation. Each item consists of a bucket with the matched value and the number of matches.\nOptionally inner aggregations for further drill down can be available.",
-            "nullable": true,
-            "items": {
-              "$ref": "#/components/schemas/AggregationResultItem"
-            }
-          }
-        }
-      },
-      "AggregationResultItem": {
-        "type": "object",
-        "description": "Aggregation result item",
-        "additionalProperties": false,
-        "required": [
-          "name"
-        ],
-        "properties": {
-          "name": {
-            "type": "string",
-            "description": "Value matched.",
-            "minLength": 1
-          },
-          "count": {
-            "type": "integer",
-            "description": "Number of items matched.",
-            "format": "int64"
-          },
-          "filter": {
-            "description": "Ready to use filter to filter the data based on the aggregation result values.\nIt can be passed as one of the aggregation filters of an aggregation query: it returns documents meeting the aggregation condition.",
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/AggregationFilter"
-              }
-            ]
-          },
-          "active": {
-            "type": "boolean",
-            "description": "True if the current result item matches on of the aggregation filters sent in the query."
-          },
-          "aggregationResults": {
-            "type": "array",
-            "description": "Inner aggregation results, if inner aggregations were provided in the query.",
-            "nullable": true,
-            "items": {
-              "$ref": "#/components/schemas/AggregationResult"
-            }
-          }
-        }
       },
       "SearchBehaviorBaseResultOfContent": {
         "allOf": [
