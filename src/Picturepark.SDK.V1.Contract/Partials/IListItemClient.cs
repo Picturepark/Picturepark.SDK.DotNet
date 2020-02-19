@@ -134,5 +134,30 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The <see cref="ListItemBatchOperationWithRequestIdResult"/>.</returns>
         Task<ListItemBatchOperationWithRequestIdResult> WaitForBusinessProcessAndReturnResultWithRequestId(string businessProcessId, TimeSpan? timeout = null, bool waitSearchDocCreation = true, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>Get list item references</summary>
+        /// <param name="id">The ID of the list item.</param>
+        /// <param name="request">Request options to specify how many references to fetch.</param>
+        /// <returns>List item references</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        [Obsolete("This method will be removed in future versions. Please use GetReferencesAsync method instead.")]
+        Task<ListItemReferencesResult> GetReferencesToListItemAsync(string id, ListItemReferencesRequest request, CancellationToken cancellationToken = default);
+
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>Get multiple list items references</summary>
+        /// <param name="request">ListItemManyReferencesRequest</param>
+        /// <returns>A list of references per list item.</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        [Obsolete("This method will be removed in future versions. Please use GetReferencesManyAsync method instead.")]
+        Task<ListItemReferencesResult> GetReferencesToListItemsAsync(ListItemManyReferencesRequest request, CancellationToken cancellationToken = default);
     }
 }

@@ -164,7 +164,7 @@ namespace Picturepark.SDK.V1
             // all failed, cancel transfer and return
             if (atLeastOneFailed == 1)
             {
-                await CancelTransferAsync(transfer.Id, cancellationToken: cancellationToken).ConfigureAwait(false);
+                await CancelAsync(transfer.Id, cancellationToken: cancellationToken).ConfigureAwait(false);
                 return;
             }
 
@@ -182,7 +182,7 @@ namespace Picturepark.SDK.V1
         /// <returns>The task.</returns>
         public async Task ImportAndWaitForCompletionAsync(Transfer transfer, ImportTransferRequest createRequest, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))
         {
-            var importedTransfer = await ImportTransferAsync(transfer.Id, createRequest, cancellationToken).ConfigureAwait(false);
+            var importedTransfer = await ImportAsync(transfer.Id, createRequest, cancellationToken).ConfigureAwait(false);
             await _businessProcessClient.WaitForCompletionAsync(importedTransfer.BusinessProcessId, timeout, cancellationToken: cancellationToken).ConfigureAwait(false);
         }
 
@@ -229,6 +229,20 @@ namespace Picturepark.SDK.V1
             await _businessProcessClient.WaitForStatesAsync(transfer.BusinessProcessId, new[] { TransferState.Created.ToString() }, timeout, cancellationToken).ConfigureAwait(false);
 
             return new CreateTransferResult(transfer, request.Files);
+        }
+
+        public async Task CancelTransferAsync(string id, CancellationToken cancellationToken = default)
+            => await CancelAsync(id, cancellationToken).ConfigureAwait(false);
+
+        public async Task<Transfer> ImportTransferAsync(string id, ImportTransferRequest request, CancellationToken cancellationToken = default)
+            => await ImportAsync(id, request, cancellationToken).ConfigureAwait(false);
+
+        public async Task UploadFileAsync(long chunkNumber, long currentChunkSize, long totalSize, long totalChunks, string transferId, string requestId, FileParameter formFile = null, CancellationToken cancellationToken = default)
+        {
+            if (formFile == null)
+                throw new ArgumentNullException(nameof(formFile), "Parameter `formFile` cannot be null. You're probably using an obsolete method call.");
+
+            await UploadFileAsync(formFile, chunkNumber, currentChunkSize, totalSize, totalChunks, transferId, requestId, cancellationToken).ConfigureAwait(false);
         }
 
         private async Task UploadFileAsync(SemaphoreSlim chunkLimiter, string transferId, string identifier, FileLocations fileLocation, int chunkSize, CancellationToken cancellationToken = default)

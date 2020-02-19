@@ -93,7 +93,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var result = await _client.Transfer.CreateAndWaitForCompletionAsync(transferName, files).ConfigureAwait(false);
 
             // Act
-            await _client.Transfer.CancelTransferAsync(result.Transfer.Id).ConfigureAwait(false);
+            await _client.Transfer.CancelAsync(result.Transfer.Id).ConfigureAwait(false);
 
             // Assert
             var currentTransfer = await _client.Transfer.GetAsync(result.Transfer.Id).ConfigureAwait(false);
