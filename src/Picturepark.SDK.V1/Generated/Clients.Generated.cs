@@ -1698,8 +1698,9 @@ namespace Picturepark.SDK.V1
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <summary>Search traces business rule</summary>
+        /// <summary>Searches for trace logs produces by business rule execution.</summary>
         /// <param name="request">Request</param>
+        /// <returns>Holds results of trace log search.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>

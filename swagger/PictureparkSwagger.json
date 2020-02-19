@@ -1183,7 +1183,7 @@
         "tags": [
           "BusinessRule"
         ],
-        "summary": "Search traces business rule",
+        "summary": "Searches for trace logs produces by business rule execution.",
         "operationId": "BusinessRule_SearchTraces",
         "requestBody": {
           "x-name": "request",
@@ -1200,7 +1200,7 @@
         },
         "responses": {
           "200": {
-            "description": null,
+            "description": "Holds results of trace log search.",
             "content": {
               "application/json": {
                 "schema": {
@@ -24663,7 +24663,9 @@
             "ContentPermissionSetsChangedCondition": "#/components/schemas/ContentPermissionSetsChangedCondition",
             "ContentRelationItemsChangedCondition": "#/components/schemas/ContentRelationItemsChangedCondition",
             "LayersChangedCondition": "#/components/schemas/LayersChangedCondition",
-            "TagboxItemsChangedCondition": "#/components/schemas/TagboxItemsChangedCondition"
+            "TagboxItemsChangedCondition": "#/components/schemas/TagboxItemsChangedCondition",
+            "FieldEmptyCondition": "#/components/schemas/FieldEmptyCondition",
+            "NotCondition": "#/components/schemas/NotCondition"
           }
         },
         "description": "Conditions on which a business rule is executed",
@@ -25123,6 +25125,48 @@
                 "type": "string",
                 "description": "JSON path to the field",
                 "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "FieldEmptyCondition": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BusinessRuleCondition"
+          },
+          {
+            "type": "object",
+            "description": "Matches when a field matching the field path string (JSON path) is empty.",
+            "additionalProperties": false,
+            "properties": {
+              "fieldPath": {
+                "type": "string",
+                "description": "JSON path to the field",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "NotCondition": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BusinessRuleCondition"
+          },
+          {
+            "type": "object",
+            "description": "Matches when the inner condition is not matching.",
+            "additionalProperties": false,
+            "properties": {
+              "condition": {
+                "description": "Inner condition.",
+                "nullable": true,
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/BusinessRuleCondition"
+                  }
+                ]
               }
             }
           }
@@ -25861,6 +25905,7 @@
           },
           {
             "type": "object",
+            "description": "Holds results of trace log search.",
             "additionalProperties": false
           }
         ]
@@ -26059,6 +26104,15 @@
             "items": {
               "$ref": "#/components/schemas/ErrorResponse"
             }
+          },
+          "audit": {
+            "description": "Audit information.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/UserAudit"
+              }
+            ]
           }
         }
       },
@@ -26219,6 +26273,33 @@
           "text": {
             "type": "string",
             "description": "Additional information provided by the trace",
+            "nullable": true
+          }
+        }
+      },
+      "UserAudit": {
+        "type": "object",
+        "description": "Audit information",
+        "additionalProperties": false,
+        "properties": {
+          "creationDate": {
+            "type": "string",
+            "description": "The date on which the document was created.",
+            "format": "date-time"
+          },
+          "modificationDate": {
+            "type": "string",
+            "description": "The last date on which the document was modified.",
+            "format": "date-time"
+          },
+          "createdByUser": {
+            "type": "string",
+            "description": "ID of the user who created the document.",
+            "nullable": true
+          },
+          "modifiedByUser": {
+            "type": "string",
+            "description": "ID of the last user who modified the document.",
             "nullable": true
           }
         }
@@ -26792,33 +26873,6 @@
           "viewForAll": {
             "type": "boolean",
             "description": "Grants rights to all the users to view the channel."
-          }
-        }
-      },
-      "UserAudit": {
-        "type": "object",
-        "description": "Audit information",
-        "additionalProperties": false,
-        "properties": {
-          "creationDate": {
-            "type": "string",
-            "description": "The date on which the document was created.",
-            "format": "date-time"
-          },
-          "modificationDate": {
-            "type": "string",
-            "description": "The last date on which the document was modified.",
-            "format": "date-time"
-          },
-          "createdByUser": {
-            "type": "string",
-            "description": "ID of the user who created the document.",
-            "nullable": true
-          },
-          "modifiedByUser": {
-            "type": "string",
-            "description": "ID of the last user who modified the document.",
-            "nullable": true
           }
         }
       },
