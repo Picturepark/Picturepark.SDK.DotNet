@@ -1,5 +1,4 @@
 ﻿using System.Collections.Concurrent;
-using FluentAssertions;
 using Picturepark.SDK.V1.Contract;
 
 namespace Picturepark.SDK.V1.Tests.Fixtures
@@ -11,10 +10,7 @@ namespace Picturepark.SDK.V1.Tests.Fixtures
         public override void Dispose()
         {
             if (!CreatedShareIds.IsEmpty)
-            {
-                var deleteResult = Client.Share.DeleteManyAsync(new ShareDeleteManyRequest { Ids = CreatedShareIds.ToArray() }).GetAwaiter().GetResult();
-                deleteResult.Rows.Should().OnlyContain(r => r.Succeeded);
-            }
+                Client.Share.DeleteManyAsync(new ShareDeleteManyRequest { Ids = CreatedShareIds.ToArray() }).GetAwaiter().GetResult();
 
             base.Dispose();
         }

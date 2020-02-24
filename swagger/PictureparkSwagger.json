@@ -13248,7 +13248,7 @@
           "Share"
         ],
         "summary": "Update",
-        "description": "Updates a single share.",
+        "description": "Updates a single share. The operation is executed asynchronously and is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.",
         "operationId": "Share_Update",
         "parameters": [
           {
@@ -13261,17 +13261,6 @@
               "nullable": true
             },
             "x-position": 1
-          },
-          {
-            "name": "timeout",
-            "in": "query",
-            "description": "Optional timeout to wait for the request to complete",
-            "schema": {
-              "type": "string",
-              "format": "time-span",
-              "nullable": true
-            },
-            "x-position": 3
           }
         ],
         "requestBody": {
@@ -13293,7 +13282,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ShareDetail"
+                  "$ref": "#/components/schemas/BusinessProcess"
                 }
               }
             }
@@ -13363,21 +13352,8 @@
           "Share"
         ],
         "summary": "Create",
-        "description": "Create a new share (basic or embed).",
+        "description": "Create a new share (basic or embed). The operation is executed asynchronously and is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.",
         "operationId": "Share_Create",
-        "parameters": [
-          {
-            "name": "timeout",
-            "in": "query",
-            "description": "Optional timeout to wait for the request to complete",
-            "schema": {
-              "type": "string",
-              "format": "time-span",
-              "nullable": true
-            },
-            "x-position": 2
-          }
-        ],
         "requestBody": {
           "x-name": "request",
           "description": "Polymorphic create contract. Use either ShareBasicCreateRequest or ShareEmbedCreateRequest",
@@ -13397,7 +13373,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/CreateShareResult"
+                  "$ref": "#/components/schemas/BusinessProcess"
                 }
               }
             }
@@ -13477,21 +13453,8 @@
           "Share"
         ],
         "summary": "Delete multiple shares",
-        "description": "Deletes multiple shares. Returns a bulk response with information about successful and failed rows.",
+        "description": "Deletes multiple shares. Returns a bulk response with information about successful and failed rows. The operation is executed asynchronously and is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.",
         "operationId": "Share_DeleteMany",
-        "parameters": [
-          {
-            "name": "timeout",
-            "in": "query",
-            "description": "Optional timeout to wait for the request to complete",
-            "schema": {
-              "type": "string",
-              "format": "time-span",
-              "nullable": true
-            },
-            "x-position": 2
-          }
-        ],
         "requestBody": {
           "x-name": "request",
           "description": "A delete many request containing the ids of the shares to delete.",
@@ -13511,7 +13474,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/BulkResponse"
+                  "$ref": "#/components/schemas/BusinessProcess"
                 }
               }
             }
@@ -35773,18 +35736,6 @@
             "additionalProperties": false
           }
         ]
-      },
-      "CreateShareResult": {
-        "type": "object",
-        "description": "Result of share creation",
-        "additionalProperties": false,
-        "properties": {
-          "shareId": {
-            "type": "string",
-            "description": "Share ID.",
-            "nullable": true
-          }
-        }
       },
       "ShareBaseCreateRequest": {
         "type": "object",
