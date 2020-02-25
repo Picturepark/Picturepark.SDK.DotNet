@@ -1433,7 +1433,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <summary>Update</summary>
         /// <param name="id">The share id.</param>
         /// <param name="request">The share update request.</param>
-        /// <returns>Share detail</returns>
+        /// <returns>BusinessProcess</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="BusinessProcessLifeCycleNotHitException">A server side error occurred.</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -1444,7 +1444,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Create</summary>
         /// <param name="request">Polymorphic create contract. Use either ShareBasicCreateRequest or ShareEmbedCreateRequest</param>
-        /// <returns>Create result</returns>
+        /// <returns>BusinessProcess</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="ContentNotFoundException">Content could not be found</exception>
@@ -1463,6 +1463,17 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<BusinessProcess> DeleteManyAsync(ShareDeleteManyRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>Revokes multiple shares</summary>
+        /// <param name="request">A revoke many request containing the ids of the shares to revoke.</param>
+        /// <returns>BusinessProcess</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        System.Threading.Tasks.Task<BusinessProcess> RevokeAsync(ShareRevokeManyRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Aggregate</summary>
@@ -20617,6 +20628,24 @@ namespace Picturepark.SDK.V1.Contract
         public static ShareDeleteManyRequest FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<ShareDeleteManyRequest>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class ShareRevokeManyRequest 
+    {
+        [Newtonsoft.Json.JsonProperty("ids", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> Ids { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static ShareRevokeManyRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ShareRevokeManyRequest>(data);
         }
     
     }
