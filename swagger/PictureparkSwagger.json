@@ -38785,10 +38785,6 @@
             "type": "string",
             "nullable": true
           },
-          "maximumRetryCount": {
-            "type": "integer",
-            "format": "int32"
-          },
           "retries": {
             "type": "integer",
             "format": "int32"
