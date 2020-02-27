@@ -5830,17 +5830,14 @@
         "tags": [
           "Updates"
         ],
-        "operationId": "Update_GetAvailableEnvironmentUpdates",
+        "operationId": "Update_GetAvailableEnvironmentUpdate",
         "responses": {
           "200": {
             "description": "",
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/UpdateInfo"
-                  }
+                  "$ref": "#/components/schemas/UpdateInfo"
                 }
               }
             }
@@ -6200,7 +6197,7 @@
         "tags": [
           "Updates"
         ],
-        "operationId": "Update_GetAvailableCustomerUpdates",
+        "operationId": "Update_GetAvailableCustomerUpdate",
         "parameters": [
           {
             "name": "id",
@@ -6219,10 +6216,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/UpdateInfo"
-                  }
+                  "$ref": "#/components/schemas/UpdateInfo"
                 }
               }
             }
@@ -17125,33 +17119,22 @@
       },
       "UpdateInfo": {
         "type": "object",
-        "description": "The UpdateInfoViewItem is the view item for update commands.",
+        "description": "Contains information about a possibly available update",
         "additionalProperties": false,
         "properties": {
+          "currentVersion": {
+            "type": "string",
+            "description": "The current version.",
+            "nullable": true
+          },
           "updateVersion": {
             "type": "string",
-            "description": "The version of the update command.",
+            "description": "The maximum version available to update to.",
             "nullable": true
           },
-          "objectStoreVersion": {
-            "type": "string",
-            "description": "The version of the object store (elastic search) at the time of the update command creation.",
-            "nullable": true
-          },
-          "creationDate": {
-            "type": "string",
-            "description": "The creation date of the update command.",
-            "format": "date-time"
-          },
-          "description": {
-            "type": "string",
-            "description": "The description of the update command.",
-            "nullable": true
-          },
-          "creator": {
-            "type": "string",
-            "description": "The creator of the update command.",
-            "nullable": true
+          "updateAvailable": {
+            "type": "boolean",
+            "description": "Indicates if an update is available."
           }
         }
       },
@@ -17824,10 +17807,6 @@
           "id": {
             "type": "string",
             "nullable": true
-          },
-          "maximumRetryCount": {
-            "type": "integer",
-            "format": "int32"
           },
           "retries": {
             "type": "integer",
