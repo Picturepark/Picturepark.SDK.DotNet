@@ -43,9 +43,6 @@ namespace Picturepark.SDK.V1.CloudManager
         partial void ProcessResponse(System.Net.Http.HttpClient client, System.Net.Http.HttpResponseMessage response);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <summary>Purge for customer cdn</summary>
-        /// <param name="alias">Alias</param>
-        /// <returns>Business process</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -288,8 +285,6 @@ namespace Picturepark.SDK.V1.CloudManager
         partial void ProcessResponse(System.Net.Http.HttpClient client, System.Net.Http.HttpResponseMessage response);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <summary>Create repository cloud backup</summary>
-        /// <param name="request">Request</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -414,8 +409,6 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <summary>Create snapshot cloud backup</summary>
-        /// <param name="request">Request</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -540,9 +533,6 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <summary>Export cloud backup</summary>
-        /// <param name="request">Request</param>
-        /// <param name="timeout">Timeout</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -672,8 +662,6 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <summary>Restore cloud backup</summary>
-        /// <param name="request">Request</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -798,8 +786,6 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <summary>Clone cloud backup</summary>
-        /// <param name="request">Request</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -924,8 +910,6 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <summary>Import cloud backup</summary>
-        /// <param name="request">Request to import the ElasticSearch repository of a customer from another cloud.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -1050,8 +1034,6 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <summary>Create repository cloud backup</summary>
-        /// <param name="request">Request</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -1176,8 +1158,6 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <summary>Create snapshot cloud backup</summary>
-        /// <param name="request">Request</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -1302,8 +1282,6 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <summary>Restore cloud backup</summary>
-        /// <param name="request">Request</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -1428,8 +1406,6 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <summary>Search cloud backup</summary>
-        /// <param name="request">Request</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -1554,8 +1530,6 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <summary>Search snapshots cloud backup</summary>
-        /// <param name="request">Request</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -1680,8 +1654,6 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <summary>Search repositories cloud backup</summary>
-        /// <param name="request">Request</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -1806,14 +1778,12 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <summary>Search repositories cloud backup</summary>
-        /// <param name="request">Request</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        public async System.Threading.Tasks.Task<SnapshotRepositorySearchResult> SearchRepositories2Async(SnapshotRepositoryEnvironmentSearchRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<SnapshotRepositorySearchResult> SearchEnvironmentRepositoriesAsync(SnapshotRepositoryEnvironmentSearchRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/backup/environment/repository/search");
@@ -1932,7 +1902,6 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <summary>Cleanup cloud backup</summary>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -2055,8 +2024,6 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <summary>Archive cloud backup</summary>
-        /// <param name="request">Request</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -2181,8 +2148,6 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <summary>Search cloud backup</summary>
-        /// <param name="request">Request</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -2426,8 +2391,6 @@ namespace Picturepark.SDK.V1.CloudManager
         partial void ProcessResponse(System.Net.Http.HttpClient client, System.Net.Http.HttpResponseMessage response);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <summary>Search missing content backup</summary>
-        /// <param name="request">Request to search aggregation values for Contents.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -2552,8 +2515,6 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <summary>Enable content backup</summary>
-        /// <param name="request">Request to search aggregation values for Contents.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -2674,8 +2635,6 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <summary>Disable content backup</summary>
-        /// <param name="request">Request to search aggregation values for Contents.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -2796,8 +2755,6 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <summary>Cancel recovery content backup</summary>
-        /// <param name="request">Request to search aggregation values for Contents.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -2918,8 +2875,6 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <summary>Force recovery content backup</summary>
-        /// <param name="request">Request to search aggregation values for Contents.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -3040,8 +2995,6 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <summary>Reset content backup</summary>
-        /// <param name="customerId">Customer id</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -3161,8 +3114,6 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <summary>Cancel reset content backup</summary>
-        /// <param name="customerId">Customer id</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -3282,8 +3233,6 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <summary>Any backup requested content backup</summary>
-        /// <param name="customerId">Customer id</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -3406,9 +3355,6 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <summary>Ack backup content backup</summary>
-        /// <param name="customerId">Customer id</param>
-        /// <param name="filePath">File path</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -3529,10 +3475,6 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <summary>Ack backup multiple content backup</summary>
-        /// <param name="customerId">Customer id</param>
-        /// <param name="filePaths">File paths</param>
-        /// <returns>Array of</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -3658,7 +3600,6 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <summary>Not acknowledged count content backup</summary>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -3899,7 +3840,6 @@ namespace Picturepark.SDK.V1.CloudManager
         partial void ProcessResponse(System.Net.Http.HttpClient client, System.Net.Http.HttpResponseMessage response);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <summary>Get create request customer</summary>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -4022,8 +3962,6 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <summary>Create customer</summary>
-        /// <param name="request">Request</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -4148,8 +4086,6 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <summary>Update customer</summary>
-        /// <param name="request">Request</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -4274,8 +4210,6 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <summary>Get customer</summary>
-        /// <param name="id">Customer ID.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -4398,8 +4332,6 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <summary>Delete customer</summary>
-        /// <param name="id">Customer ID.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -4518,7 +4450,6 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <summary>List customer</summary>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -4640,8 +4571,6 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <summary>Search customer</summary>
-        /// <param name="request">Request</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -4766,9 +4695,6 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <summary>Get users customer</summary>
-        /// <param name="alias">Alias</param>
-        /// <returns>Array of User information retrieved via search</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -4891,8 +4817,6 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <summary>Restore customer</summary>
-        /// <param name="alias">Alias</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -5012,8 +4936,6 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <summary>Invalidate customer</summary>
-        /// <param name="alias">Alias</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -5133,9 +5055,6 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <summary>Add output formats customer</summary>
-        /// <param name="id">Customer ID.</param>
-        /// <param name="outputFormats">Output formats</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -5257,133 +5176,6 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <summary>Create business process definition customer</summary>
-        /// <param name="id">Customer ID.</param>
-        /// <param name="request">Request</param>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkValidationException">Validation exception</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
-        /// <exception cref="PictureparkConflictException">Version conflict</exception>
-        /// <exception cref="PictureparkException">Internal server error</exception>
-        public async System.Threading.Tasks.Task CreateBusinessProcessDefinitionAsync(string id, CreateBusinessProcessDefinitionRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/Customer/{id}/businessProcessDefinitions");
-            urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
-    
-            var client_ = _httpClient;
-            try
-            {
-                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
-                {
-                    var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(request, _settings.Value));
-                    content_.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json");
-                    request_.Content = content_;
-                    request_.Method = new System.Net.Http.HttpMethod("POST");
-    
-                    PrepareRequest(client_, request_, urlBuilder_);
-                    var url_ = urlBuilder_.ToString();
-                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
-                    PrepareRequest(client_, request_, url_);
-    
-                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
-                    try
-                    {
-                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
-                        if (response_.Content != null && response_.Content.Headers != null)
-                        {
-                            foreach (var item_ in response_.Content.Headers)
-                                headers_[item_.Key] = item_.Value;
-                        }
-    
-                        ProcessResponse(client_, response_);
-    
-                        var status_ = ((int)response_.StatusCode).ToString();
-                        if (status_ == "200") 
-                        {
-                            return;
-                        }
-                        else
-                        if (status_ == "400") 
-                        {
-                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkValidationException>(response_, headers_).ConfigureAwait(false);
-                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkValidationException();
-                            responseObject_.Data.Add("HttpStatus", status_);
-                            responseObject_.Data.Add("HttpHeaders", headers_);
-                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
-                            throw responseObject_;
-                        }
-                        else
-                        if (status_ == "401") 
-                        {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Unauthorized", (int)response_.StatusCode, responseText_, headers_, null);
-                        }
-                        else
-                        if (status_ == "404") 
-                        {
-                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkNotFoundException>(response_, headers_).ConfigureAwait(false);
-                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkNotFoundException();
-                            responseObject_.Data.Add("HttpStatus", status_);
-                            responseObject_.Data.Add("HttpHeaders", headers_);
-                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
-                            throw responseObject_;
-                        }
-                        else
-                        if (status_ == "405") 
-                        {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Method not allowed", (int)response_.StatusCode, responseText_, headers_, null);
-                        }
-                        else
-                        if (status_ == "409") 
-                        {
-                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkConflictException>(response_, headers_).ConfigureAwait(false);
-                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkConflictException();
-                            responseObject_.Data.Add("HttpStatus", status_);
-                            responseObject_.Data.Add("HttpHeaders", headers_);
-                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
-                            throw responseObject_;
-                        }
-                        else
-                        if (status_ == "429") 
-                        {
-                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
-                            throw new ApiException("Too many requests", (int)response_.StatusCode, responseText_, headers_, null);
-                        }
-                        else
-                        if (status_ == "500") 
-                        {
-                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkException>(response_, headers_).ConfigureAwait(false);
-                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkException();
-                            responseObject_.Data.Add("HttpStatus", status_);
-                            responseObject_.Data.Add("HttpHeaders", headers_);
-                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
-                            throw responseObject_;
-                        }
-                        else
-                        if (status_ != "200" && status_ != "204")
-                        {
-                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
-                            throw new ApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", (int)response_.StatusCode, responseData_, headers_, null);
-                        }
-                    }
-                    finally
-                    {
-                        if (response_ != null)
-                            response_.Dispose();
-                    }
-                }
-            }
-            finally
-            {
-            }
-        }
-    
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <summary>Reindex customer</summary>
-        /// <param name="alias">Alias</param>
-        /// <param name="request">Request</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -5509,9 +5301,6 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <summary>Get available metadata languages customer</summary>
-        /// <param name="alias">Alias</param>
-        /// <returns>Array of</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -5634,10 +5423,6 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <summary>Add metadata language customer</summary>
-        /// <param name="alias">Alias</param>
-        /// <param name="request">Request</param>
-        /// <param name="timeout">Timeout</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -5768,10 +5553,6 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <summary>Update boost values customer</summary>
-        /// <param name="alias">Alias</param>
-        /// <param name="request">Request</param>
-        /// <param name="timeout">Timeout</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -6021,8 +5802,6 @@ namespace Picturepark.SDK.V1.CloudManager
         partial void ProcessResponse(System.Net.Http.HttpClient client, System.Net.Http.HttpResponseMessage response);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <summary>Create customer service provider</summary>
-        /// <param name="request">Request</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -6147,9 +5926,6 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <summary>Delete customer service provider</summary>
-        /// <param name="alias">Alias</param>
-        /// <param name="id">Customer service provider ID.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -6388,7 +6164,6 @@ namespace Picturepark.SDK.V1.CloudManager
         partial void ProcessResponse(System.Net.Http.HttpClient client, System.Net.Http.HttpResponseMessage response);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <summary>Create environment</summary>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -6511,8 +6286,6 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <summary>Get version environment</summary>
-        /// <returns>The version view item for the environment.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -6753,8 +6526,6 @@ namespace Picturepark.SDK.V1.CloudManager
         partial void ProcessResponse(System.Net.Http.HttpClient client, System.Net.Http.HttpResponseMessage response);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <summary>Cancel environment process</summary>
-        /// <param name="id">Environment process ID.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -6874,8 +6645,6 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <summary>Acknowledge environment process</summary>
-        /// <param name="id">Environment process ID.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -6995,8 +6764,6 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <summary>Get environment process</summary>
-        /// <param name="id">Environment process ID.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -7119,10 +6886,6 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <summary>Wait for life cycles environment process</summary>
-        /// <param name="id">Environment process ID.</param>
-        /// <param name="lifeCycles">Life cycles</param>
-        /// <param name="timeout">Timeout</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -7254,8 +7017,6 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <summary>Search environment process</summary>
-        /// <param name="request">Request</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -7499,7 +7260,6 @@ namespace Picturepark.SDK.V1.CloudManager
         partial void ProcessResponse(System.Net.Http.HttpClient client, System.Net.Http.HttpResponseMessage response);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <summary>Create global configuration global configuration</summary>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -7622,7 +7382,6 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <summary>Get configuration global configuration</summary>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -7746,8 +7505,6 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <summary>Get version global configuration</summary>
-        /// <returns>The version view item for the environment.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -7869,8 +7626,6 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <summary>Create service global configuration</summary>
-        /// <param name="request">Request</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -8110,11 +7865,6 @@ namespace Picturepark.SDK.V1.CloudManager
         partial void ProcessResponse(System.Net.Http.HttpClient client, System.Net.Http.HttpResponseMessage response);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <summary>Touch schemas maintenance</summary>
-        /// <param name="id">Maintenance ID.</param>
-        /// <param name="request">Request</param>
-        /// <param name="timeout">Timeout</param>
-        /// <returns>Business process</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -8245,11 +7995,6 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <summary>Reset retry attempts maintenance</summary>
-        /// <param name="id">Maintenance ID.</param>
-        /// <param name="request">Request</param>
-        /// <param name="timeout">Timeout</param>
-        /// <returns>Business process</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -8380,10 +8125,6 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <summary>Update outdated metadata maintenance</summary>
-        /// <param name="id">Maintenance ID.</param>
-        /// <param name="timeout">Timeout</param>
-        /// <returns>Business process</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -8631,7 +8372,6 @@ namespace Picturepark.SDK.V1.CloudManager
         partial void ProcessResponse(System.Net.Http.HttpClient client, System.Net.Http.HttpResponseMessage response);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <summary>Initialize message queue</summary>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -8750,7 +8490,6 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <summary>Reset message queue</summary>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -8988,8 +8727,6 @@ namespace Picturepark.SDK.V1.CloudManager
         partial void ProcessResponse(System.Net.Http.HttpClient client, System.Net.Http.HttpResponseMessage response);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <summary>Create service provider</summary>
-        /// <param name="request">Request</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -9114,8 +8851,6 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <summary>Delete service provider</summary>
-        /// <param name="id">Service provider ID.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -9353,7 +9088,6 @@ namespace Picturepark.SDK.V1.CloudManager
         partial void ProcessResponse(System.Net.Http.HttpClient client, System.Net.Http.HttpResponseMessage response);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <summary>Shutdown all services</summary>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -9471,7 +9205,6 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <summary>Restart all services</summary>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -9589,9 +9322,6 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <summary>Shutdown service</summary>
-        /// <param name="serviceName">Service name</param>
-        /// <param name="nodeId">Node id</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -9715,9 +9445,6 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <summary>Restart service</summary>
-        /// <param name="serviceName">Service name</param>
-        /// <param name="nodeId">Node id</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -9841,8 +9568,6 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <summary>Set log level service</summary>
-        /// <param name="request">Request</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -9963,9 +9688,6 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <summary>Enable logging diagnostics service</summary>
-        /// <param name="enable">Enable</param>
-        /// <param name="serviceName">Service name</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -10093,7 +9815,6 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <summary>Ping active nodes service</summary>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -10211,8 +9932,6 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <summary>Get active nodes service</summary>
-        /// <returns>Array of</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -10334,7 +10053,6 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <summary>Delete node infos service</summary>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -10453,7 +10171,6 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <summary>Dump caches service</summary>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -10572,7 +10289,6 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <summary>Invalidate all caches services</summary>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -10810,14 +10526,12 @@ namespace Picturepark.SDK.V1.CloudManager
         partial void ProcessResponse(System.Net.Http.HttpClient client, System.Net.Http.HttpResponseMessage response);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <summary>Get available environment updates update</summary>
-        /// <returns>Array of The UpdateInfoViewItem is the view item for update commands.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<UpdateInfo>> GetAvailableEnvironmentUpdatesAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<UpdateInfo> GetAvailableEnvironmentUpdateAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/Updates/environment");
@@ -10850,7 +10564,7 @@ namespace Picturepark.SDK.V1.CloudManager
                         var status_ = ((int)response_.StatusCode).ToString();
                         if (status_ == "200") 
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<System.Collections.Generic.ICollection<UpdateInfo>>(response_, headers_).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<UpdateInfo>(response_, headers_).ConfigureAwait(false);
                             return objectResponse_.Object;
                         }
                         else
@@ -10918,7 +10632,7 @@ namespace Picturepark.SDK.V1.CloudManager
                             throw new ApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", (int)response_.StatusCode, responseData_, headers_, null);
                         }
             
-                        return default(System.Collections.Generic.ICollection<UpdateInfo>);
+                        return default(UpdateInfo);
                     }
                     finally
                     {
@@ -10933,8 +10647,6 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <summary>Get environment version update</summary>
-        /// <returns>The version view item for the environment.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -11056,8 +10768,6 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <summary>Reactivate environment update</summary>
-        /// <param name="request">Request</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -11178,8 +10888,6 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <summary>Deactivate environment update</summary>
-        /// <param name="request">Request</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -11300,8 +11008,6 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <summary>Update environment update</summary>
-        /// <param name="request">Request</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -11426,15 +11132,12 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <summary>Get available customer updates update</summary>
-        /// <param name="id">Update ID.</param>
-        /// <returns>Array of The UpdateInfoViewItem is the view item for update commands.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<UpdateInfo>> GetAvailableCustomerUpdatesAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<UpdateInfo> GetAvailableCustomerUpdateAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/Updates/customers/{id}");
@@ -11468,7 +11171,7 @@ namespace Picturepark.SDK.V1.CloudManager
                         var status_ = ((int)response_.StatusCode).ToString();
                         if (status_ == "200") 
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<System.Collections.Generic.ICollection<UpdateInfo>>(response_, headers_).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<UpdateInfo>(response_, headers_).ConfigureAwait(false);
                             return objectResponse_.Object;
                         }
                         else
@@ -11536,7 +11239,7 @@ namespace Picturepark.SDK.V1.CloudManager
                             throw new ApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", (int)response_.StatusCode, responseData_, headers_, null);
                         }
             
-                        return default(System.Collections.Generic.ICollection<UpdateInfo>);
+                        return default(UpdateInfo);
                     }
                     finally
                     {
@@ -11551,8 +11254,6 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <summary>Get customer versions update</summary>
-        /// <returns>Array of The version view item for the customer.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -11674,9 +11375,6 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <summary>Get customer version update</summary>
-        /// <param name="id">Update ID.</param>
-        /// <returns>The version view item for the customer.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -11799,8 +11497,6 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <summary>Deactivate customers update</summary>
-        /// <param name="requests">Requests</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -11921,8 +11617,6 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <summary>Reactivate customers update</summary>
-        /// <param name="requests">Requests</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -12043,9 +11737,6 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <summary>Update customers update</summary>
-        /// <param name="requests">Requests</param>
-        /// <returns>Array of</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -12289,9 +11980,6 @@ namespace Picturepark.SDK.V1.CloudManager
         partial void ProcessResponse(System.Net.Http.HttpClient client, System.Net.Http.HttpResponseMessage response);
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <summary>Get user developer flag user</summary>
-        /// <param name="alias">Alias</param>
-        /// <param name="id">User ID.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -12415,9 +12103,6 @@ namespace Picturepark.SDK.V1.CloudManager
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <summary>Update user developer flag user</summary>
-        /// <param name="alias">Alias</param>
-        /// <param name="request">Request</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>

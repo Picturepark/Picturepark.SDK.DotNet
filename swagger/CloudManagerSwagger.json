@@ -20,14 +20,12 @@
         "tags": [
           "Cdn"
         ],
-        "summary": "Purge for customer cdn",
         "operationId": "Cdn_PurgeForCustomer",
         "parameters": [
           {
             "name": "alias",
             "in": "path",
             "required": true,
-            "description": "Alias",
             "schema": {
               "type": "string",
               "nullable": true
@@ -37,7 +35,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Business process",
+            "description": "",
             "content": {
               "application/json": {
                 "schema": {
@@ -103,11 +101,9 @@
         "tags": [
           "CloudBackup"
         ],
-        "summary": "Create repository cloud backup",
         "operationId": "CloudBackup_CreateRepository",
         "requestBody": {
           "x-name": "request",
-          "description": "Request",
           "content": {
             "application/json": {
               "schema": {
@@ -120,7 +116,7 @@
         },
         "responses": {
           "200": {
-            "description": null,
+            "description": "",
             "content": {
               "application/json": {
                 "schema": {
@@ -186,11 +182,9 @@
         "tags": [
           "CloudBackup"
         ],
-        "summary": "Create snapshot cloud backup",
         "operationId": "CloudBackup_CreateSnapshot",
         "requestBody": {
           "x-name": "request",
-          "description": "Request",
           "content": {
             "application/json": {
               "schema": {
@@ -203,7 +197,7 @@
         },
         "responses": {
           "200": {
-            "description": null,
+            "description": "",
             "content": {
               "application/json": {
                 "schema": {
@@ -269,13 +263,11 @@
         "tags": [
           "CloudBackup"
         ],
-        "summary": "Export cloud backup",
         "operationId": "CloudBackup_Export",
         "parameters": [
           {
             "name": "timeout",
             "in": "query",
-            "description": "Timeout",
             "schema": {
               "type": "string",
               "format": "time-span",
@@ -286,7 +278,6 @@
         ],
         "requestBody": {
           "x-name": "request",
-          "description": "Request",
           "content": {
             "application/json": {
               "schema": {
@@ -299,7 +290,7 @@
         },
         "responses": {
           "200": {
-            "description": null,
+            "description": "",
             "content": {
               "application/json": {
                 "schema": {
@@ -365,11 +356,9 @@
         "tags": [
           "CloudBackup"
         ],
-        "summary": "Restore cloud backup",
         "operationId": "CloudBackup_Restore",
         "requestBody": {
           "x-name": "request",
-          "description": "Request",
           "content": {
             "application/json": {
               "schema": {
@@ -382,7 +371,7 @@
         },
         "responses": {
           "200": {
-            "description": null,
+            "description": "",
             "content": {
               "application/json": {
                 "schema": {
@@ -448,11 +437,9 @@
         "tags": [
           "CloudBackup"
         ],
-        "summary": "Clone cloud backup",
         "operationId": "CloudBackup_Clone",
         "requestBody": {
           "x-name": "request",
-          "description": "Request",
           "content": {
             "application/json": {
               "schema": {
@@ -465,7 +452,7 @@
         },
         "responses": {
           "200": {
-            "description": null,
+            "description": "",
             "content": {
               "application/json": {
                 "schema": {
@@ -531,11 +518,9 @@
         "tags": [
           "CloudBackup"
         ],
-        "summary": "Import cloud backup",
         "operationId": "CloudBackup_Import",
         "requestBody": {
           "x-name": "request",
-          "description": "Request to import the ElasticSearch repository of a customer from another cloud.",
           "content": {
             "application/json": {
               "schema": {
@@ -548,7 +533,7 @@
         },
         "responses": {
           "200": {
-            "description": null,
+            "description": "",
             "content": {
               "application/json": {
                 "schema": {
@@ -614,11 +599,9 @@
         "tags": [
           "CloudBackup"
         ],
-        "summary": "Create repository cloud backup",
         "operationId": "CloudBackup_CreateRepository2",
         "requestBody": {
           "x-name": "request",
-          "description": "Request",
           "content": {
             "application/json": {
               "schema": {
@@ -631,7 +614,7 @@
         },
         "responses": {
           "200": {
-            "description": null,
+            "description": "",
             "content": {
               "application/json": {
                 "schema": {
@@ -697,11 +680,9 @@
         "tags": [
           "CloudBackup"
         ],
-        "summary": "Create snapshot cloud backup",
         "operationId": "CloudBackup_CreateSnapshot2",
         "requestBody": {
           "x-name": "request",
-          "description": "Request",
           "content": {
             "application/json": {
               "schema": {
@@ -714,7 +695,7 @@
         },
         "responses": {
           "200": {
-            "description": null,
+            "description": "",
             "content": {
               "application/json": {
                 "schema": {
@@ -780,11 +761,9 @@
         "tags": [
           "CloudBackup"
         ],
-        "summary": "Restore cloud backup",
         "operationId": "CloudBackup_Restore2",
         "requestBody": {
           "x-name": "request",
-          "description": "Request",
           "content": {
             "application/json": {
               "schema": {
@@ -797,7 +776,7 @@
         },
         "responses": {
           "200": {
-            "description": null,
+            "description": "",
             "content": {
               "application/json": {
                 "schema": {
@@ -863,11 +842,9 @@
         "tags": [
           "CloudBackup"
         ],
-        "summary": "Search cloud backup",
         "operationId": "CloudBackup_Search",
         "requestBody": {
           "x-name": "request",
-          "description": "Request",
           "content": {
             "application/json": {
               "schema": {
@@ -880,7 +857,7 @@
         },
         "responses": {
           "200": {
-            "description": null,
+            "description": "",
             "content": {
               "application/json": {
                 "schema": {
@@ -946,11 +923,9 @@
         "tags": [
           "CloudBackup"
         ],
-        "summary": "Search snapshots cloud backup",
         "operationId": "CloudBackup_SearchSnapshots",
         "requestBody": {
           "x-name": "request",
-          "description": "Request",
           "content": {
             "application/json": {
               "schema": {
@@ -963,7 +938,7 @@
         },
         "responses": {
           "200": {
-            "description": null,
+            "description": "",
             "content": {
               "application/json": {
                 "schema": {
@@ -1029,11 +1004,9 @@
         "tags": [
           "CloudBackup"
         ],
-        "summary": "Search repositories cloud backup",
         "operationId": "CloudBackup_SearchRepositories",
         "requestBody": {
           "x-name": "request",
-          "description": "Request",
           "content": {
             "application/json": {
               "schema": {
@@ -1046,7 +1019,7 @@
         },
         "responses": {
           "200": {
-            "description": null,
+            "description": "",
             "content": {
               "application/json": {
                 "schema": {
@@ -1112,11 +1085,9 @@
         "tags": [
           "CloudBackup"
         ],
-        "summary": "Search repositories cloud backup",
-        "operationId": "CloudBackup_SearchRepositories2",
+        "operationId": "CloudBackup_SearchEnvironmentRepositories",
         "requestBody": {
           "x-name": "request",
-          "description": "Request",
           "content": {
             "application/json": {
               "schema": {
@@ -1129,7 +1100,7 @@
         },
         "responses": {
           "200": {
-            "description": null,
+            "description": "",
             "content": {
               "application/json": {
                 "schema": {
@@ -1195,11 +1166,10 @@
         "tags": [
           "CloudBackup"
         ],
-        "summary": "Cleanup cloud backup",
         "operationId": "CloudBackup_Cleanup",
         "responses": {
           "200": {
-            "description": null,
+            "description": "",
             "content": {
               "application/json": {
                 "schema": {
@@ -1265,11 +1235,9 @@
         "tags": [
           "CloudBackup"
         ],
-        "summary": "Archive cloud backup",
         "operationId": "CloudBackup_Archive",
         "requestBody": {
           "x-name": "request",
-          "description": "Request",
           "content": {
             "application/json": {
               "schema": {
@@ -1282,7 +1250,7 @@
         },
         "responses": {
           "200": {
-            "description": null,
+            "description": "",
             "content": {
               "application/json": {
                 "schema": {
@@ -1348,11 +1316,9 @@
         "tags": [
           "CloudBackup"
         ],
-        "summary": "Search cloud backup",
         "operationId": "CloudBackup_Search2",
         "requestBody": {
           "x-name": "request",
-          "description": "Request",
           "content": {
             "application/json": {
               "schema": {
@@ -1365,7 +1331,7 @@
         },
         "responses": {
           "200": {
-            "description": null,
+            "description": "",
             "content": {
               "application/json": {
                 "schema": {
@@ -1431,11 +1397,9 @@
         "tags": [
           "ContentBackup"
         ],
-        "summary": "Search missing content backup",
         "operationId": "ContentBackup_SearchMissing",
         "requestBody": {
           "x-name": "request",
-          "description": "Request to search aggregation values for Contents.",
           "content": {
             "application/json": {
               "schema": {
@@ -1448,7 +1412,7 @@
         },
         "responses": {
           "200": {
-            "description": null,
+            "description": "",
             "content": {
               "application/json": {
                 "schema": {
@@ -1514,11 +1478,9 @@
         "tags": [
           "ContentBackup"
         ],
-        "summary": "Enable content backup",
         "operationId": "ContentBackup_Enable",
         "requestBody": {
           "x-name": "request",
-          "description": "Request to search aggregation values for Contents.",
           "content": {
             "application/json": {
               "schema": {
@@ -1531,7 +1493,7 @@
         },
         "responses": {
           "200": {
-            "description": null
+            "description": ""
           },
           "400": {
             "description": "Validation exception",
@@ -1590,11 +1552,9 @@
         "tags": [
           "ContentBackup"
         ],
-        "summary": "Disable content backup",
         "operationId": "ContentBackup_Disable",
         "requestBody": {
           "x-name": "request",
-          "description": "Request to search aggregation values for Contents.",
           "content": {
             "application/json": {
               "schema": {
@@ -1607,7 +1567,7 @@
         },
         "responses": {
           "200": {
-            "description": null
+            "description": ""
           },
           "400": {
             "description": "Validation exception",
@@ -1666,11 +1626,9 @@
         "tags": [
           "ContentBackup"
         ],
-        "summary": "Cancel recovery content backup",
         "operationId": "ContentBackup_CancelRecovery",
         "requestBody": {
           "x-name": "request",
-          "description": "Request to search aggregation values for Contents.",
           "content": {
             "application/json": {
               "schema": {
@@ -1683,7 +1641,7 @@
         },
         "responses": {
           "200": {
-            "description": null
+            "description": ""
           },
           "400": {
             "description": "Validation exception",
@@ -1742,11 +1700,9 @@
         "tags": [
           "ContentBackup"
         ],
-        "summary": "Force recovery content backup",
         "operationId": "ContentBackup_ForceRecovery",
         "requestBody": {
           "x-name": "request",
-          "description": "Request to search aggregation values for Contents.",
           "content": {
             "application/json": {
               "schema": {
@@ -1759,7 +1715,7 @@
         },
         "responses": {
           "200": {
-            "description": null
+            "description": ""
           },
           "400": {
             "description": "Validation exception",
@@ -1818,14 +1774,12 @@
         "tags": [
           "ContentBackup"
         ],
-        "summary": "Reset content backup",
         "operationId": "ContentBackup_Reset",
         "parameters": [
           {
             "name": "customerId",
             "in": "path",
             "required": true,
-            "description": "Customer id",
             "schema": {
               "type": "string",
               "nullable": true
@@ -1835,7 +1789,7 @@
         ],
         "responses": {
           "200": {
-            "description": null
+            "description": ""
           },
           "400": {
             "description": "Validation exception",
@@ -1894,14 +1848,12 @@
         "tags": [
           "ContentBackup"
         ],
-        "summary": "Cancel reset content backup",
         "operationId": "ContentBackup_CancelReset",
         "parameters": [
           {
             "name": "customerId",
             "in": "path",
             "required": true,
-            "description": "Customer id",
             "schema": {
               "type": "string",
               "nullable": true
@@ -1911,7 +1863,7 @@
         ],
         "responses": {
           "200": {
-            "description": null
+            "description": ""
           },
           "400": {
             "description": "Validation exception",
@@ -1970,14 +1922,12 @@
         "tags": [
           "ContentBackup"
         ],
-        "summary": "Any backup requested content backup",
         "operationId": "ContentBackup_AnyBackupRequested",
         "parameters": [
           {
             "name": "customerId",
             "in": "path",
             "required": true,
-            "description": "Customer id",
             "schema": {
               "type": "string",
               "nullable": true
@@ -1987,7 +1937,7 @@
         ],
         "responses": {
           "200": {
-            "description": null,
+            "description": "",
             "content": {
               "application/json": {
                 "schema": {
@@ -2053,14 +2003,12 @@
         "tags": [
           "ContentBackup"
         ],
-        "summary": "Ack backup content backup",
         "operationId": "ContentBackup_AckBackup",
         "parameters": [
           {
             "name": "customerId",
             "in": "path",
             "required": true,
-            "description": "Customer id",
             "schema": {
               "type": "string",
               "nullable": true
@@ -2071,7 +2019,6 @@
             "name": "filePath",
             "in": "path",
             "required": true,
-            "description": "File path",
             "schema": {
               "type": "string",
               "nullable": true
@@ -2081,7 +2028,7 @@
         ],
         "responses": {
           "200": {
-            "description": null
+            "description": ""
           },
           "400": {
             "description": "Validation exception",
@@ -2140,14 +2087,12 @@
         "tags": [
           "ContentBackup"
         ],
-        "summary": "Ack backup multiple content backup",
         "operationId": "ContentBackup_AckBackupMany",
         "parameters": [
           {
             "name": "customerId",
             "in": "path",
             "required": true,
-            "description": "Customer id",
             "schema": {
               "type": "string",
               "nullable": true
@@ -2157,7 +2102,6 @@
         ],
         "requestBody": {
           "x-name": "filePaths",
-          "description": "File paths",
           "content": {
             "application/json": {
               "schema": {
@@ -2173,7 +2117,7 @@
         },
         "responses": {
           "200": {
-            "description": "Array of ",
+            "description": "",
             "content": {
               "application/json": {
                 "schema": {
@@ -2242,11 +2186,10 @@
         "tags": [
           "ContentBackup"
         ],
-        "summary": "Not acknowledged count content backup",
         "operationId": "ContentBackup_NotAcknowledgedCount",
         "responses": {
           "200": {
-            "description": null,
+            "description": "",
             "content": {
               "application/json": {
                 "schema": {
@@ -2313,11 +2256,10 @@
         "tags": [
           "Customer"
         ],
-        "summary": "Get create request customer",
         "operationId": "Customer_GetCreateRequest",
         "responses": {
           "200": {
-            "description": null,
+            "description": "",
             "content": {
               "application/json": {
                 "schema": {
@@ -2383,11 +2325,9 @@
         "tags": [
           "Customer"
         ],
-        "summary": "Create customer",
         "operationId": "Customer_Create",
         "requestBody": {
           "x-name": "request",
-          "description": "Request",
           "content": {
             "application/json": {
               "schema": {
@@ -2400,7 +2340,7 @@
         },
         "responses": {
           "200": {
-            "description": null,
+            "description": "",
             "content": {
               "application/json": {
                 "schema": {
@@ -2464,11 +2404,9 @@
         "tags": [
           "Customer"
         ],
-        "summary": "Update customer",
         "operationId": "Customer_Update",
         "requestBody": {
           "x-name": "request",
-          "description": "Request",
           "content": {
             "application/json": {
               "schema": {
@@ -2481,7 +2419,7 @@
         },
         "responses": {
           "200": {
-            "description": null,
+            "description": "",
             "content": {
               "application/json": {
                 "schema": {
@@ -2547,14 +2485,12 @@
         "tags": [
           "Customer"
         ],
-        "summary": "Get customer",
         "operationId": "Customer_Get",
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
-            "description": "Customer ID.",
             "schema": {
               "type": "string",
               "nullable": true
@@ -2564,7 +2500,7 @@
         ],
         "responses": {
           "200": {
-            "description": null,
+            "description": "",
             "content": {
               "application/json": {
                 "schema": {
@@ -2628,14 +2564,12 @@
         "tags": [
           "Customer"
         ],
-        "summary": "Delete customer",
         "operationId": "Customer_Delete",
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
-            "description": "Customer ID.",
             "schema": {
               "type": "string",
               "nullable": true
@@ -2645,7 +2579,7 @@
         ],
         "responses": {
           "200": {
-            "description": null
+            "description": ""
           },
           "400": {
             "description": "Validation exception",
@@ -2704,11 +2638,10 @@
         "tags": [
           "Customer"
         ],
-        "summary": "List customer",
         "operationId": "Customer_List",
         "responses": {
           "200": {
-            "description": null,
+            "description": "",
             "content": {
               "application/json": {
                 "schema": {
@@ -2772,11 +2705,9 @@
         "tags": [
           "Customer"
         ],
-        "summary": "Search customer",
         "operationId": "Customer_Search",
         "requestBody": {
           "x-name": "request",
-          "description": "Request",
           "content": {
             "application/json": {
               "schema": {
@@ -2789,7 +2720,7 @@
         },
         "responses": {
           "200": {
-            "description": null,
+            "description": "",
             "content": {
               "application/json": {
                 "schema": {
@@ -2855,14 +2786,12 @@
         "tags": [
           "Customer"
         ],
-        "summary": "Get users customer",
         "operationId": "Customer_GetUsers",
         "parameters": [
           {
             "name": "alias",
             "in": "path",
             "required": true,
-            "description": "Alias",
             "schema": {
               "type": "string",
               "nullable": true
@@ -2872,7 +2801,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Array of User information retrieved via search",
+            "description": "",
             "content": {
               "application/json": {
                 "schema": {
@@ -2941,14 +2870,12 @@
         "tags": [
           "Customer"
         ],
-        "summary": "Restore customer",
         "operationId": "Customer_Restore",
         "parameters": [
           {
             "name": "alias",
             "in": "path",
             "required": true,
-            "description": "Alias",
             "schema": {
               "type": "string",
               "nullable": true
@@ -2958,7 +2885,7 @@
         ],
         "responses": {
           "200": {
-            "description": null
+            "description": ""
           },
           "400": {
             "description": "Validation exception",
@@ -3017,14 +2944,12 @@
         "tags": [
           "Customer"
         ],
-        "summary": "Invalidate customer",
         "operationId": "Customer_Invalidate",
         "parameters": [
           {
             "name": "alias",
             "in": "path",
             "required": true,
-            "description": "Alias",
             "schema": {
               "type": "string",
               "nullable": true
@@ -3034,7 +2959,7 @@
         ],
         "responses": {
           "200": {
-            "description": null
+            "description": ""
           },
           "400": {
             "description": "Validation exception",
@@ -3093,14 +3018,12 @@
         "tags": [
           "Customer"
         ],
-        "summary": "Add output formats customer",
         "operationId": "Customer_AddOutputFormats",
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
-            "description": "Customer ID.",
             "schema": {
               "type": "string",
               "nullable": true
@@ -3110,7 +3033,6 @@
         ],
         "requestBody": {
           "x-name": "outputFormats",
-          "description": "Output formats",
           "content": {
             "application/json": {
               "schema": {
@@ -3126,96 +3048,7 @@
         },
         "responses": {
           "200": {
-            "description": null
-          },
-          "400": {
-            "description": "Validation exception",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkValidationException"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "404": {
-            "description": "Entity not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkNotFoundException"
-                }
-              }
-            }
-          },
-          "405": {
-            "description": "Method not allowed"
-          },
-          "409": {
-            "description": "Version conflict",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkConflictException"
-                }
-              }
-            }
-          },
-          "429": {
-            "description": "Too many requests"
-          },
-          "500": {
-            "description": "Internal server error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkException"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/Customer/{id}/businessProcessDefinitions": {
-      "post": {
-        "tags": [
-          "Customer"
-        ],
-        "summary": "Create business process definition customer",
-        "operationId": "Customer_CreateBusinessProcessDefinition",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "description": "Customer ID.",
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 1
-          }
-        ],
-        "requestBody": {
-          "x-name": "request",
-          "description": "Request",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateBusinessProcessDefinitionRequest"
-              }
-            }
-          },
-          "required": true,
-          "x-position": 2
-        },
-        "responses": {
-          "200": {
-            "description": null
+            "description": ""
           },
           "400": {
             "description": "Validation exception",
@@ -3274,14 +3107,12 @@
         "tags": [
           "Customer"
         ],
-        "summary": "Reindex customer",
         "operationId": "Customer_Reindex",
         "parameters": [
           {
             "name": "alias",
             "in": "path",
             "required": true,
-            "description": "Alias",
             "schema": {
               "type": "string",
               "nullable": true
@@ -3291,7 +3122,6 @@
         ],
         "requestBody": {
           "x-name": "request",
-          "description": "Request",
           "content": {
             "application/json": {
               "schema": {
@@ -3304,7 +3134,7 @@
         },
         "responses": {
           "200": {
-            "description": null,
+            "description": "",
             "content": {
               "application/json": {
                 "schema": {
@@ -3370,14 +3200,12 @@
         "tags": [
           "Customer"
         ],
-        "summary": "Get available metadata languages customer",
         "operationId": "Customer_GetAvailableMetadataLanguages",
         "parameters": [
           {
             "name": "alias",
             "in": "path",
             "required": true,
-            "description": "Alias",
             "schema": {
               "type": "string",
               "nullable": true
@@ -3387,7 +3215,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Array of ",
+            "description": "",
             "content": {
               "application/json": {
                 "schema": {
@@ -3456,14 +3284,12 @@
         "tags": [
           "Customer"
         ],
-        "summary": "Add metadata language customer",
         "operationId": "Customer_AddMetadataLanguage",
         "parameters": [
           {
             "name": "alias",
             "in": "path",
             "required": true,
-            "description": "Alias",
             "schema": {
               "type": "string",
               "nullable": true
@@ -3473,7 +3299,6 @@
           {
             "name": "timeout",
             "in": "query",
-            "description": "Timeout",
             "schema": {
               "type": "string",
               "format": "time-span",
@@ -3484,7 +3309,6 @@
         ],
         "requestBody": {
           "x-name": "request",
-          "description": "Request",
           "content": {
             "application/json": {
               "schema": {
@@ -3497,7 +3321,7 @@
         },
         "responses": {
           "200": {
-            "description": null,
+            "description": "",
             "content": {
               "application/json": {
                 "schema": {
@@ -3563,14 +3387,12 @@
         "tags": [
           "Customer"
         ],
-        "summary": "Update boost values customer",
         "operationId": "Customer_UpdateBoostValues",
         "parameters": [
           {
             "name": "alias",
             "in": "path",
             "required": true,
-            "description": "Alias",
             "schema": {
               "type": "string",
               "nullable": true
@@ -3580,7 +3402,6 @@
           {
             "name": "timeout",
             "in": "query",
-            "description": "Timeout",
             "schema": {
               "type": "string",
               "format": "time-span",
@@ -3591,7 +3412,6 @@
         ],
         "requestBody": {
           "x-name": "request",
-          "description": "Request",
           "content": {
             "application/json": {
               "schema": {
@@ -3604,7 +3424,7 @@
         },
         "responses": {
           "200": {
-            "description": null,
+            "description": "",
             "content": {
               "application/json": {
                 "schema": {
@@ -3670,11 +3490,9 @@
         "tags": [
           "CustomerServiceProvider"
         ],
-        "summary": "Create customer service provider",
         "operationId": "CustomerServiceProvider_Create",
         "requestBody": {
           "x-name": "request",
-          "description": "Request",
           "content": {
             "application/json": {
               "schema": {
@@ -3687,7 +3505,7 @@
         },
         "responses": {
           "200": {
-            "description": null,
+            "description": "",
             "content": {
               "application/json": {
                 "schema": {
@@ -3753,14 +3571,12 @@
         "tags": [
           "CustomerServiceProvider"
         ],
-        "summary": "Delete customer service provider",
         "operationId": "CustomerServiceProvider_Delete",
         "parameters": [
           {
             "name": "alias",
             "in": "path",
             "required": true,
-            "description": "Alias",
             "schema": {
               "type": "string",
               "nullable": true
@@ -3771,7 +3587,6 @@
             "name": "id",
             "in": "path",
             "required": true,
-            "description": "Customer service provider ID.",
             "schema": {
               "type": "string",
               "nullable": true
@@ -3781,7 +3596,7 @@
         ],
         "responses": {
           "200": {
-            "description": null
+            "description": ""
           },
           "400": {
             "description": "Validation exception",
@@ -3840,11 +3655,10 @@
         "tags": [
           "Environment"
         ],
-        "summary": "Create environment",
         "operationId": "Environment_Create",
         "responses": {
           "200": {
-            "description": null,
+            "description": "",
             "content": {
               "application/json": {
                 "schema": {
@@ -3910,11 +3724,10 @@
         "tags": [
           "Environment"
         ],
-        "summary": "Get version environment",
         "operationId": "Environment_GetVersion",
         "responses": {
           "200": {
-            "description": "The version view item for the environment.",
+            "description": "",
             "content": {
               "application/json": {
                 "schema": {
@@ -3980,14 +3793,12 @@
         "tags": [
           "EnvironmentProcesses"
         ],
-        "summary": "Cancel environment process",
         "operationId": "EnvironmentProcess_Cancel",
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
-            "description": "Environment process ID.",
             "schema": {
               "type": "string",
               "nullable": true
@@ -3997,7 +3808,7 @@
         ],
         "responses": {
           "200": {
-            "description": null
+            "description": ""
           },
           "400": {
             "description": "Validation exception",
@@ -4056,14 +3867,12 @@
         "tags": [
           "EnvironmentProcesses"
         ],
-        "summary": "Acknowledge environment process",
         "operationId": "EnvironmentProcess_Acknowledge",
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
-            "description": "Environment process ID.",
             "schema": {
               "type": "string",
               "nullable": true
@@ -4073,7 +3882,7 @@
         ],
         "responses": {
           "200": {
-            "description": null
+            "description": ""
           },
           "400": {
             "description": "Validation exception",
@@ -4132,14 +3941,12 @@
         "tags": [
           "EnvironmentProcesses"
         ],
-        "summary": "Get environment process",
         "operationId": "EnvironmentProcess_Get",
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
-            "description": "Environment process ID.",
             "schema": {
               "type": "string",
               "nullable": true
@@ -4149,7 +3956,7 @@
         ],
         "responses": {
           "200": {
-            "description": null,
+            "description": "",
             "content": {
               "application/json": {
                 "schema": {
@@ -4215,14 +4022,12 @@
         "tags": [
           "EnvironmentProcesses"
         ],
-        "summary": "Wait for life cycles environment process",
         "operationId": "EnvironmentProcess_WaitForLifeCycles",
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
-            "description": "Environment process ID.",
             "schema": {
               "type": "string",
               "nullable": true
@@ -4232,7 +4037,6 @@
           {
             "name": "lifeCycles",
             "in": "query",
-            "description": "Life cycles",
             "collectionFormat": "multi",
             "schema": {
               "type": "array",
@@ -4246,7 +4050,6 @@
           {
             "name": "timeout",
             "in": "query",
-            "description": "Timeout",
             "schema": {
               "type": "string",
               "format": "time-span",
@@ -4257,7 +4060,7 @@
         ],
         "responses": {
           "200": {
-            "description": null,
+            "description": "",
             "content": {
               "application/json": {
                 "schema": {
@@ -4323,11 +4126,9 @@
         "tags": [
           "EnvironmentProcesses"
         ],
-        "summary": "Search environment process",
         "operationId": "EnvironmentProcess_Search",
         "requestBody": {
           "x-name": "request",
-          "description": "Request",
           "content": {
             "application/json": {
               "schema": {
@@ -4340,7 +4141,7 @@
         },
         "responses": {
           "200": {
-            "description": null,
+            "description": "",
             "content": {
               "application/json": {
                 "schema": {
@@ -4406,11 +4207,10 @@
         "tags": [
           "GlobalConfiguration"
         ],
-        "summary": "Create global configuration global configuration",
         "operationId": "GlobalConfiguration_CreateGlobalConfiguration",
         "responses": {
           "200": {
-            "description": null,
+            "description": "",
             "content": {
               "application/json": {
                 "schema": {
@@ -4476,11 +4276,10 @@
         "tags": [
           "GlobalConfiguration"
         ],
-        "summary": "Get configuration global configuration",
         "operationId": "GlobalConfiguration_GetConfiguration",
         "responses": {
           "200": {
-            "description": null,
+            "description": "",
             "content": {
               "application/octet-stream": {
                 "schema": {
@@ -4547,11 +4346,10 @@
         "tags": [
           "GlobalConfiguration"
         ],
-        "summary": "Get version global configuration",
         "operationId": "GlobalConfiguration_GetVersion",
         "responses": {
           "200": {
-            "description": "The version view item for the environment.",
+            "description": "",
             "content": {
               "application/json": {
                 "schema": {
@@ -4617,11 +4415,9 @@
         "tags": [
           "GlobalConfiguration"
         ],
-        "summary": "Create service global configuration",
         "operationId": "GlobalConfiguration_CreateService",
         "requestBody": {
           "x-name": "request",
-          "description": "Request",
           "content": {
             "application/json": {
               "schema": {
@@ -4634,7 +4430,7 @@
         },
         "responses": {
           "200": {
-            "description": null
+            "description": ""
           },
           "400": {
             "description": "Validation exception",
@@ -4693,14 +4489,12 @@
         "tags": [
           "Maintenance"
         ],
-        "summary": "Touch schemas maintenance",
         "operationId": "Maintenance_TouchSchemas",
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
-            "description": "Maintenance ID.",
             "schema": {
               "type": "string",
               "nullable": true
@@ -4710,7 +4504,6 @@
           {
             "name": "timeout",
             "in": "query",
-            "description": "Timeout",
             "schema": {
               "type": "string",
               "format": "time-span",
@@ -4721,7 +4514,6 @@
         ],
         "requestBody": {
           "x-name": "request",
-          "description": "Request",
           "content": {
             "application/json": {
               "schema": {
@@ -4734,7 +4526,7 @@
         },
         "responses": {
           "200": {
-            "description": "Business process",
+            "description": "",
             "content": {
               "application/json": {
                 "schema": {
@@ -4800,14 +4592,12 @@
         "tags": [
           "Maintenance"
         ],
-        "summary": "Reset retry attempts maintenance",
         "operationId": "Maintenance_ResetRetryAttempts",
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
-            "description": "Maintenance ID.",
             "schema": {
               "type": "string",
               "nullable": true
@@ -4817,7 +4607,6 @@
           {
             "name": "timeout",
             "in": "query",
-            "description": "Timeout",
             "schema": {
               "type": "string",
               "format": "time-span",
@@ -4828,7 +4617,6 @@
         ],
         "requestBody": {
           "x-name": "request",
-          "description": "Request",
           "content": {
             "application/json": {
               "schema": {
@@ -4841,7 +4629,7 @@
         },
         "responses": {
           "200": {
-            "description": "Business process",
+            "description": "",
             "content": {
               "application/json": {
                 "schema": {
@@ -4907,14 +4695,12 @@
         "tags": [
           "Maintenance"
         ],
-        "summary": "Update outdated metadata maintenance",
         "operationId": "Maintenance_UpdateOutdatedMetadata",
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
-            "description": "Maintenance ID.",
             "schema": {
               "type": "string",
               "nullable": true
@@ -4924,7 +4710,6 @@
           {
             "name": "timeout",
             "in": "query",
-            "description": "Timeout",
             "schema": {
               "type": "string",
               "format": "time-span",
@@ -4935,7 +4720,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Business process",
+            "description": "",
             "content": {
               "application/json": {
                 "schema": {
@@ -5001,11 +4786,10 @@
         "tags": [
           "MessageQueue"
         ],
-        "summary": "Initialize message queue",
         "operationId": "MessageQueue_Initialize",
         "responses": {
           "200": {
-            "description": null
+            "description": ""
           },
           "400": {
             "description": "Validation exception",
@@ -5064,11 +4848,10 @@
         "tags": [
           "MessageQueue"
         ],
-        "summary": "Reset message queue",
         "operationId": "MessageQueue_Reset",
         "responses": {
           "200": {
-            "description": null
+            "description": ""
           },
           "400": {
             "description": "Validation exception",
@@ -5127,11 +4910,9 @@
         "tags": [
           "ServiceProvider"
         ],
-        "summary": "Create service provider",
         "operationId": "ServiceProvider_Create",
         "requestBody": {
           "x-name": "request",
-          "description": "Request",
           "content": {
             "application/json": {
               "schema": {
@@ -5144,7 +4925,7 @@
         },
         "responses": {
           "200": {
-            "description": null,
+            "description": "",
             "content": {
               "application/json": {
                 "schema": {
@@ -5210,14 +4991,12 @@
         "tags": [
           "ServiceProvider"
         ],
-        "summary": "Delete service provider",
         "operationId": "ServiceProvider_Delete",
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
-            "description": "Service provider ID.",
             "schema": {
               "type": "string",
               "nullable": true
@@ -5227,7 +5006,7 @@
         ],
         "responses": {
           "200": {
-            "description": null
+            "description": ""
           },
           "400": {
             "description": "Validation exception",
@@ -5286,11 +5065,10 @@
         "tags": [
           "Services"
         ],
-        "summary": "Shutdown all services",
         "operationId": "Service_ShutdownAll",
         "responses": {
           "200": {
-            "description": null
+            "description": ""
           },
           "400": {
             "description": "Validation exception",
@@ -5349,11 +5127,10 @@
         "tags": [
           "Services"
         ],
-        "summary": "Restart all services",
         "operationId": "Service_RestartAll",
         "responses": {
           "200": {
-            "description": null
+            "description": ""
           },
           "400": {
             "description": "Validation exception",
@@ -5412,14 +5189,12 @@
         "tags": [
           "Services"
         ],
-        "summary": "Shutdown service",
         "operationId": "Service_Shutdown",
         "parameters": [
           {
             "name": "serviceName",
             "in": "path",
             "required": true,
-            "description": "Service name",
             "schema": {
               "type": "string",
               "nullable": true
@@ -5429,7 +5204,6 @@
           {
             "name": "nodeId",
             "in": "query",
-            "description": "Node id",
             "schema": {
               "type": "string",
               "nullable": true
@@ -5439,7 +5213,7 @@
         ],
         "responses": {
           "200": {
-            "description": null
+            "description": ""
           },
           "400": {
             "description": "Validation exception",
@@ -5498,14 +5272,12 @@
         "tags": [
           "Services"
         ],
-        "summary": "Restart service",
         "operationId": "Service_Restart",
         "parameters": [
           {
             "name": "serviceName",
             "in": "path",
             "required": true,
-            "description": "Service name",
             "schema": {
               "type": "string",
               "nullable": true
@@ -5515,7 +5287,6 @@
           {
             "name": "nodeId",
             "in": "query",
-            "description": "Node id",
             "schema": {
               "type": "string",
               "nullable": true
@@ -5525,7 +5296,7 @@
         ],
         "responses": {
           "200": {
-            "description": null
+            "description": ""
           },
           "400": {
             "description": "Validation exception",
@@ -5584,11 +5355,9 @@
         "tags": [
           "Services"
         ],
-        "summary": "Set log level service",
         "operationId": "Service_SetLogLevel",
         "requestBody": {
           "x-name": "request",
-          "description": "Request",
           "content": {
             "application/json": {
               "schema": {
@@ -5601,7 +5370,7 @@
         },
         "responses": {
           "200": {
-            "description": null
+            "description": ""
           },
           "400": {
             "description": "Validation exception",
@@ -5660,13 +5429,11 @@
         "tags": [
           "Services"
         ],
-        "summary": "Enable logging diagnostics service",
         "operationId": "Service_EnableLoggingDiagnostics",
         "parameters": [
           {
             "name": "enable",
             "in": "query",
-            "description": "Enable",
             "schema": {
               "type": "boolean"
             },
@@ -5675,7 +5442,6 @@
           {
             "name": "serviceName",
             "in": "query",
-            "description": "Service name",
             "schema": {
               "type": "string",
               "nullable": true
@@ -5685,7 +5451,7 @@
         ],
         "responses": {
           "200": {
-            "description": null
+            "description": ""
           },
           "400": {
             "description": "Validation exception",
@@ -5744,11 +5510,10 @@
         "tags": [
           "Services"
         ],
-        "summary": "Ping active nodes service",
         "operationId": "Service_PingActiveNodes",
         "responses": {
           "200": {
-            "description": null
+            "description": ""
           },
           "400": {
             "description": "Validation exception",
@@ -5807,11 +5572,10 @@
         "tags": [
           "Services"
         ],
-        "summary": "Get active nodes service",
         "operationId": "Service_GetActiveNodes",
         "responses": {
           "200": {
-            "description": "Array of ",
+            "description": "",
             "content": {
               "application/json": {
                 "schema": {
@@ -5880,11 +5644,10 @@
         "tags": [
           "Services"
         ],
-        "summary": "Delete node infos service",
         "operationId": "Service_DeleteNodeInfos",
         "responses": {
           "200": {
-            "description": null
+            "description": ""
           },
           "400": {
             "description": "Validation exception",
@@ -5943,11 +5706,10 @@
         "tags": [
           "Services"
         ],
-        "summary": "Dump caches service",
         "operationId": "Service_DumpCaches",
         "responses": {
           "200": {
-            "description": null
+            "description": ""
           },
           "400": {
             "description": "Validation exception",
@@ -6006,11 +5768,10 @@
         "tags": [
           "Services"
         ],
-        "summary": "Invalidate all caches services",
         "operationId": "Service_InvalidateAllCaches",
         "responses": {
           "200": {
-            "description": null
+            "description": ""
           },
           "400": {
             "description": "Validation exception",
@@ -6069,18 +5830,14 @@
         "tags": [
           "Updates"
         ],
-        "summary": "Get available environment updates update",
-        "operationId": "Update_GetAvailableEnvironmentUpdates",
+        "operationId": "Update_GetAvailableEnvironmentUpdate",
         "responses": {
           "200": {
-            "description": "Array of The UpdateInfoViewItem is the view item for update commands.",
+            "description": "",
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/UpdateInfo"
-                  }
+                  "$ref": "#/components/schemas/UpdateInfo"
                 }
               }
             }
@@ -6142,11 +5899,10 @@
         "tags": [
           "Updates"
         ],
-        "summary": "Get environment version update",
         "operationId": "Update_GetEnvironmentVersion",
         "responses": {
           "200": {
-            "description": "The version view item for the environment.",
+            "description": "",
             "content": {
               "application/json": {
                 "schema": {
@@ -6212,11 +5968,9 @@
         "tags": [
           "Updates"
         ],
-        "summary": "Reactivate environment update",
         "operationId": "Update_ReactivateEnvironment",
         "requestBody": {
           "x-name": "request",
-          "description": "Request",
           "content": {
             "application/json": {
               "schema": {
@@ -6229,7 +5983,7 @@
         },
         "responses": {
           "200": {
-            "description": null
+            "description": ""
           },
           "400": {
             "description": "Validation exception",
@@ -6288,11 +6042,9 @@
         "tags": [
           "Updates"
         ],
-        "summary": "Deactivate environment update",
         "operationId": "Update_DeactivateEnvironment",
         "requestBody": {
           "x-name": "request",
-          "description": "Request",
           "content": {
             "application/json": {
               "schema": {
@@ -6305,7 +6057,7 @@
         },
         "responses": {
           "200": {
-            "description": null
+            "description": ""
           },
           "400": {
             "description": "Validation exception",
@@ -6364,11 +6116,9 @@
         "tags": [
           "Updates"
         ],
-        "summary": "Update environment update",
         "operationId": "Update_UpdateEnvironment",
         "requestBody": {
           "x-name": "request",
-          "description": "Request",
           "content": {
             "application/json": {
               "schema": {
@@ -6381,7 +6131,7 @@
         },
         "responses": {
           "200": {
-            "description": null,
+            "description": "",
             "content": {
               "application/json": {
                 "schema": {
@@ -6447,14 +6197,12 @@
         "tags": [
           "Updates"
         ],
-        "summary": "Get available customer updates update",
-        "operationId": "Update_GetAvailableCustomerUpdates",
+        "operationId": "Update_GetAvailableCustomerUpdate",
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
-            "description": "Update ID.",
             "schema": {
               "type": "string",
               "nullable": true
@@ -6464,14 +6212,11 @@
         ],
         "responses": {
           "200": {
-            "description": "Array of The UpdateInfoViewItem is the view item for update commands.",
+            "description": "",
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/UpdateInfo"
-                  }
+                  "$ref": "#/components/schemas/UpdateInfo"
                 }
               }
             }
@@ -6533,11 +6278,10 @@
         "tags": [
           "Updates"
         ],
-        "summary": "Get customer versions update",
         "operationId": "Update_GetCustomerVersions",
         "responses": {
           "200": {
-            "description": "Array of The version view item for the customer.",
+            "description": "",
             "content": {
               "application/json": {
                 "schema": {
@@ -6606,14 +6350,12 @@
         "tags": [
           "Updates"
         ],
-        "summary": "Get customer version update",
         "operationId": "Update_GetCustomerVersion",
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
-            "description": "Update ID.",
             "schema": {
               "type": "string",
               "nullable": true
@@ -6623,7 +6365,7 @@
         ],
         "responses": {
           "200": {
-            "description": "The version view item for the customer.",
+            "description": "",
             "content": {
               "application/json": {
                 "schema": {
@@ -6689,11 +6431,9 @@
         "tags": [
           "Updates"
         ],
-        "summary": "Deactivate customers update",
         "operationId": "Update_DeactivateCustomers",
         "requestBody": {
           "x-name": "requests",
-          "description": "Requests",
           "content": {
             "application/json": {
               "schema": {
@@ -6709,7 +6449,7 @@
         },
         "responses": {
           "200": {
-            "description": null
+            "description": ""
           },
           "400": {
             "description": "Validation exception",
@@ -6768,11 +6508,9 @@
         "tags": [
           "Updates"
         ],
-        "summary": "Reactivate customers update",
         "operationId": "Update_ReactivateCustomers",
         "requestBody": {
           "x-name": "requests",
-          "description": "Requests",
           "content": {
             "application/json": {
               "schema": {
@@ -6788,7 +6526,7 @@
         },
         "responses": {
           "200": {
-            "description": null
+            "description": ""
           },
           "400": {
             "description": "Validation exception",
@@ -6847,11 +6585,9 @@
         "tags": [
           "Updates"
         ],
-        "summary": "Update customers update",
         "operationId": "Update_UpdateCustomers",
         "requestBody": {
           "x-name": "requests",
-          "description": "Requests",
           "content": {
             "application/json": {
               "schema": {
@@ -6867,7 +6603,7 @@
         },
         "responses": {
           "200": {
-            "description": "Array of ",
+            "description": "",
             "content": {
               "application/json": {
                 "schema": {
@@ -6936,14 +6672,12 @@
         "tags": [
           "User"
         ],
-        "summary": "Get user developer flag user",
         "operationId": "User_GetUserDeveloperFlag",
         "parameters": [
           {
             "name": "alias",
             "in": "path",
             "required": true,
-            "description": "Alias",
             "schema": {
               "type": "string",
               "nullable": true
@@ -6954,7 +6688,6 @@
             "name": "id",
             "in": "path",
             "required": true,
-            "description": "User ID.",
             "schema": {
               "type": "string",
               "nullable": true
@@ -6964,7 +6697,7 @@
         ],
         "responses": {
           "200": {
-            "description": null,
+            "description": "",
             "content": {
               "application/json": {
                 "schema": {
@@ -7030,14 +6763,12 @@
         "tags": [
           "User"
         ],
-        "summary": "Update user developer flag user",
         "operationId": "User_UpdateUserDeveloperFlag",
         "parameters": [
           {
             "name": "alias",
             "in": "path",
             "required": true,
-            "description": "Alias",
             "schema": {
               "type": "string",
               "nullable": true
@@ -7047,7 +6778,6 @@
         ],
         "requestBody": {
           "x-name": "request",
-          "description": "Request",
           "content": {
             "application/json": {
               "schema": {
@@ -7060,7 +6790,7 @@
         },
         "responses": {
           "200": {
-            "description": null,
+            "description": "",
             "content": {
               "application/json": {
                 "schema": {
@@ -7652,6 +7382,26 @@
           {
             "type": "object",
             "additionalProperties": false
+          }
+        ]
+      },
+      "UserAlreadyInRequestedLockStateException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkBusinessException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "affectedUserId": {
+                "type": "string",
+                "nullable": true
+              },
+              "userIsLocked": {
+                "type": "boolean"
+              }
+            }
           }
         ]
       },
@@ -16540,80 +16290,6 @@
           "UserTriggeredDeactivation"
         ]
       },
-      "CreateBusinessProcessDefinitionRequest": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "id": {
-            "type": "string",
-            "nullable": true
-          },
-          "externalId": {
-            "type": "string",
-            "nullable": true
-          },
-          "businessProcessEngine": {
-            "$ref": "#/components/schemas/BusinessProcessEngine"
-          },
-          "businessProcessType": {
-            "$ref": "#/components/schemas/BusinessProcessType"
-          },
-          "businessProcessRunType": {
-            "$ref": "#/components/schemas/BusinessProcessRunType"
-          },
-          "initialState": {
-            "type": "string",
-            "nullable": true
-          },
-          "availableStates": {
-            "type": "array",
-            "nullable": true,
-            "items": {
-              "type": "string"
-            }
-          },
-          "ttlInMs": {
-            "type": "integer",
-            "format": "int32"
-          }
-        }
-      },
-      "BusinessProcessEngine": {
-        "type": "string",
-        "description": "",
-        "x-enumNames": [
-          "Internal",
-          "TaskRunner"
-        ],
-        "enum": [
-          "Internal",
-          "TaskRunner"
-        ]
-      },
-      "BusinessProcessType": {
-        "type": "string",
-        "description": "",
-        "x-enumNames": [
-          "System",
-          "Customer"
-        ],
-        "enum": [
-          "System",
-          "Customer"
-        ]
-      },
-      "BusinessProcessRunType": {
-        "type": "string",
-        "description": "",
-        "x-enumNames": [
-          "Background",
-          "Interactive"
-        ],
-        "enum": [
-          "Background",
-          "Interactive"
-        ]
-      },
       "Index": {
         "type": "object",
         "additionalProperties": false,
@@ -17443,33 +17119,22 @@
       },
       "UpdateInfo": {
         "type": "object",
-        "description": "The UpdateInfoViewItem is the view item for update commands.",
+        "description": "Contains information about a possibly available update",
         "additionalProperties": false,
         "properties": {
+          "currentVersion": {
+            "type": "string",
+            "description": "The current version.",
+            "nullable": true
+          },
           "updateVersion": {
             "type": "string",
-            "description": "The version of the update command.",
+            "description": "The maximum version available to update to.",
             "nullable": true
           },
-          "objectStoreVersion": {
-            "type": "string",
-            "description": "The version of the object store (elastic search) at the time of the update command creation.",
-            "nullable": true
-          },
-          "creationDate": {
-            "type": "string",
-            "description": "The creation date of the update command.",
-            "format": "date-time"
-          },
-          "description": {
-            "type": "string",
-            "description": "The description of the update command.",
-            "nullable": true
-          },
-          "creator": {
-            "type": "string",
-            "description": "The creator of the update command.",
-            "nullable": true
+          "updateAvailable": {
+            "type": "boolean",
+            "description": "Indicates if an update is available."
           }
         }
       },
@@ -18142,10 +17807,6 @@
           "id": {
             "type": "string",
             "nullable": true
-          },
-          "maximumRetryCount": {
-            "type": "integer",
-            "format": "int32"
           },
           "retries": {
             "type": "integer",

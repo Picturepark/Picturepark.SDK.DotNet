@@ -8,6 +8,7 @@ using Xunit;
 
 namespace Picturepark.SDK.V1.Tests.Clients
 {
+    [Trait("Stack", "BusinessRule")]
     public class BusinessRuleTests : IClassFixture<ClientFixture>
     {
         private readonly IPictureparkService _client;
@@ -18,7 +19,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
         }
 
         [Fact]
-        [Trait("Stack", "BusinessRule")]
         public async Task ShouldStoreAndRetrieveConfiguration()
         {
             // in order not to interfere with other tests, we intentionally disable the rule engine here
@@ -71,6 +71,89 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var storedConfiguration = await _client.BusinessRule.GetConfigurationAsync().ConfigureAwait(false);
             storedConfiguration.DisableRuleEngine.Should().BeTrue();
             storedConfiguration.Rules.Should().HaveCount(1);
+        }
+
+        [Fact]
+        public async Task Should_retrieve_trace_log()
+        {
+            // Arrange
+            var contentSchemaId = $"ContentType{Guid.NewGuid():N}";
+
+            await _client.Schema.CreateAsync(
+                new SchemaCreateRequest
+                {
+                    Id = contentSchemaId,
+                    Names = new TranslatedStringDictionary { { "en", contentSchemaId } },
+                    ViewForAll = true,
+                    Types = new List<SchemaType> { SchemaType.Content },
+                    Fields = new List<FieldBase>
+                    {
+                        new FieldString { Id = "title", Names = new TranslatedStringDictionary { { "en", "title" } } }
+                    }
+                }).ConfigureAwait(false);
+
+            var ruleId = $"{Guid.NewGuid():N}";
+            var request = new BusinessRuleConfigurationUpdateRequest
+            {
+                DisableRuleEngine = false,
+                Rules = new List<BusinessRule>
+                {
+                    new BusinessRuleConfigurable
+                    {
+                        EnableTracing = true,
+                        Id = ruleId,
+                        Condition = new ContentSchemaCondition { SchemaId = contentSchemaId },
+                        Actions = new List<BusinessRuleAction> { new ProduceMessageAction() },
+                        IsEnabled = true,
+                        TriggerPoint = new BusinessRuleTriggerPoint
+                        {
+                            DocumentType = BusinessRuleTriggerDocType.Content,
+                            Action = BusinessRuleTriggerAction.Create,
+                            ExecutionScope = BusinessRuleExecutionScope.MainDoc
+                        }
+                    }
+                }
+            };
+
+            var businessProcess = await _client.BusinessRule.UpdateConfigurationAsync(request).ConfigureAwait(false);
+            await _client.BusinessProcess.WaitForCompletionAsync(businessProcess.Id).ConfigureAwait(false);
+
+            // Act
+            var content = await _client.Content.CreateAsync(new ContentCreateRequest { ContentSchemaId = contentSchemaId, Content = new { title = "test" } })
+                .ConfigureAwait(false);
+
+            // Assert
+            var result = await _client.BusinessRule.SearchTracesAsync(
+                new BusinessRuleTraceLogSearchRequest
+                {
+                    Filter = new AndFilter
+                    {
+                        Filters = new[]
+                        {
+                            FilterBase.FromExpression<BusinessRuleTraceLog>(t => t.DocumentType, BusinessRuleTriggerDocType.Content.ToString()),
+                            FilterBase.FromExpression<BusinessRuleTraceLog>(t => t.DocumentId, content.Id)
+                        }
+                    },
+                    Aggregators = new List<AggregatorBase>
+                    {
+                        new TermsAggregator
+                        {
+                            Name = "ruleIds",
+                            Field = nameof(BusinessRuleTraceLog.RuleIds).ToLowerCamelCase()
+                        }
+                    }
+                }).ConfigureAwait(false);
+
+            var traceLog = result.Results.Should().ContainSingle().Which;
+            traceLog.RuleIds.Should().HaveCount(1).And.Contain(ruleId);
+
+            var ruleLog = traceLog.Rules.Should().ContainSingle().Which;
+            var evaluation = ruleLog.Evaluations.Should().ContainSingle().Which;
+
+            evaluation.Conditions.Should().ContainSingle().Which.Satisfied.Should().BeTrue();
+
+            result.AggregationResults.Should().ContainSingle(a => a.Name == "ruleIds").Which.AggregationResultItems.Should()
+                .ContainSingle(ar => ar.Count == 1 && ar.Name == ruleId);
         }
     }
 }

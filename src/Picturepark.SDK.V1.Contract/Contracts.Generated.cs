@@ -120,6 +120,17 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<BusinessProcess> UpdateConfigurationAsync(BusinessRuleConfigurationUpdateRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>Searches for trace logs produces by business rule execution.</summary>
+        /// <param name="request">Request</param>
+        /// <returns>Holds results of trace log search.</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        System.Threading.Tasks.Task<BusinessRuleTraceLogSearchResult> SearchTracesAsync(BusinessRuleTraceLogSearchRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "13.2.2.0 (NJsonSchema v10.1.4.0 (Newtonsoft.Json v11.0.0.0))")]
@@ -1422,39 +1433,47 @@ namespace Picturepark.SDK.V1.Contract
         /// <summary>Update</summary>
         /// <param name="id">The share id.</param>
         /// <param name="request">The share update request.</param>
-        /// <param name="timeout">Optional timeout to wait for the request to complete</param>
-        /// <returns>Share detail</returns>
+        /// <returns>BusinessProcess</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="BusinessProcessLifeCycleNotHitException">A server side error occurred.</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        System.Threading.Tasks.Task<ShareDetail> UpdateAsync(string id, ShareBaseUpdateRequest request, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<BusinessProcess> UpdateAsync(string id, ShareBaseUpdateRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Create</summary>
         /// <param name="request">Polymorphic create contract. Use either ShareBasicCreateRequest or ShareEmbedCreateRequest</param>
-        /// <param name="timeout">Optional timeout to wait for the request to complete</param>
-        /// <returns>Create result</returns>
+        /// <returns>BusinessProcess</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="ContentNotFoundException">Content could not be found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PermissionValidationException">No permission to share</exception>
-        System.Threading.Tasks.Task<CreateShareResult> CreateAsync(ShareBaseCreateRequest request, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<BusinessProcess> CreateAsync(ShareBaseCreateRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Delete multiple shares</summary>
         /// <param name="request">A delete many request containing the ids of the shares to delete.</param>
-        /// <param name="timeout">Optional timeout to wait for the request to complete</param>
         /// <returns>BusinessProcess</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        System.Threading.Tasks.Task<BulkResponse> DeleteManyAsync(ShareDeleteManyRequest request, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<BusinessProcess> DeleteManyAsync(ShareDeleteManyRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>Revokes multiple shares</summary>
+        /// <param name="request">A revoke many request containing the ids of the shares to revoke.</param>
+        /// <returns>BusinessProcess</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        System.Threading.Tasks.Task<BusinessProcess> RevokeAsync(ShareRevokeManyRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Aggregate</summary>
@@ -1766,6 +1785,17 @@ namespace Picturepark.SDK.V1.Contract
         System.Threading.Tasks.Task LockAsync(string id, UserLockRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>Change lock state of multiple users</summary>
+        /// <param name="request">Information about users to update and the desired lock state</param>
+        /// <returns>Business process</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        System.Threading.Tasks.Task<BusinessProcess> LockManyAsync(UserLockManyRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Change user's review state</summary>
         /// <param name="id">User ID to action on.</param>
         /// <param name="request">Request detailing if the user should be set as _reviewed_ or _to be reviewed_.</param>
@@ -1776,6 +1806,17 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task ReviewAsync(string id, UserReviewRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>Change Review state of multiple users</summary>
+        /// <param name="request">Information about users to update and the desired review state</param>
+        /// <returns>Business process</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        System.Threading.Tasks.Task<BusinessProcess> ReviewManyAsync(UserReviewManyRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Invite user</summary>
@@ -1789,6 +1830,17 @@ namespace Picturepark.SDK.V1.Contract
         System.Threading.Tasks.Task InviteAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>Invite multiple users</summary>
+        /// <param name="request">Information about users to invite</param>
+        /// <returns>Business process</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        System.Threading.Tasks.Task<BusinessProcess> InviteManyAsync(UserInviteManyRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Reinvite user</summary>
         /// <param name="id">User ID to action on.</param>
         /// <returns>OK</returns>
@@ -1800,10 +1852,31 @@ namespace Picturepark.SDK.V1.Contract
         System.Threading.Tasks.Task ReinviteAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>Reinvite users</summary>
+        /// <param name="request">Information about users to reinvite</param>
+        /// <returns>Business process</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        System.Threading.Tasks.Task<BusinessProcess> ReInviteManyAsync(UserReinviteManyRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>Assign or unassign userRoles</summary>
+        /// <param name="request">Information about users to modify and kind of operation</param>
+        /// <returns>Business process</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        System.Threading.Tasks.Task<BusinessProcess> AssignUserRolesAsync(UserRoleAssignManyRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Delete user</summary>
-        /// <param name="id">User ID to action on.</param>
-        /// <param name="request">Request with details regarding the deletion.</param>
-        /// <returns>OK</returns>
+        /// <param name="id">User ID.</param>
+        /// <param name="request">Details of the user deletion..</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -2153,6 +2226,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("UserRolesNotFoundException", typeof(UserRolesNotFoundException))]
     [JsonInheritanceAttribute("UnauthorizedException", typeof(UnauthorizedException))]
     [JsonInheritanceAttribute("UserUnlockDisallowedException", typeof(UserUnlockDisallowedException))]
+    [JsonInheritanceAttribute("UserAlreadyInRequestedLockStateException", typeof(UserAlreadyInRequestedLockStateException))]
     [JsonInheritanceAttribute("RenderingException", typeof(RenderingException))]
     [JsonInheritanceAttribute("FormatNotApplicableForRenderingException", typeof(FormatNotApplicableForRenderingException))]
     [JsonInheritanceAttribute("DocumentVersionNotFoundException", typeof(DocumentVersionNotFoundException))]
@@ -2689,6 +2763,28 @@ namespace Picturepark.SDK.V1.Contract
         public static UserUnlockDisallowedException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<UserUnlockDisallowedException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class UserAlreadyInRequestedLockStateException : PictureparkBusinessException
+    {
+        [Newtonsoft.Json.JsonProperty("affectedUserId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string AffectedUserId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("userIsLocked", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool UserIsLocked { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static UserAlreadyInRequestedLockStateException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<UserAlreadyInRequestedLockStateException>(data);
         }
     
     }
@@ -8686,7 +8782,7 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("version", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public long Version { get; set; }
     
-        /// <summary>If the operation did not succeeded, this contains error information.</summary>
+        /// <summary>If the operation did not succeed, this contains error information.</summary>
         [Newtonsoft.Json.JsonProperty("error", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public ErrorResponse Error { get; set; }
     
@@ -9662,6 +9758,10 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("description", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public TranslatedStringDictionary Description { get; set; }
     
+        /// <summary>Enable trace logs for this rule.</summary>
+        [Newtonsoft.Json.JsonProperty("enableTracing", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool EnableTracing { get; set; }
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -9754,9 +9854,15 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("ContentRelationItemsChangedCondition", typeof(ContentRelationItemsChangedCondition))]
     [JsonInheritanceAttribute("LayersChangedCondition", typeof(LayersChangedCondition))]
     [JsonInheritanceAttribute("TagboxItemsChangedCondition", typeof(TagboxItemsChangedCondition))]
+    [JsonInheritanceAttribute("FieldEmptyCondition", typeof(FieldEmptyCondition))]
+    [JsonInheritanceAttribute("NotCondition", typeof(NotCondition))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     public abstract partial class BusinessRuleCondition 
     {
+        /// <summary>Optional trace log reference ID set by the system when EnableTracing is set to true on the associated rule.</summary>
+        [Newtonsoft.Json.JsonProperty("traceRefId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string TraceRefId { get; set; }
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -10238,6 +10344,46 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>Matches when a field matching the field path string (JSON path) is empty.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class FieldEmptyCondition : BusinessRuleCondition
+    {
+        /// <summary>JSON path to the field</summary>
+        [Newtonsoft.Json.JsonProperty("fieldPath", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string FieldPath { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static FieldEmptyCondition FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<FieldEmptyCondition>(data);
+        }
+    
+    }
+    
+    /// <summary>Matches when the inner condition is not matching.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class NotCondition : BusinessRuleCondition
+    {
+        /// <summary>Inner condition.</summary>
+        [Newtonsoft.Json.JsonProperty("condition", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public BusinessRuleCondition Condition { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static NotCondition FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<NotCondition>(data);
+        }
+    
+    }
+    
     /// <summary>Business rule transformation group:
     /// A group of transformations to run for the specified inputs</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
@@ -10254,6 +10400,10 @@ namespace Picturepark.SDK.V1.Contract
         /// <summary>Variable name where the final result should be stored in.</summary>
         [Newtonsoft.Json.JsonProperty("storeIn", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string StoreIn { get; set; }
+    
+        /// <summary>Optional trace log reference ID set by the system when EnableTracing is set to true on the associated rule.</summary>
+        [Newtonsoft.Json.JsonProperty("traceRefId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string TraceRefId { get; set; }
     
         public string ToJson() 
         {
@@ -10278,6 +10428,10 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     public abstract partial class BusinessRuleTransformation 
     {
+        /// <summary>Optional trace log reference ID set by the system when EnableTracing is set to true on the associated rule.</summary>
+        [Newtonsoft.Json.JsonProperty("traceRefId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string TraceRefId { get; set; }
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -10435,6 +10589,10 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     public abstract partial class BusinessRuleAction 
     {
+        /// <summary>Optional trace log reference ID set by the system when EnableTracing is set to true on the associated rule.</summary>
+        [Newtonsoft.Json.JsonProperty("traceRefId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string TraceRefId { get; set; }
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -10941,112 +11099,463 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>Holds results of trace log search.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
-    public partial class Channel 
+    public partial class BusinessRuleTraceLogSearchResult : SearchBehaviorWithAggregationBaseResultOfBusinessRuleTraceLog
     {
-        /// <summary>ID of channel.</summary>
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Always)]
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static BusinessRuleTraceLogSearchResult FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessRuleTraceLogSearchResult>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class SearchBehaviorWithAggregationBaseResultOfBusinessRuleTraceLog : SearchBehaviorBaseResultOfBusinessRuleTraceLog
+    {
+        [Newtonsoft.Json.JsonProperty("aggregationResults", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<AggregationResult> AggregationResults { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static SearchBehaviorWithAggregationBaseResultOfBusinessRuleTraceLog FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SearchBehaviorWithAggregationBaseResultOfBusinessRuleTraceLog>(data);
+        }
+    
+    }
+    
+    /// <summary>Result of an aggregation</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class AggregationResult 
+    {
+        /// <summary>Name of the aggregation.</summary>
+        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
-        public string Id { get; set; }
+        public string Name { get; set; }
     
-        /// <summary>Numeric sort order of the channel. Channels are returned ordered by this field.</summary>
-        [Newtonsoft.Json.JsonProperty("sortOrder", Required = Newtonsoft.Json.Required.Always)]
-        public int SortOrder { get; set; }
+        /// <summary>When there are lots of unique terms, Elastic Search only returns the top terms; this number is the sum of the document counts for all buckets that are not part of the response.</summary>
+        [Newtonsoft.Json.JsonProperty("sumOtherDocCount", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public long? SumOtherDocCount { get; set; }
     
-        /// <summary>The search index ID where the channel requests the content from. Only RootContentSearchIndex is supported.</summary>
-        [Newtonsoft.Json.JsonProperty("searchIndexId", Required = Newtonsoft.Json.Required.Always)]
+        /// <summary>Items returned for the aggregation. Each item consists of a bucket with the matched value and the number of matches.
+        /// Optionally inner aggregations for further drill down can be available.</summary>
+        [Newtonsoft.Json.JsonProperty("aggregationResultItems", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<AggregationResultItem> AggregationResultItems { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static AggregationResult FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<AggregationResult>(data);
+        }
+    
+    }
+    
+    /// <summary>Aggregation result item</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class AggregationResultItem 
+    {
+        /// <summary>Value matched.</summary>
+        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
-        public string SearchIndexId { get; set; }
+        public string Name { get; set; }
     
-        /// <summary>An optional search filter. Limits the content document result set on each search and aggregation request.</summary>
+        /// <summary>Number of items matched.</summary>
+        [Newtonsoft.Json.JsonProperty("count", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public long Count { get; set; }
+    
+        /// <summary>Ready to use filter to filter the data based on the aggregation result values.
+        /// It can be passed as one of the aggregation filters of an aggregation query: it returns documents meeting the aggregation condition.</summary>
+        [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public AggregationFilter Filter { get; set; }
+    
+        /// <summary>True if the current result item matches on of the aggregation filters sent in the query.</summary>
+        [Newtonsoft.Json.JsonProperty("active", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool Active { get; set; }
+    
+        /// <summary>Inner aggregation results, if inner aggregations were provided in the query.</summary>
+        [Newtonsoft.Json.JsonProperty("aggregationResults", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<AggregationResult> AggregationResults { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static AggregationResultItem FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<AggregationResultItem>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class SearchBehaviorBaseResultOfBusinessRuleTraceLog : BaseResultOfBusinessRuleTraceLog
+    {
+        [Newtonsoft.Json.JsonProperty("searchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string SearchString { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("isSearchStringRewritten", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool IsSearchStringRewritten { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("queryDebugInformation", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public QueryDebugInformation QueryDebugInformation { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static SearchBehaviorBaseResultOfBusinessRuleTraceLog FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SearchBehaviorBaseResultOfBusinessRuleTraceLog>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class BaseResultOfBusinessRuleTraceLog 
+    {
+        [Newtonsoft.Json.JsonProperty("totalResults", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public long TotalResults { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("results", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.Collections.Generic.ICollection<BusinessRuleTraceLog> Results { get; set; } = new System.Collections.Generic.List<BusinessRuleTraceLog>();
+    
+        [Newtonsoft.Json.JsonProperty("elapsedMilliseconds", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public long ElapsedMilliseconds { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("pageToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string PageToken { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static BaseResultOfBusinessRuleTraceLog FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BaseResultOfBusinessRuleTraceLog>(data);
+        }
+    
+    }
+    
+    /// <summary>Contains a trace for a single document affected by potentially multiple business rules being evaluated and executed.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class BusinessRuleTraceLog 
+    {
+        /// <summary>ID of the document.</summary>
+        [Newtonsoft.Json.JsonProperty("documentId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string DocumentId { get; set; }
+    
+        /// <summary>Type of the document.</summary>
+        [Newtonsoft.Json.JsonProperty("documentType", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public BusinessRuleTriggerDocType DocumentType { get; set; }
+    
+        /// <summary>IDs of rules that were traced for this document.</summary>
+        [Newtonsoft.Json.JsonProperty("ruleIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> RuleIds { get; set; }
+    
+        /// <summary>Detailed information about rules traced.</summary>
+        [Newtonsoft.Json.JsonProperty("rules", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<BusinessRuleTracedRule> Rules { get; set; }
+    
+        /// <summary>Validation errors occuring after all rules have ran.</summary>
+        [Newtonsoft.Json.JsonProperty("validationErrors", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<ErrorResponse> ValidationErrors { get; set; }
+    
+        /// <summary>General errors occuring when saving the document.</summary>
+        [Newtonsoft.Json.JsonProperty("generalErrors", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<ErrorResponse> GeneralErrors { get; set; }
+    
+        /// <summary>Audit information.</summary>
+        [Newtonsoft.Json.JsonProperty("audit", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public UserAudit Audit { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static BusinessRuleTraceLog FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessRuleTraceLog>(data);
+        }
+    
+    }
+    
+    /// <summary>Traced Business rule</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class BusinessRuleTracedRule 
+    {
+        /// <summary>Configuration of the rule as it was running. Enriched with trace ref IDs.</summary>
+        [Newtonsoft.Json.JsonProperty("configuration", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public BusinessRule Configuration { get; set; }
+    
+        /// <summary>Evaluations performed for this rule.</summary>
+        [Newtonsoft.Json.JsonProperty("evaluations", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<BusinessRuleTracedEvaluation> Evaluations { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static BusinessRuleTracedRule FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessRuleTracedRule>(data);
+        }
+    
+    }
+    
+    /// <summary>Evaluation trace of a business rule</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class BusinessRuleTracedEvaluation 
+    {
+        /// <summary>Indicates if the rule was found to be executable.</summary>
+        [Newtonsoft.Json.JsonProperty("conditionSatisfied", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool ConditionSatisfied { get; set; }
+    
+        /// <summary>Detailed evaluation results for each condition.</summary>
+        [Newtonsoft.Json.JsonProperty("conditions", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<BusinessRuleTracedEvaluationCondition> Conditions { get; set; }
+    
+        /// <summary>Detailed results for transformation groups.</summary>
+        [Newtonsoft.Json.JsonProperty("transformationGroups", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<BusinessRuleTracedTransformationGroup> TransformationGroups { get; set; }
+    
+        /// <summary>Detailed steps performed by actions.</summary>
+        [Newtonsoft.Json.JsonProperty("actions", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<BusinessRuleTracedAction> Actions { get; set; }
+    
+        /// <summary>State of variables after all transformation groups were ran.</summary>
+        [Newtonsoft.Json.JsonProperty("variables", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.IDictionary<string, string> Variables { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static BusinessRuleTracedEvaluation FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessRuleTracedEvaluation>(data);
+        }
+    
+    }
+    
+    /// <summary>Detail trace for business rule condition</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class BusinessRuleTracedEvaluationCondition 
+    {
+        /// <summary>Trace reference ID of condition.</summary>
+        [Newtonsoft.Json.JsonProperty("traceRefId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string TraceRefId { get; set; }
+    
+        /// <summary>Indicates if this condition evaluated to true.</summary>
+        [Newtonsoft.Json.JsonProperty("satisfied", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool Satisfied { get; set; }
+    
+        /// <summary>Additional reason why condition evaluated to given result.</summary>
+        [Newtonsoft.Json.JsonProperty("reason", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Reason { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static BusinessRuleTracedEvaluationCondition FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessRuleTracedEvaluationCondition>(data);
+        }
+    
+    }
+    
+    /// <summary>Trace of transformation group</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class BusinessRuleTracedTransformationGroup 
+    {
+        /// <summary>Trace reference ID of transformation group.</summary>
+        [Newtonsoft.Json.JsonProperty("traceRefId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string TraceRefId { get; set; }
+    
+        /// <summary>Serialized JSON of input for group</summary>
+        [Newtonsoft.Json.JsonProperty("input", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Input { get; set; }
+    
+        /// <summary>Serialized JSON of output for group</summary>
+        [Newtonsoft.Json.JsonProperty("output", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Output { get; set; }
+    
+        /// <summary>Detailed traces for each step performed by transformations in group.</summary>
+        [Newtonsoft.Json.JsonProperty("transformations", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<BusinessRuleTracedTransformation> Transformations { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static BusinessRuleTracedTransformationGroup FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessRuleTracedTransformationGroup>(data);
+        }
+    
+    }
+    
+    /// <summary>Trace of single transformation step</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class BusinessRuleTracedTransformation 
+    {
+        /// <summary>Trace reference ID of transformation.</summary>
+        [Newtonsoft.Json.JsonProperty("traceRefId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string TraceRefId { get; set; }
+    
+        /// <summary>Serialized JSON of input of transformation</summary>
+        [Newtonsoft.Json.JsonProperty("input", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Input { get; set; }
+    
+        /// <summary>Serialized JSON of output of transformation</summary>
+        [Newtonsoft.Json.JsonProperty("output", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Output { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static BusinessRuleTracedTransformation FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessRuleTracedTransformation>(data);
+        }
+    
+    }
+    
+    /// <summary>Detailed trace for business rule action</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class BusinessRuleTracedAction 
+    {
+        /// <summary>Trace reference ID of action</summary>
+        [Newtonsoft.Json.JsonProperty("traceRefId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string TraceRefId { get; set; }
+    
+        /// <summary>Indicates if the action modified the document</summary>
+        [Newtonsoft.Json.JsonProperty("documentModified", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool DocumentModified { get; set; }
+    
+        /// <summary>Additional information provided by the trace</summary>
+        [Newtonsoft.Json.JsonProperty("text", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Text { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static BusinessRuleTracedAction FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessRuleTracedAction>(data);
+        }
+    
+    }
+    
+    /// <summary>Audit information</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class UserAudit 
+    {
+        /// <summary>The date on which the document was created.</summary>
+        [Newtonsoft.Json.JsonProperty("creationDate", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.DateTime CreationDate { get; set; }
+    
+        /// <summary>The last date on which the document was modified.</summary>
+        [Newtonsoft.Json.JsonProperty("modificationDate", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.DateTime ModificationDate { get; set; }
+    
+        /// <summary>ID of the user who created the document.</summary>
+        [Newtonsoft.Json.JsonProperty("createdByUser", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string CreatedByUser { get; set; }
+    
+        /// <summary>ID of the last user who modified the document.</summary>
+        [Newtonsoft.Json.JsonProperty("modifiedByUser", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ModifiedByUser { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static UserAudit FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<UserAudit>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class BusinessRuleTraceLogSearchRequest 
+    {
+        /// <summary>Enable debug mode to get as result of the Searched additional debug information. Warning! Severely affects performance.</summary>
+        [Newtonsoft.Json.JsonProperty("debugMode", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool DebugMode { get; set; } = false;
+    
+        /// <summary>Special filters used to filter down the aggregations' values on specific conditions. The behavior is different when
+        /// filtering an aggregation that matches the same AggregationName or another aggregation.
+        /// In the first case, the filter is put in "or" with (eventual) other existing filters. In the second case it is put in "and".</summary>
+        [Newtonsoft.Json.JsonProperty("aggregationFilters", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<AggregationFilter> AggregationFilters { get; set; }
+    
+        /// <summary>List of aggregators that defines how the items should be aggregated.</summary>
+        [Newtonsoft.Json.JsonProperty("aggregators", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<AggregatorBase> Aggregators { get; set; }
+    
+        /// <summary>An optional search filter. Limits the document result set.</summary>
         [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public FilterBase Filter { get; set; }
     
-        /// <summary>Language specific names.</summary>
-        [Newtonsoft.Json.JsonProperty("names", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public TranslatedStringDictionary Names { get; set; } = new TranslatedStringDictionary();
+        /// <summary>Limits the document count of the result set.</summary>
+        [Newtonsoft.Json.JsonProperty("limit", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int Limit { get; set; } = 30;
     
-        /// <summary>Default sort order specified for the channel to sort the results of a content search.</summary>
-        [Newtonsoft.Json.JsonProperty("sort", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.Collections.Generic.ICollection<SortInfo> Sort { get; set; } = new System.Collections.Generic.List<SortInfo>();
+        /// <summary>The token used to retrieve the next page of results. It must be null on first request and only filled with the returned pageToken to request next page of results.</summary>
+        [Newtonsoft.Json.JsonProperty("pageToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string PageToken { get; set; }
     
-        /// <summary>An optional list of aggregators. These aggregations are added by default on each aggregation requests.</summary>
-        [Newtonsoft.Json.JsonProperty("aggregations", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.Collections.Generic.ICollection<AggregatorBase> Aggregations { get; set; } = new System.Collections.Generic.List<AggregatorBase>();
+        /// <summary>Limits the search by using a query string filter. The Lucene query string syntax is supported.</summary>
+        [Newtonsoft.Json.JsonProperty("searchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string SearchString { get; set; }
     
-        /// <summary>An Optional list of fields. These fields extend the list of simple search fields outside the bounds of any schema field configuration.</summary>
-        [Newtonsoft.Json.JsonProperty("extendedSimpleSearchFields", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.Collections.Generic.ICollection<string> ExtendedSimpleSearchFields { get; set; } = new System.Collections.Generic.List<string>();
+        /// <summary>An optional list of search behaviors. All the passed behaviors will be applied.</summary>
+        [Newtonsoft.Json.JsonProperty("searchBehaviors", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public System.Collections.Generic.ICollection<SearchBehavior> SearchBehaviors { get; set; }
     
-        /// <summary>User roles granted access to the channel.</summary>
-        [Newtonsoft.Json.JsonProperty("grantedUserRoleIds", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.Collections.Generic.ICollection<string> GrantedUserRoleIds { get; set; } = new System.Collections.Generic.List<string>();
-    
-        /// <summary>Display pattern to use for rendering details when 0 results are returned</summary>
-        [Newtonsoft.Json.JsonProperty("missingResultsDisplayPatterns", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public TranslatedStringDictionary MissingResultsDisplayPatterns { get; set; } = new TranslatedStringDictionary();
-    
-        /// <summary>Audit information.</summary>
-        [Newtonsoft.Json.JsonProperty("audit", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public UserAudit Audit { get; set; } = new UserAudit();
-    
-        /// <summary>Grants rights to all the users to view the channel.</summary>
-        [Newtonsoft.Json.JsonProperty("viewForAll", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool ViewForAll { get; set; }
+        /// <summary>Fields and respective directions requested to sort the search results. Sorting on a not indexed field will throw an exception.</summary>
+        [Newtonsoft.Json.JsonProperty("sort", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<SortInfo> Sort { get; set; }
     
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
         }
     
-        public static Channel FromJson(string data)
+        public static BusinessRuleTraceLogSearchRequest FromJson(string data)
         {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<Channel>(data);
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessRuleTraceLogSearchRequest>(data);
         }
-    
-    }
-    
-    /// <summary>Sorting information</summary>
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
-    public partial class SortInfo 
-    {
-        /// <summary>The field's ID to sort on.</summary>
-        [Newtonsoft.Json.JsonProperty("field", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Field { get; set; }
-    
-        /// <summary>The sort direction (ascending/descending).</summary>
-        [Newtonsoft.Json.JsonProperty("direction", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public SortDirection Direction { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-    
-        public static SortInfo FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<SortInfo>(data);
-        }
-    
-    }
-    
-    /// <summary>The sort direction</summary>
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
-    public enum SortDirection
-    {
-        [System.Runtime.Serialization.EnumMember(Value = @"Asc")]
-        Asc = 0,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"Desc")]
-        Desc = 1,
     
     }
     
@@ -11357,6 +11866,9 @@ namespace Picturepark.SDK.V1.Contract
         [System.Runtime.Serialization.EnumMember(Value = @"Owner")]
         Owner = 5,
     
+        [System.Runtime.Serialization.EnumMember(Value = @"UserRole")]
+        UserRole = 6,
+    
     }
     
     /// <summary>A multi-bucket value aggregator used for aggregations on indexed enum values.</summary>
@@ -11380,34 +11892,111 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    /// <summary>Audit information</summary>
+    /// <summary>Sorting information</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
-    public partial class UserAudit 
+    public partial class SortInfo 
     {
-        /// <summary>The date on which the document was created.</summary>
-        [Newtonsoft.Json.JsonProperty("creationDate", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTime CreationDate { get; set; }
+        /// <summary>The field's ID to sort on.</summary>
+        [Newtonsoft.Json.JsonProperty("field", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Field { get; set; }
     
-        /// <summary>The last date on which the document was modified.</summary>
-        [Newtonsoft.Json.JsonProperty("modificationDate", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.DateTime ModificationDate { get; set; }
-    
-        /// <summary>ID of the user who created the document.</summary>
-        [Newtonsoft.Json.JsonProperty("createdByUser", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string CreatedByUser { get; set; }
-    
-        /// <summary>ID of the last user who modified the document.</summary>
-        [Newtonsoft.Json.JsonProperty("modifiedByUser", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string ModifiedByUser { get; set; }
+        /// <summary>The sort direction (ascending/descending).</summary>
+        [Newtonsoft.Json.JsonProperty("direction", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public SortDirection Direction { get; set; }
     
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
         }
     
-        public static UserAudit FromJson(string data)
+        public static SortInfo FromJson(string data)
         {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<UserAudit>(data);
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SortInfo>(data);
+        }
+    
+    }
+    
+    /// <summary>The sort direction</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public enum SortDirection
+    {
+        [System.Runtime.Serialization.EnumMember(Value = @"Asc")]
+        Asc = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Desc")]
+        Desc = 1,
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class Channel 
+    {
+        /// <summary>ID of channel.</summary>
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public string Id { get; set; }
+    
+        /// <summary>Numeric sort order of the channel. Channels are returned ordered by this field.</summary>
+        [Newtonsoft.Json.JsonProperty("sortOrder", Required = Newtonsoft.Json.Required.Always)]
+        public int SortOrder { get; set; }
+    
+        /// <summary>The search index ID where the channel requests the content from. Only RootContentSearchIndex is supported.</summary>
+        [Newtonsoft.Json.JsonProperty("searchIndexId", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public string SearchIndexId { get; set; }
+    
+        /// <summary>An optional search filter. Limits the content document result set on each search and aggregation request.</summary>
+        [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public FilterBase Filter { get; set; }
+    
+        /// <summary>Language specific names.</summary>
+        [Newtonsoft.Json.JsonProperty("names", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public TranslatedStringDictionary Names { get; set; } = new TranslatedStringDictionary();
+    
+        /// <summary>Default sort order specified for the channel to sort the results of a content search.</summary>
+        [Newtonsoft.Json.JsonProperty("sort", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.Collections.Generic.ICollection<SortInfo> Sort { get; set; } = new System.Collections.Generic.List<SortInfo>();
+    
+        /// <summary>An optional list of aggregators. These aggregations are added by default on each aggregation requests.</summary>
+        [Newtonsoft.Json.JsonProperty("aggregations", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.Collections.Generic.ICollection<AggregatorBase> Aggregations { get; set; } = new System.Collections.Generic.List<AggregatorBase>();
+    
+        /// <summary>An Optional list of fields. These fields extend the list of simple search fields outside the bounds of any schema field configuration.</summary>
+        [Newtonsoft.Json.JsonProperty("extendedSimpleSearchFields", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.Collections.Generic.ICollection<string> ExtendedSimpleSearchFields { get; set; } = new System.Collections.Generic.List<string>();
+    
+        /// <summary>User roles granted access to the channel.</summary>
+        [Newtonsoft.Json.JsonProperty("grantedUserRoleIds", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.Collections.Generic.ICollection<string> GrantedUserRoleIds { get; set; } = new System.Collections.Generic.List<string>();
+    
+        /// <summary>Display pattern to use for rendering details when 0 results are returned</summary>
+        [Newtonsoft.Json.JsonProperty("missingResultsDisplayPatterns", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public TranslatedStringDictionary MissingResultsDisplayPatterns { get; set; } = new TranslatedStringDictionary();
+    
+        /// <summary>Audit information.</summary>
+        [Newtonsoft.Json.JsonProperty("audit", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public UserAudit Audit { get; set; } = new UserAudit();
+    
+        /// <summary>Grants rights to all the users to view the channel.</summary>
+        [Newtonsoft.Json.JsonProperty("viewForAll", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool ViewForAll { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static Channel FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<Channel>(data);
         }
     
     }
@@ -13918,74 +14507,6 @@ namespace Picturepark.SDK.V1.Contract
         public static SearchBehaviorWithAggregationBaseResultOfContent FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<SearchBehaviorWithAggregationBaseResultOfContent>(data);
-        }
-    
-    }
-    
-    /// <summary>Result of an aggregation</summary>
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
-    public partial class AggregationResult 
-    {
-        /// <summary>Name of the aggregation.</summary>
-        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public string Name { get; set; }
-    
-        /// <summary>When there are lots of unique terms, Elastic Search only returns the top terms; this number is the sum of the document counts for all buckets that are not part of the response.</summary>
-        [Newtonsoft.Json.JsonProperty("sumOtherDocCount", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public long? SumOtherDocCount { get; set; }
-    
-        /// <summary>Items returned for the aggregation. Each item consists of a bucket with the matched value and the number of matches.
-        /// Optionally inner aggregations for further drill down can be available.</summary>
-        [Newtonsoft.Json.JsonProperty("aggregationResultItems", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<AggregationResultItem> AggregationResultItems { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-    
-        public static AggregationResult FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<AggregationResult>(data);
-        }
-    
-    }
-    
-    /// <summary>Aggregation result item</summary>
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
-    public partial class AggregationResultItem 
-    {
-        /// <summary>Value matched.</summary>
-        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public string Name { get; set; }
-    
-        /// <summary>Number of items matched.</summary>
-        [Newtonsoft.Json.JsonProperty("count", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public long Count { get; set; }
-    
-        /// <summary>Ready to use filter to filter the data based on the aggregation result values.
-        /// It can be passed as one of the aggregation filters of an aggregation query: it returns documents meeting the aggregation condition.</summary>
-        [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public AggregationFilter Filter { get; set; }
-    
-        /// <summary>True if the current result item matches on of the aggregation filters sent in the query.</summary>
-        [Newtonsoft.Json.JsonProperty("active", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool Active { get; set; }
-    
-        /// <summary>Inner aggregation results, if inner aggregations were provided in the query.</summary>
-        [Newtonsoft.Json.JsonProperty("aggregationResults", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<AggregationResult> AggregationResults { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-    
-        public static AggregationResultItem FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<AggregationResultItem>(data);
         }
     
     }
@@ -20000,26 +20521,6 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    /// <summary>Result of share creation</summary>
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
-    public partial class CreateShareResult 
-    {
-        /// <summary>Share ID.</summary>
-        [Newtonsoft.Json.JsonProperty("shareId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string ShareId { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-    
-        public static CreateShareResult FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<CreateShareResult>(data);
-        }
-    
-    }
-    
     /// <summary>Base create request for share</summary>
     [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
     [JsonInheritanceAttribute("ShareBasicCreateRequest", typeof(ShareBasicCreateRequest))]
@@ -20127,6 +20628,24 @@ namespace Picturepark.SDK.V1.Contract
         public static ShareDeleteManyRequest FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<ShareDeleteManyRequest>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class ShareRevokeManyRequest 
+    {
+        [Newtonsoft.Json.JsonProperty("ids", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> Ids { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static ShareRevokeManyRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ShareRevokeManyRequest>(data);
         }
     
     }
@@ -21819,7 +22338,8 @@ namespace Picturepark.SDK.V1.Contract
     public partial class UserLockRequest 
     {
         /// <summary>Indicates the requested lock state of the user.
-        /// If _true_ was specified, the user will be _locked_. _False_ will unlock the previously _locked_ user.</summary>
+        /// If _true_ was specified, the user will be _locked_. _False_ will unlock the previously _locked_ user.
+        /// If User is already in desired state, this will be returned as error.</summary>
         [Newtonsoft.Json.JsonProperty("lock", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool Lock { get; set; }
     
@@ -21831,6 +22351,49 @@ namespace Picturepark.SDK.V1.Contract
         public static UserLockRequest FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<UserLockRequest>(data);
+        }
+    
+    }
+    
+    /// <summary>Request update of lock state of multiple users</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class UserLockManyRequest : UserManyRequestBase
+    {
+        /// <summary>Indicates the requested lock state of the users.
+        /// If _true_ was specified, the users will be _locked_. _False_ will unlock the previously _locked_ users.
+        /// Users which are already in desired state will be returned as errors.</summary>
+        [Newtonsoft.Json.JsonProperty("lock", Required = Newtonsoft.Json.Required.Always)]
+        public bool Lock { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static UserLockManyRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<UserLockManyRequest>(data);
+        }
+    
+    }
+    
+    /// <summary>Base class for requests affecting multiple users</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public abstract partial class UserManyRequestBase 
+    {
+        /// <summary>User IDs.</summary>
+        [Newtonsoft.Json.JsonProperty("userIds", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.Collections.Generic.ICollection<string> UserIds { get; set; } = new System.Collections.Generic.List<string>();
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static UserManyRequestBase FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<UserManyRequestBase>(data);
         }
     
     }
@@ -21853,6 +22416,102 @@ namespace Picturepark.SDK.V1.Contract
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<UserReviewRequest>(data);
         }
+    
+    }
+    
+    /// <summary>Review many request</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class UserReviewManyRequest : UserManyRequestBase
+    {
+        /// <summary>Indicates the requested review state of the user.
+        /// If _true_ is specified, user will be transitioned into _reviewed_ state. _False_ will put the user back into _to be reviewed_ state.</summary>
+        [Newtonsoft.Json.JsonProperty("reviewed", Required = Newtonsoft.Json.Required.Always)]
+        public bool Reviewed { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static UserReviewManyRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<UserReviewManyRequest>(data);
+        }
+    
+    }
+    
+    /// <summary>Request for inviting users (applies to users in states ToBeReviewed + Reviewed)</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class UserInviteManyRequest : UserManyRequestBase
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static UserInviteManyRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<UserInviteManyRequest>(data);
+        }
+    
+    }
+    
+    /// <summary>Request for re-inviting users (applies to users in states Invited)</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class UserReinviteManyRequest : UserManyRequestBase
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static UserReinviteManyRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<UserReinviteManyRequest>(data);
+        }
+    
+    }
+    
+    /// <summary>Request to update role assignment of users.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class UserRoleAssignManyRequest : UserManyRequestBase
+    {
+        /// <summary>Users roles to modify</summary>
+        [Newtonsoft.Json.JsonProperty("userRoleIds", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.Collections.Generic.ICollection<string> UserRoleIds { get; set; } = new System.Collections.Generic.List<string>();
+    
+        /// <summary>Defines how to apply specified UserRoleIds to UserIds
+        /// If an operation results in no change for a user, that user will be returned as succeeded.</summary>
+        [Newtonsoft.Json.JsonProperty("operation", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public UserRoleAssignmentOperationType Operation { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static UserRoleAssignManyRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<UserRoleAssignManyRequest>(data);
+        }
+    
+    }
+    
+    /// <summary>User role assignment operation type</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public enum UserRoleAssignmentOperationType
+    {
+        [System.Runtime.Serialization.EnumMember(Value = @"Add")]
+        Add = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Remove")]
+        Remove = 1,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Update")]
+        Update = 2,
     
     }
     
@@ -22680,9 +23339,6 @@ namespace Picturepark.SDK.V1.Contract
     {
         [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("maximumRetryCount", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int MaximumRetryCount { get; set; }
     
         [Newtonsoft.Json.JsonProperty("retries", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int Retries { get; set; }
