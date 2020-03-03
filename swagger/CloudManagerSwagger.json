@@ -13121,7 +13121,17 @@
           },
           {
             "type": "object",
-            "additionalProperties": false
+            "additionalProperties": false,
+            "properties": {
+              "missingRepositories": {
+                "type": "array",
+                "description": "List of repositories that were used in the repositories filter, but were not found in the system.",
+                "nullable": true,
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
           }
         ]
       },
@@ -13301,7 +13311,17 @@
           },
           {
             "type": "object",
-            "additionalProperties": false
+            "additionalProperties": false,
+            "properties": {
+              "missingRepositories": {
+                "type": "array",
+                "description": "List of repositories that were used in the repositories filter, but were not found in the system.",
+                "nullable": true,
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
           }
         ]
       },
