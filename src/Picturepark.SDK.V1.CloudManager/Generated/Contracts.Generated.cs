@@ -7855,6 +7855,10 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class SnapshotEnvironmentSearchResult : BaseResultOfSnapshot
     {
+        /// <summary>List of repositories that were used in the repositories filter, but were not found in the system.</summary>
+        [Newtonsoft.Json.JsonProperty("missingRepositories", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> MissingRepositories { get; set; }
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -8036,6 +8040,10 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class SnapshotCustomerSearchResult : BaseResultOfSnapshot
     {
+        /// <summary>List of repositories that were used in the repositories filter, but were not found in the system.</summary>
+        [Newtonsoft.Json.JsonProperty("missingRepositories", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> MissingRepositories { get; set; }
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
