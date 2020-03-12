@@ -3360,7 +3360,7 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        public async System.Threading.Tasks.Task AckBackupAsync(string customerId, string filePath, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ContentBackupAcknowledgementResult> AckBackupAsync(string customerId, string filePath, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/ContentBackup/{customerId}/ack/{filePath}");
@@ -3374,6 +3374,7 @@ namespace Picturepark.SDK.V1.CloudManager
                 {
                     request_.Content = new System.Net.Http.StringContent(string.Empty, System.Text.Encoding.UTF8, "application/json");
                     request_.Method = new System.Net.Http.HttpMethod("PUT");
+                    request_.Headers.Accept.Add(System.Net.Http.Headers.MediaTypeWithQualityHeaderValue.Parse("application/json"));
     
                     PrepareRequest(client_, request_, urlBuilder_);
                     var url_ = urlBuilder_.ToString();
@@ -3395,7 +3396,8 @@ namespace Picturepark.SDK.V1.CloudManager
                         var status_ = ((int)response_.StatusCode).ToString();
                         if (status_ == "200") 
                         {
-                            return;
+                            var objectResponse_ = await ReadObjectResponseAsync<ContentBackupAcknowledgementResult>(response_, headers_).ConfigureAwait(false);
+                            return objectResponse_.Object;
                         }
                         else
                         if (status_ == "400") 
@@ -3461,6 +3463,8 @@ namespace Picturepark.SDK.V1.CloudManager
                             var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false); 
                             throw new ApiException("The HTTP status code of the response was not expected (" + (int)response_.StatusCode + ").", (int)response_.StatusCode, responseData_, headers_, null);
                         }
+            
+                        return default(ContentBackupAcknowledgementResult);
                     }
                     finally
                     {

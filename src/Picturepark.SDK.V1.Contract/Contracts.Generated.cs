@@ -2246,6 +2246,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("NotSupportedFileExtensionException", typeof(NotSupportedFileExtensionException))]
     [JsonInheritanceAttribute("DuplicateOutputFormatIdException", typeof(DuplicateOutputFormatIdException))]
     [JsonInheritanceAttribute("OutputFormatResizingNotSupportedException", typeof(OutputFormatResizingNotSupportedException))]
+    [JsonInheritanceAttribute("OutputBackupNotRequestedException", typeof(OutputBackupNotRequestedException))]
     [JsonInheritanceAttribute("LeaseNotAcquiredException", typeof(LeaseNotAcquiredException))]
     [JsonInheritanceAttribute("OperationInProgressException", typeof(OperationInProgressException))]
     [JsonInheritanceAttribute("RetryException", typeof(RetryException))]
@@ -3335,6 +3336,22 @@ namespace Picturepark.SDK.V1.Contract
         public static OutputFormatResizingNotSupportedException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<OutputFormatResizingNotSupportedException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class OutputBackupNotRequestedException : PictureparkValidationException
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static OutputBackupNotRequestedException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<OutputBackupNotRequestedException>(data);
         }
     
     }
