@@ -18520,6 +18520,17 @@
           }
         ]
       },
+      "OutputBackupNotRequestedException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
       "LeaseNotAcquiredException": {
         "allOf": [
           {

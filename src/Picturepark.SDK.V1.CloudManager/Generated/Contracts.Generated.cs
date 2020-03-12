@@ -233,7 +233,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        System.Threading.Tasks.Task AckBackupAsync(string customerId, string filePath, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ContentBackupAcknowledgementResult> AckBackupAsync(string customerId, string filePath, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
@@ -1054,6 +1054,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [JsonInheritanceAttribute("NotSupportedFileExtensionException", typeof(NotSupportedFileExtensionException))]
     [JsonInheritanceAttribute("DuplicateOutputFormatIdException", typeof(DuplicateOutputFormatIdException))]
     [JsonInheritanceAttribute("OutputFormatResizingNotSupportedException", typeof(OutputFormatResizingNotSupportedException))]
+    [JsonInheritanceAttribute("OutputBackupNotRequestedException", typeof(OutputBackupNotRequestedException))]
     [JsonInheritanceAttribute("LeaseNotAcquiredException", typeof(LeaseNotAcquiredException))]
     [JsonInheritanceAttribute("OperationInProgressException", typeof(OperationInProgressException))]
     [JsonInheritanceAttribute("RetryException", typeof(RetryException))]
@@ -2151,6 +2152,22 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         public static OutputFormatResizingNotSupportedException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<OutputFormatResizingNotSupportedException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class OutputBackupNotRequestedException : PictureparkValidationException
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static OutputBackupNotRequestedException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<OutputBackupNotRequestedException>(data);
         }
     
     }

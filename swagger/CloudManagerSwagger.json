@@ -2028,7 +2028,14 @@
         ],
         "responses": {
           "200": {
-            "description": ""
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContentBackupAcknowledgementResult"
+                }
+              }
+            }
           },
           "400": {
             "description": "Validation exception",
@@ -7867,6 +7874,17 @@
                 "nullable": true
               }
             }
+          }
+        ]
+      },
+      "OutputBackupNotRequestedException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
           }
         ]
       },
