@@ -7433,7 +7433,7 @@
             "additionalProperties": false,
             "properties": {
               "contentRenderingType": {
-                "$ref": "#/components/schemas/RenderingService"
+                "$ref": "#/components/schemas/RenderingCategory"
               },
               "outputFormatId": {
                 "type": "string",
@@ -7443,7 +7443,7 @@
           }
         ]
       },
-      "RenderingService": {
+      "RenderingCategory": {
         "type": "string",
         "description": "",
         "x-enumNames": [
@@ -7841,7 +7841,13 @@
           },
           {
             "type": "object",
-            "additionalProperties": false
+            "additionalProperties": false,
+            "properties": {
+              "extension": {
+                "type": "string",
+                "nullable": true
+              }
+            }
           }
         ]
       },
@@ -12554,6 +12560,27 @@
             "type": "object",
             "additionalProperties": false,
             "properties": {
+              "outputFormatId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "NotSupportedFileExtensionForFormatException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/NotSupportedFileExtensionException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "formatKind": {
+                "type": "string",
+                "nullable": true
+              },
               "outputFormatId": {
                 "type": "string",
                 "nullable": true
