@@ -3259,6 +3259,12 @@ namespace Picturepark.SDK.V1.Contract
     [Newtonsoft.Json.JsonObjectAttribute]
     public partial class NotSupportedFileMappingException : PictureparkValidationException
     {
+        [Newtonsoft.Json.JsonProperty("inputExtension", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string InputExtension { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("targetFormatKind", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string TargetFormatKind { get; set; }
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -3275,6 +3281,9 @@ namespace Picturepark.SDK.V1.Contract
     [Newtonsoft.Json.JsonObjectAttribute]
     public partial class NotSupportedFileMappingForDynamicFormatException : NotSupportedFileMappingException
     {
+        [Newtonsoft.Json.JsonProperty("formatId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string FormatId { get; set; }
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);

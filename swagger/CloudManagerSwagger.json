@@ -7819,7 +7819,17 @@
           },
           {
             "type": "object",
-            "additionalProperties": false
+            "additionalProperties": false,
+            "properties": {
+              "inputExtension": {
+                "type": "string",
+                "nullable": true
+              },
+              "targetFormatKind": {
+                "type": "string",
+                "nullable": true
+              }
+            }
           }
         ]
       },
@@ -7830,7 +7840,13 @@
           },
           {
             "type": "object",
-            "additionalProperties": false
+            "additionalProperties": false,
+            "properties": {
+              "formatId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
           }
         ]
       },
