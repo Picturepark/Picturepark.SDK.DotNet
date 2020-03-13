@@ -1088,7 +1088,8 @@ namespace Picturepark.SDK.V1.Tests.Clients
             ContentSearchResult result = await _client.Content.SearchAsync(request).ConfigureAwait(false);
 
             // Assert
-            Assert.True(result.Results.Count > 0);
+            result.Results.Count.Should().BeGreaterThan(0);
+            result.Results.First().LifeCycle.Should().Be(LifeCycle.Active);
         }
 
         [Fact]

@@ -14623,6 +14623,11 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("brokenRelationTargetIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> BrokenRelationTargetIds { get; set; }
     
+        /// <summary>Life cycle of content</summary>
+        [Newtonsoft.Json.JsonProperty("lifeCycle", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public LifeCycle LifeCycle { get; set; }
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -16000,6 +16005,11 @@ namespace Picturepark.SDK.V1.Contract
         /// <summary>All the ids of the broken indirect references (tagbox that has a property that reference a broken tagbox)</summary>
         [Newtonsoft.Json.JsonProperty("brokenIndirectReferenceIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> BrokenIndirectReferenceIds { get; set; }
+    
+        /// <summary>LifeCycle of list item</summary>
+        [Newtonsoft.Json.JsonProperty("lifeCycle", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public LifeCycle LifeCycle { get; set; }
     
         public string ToJson() 
         {
