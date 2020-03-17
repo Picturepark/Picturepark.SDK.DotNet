@@ -2456,6 +2456,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("OutputFormatNotFoundException", typeof(OutputFormatNotFoundException))]
     [JsonInheritanceAttribute("OutputFormatSourceNotDefinedException", typeof(OutputFormatSourceNotDefinedException))]
     [JsonInheritanceAttribute("OutputFormatRetentionTimeOutOfRangeException", typeof(OutputFormatRetentionTimeOutOfRangeException))]
+    [JsonInheritanceAttribute("NotSupportedFileExtensionForFormatException", typeof(NotSupportedFileExtensionForFormatException))]
     [JsonInheritanceAttribute("CollectionSizeLimitExceededException", typeof(CollectionSizeLimitExceededException))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     [Newtonsoft.Json.JsonObjectAttribute]
@@ -2812,7 +2813,7 @@ namespace Picturepark.SDK.V1.Contract
     {
         [Newtonsoft.Json.JsonProperty("contentRenderingType", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public RenderingService ContentRenderingType { get; set; }
+        public RenderingCategory ContentRenderingType { get; set; }
     
         [Newtonsoft.Json.JsonProperty("outputFormatId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string OutputFormatId { get; set; }
@@ -2830,7 +2831,7 @@ namespace Picturepark.SDK.V1.Contract
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
-    public enum RenderingService
+    public enum RenderingCategory
     {
         [System.Runtime.Serialization.EnumMember(Value = @"Unknown")]
         Unknown = 0,
@@ -3258,6 +3259,12 @@ namespace Picturepark.SDK.V1.Contract
     [Newtonsoft.Json.JsonObjectAttribute]
     public partial class NotSupportedFileMappingException : PictureparkValidationException
     {
+        [Newtonsoft.Json.JsonProperty("inputExtension", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string InputExtension { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("targetFormatKind", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string TargetFormatKind { get; set; }
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -3274,6 +3281,9 @@ namespace Picturepark.SDK.V1.Contract
     [Newtonsoft.Json.JsonObjectAttribute]
     public partial class NotSupportedFileMappingForDynamicFormatException : NotSupportedFileMappingException
     {
+        [Newtonsoft.Json.JsonProperty("formatId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string FormatId { get; set; }
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -3290,6 +3300,9 @@ namespace Picturepark.SDK.V1.Contract
     [Newtonsoft.Json.JsonObjectAttribute]
     public partial class NotSupportedFileExtensionException : PictureparkValidationException
     {
+        [Newtonsoft.Json.JsonProperty("extension", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Extension { get; set; }
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -8429,6 +8442,28 @@ namespace Picturepark.SDK.V1.Contract
         public static OutputFormatRetentionTimeOutOfRangeException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<OutputFormatRetentionTimeOutOfRangeException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class NotSupportedFileExtensionForFormatException : NotSupportedFileExtensionException
+    {
+        [Newtonsoft.Json.JsonProperty("formatKind", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string FormatKind { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("outputFormatId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string OutputFormatId { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static NotSupportedFileExtensionForFormatException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<NotSupportedFileExtensionForFormatException>(data);
         }
     
     }
