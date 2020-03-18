@@ -511,6 +511,8 @@ namespace Picturepark.SDK.V1.Tests.Clients
             // Assert
             Assert.True(!failedMetadataSchemaIds.Any());
             Assert.True(items.Any());
+
+            items.First().LifeCycle.Should().Be(LifeCycle.Active);
         }
 
         [Fact]

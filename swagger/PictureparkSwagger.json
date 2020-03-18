@@ -29626,6 +29626,14 @@
             "items": {
               "type": "string"
             }
+          },
+          "lifeCycle": {
+            "description": "Life cycle of content",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/LifeCycle"
+              }
+            ]
           }
         }
       },
@@ -31024,6 +31032,14 @@
             "items": {
               "type": "string"
             }
+          },
+          "lifeCycle": {
+            "description": "LifeCycle of list item",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/LifeCycle"
+              }
+            ]
           }
         }
       },
