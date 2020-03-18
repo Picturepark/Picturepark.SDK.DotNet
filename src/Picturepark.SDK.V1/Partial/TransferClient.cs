@@ -248,7 +248,8 @@ namespace Picturepark.SDK.V1
         private async Task UploadFileAsync(SemaphoreSlim chunkLimiter, string transferId, string identifier, FileLocations fileLocation, int chunkSize, CancellationToken cancellationToken = default)
         {
             var fileSize = new FileInfo(fileLocation.AbsoluteSourcePath).Length;
-            var totalChunks = (long)Math.Ceiling((decimal)fileSize / chunkSize);
+            var chunksForFileSize = (long)Math.Ceiling((decimal)fileSize / chunkSize);
+            var totalChunks = Math.Max(1, chunksForFileSize);
 
             var uploadTasks = new List<Task>();
 
