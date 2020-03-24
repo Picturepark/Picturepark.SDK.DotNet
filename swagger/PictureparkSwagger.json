@@ -6348,6 +6348,360 @@
         ]
       }
     },
+    "/v1/IdentityProviders": {
+      "get": {
+        "tags": [
+          "IdentityProviders"
+        ],
+        "summary": "Get all identity providers",
+        "description": "Gets all identity providers configured",
+        "operationId": "IdentityProvider_GetAll",
+        "responses": {
+          "200": {
+            "description": "Array of identity providers",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/IdentityProvider"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "identityprovider_read"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/IdentityProviders/{id}": {
+      "get": {
+        "tags": [
+          "IdentityProviders"
+        ],
+        "summary": "Get identity provider",
+        "operationId": "IdentityProvider_Get",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Identity provider ID.",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": null,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IdentityProvider"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "identityprovider_read"
+            ]
+          }
+        ]
+      },
+      "put": {
+        "tags": [
+          "IdentityProviders"
+        ],
+        "summary": "Update identity provider",
+        "description": "Identity provider has to be already created via UI",
+        "operationId": "IdentityProvider_Update",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Identity provider ID.",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 1
+          }
+        ],
+        "requestBody": {
+          "x-name": "provider",
+          "description": "Update request",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/IdentityProviderEditable"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 2
+        },
+        "responses": {
+          "200": {
+            "description": null,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IdentityProvider"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "identityprovider_write"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/IdentityProviders/synchronizableAttributes": {
+      "get": {
+        "tags": [
+          "IdentityProviders"
+        ],
+        "summary": "Get synchronizable attributes",
+        "description": "Returns names of user attributes that can be synchronized from identity provider claims and therefore can be used in ClaimMapping.",
+        "operationId": "IdentityProvider_GetSynchronizableAttributes",
+        "responses": {
+          "200": {
+            "description": "Names of user attributes",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "identityprovider_read"
+            ]
+          }
+        ]
+      }
+    },
     "/v1/Info/version": {
       "get": {
         "tags": [
@@ -16789,7 +17143,7 @@
             "name": "id",
             "in": "path",
             "required": true,
-            "description": "User ID.",
+            "description": "User ID",
             "schema": {
               "type": "string",
               "nullable": true
@@ -16799,7 +17153,7 @@
         ],
         "requestBody": {
           "x-name": "request",
-          "description": "Details of the user deletion..",
+          "description": "Request with details about deletion",
           "content": {
             "application/json": {
               "schema": {
@@ -16812,7 +17166,7 @@
         },
         "responses": {
           "200": {
-            "description": null
+            "description": "OK"
           },
           "400": {
             "description": "Validation exception",
@@ -17497,6 +17851,96 @@
           }
         ]
       }
+    },
+    "/v1/Users/many/updateIdentityProvider": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Update identity provider on multiple users",
+        "operationId": "User_UpdateIdentityProviderMany",
+        "requestBody": {
+          "x-name": "request",
+          "description": "User update identity provider request.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserUpdateIdentityProviderManyRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "Business process",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BusinessProcess"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "user_write"
+            ]
+          }
+        ]
+      }
     }
   },
   "components": {
@@ -17928,7 +18372,14 @@
           },
           {
             "type": "object",
-            "additionalProperties": false
+            "additionalProperties": false,
+            "properties": {
+              "affectedUserId": {
+                "type": "string",
+                "description": "The ID of the inactive or deleted user in question.",
+                "nullable": true
+              }
+            }
           }
         ]
       },
@@ -17961,8 +18412,37 @@
           },
           {
             "type": "object",
-            "additionalProperties": false
+            "additionalProperties": false,
+            "properties": {
+              "requestedUserId": {
+                "type": "string",
+                "nullable": true
+              },
+              "authorizationState": {
+                "$ref": "#/components/schemas/AuthorizationState"
+              },
+              "transition": {
+                "type": "string",
+                "nullable": true
+              }
+            }
           }
+        ]
+      },
+      "AuthorizationState": {
+        "type": "string",
+        "description": "User authorization state",
+        "x-enumNames": [
+          "Reviewed",
+          "ToBeReviewed",
+          "Invited",
+          "UserTriggeredDeactivation"
+        ],
+        "enum": [
+          "Reviewed",
+          "ToBeReviewed",
+          "Invited",
+          "UserTriggeredDeactivation"
         ]
       },
       "TermsOfServiceConsentRequiredException": {
@@ -18031,7 +18511,16 @@
           },
           {
             "type": "object",
-            "additionalProperties": false
+            "additionalProperties": false,
+            "properties": {
+              "requestedUserId": {
+                "type": "string",
+                "nullable": true
+              },
+              "authorizationState": {
+                "$ref": "#/components/schemas/AuthorizationState"
+              }
+            }
           }
         ]
       },
@@ -18050,6 +18539,94 @@
               },
               "userIsLocked": {
                 "type": "boolean"
+              }
+            }
+          }
+        ]
+      },
+      "LoginUsingIncorrectIdentityProviderException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkForbiddenException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "affectedUserId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "IdentityProviderNotFoundException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "missingIdentityProviderId": {
+                "type": "string",
+                "nullable": true
+              },
+              "external": {
+                "type": "boolean"
+              }
+            }
+          }
+        ]
+      },
+      "UserDoesNotSupportLocalLoginException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "affectedUserId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "UserAttributeNotSynchronizableException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "attributeName": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "UnableToChangeUserRolesForFederatedUser": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "affectedUserId": {
+                "type": "string",
+                "nullable": true
               }
             }
           }
@@ -19527,7 +20104,8 @@
           "ManageDocumentHistory",
           "ManageAllShares",
           "ManageOutputFormats",
-          "ManageBusinessProcesses"
+          "ManageBusinessProcesses",
+          "ManageIdentityProviders"
         ],
         "enum": [
           "ManageContent",
@@ -19549,7 +20127,8 @@
           "ManageDocumentHistory",
           "ManageAllShares",
           "ManageOutputFormats",
-          "ManageBusinessProcesses"
+          "ManageBusinessProcesses",
+          "ManageIdentityProviders"
         ]
       },
       "PermissionSetNotFoundException": {
@@ -30084,6 +30663,82 @@
           }
         }
       },
+      "IdentityProvider": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/IdentityProviderEditable"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string",
+                "description": "Identity provider ID (has to match an existing IdP defined in IdentityServer)",
+                "nullable": true
+              },
+              "name": {
+                "type": "string",
+                "description": "Name of the identity provider as defined in IdentityServer",
+                "nullable": true
+              },
+              "displayName": {
+                "type": "string",
+                "description": "Display name of the identity provider as defined in IdentityServer",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "IdentityProviderEditable": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "claimMapping": {
+            "type": "object",
+            "description": "Mapping of identity provider claims to user attributes",
+            "nullable": true,
+            "additionalProperties": {
+              "type": "string"
+            }
+          },
+          "groupClaimType": {
+            "type": "string",
+            "description": "Name of the identity provider claim that holds group membership information",
+            "nullable": true
+          },
+          "groupMapping": {
+            "type": "array",
+            "description": "IdP (AD) group to user role ID mapping",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/IdpGroupToUserRoleMapping"
+            }
+          },
+          "fallbackUserRoleId": {
+            "type": "string",
+            "description": "Optional user role ID that will be assigned to a user is none of the group mappings produce a match",
+            "nullable": true
+          }
+        }
+      },
+      "IdpGroupToUserRoleMapping": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "group": {
+            "type": "string",
+            "description": "Name of the group on external identity provider",
+            "nullable": true
+          },
+          "userRoleId": {
+            "type": "string",
+            "description": "User role ID as defined in CP",
+            "nullable": true
+          }
+        }
+      },
       "VersionInfo": {
         "type": "object",
         "description": "The version view item for the environment.",
@@ -32804,22 +33459,6 @@
             "nullable": true
           }
         }
-      },
-      "AuthorizationState": {
-        "type": "string",
-        "description": "User authorization state",
-        "x-enumNames": [
-          "Reviewed",
-          "ToBeReviewed",
-          "Invited",
-          "UserTriggeredDeactivation"
-        ],
-        "enum": [
-          "Reviewed",
-          "ToBeReviewed",
-          "Invited",
-          "UserTriggeredDeactivation"
-        ]
       },
       "SystemUserRole": {
         "type": "string",
@@ -37776,6 +38415,10 @@
                 "type": "boolean",
                 "description": "Read-only users can't be removed from the system, e.g. service user."
               },
+              "isFederated": {
+                "type": "boolean",
+                "description": "Federated user is a user who is (currently) governed by an external identity provider."
+              },
               "audit": {
                 "description": "Audit information.",
                 "nullable": true,
@@ -37841,6 +38484,11 @@
                     "$ref": "#/components/schemas/UserAddress"
                   }
                 ]
+              },
+              "identityProviderId": {
+                "type": "string",
+                "description": "Identity provider that governs this user or null for Picturepark's own IdentityServer.",
+                "nullable": true
               }
             }
           }
@@ -37967,7 +38615,7 @@
             "properties": {
               "userRoleIds": {
                 "type": "array",
-                "description": "Users roles to modify",
+                "description": "Users roles to modify.",
                 "items": {
                   "type": "string"
                 }
@@ -38204,6 +38852,10 @@
           "isReadOnly": {
             "type": "boolean",
             "description": "Read-only users can't be removed from the system, e.g. service user."
+          },
+          "isFederated": {
+            "type": "boolean",
+            "description": "Federated user is a user who is (currently) governed by an external identity provider."
           }
         }
       },
@@ -38329,6 +38981,28 @@
                 "items": {
                   "$ref": "#/components/schemas/AggregatorBase"
                 }
+              }
+            }
+          }
+        ]
+      },
+      "UserUpdateIdentityProviderManyRequest": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/UserManyRequestBase"
+          },
+          {
+            "type": "object",
+            "description": "Request to update identity provider assignment of users.",
+            "additionalProperties": false,
+            "required": [
+              "identityProviderId"
+            ],
+            "properties": {
+              "identityProviderId": {
+                "type": "string",
+                "description": "Identity provider to assign to users.",
+                "minLength": 1
               }
             }
           }
@@ -38980,6 +39654,8 @@
               "schema_read": "Read display values, metadata and schemas",
               "schema_write": "Write display values, metadata and schemas",
               "documenthistory_read": "Read document history",
+              "identityprovider_read": "Read identity providers",
+              "identityprovider_write": "Write identity providers",
               "jsonschema_read": "Read json schemas",
               "listitem_read": "Read list items",
               "listitem_write": "Write list items",
@@ -39032,6 +39708,10 @@
     {
       "name": "DocumentHistory",
       "description": "Endpoints to work with history of documents.\r\n\r\nMost entities provide a history of changes. E.g. update metadata of a content. You can see and search the history of documents.\r\n\r\nYou can use a diff [CompareWithCurrent](#operation/DocumentHistory_CompareWithCurrent) and [CompareWithVersion](#operation/DocumentHistory_CompareWithVersion) to get a json diff and see what exactly has changed.\r\n\r\n[Code examples](https://github.com/Picturepark/Picturepark.SDK.DotNet/blob/master/src/Picturepark.SDK.V1.Tests/Clients/DocumentHistoryTests.cs)\r\n"
+    },
+    {
+      "name": "IdentityProviders",
+      "description": "Endpoints to access and manipulate with identity providers.\r\n    To create identity providers, please use UI section Settings/Identity providers.\r\n"
     },
     {
       "name": "Info",

@@ -702,6 +702,52 @@ namespace Picturepark.SDK.V1.Contract
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "13.2.2.0 (NJsonSchema v10.1.4.0 (Newtonsoft.Json v11.0.0.0))")]
+    public partial interface IIdentityProviderClient
+    {
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>Get all identity providers</summary>
+        /// <returns>Array of identity providers</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<IdentityProvider>> GetAllAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>Get identity provider</summary>
+        /// <param name="id">Identity provider ID.</param>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        System.Threading.Tasks.Task<IdentityProvider> GetAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>Update identity provider</summary>
+        /// <param name="id">Identity provider ID.</param>
+        /// <param name="provider">Update request</param>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        System.Threading.Tasks.Task<IdentityProvider> UpdateAsync(string id, IdentityProviderEditable provider, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>Get synchronizable attributes</summary>
+        /// <returns>Names of user attributes</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<string>> GetSynchronizableAttributesAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NSwag", "13.2.2.0 (NJsonSchema v10.1.4.0 (Newtonsoft.Json v11.0.0.0))")]
     public partial interface IInfoClient
     {
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
@@ -1875,8 +1921,9 @@ namespace Picturepark.SDK.V1.Contract
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Delete user</summary>
-        /// <param name="id">User ID.</param>
-        /// <param name="request">Details of the user deletion..</param>
+        /// <param name="id">User ID</param>
+        /// <param name="request">Request with details about deletion</param>
+        /// <returns>OK</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -1960,6 +2007,17 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<ObjectAggregationResult> AggregateAsync(UserAggregationRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>Update identity provider on multiple users</summary>
+        /// <param name="request">User update identity provider request.</param>
+        /// <returns>Business process</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        System.Threading.Tasks.Task<BusinessProcess> UpdateIdentityProviderManyAsync(UserUpdateIdentityProviderManyRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
     }
 
@@ -2227,6 +2285,11 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("UnauthorizedException", typeof(UnauthorizedException))]
     [JsonInheritanceAttribute("UserUnlockDisallowedException", typeof(UserUnlockDisallowedException))]
     [JsonInheritanceAttribute("UserAlreadyInRequestedLockStateException", typeof(UserAlreadyInRequestedLockStateException))]
+    [JsonInheritanceAttribute("LoginUsingIncorrectIdentityProviderException", typeof(LoginUsingIncorrectIdentityProviderException))]
+    [JsonInheritanceAttribute("IdentityProviderNotFoundException", typeof(IdentityProviderNotFoundException))]
+    [JsonInheritanceAttribute("UserDoesNotSupportLocalLoginException", typeof(UserDoesNotSupportLocalLoginException))]
+    [JsonInheritanceAttribute("UserAttributeNotSynchronizableException", typeof(UserAttributeNotSynchronizableException))]
+    [JsonInheritanceAttribute("UnableToChangeUserRolesForFederatedUser", typeof(UnableToChangeUserRolesForFederatedUser))]
     [JsonInheritanceAttribute("RenderingException", typeof(RenderingException))]
     [JsonInheritanceAttribute("FormatNotApplicableForRenderingException", typeof(FormatNotApplicableForRenderingException))]
     [JsonInheritanceAttribute("DocumentVersionNotFoundException", typeof(DocumentVersionNotFoundException))]
@@ -2623,6 +2686,10 @@ namespace Picturepark.SDK.V1.Contract
     [Newtonsoft.Json.JsonObjectAttribute]
     public partial class UserInactiveOrDeletedException : PictureparkValidationException
     {
+        /// <summary>The ID of the inactive or deleted user in question.</summary>
+        [Newtonsoft.Json.JsonProperty("affectedUserId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string AffectedUserId { get; set; }
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -2671,6 +2738,16 @@ namespace Picturepark.SDK.V1.Contract
     [Newtonsoft.Json.JsonObjectAttribute]
     public partial class IllegalAuthorizationStateTransitionException : PictureparkValidationException
     {
+        [Newtonsoft.Json.JsonProperty("requestedUserId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string RequestedUserId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("authorizationState", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public AuthorizationState AuthorizationState { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("transition", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Transition { get; set; }
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -2680,6 +2757,24 @@ namespace Picturepark.SDK.V1.Contract
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<IllegalAuthorizationStateTransitionException>(data);
         }
+    
+    }
+    
+    /// <summary>User authorization state</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public enum AuthorizationState
+    {
+        [System.Runtime.Serialization.EnumMember(Value = @"Reviewed")]
+        Reviewed = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"ToBeReviewed")]
+        ToBeReviewed = 1,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Invited")]
+        Invited = 2,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"UserTriggeredDeactivation")]
+        UserTriggeredDeactivation = 3,
     
     }
     
@@ -2757,6 +2852,13 @@ namespace Picturepark.SDK.V1.Contract
     [Newtonsoft.Json.JsonObjectAttribute]
     public partial class UserUnlockDisallowedException : PictureparkValidationException
     {
+        [Newtonsoft.Json.JsonProperty("requestedUserId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string RequestedUserId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("authorizationState", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public AuthorizationState AuthorizationState { get; set; }
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -2787,6 +2889,104 @@ namespace Picturepark.SDK.V1.Contract
         public static UserAlreadyInRequestedLockStateException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<UserAlreadyInRequestedLockStateException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class LoginUsingIncorrectIdentityProviderException : PictureparkForbiddenException
+    {
+        [Newtonsoft.Json.JsonProperty("affectedUserId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string AffectedUserId { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static LoginUsingIncorrectIdentityProviderException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<LoginUsingIncorrectIdentityProviderException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class IdentityProviderNotFoundException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("missingIdentityProviderId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string MissingIdentityProviderId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("external", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool External { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static IdentityProviderNotFoundException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<IdentityProviderNotFoundException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class UserDoesNotSupportLocalLoginException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("affectedUserId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string AffectedUserId { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static UserDoesNotSupportLocalLoginException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<UserDoesNotSupportLocalLoginException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class UserAttributeNotSynchronizableException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("attributeName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string AttributeName { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static UserAttributeNotSynchronizableException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<UserAttributeNotSynchronizableException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class UnableToChangeUserRolesForFederatedUser : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("affectedUserId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string AffectedUserId { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static UnableToChangeUserRolesForFederatedUser FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<UnableToChangeUserRolesForFederatedUser>(data);
         }
     
     }
@@ -4490,6 +4690,9 @@ namespace Picturepark.SDK.V1.Contract
     
         [System.Runtime.Serialization.EnumMember(Value = @"ManageBusinessProcesses")]
         ManageBusinessProcesses = 19,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"ManageIdentityProviders")]
+        ManageIdentityProviders = 20,
     
     }
     
@@ -15092,6 +15295,87 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class IdentityProvider : IdentityProviderEditable
+    {
+        /// <summary>Identity provider ID (has to match an existing IdP defined in IdentityServer)</summary>
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
+        /// <summary>Name of the identity provider as defined in IdentityServer</summary>
+        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Name { get; set; }
+    
+        /// <summary>Display name of the identity provider as defined in IdentityServer</summary>
+        [Newtonsoft.Json.JsonProperty("displayName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string DisplayName { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static IdentityProvider FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<IdentityProvider>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class IdentityProviderEditable 
+    {
+        /// <summary>Mapping of identity provider claims to user attributes</summary>
+        [Newtonsoft.Json.JsonProperty("claimMapping", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.IDictionary<string, string> ClaimMapping { get; set; }
+    
+        /// <summary>Name of the identity provider claim that holds group membership information</summary>
+        [Newtonsoft.Json.JsonProperty("groupClaimType", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string GroupClaimType { get; set; }
+    
+        /// <summary>IdP (AD) group to user role ID mapping</summary>
+        [Newtonsoft.Json.JsonProperty("groupMapping", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<IdpGroupToUserRoleMapping> GroupMapping { get; set; }
+    
+        /// <summary>Optional user role ID that will be assigned to a user is none of the group mappings produce a match</summary>
+        [Newtonsoft.Json.JsonProperty("fallbackUserRoleId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string FallbackUserRoleId { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static IdentityProviderEditable FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<IdentityProviderEditable>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class IdpGroupToUserRoleMapping 
+    {
+        /// <summary>Name of the group on external identity provider</summary>
+        [Newtonsoft.Json.JsonProperty("group", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Group { get; set; }
+    
+        /// <summary>User role ID as defined in CP</summary>
+        [Newtonsoft.Json.JsonProperty("userRoleId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string UserRoleId { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static IdpGroupToUserRoleMapping FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<IdpGroupToUserRoleMapping>(data);
+        }
+    
+    }
+    
     /// <summary>The version view item for the environment.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class VersionInfo 
@@ -17752,24 +18036,6 @@ namespace Picturepark.SDK.V1.Contract
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<UserAddress>(data);
         }
-    
-    }
-    
-    /// <summary>User authorization state</summary>
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
-    public enum AuthorizationState
-    {
-        [System.Runtime.Serialization.EnumMember(Value = @"Reviewed")]
-        Reviewed = 0,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"ToBeReviewed")]
-        ToBeReviewed = 1,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"Invited")]
-        Invited = 2,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"UserTriggeredDeactivation")]
-        UserTriggeredDeactivation = 3,
     
     }
     
@@ -22325,6 +22591,10 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("isReadOnly", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool IsReadOnly { get; set; }
     
+        /// <summary>Federated user is a user who is (currently) governed by an external identity provider.</summary>
+        [Newtonsoft.Json.JsonProperty("isFederated", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool IsFederated { get; set; }
+    
         /// <summary>Audit information.</summary>
         [Newtonsoft.Json.JsonProperty("audit", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public UserAuditDetail Audit { get; set; }
@@ -22383,6 +22653,10 @@ namespace Picturepark.SDK.V1.Contract
         /// <summary>User's address.</summary>
         [Newtonsoft.Json.JsonProperty("address", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public UserAddress Address { get; set; }
+    
+        /// <summary>Identity provider that governs this user or null for Picturepark's own IdentityServer.</summary>
+        [Newtonsoft.Json.JsonProperty("identityProviderId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string IdentityProviderId { get; set; }
     
         public string ToJson() 
         {
@@ -22538,7 +22812,7 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class UserRoleAssignManyRequest : UserManyRequestBase
     {
-        /// <summary>Users roles to modify</summary>
+        /// <summary>Users roles to modify.</summary>
         [Newtonsoft.Json.JsonProperty("userRoleIds", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
         public System.Collections.Generic.ICollection<string> UserRoleIds { get; set; } = new System.Collections.Generic.List<string>();
@@ -22768,6 +23042,10 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("isReadOnly", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool IsReadOnly { get; set; }
     
+        /// <summary>Federated user is a user who is (currently) governed by an external identity provider.</summary>
+        [Newtonsoft.Json.JsonProperty("isFederated", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool IsFederated { get; set; }
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -22879,6 +23157,27 @@ namespace Picturepark.SDK.V1.Contract
         public static UserAggregationRequest FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<UserAggregationRequest>(data);
+        }
+    
+    }
+    
+    /// <summary>Request to update identity provider assignment of users.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class UserUpdateIdentityProviderManyRequest : UserManyRequestBase
+    {
+        /// <summary>Identity provider to assign to users.</summary>
+        [Newtonsoft.Json.JsonProperty("identityProviderId", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public string IdentityProviderId { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static UserUpdateIdentityProviderManyRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<UserUpdateIdentityProviderManyRequest>(data);
         }
     
     }

@@ -7285,7 +7285,14 @@
           },
           {
             "type": "object",
-            "additionalProperties": false
+            "additionalProperties": false,
+            "properties": {
+              "affectedUserId": {
+                "type": "string",
+                "description": "The ID of the inactive or deleted user in question.",
+                "nullable": true
+              }
+            }
           }
         ]
       },
@@ -7318,8 +7325,37 @@
           },
           {
             "type": "object",
-            "additionalProperties": false
+            "additionalProperties": false,
+            "properties": {
+              "requestedUserId": {
+                "type": "string",
+                "nullable": true
+              },
+              "authorizationState": {
+                "$ref": "#/components/schemas/AuthorizationState"
+              },
+              "transition": {
+                "type": "string",
+                "nullable": true
+              }
+            }
           }
+        ]
+      },
+      "AuthorizationState": {
+        "type": "string",
+        "description": "User authorization state",
+        "x-enumNames": [
+          "Reviewed",
+          "ToBeReviewed",
+          "Invited",
+          "UserTriggeredDeactivation"
+        ],
+        "enum": [
+          "Reviewed",
+          "ToBeReviewed",
+          "Invited",
+          "UserTriggeredDeactivation"
         ]
       },
       "TermsOfServiceConsentRequiredException": {
@@ -7388,7 +7424,16 @@
           },
           {
             "type": "object",
-            "additionalProperties": false
+            "additionalProperties": false,
+            "properties": {
+              "requestedUserId": {
+                "type": "string",
+                "nullable": true
+              },
+              "authorizationState": {
+                "$ref": "#/components/schemas/AuthorizationState"
+              }
+            }
           }
         ]
       },
@@ -7407,6 +7452,94 @@
               },
               "userIsLocked": {
                 "type": "boolean"
+              }
+            }
+          }
+        ]
+      },
+      "LoginUsingIncorrectIdentityProviderException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkForbiddenException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "affectedUserId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "IdentityProviderNotFoundException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "missingIdentityProviderId": {
+                "type": "string",
+                "nullable": true
+              },
+              "external": {
+                "type": "boolean"
+              }
+            }
+          }
+        ]
+      },
+      "UserDoesNotSupportLocalLoginException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "affectedUserId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "UserAttributeNotSynchronizableException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "attributeName": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "UnableToChangeUserRolesForFederatedUser": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "affectedUserId": {
+                "type": "string",
+                "nullable": true
               }
             }
           }
@@ -8884,7 +9017,8 @@
           "ManageDocumentHistory",
           "ManageAllShares",
           "ManageOutputFormats",
-          "ManageBusinessProcesses"
+          "ManageBusinessProcesses",
+          "ManageIdentityProviders"
         ],
         "enum": [
           "ManageContent",
@@ -8906,7 +9040,8 @@
           "ManageDocumentHistory",
           "ManageAllShares",
           "ManageOutputFormats",
-          "ManageBusinessProcesses"
+          "ManageBusinessProcesses",
+          "ManageIdentityProviders"
         ]
       },
       "PermissionSetNotFoundException": {
@@ -13126,6 +13261,10 @@
             "type": "boolean",
             "description": "Set to true if the customer was configured against another IDS instance"
           },
+          "resetIdentityProviderIds": {
+            "type": "boolean",
+            "description": "Set to true if the customer was configured against another IDS instance"
+          },
           "adminUserEmail": {
             "type": "string",
             "description": "Provide email address of an admin user",
@@ -16352,24 +16491,12 @@
           "isReadOnly": {
             "type": "boolean",
             "description": "Read-only users can't be removed from the system, e.g. service user."
+          },
+          "isFederated": {
+            "type": "boolean",
+            "description": "Federated user is a user who is (currently) governed by an external identity provider."
           }
         }
-      },
-      "AuthorizationState": {
-        "type": "string",
-        "description": "User authorization state",
-        "x-enumNames": [
-          "Reviewed",
-          "ToBeReviewed",
-          "Invited",
-          "UserTriggeredDeactivation"
-        ],
-        "enum": [
-          "Reviewed",
-          "ToBeReviewed",
-          "Invited",
-          "UserTriggeredDeactivation"
-        ]
       },
       "Index": {
         "type": "object",
