@@ -23034,7 +23034,11 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public LifeCycle LifeCycle { get; set; }
     
-        /// <summary>The support user is a user created for Picturepark support personnel.</summary>
+        /// <summary>A locked user is not allowed to log in.</summary>
+        [Newtonsoft.Json.JsonProperty("isLocked", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool IsLocked { get; set; }
+    
+        /// <summary>A support user is a user created for Picturepark support personnel.</summary>
         [Newtonsoft.Json.JsonProperty("isSupportUser", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool IsSupportUser { get; set; }
     

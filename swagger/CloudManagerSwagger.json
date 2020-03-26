@@ -16484,9 +16484,13 @@
               }
             ]
           },
+          "isLocked": {
+            "type": "boolean",
+            "description": "A locked user is not allowed to log in."
+          },
           "isSupportUser": {
             "type": "boolean",
-            "description": "The support user is a user created for Picturepark support personnel."
+            "description": "A support user is a user created for Picturepark support personnel."
           },
           "isReadOnly": {
             "type": "boolean",
