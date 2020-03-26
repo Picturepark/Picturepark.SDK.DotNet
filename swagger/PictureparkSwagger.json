@@ -33410,6 +33410,10 @@
           "isDeveloper": {
             "type": "boolean",
             "description": "Indicates if the user has the developer flag set."
+          },
+          "isFederated": {
+            "type": "boolean",
+            "description": "Federated user is a user who is (currently) governed by an external identity provider."
           }
         }
       },

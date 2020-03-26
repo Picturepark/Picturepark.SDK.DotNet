@@ -68,6 +68,8 @@ namespace Picturepark.SDK.V1
 
         public IMetadataClient Metadata { get; private set; }
 
+        public IIdentityProviderClient IdentityProvider { get; private set; }
+
         public void Dispose()
         {
             if (_httpClient != null)
@@ -101,6 +103,7 @@ namespace Picturepark.SDK.V1
             OutputFormat = new OutputFormatClient(BusinessProcess, settings, httpClient);
             DisplayValue = new DisplayValueClient(settings, httpClient);
             Metadata = new MetadataClient(settings, httpClient);
+            IdentityProvider = new IdentityProviderClient(settings, httpClient);
         }
     }
 }
