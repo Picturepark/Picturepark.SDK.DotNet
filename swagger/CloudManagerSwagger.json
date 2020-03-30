@@ -1,5 +1,5 @@
 ﻿{
-  "x-generator": "NSwag v13.2.2.0 (NJsonSchema v10.1.4.0 (Newtonsoft.Json v12.0.0.0))",
+  "x-generator": "NSwag v13.3.0.0 (NJsonSchema v10.1.11.0 (Newtonsoft.Json v12.0.0.0))",
   "openapi": "3.0.0",
   "info": {
     "title": "Picturepark Cloud Manager API V1",
@@ -4044,7 +4044,8 @@
           {
             "name": "lifeCycles",
             "in": "query",
-            "collectionFormat": "multi",
+            "style": "form",
+            "explode": true,
             "schema": {
               "type": "array",
               "nullable": true,
@@ -6871,7 +6872,13 @@
         "required": [
           "id",
           "processDefinitionId",
-          "kind"
+          "kind",
+          "supportsCancellation",
+          "businessProcessScope",
+          "lifeCycle",
+          "startDate",
+          "endDate",
+          "finished"
         ],
         "properties": {
           "id": {
@@ -6996,7 +7003,8 @@
         "description": "State transition information of a business process",
         "additionalProperties": false,
         "required": [
-          "state"
+          "state",
+          "timestamp"
         ],
         "properties": {
           "state": {
@@ -7165,28 +7173,7 @@
       },
       "Exception": {
         "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "StackTrace": {
-            "type": "string",
-            "nullable": true
-          },
-          "Message": {
-            "type": "string"
-          },
-          "InnerException": {
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/Exception"
-              }
-            ]
-          },
-          "Source": {
-            "type": "string",
-            "nullable": true
-          }
-        }
+        "additionalProperties": false
       },
       "PictureparkConflictException": {
         "allOf": [
@@ -9736,6 +9723,10 @@
       "MetadataError": {
         "type": "object",
         "additionalProperties": false,
+        "required": [
+          "lineNumber",
+          "linePosition"
+        ],
         "properties": {
           "errorType": {
             "type": "string",
@@ -12796,6 +12787,10 @@
       "SnapshotRepository": {
         "type": "object",
         "additionalProperties": false,
+        "required": [
+          "entityType",
+          "isArchived"
+        ],
         "properties": {
           "id": {
             "type": "string",
@@ -12850,6 +12845,9 @@
         "type": "object",
         "x-abstract": true,
         "additionalProperties": false,
+        "required": [
+          "startTime"
+        ],
         "properties": {
           "repositoryName": {
             "type": "string",
@@ -12892,6 +12890,11 @@
         "type": "object",
         "x-abstract": true,
         "additionalProperties": false,
+        "required": [
+          "snapshotInactive",
+          "reason",
+          "timestamp"
+        ],
         "properties": {
           "snapshotName": {
             "type": "string",
@@ -12969,6 +12972,9 @@
       "CustomerExportRequest": {
         "type": "object",
         "additionalProperties": false,
+        "required": [
+          "keepRepository"
+        ],
         "properties": {
           "customerAlias": {
             "type": "string",
@@ -12982,6 +12988,9 @@
       "SnapshotRestore": {
         "type": "object",
         "additionalProperties": false,
+        "required": [
+          "restoreDate"
+        ],
         "properties": {
           "restoreDate": {
             "type": "string",
@@ -13056,6 +13065,9 @@
       "Customer": {
         "type": "object",
         "additionalProperties": false,
+        "required": [
+          "lifeCycle"
+        ],
         "properties": {
           "id": {
             "type": "string",
@@ -13135,6 +13147,9 @@
       "SnapshotCustomerCloneRequest": {
         "type": "object",
         "additionalProperties": false,
+        "required": [
+          "anonymize"
+        ],
         "properties": {
           "snapshotName": {
             "type": "string",
@@ -13203,7 +13218,8 @@
         "type": "object",
         "additionalProperties": false,
         "required": [
-          "emailAddress"
+          "emailAddress",
+          "isDeleted"
         ],
         "properties": {
           "id": {
@@ -13236,6 +13252,11 @@
         "type": "object",
         "description": "Request to import the ElasticSearch repository of a customer from another cloud",
         "additionalProperties": false,
+        "required": [
+          "resetExternalUserIds",
+          "resetIdentityProviderIds",
+          "resetServiceProviders"
+        ],
         "properties": {
           "customerId": {
             "type": "string",
@@ -13337,23 +13358,29 @@
       },
       "BaseResultOfSnapshot": {
         "type": "object",
+        "description": "Base class for search results",
         "additionalProperties": false,
         "required": [
-          "results"
+          "results",
+          "totalResults",
+          "elapsedMilliseconds"
         ],
         "properties": {
           "totalResults": {
             "type": "integer",
+            "description": "The total number of matching documents.",
             "format": "int64"
           },
           "results": {
             "type": "array",
+            "description": "The matched documents.",
             "items": {
               "$ref": "#/components/schemas/Snapshot"
             }
           },
           "elapsedMilliseconds": {
             "type": "integer",
+            "description": "The search execution time in milliseconds.",
             "format": "int64"
           },
           "pageToken": {
@@ -13365,6 +13392,17 @@
       "Snapshot": {
         "type": "object",
         "additionalProperties": false,
+        "required": [
+          "durationInMilliseconds",
+          "endTime",
+          "endTimeInMilliseconds",
+          "repositoryStartTime",
+          "repositoryIsArchived",
+          "startTime",
+          "startTimeInMilliseconds",
+          "entityType",
+          "restoreDate"
+        ],
         "properties": {
           "durationInMilliseconds": {
             "type": "integer",
@@ -13478,6 +13516,10 @@
       "SnapshotEnvironmentSearchRequest": {
         "type": "object",
         "additionalProperties": false,
+        "required": [
+          "start",
+          "limit"
+        ],
         "properties": {
           "searchString": {
             "type": "string",
@@ -13528,6 +13570,10 @@
       "SnapshotCustomerSearchRequest": {
         "type": "object",
         "additionalProperties": false,
+        "required": [
+          "start",
+          "limit"
+        ],
         "properties": {
           "searchString": {
             "type": "string",
@@ -13584,6 +13630,9 @@
       "SnapshotRepositorySearchResult": {
         "type": "object",
         "additionalProperties": false,
+        "required": [
+          "totalResults"
+        ],
         "properties": {
           "totalResults": {
             "type": "integer",
@@ -13634,6 +13683,9 @@
       "SnapshotRepositoryCleanupResult": {
         "type": "object",
         "additionalProperties": false,
+        "required": [
+          "cleanupTime"
+        ],
         "properties": {
           "repositories": {
             "type": "array",
@@ -13651,6 +13703,9 @@
       "SnapshotRepositoryArchiveRequest": {
         "type": "object",
         "additionalProperties": false,
+        "required": [
+          "isArchived"
+        ],
         "properties": {
           "isArchived": {
             "type": "boolean"
@@ -13674,6 +13729,9 @@
       "ContentBackupSearchResult": {
         "type": "object",
         "additionalProperties": false,
+        "required": [
+          "totalResults"
+        ],
         "properties": {
           "totalResults": {
             "type": "integer",
@@ -13696,6 +13754,10 @@
         "type": "object",
         "description": "Request to search aggregation values for Contents",
         "additionalProperties": false,
+        "required": [
+          "exclusionTime",
+          "limit"
+        ],
         "properties": {
           "customerId": {
             "type": "string",
@@ -13774,6 +13836,9 @@
       "ContentBackupAcknowledgementResult": {
         "type": "object",
         "additionalProperties": false,
+        "required": [
+          "succeeded"
+        ],
         "properties": {
           "filePath": {
             "type": "string",
@@ -13795,6 +13860,35 @@
       "CustomerCreateRequest": {
         "type": "object",
         "additionalProperties": false,
+        "required": [
+          "useSsl",
+          "enableQueryDetails",
+          "elasticSearchNumberOfShards",
+          "elasticSearchNumberOfReplicas",
+          "rootContentSearchIndexNumberOfShards",
+          "rootContentSearchIndexNumberOfReplicas",
+          "rootListItemSearchIndexNumberOfShards",
+          "rootListItemSearchIndexNumberOfReplicas",
+          "indexedFieldThreshold",
+          "sortableFieldThreshold",
+          "contentRetentionTime",
+          "listItemRetentionTime",
+          "userRetentionTime",
+          "ownerTokenRetentionTime",
+          "successfulTransferRetentionTime",
+          "incompleteTransferRetentionTime",
+          "documentHistoryRetentionTime",
+          "liveStreamRetentionTime",
+          "editCollectionRetentionTime",
+          "replacedOriginalsRetentionTime",
+          "snapshotEnabled",
+          "snapshotFullbackupScheduleTime",
+          "snapshotRetentionTime",
+          "contentBackupState",
+          "apiCallsPerMinute",
+          "enableSupportUserRegistrationEmailNotification",
+          "enableSupportUserRegistrationNotification"
+        ],
         "properties": {
           "alias": {
             "type": "string",
@@ -14454,13 +14548,13 @@
               "horizontalResolution": {
                 "type": "number",
                 "description": "Horizontal resolution in dpi (dots per inch)",
-                "format": "double",
+                "format": "float",
                 "nullable": true
               },
               "verticalResolution": {
                 "type": "number",
                 "description": "Vertical resolution in dpi (dots per inch)",
-                "format": "double",
+                "format": "float",
                 "nullable": true
               },
               "keepClippingPath": {
@@ -14594,6 +14688,11 @@
         "type": "object",
         "description": "Specifies image resize parameters.",
         "additionalProperties": false,
+        "required": [
+          "width",
+          "height",
+          "resizeMode"
+        ],
         "properties": {
           "width": {
             "type": "integer",
@@ -14739,17 +14838,17 @@
               "amount": {
                 "type": "number",
                 "description": "Unsharp mask amount (the difference between blurred and original image).",
-                "format": "double"
+                "format": "float"
               },
               "radius": {
                 "type": "number",
                 "description": "Blur radius used to produce unfocused version of the image.",
-                "format": "double"
+                "format": "float"
               },
               "threshold": {
                 "type": "number",
                 "description": "The threshold value for the unsharp mask in range [0, 1]",
-                "format": "double"
+                "format": "float"
               }
             }
           }
@@ -14797,17 +14896,17 @@
               "opacity": {
                 "type": "number",
                 "description": "Scales the opacity of the watermark",
-                "format": "double"
+                "format": "float"
               },
               "widthRatio": {
                 "type": "number",
                 "description": "Scales the watermark width according to the size of the final image.",
-                "format": "double"
+                "format": "float"
               },
               "heightRatio": {
                 "type": "number",
                 "description": "Scales the watermark height according to the size of the final image.",
-                "format": "double"
+                "format": "float"
               }
             }
           }
@@ -15295,6 +15394,41 @@
       "CustomerConfiguration": {
         "type": "object",
         "additionalProperties": false,
+        "required": [
+          "useSsl",
+          "enableQueryDetails",
+          "elasticSearchNumberOfShards",
+          "elasticSearchNumberOfReplicas",
+          "elasticSearchNumberOfRoutingShards",
+          "rootContentSearchIndexNumberOfShards",
+          "rootContentSearchIndexNumberOfReplicas",
+          "rootContentSearchIndexNumberOfRoutingShards",
+          "rootListItemSearchIndexNumberOfShards",
+          "rootListItemSearchIndexNumberOfReplicas",
+          "rootListItemSearchIndexNumberOfRoutingShards",
+          "indexedFieldThreshold",
+          "sortableFieldThreshold",
+          "redisDatabaseIndex",
+          "lifeCycle",
+          "snapshotEnabled",
+          "snapshotRetentionTime",
+          "snapshotFullbackupScheduleTime",
+          "contentRetentionTime",
+          "listItemRetentionTime",
+          "userRetentionTime",
+          "ownerTokenRetentionTime",
+          "documentHistoryRetentionTime",
+          "liveStreamRetentionTime",
+          "successfulTransferRetentionTime",
+          "incompleteTransferRetentionTime",
+          "replacedOriginalsRetentionTime",
+          "editCollectionRetentionTime",
+          "contentBackupState",
+          "apiCallsPerMinute",
+          "enableSupportUserRegistrationEmailNotification",
+          "enableSupportUserRegistrationNotification",
+          "isClone"
+        ],
         "properties": {
           "id": {
             "type": "string",
@@ -15666,6 +15800,27 @@
       "CustomerUpdateRequest": {
         "type": "object",
         "additionalProperties": false,
+        "required": [
+          "lifeCycle",
+          "snapshotEnabled",
+          "liveStreamRetentionTime",
+          "snapshotFullbackupScheduleTime",
+          "contentRetentionTime",
+          "listItemRetentionTime",
+          "userRetentionTime",
+          "ownerTokenRetentionTime",
+          "documentHistoryRetentionTime",
+          "snapshotRetentionTime",
+          "successfulTransferRetentionTime",
+          "incompleteTransferRetentionTime",
+          "editCollectionRetentionTime",
+          "replacedOriginalsRetentionTime",
+          "useSsl",
+          "enableQueryDetails",
+          "apiCallsPerMinute",
+          "enableSupportUserRegistrationEmailNotification",
+          "enableSupportUserRegistrationNotification"
+        ],
         "properties": {
           "id": {
             "type": "string",
@@ -15835,23 +15990,29 @@
       },
       "BaseResultOfCustomer": {
         "type": "object",
+        "description": "Base class for search results",
         "additionalProperties": false,
         "required": [
-          "results"
+          "results",
+          "totalResults",
+          "elapsedMilliseconds"
         ],
         "properties": {
           "totalResults": {
             "type": "integer",
+            "description": "The total number of matching documents.",
             "format": "int64"
           },
           "results": {
             "type": "array",
+            "description": "The matched documents.",
             "items": {
               "$ref": "#/components/schemas/Customer"
             }
           },
           "elapsedMilliseconds": {
             "type": "integer",
+            "description": "The search execution time in milliseconds.",
             "format": "int64"
           },
           "pageToken": {
@@ -15863,6 +16024,10 @@
       "CustomerSearchRequest": {
         "type": "object",
         "additionalProperties": false,
+        "required": [
+          "start",
+          "limit"
+        ],
         "properties": {
           "searchString": {
             "type": "string",
@@ -16437,7 +16602,13 @@
         "additionalProperties": false,
         "required": [
           "id",
-          "emailAddress"
+          "emailAddress",
+          "authorizationState",
+          "lifeCycle",
+          "isLocked",
+          "isSupportUser",
+          "isReadOnly",
+          "isFederated"
         ],
         "properties": {
           "userRoleIds": {
@@ -16505,6 +16676,13 @@
       "Index": {
         "type": "object",
         "additionalProperties": false,
+        "required": [
+          "numberOfShards",
+          "numberOfReplicas",
+          "numberOfRoutingShards",
+          "indexType",
+          "state"
+        ],
         "properties": {
           "customerId": {
             "type": "string",
@@ -16627,6 +16805,11 @@
       "SearchIndexReindexRequest": {
         "type": "object",
         "additionalProperties": false,
+        "required": [
+          "numberOfShards",
+          "numberOfReplicas",
+          "numberOfRoutingShards"
+        ],
         "properties": {
           "searchIndexId": {
             "type": "string",
@@ -16653,6 +16836,12 @@
       "EnvironmentProcess": {
         "type": "object",
         "additionalProperties": false,
+        "required": [
+          "processType",
+          "lifeCycle",
+          "startDate",
+          "endDate"
+        ],
         "properties": {
           "id": {
             "type": "string",
@@ -16800,6 +16989,9 @@
       "EnvironmentProcessState": {
         "type": "object",
         "additionalProperties": false,
+        "required": [
+          "timestamp"
+        ],
         "properties": {
           "state": {
             "type": "string",
@@ -16976,6 +17168,10 @@
       "CustomerBoostValueRemoveInfo": {
         "type": "object",
         "additionalProperties": false,
+        "required": [
+          "valueToRemove",
+          "valueToReplaceWith"
+        ],
         "properties": {
           "valueToRemove": {
             "type": "number",
@@ -17047,6 +17243,9 @@
       "EnvironmentConfiguration": {
         "type": "object",
         "additionalProperties": false,
+        "required": [
+          "lifeCycle"
+        ],
         "properties": {
           "id": {
             "type": "string",
@@ -17129,6 +17328,9 @@
       "EnvironmentProcessSearchResult": {
         "type": "object",
         "additionalProperties": false,
+        "required": [
+          "totalResults"
+        ],
         "properties": {
           "totalResults": {
             "type": "integer",
@@ -17146,6 +17348,10 @@
       "EnvironmentProcessSearchRequest": {
         "type": "object",
         "additionalProperties": false,
+        "required": [
+          "start",
+          "limit"
+        ],
         "properties": {
           "start": {
             "type": "integer",
@@ -17194,6 +17400,9 @@
       "OutputResetRetryAttemptsRequest": {
         "type": "object",
         "additionalProperties": false,
+        "required": [
+          "includeCompleted"
+        ],
         "properties": {
           "outputIds": {
             "type": "array",
@@ -17294,6 +17503,9 @@
       "NodeInfo": {
         "type": "object",
         "additionalProperties": false,
+        "required": [
+          "lastResponseTime"
+        ],
         "properties": {
           "id": {
             "type": "string",
@@ -17333,6 +17545,9 @@
         "type": "object",
         "description": "Contains information about a possibly available update",
         "additionalProperties": false,
+        "required": [
+          "updateAvailable"
+        ],
         "properties": {
           "currentVersion": {
             "type": "string",
@@ -17449,6 +17664,9 @@
       "UserDeveloperFlagUpdateRequest": {
         "type": "object",
         "additionalProperties": false,
+        "required": [
+          "isDeveloper"
+        ],
         "properties": {
           "userId": {
             "type": "string",
@@ -17511,6 +17729,10 @@
       "DocumentChange": {
         "type": "object",
         "additionalProperties": false,
+        "required": [
+          "version",
+          "timeStamp"
+        ],
         "properties": {
           "documentName": {
             "type": "string",
@@ -17557,7 +17779,8 @@
         },
         "additionalProperties": false,
         "required": [
-          "kind"
+          "kind",
+          "timestamp"
         ],
         "properties": {
           "timestamp": {
@@ -17706,6 +17929,9 @@
       "DownloadTrackingInfo": {
         "type": "object",
         "additionalProperties": false,
+        "required": [
+          "contentDisposition"
+        ],
         "properties": {
           "contentId": {
             "type": "string",
@@ -18013,7 +18239,10 @@
         "x-abstract": true,
         "additionalProperties": false,
         "required": [
-          "kind"
+          "kind",
+          "retries",
+          "priority",
+          "deduplicate"
         ],
         "properties": {
           "id": {
@@ -18067,6 +18296,10 @@
       "TupleOfStringAndString": {
         "type": "object",
         "additionalProperties": false,
+        "required": [
+          "item1",
+          "item2"
+        ],
         "properties": {
           "item1": {
             "type": "string"

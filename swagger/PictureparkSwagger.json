@@ -1,5 +1,5 @@
 ﻿{
-  "x-generator": "NSwag v13.2.2.0 (NJsonSchema v10.1.4.0 (Newtonsoft.Json v12.0.0.0))",
+  "x-generator": "NSwag v13.3.0.0 (NJsonSchema v10.1.11.0 (Newtonsoft.Json v12.0.0.0))",
   "openapi": "3.0.0",
   "info": {
     "title": "Picturepark API V1",
@@ -504,8 +504,9 @@
           {
             "name": "states",
             "in": "query",
+            "style": "form",
+            "explode": true,
             "description": "Business process states to wait for.",
-            "collectionFormat": "multi",
             "schema": {
               "type": "array",
               "nullable": true,
@@ -620,8 +621,9 @@
           {
             "name": "lifeCycles",
             "in": "query",
+            "style": "form",
+            "explode": true,
             "description": "Business process life cycles to wait for.",
-            "collectionFormat": "multi",
             "schema": {
               "type": "array",
               "nullable": true,
@@ -2089,8 +2091,9 @@
           {
             "name": "ids",
             "in": "query",
+            "style": "form",
+            "explode": true,
             "description": "Ids",
-            "collectionFormat": "multi",
             "schema": {
               "type": "array",
               "nullable": true,
@@ -2732,8 +2735,9 @@
           {
             "name": "ids",
             "in": "query",
+            "style": "form",
+            "explode": true,
             "description": "Ids",
-            "collectionFormat": "multi",
             "schema": {
               "type": "array",
               "nullable": true,
@@ -2931,8 +2935,9 @@
           {
             "name": "resolveBehaviors",
             "in": "query",
+            "style": "form",
+            "explode": true,
             "description": "List of enums that control which parts of the content are resolved and returned.",
-            "collectionFormat": "multi",
             "schema": {
               "type": "array",
               "nullable": true,
@@ -3412,8 +3417,9 @@
           {
             "name": "resolveBehaviors",
             "in": "query",
+            "style": "form",
+            "explode": true,
             "description": "List of enums that control which parts of the content are resolved and returned.",
-            "collectionFormat": "multi",
             "schema": {
               "type": "array",
               "nullable": true,
@@ -3548,9 +3554,10 @@
           {
             "name": "ids",
             "in": "query",
+            "style": "form",
+            "explode": true,
             "required": true,
             "description": "List of content IDs",
-            "collectionFormat": "multi",
             "schema": {
               "type": "array",
               "nullable": true,
@@ -3563,8 +3570,9 @@
           {
             "name": "resolveBehaviors",
             "in": "query",
+            "style": "form",
+            "explode": true,
             "description": "List of enums that control which parts of the content are resolved and returned.",
-            "collectionFormat": "multi",
             "schema": {
               "type": "array",
               "nullable": true,
@@ -3671,8 +3679,9 @@
           {
             "name": "resolveBehaviors",
             "in": "query",
+            "style": "form",
+            "explode": true,
             "description": "List of enums that control which parts of the content are resolved and returned.",
-            "collectionFormat": "multi",
             "schema": {
               "type": "array",
               "nullable": true,
@@ -3820,8 +3829,9 @@
           {
             "name": "resolveBehaviors",
             "in": "query",
+            "style": "form",
+            "explode": true,
             "description": "List of enums that control which parts of the content are resolved and returned.",
-            "collectionFormat": "multi",
             "schema": {
               "type": "array",
               "nullable": true,
@@ -6880,8 +6890,9 @@
           {
             "name": "resolveBehaviors",
             "in": "query",
+            "style": "form",
+            "explode": true,
             "description": "List of enums that control which parts of the list item are resolved and returned.",
-            "collectionFormat": "multi",
             "schema": {
               "type": "array",
               "nullable": true,
@@ -6983,8 +6994,9 @@
           {
             "name": "resolveBehaviors",
             "in": "query",
+            "style": "form",
+            "explode": true,
             "description": "List of enums that control which parts of the list item are resolved and returned.",
-            "collectionFormat": "multi",
             "schema": {
               "type": "array",
               "nullable": true,
@@ -7453,8 +7465,9 @@
           {
             "name": "resolveBehaviors",
             "in": "query",
+            "style": "form",
+            "explode": true,
             "description": "List of enums that control which parts of the list item are resolved and returned.",
-            "collectionFormat": "multi",
             "schema": {
               "type": "array",
               "nullable": true,
@@ -7589,8 +7602,9 @@
           {
             "name": "ids",
             "in": "query",
+            "style": "form",
+            "explode": true,
             "description": "List of list item IDs.",
-            "collectionFormat": "multi",
             "schema": {
               "type": "array",
               "nullable": true,
@@ -7603,8 +7617,9 @@
           {
             "name": "resolveBehaviors",
             "in": "query",
+            "style": "form",
+            "explode": true,
             "description": "List of enums that control which parts of the list items are resolved and returned.",
-            "collectionFormat": "multi",
             "schema": {
               "type": "array",
               "nullable": true,
@@ -9156,8 +9171,9 @@
           {
             "name": "ids",
             "in": "query",
+            "style": "form",
+            "explode": true,
             "description": "Output format IDs to get information about. If this is omitted, all output formats in the system will be returned.",
-            "collectionFormat": "multi",
             "schema": {
               "type": "array",
               "nullable": true,
@@ -10770,8 +10786,9 @@
           {
             "name": "ids",
             "in": "query",
+            "style": "form",
+            "explode": true,
             "description": "Ids",
-            "collectionFormat": "multi",
             "schema": {
               "type": "array",
               "nullable": true,
@@ -11413,8 +11430,9 @@
           {
             "name": "ids",
             "in": "query",
+            "style": "form",
+            "explode": true,
             "description": "Ids",
-            "collectionFormat": "multi",
             "schema": {
               "type": "array",
               "nullable": true,
@@ -12402,8 +12420,9 @@
           {
             "name": "ids",
             "in": "query",
+            "style": "form",
+            "explode": true,
             "description": "Comma separated list of schema IDs.",
-            "collectionFormat": "multi",
             "schema": {
               "type": "array",
               "nullable": true,
@@ -12678,8 +12697,9 @@
           {
             "name": "ids",
             "in": "query",
+            "style": "form",
+            "explode": true,
             "description": "The schema IDs.",
-            "collectionFormat": "multi",
             "schema": {
               "type": "array",
               "nullable": true,
@@ -15404,8 +15424,9 @@
           {
             "name": "ids",
             "in": "query",
+            "style": "form",
+            "explode": true,
             "description": "User role IDs to get information about.",
-            "collectionFormat": "multi",
             "schema": {
               "type": "array",
               "nullable": true,
@@ -17587,8 +17608,9 @@
           {
             "name": "ids",
             "in": "query",
+            "style": "form",
+            "explode": true,
             "description": "User IDs.",
-            "collectionFormat": "multi",
             "schema": {
               "type": "array",
               "nullable": true,
@@ -17958,7 +17980,13 @@
         "required": [
           "id",
           "processDefinitionId",
-          "kind"
+          "kind",
+          "supportsCancellation",
+          "businessProcessScope",
+          "lifeCycle",
+          "startDate",
+          "endDate",
+          "finished"
         ],
         "properties": {
           "id": {
@@ -18083,7 +18111,8 @@
         "description": "State transition information of a business process",
         "additionalProperties": false,
         "required": [
-          "state"
+          "state",
+          "timestamp"
         ],
         "properties": {
           "state": {
@@ -18252,28 +18281,7 @@
       },
       "Exception": {
         "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "StackTrace": {
-            "type": "string",
-            "nullable": true
-          },
-          "Message": {
-            "type": "string"
-          },
-          "InnerException": {
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/Exception"
-              }
-            ]
-          },
-          "Source": {
-            "type": "string",
-            "nullable": true
-          }
-        }
+        "additionalProperties": false
       },
       "PictureparkConflictException": {
         "allOf": [
@@ -20823,6 +20831,10 @@
       "MetadataError": {
         "type": "object",
         "additionalProperties": false,
+        "required": [
+          "lineNumber",
+          "linePosition"
+        ],
         "properties": {
           "errorType": {
             "type": "string",
@@ -23885,7 +23897,8 @@
         "description": "Create request to create a BusinessProcess.",
         "additionalProperties": false,
         "required": [
-          "initialState"
+          "initialState",
+          "supportsCancellation"
         ],
         "properties": {
           "supportsCancellation": {
@@ -23914,7 +23927,8 @@
         "additionalProperties": false,
         "required": [
           "title",
-          "message"
+          "message",
+          "eventType"
         ],
         "properties": {
           "title": {
@@ -23980,7 +23994,8 @@
         "description": "Transitions the business process to a new state and/or life cycle.",
         "additionalProperties": false,
         "required": [
-          "state"
+          "state",
+          "lifeCycle"
         ],
         "properties": {
           "state": {
@@ -24168,7 +24183,10 @@
         "description": "Row in a batch operation response",
         "additionalProperties": false,
         "required": [
-          "id"
+          "id",
+          "succeeded",
+          "status",
+          "version"
         ],
         "properties": {
           "id": {
@@ -24242,6 +24260,11 @@
         "type": "object",
         "description": "Result information of a schema import operation",
         "additionalProperties": false,
+        "required": [
+          "importedSchemaCount",
+          "skippedSchemaCount",
+          "totalSchemaCount"
+        ],
         "properties": {
           "importedSchemaCount": {
             "type": "integer",
@@ -24280,6 +24303,11 @@
         "type": "object",
         "description": "Result information of a list item import operation",
         "additionalProperties": false,
+        "required": [
+          "importedListItemCount",
+          "skippedListItemCount",
+          "totalListItemCount"
+        ],
         "properties": {
           "importedListItemCount": {
             "type": "integer",
@@ -24356,7 +24384,9 @@
         "description": "Base class for a CDN purge job",
         "additionalProperties": false,
         "required": [
-          "kind"
+          "kind",
+          "success",
+          "retriesLeft"
         ],
         "properties": {
           "success": {
@@ -24439,7 +24469,8 @@
         "description": "Represents an item imported during a content import",
         "additionalProperties": false,
         "required": [
-          "fileTransferId"
+          "fileTransferId",
+          "succeeded"
         ],
         "properties": {
           "fileTransferId": {
@@ -24491,16 +24522,20 @@
           },
           {
             "type": "object",
+            "description": "Base class for search result queries that support SearchBehaviors",
             "additionalProperties": false,
             "properties": {
               "searchString": {
                 "type": "string",
+                "description": "The search string used to query the data",
                 "nullable": true
               },
               "isSearchStringRewritten": {
-                "type": "boolean"
+                "type": "boolean",
+                "description": "Flag to notify if the SearchString was modified compared to the original requested one"
               },
               "queryDebugInformation": {
+                "description": "Additional information regarding the query execution and reason of the matched documents.",
                 "nullable": true,
                 "oneOf": [
                   {
@@ -24534,23 +24569,29 @@
       },
       "BaseResultOfBusinessProcess": {
         "type": "object",
+        "description": "Base class for search results",
         "additionalProperties": false,
         "required": [
-          "results"
+          "results",
+          "totalResults",
+          "elapsedMilliseconds"
         ],
         "properties": {
           "totalResults": {
             "type": "integer",
+            "description": "The total number of matching documents.",
             "format": "int64"
           },
           "results": {
             "type": "array",
+            "description": "The matched documents.",
             "items": {
               "$ref": "#/components/schemas/BusinessProcess"
             }
           },
           "elapsedMilliseconds": {
             "type": "integer",
+            "description": "The search execution time in milliseconds.",
             "format": "int64"
           },
           "pageToken": {
@@ -24563,6 +24604,10 @@
         "type": "object",
         "description": "Search request to search for business processes",
         "additionalProperties": false,
+        "required": [
+          "limit",
+          "debugMode"
+        ],
         "properties": {
           "limit": {
             "type": "integer",
@@ -25171,6 +25216,9 @@
         "type": "object",
         "description": "Represents the business rule configuration.",
         "additionalProperties": false,
+        "required": [
+          "disableRuleEngine"
+        ],
         "properties": {
           "disableRuleEngine": {
             "type": "boolean",
@@ -25207,7 +25255,9 @@
         "x-abstract": true,
         "additionalProperties": false,
         "required": [
-          "kind"
+          "kind",
+          "isEnabled",
+          "enableTracing"
         ],
         "properties": {
           "id": {
@@ -25259,6 +25309,11 @@
         "type": "object",
         "description": "Represents a trigger point for a business rule",
         "additionalProperties": false,
+        "required": [
+          "executionScope",
+          "documentType",
+          "action"
+        ],
         "properties": {
           "executionScope": {
             "description": "Execution scope.",
@@ -25741,6 +25796,10 @@
         "type": "object",
         "description": "Stores a coordinate",
         "additionalProperties": false,
+        "required": [
+          "lat",
+          "lon"
+        ],
         "properties": {
           "lat": {
             "type": "number",
@@ -26445,7 +26504,8 @@
         "x-abstract": true,
         "additionalProperties": false,
         "required": [
-          "kind"
+          "kind",
+          "caseSensitive"
         ],
         "properties": {
           "name": {
@@ -26561,6 +26621,9 @@
         "type": "object",
         "description": "Update request for changing business rule configuration",
         "additionalProperties": false,
+        "required": [
+          "disableRuleEngine"
+        ],
         "properties": {
           "disableRuleEngine": {
             "type": "boolean",
@@ -26603,10 +26666,12 @@
           },
           {
             "type": "object",
+            "description": "Base class for search result queries that support SearchBehaviors",
             "additionalProperties": false,
             "properties": {
               "aggregationResults": {
                 "type": "array",
+                "description": "Results of the aggregation, if any aggregators was passed in the request.",
                 "nullable": true,
                 "items": {
                   "$ref": "#/components/schemas/AggregationResult"
@@ -26650,7 +26715,9 @@
         "description": "Aggregation result item",
         "additionalProperties": false,
         "required": [
-          "name"
+          "name",
+          "count",
+          "active"
         ],
         "properties": {
           "name": {
@@ -26693,16 +26760,20 @@
           },
           {
             "type": "object",
+            "description": "Base class for search result queries that support SearchBehaviors",
             "additionalProperties": false,
             "properties": {
               "searchString": {
                 "type": "string",
+                "description": "The search string used to query the data",
                 "nullable": true
               },
               "isSearchStringRewritten": {
-                "type": "boolean"
+                "type": "boolean",
+                "description": "Flag to notify if the SearchString was modified compared to the original requested one"
               },
               "queryDebugInformation": {
+                "description": "Additional information regarding the query execution and reason of the matched documents.",
                 "nullable": true,
                 "oneOf": [
                   {
@@ -26716,23 +26787,29 @@
       },
       "BaseResultOfBusinessRuleTraceLog": {
         "type": "object",
+        "description": "Base class for search results",
         "additionalProperties": false,
         "required": [
-          "results"
+          "results",
+          "totalResults",
+          "elapsedMilliseconds"
         ],
         "properties": {
           "totalResults": {
             "type": "integer",
+            "description": "The total number of matching documents.",
             "format": "int64"
           },
           "results": {
             "type": "array",
+            "description": "The matched documents.",
             "items": {
               "$ref": "#/components/schemas/BusinessRuleTraceLog"
             }
           },
           "elapsedMilliseconds": {
             "type": "integer",
+            "description": "The search execution time in milliseconds.",
             "format": "int64"
           },
           "pageToken": {
@@ -26745,6 +26822,9 @@
         "type": "object",
         "description": "Contains a trace for a single document affected by potentially multiple business rules being evaluated and executed.",
         "additionalProperties": false,
+        "required": [
+          "documentType"
+        ],
         "properties": {
           "documentId": {
             "type": "string",
@@ -26830,6 +26910,9 @@
         "type": "object",
         "description": "Evaluation trace of a business rule",
         "additionalProperties": false,
+        "required": [
+          "conditionSatisfied"
+        ],
         "properties": {
           "conditionSatisfied": {
             "type": "boolean",
@@ -26873,6 +26956,9 @@
         "type": "object",
         "description": "Detail trace for business rule condition",
         "additionalProperties": false,
+        "required": [
+          "satisfied"
+        ],
         "properties": {
           "traceRefId": {
             "type": "string",
@@ -26946,6 +27032,9 @@
         "type": "object",
         "description": "Detailed trace for business rule action",
         "additionalProperties": false,
+        "required": [
+          "documentModified"
+        ],
         "properties": {
           "traceRefId": {
             "type": "string",
@@ -26967,6 +27056,10 @@
         "type": "object",
         "description": "Audit information",
         "additionalProperties": false,
+        "required": [
+          "creationDate",
+          "modificationDate"
+        ],
         "properties": {
           "creationDate": {
             "type": "string",
@@ -26993,6 +27086,10 @@
       "BusinessRuleTraceLogSearchRequest": {
         "type": "object",
         "additionalProperties": false,
+        "required": [
+          "debugMode",
+          "limit"
+        ],
         "properties": {
           "debugMode": {
             "type": "boolean",
@@ -27215,6 +27312,9 @@
         "type": "object",
         "description": "Stores geo distance information for gei distance aggregation",
         "additionalProperties": false,
+        "required": [
+          "distance"
+        ],
         "properties": {
           "names": {
             "description": "Language specific geo distance names.",
@@ -27438,6 +27538,9 @@
         "type": "object",
         "description": "Sorting information",
         "additionalProperties": false,
+        "required": [
+          "direction"
+        ],
         "properties": {
           "field": {
             "type": "string",
@@ -27479,7 +27582,8 @@
           "extendedSimpleSearchFields",
           "grantedUserRoleIds",
           "missingResultsDisplayPatterns",
-          "audit"
+          "audit",
+          "viewForAll"
         ],
         "properties": {
           "id": {
@@ -27568,7 +27672,9 @@
         "type": "object",
         "additionalProperties": false,
         "required": [
-          "names"
+          "names",
+          "sortOrder",
+          "viewForAll"
         ],
         "properties": {
           "id": {
@@ -27646,7 +27752,9 @@
         "type": "object",
         "additionalProperties": false,
         "required": [
-          "names"
+          "names",
+          "sortOrder",
+          "viewForAll"
         ],
         "properties": {
           "sort": {
@@ -27730,23 +27838,32 @@
       },
       "PermissionSetDetailOfContentRight": {
         "type": "object",
+        "description": "Base class for detail of permission sets",
         "x-abstract": true,
         "additionalProperties": false,
         "required": [
           "id",
           "names",
-          "ownerTokenId"
+          "ownerTokenId",
+          "exclusive"
         ],
         "properties": {
           "id": {
             "type": "string",
+            "description": "The permission set ID.",
             "minLength": 1
           },
           "names": {
-            "$ref": "#/components/schemas/TranslatedStringDictionary"
+            "description": "Language specific permission set names.",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/TranslatedStringDictionary"
+              }
+            ]
           },
           "userRolesRights": {
             "type": "array",
+            "description": "A list of content or metadata rights authorizing operations on content documents or list items.",
             "nullable": true,
             "items": {
               "$ref": "#/components/schemas/PermissionUserRoleRightsOfContentRight"
@@ -27754,19 +27871,23 @@
           },
           "userRolesPermissionSetRights": {
             "type": "array",
+            "description": "A list of permission set rights authorizing operations on this permission set.",
             "nullable": true,
             "items": {
               "$ref": "#/components/schemas/PermissionUserRoleRightsOfPermissionSetRight"
             }
           },
           "exclusive": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "When true this permission set will derogate all other configured permission sets on content documents or list items."
           },
           "ownerTokenId": {
             "type": "string",
+            "description": "The owner token ID. Defines the permission set owner.",
             "minLength": 1
           },
           "audit": {
+            "description": "Audit information.",
             "nullable": true,
             "oneOf": [
               {
@@ -27778,13 +27899,16 @@
       },
       "PermissionUserRoleRightsOfContentRight": {
         "type": "object",
+        "description": "Rights assigned to a user role.",
         "additionalProperties": false,
         "properties": {
           "userRoleId": {
             "type": "string",
+            "description": "The user role ID.",
             "nullable": true
           },
           "names": {
+            "description": "Language specific user role names.",
             "nullable": true,
             "oneOf": [
               {
@@ -27794,6 +27918,7 @@
           },
           "rights": {
             "type": "array",
+            "description": "List of rights: they can be content, metadata or permission set rights, depending on the type defined on the class\n(ContentRight, MetadataRight, PermissionSetRight).",
             "nullable": true,
             "items": {
               "$ref": "#/components/schemas/ContentRight"
@@ -27803,13 +27928,16 @@
       },
       "PermissionUserRoleRightsOfPermissionSetRight": {
         "type": "object",
+        "description": "Rights assigned to a user role.",
         "additionalProperties": false,
         "properties": {
           "userRoleId": {
             "type": "string",
+            "description": "The user role ID.",
             "nullable": true
           },
           "names": {
+            "description": "Language specific user role names.",
             "nullable": true,
             "oneOf": [
               {
@@ -27819,6 +27947,7 @@
           },
           "rights": {
             "type": "array",
+            "description": "List of rights: they can be content, metadata or permission set rights, depending on the type defined on the class\n(ContentRight, MetadataRight, PermissionSetRight).",
             "nullable": true,
             "items": {
               "$ref": "#/components/schemas/PermissionSetRight"
@@ -27842,6 +27971,10 @@
         "type": "object",
         "description": "Audit information",
         "additionalProperties": false,
+        "required": [
+          "creationDate",
+          "modificationDate"
+        ],
         "properties": {
           "creationDate": {
             "type": "string",
@@ -27877,7 +28010,8 @@
         "type": "object",
         "additionalProperties": false,
         "required": [
-          "emailAddress"
+          "emailAddress",
+          "isDeleted"
         ],
         "properties": {
           "id": {
@@ -27922,7 +28056,8 @@
         "x-abstract": true,
         "additionalProperties": false,
         "required": [
-          "names"
+          "names",
+          "exclusive"
         ],
         "properties": {
           "names": {
@@ -27957,10 +28092,12 @@
         "properties": {
           "userRoleId": {
             "type": "string",
+            "description": "The user role id.",
             "nullable": true
           },
           "rights": {
             "type": "array",
+            "description": "A permission container which can hold content, metadata or permission set rights.",
             "nullable": true,
             "items": {
               "$ref": "#/components/schemas/ContentRight"
@@ -27974,10 +28111,12 @@
         "properties": {
           "userRoleId": {
             "type": "string",
+            "description": "The user role id.",
             "nullable": true
           },
           "rights": {
             "type": "array",
+            "description": "A permission container which can hold content, metadata or permission set rights.",
             "nullable": true,
             "items": {
               "$ref": "#/components/schemas/PermissionSetRight"
@@ -27999,6 +28138,7 @@
       },
       "PermissionSetUpdateRequestOfContentRight": {
         "type": "object",
+        "description": "Base class for permission set update requests",
         "x-abstract": true,
         "additionalProperties": false,
         "required": [
@@ -28006,10 +28146,16 @@
         ],
         "properties": {
           "names": {
-            "$ref": "#/components/schemas/TranslatedStringDictionary"
+            "description": "Language specific permission set names.",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/TranslatedStringDictionary"
+              }
+            ]
           },
           "userRolesRights": {
             "type": "array",
+            "description": "A list of content or metadata rights authorizing operations on content documents or list items.",
             "nullable": true,
             "items": {
               "$ref": "#/components/schemas/UserRoleRightsOfContentRight"
@@ -28017,6 +28163,7 @@
           },
           "userRolesPermissionSetRights": {
             "type": "array",
+            "description": "A list of permission set rights authorizing operations on this permission set.",
             "nullable": true,
             "items": {
               "$ref": "#/components/schemas/UserRoleRightsOfPermissionSetRight"
@@ -28058,7 +28205,10 @@
         "description": "Row information of a bulk response",
         "additionalProperties": false,
         "required": [
-          "id"
+          "id",
+          "version",
+          "succeeded",
+          "status"
         ],
         "properties": {
           "id": {
@@ -28139,6 +28289,7 @@
           },
           {
             "type": "object",
+            "description": "Base class for permission set update requests",
             "x-abstract": true,
             "additionalProperties": false,
             "required": [
@@ -28147,6 +28298,7 @@
             "properties": {
               "id": {
                 "type": "string",
+                "description": "The permission set ID.",
                 "minLength": 1
               }
             }
@@ -28233,16 +28385,20 @@
           },
           {
             "type": "object",
+            "description": "Base class for search result queries that support SearchBehaviors",
             "additionalProperties": false,
             "properties": {
               "searchString": {
                 "type": "string",
+                "description": "The search string used to query the data",
                 "nullable": true
               },
               "isSearchStringRewritten": {
-                "type": "boolean"
+                "type": "boolean",
+                "description": "Flag to notify if the SearchString was modified compared to the original requested one"
               },
               "queryDebugInformation": {
+                "description": "Additional information regarding the query execution and reason of the matched documents.",
                 "nullable": true,
                 "oneOf": [
                   {
@@ -28256,23 +28412,29 @@
       },
       "BaseResultOfPermissionSet": {
         "type": "object",
+        "description": "Base class for search results",
         "additionalProperties": false,
         "required": [
-          "results"
+          "results",
+          "totalResults",
+          "elapsedMilliseconds"
         ],
         "properties": {
           "totalResults": {
             "type": "integer",
+            "description": "The total number of matching documents.",
             "format": "int64"
           },
           "results": {
             "type": "array",
+            "description": "The matched documents.",
             "items": {
               "$ref": "#/components/schemas/PermissionSet"
             }
           },
           "elapsedMilliseconds": {
             "type": "integer",
+            "description": "The search execution time in milliseconds.",
             "format": "int64"
           },
           "pageToken": {
@@ -28287,7 +28449,8 @@
         "additionalProperties": false,
         "required": [
           "id",
-          "names"
+          "names",
+          "exclusive"
         ],
         "properties": {
           "id": {
@@ -28313,6 +28476,10 @@
         "type": "object",
         "description": "Request to search permission sets",
         "additionalProperties": false,
+        "required": [
+          "limit",
+          "debugMode"
+        ],
         "properties": {
           "searchString": {
             "type": "string",
@@ -28384,7 +28551,9 @@
         "required": [
           "contentSchemaId",
           "id",
-          "ownerTokenId"
+          "ownerTokenId",
+          "contentType",
+          "lifeCycle"
         ],
         "properties": {
           "contentSchemaId": {
@@ -28529,7 +28698,9 @@
           "contentId",
           "renderingState",
           "dynamicRendering",
-          "kind"
+          "kind",
+          "attemptsLeft",
+          "fileVersion"
         ],
         "properties": {
           "id": {
@@ -28696,7 +28867,7 @@
               "durationInSeconds": {
                 "type": "number",
                 "description": "Duration of the audio stream in seconds.",
-                "format": "double",
+                "format": "float",
                 "nullable": true
               }
             }
@@ -28716,7 +28887,7 @@
               "durationInSeconds": {
                 "type": "number",
                 "description": "Duration of the video in seconds.",
-                "format": "double"
+                "format": "float"
               },
               "width": {
                 "type": "integer",
@@ -28744,6 +28915,14 @@
         "type": "object",
         "description": "The sprite of a video sprite",
         "additionalProperties": false,
+        "required": [
+          "width",
+          "height",
+          "y",
+          "x",
+          "start",
+          "end"
+        ],
         "properties": {
           "width": {
             "type": "integer",
@@ -28943,6 +29122,11 @@
         "type": "object",
         "description": "Request to update content metadata",
         "additionalProperties": false,
+        "required": [
+          "layerSchemasUpdateOptions",
+          "layerFieldsUpdateOptions",
+          "contentFieldsUpdateOptions"
+        ],
         "properties": {
           "layerSchemaIds": {
             "type": "array",
@@ -29104,23 +29288,29 @@
       },
       "BaseResultOfMetadataReference": {
         "type": "object",
+        "description": "Base class for search results",
         "additionalProperties": false,
         "required": [
-          "results"
+          "results",
+          "totalResults",
+          "elapsedMilliseconds"
         ],
         "properties": {
           "totalResults": {
             "type": "integer",
+            "description": "The total number of matching documents.",
             "format": "int64"
           },
           "results": {
             "type": "array",
+            "description": "The matched documents.",
             "items": {
               "$ref": "#/components/schemas/MetadataReference"
             }
           },
           "elapsedMilliseconds": {
             "type": "integer",
+            "description": "The search execution time in milliseconds.",
             "format": "int64"
           },
           "pageToken": {
@@ -29173,23 +29363,29 @@
       },
       "BaseResultOfContentShareReference": {
         "type": "object",
+        "description": "Base class for search results",
         "additionalProperties": false,
         "required": [
-          "results"
+          "results",
+          "totalResults",
+          "elapsedMilliseconds"
         ],
         "properties": {
           "totalResults": {
             "type": "integer",
+            "description": "The total number of matching documents.",
             "format": "int64"
           },
           "results": {
             "type": "array",
+            "description": "The matched documents.",
             "items": {
               "$ref": "#/components/schemas/ContentShareReference"
             }
           },
           "elapsedMilliseconds": {
             "type": "integer",
+            "description": "The search execution time in milliseconds.",
             "format": "int64"
           },
           "pageToken": {
@@ -29202,6 +29398,9 @@
         "type": "object",
         "description": "Share information for a share referencing a content",
         "additionalProperties": false,
+        "required": [
+          "shareType"
+        ],
         "properties": {
           "id": {
             "type": "string",
@@ -29296,6 +29495,9 @@
         "type": "object",
         "description": "Request to page data",
         "additionalProperties": false,
+        "required": [
+          "limit"
+        ],
         "properties": {
           "limit": {
             "type": "integer",
@@ -29373,7 +29575,8 @@
         "description": "Request to create multiple contents",
         "additionalProperties": false,
         "required": [
-          "items"
+          "items",
+          "allowMissingDependencies"
         ],
         "properties": {
           "allowMissingDependencies": {
@@ -29394,7 +29597,8 @@
         "description": "Request to update many contents metadata",
         "additionalProperties": false,
         "required": [
-          "items"
+          "items",
+          "allowMissingDependencies"
         ],
         "properties": {
           "allowMissingDependencies": {
@@ -29515,7 +29719,9 @@
         "description": "Request to delete multiple contents.",
         "additionalProperties": false,
         "required": [
-          "contentIds"
+          "contentIds",
+          "forceReferenceRemoval",
+          "notifyProgress"
         ],
         "properties": {
           "contentIds": {
@@ -29540,7 +29746,9 @@
         "description": "Request to delete multiple contents based on a provided filter",
         "additionalProperties": false,
         "required": [
-          "filterRequest"
+          "filterRequest",
+          "forceReferenceRemoval",
+          "notifyProgress"
         ],
         "properties": {
           "filterRequest": {
@@ -29564,6 +29772,11 @@
       "ContentFilterRequest": {
         "type": "object",
         "additionalProperties": false,
+        "required": [
+          "searchType",
+          "lifeCycleFilter",
+          "brokenDependenciesFilter"
+        ],
         "properties": {
           "channelId": {
             "type": "string",
@@ -29680,7 +29893,8 @@
         "description": "Request to restore multiple contents",
         "additionalProperties": false,
         "required": [
-          "contentIds"
+          "contentIds",
+          "allowMissingDependencies"
         ],
         "properties": {
           "contentIds": {
@@ -29769,7 +29983,9 @@
         "additionalProperties": false,
         "required": [
           "changeCommands",
-          "kind"
+          "kind",
+          "allowMissingDependencies",
+          "notifyProgress"
         ],
         "properties": {
           "changeCommands": {
@@ -30040,6 +30256,10 @@
         "type": "object",
         "description": "Combination of ContentRight and found document count",
         "additionalProperties": false,
+        "required": [
+          "contentRight",
+          "count"
+        ],
         "properties": {
           "contentRight": {
             "description": "ContentRight.",
@@ -30063,10 +30283,12 @@
           },
           {
             "type": "object",
+            "description": "Base class for search result queries that support SearchBehaviors",
             "additionalProperties": false,
             "properties": {
               "aggregationResults": {
                 "type": "array",
+                "description": "Results of the aggregation, if any aggregators was passed in the request.",
                 "nullable": true,
                 "items": {
                   "$ref": "#/components/schemas/AggregationResult"
@@ -30083,16 +30305,20 @@
           },
           {
             "type": "object",
+            "description": "Base class for search result queries that support SearchBehaviors",
             "additionalProperties": false,
             "properties": {
               "searchString": {
                 "type": "string",
+                "description": "The search string used to query the data",
                 "nullable": true
               },
               "isSearchStringRewritten": {
-                "type": "boolean"
+                "type": "boolean",
+                "description": "Flag to notify if the SearchString was modified compared to the original requested one"
               },
               "queryDebugInformation": {
+                "description": "Additional information regarding the query execution and reason of the matched documents.",
                 "nullable": true,
                 "oneOf": [
                   {
@@ -30106,23 +30332,29 @@
       },
       "BaseResultOfContent": {
         "type": "object",
+        "description": "Base class for search results",
         "additionalProperties": false,
         "required": [
-          "results"
+          "results",
+          "totalResults",
+          "elapsedMilliseconds"
         ],
         "properties": {
           "totalResults": {
             "type": "integer",
+            "description": "The total number of matching documents.",
             "format": "int64"
           },
           "results": {
             "type": "array",
+            "description": "The matched documents.",
             "items": {
               "$ref": "#/components/schemas/Content"
             }
           },
           "elapsedMilliseconds": {
             "type": "integer",
+            "description": "The search execution time in milliseconds.",
             "format": "int64"
           },
           "pageToken": {
@@ -30138,7 +30370,8 @@
           "contentSchemaId",
           "contentType",
           "displayValues",
-          "id"
+          "id",
+          "lifeCycle"
         ],
         "properties": {
           "audit": {
@@ -30290,6 +30523,11 @@
         "type": "object",
         "description": "Request to aggregate contents based on the aggregators defined on a channel",
         "additionalProperties": false,
+        "required": [
+          "lifeCycleFilter",
+          "brokenDependenciesFilter",
+          "searchType"
+        ],
         "properties": {
           "searchString": {
             "type": "string",
@@ -30373,7 +30611,9 @@
         "description": "Result for an aggregation operation",
         "additionalProperties": false,
         "required": [
-          "aggregationResults"
+          "aggregationResults",
+          "elapsedMilliseconds",
+          "isSearchStringRewritten"
         ],
         "properties": {
           "elapsedMilliseconds": {
@@ -30435,6 +30675,9 @@
       "DisplayValueStatus": {
         "type": "object",
         "additionalProperties": false,
+        "required": [
+          "state"
+        ],
         "properties": {
           "contentOrLayerSchemaIds": {
             "type": "array",
@@ -30479,6 +30722,13 @@
       "DocumentHistory": {
         "type": "object",
         "additionalProperties": false,
+        "required": [
+          "documentVersion",
+          "documentDate",
+          "timestamp",
+          "deleted",
+          "action"
+        ],
         "properties": {
           "documentId": {
             "type": "string",
@@ -30523,6 +30773,9 @@
       "UserAuditHistory": {
         "type": "object",
         "additionalProperties": false,
+        "required": [
+          "modificationDate"
+        ],
         "properties": {
           "modificationDate": {
             "type": "string",
@@ -30555,6 +30808,10 @@
       "DocumentHistoryDifference": {
         "type": "object",
         "additionalProperties": false,
+        "required": [
+          "oldDocumentVersion",
+          "newDocumentVersion"
+        ],
         "properties": {
           "documentId": {
             "type": "string",
@@ -30587,23 +30844,29 @@
       },
       "BaseResultOfDocumentHistory": {
         "type": "object",
+        "description": "Base class for search results",
         "additionalProperties": false,
         "required": [
-          "results"
+          "results",
+          "totalResults",
+          "elapsedMilliseconds"
         ],
         "properties": {
           "totalResults": {
             "type": "integer",
+            "description": "The total number of matching documents.",
             "format": "int64"
           },
           "results": {
             "type": "array",
+            "description": "The matched documents.",
             "items": {
               "$ref": "#/components/schemas/DocumentHistory"
             }
           },
           "elapsedMilliseconds": {
             "type": "integer",
+            "description": "The search execution time in milliseconds.",
             "format": "int64"
           },
           "pageToken": {
@@ -30615,6 +30878,12 @@
       "DocumentHistorySearchRequest": {
         "type": "object",
         "additionalProperties": false,
+        "required": [
+          "from",
+          "to",
+          "limit",
+          "documentVersion"
+        ],
         "properties": {
           "from": {
             "type": "string",
@@ -31021,6 +31290,9 @@
       "StatusOfSearchIndexState": {
         "type": "object",
         "additionalProperties": false,
+        "required": [
+          "state"
+        ],
         "properties": {
           "id": {
             "type": "string",
@@ -31048,6 +31320,9 @@
       "StatusOfDisplayValuesState": {
         "type": "object",
         "additionalProperties": false,
+        "required": [
+          "state"
+        ],
         "properties": {
           "id": {
             "type": "string",
@@ -31061,6 +31336,9 @@
       "StatusOfMetadataState": {
         "type": "object",
         "additionalProperties": false,
+        "required": [
+          "state"
+        ],
         "properties": {
           "id": {
             "type": "string",
@@ -31185,6 +31463,9 @@
         "type": "object",
         "description": "Request to update an existing list item",
         "additionalProperties": false,
+        "required": [
+          "contentFieldsUpdateOptions"
+        ],
         "properties": {
           "content": {
             "type": "object",
@@ -31264,7 +31545,8 @@
         "description": "Request to create multiple list items",
         "additionalProperties": false,
         "required": [
-          "items"
+          "items",
+          "allowMissingDependencies"
         ],
         "properties": {
           "allowMissingDependencies": {
@@ -31285,7 +31567,8 @@
         "description": "Request to update multiple list items",
         "additionalProperties": false,
         "required": [
-          "items"
+          "items",
+          "allowMissingDependencies"
         ],
         "properties": {
           "allowMissingDependencies": {
@@ -31327,7 +31610,9 @@
         "description": "Request to delete multiple list items",
         "additionalProperties": false,
         "required": [
-          "listItemIds"
+          "listItemIds",
+          "forceReferenceRemoval",
+          "notifyProgress"
         ],
         "properties": {
           "listItemIds": {
@@ -31352,7 +31637,9 @@
         "description": "Request to delete multiple list items based on a provided filter",
         "additionalProperties": false,
         "required": [
-          "filterRequest"
+          "filterRequest",
+          "forceReferenceRemoval",
+          "notifyProgress"
         ],
         "properties": {
           "filterRequest": {
@@ -31377,6 +31664,10 @@
         "type": "object",
         "description": "Request to filter list items",
         "additionalProperties": false,
+        "required": [
+          "includeAllSchemaChildren",
+          "brokenDependenciesFilter"
+        ],
         "properties": {
           "searchString": {
             "type": "string",
@@ -31428,7 +31719,8 @@
         "description": "Request to restore multiple deleted list items",
         "additionalProperties": false,
         "required": [
-          "listItemIds"
+          "listItemIds",
+          "allowMissingDependencies"
         ],
         "properties": {
           "listItemIds": {
@@ -31476,7 +31768,9 @@
         "additionalProperties": false,
         "required": [
           "listItemIds",
-          "changeCommands"
+          "changeCommands",
+          "allowMissingDependencies",
+          "notifyProgress"
         ],
         "properties": {
           "listItemIds": {
@@ -31509,7 +31803,9 @@
         "additionalProperties": false,
         "required": [
           "filterRequest",
-          "changeCommands"
+          "changeCommands",
+          "allowMissingDependencies",
+          "notifyProgress"
         ],
         "properties": {
           "filterRequest": {
@@ -31556,10 +31852,12 @@
           },
           {
             "type": "object",
+            "description": "Base class for search result queries that support SearchBehaviors",
             "additionalProperties": false,
             "properties": {
               "aggregationResults": {
                 "type": "array",
+                "description": "Results of the aggregation, if any aggregators was passed in the request.",
                 "nullable": true,
                 "items": {
                   "$ref": "#/components/schemas/AggregationResult"
@@ -31576,16 +31874,20 @@
           },
           {
             "type": "object",
+            "description": "Base class for search result queries that support SearchBehaviors",
             "additionalProperties": false,
             "properties": {
               "searchString": {
                 "type": "string",
+                "description": "The search string used to query the data",
                 "nullable": true
               },
               "isSearchStringRewritten": {
-                "type": "boolean"
+                "type": "boolean",
+                "description": "Flag to notify if the SearchString was modified compared to the original requested one"
               },
               "queryDebugInformation": {
+                "description": "Additional information regarding the query execution and reason of the matched documents.",
                 "nullable": true,
                 "oneOf": [
                   {
@@ -31599,23 +31901,29 @@
       },
       "BaseResultOfListItem": {
         "type": "object",
+        "description": "Base class for search results",
         "additionalProperties": false,
         "required": [
-          "results"
+          "results",
+          "totalResults",
+          "elapsedMilliseconds"
         ],
         "properties": {
           "totalResults": {
             "type": "integer",
+            "description": "The total number of matching documents.",
             "format": "int64"
           },
           "results": {
             "type": "array",
+            "description": "The matched documents.",
             "items": {
               "$ref": "#/components/schemas/ListItem"
             }
           },
           "elapsedMilliseconds": {
             "type": "integer",
+            "description": "The search execution time in milliseconds.",
             "format": "int64"
           },
           "pageToken": {
@@ -31628,7 +31936,8 @@
         "type": "object",
         "additionalProperties": false,
         "required": [
-          "id"
+          "id",
+          "lifeCycle"
         ],
         "properties": {
           "audit": {
@@ -31757,6 +32066,11 @@
         "description": "Request to aggregate list items",
         "x-abstract": true,
         "additionalProperties": false,
+        "required": [
+          "includeAllSchemaChildren",
+          "brokenDependenciesFilter",
+          "lifeCycleFilter"
+        ],
         "properties": {
           "searchString": {
             "type": "string",
@@ -31866,23 +32180,29 @@
       },
       "BaseResultOfLiveStream": {
         "type": "object",
+        "description": "Base class for search results",
         "additionalProperties": false,
         "required": [
-          "results"
+          "results",
+          "totalResults",
+          "elapsedMilliseconds"
         ],
         "properties": {
           "totalResults": {
             "type": "integer",
+            "description": "The total number of matching documents.",
             "format": "int64"
           },
           "results": {
             "type": "array",
+            "description": "The matched documents.",
             "items": {
               "$ref": "#/components/schemas/LiveStream"
             }
           },
           "elapsedMilliseconds": {
             "type": "integer",
+            "description": "The search execution time in milliseconds.",
             "format": "int64"
           },
           "pageToken": {
@@ -31895,7 +32215,8 @@
         "type": "object",
         "additionalProperties": false,
         "required": [
-          "id"
+          "id",
+          "timestamp"
         ],
         "properties": {
           "id": {
@@ -31957,6 +32278,11 @@
       "LiveStreamSearchRequest": {
         "type": "object",
         "additionalProperties": false,
+        "required": [
+          "from",
+          "to",
+          "limit"
+        ],
         "properties": {
           "from": {
             "type": "string",
@@ -31999,6 +32325,9 @@
         "type": "object",
         "description": "The overall status of the contents and list items in comparison to the actual schemas' structure",
         "additionalProperties": false,
+        "required": [
+          "state"
+        ],
         "properties": {
           "contentOrLayerSchemaIds": {
             "type": "array",
@@ -32216,13 +32545,13 @@
               "horizontalResolution": {
                 "type": "number",
                 "description": "Horizontal resolution in dpi (dots per inch)",
-                "format": "double",
+                "format": "float",
                 "nullable": true
               },
               "verticalResolution": {
                 "type": "number",
                 "description": "Vertical resolution in dpi (dots per inch)",
-                "format": "double",
+                "format": "float",
                 "nullable": true
               },
               "keepClippingPath": {
@@ -32356,6 +32685,11 @@
         "type": "object",
         "description": "Specifies image resize parameters.",
         "additionalProperties": false,
+        "required": [
+          "width",
+          "height",
+          "resizeMode"
+        ],
         "properties": {
           "width": {
             "type": "integer",
@@ -32501,17 +32835,17 @@
               "amount": {
                 "type": "number",
                 "description": "Unsharp mask amount (the difference between blurred and original image).",
-                "format": "double"
+                "format": "float"
               },
               "radius": {
                 "type": "number",
                 "description": "Blur radius used to produce unfocused version of the image.",
-                "format": "double"
+                "format": "float"
               },
               "threshold": {
                 "type": "number",
                 "description": "The threshold value for the unsharp mask in range [0, 1]",
-                "format": "double"
+                "format": "float"
               }
             }
           }
@@ -32559,17 +32893,17 @@
               "opacity": {
                 "type": "number",
                 "description": "Scales the opacity of the watermark",
-                "format": "double"
+                "format": "float"
               },
               "widthRatio": {
                 "type": "number",
                 "description": "Scales the watermark width according to the size of the final image.",
-                "format": "double"
+                "format": "float"
               },
               "heightRatio": {
                 "type": "number",
                 "description": "Scales the watermark height according to the size of the final image.",
-                "format": "double"
+                "format": "float"
               }
             }
           }
@@ -33212,23 +33546,29 @@
       },
       "BaseResultOfOutput": {
         "type": "object",
+        "description": "Base class for search results",
         "additionalProperties": false,
         "required": [
-          "results"
+          "results",
+          "totalResults",
+          "elapsedMilliseconds"
         ],
         "properties": {
           "totalResults": {
             "type": "integer",
+            "description": "The total number of matching documents.",
             "format": "int64"
           },
           "results": {
             "type": "array",
+            "description": "The matched documents.",
             "items": {
               "$ref": "#/components/schemas/Output"
             }
           },
           "elapsedMilliseconds": {
             "type": "integer",
+            "description": "The search execution time in milliseconds.",
             "format": "int64"
           },
           "pageToken": {
@@ -33240,6 +33580,9 @@
       "OutputSearchRequest": {
         "type": "object",
         "additionalProperties": false,
+        "required": [
+          "limit"
+        ],
         "properties": {
           "limit": {
             "type": "integer",
@@ -33289,6 +33632,9 @@
       "OutputResetRetryAttemptsRequest": {
         "type": "object",
         "additionalProperties": false,
+        "required": [
+          "includeCompleted"
+        ],
         "properties": {
           "outputIds": {
             "type": "array",
@@ -33332,6 +33678,13 @@
         "type": "object",
         "description": "User profile.",
         "additionalProperties": false,
+        "required": [
+          "authorizationState",
+          "isLocked",
+          "termsConsentExpired",
+          "isDeveloper",
+          "isFederated"
+        ],
         "properties": {
           "id": {
             "type": "string",
@@ -33529,23 +33882,32 @@
       },
       "PermissionSetDetailOfMetadataRight": {
         "type": "object",
+        "description": "Base class for detail of permission sets",
         "x-abstract": true,
         "additionalProperties": false,
         "required": [
           "id",
           "names",
-          "ownerTokenId"
+          "ownerTokenId",
+          "exclusive"
         ],
         "properties": {
           "id": {
             "type": "string",
+            "description": "The permission set ID.",
             "minLength": 1
           },
           "names": {
-            "$ref": "#/components/schemas/TranslatedStringDictionary"
+            "description": "Language specific permission set names.",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/TranslatedStringDictionary"
+              }
+            ]
           },
           "userRolesRights": {
             "type": "array",
+            "description": "A list of content or metadata rights authorizing operations on content documents or list items.",
             "nullable": true,
             "items": {
               "$ref": "#/components/schemas/PermissionUserRoleRightsOfMetadataRight"
@@ -33553,19 +33915,23 @@
           },
           "userRolesPermissionSetRights": {
             "type": "array",
+            "description": "A list of permission set rights authorizing operations on this permission set.",
             "nullable": true,
             "items": {
               "$ref": "#/components/schemas/PermissionUserRoleRightsOfPermissionSetRight"
             }
           },
           "exclusive": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "When true this permission set will derogate all other configured permission sets on content documents or list items."
           },
           "ownerTokenId": {
             "type": "string",
+            "description": "The owner token ID. Defines the permission set owner.",
             "minLength": 1
           },
           "audit": {
+            "description": "Audit information.",
             "nullable": true,
             "oneOf": [
               {
@@ -33577,13 +33943,16 @@
       },
       "PermissionUserRoleRightsOfMetadataRight": {
         "type": "object",
+        "description": "Rights assigned to a user role.",
         "additionalProperties": false,
         "properties": {
           "userRoleId": {
             "type": "string",
+            "description": "The user role ID.",
             "nullable": true
           },
           "names": {
+            "description": "Language specific user role names.",
             "nullable": true,
             "oneOf": [
               {
@@ -33593,6 +33962,7 @@
           },
           "rights": {
             "type": "array",
+            "description": "List of rights: they can be content, metadata or permission set rights, depending on the type defined on the class\n(ContentRight, MetadataRight, PermissionSetRight).",
             "nullable": true,
             "items": {
               "$ref": "#/components/schemas/MetadataRight"
@@ -33616,7 +33986,8 @@
         "x-abstract": true,
         "additionalProperties": false,
         "required": [
-          "names"
+          "names",
+          "exclusive"
         ],
         "properties": {
           "names": {
@@ -33651,10 +34022,12 @@
         "properties": {
           "userRoleId": {
             "type": "string",
+            "description": "The user role id.",
             "nullable": true
           },
           "rights": {
             "type": "array",
+            "description": "A permission container which can hold content, metadata or permission set rights.",
             "nullable": true,
             "items": {
               "$ref": "#/components/schemas/MetadataRight"
@@ -33676,6 +34049,7 @@
       },
       "PermissionSetUpdateRequestOfMetadataRight": {
         "type": "object",
+        "description": "Base class for permission set update requests",
         "x-abstract": true,
         "additionalProperties": false,
         "required": [
@@ -33683,10 +34057,16 @@
         ],
         "properties": {
           "names": {
-            "$ref": "#/components/schemas/TranslatedStringDictionary"
+            "description": "Language specific permission set names.",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/TranslatedStringDictionary"
+              }
+            ]
           },
           "userRolesRights": {
             "type": "array",
+            "description": "A list of content or metadata rights authorizing operations on content documents or list items.",
             "nullable": true,
             "items": {
               "$ref": "#/components/schemas/UserRoleRightsOfMetadataRight"
@@ -33694,6 +34074,7 @@
           },
           "userRolesPermissionSetRights": {
             "type": "array",
+            "description": "A list of permission set rights authorizing operations on this permission set.",
             "nullable": true,
             "items": {
               "$ref": "#/components/schemas/UserRoleRightsOfPermissionSetRight"
@@ -33748,6 +34129,7 @@
           },
           {
             "type": "object",
+            "description": "Base class for permission set update requests",
             "x-abstract": true,
             "additionalProperties": false,
             "required": [
@@ -33756,6 +34138,7 @@
             "properties": {
               "id": {
                 "type": "string",
+                "description": "The permission set ID.",
                 "minLength": 1
               }
             }
@@ -33771,7 +34154,9 @@
           "schemaNamespace",
           "types",
           "displayPatterns",
-          "ownerTokenId"
+          "ownerTokenId",
+          "system",
+          "viewForAll"
         ],
         "properties": {
           "id": {
@@ -33922,6 +34307,10 @@
         "type": "object",
         "description": "Represent the template whose value will be resolved based on the actual content.",
         "additionalProperties": false,
+        "required": [
+          "templateEngine",
+          "displayPatternType"
+        ],
         "properties": {
           "templateEngine": {
             "description": "The template engine used for parsing the display patterns.",
@@ -33992,7 +34381,12 @@
         "additionalProperties": false,
         "required": [
           "id",
-          "kind"
+          "kind",
+          "required",
+          "fixed",
+          "index",
+          "simpleSearch",
+          "sortable"
         ],
         "properties": {
           "id": {
@@ -34386,7 +34780,11 @@
         "description": "Indexing information for a field of a schema",
         "additionalProperties": false,
         "required": [
-          "id"
+          "id",
+          "index",
+          "simpleSearch",
+          "sortable",
+          "boost"
         ],
         "properties": {
           "id": {
@@ -35053,7 +35451,9 @@
         "x-abstract": true,
         "additionalProperties": false,
         "required": [
-          "kind"
+          "kind",
+          "required",
+          "overwriteRequired"
         ],
         "properties": {
           "id": {
@@ -35170,6 +35570,11 @@
         "type": "object",
         "description": "Count information of fields in the search index for filtering, searching and sorting",
         "additionalProperties": false,
+        "required": [
+          "indexedField",
+          "simpleSearchField",
+          "sortableField"
+        ],
         "properties": {
           "indexedField": {
             "type": "integer",
@@ -35192,6 +35597,9 @@
         "type": "object",
         "description": "Exists response",
         "additionalProperties": false,
+        "required": [
+          "exists"
+        ],
         "properties": {
           "exists": {
             "type": "boolean",
@@ -35203,6 +35611,10 @@
         "type": "object",
         "description": "Response for a query if a field exists",
         "additionalProperties": false,
+        "required": [
+          "exists",
+          "previouslyUsed"
+        ],
         "properties": {
           "exists": {
             "type": "boolean",
@@ -35239,6 +35651,9 @@
         "type": "object",
         "description": "Request to update an existing schema",
         "additionalProperties": false,
+        "required": [
+          "viewForAll"
+        ],
         "properties": {
           "names": {
             "description": "Language specific schema names.",
@@ -35366,7 +35781,8 @@
         "additionalProperties": false,
         "required": [
           "id",
-          "displayPatterns"
+          "displayPatterns",
+          "viewForAll"
         ],
         "properties": {
           "id": {
@@ -35568,16 +35984,20 @@
           },
           {
             "type": "object",
+            "description": "Base class for search result queries that support SearchBehaviors",
             "additionalProperties": false,
             "properties": {
               "searchString": {
                 "type": "string",
+                "description": "The search string used to query the data",
                 "nullable": true
               },
               "isSearchStringRewritten": {
-                "type": "boolean"
+                "type": "boolean",
+                "description": "Flag to notify if the SearchString was modified compared to the original requested one"
               },
               "queryDebugInformation": {
+                "description": "Additional information regarding the query execution and reason of the matched documents.",
                 "nullable": true,
                 "oneOf": [
                   {
@@ -35591,23 +36011,29 @@
       },
       "BaseResultOfSchema": {
         "type": "object",
+        "description": "Base class for search results",
         "additionalProperties": false,
         "required": [
-          "results"
+          "results",
+          "totalResults",
+          "elapsedMilliseconds"
         ],
         "properties": {
           "totalResults": {
             "type": "integer",
+            "description": "The total number of matching documents.",
             "format": "int64"
           },
           "results": {
             "type": "array",
+            "description": "The matched documents.",
             "items": {
               "$ref": "#/components/schemas/Schema"
             }
           },
           "elapsedMilliseconds": {
             "type": "integer",
+            "description": "The search execution time in milliseconds.",
             "format": "int64"
           },
           "pageToken": {
@@ -35621,7 +36047,11 @@
         "description": "A schema",
         "additionalProperties": false,
         "required": [
-          "id"
+          "id",
+          "fieldCount",
+          "childCount",
+          "level",
+          "system"
         ],
         "properties": {
           "id": {
@@ -35693,6 +36123,10 @@
         "type": "object",
         "description": "Request to search schemas",
         "additionalProperties": false,
+        "required": [
+          "limit",
+          "debugMode"
+        ],
         "properties": {
           "searchString": {
             "type": "string",
@@ -35762,6 +36196,10 @@
         "type": "object",
         "description": "Contains compiled field information.",
         "additionalProperties": false,
+        "required": [
+          "boost",
+          "ignoreForSearch"
+        ],
         "properties": {
           "id": {
             "type": "string",
@@ -35824,6 +36262,9 @@
         "type": "object",
         "description": "Request to search indexed fields of specific schemas",
         "additionalProperties": false,
+        "required": [
+          "searchMode"
+        ],
         "properties": {
           "schemaIds": {
             "type": "array",
@@ -35862,7 +36303,10 @@
         "additionalProperties": false,
         "required": [
           "id",
-          "name"
+          "name",
+          "state",
+          "transferType",
+          "fileTransferCount"
         ],
         "properties": {
           "id": {
@@ -35955,7 +36399,9 @@
         "description": "Request to import schemas and list items",
         "additionalProperties": false,
         "required": [
-          "fileTransferId"
+          "fileTransferId",
+          "allowMissingDependencies",
+          "importListItems"
         ],
         "properties": {
           "fileTransferId": {
@@ -36758,10 +37204,12 @@
           },
           {
             "type": "object",
+            "description": "Base class for search result queries that support SearchBehaviors",
             "additionalProperties": false,
             "properties": {
               "aggregationResults": {
                 "type": "array",
+                "description": "Results of the aggregation, if any aggregators was passed in the request.",
                 "nullable": true,
                 "items": {
                   "$ref": "#/components/schemas/AggregationResult"
@@ -36778,16 +37226,20 @@
           },
           {
             "type": "object",
+            "description": "Base class for search result queries that support SearchBehaviors",
             "additionalProperties": false,
             "properties": {
               "searchString": {
                 "type": "string",
+                "description": "The search string used to query the data",
                 "nullable": true
               },
               "isSearchStringRewritten": {
-                "type": "boolean"
+                "type": "boolean",
+                "description": "Flag to notify if the SearchString was modified compared to the original requested one"
               },
               "queryDebugInformation": {
+                "description": "Additional information regarding the query execution and reason of the matched documents.",
                 "nullable": true,
                 "oneOf": [
                   {
@@ -36801,23 +37253,29 @@
       },
       "BaseResultOfShare": {
         "type": "object",
+        "description": "Base class for search results",
         "additionalProperties": false,
         "required": [
-          "results"
+          "results",
+          "totalResults",
+          "elapsedMilliseconds"
         ],
         "properties": {
           "totalResults": {
             "type": "integer",
+            "description": "The total number of matching documents.",
             "format": "int64"
           },
           "results": {
             "type": "array",
+            "description": "The matched documents.",
             "items": {
               "$ref": "#/components/schemas/Share"
             }
           },
           "elapsedMilliseconds": {
             "type": "integer",
+            "description": "The search execution time in milliseconds.",
             "format": "int64"
           },
           "pageToken": {
@@ -36934,7 +37392,9 @@
         "description": "Creates a transfer.",
         "additionalProperties": false,
         "required": [
-          "name"
+          "name",
+          "transferType",
+          "createCollection"
         ],
         "properties": {
           "name": {
@@ -37206,16 +37666,20 @@
           },
           {
             "type": "object",
+            "description": "Base class for search result queries that support SearchBehaviors",
             "additionalProperties": false,
             "properties": {
               "searchString": {
                 "type": "string",
+                "description": "The search string used to query the data",
                 "nullable": true
               },
               "isSearchStringRewritten": {
-                "type": "boolean"
+                "type": "boolean",
+                "description": "Flag to notify if the SearchString was modified compared to the original requested one"
               },
               "queryDebugInformation": {
+                "description": "Additional information regarding the query execution and reason of the matched documents.",
                 "nullable": true,
                 "oneOf": [
                   {
@@ -37229,23 +37693,29 @@
       },
       "BaseResultOfTransfer": {
         "type": "object",
+        "description": "Base class for search results",
         "additionalProperties": false,
         "required": [
-          "results"
+          "results",
+          "totalResults",
+          "elapsedMilliseconds"
         ],
         "properties": {
           "totalResults": {
             "type": "integer",
+            "description": "The total number of matching documents.",
             "format": "int64"
           },
           "results": {
             "type": "array",
+            "description": "The matched documents.",
             "items": {
               "$ref": "#/components/schemas/Transfer"
             }
           },
           "elapsedMilliseconds": {
             "type": "integer",
+            "description": "The search execution time in milliseconds.",
             "format": "int64"
           },
           "pageToken": {
@@ -37258,6 +37728,10 @@
         "type": "object",
         "description": "Request to search for transfers.",
         "additionalProperties": false,
+        "required": [
+          "limit",
+          "debugMode"
+        ],
         "properties": {
           "searchString": {
             "type": "string",
@@ -37455,7 +37929,7 @@
           },
           "durationInSeconds": {
             "type": "number",
-            "format": "double",
+            "format": "float",
             "nullable": true
           },
           "format": {
@@ -37577,6 +38051,11 @@
       "EpsMetadata": {
         "type": "object",
         "additionalProperties": false,
+        "required": [
+          "isRasterized",
+          "widthInPoints",
+          "heightInPoints"
+        ],
         "properties": {
           "isRasterized": {
             "type": "boolean"
@@ -37712,7 +38191,7 @@
               },
               "durationInSeconds": {
                 "type": "number",
-                "format": "double"
+                "format": "float"
               },
               "format": {
                 "type": "string",
@@ -37748,6 +38227,9 @@
       "VideoStream": {
         "type": "object",
         "additionalProperties": false,
+        "required": [
+          "durationInSeconds"
+        ],
         "properties": {
           "bitRate": {
             "type": "string",
@@ -37763,7 +38245,7 @@
           },
           "durationInSeconds": {
             "type": "number",
-            "format": "double"
+            "format": "float"
           },
           "format": {
             "type": "string",
@@ -37776,7 +38258,7 @@
           },
           "frameRate": {
             "type": "number",
-            "format": "double",
+            "format": "float",
             "nullable": true
           },
           "height": {
@@ -37790,7 +38272,7 @@
           },
           "pixelAspectRatio": {
             "type": "number",
-            "format": "double",
+            "format": "float",
             "nullable": true
           },
           "resolution": {
@@ -37810,7 +38292,7 @@
           },
           "rotation": {
             "type": "number",
-            "format": "double",
+            "format": "float",
             "nullable": true
           }
         }
@@ -37818,6 +38300,9 @@
       "FileTransferOutput": {
         "type": "object",
         "additionalProperties": false,
+        "required": [
+          "outputSource"
+        ],
         "properties": {
           "id": {
             "type": "string",
@@ -37852,7 +38337,8 @@
           "id",
           "name",
           "requestId",
-          "transferId"
+          "transferId",
+          "state"
         ],
         "properties": {
           "id": {
@@ -37952,16 +38438,20 @@
           },
           {
             "type": "object",
+            "description": "Base class for search result queries that support SearchBehaviors",
             "additionalProperties": false,
             "properties": {
               "searchString": {
                 "type": "string",
+                "description": "The search string used to query the data",
                 "nullable": true
               },
               "isSearchStringRewritten": {
-                "type": "boolean"
+                "type": "boolean",
+                "description": "Flag to notify if the SearchString was modified compared to the original requested one"
               },
               "queryDebugInformation": {
+                "description": "Additional information regarding the query execution and reason of the matched documents.",
                 "nullable": true,
                 "oneOf": [
                   {
@@ -37975,23 +38465,29 @@
       },
       "BaseResultOfFileTransfer": {
         "type": "object",
+        "description": "Base class for search results",
         "additionalProperties": false,
         "required": [
-          "results"
+          "results",
+          "totalResults",
+          "elapsedMilliseconds"
         ],
         "properties": {
           "totalResults": {
             "type": "integer",
+            "description": "The total number of matching documents.",
             "format": "int64"
           },
           "results": {
             "type": "array",
+            "description": "The matched documents.",
             "items": {
               "$ref": "#/components/schemas/FileTransfer"
             }
           },
           "elapsedMilliseconds": {
             "type": "integer",
+            "description": "The search execution time in milliseconds.",
             "format": "int64"
           },
           "pageToken": {
@@ -38004,6 +38500,9 @@
         "type": "object",
         "description": "Request to search for file transfers.",
         "additionalProperties": false,
+        "required": [
+          "limit"
+        ],
         "properties": {
           "searchString": {
             "type": "string",
@@ -38120,16 +38619,20 @@
           },
           {
             "type": "object",
+            "description": "Base class for search result queries that support SearchBehaviors",
             "additionalProperties": false,
             "properties": {
               "searchString": {
                 "type": "string",
+                "description": "The search string used to query the data",
                 "nullable": true
               },
               "isSearchStringRewritten": {
-                "type": "boolean"
+                "type": "boolean",
+                "description": "Flag to notify if the SearchString was modified compared to the original requested one"
               },
               "queryDebugInformation": {
+                "description": "Additional information regarding the query execution and reason of the matched documents.",
                 "nullable": true,
                 "oneOf": [
                   {
@@ -38143,23 +38646,29 @@
       },
       "BaseResultOfUserRole": {
         "type": "object",
+        "description": "Base class for search results",
         "additionalProperties": false,
         "required": [
-          "results"
+          "results",
+          "totalResults",
+          "elapsedMilliseconds"
         ],
         "properties": {
           "totalResults": {
             "type": "integer",
+            "description": "The total number of matching documents.",
             "format": "int64"
           },
           "results": {
             "type": "array",
+            "description": "The matched documents.",
             "items": {
               "$ref": "#/components/schemas/UserRole"
             }
           },
           "elapsedMilliseconds": {
             "type": "integer",
+            "description": "The search execution time in milliseconds.",
             "format": "int64"
           },
           "pageToken": {
@@ -38219,6 +38728,11 @@
       "UserRoleSearchRequest": {
         "type": "object",
         "additionalProperties": false,
+        "required": [
+          "limit",
+          "debugMode",
+          "includeAdministratorSystemUserRole"
+        ],
         "properties": {
           "searchString": {
             "type": "string",
@@ -38501,6 +39015,9 @@
       "UserLockRequest": {
         "type": "object",
         "additionalProperties": false,
+        "required": [
+          "lock"
+        ],
         "properties": {
           "lock": {
             "type": "boolean",
@@ -38551,6 +39068,9 @@
         "type": "object",
         "description": "Holds additional information for user review.",
         "additionalProperties": false,
+        "required": [
+          "reviewed"
+        ],
         "properties": {
           "reviewed": {
             "type": "boolean",
@@ -38728,10 +39248,12 @@
           },
           {
             "type": "object",
+            "description": "Base class for search result queries that support SearchBehaviors",
             "additionalProperties": false,
             "properties": {
               "aggregationResults": {
                 "type": "array",
+                "description": "Results of the aggregation, if any aggregators was passed in the request.",
                 "nullable": true,
                 "items": {
                   "$ref": "#/components/schemas/AggregationResult"
@@ -38748,16 +39270,20 @@
           },
           {
             "type": "object",
+            "description": "Base class for search result queries that support SearchBehaviors",
             "additionalProperties": false,
             "properties": {
               "searchString": {
                 "type": "string",
+                "description": "The search string used to query the data",
                 "nullable": true
               },
               "isSearchStringRewritten": {
-                "type": "boolean"
+                "type": "boolean",
+                "description": "Flag to notify if the SearchString was modified compared to the original requested one"
               },
               "queryDebugInformation": {
+                "description": "Additional information regarding the query execution and reason of the matched documents.",
                 "nullable": true,
                 "oneOf": [
                   {
@@ -38771,23 +39297,29 @@
       },
       "BaseResultOfUserWithRoles": {
         "type": "object",
+        "description": "Base class for search results",
         "additionalProperties": false,
         "required": [
-          "results"
+          "results",
+          "totalResults",
+          "elapsedMilliseconds"
         ],
         "properties": {
           "totalResults": {
             "type": "integer",
+            "description": "The total number of matching documents.",
             "format": "int64"
           },
           "results": {
             "type": "array",
+            "description": "The matched documents.",
             "items": {
               "$ref": "#/components/schemas/UserWithRoles"
             }
           },
           "elapsedMilliseconds": {
             "type": "integer",
+            "description": "The search execution time in milliseconds.",
             "format": "int64"
           },
           "pageToken": {
@@ -38802,7 +39334,13 @@
         "additionalProperties": false,
         "required": [
           "id",
-          "emailAddress"
+          "emailAddress",
+          "authorizationState",
+          "lifeCycle",
+          "isLocked",
+          "isSupportUser",
+          "isReadOnly",
+          "isFederated"
         ],
         "properties": {
           "userRoleIds": {
@@ -38918,6 +39456,10 @@
         "description": "Represents an aggregation request over users.",
         "x-abstract": true,
         "additionalProperties": false,
+        "required": [
+          "lifeCycleFilter",
+          "includeServiceUser"
+        ],
         "properties": {
           "searchString": {
             "type": "string",
@@ -39068,6 +39610,10 @@
       "DocumentChange": {
         "type": "object",
         "additionalProperties": false,
+        "required": [
+          "version",
+          "timeStamp"
+        ],
         "properties": {
           "documentName": {
             "type": "string",
@@ -39114,7 +39660,8 @@
         },
         "additionalProperties": false,
         "required": [
-          "kind"
+          "kind",
+          "timestamp"
         ],
         "properties": {
           "timestamp": {
@@ -39243,6 +39790,9 @@
       "DownloadTrackingInfo": {
         "type": "object",
         "additionalProperties": false,
+        "required": [
+          "contentDisposition"
+        ],
         "properties": {
           "contentId": {
             "type": "string",
@@ -39530,7 +40080,10 @@
         "x-abstract": true,
         "additionalProperties": false,
         "required": [
-          "kind"
+          "kind",
+          "retries",
+          "priority",
+          "deduplicate"
         ],
         "properties": {
           "id": {
@@ -39584,6 +40137,10 @@
       "TupleOfStringAndString": {
         "type": "object",
         "additionalProperties": false,
+        "required": [
+          "item1",
+          "item2"
+        ],
         "properties": {
           "item1": {
             "type": "string"
