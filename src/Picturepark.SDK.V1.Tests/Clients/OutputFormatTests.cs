@@ -284,7 +284,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             renderedDirectoryInfo.EnumerateFiles().Count().Should().Be(contents.Results.Count);
         }
 
-        [Fact(Skip = "It must be re-enabled when url is accessible")]
+        [Fact]
         [Trait("Stack", "OutputFormats")]
         public async Task ShouldAllowDownloadOfMultipleOutputFormatsForMultipleContents()
         {
