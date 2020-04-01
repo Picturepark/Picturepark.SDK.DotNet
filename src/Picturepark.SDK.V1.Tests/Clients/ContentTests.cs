@@ -244,7 +244,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             Assert.True(permissionSetResults.AggregationResultItems.Count > 0);
         }
 
-        [Fact(Skip = "It must be re-enabled when url is accessible")]
+        [Fact]
         [Trait("Stack", "Contents")]
         public async Task ShouldSearchAndAggregateOnChannelWithTermsAggregator()
         {
@@ -270,7 +270,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             permissionSetAggregationResults.AggregationResultItems.Should().HaveCountGreaterThan(0);
         }
 
-        [Fact(Skip = "It must be re-enabled when url is accessible")]
+        [Fact]
         [Trait("Stack", "Contents")]
         public async Task ShouldCreateDownloadLinkForSingleFile()
         {
@@ -309,7 +309,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             }
         }
 
-        [Fact(Skip = "It must be re-enabled when url is accessible")]
+        [Fact]
         [Trait("Stack", "Contents")]
         public async Task ShouldCreateDownloadLinkForMultipeFiles()
         {
