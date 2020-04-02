@@ -24535,13 +24535,12 @@
                 "description": "Flag to notify if the SearchString was modified compared to the original requested one"
               },
               "queryDebugInformation": {
-                "description": "Additional information regarding the query execution and reason of the matched documents.",
+                "type": "array",
+                "description": "Additional information regarding the query execution and reason of the matched documents. Multiple items are returned if multiple queries were performed.",
                 "nullable": true,
-                "oneOf": [
-                  {
-                    "$ref": "#/components/schemas/QueryDebugInformation"
-                  }
-                ]
+                "items": {
+                  "$ref": "#/components/schemas/QueryDebugInformation"
+                }
               }
             }
           }
@@ -26773,13 +26772,12 @@
                 "description": "Flag to notify if the SearchString was modified compared to the original requested one"
               },
               "queryDebugInformation": {
-                "description": "Additional information regarding the query execution and reason of the matched documents.",
+                "type": "array",
+                "description": "Additional information regarding the query execution and reason of the matched documents. Multiple items are returned if multiple queries were performed.",
                 "nullable": true,
-                "oneOf": [
-                  {
-                    "$ref": "#/components/schemas/QueryDebugInformation"
-                  }
-                ]
+                "items": {
+                  "$ref": "#/components/schemas/QueryDebugInformation"
+                }
               }
             }
           }
@@ -27098,7 +27096,7 @@
           },
           "aggregationFilters": {
             "type": "array",
-            "description": "Special filters used to filter down the aggregations' values on specific conditions. The behavior is different when\nfiltering an aggregation that matches the same AggregationName or another aggregation.\nIn the first case, the filter is put in \"or\" with (eventual) other existing filters. In the second case it is put in \"and\".",
+            "description": "Special filters used to filter down independently the aggregations' values and the search results on specific conditions.\nFor the search results, the aggregation filters are used to create a Filter that is put in AND with the eventual existing Filter of the search request to nail down the search results. The filters generated\nby the aggregation filters are put in OR each other if they have the same AggregationName, and then such groups are put in AND.\nFor the aggregation values, only the original Filter of the search request is used to nail down the data to be considered for the aggregations. Then, on top of that, for each aggregator in the search request, a Filter is created to filter down the\naggregation results of that aggregation: depending if the AggregationName of the AggregationFilter matches the AggregationName of the Aggregator, the filter is put in OR (if it matches) or in AND (if it does not match it).\nMoreover, an AggregationFilter ensures that the related value is returned in the AggregationResults also if the top aggregation values returned by default do not contain it.",
             "nullable": true,
             "items": {
               "$ref": "#/components/schemas/AggregationFilter"
@@ -28398,13 +28396,12 @@
                 "description": "Flag to notify if the SearchString was modified compared to the original requested one"
               },
               "queryDebugInformation": {
-                "description": "Additional information regarding the query execution and reason of the matched documents.",
+                "type": "array",
+                "description": "Additional information regarding the query execution and reason of the matched documents. Multiple items are returned if multiple queries were performed.",
                 "nullable": true,
-                "oneOf": [
-                  {
-                    "$ref": "#/components/schemas/QueryDebugInformation"
-                  }
-                ]
+                "items": {
+                  "$ref": "#/components/schemas/QueryDebugInformation"
+                }
               }
             }
           }
@@ -30318,13 +30315,12 @@
                 "description": "Flag to notify if the SearchString was modified compared to the original requested one"
               },
               "queryDebugInformation": {
-                "description": "Additional information regarding the query execution and reason of the matched documents.",
+                "type": "array",
+                "description": "Additional information regarding the query execution and reason of the matched documents. Multiple items are returned if multiple queries were performed.",
                 "nullable": true,
-                "oneOf": [
-                  {
-                    "$ref": "#/components/schemas/QueryDebugInformation"
-                  }
-                ]
+                "items": {
+                  "$ref": "#/components/schemas/QueryDebugInformation"
+                }
               }
             }
           }
@@ -30553,7 +30549,7 @@
           },
           "aggregationFilters": {
             "type": "array",
-            "description": "Special filters used to filter down the aggregations' values on specific conditions. The behavior is different when\nfiltering an aggregation that matches the same AggregationName or another aggregation.\nIn the first case, the filter is put in \"or\" with (eventual) other existing filters. In the second case it is put in \"and\".",
+            "description": "Special filters used to filter down independently the aggregations' values and the search results on specific conditions.\nFor the search results, the aggregation filters are used to create a Filter that is put in AND with the eventual existing Filter of the search request to nail down the search results. The filters generated\nby the aggregation filters are put in OR each other if they have the same AggregationName, and then such groups are put in AND.\nFor the aggregation values, only the original Filter of the search request is used to nail down the data to be considered for the aggregations. Then, on top of that, for each aggregator in the search request, a Filter is created to filter down the\naggregation results of that aggregation: depending if the AggregationName of the AggregationFilter matches the AggregationName of the Aggregator, the filter is put in OR (if it matches) or in AND (if it does not match it).\nMoreover, an AggregationFilter ensures that the related value is returned in the AggregationResults also if the top aggregation values returned by default do not contain it.",
             "nullable": true,
             "items": {
               "$ref": "#/components/schemas/AggregationFilter"
@@ -30638,13 +30634,12 @@
             "description": "Flag to notify if the SearchString was modified compared to the original requested one."
           },
           "queryDebugInformation": {
-            "description": "Additional information regarding the query execution and reason of the matched documents.",
+            "type": "array",
+            "description": "Additional information regarding the query execution and reason of the matched documents. Multiple items are returned if multiple queries were performed.",
             "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/QueryDebugInformation"
-              }
-            ]
+            "items": {
+              "$ref": "#/components/schemas/QueryDebugInformation"
+            }
           }
         }
       },
@@ -31887,13 +31882,12 @@
                 "description": "Flag to notify if the SearchString was modified compared to the original requested one"
               },
               "queryDebugInformation": {
-                "description": "Additional information regarding the query execution and reason of the matched documents.",
+                "type": "array",
+                "description": "Additional information regarding the query execution and reason of the matched documents. Multiple items are returned if multiple queries were performed.",
                 "nullable": true,
-                "oneOf": [
-                  {
-                    "$ref": "#/components/schemas/QueryDebugInformation"
-                  }
-                ]
+                "items": {
+                  "$ref": "#/components/schemas/QueryDebugInformation"
+                }
               }
             }
           }
@@ -32096,7 +32090,7 @@
           },
           "aggregationFilters": {
             "type": "array",
-            "description": "Special filters used to filter down the aggregations' values on specific conditions. The behavior is different when\nfiltering an aggregation that matches the same AggregationName or another aggregation.\nIn the first case, the filter is put in \"or\" with (eventual) other existing filters. In the second case it is put in \"and\".",
+            "description": "Special filters used to filter down independently the aggregations' values and the search results on specific conditions.\nFor the search results, the aggregation filters are used to create a Filter that is put in AND with the eventual existing Filter of the search request to nail down the search results. The filters generated\nby the aggregation filters are put in OR each other if they have the same AggregationName, and then such groups are put in AND.\nFor the aggregation values, only the original Filter of the search request is used to nail down the data to be considered for the aggregations. Then, on top of that, for each aggregator in the search request, a Filter is created to filter down the\naggregation results of that aggregation: depending if the AggregationName of the AggregationFilter matches the AggregationName of the Aggregator, the filter is put in OR (if it matches) or in AND (if it does not match it).\nMoreover, an AggregationFilter ensures that the related value is returned in the AggregationResults also if the top aggregation values returned by default do not contain it.",
             "nullable": true,
             "items": {
               "$ref": "#/components/schemas/AggregationFilter"
@@ -35997,13 +35991,12 @@
                 "description": "Flag to notify if the SearchString was modified compared to the original requested one"
               },
               "queryDebugInformation": {
-                "description": "Additional information regarding the query execution and reason of the matched documents.",
+                "type": "array",
+                "description": "Additional information regarding the query execution and reason of the matched documents. Multiple items are returned if multiple queries were performed.",
                 "nullable": true,
-                "oneOf": [
-                  {
-                    "$ref": "#/components/schemas/QueryDebugInformation"
-                  }
-                ]
+                "items": {
+                  "$ref": "#/components/schemas/QueryDebugInformation"
+                }
               }
             }
           }
@@ -37177,7 +37170,7 @@
           },
           "aggregationFilters": {
             "type": "array",
-            "description": "Special filters used to filter down the aggregations' values on specific conditions. The behavior is different when\nfiltering an aggregation that matches the same AggregationName or another aggregation.\nIn the first case, the filter is put in \"or\" with (eventual) other existing filters. In the second case it is put in \"and\".",
+            "description": "Special filters used to filter down independently the aggregations' values and the search results on specific conditions.\nFor the search results, the aggregation filters are used to create a Filter that is put in AND with the eventual existing Filter of the search request to nail down the search results. The filters generated\nby the aggregation filters are put in OR each other if they have the same AggregationName, and then such groups are put in AND.\nFor the aggregation values, only the original Filter of the search request is used to nail down the data to be considered for the aggregations. Then, on top of that, for each aggregator in the search request, a Filter is created to filter down the\naggregation results of that aggregation: depending if the AggregationName of the AggregationFilter matches the AggregationName of the Aggregator, the filter is put in OR (if it matches) or in AND (if it does not match it).\nMoreover, an AggregationFilter ensures that the related value is returned in the AggregationResults also if the top aggregation values returned by default do not contain it.",
             "nullable": true,
             "items": {
               "$ref": "#/components/schemas/AggregationFilter"
@@ -37239,13 +37232,12 @@
                 "description": "Flag to notify if the SearchString was modified compared to the original requested one"
               },
               "queryDebugInformation": {
-                "description": "Additional information regarding the query execution and reason of the matched documents.",
+                "type": "array",
+                "description": "Additional information regarding the query execution and reason of the matched documents. Multiple items are returned if multiple queries were performed.",
                 "nullable": true,
-                "oneOf": [
-                  {
-                    "$ref": "#/components/schemas/QueryDebugInformation"
-                  }
-                ]
+                "items": {
+                  "$ref": "#/components/schemas/QueryDebugInformation"
+                }
               }
             }
           }
@@ -37679,13 +37671,12 @@
                 "description": "Flag to notify if the SearchString was modified compared to the original requested one"
               },
               "queryDebugInformation": {
-                "description": "Additional information regarding the query execution and reason of the matched documents.",
+                "type": "array",
+                "description": "Additional information regarding the query execution and reason of the matched documents. Multiple items are returned if multiple queries were performed.",
                 "nullable": true,
-                "oneOf": [
-                  {
-                    "$ref": "#/components/schemas/QueryDebugInformation"
-                  }
-                ]
+                "items": {
+                  "$ref": "#/components/schemas/QueryDebugInformation"
+                }
               }
             }
           }
@@ -38451,13 +38442,12 @@
                 "description": "Flag to notify if the SearchString was modified compared to the original requested one"
               },
               "queryDebugInformation": {
-                "description": "Additional information regarding the query execution and reason of the matched documents.",
+                "type": "array",
+                "description": "Additional information regarding the query execution and reason of the matched documents. Multiple items are returned if multiple queries were performed.",
                 "nullable": true,
-                "oneOf": [
-                  {
-                    "$ref": "#/components/schemas/QueryDebugInformation"
-                  }
-                ]
+                "items": {
+                  "$ref": "#/components/schemas/QueryDebugInformation"
+                }
               }
             }
           }
@@ -38632,13 +38622,12 @@
                 "description": "Flag to notify if the SearchString was modified compared to the original requested one"
               },
               "queryDebugInformation": {
-                "description": "Additional information regarding the query execution and reason of the matched documents.",
+                "type": "array",
+                "description": "Additional information regarding the query execution and reason of the matched documents. Multiple items are returned if multiple queries were performed.",
                 "nullable": true,
-                "oneOf": [
-                  {
-                    "$ref": "#/components/schemas/QueryDebugInformation"
-                  }
-                ]
+                "items": {
+                  "$ref": "#/components/schemas/QueryDebugInformation"
+                }
               }
             }
           }
@@ -39283,13 +39272,12 @@
                 "description": "Flag to notify if the SearchString was modified compared to the original requested one"
               },
               "queryDebugInformation": {
-                "description": "Additional information regarding the query execution and reason of the matched documents.",
+                "type": "array",
+                "description": "Additional information regarding the query execution and reason of the matched documents. Multiple items are returned if multiple queries were performed.",
                 "nullable": true,
-                "oneOf": [
-                  {
-                    "$ref": "#/components/schemas/QueryDebugInformation"
-                  }
-                ]
+                "items": {
+                  "$ref": "#/components/schemas/QueryDebugInformation"
+                }
               }
             }
           }
@@ -39501,7 +39489,7 @@
           },
           "aggregationFilters": {
             "type": "array",
-            "description": "Special filters used to filter down the aggregations' values on specific conditions. The behavior is different when\nfiltering an aggregation that matches the same AggregationName or another aggregation.\nIn the first case, the filter is put in \"or\" with (eventual) other existing filters. In the second case it is put in \"and\".",
+            "description": "Special filters used to filter down independently the aggregations' values and the search results on specific conditions.\nFor the search results, the aggregation filters are used to create a Filter that is put in AND with the eventual existing Filter of the search request to nail down the search results. The filters generated\nby the aggregation filters are put in OR each other if they have the same AggregationName, and then such groups are put in AND.\nFor the aggregation values, only the original Filter of the search request is used to nail down the data to be considered for the aggregations. Then, on top of that, for each aggregator in the search request, a Filter is created to filter down the\naggregation results of that aggregation: depending if the AggregationName of the AggregationFilter matches the AggregationName of the Aggregator, the filter is put in OR (if it matches) or in AND (if it does not match it).\nMoreover, an AggregationFilter ensures that the related value is returned in the AggregationResults also if the top aggregation values returned by default do not contain it.",
             "nullable": true,
             "items": {
               "$ref": "#/components/schemas/AggregationFilter"
