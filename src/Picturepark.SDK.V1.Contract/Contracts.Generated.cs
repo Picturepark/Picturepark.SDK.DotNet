@@ -715,8 +715,19 @@ namespace Picturepark.SDK.V1.Contract
         System.Threading.Tasks.Task<System.Collections.Generic.ICollection<IdentityProvider>> GetAllAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>Get basic info for all providers</summary>
+        /// <returns>Array of identity provider basic information</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<IdentityProviderBasicInfo>> GetAllBasicInfosAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Get identity provider</summary>
         /// <param name="id">Identity provider ID.</param>
+        /// <returns>Represents an identity provider defined in IdentityServer and its Picturepark configuration</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -728,6 +739,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <summary>Update identity provider</summary>
         /// <param name="id">Identity provider ID.</param>
         /// <param name="provider">Update request</param>
+        /// <returns>Represents an identity provider defined in IdentityServer and its Picturepark configuration</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -2280,6 +2292,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("PictureparkForbiddenException", typeof(PictureparkForbiddenException))]
     [JsonInheritanceAttribute("UserEmailAlreadyExistsException", typeof(UserEmailAlreadyExistsException))]
     [JsonInheritanceAttribute("UserRoleAssignedException", typeof(UserRoleAssignedException))]
+    [JsonInheritanceAttribute("UnableToDeleteUserRoleException", typeof(UnableToDeleteUserRoleException))]
     [JsonInheritanceAttribute("UserNotFoundException", typeof(UserNotFoundException))]
     [JsonInheritanceAttribute("UserInactiveOrDeletedException", typeof(UserInactiveOrDeletedException))]
     [JsonInheritanceAttribute("InactiveOrDeletedUserRefusedAccessException", typeof(InactiveOrDeletedUserRefusedAccessException))]
@@ -2295,6 +2308,8 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("UserDoesNotSupportLocalLoginException", typeof(UserDoesNotSupportLocalLoginException))]
     [JsonInheritanceAttribute("UserAttributeNotSynchronizableException", typeof(UserAttributeNotSynchronizableException))]
     [JsonInheritanceAttribute("UnableToChangeUserRolesForFederatedUser", typeof(UnableToChangeUserRolesForFederatedUser))]
+    [JsonInheritanceAttribute("UnableToDeleteDefaultUserRoleException", typeof(UnableToDeleteDefaultUserRoleException))]
+    [JsonInheritanceAttribute("UnableToDeleteUserRoleReferencedInIdentityProviderGroupMappingException", typeof(UnableToDeleteUserRoleReferencedInIdentityProviderGroupMappingException))]
     [JsonInheritanceAttribute("RenderingException", typeof(RenderingException))]
     [JsonInheritanceAttribute("FormatNotApplicableForRenderingException", typeof(FormatNotApplicableForRenderingException))]
     [JsonInheritanceAttribute("DocumentVersionNotFoundException", typeof(DocumentVersionNotFoundException))]
@@ -2651,7 +2666,23 @@ namespace Picturepark.SDK.V1.Contract
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     [Newtonsoft.Json.JsonObjectAttribute]
-    public partial class UserRoleAssignedException : PictureparkValidationException
+    public partial class UserRoleAssignedException : UnableToDeleteUserRoleException
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static UserRoleAssignedException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<UserRoleAssignedException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class UnableToDeleteUserRoleException : PictureparkValidationException
     {
         [Newtonsoft.Json.JsonProperty("userRoleId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string UserRoleId { get; set; }
@@ -2661,9 +2692,9 @@ namespace Picturepark.SDK.V1.Contract
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
         }
     
-        public static UserRoleAssignedException FromJson(string data)
+        public static UnableToDeleteUserRoleException FromJson(string data)
         {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<UserRoleAssignedException>(data);
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<UnableToDeleteUserRoleException>(data);
         }
     
     }
@@ -2992,6 +3023,41 @@ namespace Picturepark.SDK.V1.Contract
         public static UnableToChangeUserRolesForFederatedUser FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<UnableToChangeUserRolesForFederatedUser>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class UnableToDeleteDefaultUserRoleException : UnableToDeleteUserRoleException
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static UnableToDeleteDefaultUserRoleException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<UnableToDeleteDefaultUserRoleException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class UnableToDeleteUserRoleReferencedInIdentityProviderGroupMappingException : UnableToDeleteUserRoleException
+    {
+        [Newtonsoft.Json.JsonProperty("identityProviderIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> IdentityProviderIds { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static UnableToDeleteUserRoleReferencedInIdentityProviderGroupMappingException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<UnableToDeleteUserRoleReferencedInIdentityProviderGroupMappingException>(data);
         }
     
     }
@@ -15416,6 +15482,7 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>Represents an identity provider defined in IdentityServer and its Picturepark configuration</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class IdentityProvider : IdentityProviderEditable
     {
@@ -15493,6 +15560,34 @@ namespace Picturepark.SDK.V1.Contract
         public static IdpGroupToUserRoleMapping FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<IdpGroupToUserRoleMapping>(data);
+        }
+    
+    }
+    
+    /// <summary>Basic information about an identity provider</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class IdentityProviderBasicInfo 
+    {
+        /// <summary>Identity provider ID (has to match an existing IdP defined in IdentityServer)</summary>
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
+        /// <summary>Name of the identity provider as defined in IdentityServer</summary>
+        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Name { get; set; }
+    
+        /// <summary>Display name of the identity provider as defined in IdentityServer</summary>
+        [Newtonsoft.Json.JsonProperty("displayName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string DisplayName { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static IdentityProviderBasicInfo FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<IdentityProviderBasicInfo>(data);
         }
     
     }

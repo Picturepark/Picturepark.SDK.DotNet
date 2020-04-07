@@ -7234,6 +7234,17 @@
       "UserRoleAssignedException": {
         "allOf": [
           {
+            "$ref": "#/components/schemas/UnableToDeleteUserRoleException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "UnableToDeleteUserRoleException": {
+        "allOf": [
+          {
             "$ref": "#/components/schemas/PictureparkValidationException"
           },
           {
@@ -7527,6 +7538,37 @@
               "affectedUserId": {
                 "type": "string",
                 "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "UnableToDeleteDefaultUserRoleException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/UnableToDeleteUserRoleException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "UnableToDeleteUserRoleReferencedInIdentityProviderGroupMappingException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/UnableToDeleteUserRoleException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "identityProviderIds": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "type": "string"
+                }
               }
             }
           }
@@ -14110,6 +14152,10 @@
           },
           "enableSupportUserRegistrationNotification": {
             "type": "boolean"
+          },
+          "defaultUserRoleId": {
+            "type": "string",
+            "nullable": true
           }
         }
       },
@@ -15769,6 +15815,10 @@
           },
           "isClone": {
             "type": "boolean"
+          },
+          "defaultUserRoleId": {
+            "type": "string",
+            "nullable": true
           }
         }
       },
@@ -15974,6 +16024,10 @@
           },
           "enableSupportUserRegistrationNotification": {
             "type": "boolean"
+          },
+          "defaultUserRoleId": {
+            "type": "string",
+            "nullable": true
           }
         }
       },
