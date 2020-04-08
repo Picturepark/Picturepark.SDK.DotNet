@@ -2307,6 +2307,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("IdentityProviderNotFoundException", typeof(IdentityProviderNotFoundException))]
     [JsonInheritanceAttribute("UserDoesNotSupportLocalLoginException", typeof(UserDoesNotSupportLocalLoginException))]
     [JsonInheritanceAttribute("UserAttributeNotSynchronizableException", typeof(UserAttributeNotSynchronizableException))]
+    [JsonInheritanceAttribute("UnableToMapMultipleClaimTypesIntoSameAttributeException", typeof(UnableToMapMultipleClaimTypesIntoSameAttributeException))]
     [JsonInheritanceAttribute("UnableToChangeUserRolesForFederatedUser", typeof(UnableToChangeUserRolesForFederatedUser))]
     [JsonInheritanceAttribute("UnableToDeleteDefaultUserRoleException", typeof(UnableToDeleteDefaultUserRoleException))]
     [JsonInheritanceAttribute("UnableToDeleteUserRoleReferencedInIdentityProviderGroupMappingException", typeof(UnableToDeleteUserRoleReferencedInIdentityProviderGroupMappingException))]
@@ -2993,8 +2994,8 @@ namespace Picturepark.SDK.V1.Contract
     [Newtonsoft.Json.JsonObjectAttribute]
     public partial class UserAttributeNotSynchronizableException : PictureparkValidationException
     {
-        [Newtonsoft.Json.JsonProperty("attributeName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string AttributeName { get; set; }
+        [Newtonsoft.Json.JsonProperty("attributePath", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string AttributePath { get; set; }
     
         public string ToJson() 
         {
@@ -3004,6 +3005,25 @@ namespace Picturepark.SDK.V1.Contract
         public static UserAttributeNotSynchronizableException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<UserAttributeNotSynchronizableException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class UnableToMapMultipleClaimTypesIntoSameAttributeException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("attributePath", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string AttributePath { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static UnableToMapMultipleClaimTypesIntoSameAttributeException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<UnableToMapMultipleClaimTypesIntoSameAttributeException>(data);
         }
     
     }
