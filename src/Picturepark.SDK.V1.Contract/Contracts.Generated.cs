@@ -2280,6 +2280,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("PictureparkForbiddenException", typeof(PictureparkForbiddenException))]
     [JsonInheritanceAttribute("UserEmailAlreadyExistsException", typeof(UserEmailAlreadyExistsException))]
     [JsonInheritanceAttribute("UserRoleAssignedException", typeof(UserRoleAssignedException))]
+    [JsonInheritanceAttribute("UnableToDeleteUserRoleException", typeof(UnableToDeleteUserRoleException))]
     [JsonInheritanceAttribute("UserNotFoundException", typeof(UserNotFoundException))]
     [JsonInheritanceAttribute("UserInactiveOrDeletedException", typeof(UserInactiveOrDeletedException))]
     [JsonInheritanceAttribute("InactiveOrDeletedUserRefusedAccessException", typeof(InactiveOrDeletedUserRefusedAccessException))]
@@ -2295,6 +2296,8 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("UserDoesNotSupportLocalLoginException", typeof(UserDoesNotSupportLocalLoginException))]
     [JsonInheritanceAttribute("UserAttributeNotSynchronizableException", typeof(UserAttributeNotSynchronizableException))]
     [JsonInheritanceAttribute("UnableToChangeUserRolesForFederatedUser", typeof(UnableToChangeUserRolesForFederatedUser))]
+    [JsonInheritanceAttribute("UnableToDeleteDefaultUserRoleException", typeof(UnableToDeleteDefaultUserRoleException))]
+    [JsonInheritanceAttribute("UnableToDeleteUserRoleReferencedInIdentityProviderGroupMappingException", typeof(UnableToDeleteUserRoleReferencedInIdentityProviderGroupMappingException))]
     [JsonInheritanceAttribute("RenderingException", typeof(RenderingException))]
     [JsonInheritanceAttribute("FormatNotApplicableForRenderingException", typeof(FormatNotApplicableForRenderingException))]
     [JsonInheritanceAttribute("DocumentVersionNotFoundException", typeof(DocumentVersionNotFoundException))]
@@ -2651,7 +2654,23 @@ namespace Picturepark.SDK.V1.Contract
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     [Newtonsoft.Json.JsonObjectAttribute]
-    public partial class UserRoleAssignedException : PictureparkValidationException
+    public partial class UserRoleAssignedException : UnableToDeleteUserRoleException
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static UserRoleAssignedException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<UserRoleAssignedException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class UnableToDeleteUserRoleException : PictureparkValidationException
     {
         [Newtonsoft.Json.JsonProperty("userRoleId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string UserRoleId { get; set; }
@@ -2661,9 +2680,9 @@ namespace Picturepark.SDK.V1.Contract
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
         }
     
-        public static UserRoleAssignedException FromJson(string data)
+        public static UnableToDeleteUserRoleException FromJson(string data)
         {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<UserRoleAssignedException>(data);
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<UnableToDeleteUserRoleException>(data);
         }
     
     }
@@ -2992,6 +3011,41 @@ namespace Picturepark.SDK.V1.Contract
         public static UnableToChangeUserRolesForFederatedUser FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<UnableToChangeUserRolesForFederatedUser>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class UnableToDeleteDefaultUserRoleException : UnableToDeleteUserRoleException
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static UnableToDeleteDefaultUserRoleException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<UnableToDeleteDefaultUserRoleException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class UnableToDeleteUserRoleReferencedInIdentityProviderGroupMappingException : UnableToDeleteUserRoleException
+    {
+        [Newtonsoft.Json.JsonProperty("identityProviderIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> IdentityProviderIds { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static UnableToDeleteUserRoleReferencedInIdentityProviderGroupMappingException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<UnableToDeleteUserRoleReferencedInIdentityProviderGroupMappingException>(data);
         }
     
     }
@@ -17863,6 +17917,10 @@ namespace Picturepark.SDK.V1.Contract
         /// If set, the customer's default language is required.</summary>
         [Newtonsoft.Json.JsonProperty("downloadFileNamePatterns", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public TranslatedStringDictionary DownloadFileNamePatterns { get; set; }
+    
+        /// <summary>Indicates if outputs derived from original output format should be accessible also for users not having AccessOriginal permission on the content.</summary>
+        [Newtonsoft.Json.JsonProperty("viewForAll", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool ViewForAll { get; set; }
     
         public string ToJson() 
         {
