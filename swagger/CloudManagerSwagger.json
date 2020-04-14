@@ -7518,7 +7518,24 @@
             "type": "object",
             "additionalProperties": false,
             "properties": {
-              "attributeName": {
+              "attributePath": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "UnableToMapMultipleClaimTypesIntoSameAttributeException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "attributePath": {
                 "type": "string",
                 "nullable": true
               }

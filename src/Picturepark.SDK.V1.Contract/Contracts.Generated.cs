@@ -715,8 +715,19 @@ namespace Picturepark.SDK.V1.Contract
         System.Threading.Tasks.Task<System.Collections.Generic.ICollection<IdentityProvider>> GetAllAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>Get basic info for all providers</summary>
+        /// <returns>Array of identity provider basic information</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<IdentityProviderBasicInfo>> GetAllBasicInfosAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Get identity provider</summary>
         /// <param name="id">Identity provider ID.</param>
+        /// <returns>Represents an identity provider defined in IdentityServer and its Picturepark configuration</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -728,6 +739,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <summary>Update identity provider</summary>
         /// <param name="id">Identity provider ID.</param>
         /// <param name="provider">Update request</param>
+        /// <returns>Represents an identity provider defined in IdentityServer and its Picturepark configuration</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -2295,6 +2307,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("IdentityProviderNotFoundException", typeof(IdentityProviderNotFoundException))]
     [JsonInheritanceAttribute("UserDoesNotSupportLocalLoginException", typeof(UserDoesNotSupportLocalLoginException))]
     [JsonInheritanceAttribute("UserAttributeNotSynchronizableException", typeof(UserAttributeNotSynchronizableException))]
+    [JsonInheritanceAttribute("UnableToMapMultipleClaimTypesIntoSameAttributeException", typeof(UnableToMapMultipleClaimTypesIntoSameAttributeException))]
     [JsonInheritanceAttribute("UnableToChangeUserRolesForFederatedUser", typeof(UnableToChangeUserRolesForFederatedUser))]
     [JsonInheritanceAttribute("UnableToDeleteDefaultUserRoleException", typeof(UnableToDeleteDefaultUserRoleException))]
     [JsonInheritanceAttribute("UnableToDeleteUserRoleReferencedInIdentityProviderGroupMappingException", typeof(UnableToDeleteUserRoleReferencedInIdentityProviderGroupMappingException))]
@@ -2981,8 +2994,8 @@ namespace Picturepark.SDK.V1.Contract
     [Newtonsoft.Json.JsonObjectAttribute]
     public partial class UserAttributeNotSynchronizableException : PictureparkValidationException
     {
-        [Newtonsoft.Json.JsonProperty("attributeName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string AttributeName { get; set; }
+        [Newtonsoft.Json.JsonProperty("attributePath", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string AttributePath { get; set; }
     
         public string ToJson() 
         {
@@ -2992,6 +3005,25 @@ namespace Picturepark.SDK.V1.Contract
         public static UserAttributeNotSynchronizableException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<UserAttributeNotSynchronizableException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class UnableToMapMultipleClaimTypesIntoSameAttributeException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("attributePath", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string AttributePath { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static UnableToMapMultipleClaimTypesIntoSameAttributeException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<UnableToMapMultipleClaimTypesIntoSameAttributeException>(data);
         }
     
     }
@@ -11594,6 +11626,10 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class BusinessRuleTraceLog 
     {
+        /// <summary>ID of the trace.</summary>
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         /// <summary>ID of the document.</summary>
         [Newtonsoft.Json.JsonProperty("documentId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string DocumentId { get; set; }
@@ -15470,6 +15506,7 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>Represents an identity provider defined in IdentityServer and its Picturepark configuration</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class IdentityProvider : IdentityProviderEditable
     {
@@ -15547,6 +15584,34 @@ namespace Picturepark.SDK.V1.Contract
         public static IdpGroupToUserRoleMapping FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<IdpGroupToUserRoleMapping>(data);
+        }
+    
+    }
+    
+    /// <summary>Basic information about an identity provider</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class IdentityProviderBasicInfo 
+    {
+        /// <summary>Identity provider ID (has to match an existing IdP defined in IdentityServer)</summary>
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
+        /// <summary>Name of the identity provider as defined in IdentityServer</summary>
+        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Name { get; set; }
+    
+        /// <summary>Display name of the identity provider as defined in IdentityServer</summary>
+        [Newtonsoft.Json.JsonProperty("displayName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string DisplayName { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static IdentityProviderBasicInfo FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<IdentityProviderBasicInfo>(data);
         }
     
     }
