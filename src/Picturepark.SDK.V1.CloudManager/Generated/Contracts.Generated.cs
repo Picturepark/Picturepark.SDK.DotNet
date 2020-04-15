@@ -1885,6 +1885,9 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [System.Runtime.Serialization.EnumMember(Value = @"Audio")]
         Audio = 4,
     
+        [System.Runtime.Serialization.EnumMember(Value = @"Vector")]
+        Vector = 5,
+    
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
@@ -9228,6 +9231,10 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [Newtonsoft.Json.JsonProperty("audio", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Audio { get; set; }
     
+        /// <summary>The source to be used for content of type Vector</summary>
+        [Newtonsoft.Json.JsonProperty("vector", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Vector { get; set; }
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -9253,6 +9260,8 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [JsonInheritanceAttribute("Mp3AudioFormat", typeof(Mp3AudioFormat))]
     [JsonInheritanceAttribute("DocumentStillFormat", typeof(DocumentStillFormat))]
     [JsonInheritanceAttribute("PdfFormat", typeof(PdfFormat))]
+    [JsonInheritanceAttribute("SvgFormat", typeof(SvgFormat))]
+    [JsonInheritanceAttribute("VectorStillFormat", typeof(VectorStillFormat))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     public abstract partial class FormatBase 
     {
@@ -10069,6 +10078,10 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [Newtonsoft.Json.JsonProperty("extension", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Extension { get; set; }
     
+        /// <summary>Allows resizing of the image.</summary>
+        [Newtonsoft.Json.JsonProperty("resizeAction", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public ResizeAction ResizeAction { get; set; }
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -10111,6 +10124,48 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         public static PdfFormat FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<PdfFormat>(data);
+        }
+    
+    }
+    
+    /// <summary>Render a PDF to SVG</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class SvgFormat : FormatBase
+    {
+        [Newtonsoft.Json.JsonProperty("extension", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Extension { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static SvgFormat FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SvgFormat>(data);
+        }
+    
+    }
+    
+    /// <summary>Render a vector graphic to a raster image</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class VectorStillFormat : FormatBase
+    {
+        [Newtonsoft.Json.JsonProperty("extension", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Extension { get; set; }
+    
+        /// <summary>Specifies output dimensions for raster operation</summary>
+        [Newtonsoft.Json.JsonProperty("resizeAction", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public ResizeAction ResizeAction { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static VectorStillFormat FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<VectorStillFormat>(data);
         }
     
     }

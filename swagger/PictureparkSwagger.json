@@ -18819,14 +18819,16 @@
           "Image",
           "Document",
           "Video",
-          "Audio"
+          "Audio",
+          "Vector"
         ],
         "enum": [
           "Unknown",
           "Image",
           "Document",
           "Video",
-          "Audio"
+          "Audio",
+          "Vector"
         ]
       },
       "ServiceProviderDeleteException": {
@@ -28931,6 +28933,7 @@
             "OutputDataAudio": "#/components/schemas/OutputDataAudio",
             "OutputDataVideo": "#/components/schemas/OutputDataVideo",
             "OutputDataDocument": "#/components/schemas/OutputDataDocument",
+            "OutputDataVector": "#/components/schemas/OutputDataVector",
             "OutputDataDefault": "#/components/schemas/OutputDataDefault"
           }
         },
@@ -29114,6 +29117,18 @@
                 "format": "int32"
               }
             }
+          }
+        ]
+      },
+      "OutputDataVector": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/OutputDataBase"
+          },
+          {
+            "type": "object",
+            "description": "Output information for a document file.",
+            "additionalProperties": false
           }
         ]
       },
@@ -32639,6 +32654,11 @@
             "type": "string",
             "description": "The source to be used for content of type Audio",
             "nullable": true
+          },
+          "vector": {
+            "type": "string",
+            "description": "The source to be used for content of type Vector",
+            "nullable": true
           }
         }
       },
@@ -32662,7 +32682,9 @@
             "Mp3AudioFormat": "#/components/schemas/Mp3AudioFormat",
             "DocumentFormatBase": "#/components/schemas/DocumentFormatBase",
             "DocumentStillFormat": "#/components/schemas/DocumentStillFormat",
-            "PdfFormat": "#/components/schemas/PdfFormat"
+            "PdfFormat": "#/components/schemas/PdfFormat",
+            "SvgFormat": "#/components/schemas/SvgFormat",
+            "VectorStillFormat": "#/components/schemas/VectorStillFormat"
           }
         },
         "x-abstract": true,
@@ -33495,6 +33517,15 @@
               "extension": {
                 "type": "string",
                 "nullable": true
+              },
+              "resizeAction": {
+                "description": "Allows resizing of the image.",
+                "nullable": true,
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/ResizeAction"
+                  }
+                ]
               }
             }
           }
@@ -33529,6 +33560,51 @@
               "extractFullText": {
                 "type": "boolean",
                 "description": "Whether to extract document full text from this output."
+              }
+            }
+          }
+        ]
+      },
+      "SvgFormat": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/FormatBase"
+          },
+          {
+            "type": "object",
+            "description": "Render a PDF to SVG",
+            "additionalProperties": false,
+            "properties": {
+              "extension": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "VectorStillFormat": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/FormatBase"
+          },
+          {
+            "type": "object",
+            "description": "Render a vector graphic to a raster image",
+            "additionalProperties": false,
+            "properties": {
+              "extension": {
+                "type": "string",
+                "nullable": true
+              },
+              "resizeAction": {
+                "description": "Specifies output dimensions for raster operation",
+                "nullable": true,
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/ResizeAction"
+                  }
+                ]
               }
             }
           }
@@ -37986,7 +38062,8 @@
             "AudioMetadata": "#/components/schemas/AudioMetadata",
             "DocumentMetadata": "#/components/schemas/DocumentMetadata",
             "ImageMetadata": "#/components/schemas/ImageMetadata",
-            "VideoMetadata": "#/components/schemas/VideoMetadata"
+            "VideoMetadata": "#/components/schemas/VideoMetadata",
+            "VectorMetadata": "#/components/schemas/VectorMetadata"
           }
         },
         "additionalProperties": false,
@@ -38459,6 +38536,51 @@
             "nullable": true
           }
         }
+      },
+      "VectorMetadata": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/FileMetadata"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "author": {
+                "type": "string",
+                "nullable": true
+              },
+              "creator": {
+                "type": "string",
+                "nullable": true
+              },
+              "publisher": {
+                "type": "string",
+                "nullable": true
+              },
+              "company": {
+                "type": "string",
+                "nullable": true
+              },
+              "title": {
+                "type": "string",
+                "nullable": true
+              },
+              "pageCount": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "epsInfo": {
+                "nullable": true,
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/EpsMetadata"
+                  }
+                ]
+              }
+            }
+          }
+        ]
       },
       "FileTransferOutput": {
         "type": "object",
