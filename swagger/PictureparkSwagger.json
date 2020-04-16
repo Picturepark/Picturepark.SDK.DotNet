@@ -29127,7 +29127,7 @@
           },
           {
             "type": "object",
-            "description": "Output information for a document file.",
+            "description": "Output information for a vector file.",
             "additionalProperties": false
           }
         ]
@@ -32683,6 +32683,7 @@
             "DocumentFormatBase": "#/components/schemas/DocumentFormatBase",
             "DocumentStillFormat": "#/components/schemas/DocumentStillFormat",
             "PdfFormat": "#/components/schemas/PdfFormat",
+            "VectorFormatBase": "#/components/schemas/VectorFormatBase",
             "SvgFormat": "#/components/schemas/SvgFormat",
             "VectorStillFormat": "#/components/schemas/VectorStillFormat"
           }
@@ -33511,7 +33512,7 @@
           },
           {
             "type": "object",
-            "description": "Renders a TIFF preview image.",
+            "description": "Render a document to a raster image",
             "additionalProperties": false,
             "properties": {
               "extension": {
@@ -33565,10 +33566,23 @@
           }
         ]
       },
-      "SvgFormat": {
+      "VectorFormatBase": {
         "allOf": [
           {
             "$ref": "#/components/schemas/FormatBase"
+          },
+          {
+            "type": "object",
+            "description": "Base class for rendering vector graphics.",
+            "x-abstract": true,
+            "additionalProperties": false
+          }
+        ]
+      },
+      "SvgFormat": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/VectorFormatBase"
           },
           {
             "type": "object",
@@ -33586,7 +33600,7 @@
       "VectorStillFormat": {
         "allOf": [
           {
-            "$ref": "#/components/schemas/FormatBase"
+            "$ref": "#/components/schemas/VectorFormatBase"
           },
           {
             "type": "object",

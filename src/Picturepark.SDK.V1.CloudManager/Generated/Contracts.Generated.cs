@@ -10071,7 +10071,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
     }
     
-    /// <summary>Renders a TIFF preview image.</summary>
+    /// <summary>Render a document to a raster image</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class DocumentStillFormat : DocumentFormatBase
     {
@@ -10128,9 +10128,25 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
     }
     
+    /// <summary>Base class for rendering vector graphics.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public abstract partial class VectorFormatBase : FormatBase
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static VectorFormatBase FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<VectorFormatBase>(data);
+        }
+    
+    }
+    
     /// <summary>Render a PDF to SVG</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
-    public partial class SvgFormat : FormatBase
+    public partial class SvgFormat : VectorFormatBase
     {
         [Newtonsoft.Json.JsonProperty("extension", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Extension { get; set; }
@@ -10149,7 +10165,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
     /// <summary>Render a vector graphic to a raster image</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
-    public partial class VectorStillFormat : FormatBase
+    public partial class VectorStillFormat : VectorFormatBase
     {
         [Newtonsoft.Json.JsonProperty("extension", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Extension { get; set; }
