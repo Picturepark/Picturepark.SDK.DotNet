@@ -3139,6 +3139,9 @@ namespace Picturepark.SDK.V1.Contract
         [System.Runtime.Serialization.EnumMember(Value = @"Audio")]
         Audio = 4,
     
+        [System.Runtime.Serialization.EnumMember(Value = @"Vector")]
+        Vector = 5,
+    
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
@@ -10784,6 +10787,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("LookupCacheTransformation", typeof(LookupCacheTransformation))]
     [JsonInheritanceAttribute("NGramTransformation", typeof(NGramTransformation))]
     [JsonInheritanceAttribute("ProjectionTransformation", typeof(ProjectionTransformation))]
+    [JsonInheritanceAttribute("SplitTransformation", typeof(SplitTransformation))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     public abstract partial class BusinessRuleTransformation 
     {
@@ -10929,6 +10933,34 @@ namespace Picturepark.SDK.V1.Contract
         public static ProjectionTransformation FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<ProjectionTransformation>(data);
+        }
+    
+    }
+    
+    /// <summary>Splits the input by separators, optionally trimming the entries afterwards.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class SplitTransformation : BusinessRuleTransformation
+    {
+        /// <summary>Separators to use, supports variables, an array of strings including escape sequences or null to split on any white space character.</summary>
+        [Newtonsoft.Json.JsonProperty("separators", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public object Separators { get; set; }
+    
+        /// <summary>Keeps empty items. Empty items will be returned as empty strings.</summary>
+        [Newtonsoft.Json.JsonProperty("keepEmpty", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool KeepEmpty { get; set; }
+    
+        /// <summary>Trims each entry for punctuation and white space.</summary>
+        [Newtonsoft.Json.JsonProperty("trim", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool Trim { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static SplitTransformation FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SplitTransformation>(data);
         }
     
     }
@@ -13406,6 +13438,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("OutputDataAudio", typeof(OutputDataAudio))]
     [JsonInheritanceAttribute("OutputDataVideo", typeof(OutputDataVideo))]
     [JsonInheritanceAttribute("OutputDataDocument", typeof(OutputDataDocument))]
+    [JsonInheritanceAttribute("OutputDataVector", typeof(OutputDataVector))]
     [JsonInheritanceAttribute("OutputDataDefault", typeof(OutputDataDefault))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     public abstract partial class OutputDataBase 
@@ -13576,6 +13609,22 @@ namespace Picturepark.SDK.V1.Contract
         public static OutputDataDocument FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<OutputDataDocument>(data);
+        }
+    
+    }
+    
+    /// <summary>Output information for a vector file.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class OutputDataVector : OutputDataBase
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static OutputDataVector FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<OutputDataVector>(data);
         }
     
     }
@@ -17022,6 +17071,10 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("audio", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Audio { get; set; }
     
+        /// <summary>The source to be used for content of type Vector</summary>
+        [Newtonsoft.Json.JsonProperty("vector", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Vector { get; set; }
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -17047,6 +17100,8 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("Mp3AudioFormat", typeof(Mp3AudioFormat))]
     [JsonInheritanceAttribute("DocumentStillFormat", typeof(DocumentStillFormat))]
     [JsonInheritanceAttribute("PdfFormat", typeof(PdfFormat))]
+    [JsonInheritanceAttribute("SvgFormat", typeof(SvgFormat))]
+    [JsonInheritanceAttribute("VectorStillFormat", typeof(VectorStillFormat))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     public abstract partial class FormatBase 
     {
@@ -17856,12 +17911,16 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    /// <summary>Renders a TIFF preview image.</summary>
+    /// <summary>Render a document to a raster image</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class DocumentStillFormat : DocumentFormatBase
     {
         [Newtonsoft.Json.JsonProperty("extension", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Extension { get; set; }
+    
+        /// <summary>Allows resizing of the image.</summary>
+        [Newtonsoft.Json.JsonProperty("resizeAction", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public ResizeAction ResizeAction { get; set; }
     
         public string ToJson() 
         {
@@ -17905,6 +17964,64 @@ namespace Picturepark.SDK.V1.Contract
         public static PdfFormat FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<PdfFormat>(data);
+        }
+    
+    }
+    
+    /// <summary>Base class for rendering vector graphics.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public abstract partial class VectorFormatBase : FormatBase
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static VectorFormatBase FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<VectorFormatBase>(data);
+        }
+    
+    }
+    
+    /// <summary>Render a PDF to SVG</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class SvgFormat : VectorFormatBase
+    {
+        [Newtonsoft.Json.JsonProperty("extension", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Extension { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static SvgFormat FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SvgFormat>(data);
+        }
+    
+    }
+    
+    /// <summary>Render a vector graphic to a raster image</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class VectorStillFormat : VectorFormatBase
+    {
+        [Newtonsoft.Json.JsonProperty("extension", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Extension { get; set; }
+    
+        /// <summary>Specifies output dimensions for raster operation</summary>
+        [Newtonsoft.Json.JsonProperty("resizeAction", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public ResizeAction ResizeAction { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static VectorStillFormat FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<VectorStillFormat>(data);
         }
     
     }
@@ -21933,6 +22050,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("DocumentMetadata", typeof(DocumentMetadata))]
     [JsonInheritanceAttribute("ImageMetadata", typeof(ImageMetadata))]
     [JsonInheritanceAttribute("VideoMetadata", typeof(VideoMetadata))]
+    [JsonInheritanceAttribute("VectorMetadata", typeof(VectorMetadata))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class FileMetadata 
     {
@@ -22313,6 +22431,42 @@ namespace Picturepark.SDK.V1.Contract
         public static VideoStream FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<VideoStream>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class VectorMetadata : FileMetadata
+    {
+        [Newtonsoft.Json.JsonProperty("author", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Author { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("creator", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Creator { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("publisher", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Publisher { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("company", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Company { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("title", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Title { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("pageCount", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int PageCount { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("epsInfo", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public EpsMetadata EpsInfo { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static VectorMetadata FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<VectorMetadata>(data);
         }
     
     }
