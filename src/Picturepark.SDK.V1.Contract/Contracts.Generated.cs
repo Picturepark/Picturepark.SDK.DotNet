@@ -23656,8 +23656,13 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("aggregationFilters", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<AggregationFilter> AggregationFilters { get; set; }
     
+        /// <summary>Includes the service user in result.</summary>
         [Newtonsoft.Json.JsonProperty("includeServiceUser", Required = Newtonsoft.Json.Required.Always)]
         public bool IncludeServiceUser { get; set; }
+    
+        /// <summary>Restricts the results to users that are editable.</summary>
+        [Newtonsoft.Json.JsonProperty("editableOnly", Required = Newtonsoft.Json.Required.Always)]
+        public bool EditableOnly { get; set; }
     
         public string ToJson() 
         {

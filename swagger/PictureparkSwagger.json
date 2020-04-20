@@ -39781,7 +39781,8 @@
         "additionalProperties": false,
         "required": [
           "lifeCycleFilter",
-          "includeServiceUser"
+          "includeServiceUser",
+          "editableOnly"
         ],
         "properties": {
           "searchString": {
@@ -39831,7 +39832,12 @@
             }
           },
           "includeServiceUser": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Includes the service user in result."
+          },
+          "editableOnly": {
+            "type": "boolean",
+            "description": "Restricts the results to users that are editable."
           }
         }
       },
