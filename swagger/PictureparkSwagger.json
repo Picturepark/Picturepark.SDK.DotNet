@@ -39837,7 +39837,7 @@
           },
           "editableOnly": {
             "type": "boolean",
-            "description": "Restricts the results to users that are editable."
+            "description": "Restricts the results to users that are editable for calling user.\nIf set to true, IncludeServiceUser is ignored."
           }
         }
       },

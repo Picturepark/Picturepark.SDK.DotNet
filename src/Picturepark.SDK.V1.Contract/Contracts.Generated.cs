@@ -23660,7 +23660,8 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("includeServiceUser", Required = Newtonsoft.Json.Required.Always)]
         public bool IncludeServiceUser { get; set; }
     
-        /// <summary>Restricts the results to users that are editable.</summary>
+        /// <summary>Restricts the results to users that are editable for calling user.
+        /// If set to true, IncludeServiceUser is ignored.</summary>
         [Newtonsoft.Json.JsonProperty("editableOnly", Required = Newtonsoft.Json.Required.Always)]
         public bool EditableOnly { get; set; }
     
