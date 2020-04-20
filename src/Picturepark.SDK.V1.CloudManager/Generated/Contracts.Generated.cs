@@ -350,7 +350,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        System.Threading.Tasks.Task<Index> ReindexAsync(string alias, SearchIndexReindexRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Index> ReindexAsync(string alias, SearchIndexReindexShardsRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
@@ -11433,19 +11433,34 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class SearchIndexReindexShardsRequest : SearchIndexReindexRequest
+    {
+        [Newtonsoft.Json.JsonProperty("numberOfShards", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int NumberOfShards { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("numberOfReplicas", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int NumberOfReplicas { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("numberOfRoutingShards", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int NumberOfRoutingShards { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static SearchIndexReindexShardsRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SearchIndexReindexShardsRequest>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class SearchIndexReindexRequest 
     {
         [Newtonsoft.Json.JsonProperty("searchIndexId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string SearchIndexId { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("numberOfShards", Required = Newtonsoft.Json.Required.Always)]
-        public int NumberOfShards { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("numberOfReplicas", Required = Newtonsoft.Json.Required.Always)]
-        public int NumberOfReplicas { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("numberOfRoutingShards", Required = Newtonsoft.Json.Required.Always)]
-        public int NumberOfRoutingShards { get; set; }
     
         [Newtonsoft.Json.JsonProperty("onBehalfOfUserId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string OnBehalfOfUserId { get; set; }

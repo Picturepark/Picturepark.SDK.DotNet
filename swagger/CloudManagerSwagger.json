@@ -3132,7 +3132,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/SearchIndexReindexRequest"
+                "$ref": "#/components/schemas/SearchIndexReindexShardsRequest"
               }
             }
           },
@@ -16954,30 +16954,38 @@
           "Cancelled"
         ]
       },
+      "SearchIndexReindexShardsRequest": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/SearchIndexReindexRequest"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "numberOfShards": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "numberOfReplicas": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "numberOfRoutingShards": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          }
+        ]
+      },
       "SearchIndexReindexRequest": {
         "type": "object",
         "additionalProperties": false,
-        "required": [
-          "numberOfShards",
-          "numberOfReplicas",
-          "numberOfRoutingShards"
-        ],
         "properties": {
           "searchIndexId": {
             "type": "string",
             "nullable": true
-          },
-          "numberOfShards": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "numberOfReplicas": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "numberOfRoutingShards": {
-            "type": "integer",
-            "format": "int32"
           },
           "onBehalfOfUserId": {
             "type": "string",
