@@ -15588,7 +15588,7 @@ namespace Picturepark.SDK.V1.Contract
     {
         /// <summary>Mapping of identity provider claims to user attributes</summary>
         [Newtonsoft.Json.JsonProperty("claimMapping", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.IDictionary<string, string> ClaimMapping { get; set; }
+        public System.Collections.Generic.ICollection<IdpClaimToUserAttributeMapping> ClaimMapping { get; set; }
     
         /// <summary>Name of the identity provider claim that holds group membership information</summary>
         [Newtonsoft.Json.JsonProperty("groupClaimType", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -15610,6 +15610,29 @@ namespace Picturepark.SDK.V1.Contract
         public static IdentityProviderEditable FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<IdentityProviderEditable>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class IdpClaimToUserAttributeMapping 
+    {
+        /// <summary>Claim type name coming from external identity provider</summary>
+        [Newtonsoft.Json.JsonProperty("claimType", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ClaimType { get; set; }
+    
+        /// <summary>Path to a user attribute to synchronize</summary>
+        [Newtonsoft.Json.JsonProperty("userAttributePath", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string UserAttributePath { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static IdpClaimToUserAttributeMapping FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<IdpClaimToUserAttributeMapping>(data);
         }
     
     }

@@ -16965,15 +16965,18 @@
             "properties": {
               "numberOfShards": {
                 "type": "integer",
-                "format": "int32"
+                "format": "int32",
+                "nullable": true
               },
               "numberOfReplicas": {
                 "type": "integer",
-                "format": "int32"
+                "format": "int32",
+                "nullable": true
               },
               "numberOfRoutingShards": {
                 "type": "integer",
-                "format": "int32"
+                "format": "int32",
+                "nullable": true
               }
             }
           }

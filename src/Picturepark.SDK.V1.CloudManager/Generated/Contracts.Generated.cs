@@ -11435,14 +11435,14 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class SearchIndexReindexShardsRequest : SearchIndexReindexRequest
     {
-        [Newtonsoft.Json.JsonProperty("numberOfShards", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int NumberOfShards { get; set; }
+        [Newtonsoft.Json.JsonProperty("numberOfShards", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int? NumberOfShards { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("numberOfReplicas", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int NumberOfReplicas { get; set; }
+        [Newtonsoft.Json.JsonProperty("numberOfReplicas", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int? NumberOfReplicas { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("numberOfRoutingShards", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int NumberOfRoutingShards { get; set; }
+        [Newtonsoft.Json.JsonProperty("numberOfRoutingShards", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int? NumberOfRoutingShards { get; set; }
     
         public string ToJson() 
         {
