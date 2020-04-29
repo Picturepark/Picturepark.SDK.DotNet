@@ -285,7 +285,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             };
 
             // Act
-            var result = await _client.Content.CreateDownloadLinkAsync(createDownloadLinkRequest).ConfigureAwait(false);
+            var result = await _client.Content.CreateAndAwaitDownloadLinkAsync(createDownloadLinkRequest).ConfigureAwait(false);
             Assert.NotNull(result.DownloadUrl);
 
             using (var httpClient = new HttpClient())
@@ -327,7 +327,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             };
 
             // Act
-            var result = await _client.Content.CreateDownloadLinkAsync(createDownloadLinkRequest).ConfigureAwait(false);
+            var result = await _client.Content.CreateAndAwaitDownloadLinkAsync(createDownloadLinkRequest).ConfigureAwait(false);
             Assert.NotNull(result.DownloadUrl);
 
             using (var httpClient = new HttpClient())
