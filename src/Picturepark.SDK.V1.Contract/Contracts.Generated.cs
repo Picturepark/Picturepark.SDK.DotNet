@@ -519,6 +519,17 @@ namespace Picturepark.SDK.V1.Contract
         System.Threading.Tasks.Task<ContentReferencesResult> GetReferencesAsync(string id, ContentReferencesRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>Get outputs</summary>
+        /// <param name="id">ID of content.</param>
+        /// <returns>Array of Result of output resolution.</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<OutputResolveResult>> GetOutputsAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Create download link</summary>
         /// <param name="request">Content download link request</param>
         /// <returns>Download link</returns>
@@ -527,7 +538,18 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        System.Threading.Tasks.Task<DownloadLink> CreateDownloadLinkAsync(ContentDownloadLinkCreateRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<BusinessProcess> CreateDownloadLinkAsync(ContentDownloadLinkCreateRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>Resolve download token to Url</summary>
+        /// <param name="token">Token</param>
+        /// <returns>Download link information</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        System.Threading.Tasks.Task<DownloadLink> GetDownloadLinkAsync(string token, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Delete multiple contents</summary>
@@ -572,6 +594,17 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<ContentReferencesResult> GetReferencesManyAsync(ContentManyReferencesRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>Get outputs</summary>
+        /// <param name="request">Output resolve many request.</param>
+        /// <returns>Array of Result of output resolution.</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<OutputResolveResult>> GetOutputsManyAsync(OutputResolveManyRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Search contents</summary>
@@ -2331,6 +2364,8 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("DuplicateOutputFormatIdException", typeof(DuplicateOutputFormatIdException))]
     [JsonInheritanceAttribute("OutputFormatResizingNotSupportedException", typeof(OutputFormatResizingNotSupportedException))]
     [JsonInheritanceAttribute("OutputBackupNotRequestedException", typeof(OutputBackupNotRequestedException))]
+    [JsonInheritanceAttribute("DownloadLinkExpiredException", typeof(DownloadLinkExpiredException))]
+    [JsonInheritanceAttribute("RenderingNotAwaitedException", typeof(RenderingNotAwaitedException))]
     [JsonInheritanceAttribute("LeaseNotAcquiredException", typeof(LeaseNotAcquiredException))]
     [JsonInheritanceAttribute("OperationInProgressException", typeof(OperationInProgressException))]
     [JsonInheritanceAttribute("RetryException", typeof(RetryException))]
@@ -3659,6 +3694,38 @@ namespace Picturepark.SDK.V1.Contract
         public static OutputBackupNotRequestedException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<OutputBackupNotRequestedException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class DownloadLinkExpiredException : PictureparkBusinessException
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static DownloadLinkExpiredException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<DownloadLinkExpiredException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class RenderingNotAwaitedException : PictureparkBusinessException
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static RenderingNotAwaitedException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<RenderingNotAwaitedException>(data);
         }
     
     }
@@ -14224,28 +14291,46 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    /// <summary>Download link information</summary>
+    /// <summary>Result of output resolution.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
-    public partial class DownloadLink 
+    public partial class OutputResolveResult 
     {
-        /// <summary>Token of the download, used to generate the url.</summary>
-        [Newtonsoft.Json.JsonProperty("downloadToken", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public string DownloadToken { get; set; }
+        /// <summary>ID of output.</summary>
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
     
-        /// <summary>Url of the download link.</summary>
-        [Newtonsoft.Json.JsonProperty("downloadUrl", Required = Newtonsoft.Json.Required.Always)]
+        /// <summary>ID of output format.</summary>
+        [Newtonsoft.Json.JsonProperty("outputFormatId", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
-        public string DownloadUrl { get; set; }
+        public string OutputFormatId { get; set; }
+    
+        /// <summary>ID of content.</summary>
+        [Newtonsoft.Json.JsonProperty("contentId", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public string ContentId { get; set; }
+    
+        /// <summary>Rendering state of output.</summary>
+        [Newtonsoft.Json.JsonProperty("renderingState", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public OutputRenderingState RenderingState { get; set; }
+    
+        /// <summary>Whether this Output belongs to a dynamic OutputFormat</summary>
+        [Newtonsoft.Json.JsonProperty("dynamicRendering", Required = Newtonsoft.Json.Required.Always)]
+        public bool DynamicRendering { get; set; }
+    
+        /// <summary>Size of file, if already known</summary>
+        [Newtonsoft.Json.JsonProperty("fileSize", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public long? FileSize { get; set; }
     
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
         }
     
-        public static DownloadLink FromJson(string data)
+        public static OutputResolveResult FromJson(string data)
         {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<DownloadLink>(data);
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<OutputResolveResult>(data);
         }
     
     }
@@ -14258,6 +14343,10 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("contents", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
         public System.Collections.Generic.ICollection<ContentDownloadRequestItem> Contents { get; set; } = new System.Collections.Generic.List<ContentDownloadRequestItem>();
+    
+        /// <summary>Indicates if a progress message shall be shown to the user, notifying once the download is completed.</summary>
+        [Newtonsoft.Json.JsonProperty("notifyProgress", Required = Newtonsoft.Json.Required.Always)]
+        public bool NotifyProgress { get; set; }
     
         public string ToJson() 
         {
@@ -14293,6 +14382,32 @@ namespace Picturepark.SDK.V1.Contract
         public static ContentDownloadRequestItem FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentDownloadRequestItem>(data);
+        }
+    
+    }
+    
+    /// <summary>Download link information</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class DownloadLink 
+    {
+        /// <summary>Token of the download, used to generate the url.</summary>
+        [Newtonsoft.Json.JsonProperty("downloadToken", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public string DownloadToken { get; set; }
+    
+        /// <summary>Url of the download link.</summary>
+        [Newtonsoft.Json.JsonProperty("downloadUrl", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public string DownloadUrl { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static DownloadLink FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<DownloadLink>(data);
         }
     
     }
@@ -14663,6 +14778,27 @@ namespace Picturepark.SDK.V1.Contract
         public static ContentManyReferencesRequest FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentManyReferencesRequest>(data);
+        }
+    
+    }
+    
+    /// <summary>Resolves outputs available for given content ids.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class OutputResolveManyRequest 
+    {
+        /// <summary>The IDs of the contents whose outputs should to be retrieved.</summary>
+        [Newtonsoft.Json.JsonProperty("contentIds", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.Collections.Generic.ICollection<string> ContentIds { get; set; } = new System.Collections.Generic.List<string>();
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static OutputResolveManyRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<OutputResolveManyRequest>(data);
         }
     
     }

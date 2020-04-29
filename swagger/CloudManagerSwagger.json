@@ -8091,6 +8091,28 @@
           }
         ]
       },
+      "DownloadLinkExpiredException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkBusinessException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "RenderingNotAwaitedException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkBusinessException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
       "LeaseNotAcquiredException": {
         "allOf": [
           {

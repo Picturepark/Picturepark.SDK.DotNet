@@ -4387,13 +4387,107 @@
         ]
       }
     },
+    "/v1/Contents/{id}/outputs": {
+      "get": {
+        "tags": [
+          "Content"
+        ],
+        "summary": "Get outputs",
+        "description": "Retrieves all outputs available for content, also dynamic rendered outputs are returned, if requested.",
+        "operationId": "Content_GetOutputs",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "ID of content.",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Array of Result of output resolution.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/OutputResolveResult"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "content_read"
+            ]
+          }
+        ]
+      }
+    },
     "/v1/Contents/downloadLinks": {
       "post": {
         "tags": [
           "Content"
         ],
         "summary": "Create download link",
-        "description": "Creates a download link for one or more contents.",
+        "description": "Creates a download link for one or more contents. The operation is executed asynchronously and is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.",
         "operationId": "Content_CreateDownloadLink",
         "requestBody": {
           "x-name": "request",
@@ -4411,6 +4505,96 @@
         "responses": {
           "200": {
             "description": "Download link",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BusinessProcess"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "content_read"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/Contents/downloadLink/{token}": {
+      "get": {
+        "tags": [
+          "Content"
+        ],
+        "summary": "Resolve download token to Url",
+        "operationId": "Content_GetDownloadLink",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "path",
+            "required": true,
+            "description": "Token",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Download link information",
             "content": {
               "application/json": {
                 "schema": {
@@ -5143,6 +5327,100 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ContentReferencesResult"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "content_read"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/Contents/many/outputs": {
+      "post": {
+        "tags": [
+          "Content"
+        ],
+        "summary": "Get outputs",
+        "description": "Retrieves all outputs available for contents, also dynamic rendered outputs are returned, if requested.\nA maximum of 1000 content ids can be specified.",
+        "operationId": "Content_GetOutputsMany",
+        "requestBody": {
+          "x-name": "request",
+          "description": "Output resolve many request.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OutputResolveManyRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "Array of Result of output resolution.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/OutputResolveResult"
+                  }
                 }
               }
             }
@@ -19280,6 +19558,28 @@
           }
         ]
       },
+      "DownloadLinkExpiredException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkBusinessException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "RenderingNotAwaitedException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkBusinessException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
       "LeaseNotAcquiredException": {
         "allOf": [
           {
@@ -29695,24 +29995,49 @@
           }
         }
       },
-      "DownloadLink": {
+      "OutputResolveResult": {
         "type": "object",
-        "description": "Download link information",
+        "description": "Result of output resolution.",
         "additionalProperties": false,
         "required": [
-          "downloadToken",
-          "downloadUrl"
+          "outputFormatId",
+          "contentId",
+          "renderingState",
+          "dynamicRendering"
         ],
         "properties": {
-          "downloadToken": {
+          "id": {
             "type": "string",
-            "description": "Token of the download, used to generate the url.",
+            "description": "ID of output.",
+            "nullable": true
+          },
+          "outputFormatId": {
+            "type": "string",
+            "description": "ID of output format.",
             "minLength": 1
           },
-          "downloadUrl": {
+          "contentId": {
             "type": "string",
-            "description": "Url of the download link.",
+            "description": "ID of content.",
             "minLength": 1
+          },
+          "renderingState": {
+            "description": "Rendering state of output.",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/OutputRenderingState"
+              }
+            ]
+          },
+          "dynamicRendering": {
+            "type": "boolean",
+            "description": "Whether this Output belongs to a dynamic OutputFormat"
+          },
+          "fileSize": {
+            "type": "integer",
+            "description": "Size of file, if already known",
+            "format": "int64",
+            "nullable": true
           }
         }
       },
@@ -29721,7 +30046,8 @@
         "description": "Request to create a content download link",
         "additionalProperties": false,
         "required": [
-          "contents"
+          "contents",
+          "notifyProgress"
         ],
         "properties": {
           "contents": {
@@ -29730,6 +30056,10 @@
             "items": {
               "$ref": "#/components/schemas/ContentDownloadRequestItem"
             }
+          },
+          "notifyProgress": {
+            "type": "boolean",
+            "description": "Indicates if a progress message shall be shown to the user, notifying once the download is completed."
           }
         }
       },
@@ -29750,6 +30080,27 @@
           "outputFormatId": {
             "type": "string",
             "description": "ID of the output format that is going to be downloaded.",
+            "minLength": 1
+          }
+        }
+      },
+      "DownloadLink": {
+        "type": "object",
+        "description": "Download link information",
+        "additionalProperties": false,
+        "required": [
+          "downloadToken",
+          "downloadUrl"
+        ],
+        "properties": {
+          "downloadToken": {
+            "type": "string",
+            "description": "Token of the download, used to generate the url.",
+            "minLength": 1
+          },
+          "downloadUrl": {
+            "type": "string",
+            "description": "Url of the download link.",
             "minLength": 1
           }
         }
@@ -30126,6 +30477,23 @@
                 "$ref": "#/components/schemas/PagingRequest"
               }
             ]
+          }
+        }
+      },
+      "OutputResolveManyRequest": {
+        "type": "object",
+        "description": "Resolves outputs available for given content ids.",
+        "additionalProperties": false,
+        "required": [
+          "contentIds"
+        ],
+        "properties": {
+          "contentIds": {
+            "type": "array",
+            "description": "The IDs of the contents whose outputs should to be retrieved.",
+            "items": {
+              "type": "string"
+            }
           }
         }
       },

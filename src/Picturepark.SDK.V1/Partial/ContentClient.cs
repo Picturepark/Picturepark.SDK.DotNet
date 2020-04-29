@@ -177,5 +177,14 @@ namespace Picturepark.SDK.V1
 
             return new ContentBatchOperationWithRequestIdResult(this, businessProcessId, result.LifeCycleHit, _businessProcessClient);
         }
+
+        /// <inheritdoc />
+        public async Task<DownloadLink> CreateAndAwaitDownloadLinkAsync(ContentDownloadLinkCreateRequest request, TimeSpan? timeout = null, CancellationToken cancellationToken = default)
+        {
+            var bp = await CreateDownloadLinkAsync(request, cancellationToken).ConfigureAwait(false);
+            await _businessProcessClient.WaitForCompletionAsync(bp.Id, timeout, cancellationToken: cancellationToken).ConfigureAwait(false);
+
+            return await GetDownloadLinkAsync(bp.ReferenceId, cancellationToken).ConfigureAwait(false);
+        }
     }
 }

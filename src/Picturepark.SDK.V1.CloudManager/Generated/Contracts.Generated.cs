@@ -1069,6 +1069,8 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [JsonInheritanceAttribute("DuplicateOutputFormatIdException", typeof(DuplicateOutputFormatIdException))]
     [JsonInheritanceAttribute("OutputFormatResizingNotSupportedException", typeof(OutputFormatResizingNotSupportedException))]
     [JsonInheritanceAttribute("OutputBackupNotRequestedException", typeof(OutputBackupNotRequestedException))]
+    [JsonInheritanceAttribute("DownloadLinkExpiredException", typeof(DownloadLinkExpiredException))]
+    [JsonInheritanceAttribute("RenderingNotAwaitedException", typeof(RenderingNotAwaitedException))]
     [JsonInheritanceAttribute("LeaseNotAcquiredException", typeof(LeaseNotAcquiredException))]
     [JsonInheritanceAttribute("OperationInProgressException", typeof(OperationInProgressException))]
     [JsonInheritanceAttribute("RetryException", typeof(RetryException))]
@@ -2405,6 +2407,38 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         public static OutputBackupNotRequestedException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<OutputBackupNotRequestedException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class DownloadLinkExpiredException : PictureparkBusinessException
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static DownloadLinkExpiredException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<DownloadLinkExpiredException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class RenderingNotAwaitedException : PictureparkBusinessException
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static RenderingNotAwaitedException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<RenderingNotAwaitedException>(data);
         }
     
     }
