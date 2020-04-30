@@ -313,7 +313,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             // Act
             var downloadLinkResponse = await _client.Content
-                .CreateDownloadLinkAsync(new ContentDownloadLinkCreateRequest { Contents = combinations.ToList() })
+                .CreateAndAwaitDownloadLinkAsync(new ContentDownloadLinkCreateRequest { Contents = combinations.ToList() })
                 .ConfigureAwait(false);
 
             using (var httpClient = new HttpClient())

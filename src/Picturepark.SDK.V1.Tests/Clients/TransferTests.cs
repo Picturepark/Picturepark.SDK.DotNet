@@ -729,7 +729,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                         }
                     }
                 };
-                var downloadResult = await _client.Content.CreateDownloadLinkAsync(downloadRequest).ConfigureAwait(false);
+                var downloadResult = await _client.Content.CreateAndAwaitDownloadLinkAsync(downloadRequest).ConfigureAwait(false);
                 urls.Add(downloadResult.DownloadUrl);
             }
 
