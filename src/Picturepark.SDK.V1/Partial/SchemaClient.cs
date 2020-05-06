@@ -238,6 +238,7 @@ namespace Picturepark.SDK.V1
                     nameof(DocumentMetadata),
                     nameof(ImageMetadata),
                     nameof(VideoMetadata),
+                    nameof(VectorMetadata)
                 };
 
                 schemaDetail.ReferencedInContentSchemaIds = binarySchemas;
