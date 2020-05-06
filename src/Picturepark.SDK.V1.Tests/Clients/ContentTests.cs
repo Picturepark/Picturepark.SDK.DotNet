@@ -1045,7 +1045,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldGetVectorMetadata()
         {
             // sample001.ai
-            var contentId = await _fixture.GetRandomContentIdAsync("fileMetadata.sha1Hash:A72A58BDA484E06F07C6CCBB5A9B0A97E0A3BD4C", 1).ConfigureAwait(false);
+            var contentId = await _fixture.GetRandomContentIdAsync("contentSchemaId:VectorMetadata", 1).ConfigureAwait(false);
             contentId.Should().NotBeNullOrEmpty();
 
             ContentDetail result = await _client.Content.GetAsync(contentId, new[] { ContentResolveBehavior.Content }).ConfigureAwait(false);
@@ -1094,7 +1094,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var request = new ContentSearchRequest
             {
                 ChannelId = channelId,
-                SearchString = "*",
                 Sort = sortInfos,
                 Filter = filter,
             };

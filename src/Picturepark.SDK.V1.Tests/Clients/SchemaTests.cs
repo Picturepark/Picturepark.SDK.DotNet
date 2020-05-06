@@ -60,7 +60,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var schemas = await _client.Schema.GenerateSchemasAsync(typeof(Person)).ConfigureAwait(false);
 
             // Assert
-            Assert.Equal(9, schemas.Count);
+            Assert.Equal(11, schemas.Count);
         }
 
         [Fact]
