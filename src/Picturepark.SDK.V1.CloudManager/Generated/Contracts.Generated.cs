@@ -8122,11 +8122,11 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [Newtonsoft.Json.JsonProperty("contentBackupStoragePath", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ContentBackupStoragePath { get; set; }
     
-        /// <summary>Logo path, if not given, the path is automatically created inside the customer folder</summary>
+        /// <summary>Logo path, if not given, the path is automatically set inside the customer folder</summary>
         [Newtonsoft.Json.JsonProperty("logoPath", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string LogoPath { get; set; }
     
-        /// <summary>Watermark path, if not given, the path is automatically created inside the customer folder</summary>
+        /// <summary>Watermark path, if not given, the path is automatically set inside the customer folder</summary>
         [Newtonsoft.Json.JsonProperty("watermarkPath", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string WatermarkPath { get; set; }
     

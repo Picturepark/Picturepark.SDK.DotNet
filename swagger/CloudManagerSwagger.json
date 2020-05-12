@@ -13390,12 +13390,12 @@
           },
           "logoPath": {
             "type": "string",
-            "description": "Logo path, if not given, the path is automatically created inside the customer folder",
+            "description": "Logo path, if not given, the path is automatically set inside the customer folder",
             "nullable": true
           },
           "watermarkPath": {
             "type": "string",
-            "description": "Watermark path, if not given, the path is automatically created inside the customer folder",
+            "description": "Watermark path, if not given, the path is automatically set inside the customer folder",
             "nullable": true
           },
           "baseUrl": {
