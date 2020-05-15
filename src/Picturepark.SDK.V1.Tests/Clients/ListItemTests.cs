@@ -224,6 +224,15 @@ namespace Picturepark.SDK.V1.Tests.Clients
                             SecurityPet = dog
                         }
                     },
+                    AddressesPlus = new List<AddressesPlus>
+                    {
+                        new AddressesPlus
+                        {
+                            Name = "Lenzburg",
+                            SecurityPet = dog,
+                            Number = 2
+                        }
+                    },
                     OwnsPets = new List<Pet>
                     {
                         new Cat
@@ -236,7 +245,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 }).ConfigureAwait(false);
 
             var soccerPlayerDetail = await soccerPlayerResult.FetchDetail().ConfigureAwait(false);
-
             var soccerTrainerResult = await _client.ListItem.CreateFromObjectAsync(
                 new SoccerTrainer
                 {
@@ -278,7 +286,22 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 BirthDate = DateTime.Now,
                 EmailAddress = "test@test.com",
                 Firstname = "Urs",
-                LastName = "Brogle"
+                LastName = "Brogle",
+                Addresses = new List<Addresses>
+                {
+                    new Addresses
+                    {
+                        Name = "Aarau"
+                    }
+                },
+                AddressesPlus = new List<AddressesPlus>
+                {
+                    new AddressesPlus
+                    {
+                        Name = "Lenzburg",
+                        Number = 2
+                    }
+                }
             };
 
             // Act
@@ -295,6 +318,8 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             var createdPlayer = playerItem.ConvertTo<SoccerPlayer>();
             Assert.Equal("Urs", createdPlayer.Firstname);
+            createdPlayer.Addresses.First().Name.Should().Be("Aarau");
+            createdPlayer.AddressesPlus.First().Number.Should().Be(2);
         }
 
         [Fact]
@@ -486,6 +511,8 @@ namespace Picturepark.SDK.V1.Tests.Clients
             // Assert
             Assert.True(!failedMetadataSchemaIds.Any());
             Assert.True(items.Any());
+
+            items.First().LifeCycle.Should().Be(LifeCycle.Active);
         }
 
         [Fact]

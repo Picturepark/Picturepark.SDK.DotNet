@@ -93,7 +93,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var result = await _client.Transfer.CreateAndWaitForCompletionAsync(transferName, files).ConfigureAwait(false);
 
             // Act
-            await _client.Transfer.CancelTransferAsync(result.Transfer.Id).ConfigureAwait(false);
+            await _client.Transfer.CancelAsync(result.Transfer.Id).ConfigureAwait(false);
 
             // Assert
             var currentTransfer = await _client.Transfer.GetAsync(result.Transfer.Id).ConfigureAwait(false);
@@ -602,6 +602,42 @@ namespace Picturepark.SDK.V1.Tests.Clients
             errorDelegateArgs.ex.Should().NotBeNull();
         }
 
+        [Fact]
+        [Trait("Stack", "Transfers")]
+        public async Task ShouldUploadEmptyFiles()
+        {
+            // Arrange
+            var uploadOptions = new UploadOptions { WaitForTransferCompletion = true };
+            var filename = Path.GetTempFileName();
+
+            try
+            {
+                // Act
+                var createTransferResult = await _fixture.Client.Transfer.UploadFilesAsync(
+                    nameof(ShouldUploadEmptyFiles) + "-" + Guid.NewGuid().ToString("N"),
+                    new[] { new FileLocations(filename) },
+                    uploadOptions,
+                    TimeSpan.FromMinutes(2)).ConfigureAwait(false);
+
+                // Assert
+                var transferDetail = await _client.Transfer.GetAsync(createTransferResult.Transfer.Id).ConfigureAwait(false);
+                transferDetail.State.Should().Be(TransferState.TransferReady);
+
+                var fileTransfers = await _client.Transfer.SearchFilesByTransferIdAsync(transferDetail.Id).ConfigureAwait(false);
+                var fileTransferId = fileTransfers.Single().Id;
+                var fileTransferDetail = await _client.Transfer.GetFileAsync(fileTransferId).ConfigureAwait(false);
+
+                var fileMetadata = fileTransferDetail.FileMetadata.Should().BeOfType<FileMetadata>().Which;
+
+                fileMetadata.FileSizeInBytes.Should().Be(0);
+                fileMetadata.Sha1Hash.Should().Be("DA39A3EE5E6B4B0D3255BFEF95601890AFD80709");
+            }
+            finally
+            {
+                File.Delete(filename);
+            }
+        }
+
         private async Task<(CreateTransferResult, string fileId)> CreateFileTransferAsync()
         {
             var transferName = new Random().Next(1000, 9999).ToString();
@@ -693,7 +729,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                         }
                     }
                 };
-                var downloadResult = await _client.Content.CreateDownloadLinkAsync(downloadRequest).ConfigureAwait(false);
+                var downloadResult = await _client.Content.CreateAndAwaitDownloadLinkAsync(downloadRequest).ConfigureAwait(false);
                 urls.Add(downloadResult.DownloadUrl);
             }
 

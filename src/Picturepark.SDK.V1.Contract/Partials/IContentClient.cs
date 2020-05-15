@@ -135,5 +135,13 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The <see cref="ContentBatchOperationWithRequestIdResult"/>.</returns>
         Task<ContentBatchOperationWithRequestIdResult> WaitForBusinessProcessAndReturnResultWithRequestId(string businessProcessId, TimeSpan? timeout = null, bool waitSearchDocCreation = true, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Creates a download link and awaits potential dynamic output format rendering
+        /// </summary><param name="request">Content download link request</param>
+        /// <param name="timeout">Timeout for operation</param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>Download link</returns>
+        Task<DownloadLink> CreateAndAwaitDownloadLinkAsync(ContentDownloadLinkCreateRequest request, TimeSpan? timeout = null, CancellationToken cancellationToken = default);
     }
 }

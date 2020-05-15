@@ -1,6 +1,5 @@
 ﻿using FluentAssertions;
 using System.Threading.Tasks;
-using Picturepark.SDK.V1.CloudManager.Contract;
 using Xunit;
 using Picturepark.SDK.V1.CloudManager.Tests.Fixtures;
 
@@ -21,7 +20,7 @@ namespace Picturepark.SDK.V1.CloudManager.Tests
         public async Task ShouldTryToGetVersion()
         {
             // make sure environment is in place
-            var environmentConfiguration = await _fixture.Client.Environment.CreateEnvironmentAsync().ConfigureAwait(false);
+            var environmentConfiguration = await _fixture.Client.Environment.CreateAsync().ConfigureAwait(false);
 
             // get version
             var result = await _fixture.Client.Environment.GetVersionAsync().ConfigureAwait(false);
@@ -32,7 +31,7 @@ namespace Picturepark.SDK.V1.CloudManager.Tests
         [Fact]
         public async Task ShouldTryToCreateEnvironment()
         {
-            var result = await _fixture.Client.Environment.CreateEnvironmentAsync().ConfigureAwait(false);
+            var result = await _fixture.Client.Environment.CreateAsync().ConfigureAwait(false);
             result.Should().NotBeNull();
             result.Id.Should().Be(EnvironmentConfiguration);
         }

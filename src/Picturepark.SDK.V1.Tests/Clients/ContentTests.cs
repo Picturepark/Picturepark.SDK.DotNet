@@ -244,7 +244,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             Assert.True(permissionSetResults.AggregationResultItems.Count > 0);
         }
 
-        [Fact(Skip = "It must be re-enabled when url is accessible")]
+        [Fact]
         [Trait("Stack", "Contents")]
         public async Task ShouldSearchAndAggregateOnChannelWithTermsAggregator()
         {
@@ -270,7 +270,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             permissionSetAggregationResults.AggregationResultItems.Should().HaveCountGreaterThan(0);
         }
 
-        [Fact(Skip = "It must be re-enabled when url is accessible")]
+        [Fact]
         [Trait("Stack", "Contents")]
         public async Task ShouldCreateDownloadLinkForSingleFile()
         {
@@ -285,7 +285,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             };
 
             // Act
-            var result = await _client.Content.CreateDownloadLinkAsync(createDownloadLinkRequest).ConfigureAwait(false);
+            var result = await _client.Content.CreateAndAwaitDownloadLinkAsync(createDownloadLinkRequest).ConfigureAwait(false);
             Assert.NotNull(result.DownloadUrl);
 
             using (var httpClient = new HttpClient())
@@ -309,7 +309,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             }
         }
 
-        [Fact(Skip = "It must be re-enabled when url is accessible")]
+        [Fact]
         [Trait("Stack", "Contents")]
         public async Task ShouldCreateDownloadLinkForMultipeFiles()
         {
@@ -327,7 +327,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             };
 
             // Act
-            var result = await _client.Content.CreateDownloadLinkAsync(createDownloadLinkRequest).ConfigureAwait(false);
+            var result = await _client.Content.CreateAndAwaitDownloadLinkAsync(createDownloadLinkRequest).ConfigureAwait(false);
             Assert.NotNull(result.DownloadUrl);
 
             using (var httpClient = new HttpClient())
@@ -1042,6 +1042,21 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
         [Fact]
         [Trait("Stack", "Contents")]
+        public async Task ShouldGetVectorMetadata()
+        {
+            // sample001.ai
+            var contentId = await _fixture.GetRandomContentIdAsync("fileMetadata.sha1Hash:A72A58BDA484E06F07C6CCBB5A9B0A97E0A3BD4C", 1).ConfigureAwait(false);
+            contentId.Should().NotBeNullOrEmpty();
+
+            ContentDetail result = await _client.Content.GetAsync(contentId, new[] { ContentResolveBehavior.Content }).ConfigureAwait(false);
+
+            var metadata = result.GetFileMetadata().As<VectorMetadata>();
+            metadata.Should().NotBeNull();
+            metadata.Title.Should().NotBeNullOrEmpty();
+        }
+
+        [Fact]
+        [Trait("Stack", "Contents")]
         public async Task ShouldGetWithResolvedObjects()
         {
             var contentDetail = await CreateContentReferencingSimpleField(ContentResolveBehavior.Content, ContentResolveBehavior.LinkedListItems);
@@ -1088,7 +1103,8 @@ namespace Picturepark.SDK.V1.Tests.Clients
             ContentSearchResult result = await _client.Content.SearchAsync(request).ConfigureAwait(false);
 
             // Assert
-            Assert.True(result.Results.Count > 0);
+            result.Results.Count.Should().BeGreaterThan(0);
+            result.Results.First().LifeCycle.Should().Be(LifeCycle.Active);
         }
 
         [Fact]
@@ -1592,7 +1608,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                     new UploadOptions { WaitForTransferCompletion = true }).ConfigureAwait(false);
 
                 var result = await _client.Transfer
-                    .ImportTransferAsync(transfer.Transfer.Id, new ImportTransferRequest())
+                    .ImportAsync(transfer.Transfer.Id, new ImportTransferRequest())
                     .ConfigureAwait(false);
 
                 await _client.BusinessProcess.WaitForCompletionAsync(result.BusinessProcessId).ConfigureAwait(false);

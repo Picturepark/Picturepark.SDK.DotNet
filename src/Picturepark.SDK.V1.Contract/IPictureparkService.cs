@@ -47,5 +47,7 @@ namespace Picturepark.SDK.V1.Contract
         IDisplayValueClient DisplayValue { get; }
 
         IMetadataClient Metadata { get; }
+
+        IIdentityProviderClient IdentityProvider { get; }
     }
 }
