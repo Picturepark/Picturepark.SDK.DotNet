@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class CreateTransferRequest
    | Picturepark.SDK.V1 API ">
-    <meta name="generator" content="docfx 2.45.1.0">
+    <meta name="generator" content="docfx 1.0.0.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -174,7 +174,7 @@
   <h4 id="Picturepark_SDK_V1_Contract_CreateTransferRequest_CreateCollection" data-uid="Picturepark.SDK.V1.Contract.CreateTransferRequest.CreateCollection"><a href="#collapsible-Picturepark_SDK_V1_Contract_CreateTransferRequest_CreateCollection" class="expander" data-toggle="collapse">CreateCollection</a></h4>
   
   <div id="collapsible-Picturepark_SDK_V1_Contract_CreateTransferRequest_CreateCollection" class="collapse in">
-  <div class="markdown level1 summary"><p>A value indicating whether to create a Collection after importing the transfer.</p>
+  <div class="markdown level1 summary"><p>A value indicating whether to create a collection after importing the transfer.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -211,7 +211,9 @@
   <h4 id="Picturepark_SDK_V1_Contract_CreateTransferRequest_Files" data-uid="Picturepark.SDK.V1.Contract.CreateTransferRequest.Files"><a href="#collapsible-Picturepark_SDK_V1_Contract_CreateTransferRequest_Files" class="expander" data-toggle="collapse">Files</a></h4>
   
   <div id="collapsible-Picturepark_SDK_V1_Contract_CreateTransferRequest_Files" class="collapse in">
-  <div class="markdown level1 summary"><p>Files uploaded in transfer.</p>
+  <div class="markdown level1 summary"><p>Files uploaded in transfer.
+The client is responsible for uploading files to backend.
+Required when TransferType is FileUpload or FileUploadAutoImport.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -322,7 +324,9 @@
   <h4 id="Picturepark_SDK_V1_Contract_CreateTransferRequest_WebLinks" data-uid="Picturepark.SDK.V1.Contract.CreateTransferRequest.WebLinks"><a href="#collapsible-Picturepark_SDK_V1_Contract_CreateTransferRequest_WebLinks" class="expander" data-toggle="collapse">WebLinks</a></h4>
   
   <div id="collapsible-Picturepark_SDK_V1_Contract_CreateTransferRequest_WebLinks" class="collapse in">
-  <div class="markdown level1 summary"><p>Weblinks downloaded in transfer.</p>
+  <div class="markdown level1 summary"><p>Weblinks downloaded in transfer.
+The backend will download files using HTTP, therefore public access to files is needed.
+Required when TransferType is WebDownload.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>

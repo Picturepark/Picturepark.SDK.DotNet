@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class CdnClient
    | Picturepark.SDK.V1 API ">
-    <meta name="generator" content="docfx 2.45.1.0">
+    <meta name="generator" content="docfx 1.0.0.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -258,17 +258,17 @@
   </h3>
   
   
-  <a id="Picturepark_SDK_V1_CloudManager_CdnClient_PurgeCdnForCustomerAsync_" data-uid="Picturepark.SDK.V1.CloudManager.CdnClient.PurgeCdnForCustomerAsync*"></a>
+  <a id="Picturepark_SDK_V1_CloudManager_CdnClient_PurgeForCustomerAsync_" data-uid="Picturepark.SDK.V1.CloudManager.CdnClient.PurgeForCustomerAsync*"></a>
   
-  <h4 id="Picturepark_SDK_V1_CloudManager_CdnClient_PurgeCdnForCustomerAsync_System_String_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.CloudManager.CdnClient.PurgeCdnForCustomerAsync(System.String,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_CloudManager_CdnClient_PurgeCdnForCustomerAsync_System_String_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">PurgeCdnForCustomerAsync(String, CancellationToken)</a></h4>
+  <h4 id="Picturepark_SDK_V1_CloudManager_CdnClient_PurgeForCustomerAsync_System_String_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.CloudManager.CdnClient.PurgeForCustomerAsync(System.String,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_CloudManager_CdnClient_PurgeForCustomerAsync_System_String_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">PurgeForCustomerAsync(String, CancellationToken)</a></h4>
   
-  <div id="collapsible-Picturepark_SDK_V1_CloudManager_CdnClient_PurgeCdnForCustomerAsync_System_String_System_Threading_CancellationToken_" class="collapse in">
+  <div id="collapsible-Picturepark_SDK_V1_CloudManager_CdnClient_PurgeForCustomerAsync_System_String_System_Threading_CancellationToken_" class="collapse in">
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;BusinessProcess&gt; PurgeCdnForCustomerAsync(string customerAlias, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;BusinessProcess&gt; PurgeForCustomerAsync(string alias, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -276,7 +276,7 @@
     <tr>
       <td>
         <span class="pull-right"><span class="xref">System.String</span></span>
-        <span class="parametername">customerAlias</span>
+        <span class="parametername">alias</span>
         <p>
       </td>
     </tr>
@@ -319,8 +319,8 @@
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
 </p>
       </td>
     </tr>
@@ -340,8 +340,8 @@
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
 </p>
       </td>
     </tr>

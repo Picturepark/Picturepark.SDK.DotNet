@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Interface IListItemClient
    | Picturepark.SDK.V1 API ">
-    <meta name="generator" content="docfx 2.45.1.0">
+    <meta name="generator" content="docfx 1.0.0.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -113,7 +113,7 @@
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task&lt;ObjectAggregationResult&gt; AggregateAsync(ListItemAggregationRequest listItemAggregationRequest, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">Task&lt;ObjectAggregationResult&gt; AggregateAsync(ListItemAggregationRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -121,7 +121,7 @@
     <tr>
       <td>
         <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.ListItemAggregationRequest.html">ListItemAggregationRequest</a></span>
-        <span class="parametername">listItemAggregationRequest</span>
+        <span class="parametername">request</span>
         <p><p>The list item aggregation request.</p>
 </p>
       </td>
@@ -166,8 +166,8 @@
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
 </p>
       </td>
     </tr>
@@ -187,8 +187,8 @@
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
 </p>
       </td>
     </tr>
@@ -432,7 +432,7 @@ By default the method waits for the search documents creation. Passing false, th
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task&lt;ListItemDetail&gt; CreateAsync(ListItemCreateRequest listItemCreateRequest, IEnumerable&lt;ListItemResolveBehavior&gt; resolveBehaviors = null, bool? allowMissingDependencies = default(bool? ), TimeSpan? timeout = default(TimeSpan? ), bool? waitSearchDocCreation = default(bool? ), CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">Task&lt;ListItemDetail&gt; CreateAsync(ListItemCreateRequest request, IEnumerable&lt;ListItemResolveBehavior&gt; resolveBehaviors = null, bool? allowMissingDependencies = default(bool? ), TimeSpan? timeout = default(TimeSpan? ), bool? waitSearchDocCreation = default(bool? ), CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -440,7 +440,7 @@ By default the method waits for the search documents creation. Passing false, th
     <tr>
       <td>
         <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.ListItemCreateRequest.html">ListItemCreateRequest</a></span>
-        <span class="parametername">listItemCreateRequest</span>
+        <span class="parametername">request</span>
         <p><p>List item create request.</p>
 </p>
       </td>
@@ -519,22 +519,8 @@ By default the method waits for the search documents creation. Passing false, th
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.BusinessProcessLifeCycleNotHitException.html">BusinessProcessLifeCycleNotHitException</a>
-        <p><p>A server side error occurred.</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
         <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
         <p><p>Validation exception</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
 </p>
       </td>
     </tr>
@@ -549,6 +535,13 @@ By default the method waits for the search documents creation. Passing false, th
       <td>
         <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
         <p><p>Version conflict</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
 </p>
       </td>
     </tr>
@@ -751,7 +744,7 @@ By default the method waits for the search documents creation. Passing false, th
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task DeleteAsync(string listItemId, bool? forceReferenceRemoval = default(bool? ), TimeSpan? timeout = default(TimeSpan? ), bool? waitSearchDocCreation = default(bool? ), CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">Task DeleteAsync(string id, bool? forceReferenceRemoval = default(bool? ), TimeSpan? timeout = default(TimeSpan? ), bool? waitSearchDocCreation = default(bool? ), CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -759,7 +752,7 @@ By default the method waits for the search documents creation. Passing false, th
     <tr>
       <td>
         <span class="pull-right"><span class="xref">System.String</span></span>
-        <span class="parametername">listItemId</span>
+        <span class="parametername">id</span>
         <p><p>The ID of the list item to delete.</p>
 </p>
       </td>
@@ -830,22 +823,8 @@ By default the method waits for the search documents creation. Passing false, th
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.BusinessProcessLifeCycleNotHitException.html">BusinessProcessLifeCycleNotHitException</a>
-        <p><p>The specified wait timeout exceeded</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
         <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
         <p><p>Validation exception</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
 </p>
       </td>
     </tr>
@@ -860,6 +839,13 @@ By default the method waits for the search documents creation. Passing false, th
       <td>
         <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
         <p><p>Version conflict</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
 </p>
       </td>
     </tr>
@@ -879,7 +865,7 @@ By default the method waits for the search documents creation. Passing false, th
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task&lt;BusinessProcess&gt; DeleteManyAsync(ListItemDeleteManyRequest deleteManyRequest, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">Task&lt;BusinessProcess&gt; DeleteManyAsync(ListItemDeleteManyRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -887,7 +873,7 @@ By default the method waits for the search documents creation. Passing false, th
     <tr>
       <td>
         <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.ListItemDeleteManyRequest.html">ListItemDeleteManyRequest</a></span>
-        <span class="parametername">deleteManyRequest</span>
+        <span class="parametername">request</span>
         <p><p>List item delete many request.</p>
 </p>
       </td>
@@ -932,8 +918,8 @@ By default the method waits for the search documents creation. Passing false, th
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
 </p>
       </td>
     </tr>
@@ -953,8 +939,8 @@ By default the method waits for the search documents creation. Passing false, th
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
 </p>
       </td>
     </tr>
@@ -974,7 +960,7 @@ By default the method waits for the search documents creation. Passing false, th
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task&lt;BusinessProcess&gt; DeleteManyByFilterAsync(ListItemDeleteManyFilterRequest deleteManyFilterRequest, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">Task&lt;BusinessProcess&gt; DeleteManyByFilterAsync(ListItemDeleteManyFilterRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -982,7 +968,7 @@ By default the method waits for the search documents creation. Passing false, th
     <tr>
       <td>
         <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.ListItemDeleteManyFilterRequest.html">ListItemDeleteManyFilterRequest</a></span>
-        <span class="parametername">deleteManyFilterRequest</span>
+        <span class="parametername">request</span>
         <p><p>Delete many by filter request.</p>
 </p>
       </td>
@@ -1027,8 +1013,8 @@ By default the method waits for the search documents creation. Passing false, th
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
 </p>
       </td>
     </tr>
@@ -1048,8 +1034,8 @@ By default the method waits for the search documents creation. Passing false, th
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
 </p>
       </td>
     </tr>
@@ -1154,7 +1140,7 @@ By default the method waits for the search documents creation. Passing false, th
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task&lt;ListItemDetail&gt; GetAsync(string listItemId, IEnumerable&lt;ListItemResolveBehavior&gt; resolveBehaviors = null, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">Task&lt;ListItemDetail&gt; GetAsync(string id, IEnumerable&lt;ListItemResolveBehavior&gt; resolveBehaviors = null, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -1162,7 +1148,7 @@ By default the method waits for the search documents creation. Passing false, th
     <tr>
       <td>
         <span class="pull-right"><span class="xref">System.String</span></span>
-        <span class="parametername">listItemId</span>
+        <span class="parametername">id</span>
         <p><p>The list item ID.</p>
 </p>
       </td>
@@ -1215,8 +1201,8 @@ By default the method waits for the search documents creation. Passing false, th
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.ListItemNotFoundException.html">ListItemNotFoundException</a>
-        <p><p>List item not found</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
 </p>
       </td>
     </tr>
@@ -1229,13 +1215,6 @@ By default the method waits for the search documents creation. Passing false, th
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
         <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
         <p><p>Version conflict</p>
 </p>
@@ -1243,8 +1222,8 @@ By default the method waits for the search documents creation. Passing false, th
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
 </p>
       </td>
     </tr>
@@ -1349,7 +1328,7 @@ By default the method waits for the search documents creation. Passing false, th
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task&lt;ICollection&lt;ListItemDetail&gt;&gt; GetManyAsync(IEnumerable&lt;string&gt; ids, IEnumerable&lt;ListItemResolveBehavior&gt; resolveBehaviors = null, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">Task&lt;ICollection&lt;ListItemDetail&gt;&gt; GetManyAsync(IEnumerable&lt;string&gt; ids = null, IEnumerable&lt;ListItemResolveBehavior&gt; resolveBehaviors = null, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -1410,8 +1389,8 @@ By default the method waits for the search documents creation. Passing false, th
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.ListItemNotFoundException.html">ListItemNotFoundException</a>
-        <p><p>One or more list items not found</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
 </p>
       </td>
     </tr>
@@ -1424,13 +1403,6 @@ By default the method waits for the search documents creation. Passing false, th
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
         <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
         <p><p>Version conflict</p>
 </p>
@@ -1438,8 +1410,8 @@ By default the method waits for the search documents creation. Passing false, th
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
 </p>
       </td>
     </tr>
@@ -1448,18 +1420,18 @@ By default the method waits for the search documents creation. Passing false, th
   </div>
   
   
-  <a id="Picturepark_SDK_V1_Contract_IListItemClient_GetReferencesToListItemAsync_" data-uid="Picturepark.SDK.V1.Contract.IListItemClient.GetReferencesToListItemAsync*"></a>
+  <a id="Picturepark_SDK_V1_Contract_IListItemClient_GetReferencesAsync_" data-uid="Picturepark.SDK.V1.Contract.IListItemClient.GetReferencesAsync*"></a>
   
-  <h4 id="Picturepark_SDK_V1_Contract_IListItemClient_GetReferencesToListItemAsync_System_String_Picturepark_SDK_V1_Contract_ListItemReferencesRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.Contract.IListItemClient.GetReferencesToListItemAsync(System.String,Picturepark.SDK.V1.Contract.ListItemReferencesRequest,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_Contract_IListItemClient_GetReferencesToListItemAsync_System_String_Picturepark_SDK_V1_Contract_ListItemReferencesRequest_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">GetReferencesToListItemAsync(String, ListItemReferencesRequest, CancellationToken)</a></h4>
+  <h4 id="Picturepark_SDK_V1_Contract_IListItemClient_GetReferencesAsync_System_String_Picturepark_SDK_V1_Contract_ListItemReferencesRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.Contract.IListItemClient.GetReferencesAsync(System.String,Picturepark.SDK.V1.Contract.ListItemReferencesRequest,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_Contract_IListItemClient_GetReferencesAsync_System_String_Picturepark_SDK_V1_Contract_ListItemReferencesRequest_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">GetReferencesAsync(String, ListItemReferencesRequest, CancellationToken)</a></h4>
   
-  <div id="collapsible-Picturepark_SDK_V1_Contract_IListItemClient_GetReferencesToListItemAsync_System_String_Picturepark_SDK_V1_Contract_ListItemReferencesRequest_System_Threading_CancellationToken_" class="collapse in">
+  <div id="collapsible-Picturepark_SDK_V1_Contract_IListItemClient_GetReferencesAsync_System_String_Picturepark_SDK_V1_Contract_ListItemReferencesRequest_System_Threading_CancellationToken_" class="collapse in">
   <div class="markdown level1 summary"><p>Get list item references</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task&lt;ListItemReferencesResult&gt; GetReferencesToListItemAsync(string listItemId, ListItemReferencesRequest listItemReferencesRequest, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">Task&lt;ListItemReferencesResult&gt; GetReferencesAsync(string id, ListItemReferencesRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -1467,7 +1439,7 @@ By default the method waits for the search documents creation. Passing false, th
     <tr>
       <td>
         <span class="pull-right"><span class="xref">System.String</span></span>
-        <span class="parametername">listItemId</span>
+        <span class="parametername">id</span>
         <p><p>The ID of the list item.</p>
 </p>
       </td>
@@ -1475,7 +1447,7 @@ By default the method waits for the search documents creation. Passing false, th
     <tr>
       <td>
         <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.ListItemReferencesRequest.html">ListItemReferencesRequest</a></span>
-        <span class="parametername">listItemReferencesRequest</span>
+        <span class="parametername">request</span>
         <p><p>Request options to specify how many references to fetch.</p>
 </p>
       </td>
@@ -1520,8 +1492,8 @@ By default the method waits for the search documents creation. Passing false, th
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
 </p>
       </td>
     </tr>
@@ -1541,8 +1513,8 @@ By default the method waits for the search documents creation. Passing false, th
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
 </p>
       </td>
     </tr>
@@ -1551,18 +1523,18 @@ By default the method waits for the search documents creation. Passing false, th
   </div>
   
   
-  <a id="Picturepark_SDK_V1_Contract_IListItemClient_GetReferencesToListItemsAsync_" data-uid="Picturepark.SDK.V1.Contract.IListItemClient.GetReferencesToListItemsAsync*"></a>
+  <a id="Picturepark_SDK_V1_Contract_IListItemClient_GetReferencesManyAsync_" data-uid="Picturepark.SDK.V1.Contract.IListItemClient.GetReferencesManyAsync*"></a>
   
-  <h4 id="Picturepark_SDK_V1_Contract_IListItemClient_GetReferencesToListItemsAsync_Picturepark_SDK_V1_Contract_ListItemManyReferencesRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.Contract.IListItemClient.GetReferencesToListItemsAsync(Picturepark.SDK.V1.Contract.ListItemManyReferencesRequest,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_Contract_IListItemClient_GetReferencesToListItemsAsync_Picturepark_SDK_V1_Contract_ListItemManyReferencesRequest_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">GetReferencesToListItemsAsync(ListItemManyReferencesRequest, CancellationToken)</a></h4>
+  <h4 id="Picturepark_SDK_V1_Contract_IListItemClient_GetReferencesManyAsync_Picturepark_SDK_V1_Contract_ListItemManyReferencesRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.Contract.IListItemClient.GetReferencesManyAsync(Picturepark.SDK.V1.Contract.ListItemManyReferencesRequest,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_Contract_IListItemClient_GetReferencesManyAsync_Picturepark_SDK_V1_Contract_ListItemManyReferencesRequest_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">GetReferencesManyAsync(ListItemManyReferencesRequest, CancellationToken)</a></h4>
   
-  <div id="collapsible-Picturepark_SDK_V1_Contract_IListItemClient_GetReferencesToListItemsAsync_Picturepark_SDK_V1_Contract_ListItemManyReferencesRequest_System_Threading_CancellationToken_" class="collapse in">
+  <div id="collapsible-Picturepark_SDK_V1_Contract_IListItemClient_GetReferencesManyAsync_Picturepark_SDK_V1_Contract_ListItemManyReferencesRequest_System_Threading_CancellationToken_" class="collapse in">
   <div class="markdown level1 summary"><p>Get multiple list items references</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task&lt;ListItemReferencesResult&gt; GetReferencesToListItemsAsync(ListItemManyReferencesRequest listItemManyReferencesRequest, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">Task&lt;ListItemReferencesResult&gt; GetReferencesManyAsync(ListItemManyReferencesRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -1570,7 +1542,7 @@ By default the method waits for the search documents creation. Passing false, th
     <tr>
       <td>
         <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.ListItemManyReferencesRequest.html">ListItemManyReferencesRequest</a></span>
-        <span class="parametername">listItemManyReferencesRequest</span>
+        <span class="parametername">request</span>
         <p><p>ListItemManyReferencesRequest</p>
 </p>
       </td>
@@ -1615,8 +1587,8 @@ By default the method waits for the search documents creation. Passing false, th
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
 </p>
       </td>
     </tr>
@@ -1636,8 +1608,208 @@ By default the method waits for the search documents creation. Passing false, th
     </tr>
     <tr>
       <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  </div>
+  
+  
+  <a id="Picturepark_SDK_V1_Contract_IListItemClient_GetReferencesToListItemAsync_" data-uid="Picturepark.SDK.V1.Contract.IListItemClient.GetReferencesToListItemAsync*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_Contract_IListItemClient_GetReferencesToListItemAsync_System_String_Picturepark_SDK_V1_Contract_ListItemReferencesRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.Contract.IListItemClient.GetReferencesToListItemAsync(System.String,Picturepark.SDK.V1.Contract.ListItemReferencesRequest,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_Contract_IListItemClient_GetReferencesToListItemAsync_System_String_Picturepark_SDK_V1_Contract_ListItemReferencesRequest_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">GetReferencesToListItemAsync(String, ListItemReferencesRequest, CancellationToken)</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_Contract_IListItemClient_GetReferencesToListItemAsync_System_String_Picturepark_SDK_V1_Contract_ListItemReferencesRequest_System_Threading_CancellationToken_" class="collapse in">
+  <div class="markdown level1 summary"><p>Get list item references</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;This method will be removed in future versions. Please use GetReferencesAsync method instead.&quot;)]
+Task&lt;ListItemReferencesResult&gt; GetReferencesToListItemAsync(string id, ListItemReferencesRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.String</span></span>
+        <span class="parametername">id</span>
+        <p><p>The ID of the list item.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.ListItemReferencesRequest.html">ListItemReferencesRequest</a></span>
+        <span class="parametername">request</span>
+        <p><p>Request options to specify how many references to fetch.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
+        <span class="parametername">cancellationToken</span>
+        <p><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.ListItemReferencesResult.html">ListItemReferencesResult</a>&gt;
+        <p><p>List item references</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <h5 class="exceptions">Exceptions</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
+        <p><p>A server side error occurred.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
         <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
         <p><p>Validation exception</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
+        <p><p>Entity not found</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
+        <p><p>Version conflict</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  </div>
+  
+  
+  <a id="Picturepark_SDK_V1_Contract_IListItemClient_GetReferencesToListItemsAsync_" data-uid="Picturepark.SDK.V1.Contract.IListItemClient.GetReferencesToListItemsAsync*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_Contract_IListItemClient_GetReferencesToListItemsAsync_Picturepark_SDK_V1_Contract_ListItemManyReferencesRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.Contract.IListItemClient.GetReferencesToListItemsAsync(Picturepark.SDK.V1.Contract.ListItemManyReferencesRequest,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_Contract_IListItemClient_GetReferencesToListItemsAsync_Picturepark_SDK_V1_Contract_ListItemManyReferencesRequest_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">GetReferencesToListItemsAsync(ListItemManyReferencesRequest, CancellationToken)</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_Contract_IListItemClient_GetReferencesToListItemsAsync_Picturepark_SDK_V1_Contract_ListItemManyReferencesRequest_System_Threading_CancellationToken_" class="collapse in">
+  <div class="markdown level1 summary"><p>Get multiple list items references</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;This method will be removed in future versions. Please use GetReferencesManyAsync method instead.&quot;)]
+Task&lt;ListItemReferencesResult&gt; GetReferencesToListItemsAsync(ListItemManyReferencesRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.ListItemManyReferencesRequest.html">ListItemManyReferencesRequest</a></span>
+        <span class="parametername">request</span>
+        <p><p>ListItemManyReferencesRequest</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
+        <span class="parametername">cancellationToken</span>
+        <p><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.ListItemReferencesResult.html">ListItemReferencesResult</a>&gt;
+        <p><p>A list of references per list item.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <h5 class="exceptions">Exceptions</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
+        <p><p>A server side error occurred.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
+        <p><p>Entity not found</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
+        <p><p>Version conflict</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
 </p>
       </td>
     </tr>
@@ -1657,7 +1829,7 @@ By default the method waits for the search documents creation. Passing false, th
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task RestoreAsync(string listItemId, bool? allowMissingDependencies = default(bool? ), TimeSpan? timeout = default(TimeSpan? ), bool? waitSearchDocCreation = default(bool? ), CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">Task RestoreAsync(string id, bool? allowMissingDependencies = default(bool? ), TimeSpan? timeout = default(TimeSpan? ), bool? waitSearchDocCreation = default(bool? ), CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -1665,7 +1837,7 @@ By default the method waits for the search documents creation. Passing false, th
     <tr>
       <td>
         <span class="pull-right"><span class="xref">System.String</span></span>
-        <span class="parametername">listItemId</span>
+        <span class="parametername">id</span>
         <p><p>The list item ID.</p>
 </p>
       </td>
@@ -1736,22 +1908,8 @@ By default the method waits for the search documents creation. Passing false, th
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.BusinessProcessLifeCycleNotHitException.html">BusinessProcessLifeCycleNotHitException</a>
-        <p><p>The specified wait timeout exceeded</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
         <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
         <p><p>Validation exception</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
 </p>
       </td>
     </tr>
@@ -1766,6 +1924,13 @@ By default the method waits for the search documents creation. Passing false, th
       <td>
         <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
         <p><p>Version conflict</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
 </p>
       </td>
     </tr>
@@ -1785,7 +1950,7 @@ By default the method waits for the search documents creation. Passing false, th
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task&lt;BusinessProcess&gt; RestoreManyAsync(ListItemRestoreManyRequest restoreManyRequest, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">Task&lt;BusinessProcess&gt; RestoreManyAsync(ListItemRestoreManyRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -1793,7 +1958,7 @@ By default the method waits for the search documents creation. Passing false, th
     <tr>
       <td>
         <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.ListItemRestoreManyRequest.html">ListItemRestoreManyRequest</a></span>
-        <span class="parametername">restoreManyRequest</span>
+        <span class="parametername">request</span>
         <p><p>List item restore many request.</p>
 </p>
       </td>
@@ -1838,8 +2003,8 @@ By default the method waits for the search documents creation. Passing false, th
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
 </p>
       </td>
     </tr>
@@ -1859,8 +2024,8 @@ By default the method waits for the search documents creation. Passing false, th
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
 </p>
       </td>
     </tr>
@@ -1880,7 +2045,7 @@ By default the method waits for the search documents creation. Passing false, th
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task&lt;ListItemSearchResult&gt; SearchAsync(ListItemSearchRequest listItemSearchRequest, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">Task&lt;ListItemSearchResult&gt; SearchAsync(ListItemSearchRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -1888,7 +2053,7 @@ By default the method waits for the search documents creation. Passing false, th
     <tr>
       <td>
         <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.ListItemSearchRequest.html">ListItemSearchRequest</a></span>
-        <span class="parametername">listItemSearchRequest</span>
+        <span class="parametername">request</span>
         <p><p>The list item search request.</p>
 </p>
       </td>
@@ -1933,8 +2098,8 @@ By default the method waits for the search documents creation. Passing false, th
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
 </p>
       </td>
     </tr>
@@ -1954,8 +2119,8 @@ By default the method waits for the search documents creation. Passing false, th
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
 </p>
       </td>
     </tr>
@@ -2064,16 +2229,16 @@ By default the method waits for the search document creation. Passing false, the
   
   <a id="Picturepark_SDK_V1_Contract_IListItemClient_UpdateAsync_" data-uid="Picturepark.SDK.V1.Contract.IListItemClient.UpdateAsync*"></a>
   
-  <h4 id="Picturepark_SDK_V1_Contract_IListItemClient_UpdateAsync_System_String_System_Object_IEnumerable_Picturepark_SDK_V1_Contract_ListItemResolveBehavior__System_Boolean_System_Nullable_System_TimeSpan__System_Boolean_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.Contract.IListItemClient.UpdateAsync(System.String,System.Object,IEnumerable{Picturepark.SDK.V1.Contract.ListItemResolveBehavior},System.Boolean,System.Nullable{System.TimeSpan},System.Boolean,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_Contract_IListItemClient_UpdateAsync_System_String_System_Object_IEnumerable_Picturepark_SDK_V1_Contract_ListItemResolveBehavior__System_Boolean_System_Nullable_System_TimeSpan__System_Boolean_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">UpdateAsync(String, Object, IEnumerable&lt;ListItemResolveBehavior&gt;, Boolean, Nullable&lt;TimeSpan&gt;, Boolean, CancellationToken)</a></h4>
+  <h4 id="Picturepark_SDK_V1_Contract_IListItemClient_UpdateAsync_System_String_System_Object_Picturepark_SDK_V1_Contract_UpdateOption_IEnumerable_Picturepark_SDK_V1_Contract_ListItemResolveBehavior__System_Boolean_System_Nullable_System_TimeSpan__System_Boolean_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.Contract.IListItemClient.UpdateAsync(System.String,System.Object,Picturepark.SDK.V1.Contract.UpdateOption,IEnumerable{Picturepark.SDK.V1.Contract.ListItemResolveBehavior},System.Boolean,System.Nullable{System.TimeSpan},System.Boolean,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_Contract_IListItemClient_UpdateAsync_System_String_System_Object_Picturepark_SDK_V1_Contract_UpdateOption_IEnumerable_Picturepark_SDK_V1_Contract_ListItemResolveBehavior__System_Boolean_System_Nullable_System_TimeSpan__System_Boolean_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">UpdateAsync(String, Object, UpdateOption, IEnumerable&lt;ListItemResolveBehavior&gt;, Boolean, Nullable&lt;TimeSpan&gt;, Boolean, CancellationToken)</a></h4>
   
-  <div id="collapsible-Picturepark_SDK_V1_Contract_IListItemClient_UpdateAsync_System_String_System_Object_IEnumerable_Picturepark_SDK_V1_Contract_ListItemResolveBehavior__System_Boolean_System_Nullable_System_TimeSpan__System_Boolean_System_Threading_CancellationToken_" class="collapse in">
+  <div id="collapsible-Picturepark_SDK_V1_Contract_IListItemClient_UpdateAsync_System_String_System_Object_Picturepark_SDK_V1_Contract_UpdateOption_IEnumerable_Picturepark_SDK_V1_Contract_ListItemResolveBehavior__System_Boolean_System_Nullable_System_TimeSpan__System_Boolean_System_Threading_CancellationToken_" class="collapse in">
   <div class="markdown level1 summary"><p>Updates a list item by providing its content</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task&lt;ListItemDetail&gt; UpdateAsync(string listItemId, object content, IEnumerable&lt;ListItemResolveBehavior&gt; resolveBehaviors = null, bool allowMissingDependencies = false, TimeSpan? timeout = default(TimeSpan? ), bool waitSearchDocCreation = true, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">Task&lt;ListItemDetail&gt; UpdateAsync(string listItemId, object content, UpdateOption updateOption = UpdateOption.Merge, IEnumerable&lt;ListItemResolveBehavior&gt; resolveBehaviors = null, bool allowMissingDependencies = false, TimeSpan? timeout = default(TimeSpan? ), bool waitSearchDocCreation = true, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -2091,6 +2256,14 @@ By default the method waits for the search document creation. Passing false, the
         <span class="pull-right"><span class="xref">System.Object</span></span>
         <span class="parametername">content</span>
         <p><p>The content which must match the item&apos;s schema ID.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.UpdateOption.html">UpdateOption</a></span>
+        <span class="parametername">updateOption</span>
+        <p><p>Fields update option, Merge will merge the values specified in the Content object with the existing content, while Replace will replace the existing content with the values from the request </p>
 </p>
       </td>
     </tr>

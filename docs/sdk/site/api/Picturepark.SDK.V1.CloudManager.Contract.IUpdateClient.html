@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Interface IUpdateClient
    | Picturepark.SDK.V1 API ">
-    <meta name="generator" content="docfx 2.45.1.0">
+    <meta name="generator" content="docfx 1.0.0.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -112,7 +112,7 @@
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task DeactivateCustomersAsync(IEnumerable&lt;DeactivationCustomerRequest&gt; deactivationRequests, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">Task DeactivateCustomersAsync(IEnumerable&lt;DeactivationCustomerRequest&gt; requests, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -120,7 +120,7 @@
     <tr>
       <td>
         <span class="pull-right"><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.DeactivationCustomerRequest.html">DeactivationCustomerRequest</a>&gt;</span>
-        <span class="parametername">deactivationRequests</span>
+        <span class="parametername">requests</span>
         <p>
       </td>
     </tr>
@@ -163,8 +163,8 @@
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
+        <a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
 </p>
       </td>
     </tr>
@@ -184,8 +184,8 @@
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
+        <a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
 </p>
       </td>
     </tr>
@@ -204,7 +204,7 @@
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task DeactivateEnvironmentAsync(DeactivationEnvironmentRequest deactivationRequest, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">Task DeactivateEnvironmentAsync(DeactivationEnvironmentRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -212,7 +212,7 @@
     <tr>
       <td>
         <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.DeactivationEnvironmentRequest.html">DeactivationEnvironmentRequest</a></span>
-        <span class="parametername">deactivationRequest</span>
+        <span class="parametername">request</span>
         <p>
       </td>
     </tr>
@@ -255,8 +255,8 @@
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
+        <a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
 </p>
       </td>
     </tr>
@@ -276,8 +276,8 @@
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
+        <a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
 </p>
       </td>
     </tr>
@@ -286,17 +286,17 @@
   </div>
   
   
-  <a id="Picturepark_SDK_V1_CloudManager_Contract_IUpdateClient_GetAvailableCustomerUpdatesAsync_" data-uid="Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient.GetAvailableCustomerUpdatesAsync*"></a>
+  <a id="Picturepark_SDK_V1_CloudManager_Contract_IUpdateClient_GetAvailableCustomerUpdateAsync_" data-uid="Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient.GetAvailableCustomerUpdateAsync*"></a>
   
-  <h4 id="Picturepark_SDK_V1_CloudManager_Contract_IUpdateClient_GetAvailableCustomerUpdatesAsync_System_String_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient.GetAvailableCustomerUpdatesAsync(System.String,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_CloudManager_Contract_IUpdateClient_GetAvailableCustomerUpdatesAsync_System_String_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">GetAvailableCustomerUpdatesAsync(String, CancellationToken)</a></h4>
+  <h4 id="Picturepark_SDK_V1_CloudManager_Contract_IUpdateClient_GetAvailableCustomerUpdateAsync_System_String_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient.GetAvailableCustomerUpdateAsync(System.String,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_CloudManager_Contract_IUpdateClient_GetAvailableCustomerUpdateAsync_System_String_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">GetAvailableCustomerUpdateAsync(String, CancellationToken)</a></h4>
   
-  <div id="collapsible-Picturepark_SDK_V1_CloudManager_Contract_IUpdateClient_GetAvailableCustomerUpdatesAsync_System_String_System_Threading_CancellationToken_" class="collapse in">
+  <div id="collapsible-Picturepark_SDK_V1_CloudManager_Contract_IUpdateClient_GetAvailableCustomerUpdateAsync_System_String_System_Threading_CancellationToken_" class="collapse in">
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task&lt;ICollection&lt;UpdateInfo&gt;&gt; GetAvailableCustomerUpdatesAsync(string customerId, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">Task&lt;UpdateInfo&gt; GetAvailableCustomerUpdateAsync(string id, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -304,7 +304,7 @@
     <tr>
       <td>
         <span class="pull-right"><span class="xref">System.String</span></span>
-        <span class="parametername">customerId</span>
+        <span class="parametername">id</span>
         <p>
       </td>
     </tr>
@@ -322,7 +322,7 @@
   <table>
     <tr>
       <td>
-        <span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">System.Collections.Generic.ICollection</span>&lt;<a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.UpdateInfo.html">UpdateInfo</a>&gt;&gt;
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.UpdateInfo.html">UpdateInfo</a>&gt;
         <p>
       </td>
     </tr>
@@ -347,8 +347,8 @@
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
+        <a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
 </p>
       </td>
     </tr>
@@ -368,8 +368,8 @@
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
+        <a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
 </p>
       </td>
     </tr>
@@ -378,17 +378,17 @@
   </div>
   
   
-  <a id="Picturepark_SDK_V1_CloudManager_Contract_IUpdateClient_GetAvailableEnvironmentUpdatesAsync_" data-uid="Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient.GetAvailableEnvironmentUpdatesAsync*"></a>
+  <a id="Picturepark_SDK_V1_CloudManager_Contract_IUpdateClient_GetAvailableEnvironmentUpdateAsync_" data-uid="Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient.GetAvailableEnvironmentUpdateAsync*"></a>
   
-  <h4 id="Picturepark_SDK_V1_CloudManager_Contract_IUpdateClient_GetAvailableEnvironmentUpdatesAsync_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient.GetAvailableEnvironmentUpdatesAsync(System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_CloudManager_Contract_IUpdateClient_GetAvailableEnvironmentUpdatesAsync_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">GetAvailableEnvironmentUpdatesAsync(CancellationToken)</a></h4>
+  <h4 id="Picturepark_SDK_V1_CloudManager_Contract_IUpdateClient_GetAvailableEnvironmentUpdateAsync_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient.GetAvailableEnvironmentUpdateAsync(System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_CloudManager_Contract_IUpdateClient_GetAvailableEnvironmentUpdateAsync_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">GetAvailableEnvironmentUpdateAsync(CancellationToken)</a></h4>
   
-  <div id="collapsible-Picturepark_SDK_V1_CloudManager_Contract_IUpdateClient_GetAvailableEnvironmentUpdatesAsync_System_Threading_CancellationToken_" class="collapse in">
+  <div id="collapsible-Picturepark_SDK_V1_CloudManager_Contract_IUpdateClient_GetAvailableEnvironmentUpdateAsync_System_Threading_CancellationToken_" class="collapse in">
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task&lt;ICollection&lt;UpdateInfo&gt;&gt; GetAvailableEnvironmentUpdatesAsync(CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">Task&lt;UpdateInfo&gt; GetAvailableEnvironmentUpdateAsync(CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -407,7 +407,7 @@
   <table>
     <tr>
       <td>
-        <span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">System.Collections.Generic.ICollection</span>&lt;<a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.UpdateInfo.html">UpdateInfo</a>&gt;&gt;
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.UpdateInfo.html">UpdateInfo</a>&gt;
         <p>
       </td>
     </tr>
@@ -432,8 +432,8 @@
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
+        <a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
 </p>
       </td>
     </tr>
@@ -453,8 +453,8 @@
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
+        <a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
 </p>
       </td>
     </tr>
@@ -473,7 +473,7 @@
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task&lt;CustomerVersionInfo&gt; GetCustomerVersionAsync(string customerId, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">Task&lt;CustomerVersionInfo&gt; GetCustomerVersionAsync(string id, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -481,7 +481,7 @@
     <tr>
       <td>
         <span class="pull-right"><span class="xref">System.String</span></span>
-        <span class="parametername">customerId</span>
+        <span class="parametername">id</span>
         <p>
       </td>
     </tr>
@@ -524,8 +524,8 @@
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
+        <a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
 </p>
       </td>
     </tr>
@@ -545,8 +545,8 @@
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
+        <a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
 </p>
       </td>
     </tr>
@@ -609,8 +609,8 @@
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
+        <a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
 </p>
       </td>
     </tr>
@@ -630,8 +630,8 @@
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
+        <a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
 </p>
       </td>
     </tr>
@@ -694,8 +694,8 @@
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
+        <a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
 </p>
       </td>
     </tr>
@@ -715,8 +715,8 @@
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
+        <a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
 </p>
       </td>
     </tr>
@@ -735,7 +735,7 @@
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task ReactivateCustomersAsync(IEnumerable&lt;ReactivationCustomerRequest&gt; reactivationRequests, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">Task ReactivateCustomersAsync(IEnumerable&lt;ReactivationCustomerRequest&gt; requests, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -743,7 +743,7 @@
     <tr>
       <td>
         <span class="pull-right"><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.ReactivationCustomerRequest.html">ReactivationCustomerRequest</a>&gt;</span>
-        <span class="parametername">reactivationRequests</span>
+        <span class="parametername">requests</span>
         <p>
       </td>
     </tr>
@@ -786,8 +786,8 @@
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
+        <a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
 </p>
       </td>
     </tr>
@@ -807,8 +807,8 @@
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
+        <a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
 </p>
       </td>
     </tr>
@@ -827,7 +827,7 @@
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task ReactivateEnvironmentAsync(ReactivationEnvironmentRequest reactivationRequest, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">Task ReactivateEnvironmentAsync(ReactivationEnvironmentRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -835,7 +835,7 @@
     <tr>
       <td>
         <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.ReactivationEnvironmentRequest.html">ReactivationEnvironmentRequest</a></span>
-        <span class="parametername">reactivationRequest</span>
+        <span class="parametername">request</span>
         <p>
       </td>
     </tr>
@@ -878,8 +878,8 @@
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
+        <a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
 </p>
       </td>
     </tr>
@@ -899,8 +899,8 @@
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
+        <a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
 </p>
       </td>
     </tr>
@@ -919,7 +919,7 @@
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task&lt;ICollection&lt;EnvironmentProcess&gt;&gt; UpdateCustomersAsync(IEnumerable&lt;UpdateCustomerRequest&gt; updateRequests, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">Task&lt;ICollection&lt;EnvironmentProcess&gt;&gt; UpdateCustomersAsync(IEnumerable&lt;UpdateCustomerRequest&gt; requests, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -927,7 +927,7 @@
     <tr>
       <td>
         <span class="pull-right"><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.UpdateCustomerRequest.html">UpdateCustomerRequest</a>&gt;</span>
-        <span class="parametername">updateRequests</span>
+        <span class="parametername">requests</span>
         <p>
       </td>
     </tr>
@@ -970,8 +970,8 @@
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
+        <a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
 </p>
       </td>
     </tr>
@@ -991,8 +991,8 @@
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
+        <a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
 </p>
       </td>
     </tr>
@@ -1011,7 +1011,7 @@
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task&lt;EnvironmentProcess&gt; UpdateEnvironmentAsync(UpdateEnvironmentRequest updateRequest, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">Task&lt;EnvironmentProcess&gt; UpdateEnvironmentAsync(UpdateEnvironmentRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -1019,7 +1019,7 @@
     <tr>
       <td>
         <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.UpdateEnvironmentRequest.html">UpdateEnvironmentRequest</a></span>
-        <span class="parametername">updateRequest</span>
+        <span class="parametername">request</span>
         <p>
       </td>
     </tr>
@@ -1062,8 +1062,8 @@
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
+        <a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
 </p>
       </td>
     </tr>
@@ -1083,8 +1083,8 @@
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
+        <a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
 </p>
       </td>
     </tr>

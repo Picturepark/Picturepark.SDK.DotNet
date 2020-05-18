@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class ContentMetadataUpdateRequest
    | Picturepark.SDK.V1 API ">
-    <meta name="generator" content="docfx 2.45.1.0">
+    <meta name="generator" content="docfx 1.0.0.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -173,6 +173,86 @@ Update of content data will be done only if this attribute has any data, i.e. if
   </div>
   
   
+  <a id="Picturepark_SDK_V1_Contract_ContentMetadataUpdateRequest_ContentFieldsUpdateOptions_" data-uid="Picturepark.SDK.V1.Contract.ContentMetadataUpdateRequest.ContentFieldsUpdateOptions*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_Contract_ContentMetadataUpdateRequest_ContentFieldsUpdateOptions" data-uid="Picturepark.SDK.V1.Contract.ContentMetadataUpdateRequest.ContentFieldsUpdateOptions"><a href="#collapsible-Picturepark_SDK_V1_Contract_ContentMetadataUpdateRequest_ContentFieldsUpdateOptions" class="expander" data-toggle="collapse">ContentFieldsUpdateOptions</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_Contract_ContentMetadataUpdateRequest_ContentFieldsUpdateOptions" class="collapse in">
+  <div class="markdown level1 summary"><p>Options to modify the behavior for updating the content.
+Merge: the values specified in the Content object are merged to the existing content.
+Replace: the values specified in the Content object entirely replace the content.
+Defaults to Merge.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public UpdateOption ContentFieldsUpdateOptions { get; set; }</code></pre>
+  </div>
+  
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.UpdateOption.html">UpdateOption</a>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="Picturepark_SDK_V1_Contract_ContentMetadataUpdateRequest_LayerFieldsUpdateOptions_" data-uid="Picturepark.SDK.V1.Contract.ContentMetadataUpdateRequest.LayerFieldsUpdateOptions*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_Contract_ContentMetadataUpdateRequest_LayerFieldsUpdateOptions" data-uid="Picturepark.SDK.V1.Contract.ContentMetadataUpdateRequest.LayerFieldsUpdateOptions"><a href="#collapsible-Picturepark_SDK_V1_Contract_ContentMetadataUpdateRequest_LayerFieldsUpdateOptions" class="expander" data-toggle="collapse">LayerFieldsUpdateOptions</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_Contract_ContentMetadataUpdateRequest_LayerFieldsUpdateOptions" class="collapse in">
+  <div class="markdown level1 summary"><p>Options to modify the behavior for updating the values of schemas.
+Merge: the values specified in the Metadata dictionary are merged to the existing values of the corresponding schema on the content.
+Replace: the values specified in the Metadata dictionary entirely replace any existing value of the corresponding schema on the content.
+Defaults to Merge.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public UpdateOption LayerFieldsUpdateOptions { get; set; }</code></pre>
+  </div>
+  
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.UpdateOption.html">UpdateOption</a>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="Picturepark_SDK_V1_Contract_ContentMetadataUpdateRequest_LayerSchemaIds_" data-uid="Picturepark.SDK.V1.Contract.ContentMetadataUpdateRequest.LayerSchemaIds*"></a>
   
   <h4 id="Picturepark_SDK_V1_Contract_ContentMetadataUpdateRequest_LayerSchemaIds" data-uid="Picturepark.SDK.V1.Contract.ContentMetadataUpdateRequest.LayerSchemaIds"><a href="#collapsible-Picturepark_SDK_V1_Contract_ContentMetadataUpdateRequest_LayerSchemaIds" class="expander" data-toggle="collapse">LayerSchemaIds</a></h4>
@@ -298,18 +378,13 @@ If there are no data for a specified LayerSchemaId, it is treated as empty.</p>
   <h4 id="Picturepark_SDK_V1_Contract_ContentMetadataUpdateRequest_SchemaFieldsUpdateOptions" data-uid="Picturepark.SDK.V1.Contract.ContentMetadataUpdateRequest.SchemaFieldsUpdateOptions"><a href="#collapsible-Picturepark_SDK_V1_Contract_ContentMetadataUpdateRequest_SchemaFieldsUpdateOptions" class="expander" data-toggle="collapse">SchemaFieldsUpdateOptions</a></h4>
   
   <div id="collapsible-Picturepark_SDK_V1_Contract_ContentMetadataUpdateRequest_SchemaFieldsUpdateOptions" class="collapse in">
-  <div class="markdown level1 summary"><p>Options to modify the behavior for updating the values of schemas.
-Merge: the values specified in the Content and Metadata dictionaries are merged to the existing values of the corresponding
-schema on the content.
-Replace: the values specified in the Content and Metadata dictionaries entirely replace any existing value of the
-corresponding schema on the content.
-Defaults to Merge.</p>
+  <div class="markdown level1 summary"><p>Obsolete attribute, please use LayerFieldsUpdateOption and ContentFieldsUpdateOption for finer control over metadata and/or content update.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public UpdateOption SchemaFieldsUpdateOptions { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public UpdateOption? SchemaFieldsUpdateOptions { get; set; }</code></pre>
   </div>
   
   
@@ -320,7 +395,7 @@ Defaults to Merge.</p>
   <table>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.UpdateOption.html">UpdateOption</a>
+        <span class="xref">System.Nullable</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.UpdateOption.html">UpdateOption</a>&gt;
         <p>
       </td>
     </tr>

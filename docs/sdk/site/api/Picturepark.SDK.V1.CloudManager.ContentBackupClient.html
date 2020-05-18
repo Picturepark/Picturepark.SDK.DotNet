@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class ContentBackupClient
    | Picturepark.SDK.V1 API ">
-    <meta name="generator" content="docfx 2.45.1.0">
+    <meta name="generator" content="docfx 1.0.0.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -268,7 +268,7 @@
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task AckBackupAsync(string customerId, string filePath, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;ContentBackupAcknowledgementResult&gt; AckBackupAsync(string customerId, string filePath, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -301,7 +301,7 @@
   <table>
     <tr>
       <td>
-        <span class="xref">System.Threading.Tasks.Task</span>
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">ContentBackupAcknowledgementResult</span>&gt;
         <p>
       </td>
     </tr>
@@ -326,8 +326,8 @@
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
 </p>
       </td>
     </tr>
@@ -347,8 +347,8 @@
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
 </p>
       </td>
     </tr>
@@ -425,8 +425,8 @@
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
 </p>
       </td>
     </tr>
@@ -446,8 +446,8 @@
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
 </p>
       </td>
     </tr>
@@ -456,17 +456,109 @@
   </div>
   
   
-  <a id="Picturepark_SDK_V1_CloudManager_ContentBackupClient_CancelContentBackupRecoveryAsync_" data-uid="Picturepark.SDK.V1.CloudManager.ContentBackupClient.CancelContentBackupRecoveryAsync*"></a>
+  <a id="Picturepark_SDK_V1_CloudManager_ContentBackupClient_AnyBackupRequestedAsync_" data-uid="Picturepark.SDK.V1.CloudManager.ContentBackupClient.AnyBackupRequestedAsync*"></a>
   
-  <h4 id="Picturepark_SDK_V1_CloudManager_ContentBackupClient_CancelContentBackupRecoveryAsync_ContentBackupCancelRecoveryRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.CloudManager.ContentBackupClient.CancelContentBackupRecoveryAsync(ContentBackupCancelRecoveryRequest,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_CloudManager_ContentBackupClient_CancelContentBackupRecoveryAsync_ContentBackupCancelRecoveryRequest_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">CancelContentBackupRecoveryAsync(ContentBackupCancelRecoveryRequest, CancellationToken)</a></h4>
+  <h4 id="Picturepark_SDK_V1_CloudManager_ContentBackupClient_AnyBackupRequestedAsync_System_String_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.CloudManager.ContentBackupClient.AnyBackupRequestedAsync(System.String,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_CloudManager_ContentBackupClient_AnyBackupRequestedAsync_System_String_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">AnyBackupRequestedAsync(String, CancellationToken)</a></h4>
   
-  <div id="collapsible-Picturepark_SDK_V1_CloudManager_ContentBackupClient_CancelContentBackupRecoveryAsync_ContentBackupCancelRecoveryRequest_System_Threading_CancellationToken_" class="collapse in">
+  <div id="collapsible-Picturepark_SDK_V1_CloudManager_ContentBackupClient_AnyBackupRequestedAsync_System_String_System_Threading_CancellationToken_" class="collapse in">
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task CancelContentBackupRecoveryAsync(ContentBackupCancelRecoveryRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;bool&gt; AnyBackupRequestedAsync(string customerId, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.String</span></span>
+        <span class="parametername">customerId</span>
+        <p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
+        <span class="parametername">cancellationToken</span>
+        <p><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">System.Boolean</span>&gt;
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <h5 class="exceptions">Exceptions</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
+        <p><p>A server side error occurred.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
+        <p><p>Entity not found</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
+        <p><p>Version conflict</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  </div>
+  
+  
+  <a id="Picturepark_SDK_V1_CloudManager_ContentBackupClient_CancelRecoveryAsync_" data-uid="Picturepark.SDK.V1.CloudManager.ContentBackupClient.CancelRecoveryAsync*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_CloudManager_ContentBackupClient_CancelRecoveryAsync_ContentBackupCancelRecoveryRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.CloudManager.ContentBackupClient.CancelRecoveryAsync(ContentBackupCancelRecoveryRequest,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_CloudManager_ContentBackupClient_CancelRecoveryAsync_ContentBackupCancelRecoveryRequest_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">CancelRecoveryAsync(ContentBackupCancelRecoveryRequest, CancellationToken)</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_CloudManager_ContentBackupClient_CancelRecoveryAsync_ContentBackupCancelRecoveryRequest_System_Threading_CancellationToken_" class="collapse in">
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task CancelRecoveryAsync(ContentBackupCancelRecoveryRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -517,8 +609,8 @@
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
 </p>
       </td>
     </tr>
@@ -538,8 +630,8 @@
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
 </p>
       </td>
     </tr>
@@ -548,17 +640,109 @@
   </div>
   
   
-  <a id="Picturepark_SDK_V1_CloudManager_ContentBackupClient_DisableContentBackupAsync_" data-uid="Picturepark.SDK.V1.CloudManager.ContentBackupClient.DisableContentBackupAsync*"></a>
+  <a id="Picturepark_SDK_V1_CloudManager_ContentBackupClient_CancelResetAsync_" data-uid="Picturepark.SDK.V1.CloudManager.ContentBackupClient.CancelResetAsync*"></a>
   
-  <h4 id="Picturepark_SDK_V1_CloudManager_ContentBackupClient_DisableContentBackupAsync_ContentBackupDisableRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.CloudManager.ContentBackupClient.DisableContentBackupAsync(ContentBackupDisableRequest,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_CloudManager_ContentBackupClient_DisableContentBackupAsync_ContentBackupDisableRequest_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">DisableContentBackupAsync(ContentBackupDisableRequest, CancellationToken)</a></h4>
+  <h4 id="Picturepark_SDK_V1_CloudManager_ContentBackupClient_CancelResetAsync_System_String_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.CloudManager.ContentBackupClient.CancelResetAsync(System.String,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_CloudManager_ContentBackupClient_CancelResetAsync_System_String_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">CancelResetAsync(String, CancellationToken)</a></h4>
   
-  <div id="collapsible-Picturepark_SDK_V1_CloudManager_ContentBackupClient_DisableContentBackupAsync_ContentBackupDisableRequest_System_Threading_CancellationToken_" class="collapse in">
+  <div id="collapsible-Picturepark_SDK_V1_CloudManager_ContentBackupClient_CancelResetAsync_System_String_System_Threading_CancellationToken_" class="collapse in">
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task DisableContentBackupAsync(ContentBackupDisableRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public Task CancelResetAsync(string customerId, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.String</span></span>
+        <span class="parametername">customerId</span>
+        <p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
+        <span class="parametername">cancellationToken</span>
+        <p><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Threading.Tasks.Task</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <h5 class="exceptions">Exceptions</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
+        <p><p>A server side error occurred.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
+        <p><p>Entity not found</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
+        <p><p>Version conflict</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  </div>
+  
+  
+  <a id="Picturepark_SDK_V1_CloudManager_ContentBackupClient_DisableAsync_" data-uid="Picturepark.SDK.V1.CloudManager.ContentBackupClient.DisableAsync*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_CloudManager_ContentBackupClient_DisableAsync_ContentBackupDisableRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.CloudManager.ContentBackupClient.DisableAsync(ContentBackupDisableRequest,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_CloudManager_ContentBackupClient_DisableAsync_ContentBackupDisableRequest_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">DisableAsync(ContentBackupDisableRequest, CancellationToken)</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_CloudManager_ContentBackupClient_DisableAsync_ContentBackupDisableRequest_System_Threading_CancellationToken_" class="collapse in">
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task DisableAsync(ContentBackupDisableRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -609,8 +793,8 @@
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
 </p>
       </td>
     </tr>
@@ -630,8 +814,8 @@
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
 </p>
       </td>
     </tr>
@@ -640,17 +824,17 @@
   </div>
   
   
-  <a id="Picturepark_SDK_V1_CloudManager_ContentBackupClient_EnableContentBackupAsync_" data-uid="Picturepark.SDK.V1.CloudManager.ContentBackupClient.EnableContentBackupAsync*"></a>
+  <a id="Picturepark_SDK_V1_CloudManager_ContentBackupClient_EnableAsync_" data-uid="Picturepark.SDK.V1.CloudManager.ContentBackupClient.EnableAsync*"></a>
   
-  <h4 id="Picturepark_SDK_V1_CloudManager_ContentBackupClient_EnableContentBackupAsync_ContentBackupEnableRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.CloudManager.ContentBackupClient.EnableContentBackupAsync(ContentBackupEnableRequest,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_CloudManager_ContentBackupClient_EnableContentBackupAsync_ContentBackupEnableRequest_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">EnableContentBackupAsync(ContentBackupEnableRequest, CancellationToken)</a></h4>
+  <h4 id="Picturepark_SDK_V1_CloudManager_ContentBackupClient_EnableAsync_ContentBackupEnableRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.CloudManager.ContentBackupClient.EnableAsync(ContentBackupEnableRequest,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_CloudManager_ContentBackupClient_EnableAsync_ContentBackupEnableRequest_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">EnableAsync(ContentBackupEnableRequest, CancellationToken)</a></h4>
   
-  <div id="collapsible-Picturepark_SDK_V1_CloudManager_ContentBackupClient_EnableContentBackupAsync_ContentBackupEnableRequest_System_Threading_CancellationToken_" class="collapse in">
+  <div id="collapsible-Picturepark_SDK_V1_CloudManager_ContentBackupClient_EnableAsync_ContentBackupEnableRequest_System_Threading_CancellationToken_" class="collapse in">
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task EnableContentBackupAsync(ContentBackupEnableRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public Task EnableAsync(ContentBackupEnableRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -701,8 +885,8 @@
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
 </p>
       </td>
     </tr>
@@ -722,8 +906,8 @@
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
 </p>
       </td>
     </tr>
@@ -732,17 +916,17 @@
   </div>
   
   
-  <a id="Picturepark_SDK_V1_CloudManager_ContentBackupClient_ForceCompleteContentBackupRecoveryAsync_" data-uid="Picturepark.SDK.V1.CloudManager.ContentBackupClient.ForceCompleteContentBackupRecoveryAsync*"></a>
+  <a id="Picturepark_SDK_V1_CloudManager_ContentBackupClient_ForceRecoveryAsync_" data-uid="Picturepark.SDK.V1.CloudManager.ContentBackupClient.ForceRecoveryAsync*"></a>
   
-  <h4 id="Picturepark_SDK_V1_CloudManager_ContentBackupClient_ForceCompleteContentBackupRecoveryAsync_ContentBackupForceCompleteRecoveryRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.CloudManager.ContentBackupClient.ForceCompleteContentBackupRecoveryAsync(ContentBackupForceCompleteRecoveryRequest,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_CloudManager_ContentBackupClient_ForceCompleteContentBackupRecoveryAsync_ContentBackupForceCompleteRecoveryRequest_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">ForceCompleteContentBackupRecoveryAsync(ContentBackupForceCompleteRecoveryRequest, CancellationToken)</a></h4>
+  <h4 id="Picturepark_SDK_V1_CloudManager_ContentBackupClient_ForceRecoveryAsync_ContentBackupForceCompleteRecoveryRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.CloudManager.ContentBackupClient.ForceRecoveryAsync(ContentBackupForceCompleteRecoveryRequest,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_CloudManager_ContentBackupClient_ForceRecoveryAsync_ContentBackupForceCompleteRecoveryRequest_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">ForceRecoveryAsync(ContentBackupForceCompleteRecoveryRequest, CancellationToken)</a></h4>
   
-  <div id="collapsible-Picturepark_SDK_V1_CloudManager_ContentBackupClient_ForceCompleteContentBackupRecoveryAsync_ContentBackupForceCompleteRecoveryRequest_System_Threading_CancellationToken_" class="collapse in">
+  <div id="collapsible-Picturepark_SDK_V1_CloudManager_ContentBackupClient_ForceRecoveryAsync_ContentBackupForceCompleteRecoveryRequest_System_Threading_CancellationToken_" class="collapse in">
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task ForceCompleteContentBackupRecoveryAsync(ContentBackupForceCompleteRecoveryRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public Task ForceRecoveryAsync(ContentBackupForceCompleteRecoveryRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -793,8 +977,8 @@
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
 </p>
       </td>
     </tr>
@@ -814,8 +998,8 @@
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
 </p>
       </td>
     </tr>
@@ -878,8 +1062,8 @@
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
 </p>
       </td>
     </tr>
@@ -899,8 +1083,8 @@
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
 </p>
       </td>
     </tr>
@@ -971,17 +1155,109 @@
   </div>
   
   
-  <a id="Picturepark_SDK_V1_CloudManager_ContentBackupClient_SearchMissingContentBackupsAsync_" data-uid="Picturepark.SDK.V1.CloudManager.ContentBackupClient.SearchMissingContentBackupsAsync*"></a>
+  <a id="Picturepark_SDK_V1_CloudManager_ContentBackupClient_ResetAsync_" data-uid="Picturepark.SDK.V1.CloudManager.ContentBackupClient.ResetAsync*"></a>
   
-  <h4 id="Picturepark_SDK_V1_CloudManager_ContentBackupClient_SearchMissingContentBackupsAsync_ContentBackupSearchRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.CloudManager.ContentBackupClient.SearchMissingContentBackupsAsync(ContentBackupSearchRequest,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_CloudManager_ContentBackupClient_SearchMissingContentBackupsAsync_ContentBackupSearchRequest_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">SearchMissingContentBackupsAsync(ContentBackupSearchRequest, CancellationToken)</a></h4>
+  <h4 id="Picturepark_SDK_V1_CloudManager_ContentBackupClient_ResetAsync_System_String_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.CloudManager.ContentBackupClient.ResetAsync(System.String,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_CloudManager_ContentBackupClient_ResetAsync_System_String_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">ResetAsync(String, CancellationToken)</a></h4>
   
-  <div id="collapsible-Picturepark_SDK_V1_CloudManager_ContentBackupClient_SearchMissingContentBackupsAsync_ContentBackupSearchRequest_System_Threading_CancellationToken_" class="collapse in">
+  <div id="collapsible-Picturepark_SDK_V1_CloudManager_ContentBackupClient_ResetAsync_System_String_System_Threading_CancellationToken_" class="collapse in">
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;ContentBackupSearchResult&gt; SearchMissingContentBackupsAsync(ContentBackupSearchRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public Task ResetAsync(string customerId, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.String</span></span>
+        <span class="parametername">customerId</span>
+        <p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
+        <span class="parametername">cancellationToken</span>
+        <p><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Threading.Tasks.Task</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <h5 class="exceptions">Exceptions</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
+        <p><p>A server side error occurred.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
+        <p><p>Entity not found</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
+        <p><p>Version conflict</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  </div>
+  
+  
+  <a id="Picturepark_SDK_V1_CloudManager_ContentBackupClient_SearchMissingAsync_" data-uid="Picturepark.SDK.V1.CloudManager.ContentBackupClient.SearchMissingAsync*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_CloudManager_ContentBackupClient_SearchMissingAsync_ContentBackupSearchRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.CloudManager.ContentBackupClient.SearchMissingAsync(ContentBackupSearchRequest,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_CloudManager_ContentBackupClient_SearchMissingAsync_ContentBackupSearchRequest_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">SearchMissingAsync(ContentBackupSearchRequest, CancellationToken)</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_CloudManager_ContentBackupClient_SearchMissingAsync_ContentBackupSearchRequest_System_Threading_CancellationToken_" class="collapse in">
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;ContentBackupSearchResult&gt; SearchMissingAsync(ContentBackupSearchRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -1032,8 +1308,8 @@
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
 </p>
       </td>
     </tr>
@@ -1053,8 +1329,8 @@
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
 </p>
       </td>
     </tr>
