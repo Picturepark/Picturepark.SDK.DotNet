@@ -2485,73 +2485,6 @@
             }
           }
         }
-      },
-      "get": {
-        "tags": [
-          "Customer"
-        ],
-        "operationId": "Customer_List",
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/CustomerSearchResult"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Validation exception",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkValidationException"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "404": {
-            "description": "Entity not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkNotFoundException"
-                }
-              }
-            }
-          },
-          "405": {
-            "description": "Method not allowed"
-          },
-          "409": {
-            "description": "Version conflict",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkConflictException"
-                }
-              }
-            }
-          },
-          "429": {
-            "description": "Too many requests"
-          },
-          "500": {
-            "description": "Internal server error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkException"
-                }
-              }
-            }
-          }
-        }
       }
     },
     "/Customer/{id}": {
@@ -2708,6 +2641,73 @@
       }
     },
     "/Customer/search": {
+      "get": {
+        "tags": [
+          "Customer"
+        ],
+        "operationId": "Customer_List",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustomerSearchResult"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          }
+        }
+      },
       "post": {
         "tags": [
           "Customer"
@@ -13382,42 +13382,6 @@
           "resetServiceProviders": {
             "type": "boolean",
             "description": "Reset service providers"
-          },
-          "contentBackupStoragePath": {
-            "type": "string",
-            "description": "Storage path of the content backup, path shall not include the customer id",
-            "nullable": true
-          },
-          "logoPath": {
-            "type": "string",
-            "description": "Logo path, if not given, the path is automatically set inside the customer folder",
-            "nullable": true
-          },
-          "watermarkPath": {
-            "type": "string",
-            "description": "Watermark path, if not given, the path is automatically set inside the customer folder",
-            "nullable": true
-          },
-          "baseUrl": {
-            "type": "string",
-            "description": "Base url for for shares",
-            "nullable": true
-          },
-          "customerHosts": {
-            "type": "array",
-            "description": "List of customers hosts",
-            "nullable": true,
-            "items": {
-              "type": "string"
-            }
-          },
-          "corsAllowedHosts": {
-            "type": "array",
-            "description": "List of CORS allowed hosts",
-            "nullable": true,
-            "items": {
-              "type": "string"
-            }
           }
         }
       },
