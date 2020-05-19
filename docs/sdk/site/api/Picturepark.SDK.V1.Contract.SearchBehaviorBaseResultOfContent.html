@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class SearchBehaviorBaseResultOfContent
    | Picturepark.SDK.V1 API ">
-    <meta name="generator" content="docfx 2.45.1.0">
+    <meta name="generator" content="docfx 2.53.1.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -81,7 +81,8 @@
             <article class="content wrap" id="_content" data-uid="Picturepark.SDK.V1.Contract.SearchBehaviorBaseResultOfContent">
   <h1 id="Picturepark_SDK_V1_Contract_SearchBehaviorBaseResultOfContent" data-uid="Picturepark.SDK.V1.Contract.SearchBehaviorBaseResultOfContent">Class SearchBehaviorBaseResultOfContent
   </h1>
-  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 summary"><p>Base class for search result queries that support SearchBehaviors</p>
+</div>
   <div class="markdown level0 conceptual"></div>
   
   <div class="inheritance">
@@ -91,7 +92,7 @@
     <div class="level2"><span class="xref">SearchBehaviorBaseResultOfContent</span></div>
   </div>
   
-      <div class="level3"><a class="xref" href="Picturepark.SDK.V1.Contract.ContentSearchResult.html">ContentSearchResult</a></div>
+      <div class="level3"><a class="xref" href="Picturepark.SDK.V1.Contract.SearchBehaviorWithAggregationBaseResultOfContent.html">SearchBehaviorWithAggregationBaseResultOfContent</a></div>
   
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
@@ -150,7 +151,8 @@
   <h4 id="Picturepark_SDK_V1_Contract_SearchBehaviorBaseResultOfContent_IsSearchStringRewritten" data-uid="Picturepark.SDK.V1.Contract.SearchBehaviorBaseResultOfContent.IsSearchStringRewritten"><a href="#collapsible-Picturepark_SDK_V1_Contract_SearchBehaviorBaseResultOfContent_IsSearchStringRewritten" class="expander" data-toggle="collapse">IsSearchStringRewritten</a></h4>
   
   <div id="collapsible-Picturepark_SDK_V1_Contract_SearchBehaviorBaseResultOfContent_IsSearchStringRewritten" class="collapse in">
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Flag to notify if the SearchString was modified compared to the original requested one</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   
@@ -186,12 +188,13 @@
   <h4 id="Picturepark_SDK_V1_Contract_SearchBehaviorBaseResultOfContent_QueryDebugInformation" data-uid="Picturepark.SDK.V1.Contract.SearchBehaviorBaseResultOfContent.QueryDebugInformation"><a href="#collapsible-Picturepark_SDK_V1_Contract_SearchBehaviorBaseResultOfContent_QueryDebugInformation" class="expander" data-toggle="collapse">QueryDebugInformation</a></h4>
   
   <div id="collapsible-Picturepark_SDK_V1_Contract_SearchBehaviorBaseResultOfContent_QueryDebugInformation" class="collapse in">
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Additional information regarding the query execution and reason of the matched documents. Multiple items are returned if multiple queries were performed.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public QueryDebugInformation QueryDebugInformation { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public ICollection&lt;QueryDebugInformation&gt; QueryDebugInformation { get; set; }</code></pre>
   </div>
   
   
@@ -202,7 +205,7 @@
   <table>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.QueryDebugInformation.html">QueryDebugInformation</a>
+        <span class="xref">System.Collections.Generic.ICollection</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.QueryDebugInformation.html">QueryDebugInformation</a>&gt;
         <p>
       </td>
     </tr>
@@ -222,7 +225,8 @@
   <h4 id="Picturepark_SDK_V1_Contract_SearchBehaviorBaseResultOfContent_SearchString" data-uid="Picturepark.SDK.V1.Contract.SearchBehaviorBaseResultOfContent.SearchString"><a href="#collapsible-Picturepark_SDK_V1_Contract_SearchBehaviorBaseResultOfContent_SearchString" class="expander" data-toggle="collapse">SearchString</a></h4>
   
   <div id="collapsible-Picturepark_SDK_V1_Contract_SearchBehaviorBaseResultOfContent_SearchString" class="collapse in">
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>The search string used to query the data</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   

@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class SchemaPermissionSetClient
    | Picturepark.SDK.V1 API ">
-    <meta name="generator" content="docfx 2.45.1.0">
+    <meta name="generator" content="docfx 2.53.1.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -272,7 +272,7 @@
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;SchemaPermissionSetDetail&gt; CreateAsync(SchemaPermissionSetCreateRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;SchemaPermissionSetDetail&gt; CreateAsync(SchemaPermissionSetCreateRequest permissionSet, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -280,8 +280,8 @@
     <tr>
       <td>
         <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.SchemaPermissionSetCreateRequest.html">SchemaPermissionSetCreateRequest</a></span>
-        <span class="parametername">request</span>
-        <p><p>The request containing information needed to create new permission set.</p>
+        <span class="parametername">permissionSet</span>
+        <p><p>Permission set</p>
 </p>
       </td>
     </tr>
@@ -300,7 +300,7 @@
     <tr>
       <td>
         <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.SchemaPermissionSetDetail.html">SchemaPermissionSetDetail</a>&gt;
-        <p><p>Schema permission set detail</p>
+        <p><p>Detail of a schema permission set</p>
 </p>
       </td>
     </tr>
@@ -327,8 +327,8 @@
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
 </p>
       </td>
     </tr>
@@ -348,8 +348,8 @@
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
 </p>
       </td>
     </tr>
@@ -378,7 +378,7 @@
       <td>
         <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.SchemaPermissionSetCreateManyRequest.html">SchemaPermissionSetCreateManyRequest</a></span>
         <span class="parametername">request</span>
-        <p><p>The request containing information needed to create new permission sets.</p>
+        <p><p>Request</p>
 </p>
       </td>
     </tr>
@@ -397,7 +397,7 @@
     <tr>
       <td>
         <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.BulkResponse.html">BulkResponse</a>&gt;
-        <p><p>Bulk response with information about created permission sets</p>
+        <p><p>Response to a bulk operation</p>
 </p>
       </td>
     </tr>
@@ -424,8 +424,8 @@
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
 </p>
       </td>
     </tr>
@@ -445,8 +445,8 @@
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
 </p>
       </td>
     </tr>
@@ -475,7 +475,7 @@
       <td>
         <span class="pull-right"><span class="xref">System.String</span></span>
         <span class="parametername">id</span>
-        <p><p>ID of the permission set that should be deleted.</p>
+        <p><p>Schema permission set ID.</p>
 </p>
       </td>
     </tr>
@@ -494,8 +494,7 @@
     <tr>
       <td>
         <span class="xref">System.Threading.Tasks.Task</span>
-        <p><p>OK</p>
-</p>
+        <p>
       </td>
     </tr>
   </table>
@@ -521,8 +520,8 @@
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
 </p>
       </td>
     </tr>
@@ -542,8 +541,8 @@
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
 </p>
       </td>
     </tr>
@@ -572,7 +571,7 @@
       <td>
         <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.PermissionSetDeleteManyRequest.html">PermissionSetDeleteManyRequest</a></span>
         <span class="parametername">request</span>
-        <p><p>The request with permission set IDs to delete.</p>
+        <p><p>Request</p>
 </p>
       </td>
     </tr>
@@ -591,7 +590,7 @@
     <tr>
       <td>
         <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.BulkResponse.html">BulkResponse</a>&gt;
-        <p><p>Bulk response with information about success or failure</p>
+        <p><p>Response to a bulk operation</p>
 </p>
       </td>
     </tr>
@@ -618,8 +617,8 @@
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
 </p>
       </td>
     </tr>
@@ -639,8 +638,8 @@
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
 </p>
       </td>
     </tr>
@@ -660,7 +659,7 @@
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;SchemaPermissionSetDetail&gt; GetAsync(string permissionSetId, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;SchemaPermissionSetDetail&gt; GetAsync(string id, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -668,8 +667,8 @@
     <tr>
       <td>
         <span class="pull-right"><span class="xref">System.String</span></span>
-        <span class="parametername">permissionSetId</span>
-        <p><p>The schema permission set ID.</p>
+        <span class="parametername">id</span>
+        <p><p>Schema permission set ID.</p>
 </p>
       </td>
     </tr>
@@ -688,7 +687,7 @@
     <tr>
       <td>
         <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.SchemaPermissionSetDetail.html">SchemaPermissionSetDetail</a>&gt;
-        <p><p>Schema permission set detail</p>
+        <p><p>Detail of a schema permission set</p>
 </p>
       </td>
     </tr>
@@ -715,8 +714,8 @@
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
 </p>
       </td>
     </tr>
@@ -736,8 +735,8 @@
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
 </p>
       </td>
     </tr>
@@ -751,7 +750,7 @@
   <h4 id="Picturepark_SDK_V1_SchemaPermissionSetClient_GetManyAsync_System_Collections_Generic_IEnumerable_System_String__System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.SchemaPermissionSetClient.GetManyAsync(System.Collections.Generic.IEnumerable{System.String},System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_SchemaPermissionSetClient_GetManyAsync_System_Collections_Generic_IEnumerable_System_String__System_Threading_CancellationToken_" class="expander" data-toggle="collapse">GetManyAsync(IEnumerable&lt;String&gt;, CancellationToken)</a></h4>
   
   <div id="collapsible-Picturepark_SDK_V1_SchemaPermissionSetClient_GetManyAsync_System_Collections_Generic_IEnumerable_System_String__System_Threading_CancellationToken_" class="collapse in">
-  <div class="markdown level1 summary"><p>Get multiple permission sets</p>
+  <div class="markdown level1 summary"><p>Get multiple schema permission sets</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -766,7 +765,7 @@
       <td>
         <span class="pull-right"><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">System.String</span>&gt;</span>
         <span class="parametername">ids</span>
-        <p><p>Permission set IDs to get information about</p>
+        <p><p>Ids</p>
 </p>
       </td>
     </tr>
@@ -785,7 +784,7 @@
     <tr>
       <td>
         <span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">System.Collections.Generic.ICollection</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.SchemaPermissionSetDetail.html">SchemaPermissionSetDetail</a>&gt;&gt;
-        <p><p>Schema permission set details</p>
+        <p><p>Array of Detail of a schema permission set</p>
 </p>
       </td>
     </tr>
@@ -812,8 +811,8 @@
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
 </p>
       </td>
     </tr>
@@ -833,8 +832,8 @@
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
 </p>
       </td>
     </tr>
@@ -848,7 +847,7 @@
   <h4 id="Picturepark_SDK_V1_SchemaPermissionSetClient_GetPermissionsAsync_System_String_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.SchemaPermissionSetClient.GetPermissionsAsync(System.String,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_SchemaPermissionSetClient_GetPermissionsAsync_System_String_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">GetPermissionsAsync(String, CancellationToken)</a></h4>
   
   <div id="collapsible-Picturepark_SDK_V1_SchemaPermissionSetClient_GetPermissionsAsync_System_String_System_Threading_CancellationToken_" class="collapse in">
-  <div class="markdown level1 summary"><p>Get permissions for the permission set</p>
+  <div class="markdown level1 summary"><p>Get permissions for schema permission set</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -863,7 +862,7 @@
       <td>
         <span class="pull-right"><span class="xref">System.String</span></span>
         <span class="parametername">id</span>
-        <p><p>ID of the permission set to view permissions of.</p>
+        <p><p>Schema permission set ID.</p>
 </p>
       </td>
     </tr>
@@ -882,7 +881,7 @@
     <tr>
       <td>
         <span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">System.Collections.Generic.ICollection</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.PermissionSetRight.html">PermissionSetRight</a>&gt;&gt;
-        <p><p>List of permissions</p>
+        <p><p>Array of Permission set rights</p>
 </p>
       </td>
     </tr>
@@ -909,8 +908,8 @@
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
 </p>
       </td>
     </tr>
@@ -930,8 +929,8 @@
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
 </p>
       </td>
     </tr>
@@ -945,7 +944,7 @@
   <h4 id="Picturepark_SDK_V1_SchemaPermissionSetClient_GetPermissionsManyAsync_System_Collections_Generic_IEnumerable_System_String__System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.SchemaPermissionSetClient.GetPermissionsManyAsync(System.Collections.Generic.IEnumerable{System.String},System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_SchemaPermissionSetClient_GetPermissionsManyAsync_System_Collections_Generic_IEnumerable_System_String__System_Threading_CancellationToken_" class="expander" data-toggle="collapse">GetPermissionsManyAsync(IEnumerable&lt;String&gt;, CancellationToken)</a></h4>
   
   <div id="collapsible-Picturepark_SDK_V1_SchemaPermissionSetClient_GetPermissionsManyAsync_System_Collections_Generic_IEnumerable_System_String__System_Threading_CancellationToken_" class="collapse in">
-  <div class="markdown level1 summary"><p>Get permissions for multiple permission sets</p>
+  <div class="markdown level1 summary"><p>Get permissions for multiple schema permission sets</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -960,7 +959,7 @@
       <td>
         <span class="pull-right"><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">System.String</span>&gt;</span>
         <span class="parametername">ids</span>
-        <p><p>IDs of the permission sets to view permissions of.</p>
+        <p><p>Ids</p>
 </p>
       </td>
     </tr>
@@ -979,7 +978,7 @@
     <tr>
       <td>
         <span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">System.Collections.Generic.ICollection</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.PermissionSetUserPermissionRights.html">PermissionSetUserPermissionRights</a>&gt;&gt;
-        <p><p>List of permissions</p>
+        <p><p>Array of</p>
 </p>
       </td>
     </tr>
@@ -1006,8 +1005,8 @@
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
 </p>
       </td>
     </tr>
@@ -1027,8 +1026,8 @@
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
 </p>
       </td>
     </tr>
@@ -1104,7 +1103,7 @@
   <h4 id="Picturepark_SDK_V1_SchemaPermissionSetClient_SearchAsync_Picturepark_SDK_V1_Contract_PermissionSetSearchRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.SchemaPermissionSetClient.SearchAsync(Picturepark.SDK.V1.Contract.PermissionSetSearchRequest,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_SchemaPermissionSetClient_SearchAsync_Picturepark_SDK_V1_Contract_PermissionSetSearchRequest_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">SearchAsync(PermissionSetSearchRequest, CancellationToken)</a></h4>
   
   <div id="collapsible-Picturepark_SDK_V1_SchemaPermissionSetClient_SearchAsync_Picturepark_SDK_V1_Contract_PermissionSetSearchRequest_System_Threading_CancellationToken_" class="collapse in">
-  <div class="markdown level1 summary"><p>Search schema permission sets</p>
+  <div class="markdown level1 summary"><p>Search schema permission set</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -1119,7 +1118,7 @@
       <td>
         <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.PermissionSetSearchRequest.html">PermissionSetSearchRequest</a></span>
         <span class="parametername">request</span>
-        <p><p>The permission set search request.</p>
+        <p><p>Request to search permission sets.</p>
 </p>
       </td>
     </tr>
@@ -1138,7 +1137,7 @@
     <tr>
       <td>
         <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.PermissionSetSearchResult.html">PermissionSetSearchResult</a>&gt;
-        <p><p>Permission set search result</p>
+        <p><p>Result of a permission set search operation</p>
 </p>
       </td>
     </tr>
@@ -1165,8 +1164,8 @@
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
 </p>
       </td>
     </tr>
@@ -1186,8 +1185,8 @@
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
 </p>
       </td>
     </tr>
@@ -1216,7 +1215,7 @@
       <td>
         <span class="pull-right"><span class="xref">System.String</span></span>
         <span class="parametername">id</span>
-        <p><p>ID of the permission set to transfer</p>
+        <p><p>Schema permission set ID.</p>
 </p>
       </td>
     </tr>
@@ -1224,7 +1223,7 @@
       <td>
         <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.PermissionSetOwnershipTransferRequest.html">PermissionSetOwnershipTransferRequest</a></span>
         <span class="parametername">request</span>
-        <p><p>The request containing user who should be the new owner.</p>
+        <p><p>Request</p>
 </p>
       </td>
     </tr>
@@ -1243,8 +1242,7 @@
     <tr>
       <td>
         <span class="xref">System.Threading.Tasks.Task</span>
-        <p><p>OK</p>
-</p>
+        <p>
       </td>
     </tr>
   </table>
@@ -1270,8 +1268,8 @@
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
 </p>
       </td>
     </tr>
@@ -1291,8 +1289,8 @@
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
 </p>
       </td>
     </tr>
@@ -1321,7 +1319,7 @@
       <td>
         <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.PermissionSetOwnershipTransferManyRequest.html">PermissionSetOwnershipTransferManyRequest</a></span>
         <span class="parametername">request</span>
-        <p><p>The request containing information on which permission set to transfer to which user.</p>
+        <p><p>Request</p>
 </p>
       </td>
     </tr>
@@ -1340,8 +1338,7 @@
     <tr>
       <td>
         <span class="xref">System.Threading.Tasks.Task</span>
-        <p><p>OK</p>
-</p>
+        <p>
       </td>
     </tr>
   </table>
@@ -1367,8 +1364,8 @@
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
 </p>
       </td>
     </tr>
@@ -1388,8 +1385,8 @@
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
 </p>
       </td>
     </tr>
@@ -1409,7 +1406,7 @@
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;SchemaPermissionSetDetail&gt; UpdateAsync(string id, SchemaPermissionSetUpdateRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;SchemaPermissionSetDetail&gt; UpdateAsync(string id, SchemaPermissionSetUpdateRequest permissionSet, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -1418,15 +1415,15 @@
       <td>
         <span class="pull-right"><span class="xref">System.String</span></span>
         <span class="parametername">id</span>
-        <p><p>ID of permission set to update</p>
+        <p><p>Schema permission set ID.</p>
 </p>
       </td>
     </tr>
     <tr>
       <td>
         <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.SchemaPermissionSetUpdateRequest.html">SchemaPermissionSetUpdateRequest</a></span>
-        <span class="parametername">request</span>
-        <p><p>The request containing information needed to update the permission set.</p>
+        <span class="parametername">permissionSet</span>
+        <p><p>Permission set</p>
 </p>
       </td>
     </tr>
@@ -1445,7 +1442,7 @@
     <tr>
       <td>
         <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.SchemaPermissionSetDetail.html">SchemaPermissionSetDetail</a>&gt;
-        <p><p>Schema permission set detail</p>
+        <p><p>Detail of a schema permission set</p>
 </p>
       </td>
     </tr>
@@ -1472,8 +1469,8 @@
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
 </p>
       </td>
     </tr>
@@ -1493,8 +1490,8 @@
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
 </p>
       </td>
     </tr>
@@ -1523,7 +1520,7 @@
       <td>
         <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.SchemaPermissionSetUpdateManyRequest.html">SchemaPermissionSetUpdateManyRequest</a></span>
         <span class="parametername">request</span>
-        <p><p>The request containing information needed to update the permission set.</p>
+        <p><p>Request to update multiple schema permissions sets.</p>
 </p>
       </td>
     </tr>
@@ -1542,7 +1539,7 @@
     <tr>
       <td>
         <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.BulkResponse.html">BulkResponse</a>&gt;
-        <p><p>Bulk response with information about updated permission sets</p>
+        <p><p>Response to a bulk operation</p>
 </p>
       </td>
     </tr>
@@ -1569,8 +1566,8 @@
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
 </p>
       </td>
     </tr>
@@ -1590,8 +1587,8 @@
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
 </p>
       </td>
     </tr>
