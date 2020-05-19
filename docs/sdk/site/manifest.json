@@ -1,6 +1,6 @@
 {
   "homepages": [],
-  "source_base_path": "c:/projects/Picturepark.SDK.DotNet/docs/sdk",
+  "source_base_path": "C:/Projects/Picturepark.SDK.DotNet/docs/sdk",
   "xrefmap": "xrefmap.yml",
   "files": [
     {
@@ -21,7 +21,7 @@
       "output": {
         ".html": {
           "relative_path": "index.html",
-          "hash": "neDTGniJOeTcRs+earvIFg=="
+          "hash": "3r7qDY2SpiO93+uA/ZhOrw=="
         }
       },
       "is_incremental": false,
@@ -105,7 +105,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.BusinessProcessClient.html",
-          "hash": "m7SMowot/UmQ4P5Zydk+Zg=="
+          "hash": "gLVbw7I/5xhInYNeO4Vcwg=="
         }
       },
       "is_incremental": false,
@@ -129,7 +129,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.BusinessRuleClient.html",
-          "hash": "hLI01Dn9X05+tcAOVXADig=="
+          "hash": "iwjFn6sf6Onr6cLE+yHUrA=="
         }
       },
       "is_incremental": false,
@@ -153,7 +153,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.ChannelClient.html",
-          "hash": "Ua85zE+F2ZrOnZsjUm6URg=="
+          "hash": "/F1o913TY3yzT1gF54WbVg=="
         }
       },
       "is_incremental": false,
@@ -165,7 +165,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.ClientBase.html",
-          "hash": "I3p4Bqldajvie3xhXe/P2g=="
+          "hash": "FTCssT4RIwH8N5uvqiWQXg=="
         }
       },
       "is_incremental": false,
@@ -189,7 +189,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.CdnClient.html",
-          "hash": "Ueommyhl1uPOHuLXy27fPQ=="
+          "hash": "UlpqscBo4hp2yx4u0+FUyg=="
         }
       },
       "is_incremental": false,
@@ -201,7 +201,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.ClientBase.html",
-          "hash": "RUzinXhHW6fFwMpDI0cr5Q=="
+          "hash": "zeZiiMYEOaC4VsiBif2oSw=="
         }
       },
       "is_incremental": false,
@@ -225,7 +225,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.CloudBackupClient.html",
-          "hash": "aBKkVyFmvPsAgL2tmaV0Mw=="
+          "hash": "U+u+pBUpdapt2cIcmbWvJA=="
         }
       },
       "is_incremental": false,
@@ -237,7 +237,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.CloudManagerService.html",
-          "hash": "OEEtz68z6LwyLVyf2CQv0w=="
+          "hash": "bnlqgipJ4VEM0IjkXbhRsA=="
         }
       },
       "is_incremental": false,
@@ -273,7 +273,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.ContentBackupClient.html",
-          "hash": "SqFTGmLleLgArCYGEndPOw=="
+          "hash": "r4AAh6+CGL/ykAblMU0Mzg=="
         }
       },
       "is_incremental": false,
@@ -285,7 +285,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.AacAudioFormat.html",
-          "hash": "UzW1FT8EZmTOirgzjXzGDQ=="
+          "hash": "RBDhSeQBxOEuKjwxAd4Z4g=="
         }
       },
       "is_incremental": false,
@@ -369,7 +369,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.AlphaHandling.html",
-          "hash": "LjVWikmo/SDOo1yt6eL5qg=="
+          "hash": "QW8oU9XFbq4xuVDyRdDDqA=="
         }
       },
       "is_incremental": false,
@@ -381,7 +381,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.AlphaHandlingAction.html",
-          "hash": "paLg1LcsHIWBOOgqa9btMg=="
+          "hash": "YMzJ9V8ez30Jk4c7bZpjtA=="
         }
       },
       "is_incremental": false,
@@ -393,7 +393,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.AmbiguousUserRoleRightsException.html",
-          "hash": "3M6Tj0DY43siAp4qz76NZQ=="
+          "hash": "9QBscV26/XZq0dXtNG1keQ=="
         }
       },
       "is_incremental": false,
@@ -449,6 +449,42 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.CloudManager.Contract.ApiStatisticsEvent.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.ApiStatisticsEvent.html",
+          "hash": "ohJYaRqLbEpWE0FiHjRkIQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.CloudManager.Contract.ApplicationEvent.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.ApplicationEvent.html",
+          "hash": "pfXMrnHlC+1TE5Z48UZzVw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.CloudManager.Contract.ArgumentRangeException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.ArgumentRangeException.html",
+          "hash": "IIS/ltrLd6LpGj/Y2C124A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/api/Picturepark.SDK.V1.CloudManager.Contract.AtLeastOneActiveTermsOfServiceMustExistException.yml",
       "output": {
         ".html": {
@@ -465,7 +501,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.AudioFormatBase.html",
-          "hash": "x/5fFCF3IORtwztDeGezaw=="
+          "hash": "3BYMsNwCPjC17Vh8346DDw=="
         }
       },
       "is_incremental": false,
@@ -477,7 +513,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.AudioStillFormat.html",
-          "hash": "0ASLpIm8oDxlFB4THzJwwg=="
+          "hash": "QQCGb119riWw6i+L0uHe9Q=="
         }
       },
       "is_incremental": false,
@@ -489,7 +525,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.AuthorizationState.html",
-          "hash": "OnkNKWddoTLrkzRZBDfbTg=="
+          "hash": "1JrIg5+AzHGEq7/F8A7cjA=="
         }
       },
       "is_incremental": false,
@@ -525,7 +561,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.BaseResultOfCustomer.html",
-          "hash": "Z3cdDzwJFeYbPKCxulCf0Q=="
+          "hash": "TZoyzsA37B1Avzs0sYrznA=="
         }
       },
       "is_incremental": false,
@@ -537,7 +573,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.BaseResultOfSnapshot.html",
-          "hash": "zjPzSenx+4jIMsZXH7sqOA=="
+          "hash": "CZYB1WOZf+0PFdDhtaqY3g=="
         }
       },
       "is_incremental": false,
@@ -562,6 +598,18 @@
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.BusinessProcessCancellationNotSupportedException.html",
           "hash": "3R1PT2SsAo21FHH9OiD+XA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.CloudManager.Contract.BusinessProcessCancellationRequestedEvent.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.BusinessProcessCancellationRequestedEvent.html",
+          "hash": "/l3f4nv/UmQAa2JbrugX3g=="
         }
       },
       "is_incremental": false,
@@ -610,6 +658,18 @@
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.BusinessProcessEngineRequestException.html",
           "hash": "z+zH8Q/ubxqTU/zmY/PT8w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.CloudManager.Contract.BusinessProcessEvent.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.BusinessProcessEvent.html",
+          "hash": "F3ltszE2w5d6SgJaF30xhw=="
         }
       },
       "is_incremental": false,
@@ -862,6 +922,30 @@
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.BusinessRuleFieldPathInvalidException.html",
           "hash": "JrK73rRAqJJrkasw5sl45w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.CloudManager.Contract.BusinessRuleFiredEvent.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.BusinessRuleFiredEvent.html",
+          "hash": "mbPDlhWty+tj9nNn1YUBDQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.CloudManager.Contract.BusinessRuleFiredEventDetail.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.BusinessRuleFiredEventDetail.html",
+          "hash": "Ypx15mUVaKNzOlu6CU4mxA=="
         }
       },
       "is_incremental": false,
@@ -1161,7 +1245,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.ClarifaiTaggingConfiguration.html",
-          "hash": "nQ4t0zP5oRdgEsq/J+/JFQ=="
+          "hash": "Y2SJAhkLuRXjdfk+xSWdNQ=="
         }
       },
       "is_incremental": false,
@@ -1173,7 +1257,19 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.Coder.html",
-          "hash": "D6atxmv6JgE8OzOJk83p3w=="
+          "hash": "3cSoi9B9svlDZWtC6xi6ag=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.CloudManager.Contract.CollectionSizeLimitExceededException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.CollectionSizeLimitExceededException.html",
+          "hash": "oyrUrLiw09CfcX+GNPt88w=="
         }
       },
       "is_incremental": false,
@@ -1185,7 +1281,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.ColorProfile.html",
-          "hash": "KxU4NSYk1saTVGI6rwB2MQ=="
+          "hash": "mgVriZKSQ3hAgUC+qAOaRg=="
         }
       },
       "is_incremental": false,
@@ -1197,7 +1293,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.ColorTransformationIntent.html",
-          "hash": "2uBZc2hgDKLpQMxqZpAb/g=="
+          "hash": "WWpXcU+Q8VvvYJtayi7tdQ=="
         }
       },
       "is_incremental": false,
@@ -1209,7 +1305,19 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.CompressionType.html",
-          "hash": "E6RzEdaicW/2AKbAFh5q2w=="
+          "hash": "g6Nuxm/6qkEn7FbuOsEl9Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.CloudManager.Contract.ConfigurationChangeEvent.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.ConfigurationChangeEvent.html",
+          "hash": "ABL/LNqI3MrMtQ4ISVQUow=="
         }
       },
       "is_incremental": false,
@@ -1222,6 +1330,18 @@
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.ConfigurationIndexNotFoundException.html",
           "hash": "vmRnaL+tWzwUOVa9IcrOiw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.CloudManager.Contract.ConsoleMessage.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.ConsoleMessage.html",
+          "hash": "zQdyuhTjHedlR4aFQgAxGQ=="
         }
       },
       "is_incremental": false,
@@ -1329,7 +1449,43 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.ContentBackupState.html",
-          "hash": "yz3Of5GXBI7FJjwF2l+yDQ=="
+          "hash": "ZgxUibbPet+YG9XSdop0/w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.CloudManager.Contract.ContentDetailViewEvent.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.ContentDetailViewEvent.html",
+          "hash": "+xkZtqHE5fGLKLpfxPImEw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.CloudManager.Contract.ContentDisposition.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.ContentDisposition.html",
+          "hash": "QcjgHhxMh7K5NVDPRsxnDw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.CloudManager.Contract.ContentDownloadEvent.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.ContentDownloadEvent.html",
+          "hash": "1eUxQ5pLyDbZvQxk/b1RCA=="
         }
       },
       "is_incremental": false,
@@ -1445,11 +1601,23 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.CloudManager.Contract.CreateServiceConfigurationRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.CreateServiceConfigurationRequest.html",
+          "hash": "C+O2ng9A3R71gnplsTd11g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/api/Picturepark.SDK.V1.CloudManager.Contract.CropAction.yml",
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.CropAction.html",
-          "hash": "gQiWJUoo81/w9Wo8ry6DDQ=="
+          "hash": "jS0794kFxflWQoT8UbWUAg=="
         }
       },
       "is_incremental": false,
@@ -1461,7 +1629,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.Customer.html",
-          "hash": "B5y4YwMPtwvO+rOKF6+DTA=="
+          "hash": "vfMBSmYtrdg+/36U8V60IA=="
         }
       },
       "is_incremental": false,
@@ -1589,11 +1757,35 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.CloudManager.Contract.CustomerChangeEvent.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.CustomerChangeEvent.html",
+          "hash": "+3LgeeNUECmbKtlrvjji/A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.CloudManager.Contract.CustomerClonesNotAcceptedException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.CustomerClonesNotAcceptedException.html",
+          "hash": "l1UyeNfLUzby9y23tuuBag=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/api/Picturepark.SDK.V1.CloudManager.Contract.CustomerConfiguration.yml",
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.CustomerConfiguration.html",
-          "hash": "nn+7CI/O+Yb8yNczX/1Eog=="
+          "hash": "MBjgBsvjieEy9YhVzAVK4A=="
         }
       },
       "is_incremental": false,
@@ -1605,7 +1797,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.CustomerCreateRequest.html",
-          "hash": "z/hUHXLhw04ErFEmAp7+OA=="
+          "hash": "fiw6z0SKfPy0aIIYq3r/lw=="
         }
       },
       "is_incremental": false,
@@ -1665,7 +1857,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.CustomerImportRequest.html",
-          "hash": "mIJI52nL2hI3tNiK0YP5Bw=="
+          "hash": "ddEsxD3tv+glQN4P6vJlGA=="
         }
       },
       "is_incremental": false,
@@ -1797,7 +1989,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.CustomerUpdateRequest.html",
-          "hash": "CJ2Dh8h+4Dy2BwiTBazB1Q=="
+          "hash": "eo5rnFy1ReE9xyXU01mV0g=="
         }
       },
       "is_incremental": false,
@@ -1953,7 +2145,19 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.DisplayPatternType.html",
-          "hash": "05e/yGMq4m1CG24IHjPq6Q=="
+          "hash": "Ch3CJprwpISERjpdhpt4Fg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.CloudManager.Contract.DisplayPatternTypeNotSupportedException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.DisplayPatternTypeNotSupportedException.html",
+          "hash": "1BzcRrsr9o97XRRWXQA7jA=="
         }
       },
       "is_incremental": false,
@@ -1973,11 +2177,23 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.CloudManager.Contract.DocumentChange.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.DocumentChange.html",
+          "hash": "eFZgk3H0+hypqa/cAmNdxw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/api/Picturepark.SDK.V1.CloudManager.Contract.DocumentFormatBase.yml",
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.DocumentFormatBase.html",
-          "hash": "fzf4S9V/rHu9S1IXbK8qdw=="
+          "hash": "4+5fSkQ276uDq7DLEjDGjA=="
         }
       },
       "is_incremental": false,
@@ -1989,7 +2205,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.DocumentStillFormat.html",
-          "hash": "oloZOuXldzl+flrBEs2wfQ=="
+          "hash": "0RqH+SFktHLtnOt4MHPxZg=="
         }
       },
       "is_incremental": false,
@@ -2014,6 +2230,30 @@
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.DocumentVersionNotFoundException.html",
           "hash": "Yq5010zNltg1RPaL9D9Auw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.CloudManager.Contract.DownloadLinkExpiredException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.DownloadLinkExpiredException.html",
+          "hash": "Edp2fwf6ocVZxiRyvNd/6g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.CloudManager.Contract.DownloadTrackingInfo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.DownloadTrackingInfo.html",
+          "hash": "b6AD3dJJimPnYmVyDQlfiQ=="
         }
       },
       "is_incremental": false,
@@ -2465,6 +2705,30 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.CloudManager.Contract.FileIdDuplicatedException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.FileIdDuplicatedException.html",
+          "hash": "MoQXheHwotP1Lgwp7XXrkw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.CloudManager.Contract.FileResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.FileResponse.html",
+          "hash": "J66hjhNtceetBSVWW5TMhw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/api/Picturepark.SDK.V1.CloudManager.Contract.FileTransferNotFoundException.yml",
       "output": {
         ".html": {
@@ -2505,7 +2769,19 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.FormatBase.html",
-          "hash": "WzS0QQKrY1ZvEe1RoC9U4w=="
+          "hash": "/rrpU31BVu/Ass/a8HqIKw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.CloudManager.Contract.FormatNotApplicableForRenderingException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.FormatNotApplicableForRenderingException.html",
+          "hash": "4AbH5LWfy5nchx6L0AryDQ=="
         }
       },
       "is_incremental": false,
@@ -2553,7 +2829,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.ICdnClient.html",
-          "hash": "iKbQ4eSlxnLvqxpeWKh20Q=="
+          "hash": "Hw8RRXZFJqqCh1/qMI5T4Q=="
         }
       },
       "is_incremental": false,
@@ -2565,7 +2841,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.ICloudBackupClient.html",
-          "hash": "Kjjp3zvQqoERO5gg9zc9FQ=="
+          "hash": "VTjw1wMi3tVesJwwjh9Lpg=="
         }
       },
       "is_incremental": false,
@@ -2577,7 +2853,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.IContentBackupClient.html",
-          "hash": "uJicpptN0YorRdNSKbih1w=="
+          "hash": "UjXjKByj51x/r3s7C+rX1A=="
         }
       },
       "is_incremental": false,
@@ -2589,7 +2865,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.ICustomerClient.html",
-          "hash": "5OfkPX/BnUYDFK9JtdMu/Q=="
+          "hash": "/YZb9Ipz7RvXKFEB1YwBmA=="
         }
       },
       "is_incremental": false,
@@ -2601,7 +2877,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.ICustomerServiceProviderClient.html",
-          "hash": "m75BTBFjDhU9aFe8KzBeQg=="
+          "hash": "LB2ZJBIGAaWnxWNigGIi8A=="
         }
       },
       "is_incremental": false,
@@ -2613,7 +2889,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.IEnvironmentClient.html",
-          "hash": "zrme8pq4jpeCZJqp8nbmKg=="
+          "hash": "lGWyyZ+bU4yLIBmMCjha0A=="
         }
       },
       "is_incremental": false,
@@ -2625,7 +2901,19 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.IEnvironmentProcessClient.html",
-          "hash": "Bb8nMOEGGfK5apf0kKP2/g=="
+          "hash": "Lb9JLCSzIPEyVLSGTqMutQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.CloudManager.Contract.IGlobalConfigurationClient.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.IGlobalConfigurationClient.html",
+          "hash": "/VWYD6wbOKfgGCYLUw5k5A=="
         }
       },
       "is_incremental": false,
@@ -2637,7 +2925,19 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.IMaintenanceClient.html",
-          "hash": "2NbIPhaZNPc7IwRiaV/HLw=="
+          "hash": "mTW7ou2WKQ06tavhstO50g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.CloudManager.Contract.IMessageQueueClient.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.IMessageQueueClient.html",
+          "hash": "a/vQD0d6AhuACqYgex4/HA=="
         }
       },
       "is_incremental": false,
@@ -2649,7 +2949,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.IServiceClient.html",
-          "hash": "dIvCIiX+S3LS/wYRyypFsQ=="
+          "hash": "6e0FTnCyr3E8OtUAtwB/DQ=="
         }
       },
       "is_incremental": false,
@@ -2661,7 +2961,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.IServiceProviderClient.html",
-          "hash": "bqKrLXPwE3IeOoTCDV6zgA=="
+          "hash": "2RMGtqC055QQTi2ZA30OdQ=="
         }
       },
       "is_incremental": false,
@@ -2673,7 +2973,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.IUpdateClient.html",
-          "hash": "/G6uTgz4d1A/lS0tW6Jklw=="
+          "hash": "PwdmBb6agp3CoGZpt6varw=="
         }
       },
       "is_incremental": false,
@@ -2685,7 +2985,19 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.IUserClient.html",
-          "hash": "H9La6x8jFSzvaEbam9BsMA=="
+          "hash": "QAIkU2PkatYGh9OAvfj3kw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.CloudManager.Contract.IdentityProviderNotFoundException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.IdentityProviderNotFoundException.html",
+          "hash": "kN6H/dNFWZVMCwbmSwVtbQ=="
         }
       },
       "is_incremental": false,
@@ -2709,7 +3021,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.IllegalAuthorizationStateTransitionException.html",
-          "hash": "GU6BdBsOd110xyjBuk5jDQ=="
+          "hash": "TALCKDsI8Lm9TlUX4Z1oUA=="
         }
       },
       "is_incremental": false,
@@ -2733,7 +3045,19 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.ImageFormatBase.html",
-          "hash": "xZfhXLxxymYB7vF/EroiVw=="
+          "hash": "zM5tQz9sw+d9sI+2ocJtQw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.CloudManager.Contract.InactiveOrDeletedUserRefusedAccessException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.InactiveOrDeletedUserRefusedAccessException.html",
+          "hash": "K508cZQrNdxUM31IM8Eflw=="
         }
       },
       "is_incremental": false,
@@ -2805,7 +3129,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.IndexType.html",
-          "hash": "rAlivG1AwXIpQnzIxuq4lw=="
+          "hash": "1oBC9DegNCotbAX79GnNUA=="
         }
       },
       "is_incremental": false,
@@ -2829,7 +3153,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.InvalidArgumentException.html",
-          "hash": "7fxcMNC/hOcXpCS+zrZPiQ=="
+          "hash": "ZOwHtkuda3RBm9HBNylzUg=="
         }
       },
       "is_incremental": false,
@@ -2866,6 +3190,18 @@
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.InvalidChangeCommandSchemaChangeInvalidException.html",
           "hash": "64dBopP3ypiPt7gYPTQDXQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.CloudManager.Contract.InvalidDataTypeException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.InvalidDataTypeException.html",
+          "hash": "2+gl01Vfm16a1Wl7c5k9wQ=="
         }
       },
       "is_incremental": false,
@@ -2985,7 +3321,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.JpegFormat.html",
-          "hash": "Ej9Ajrn9dJ/UUqr2N9h/Mw=="
+          "hash": "yBejPmS8OJ5HtBM6x4kOHA=="
         }
       },
       "is_incremental": false,
@@ -2998,6 +3334,30 @@
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.LanguageConfiguration.html",
           "hash": "vcfr8c3pF5/yRftUtyvS1Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.CloudManager.Contract.LayerAssignmentInUseWithContentsException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.LayerAssignmentInUseWithContentsException.html",
+          "hash": "Gxaoedg49772deEHcTG0Mg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.CloudManager.Contract.LayerAssignmentInvalidException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.LayerAssignmentInvalidException.html",
+          "hash": "JTpEQGp7qvi8FScNbl/rVg=="
         }
       },
       "is_incremental": false,
@@ -3149,11 +3509,47 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.CloudManager.Contract.LiveStreamMessage.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.LiveStreamMessage.html",
+          "hash": "/f+TmtOfHjyXO/3iE1xGdg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.CloudManager.Contract.LoginUsingIncorrectIdentityProviderException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.LoginUsingIncorrectIdentityProviderException.html",
+          "hash": "jbUTnW6HJVYFPU+lWlfGYQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/api/Picturepark.SDK.V1.CloudManager.Contract.MaximumTransferSizeException.yml",
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.MaximumTransferSizeException.html",
           "hash": "CESoLkBipq0WpSDoS/jG3Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.CloudManager.Contract.Message.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.Message.html",
+          "hash": "cb9X/6vm9KFM01gvIxKiuA=="
         }
       },
       "is_incremental": false,
@@ -3221,11 +3617,23 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.CloudManager.Contract.ModelNotFoundException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.ModelNotFoundException.html",
+          "hash": "GcGCqgFbeHsbbVBgBnkLeg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/api/Picturepark.SDK.V1.CloudManager.Contract.Mp3AudioFormat.yml",
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.Mp3AudioFormat.html",
-          "hash": "7XfpismeQSL+R9ilQP9mnA=="
+          "hash": "N8guWuRg9HEj/Cpzdlwbjg=="
         }
       },
       "is_incremental": false,
@@ -3237,7 +3645,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.Mp4VideoFormat.html",
-          "hash": "YH8zui9xTQTkmnLj2Wx6gQ=="
+          "hash": "tAjTfmdct1ml56OXGPpPfg=="
         }
       },
       "is_incremental": false,
@@ -3329,6 +3737,18 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.CloudManager.Contract.NodeInfoMessage.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.NodeInfoMessage.html",
+          "hash": "99+DFgeze0Wnfp4SYBXkzg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/api/Picturepark.SDK.V1.CloudManager.Contract.NotFilter.yml",
       "output": {
         ".html": {
@@ -3345,7 +3765,19 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.NotSupportedFileExtensionException.html",
-          "hash": "A5BSb3nYw3wlpdxjzTEIUQ=="
+          "hash": "OBx9KUFIJ3xy599nxP+lcw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.CloudManager.Contract.NotSupportedFileExtensionForFormatException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.NotSupportedFileExtensionForFormatException.html",
+          "hash": "wMhSW4LzEl0krDAhXdzYvA=="
         }
       },
       "is_incremental": false,
@@ -3357,7 +3789,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.NotSupportedFileMappingException.html",
-          "hash": "3PwLc0VSr62/fq7/ff7SMA=="
+          "hash": "pmqhfPaK0I2KZMRSr0J1Tg=="
         }
       },
       "is_incremental": false,
@@ -3369,7 +3801,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.NotSupportedFileMappingForDynamicFormatException.html",
-          "hash": "PcV54e6TkZk19Qzu6O3cBA=="
+          "hash": "tuoOEVhaFxkBGq98DDVf2Q=="
         }
       },
       "is_incremental": false,
@@ -3477,7 +3909,31 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.OriginalFormat.html",
-          "hash": "g9XpFt/TNARMlBH5Cpfn6g=="
+          "hash": "Blx4QTW13s/DZzxu0zLlCQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.CloudManager.Contract.OutdatedMetadataUpdateInProgressException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.OutdatedMetadataUpdateInProgressException.html",
+          "hash": "IY2Jncvdt9bBErR+julZqQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.CloudManager.Contract.OutputBackupNotRequestedException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.OutputBackupNotRequestedException.html",
+          "hash": "ioa0HQOhxiwnzEoKaWS3Nw=="
         }
       },
       "is_incremental": false,
@@ -3489,7 +3945,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.OutputFormat.html",
-          "hash": "nR7xr8Qx0dUA6RIm2c8xlQ=="
+          "hash": "LHEAJ/pr1YkaDT4VYtA3VA=="
         }
       },
       "is_incremental": false,
@@ -3501,7 +3957,31 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.OutputFormatEditable.html",
-          "hash": "z4Cii6MXpcAf5QsVai6x6w=="
+          "hash": "1+TDBvMFjhdLza6tDjTNWw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.CloudManager.Contract.OutputFormatNotFoundException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.OutputFormatNotFoundException.html",
+          "hash": "scnvnYjG96w8S+3DnVjXdQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.CloudManager.Contract.OutputFormatRenderingSpecification.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.OutputFormatRenderingSpecification.html",
+          "hash": "Bkw8QooC7/YhDFUGQZbkvA=="
         }
       },
       "is_incremental": false,
@@ -3514,6 +3994,30 @@
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.OutputFormatResizingNotSupportedException.html",
           "hash": "G9sbPA/7ILcgw/MRXa8QYw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.CloudManager.Contract.OutputFormatRetentionTimeOutOfRangeException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.OutputFormatRetentionTimeOutOfRangeException.html",
+          "hash": "PSyFq2uA92yqswvApRcv1A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.CloudManager.Contract.OutputFormatSourceNotDefinedException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.OutputFormatSourceNotDefinedException.html",
+          "hash": "4xLDtTl1AR9jWcAVzdgTjw=="
         }
       },
       "is_incremental": false,
@@ -3550,6 +4054,30 @@
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.OutputNotFoundException.html",
           "hash": "HkMR26m277MGpOcHIT9PlQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.CloudManager.Contract.OutputRenderedEvent.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.OutputRenderedEvent.html",
+          "hash": "REMC8Gdw14hjNghMS+aupA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.CloudManager.Contract.OutputRenderingState.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.OutputRenderingState.html",
+          "hash": "Q//8V4EEdrEjEToLFwr0VA=="
         }
       },
       "is_incremental": false,
@@ -3621,7 +4149,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.PdfFormat.html",
-          "hash": "Eu1y5+CgURS/Bflnd/3WkA=="
+          "hash": "41Q6SjCoSPmht+yvdmOjGA=="
         }
       },
       "is_incremental": false,
@@ -3669,7 +4197,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.PermissionSetInvalidRightCombinationException.html",
-          "hash": "1rXHTRTpIATBiI3lCcLRxQ=="
+          "hash": "tR4SID794C5H9x/KCRKeNw=="
         }
       },
       "is_incremental": false,
@@ -3693,7 +4221,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.PermissionSetValidationException.html",
-          "hash": "aII7C0Vb+B0MW2srOYpTwA=="
+          "hash": "4tqssAoaUCUql6+N2GPr4A=="
         }
       },
       "is_incremental": false,
@@ -3741,7 +4269,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.PictureparkBusinessException.html",
-          "hash": "0zJPAY586E2153m05BG23Q=="
+          "hash": "q4tYNruXzm7sBmUbOCMG7w=="
         }
       },
       "is_incremental": false,
@@ -3777,7 +4305,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.PictureparkForbiddenException.html",
-          "hash": "7RkFhN3C3tWsvGOYOBP9KA=="
+          "hash": "dXlht9s93BAXF+KNpRwdlg=="
         }
       },
       "is_incremental": false,
@@ -3789,7 +4317,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.PictureparkNotFoundException.html",
-          "hash": "c4XCSUjUwjF75n0p3eleaQ=="
+          "hash": "rL5dIaUx3sCIeKFkhB3SDA=="
         }
       },
       "is_incremental": false,
@@ -3825,7 +4353,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.PictureparkValidationException.html",
-          "hash": "hLYNixtlXRq2m1bY1UCL0g=="
+          "hash": "8zHfy2lVc6mSfHfGorldGQ=="
         }
       },
       "is_incremental": false,
@@ -3837,7 +4365,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.PngFormat.html",
-          "hash": "EiEhDLG+pz9bcc+JeQyYlw=="
+          "hash": "8xdPcVqQaBNbs27EhuUSmA=="
         }
       },
       "is_incremental": false,
@@ -3861,7 +4389,19 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.Preset.html",
-          "hash": "/10r8Lcdd1uRfY3yqhuVgg=="
+          "hash": "gkiyb29NFyLF8NpmUifn6w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.CloudManager.Contract.ProblemDetails.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.ProblemDetails.html",
+          "hash": "H1NKzbecphPXiSkL2caHAg=="
         }
       },
       "is_incremental": false,
@@ -3953,6 +4493,18 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.CloudManager.Contract.ReindexEvent.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.ReindexEvent.html",
+          "hash": "/30CBeumoocgDguUr3rn5g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/api/Picturepark.SDK.V1.CloudManager.Contract.RelationNotFoundException.yml",
       "output": {
         ".html": {
@@ -4013,11 +4565,35 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.CloudManager.Contract.RenderingCategory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.RenderingCategory.html",
+          "hash": "wGBmI9OXpGjtfSkvRdnYaA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/api/Picturepark.SDK.V1.CloudManager.Contract.RenderingException.yml",
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.RenderingException.html",
-          "hash": "BqbXXFonrTNroOQfBdfTbQ=="
+          "hash": "/je8BqGrz9xNLuTdBhKedA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.CloudManager.Contract.RenderingNotAwaitedException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.RenderingNotAwaitedException.html",
+          "hash": "x4nN5rTfjSi4fcQso6h2HQ=="
         }
       },
       "is_incremental": false,
@@ -4029,7 +4605,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.RequestSizeLimitExceededException.html",
-          "hash": "djz1OvQwIxS9I5l6LK0kwg=="
+          "hash": "iDi1Z65hdUA68xRhgV2Nnw=="
         }
       },
       "is_incremental": false,
@@ -4041,19 +4617,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.ResizeAction.html",
-          "hash": "VYKWEvtFybgIlE6cKHKfyQ=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/api/Picturepark.SDK.V1.CloudManager.Contract.ResizeAction2.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.ResizeAction2.html",
-          "hash": "/0ayzCYRlxTQr0i3U2JNeA=="
+          "hash": "wl6cRitck+1DH6ZzFC/z7A=="
         }
       },
       "is_incremental": false,
@@ -4065,7 +4629,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.ResizeMode.html",
-          "hash": "kjibcA51/Rwb7++LAjGq/A=="
+          "hash": "WRtEou+y0EK6zwLhOv4V6g=="
         }
       },
       "is_incremental": false,
@@ -4737,7 +5301,43 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.SearchIndexReindexRequest.html",
-          "hash": "H+YnvWGRhHejmfx7K3ruQg=="
+          "hash": "rK17+JKKQbPlkiTK2jWkCQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.CloudManager.Contract.SearchIndexReindexShardsRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.SearchIndexReindexShardsRequest.html",
+          "hash": "IoRz31R9SbuBQ9y52doRJw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.CloudManager.Contract.SearchIndexType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.SearchIndexType.html",
+          "hash": "yOuOO8yn22x3+CuSMnMtGg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.CloudManager.Contract.SearchReindexCompletedEvent.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.SearchReindexCompletedEvent.html",
+          "hash": "dto5KqVIapCuYVxUUJEjrQ=="
         }
       },
       "is_incremental": false,
@@ -4817,6 +5417,18 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.CloudManager.Contract.SessionRenewalEvent.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.SessionRenewalEvent.html",
+          "hash": "D/coMZtu0V9MLr+khhRzwA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/api/Picturepark.SDK.V1.CloudManager.Contract.SetServiceLogLevelRequest.yml",
       "output": {
         ".html": {
@@ -4865,11 +5477,35 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.CloudManager.Contract.SharePageViewEvent.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.SharePageViewEvent.html",
+          "hash": "RmNxj1/7ahiOcBd/+MplGw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.CloudManager.Contract.ShareSizeLimitExceededException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.ShareSizeLimitExceededException.html",
+          "hash": "txHRkNs6720ctf7AoIhHkQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/api/Picturepark.SDK.V1.CloudManager.Contract.SimulatedTaggingConfiguration.yml",
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.SimulatedTaggingConfiguration.html",
-          "hash": "W90ESkNhgsfA2L5p8wAZ1g=="
+          "hash": "cYYfE3XD7cHXTmObuh1QSg=="
         }
       },
       "is_incremental": false,
@@ -4941,7 +5577,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerRestoreRequest.html",
-          "hash": "TH9NUy70qZpTjPCs3tUqGg=="
+          "hash": "sZxEI+xeMS4Y/7TVz7upGg=="
         }
       },
       "is_incremental": false,
@@ -4965,7 +5601,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerSearchResult.html",
-          "hash": "DLVrra/jYsUkKiXhXBbOIQ=="
+          "hash": "CDEsufcLjSBQ+kN/MeRQCA=="
         }
       },
       "is_incremental": false,
@@ -5014,6 +5650,30 @@
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.SnapshotEnvironmentRestoreRequest.html",
           "hash": "pSxbsjR2XPp1LM0b3kEHzw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.CloudManager.Contract.SnapshotEnvironmentSearchRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.SnapshotEnvironmentSearchRequest.html",
+          "hash": "tP7YvpoALDk5cRoSqMuaAQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.CloudManager.Contract.SnapshotEnvironmentSearchResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.SnapshotEnvironmentSearchResult.html",
+          "hash": "IwgAagKgp9Cq0zGsG+UndA=="
         }
       },
       "is_incremental": false,
@@ -5165,6 +5825,18 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.CloudManager.Contract.SnapshotRetentionTimeTooShortException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.SnapshotRetentionTimeTooShortException.html",
+          "hash": "LU0WrNkYINdVJx3aXy8Pvw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/api/Picturepark.SDK.V1.CloudManager.Contract.SnapshotShardFailure.yml",
       "output": {
         ".html": {
@@ -5217,7 +5889,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.SourceOutputFormats.html",
-          "hash": "vAu/mHMQyIdQW2pV8hQ1Og=="
+          "hash": "fNR45hBuBzXwhQbQYCZjZw=="
         }
       },
       "is_incremental": false,
@@ -5230,6 +5902,18 @@
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.SuperAdminRolesNotAssignableToChannelException.html",
           "hash": "nZ5ojVg1YvO1cfhZn0jBxA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.CloudManager.Contract.SvgFormat.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.SvgFormat.html",
+          "hash": "TosxrjqvjK50gD49sraeGw=="
         }
       },
       "is_incremental": false,
@@ -5265,7 +5949,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.TaggingConfigurationBase.html",
-          "hash": "rTmneP6izo7RIXf5aYOndg=="
+          "hash": "AlyQFlOwAd+dz8mwKqn33g=="
         }
       },
       "is_incremental": false,
@@ -5325,7 +6009,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.TiffFormat.html",
-          "hash": "wxJgO23dQ7fOHf66kvXxIA=="
+          "hash": "N5+d3dmXCeA0kYku/2W9EA=="
         }
       },
       "is_incremental": false,
@@ -5369,6 +6053,18 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.CloudManager.Contract.TransferEvent.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.TransferEvent.html",
+          "hash": "h79/Jxzs28e9JtQGMIoedw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/api/Picturepark.SDK.V1.CloudManager.Contract.TransferInfoNotFoundException.yml",
       "output": {
         ".html": {
@@ -5386,6 +6082,18 @@
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.TransferNotFoundException.html",
           "hash": "Fuvp+OmHxiWtbvImhYWAgw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.CloudManager.Contract.TransferState.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.TransferState.html",
+          "hash": "NUf3VXf8WR3uHBFAP7FSZg=="
         }
       },
       "is_incremental": false,
@@ -5417,11 +6125,83 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.CloudManager.Contract.TupleOfStringAndString.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.TupleOfStringAndString.html",
+          "hash": "4fNH1Nc4aCGOuibxyTp2+w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.CloudManager.Contract.UnableToChangeUserRolesForFederatedUser.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.UnableToChangeUserRolesForFederatedUser.html",
+          "hash": "15/hKTXL/iDEgKS1Ldb2fA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/api/Picturepark.SDK.V1.CloudManager.Contract.UnableToCreateOrModifyStaticOutputFormatException.yml",
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.UnableToCreateOrModifyStaticOutputFormatException.html",
           "hash": "PBCaV4UmikHOxGrF1oVRTQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.CloudManager.Contract.UnableToDeleteDefaultUserRoleException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.UnableToDeleteDefaultUserRoleException.html",
+          "hash": "5Rg/FLP3AWc5O/zTrGm/nQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.CloudManager.Contract.UnableToDeleteUserRoleException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.UnableToDeleteUserRoleException.html",
+          "hash": "64LqgJYb9ltNmLOByFTsbQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.CloudManager.Contract.UnableToDeleteUserRoleReferencedInIdentityProviderGroupMappingException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.UnableToDeleteUserRoleReferencedInIdentityProviderGroupMappingException.html",
+          "hash": "B95iS2BTTO3LFzmx/0pHCg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.CloudManager.Contract.UnableToMapMultipleClaimTypesIntoSameAttributeException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.UnableToMapMultipleClaimTypesIntoSameAttributeException.html",
+          "hash": "kgMp10LVa/5WvcStOIk7fg=="
         }
       },
       "is_incremental": false,
@@ -5457,7 +6237,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.UnsharpenMaskAction.html",
-          "hash": "30rvuAkJPqTdX1BG6tinLA=="
+          "hash": "nN7wAH7+QulCTdEqPSTmKA=="
         }
       },
       "is_incremental": false,
@@ -5505,7 +6285,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.UpdateInfo.html",
-          "hash": "R4WzQm7km9GtNT1dUunfmQ=="
+          "hash": "JBsVzlqN9IJx92DQt0jUSw=="
         }
       },
       "is_incremental": false,
@@ -5525,11 +6305,47 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.CloudManager.Contract.UserAlreadyInRequestedLockStateException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.UserAlreadyInRequestedLockStateException.html",
+          "hash": "RP4pcHi0o56qXbKpXQj6Yw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.CloudManager.Contract.UserAttributeNotSynchronizableException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.UserAttributeNotSynchronizableException.html",
+          "hash": "gqAb6wqFKcRxS/E+VxG7Ww=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/api/Picturepark.SDK.V1.CloudManager.Contract.UserDeveloperFlagUpdateRequest.yml",
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.UserDeveloperFlagUpdateRequest.html",
           "hash": "LKH9O947B43rgf+T3HQs4Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.CloudManager.Contract.UserDoesNotSupportLocalLoginException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.UserDoesNotSupportLocalLoginException.html",
+          "hash": "+7CzRg1E3v8qr/ulKwyJpQ=="
         }
       },
       "is_incremental": false,
@@ -5553,7 +6369,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.UserInactiveOrDeletedException.html",
-          "hash": "Ufku9SwtNgMqVtDI+O/LRw=="
+          "hash": "pzBt1K6CJVzurRU4Yn8XdQ=="
         }
       },
       "is_incremental": false,
@@ -5577,7 +6393,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.UserRight.html",
-          "hash": "0++qXQqdyTzGRy1RKWyfSA=="
+          "hash": "uXpb2c6+EpKTfLO1AhaTiQ=="
         }
       },
       "is_incremental": false,
@@ -5589,7 +6405,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.UserRoleAssignedException.html",
-          "hash": "za4leXYS2t0nKlOisBk2HA=="
+          "hash": "CFhA1tVwLdMJV3u6DcR3cA=="
         }
       },
       "is_incremental": false,
@@ -5613,7 +6429,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.UserUnlockDisallowedException.html",
-          "hash": "1wywqFapI30EpafYfhki6A=="
+          "hash": "2Nt8Vh+5GAF25h2xo+afGA=="
         }
       },
       "is_incremental": false,
@@ -5625,7 +6441,31 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.UserWithRoles.html",
-          "hash": "6H9BcSbZE4HSgKzaibB+/A=="
+          "hash": "fQeZ+V+UNC2Yh2sg0xufBQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.CloudManager.Contract.VectorFormatBase.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.VectorFormatBase.html",
+          "hash": "x4qbORNRP4Kh7ZNQW8eUfQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.CloudManager.Contract.VectorStillFormat.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.VectorStillFormat.html",
+          "hash": "wpeL41BPBIo3NSfD9VtM2w=="
         }
       },
       "is_incremental": false,
@@ -5649,7 +6489,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.VideoFormatBase.html",
-          "hash": "5e6q5nnX3roeSxMrQZGI5g=="
+          "hash": "GyXvbJjbsEljJzfzVTGFFQ=="
         }
       },
       "is_incremental": false,
@@ -5661,7 +6501,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.VideoSpriteFormat.html",
-          "hash": "meUije4Txt961v3R9Wt00w=="
+          "hash": "3v1AwuZikKq0KRlDP0PoSw=="
         }
       },
       "is_incremental": false,
@@ -5673,7 +6513,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.VideoStillFormat.html",
-          "hash": "YOQ16h+/h8W7gqIm1z9oUg=="
+          "hash": "F6EhNdb38bZiKL6fVVCgcQ=="
         }
       },
       "is_incremental": false,
@@ -5685,7 +6525,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.WatermarkAction.html",
-          "hash": "Q5W+B7GRc8C6p6RAhomxgw=="
+          "hash": "5P0NflgvAG5UwZXQddD0FQ=="
         }
       },
       "is_incremental": false,
@@ -5709,7 +6549,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.html",
-          "hash": "48/QyvN+UPvGnr7sizIE1g=="
+          "hash": "K3MTZkSjU/dbWYUEyeJokQ=="
         }
       },
       "is_incremental": false,
@@ -5733,7 +6573,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.CustomerClient.html",
-          "hash": "BFszKLmozYeZwzONFd7FvQ=="
+          "hash": "jh8Sh2KHepfdMGi9+lYF8Q=="
         }
       },
       "is_incremental": false,
@@ -5757,7 +6597,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.CustomerServiceProviderClient.html",
-          "hash": "Jn0rUsjuA7S4E0gOnVp/0w=="
+          "hash": "X206/UQv+7IhdbswHy13eQ=="
         }
       },
       "is_incremental": false,
@@ -5781,7 +6621,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.EnvironmentClient.html",
-          "hash": "uadtzowv/+o+QPR/bcS1Jw=="
+          "hash": "kXP6X3sbz26nDF/aHyq1/g=="
         }
       },
       "is_incremental": false,
@@ -5805,7 +6645,31 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.EnvironmentProcessClient.html",
-          "hash": "CuXcQcC1i2Vo8kl9YtFRYQ=="
+          "hash": "f4NJ9YMEbNsOhddo9RxQ+A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.CloudManager.GlobalConfigurationClient.ObjectResponseResult-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.CloudManager.GlobalConfigurationClient.ObjectResponseResult-1.html",
+          "hash": "LIYvsNC2nAukh+GOtQFt/w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.CloudManager.GlobalConfigurationClient.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.CloudManager.GlobalConfigurationClient.html",
+          "hash": "9qXKe4vbVf+t2Lmk8K7BVQ=="
         }
       },
       "is_incremental": false,
@@ -5841,7 +6705,31 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.MaintenanceClient.html",
-          "hash": "g4J8OfbOkszIElhHYxHyrA=="
+          "hash": "L8NcgfcGYD27n8mmJPsYrQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.CloudManager.MessageQueueClient.ObjectResponseResult-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.CloudManager.MessageQueueClient.ObjectResponseResult-1.html",
+          "hash": "mc1AnjKyJLC7WRXHe0sY1Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.CloudManager.MessageQueueClient.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.CloudManager.MessageQueueClient.html",
+          "hash": "drOKVmkd3354kR11m2Xe/Q=="
         }
       },
       "is_incremental": false,
@@ -5865,7 +6753,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.ServiceClient.html",
-          "hash": "Z92IKYS2uLueiKahXzuvZw=="
+          "hash": "pRfiMgl44Iz4PaN61B1FFg=="
         }
       },
       "is_incremental": false,
@@ -5889,7 +6777,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.ServiceProviderClient.html",
-          "hash": "sKAnGdQ4IGTt+xSv3AYucA=="
+          "hash": "d5zxhOIFSM2pqbQN5HlUQA=="
         }
       },
       "is_incremental": false,
@@ -5913,7 +6801,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.UpdateClient.html",
-          "hash": "RMhA4GmaWiILsH6xHdeT3A=="
+          "hash": "4vCeDCjv8dOcpof2lFxxmg=="
         }
       },
       "is_incremental": false,
@@ -5937,7 +6825,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.UserClient.html",
-          "hash": "NmtWGXeQkBW2D/VVt4Nh0w=="
+          "hash": "SX9khzYHAjJppBaCinn6Bw=="
         }
       },
       "is_incremental": false,
@@ -5949,7 +6837,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.html",
-          "hash": "YifVEK6SfwxRTxY0UjsP5A=="
+          "hash": "8fi4hXBPYt6eRPZ7gL989g=="
         }
       },
       "is_incremental": false,
@@ -5973,7 +6861,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.ContentClient.html",
-          "hash": "GmxVIi2zE92XrRUhSqSIOw=="
+          "hash": "P6+h6cKFihfvrfh1QJ9fvA=="
         }
       },
       "is_incremental": false,
@@ -5997,7 +6885,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.ContentPermissionSetClient.html",
-          "hash": "fiawFAeQfD2N8vE3pu5PIw=="
+          "hash": "vwLivte6410swRI3BL2mAw=="
         }
       },
       "is_incremental": false,
@@ -6009,7 +6897,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.AacAudioFormat.html",
-          "hash": "d/TYs8OqZWujvXw5+hcJXw=="
+          "hash": "QCss/hBanmn++GG+37ytgg=="
         }
       },
       "is_incremental": false,
@@ -6117,7 +7005,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.AlphaHandling.html",
-          "hash": "JbqePkRdgxUBK5OmGN7p3w=="
+          "hash": "3AifyD0ejECyLSGU7Sk5HQ=="
         }
       },
       "is_incremental": false,
@@ -6129,7 +7017,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.AlphaHandlingAction.html",
-          "hash": "91B+B/aiDzU3cbNld+ciig=="
+          "hash": "EcWtFy8FbzSyrLaUVb7c9A=="
         }
       },
       "is_incremental": false,
@@ -6141,7 +7029,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.AmbiguousUserRoleRightsException.html",
-          "hash": "979IrpMpHpQl5epu9F4sig=="
+          "hash": "Cay92E+GK87bZqx2RuxrFg=="
         }
       },
       "is_incremental": false,
@@ -6177,7 +7065,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.AndCondition.html",
-          "hash": "DgDs3TFSy6RChuR7HvZ9ag=="
+          "hash": "nLAtNU3qNYx4fgqyV4M19w=="
         }
       },
       "is_incremental": false,
@@ -6245,11 +7133,23 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.ArgumentRangeException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.Contract.ArgumentRangeException.html",
+          "hash": "c/f2NxBpgCpvqi8tAeZqVA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.AssignContentPermissionSetsAction.yml",
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.AssignContentPermissionSetsAction.html",
-          "hash": "OIBrar/vyK9GCcVKy5FFTQ=="
+          "hash": "sx5JaTXndoefA63n8inqvQ=="
         }
       },
       "is_incremental": false,
@@ -6261,7 +7161,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.AssignLayerAction.html",
-          "hash": "DXPulPki4TdtkLN3gpK+dg=="
+          "hash": "LFT8l11kLHQ3N8b4fbmfMQ=="
         }
       },
       "is_incremental": false,
@@ -6273,7 +7173,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.AssignTagboxItemsAction.html",
-          "hash": "9pRsGCp496nBySI8Bw+oRw=="
+          "hash": "pSQA2HVGH1Cq3ptk6CLD+A=="
         }
       },
       "is_incremental": false,
@@ -6285,7 +7185,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.AssignTagboxItemsInLayerAction.html",
-          "hash": "GBxB412bVMWAMkyxU1nUAg=="
+          "hash": "vAEMp1Yth0va2HdLcqt+Yg=="
         }
       },
       "is_incremental": false,
@@ -6297,7 +7197,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.AssignValueAction.html",
-          "hash": "wZEpWiGHY0MemDZSCoFLzg=="
+          "hash": "B4poX5ByPISW5pHTxZl00g=="
         }
       },
       "is_incremental": false,
@@ -6657,7 +7557,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.AudioFormatBase.html",
-          "hash": "ZlowjrbAWt2cD0hfz00epg=="
+          "hash": "IUZhIp0LIPs/Z8gqE3vp7Q=="
         }
       },
       "is_incremental": false,
@@ -6681,7 +7581,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.AudioStillFormat.html",
-          "hash": "LwMeNCZSXCE/aobbR381FQ=="
+          "hash": "FwXDgrNOKBmZesmZzr+WeA=="
         }
       },
       "is_incremental": false,
@@ -6729,7 +7629,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.AuthorizationState.html",
-          "hash": "HBPSBsnWto99Ipxy6YiI9w=="
+          "hash": "F7M3yUJ46pJL4YJxh4Xk3w=="
         }
       },
       "is_incremental": false,
@@ -6741,7 +7641,19 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.BaseResultOfBusinessProcess.html",
-          "hash": "FzGGkYo8xTqC0zMbE0i1eg=="
+          "hash": "KZUp94iBmLtsyrF965muuQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.BaseResultOfBusinessRuleTraceLog.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.Contract.BaseResultOfBusinessRuleTraceLog.html",
+          "hash": "wAGuOb5eVdCT6LAwoKqnMg=="
         }
       },
       "is_incremental": false,
@@ -6753,7 +7665,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.BaseResultOfContent.html",
-          "hash": "UTbAh2PiVZP6mQdTBiX3Gw=="
+          "hash": "DHhoO6lhPIrTK1myTuLELQ=="
         }
       },
       "is_incremental": false,
@@ -6765,7 +7677,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.BaseResultOfContentShareReference.html",
-          "hash": "foN3WJNIAUWWylTlapRD2g=="
+          "hash": "x391lc/U5rnjXzBaMwmwKA=="
         }
       },
       "is_incremental": false,
@@ -6777,7 +7689,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.BaseResultOfDocumentHistory.html",
-          "hash": "YPGE5NWB15xO+G1WO2o9Nw=="
+          "hash": "u9juqoAEaWLdBErkMhb03Q=="
         }
       },
       "is_incremental": false,
@@ -6789,7 +7701,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.BaseResultOfFileTransfer.html",
-          "hash": "KhA0rJPFxHxsCMYGWswPGw=="
+          "hash": "Gnq8OUt/Dtm+iucZeh1TKg=="
         }
       },
       "is_incremental": false,
@@ -6801,7 +7713,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.BaseResultOfListItem.html",
-          "hash": "pVs40x3VcUNfwmyvJtB9XA=="
+          "hash": "kFotGzA5SDnIkgN3EIqFqQ=="
         }
       },
       "is_incremental": false,
@@ -6813,7 +7725,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.BaseResultOfLiveStream.html",
-          "hash": "2ggwsde6UiiBVHvR4IzDqg=="
+          "hash": "ofRKADgq4hTQbHxgLOMsXQ=="
         }
       },
       "is_incremental": false,
@@ -6825,7 +7737,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.BaseResultOfMetadataReference.html",
-          "hash": "uP1oZssm3BqSQcob9XelXg=="
+          "hash": "kpRAGxWROCg/T9iXqTMWuQ=="
         }
       },
       "is_incremental": false,
@@ -6837,7 +7749,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.BaseResultOfOutput.html",
-          "hash": "oIUPvE+BUP2797YfXHcIhQ=="
+          "hash": "VeXJ/5bKMZ3YFbsaN48p7w=="
         }
       },
       "is_incremental": false,
@@ -6849,7 +7761,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.BaseResultOfPermissionSet.html",
-          "hash": "ViBDlm0t0NYZgkb+LpNP/g=="
+          "hash": "rUXVyU7KoznmSxbdi08RQQ=="
         }
       },
       "is_incremental": false,
@@ -6861,7 +7773,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.BaseResultOfSchema.html",
-          "hash": "HfP0+t8UcsG459Fs5IMQhg=="
+          "hash": "grtyUJASu9PblXz1Ov4x4g=="
         }
       },
       "is_incremental": false,
@@ -6873,7 +7785,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.BaseResultOfShare.html",
-          "hash": "o9TE+60btrtxiYKKCretnw=="
+          "hash": "gfbSHvqChQwSn1XLrR7ecQ=="
         }
       },
       "is_incremental": false,
@@ -6885,7 +7797,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.BaseResultOfTransfer.html",
-          "hash": "NhTmBtyMxP3kQ2AkIWTeVQ=="
+          "hash": "5AggZXDXERymqvv4xL/LGg=="
         }
       },
       "is_incremental": false,
@@ -6897,7 +7809,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.BaseResultOfUserRole.html",
-          "hash": "XzS/NtAFItIIQ/DiJR7PRw=="
+          "hash": "PlVJTIAzaL3cjRgoN55eNA=="
         }
       },
       "is_incremental": false,
@@ -6909,19 +7821,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.BaseResultOfUserWithRoles.html",
-          "hash": "rfXY6SQk4IhB753dwB7R8A=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.BasicTemplate.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Picturepark.SDK.V1.Contract.BasicTemplate.html",
-          "hash": "JSmtqhsrdQMyJmhRjmLfbw=="
+          "hash": "uDbqzkvnoLe3LbAMcGlcGg=="
         }
       },
       "is_incremental": false,
@@ -6945,7 +7845,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.BatchResponseRow.html",
-          "hash": "3RV4WPgYGLcFQrII+mIGtA=="
+          "hash": "CrNjKnQERew/4WvGYafhrQ=="
         }
       },
       "is_incremental": false,
@@ -6981,7 +7881,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.BooleanCondition.html",
-          "hash": "piJITpruh995hJhYz/9XJA=="
+          "hash": "h+X3+P958wIDSb/EfIMFmA=="
         }
       },
       "is_incremental": false,
@@ -7377,7 +8277,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.BusinessRule.html",
-          "hash": "vJqg0raJFeFggdMxrnKpOw=="
+          "hash": "kA4lvPK+A9lVQOvcBVC6Ag=="
         }
       },
       "is_incremental": false,
@@ -7389,7 +8289,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.BusinessRuleAction.html",
-          "hash": "7yyKVsmB6bSJ8dkH9WPZNg=="
+          "hash": "uAnDNOMULPhx1vjEGKxcnA=="
         }
       },
       "is_incremental": false,
@@ -7449,7 +8349,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.BusinessRuleCondition.html",
-          "hash": "Kazk3nJv5zVNWW01DmLK6Q=="
+          "hash": "aXMypbjmE3YucQ3FRs1ecA=="
         }
       },
       "is_incremental": false,
@@ -7509,7 +8409,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.BusinessRuleConfigurable.html",
-          "hash": "CzQdYAdOxusleOiUS8c/RQ=="
+          "hash": "U/gBb9WMohNyvMSxLjmzBA=="
         }
       },
       "is_incremental": false,
@@ -7821,7 +8721,115 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.BusinessRuleScript.html",
-          "hash": "M8hpmZqx2TwWYuthV8RucA=="
+          "hash": "NZTp70puLG4FyKS1J8IoIw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.BusinessRuleTraceLog.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.Contract.BusinessRuleTraceLog.html",
+          "hash": "+rG82bUPNi1nltSMfjlvfQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.BusinessRuleTraceLogSearchRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.Contract.BusinessRuleTraceLogSearchRequest.html",
+          "hash": "SuR3wEYv+kd6Isoqn5lfcA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.BusinessRuleTraceLogSearchResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.Contract.BusinessRuleTraceLogSearchResult.html",
+          "hash": "u/zAHD4LOqlHQ95hF34oJA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.BusinessRuleTracedAction.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.Contract.BusinessRuleTracedAction.html",
+          "hash": "+UgQJfZdtmqVWV3GFzN46A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.BusinessRuleTracedEvaluation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.Contract.BusinessRuleTracedEvaluation.html",
+          "hash": "l92pJaG+JfCtlkBHFb//hw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.BusinessRuleTracedEvaluationCondition.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.Contract.BusinessRuleTracedEvaluationCondition.html",
+          "hash": "BieEdt212x4+FwjQ/L7iww=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.BusinessRuleTracedRule.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.Contract.BusinessRuleTracedRule.html",
+          "hash": "L9aJz6xtLPeJO4ysN6hOTg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.BusinessRuleTracedTransformation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.Contract.BusinessRuleTracedTransformation.html",
+          "hash": "zqCPgs9lkDXn+qHXe4IhAA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.BusinessRuleTracedTransformationGroup.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.Contract.BusinessRuleTracedTransformationGroup.html",
+          "hash": "gMjXmMXvg4wcFsariCPXKg=="
         }
       },
       "is_incremental": false,
@@ -7833,7 +8841,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.BusinessRuleTransformation.html",
-          "hash": "zqCyM+B3fmnFTQBpCGqtCQ=="
+          "hash": "Dl34Dv0ClkZLok11DdRwqA=="
         }
       },
       "is_incremental": false,
@@ -7845,7 +8853,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.BusinessRuleTransformationGroup.html",
-          "hash": "i495jxDyfn8lAPYtOlDp8Q=="
+          "hash": "1N334nzNL1b60pZIJMWkhA=="
         }
       },
       "is_incremental": false,
@@ -7930,18 +8938,6 @@
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.BusinessRuleValidationException.html",
           "hash": "RJl+w9LffCYaXNGz53rduw=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.CardTemplate.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Picturepark.SDK.V1.Contract.CardTemplate.html",
-          "hash": "yBrcMjfuAtHR1eKB/JfFTw=="
         }
       },
       "is_incremental": false,
@@ -8057,11 +9053,35 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.ClarifaiTaggingOptions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.Contract.ClarifaiTaggingOptions.html",
+          "hash": "CNemq1gZqSGdR7+oOnphnw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.Coder.yml",
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.Coder.html",
-          "hash": "AsyYdD8NWdP2BS+iZS8YRQ=="
+          "hash": "Jav0E1MXvM2boXeaODSdlA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.CollectionSizeLimitExceededException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.Contract.CollectionSizeLimitExceededException.html",
+          "hash": "bwYasvC8702LQAKWXkdyhw=="
         }
       },
       "is_incremental": false,
@@ -8073,7 +9093,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.ColorProfile.html",
-          "hash": "Avc3hHAA1tr1xoOXbI/e9g=="
+          "hash": "brv4kt7yj0DixdEcojlu4g=="
         }
       },
       "is_incremental": false,
@@ -8085,7 +9105,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.ColorTransformationIntent.html",
-          "hash": "tROXegx1eqIZ8xjdNFexjg=="
+          "hash": "zCDiNULKA1p8CgkhlPmsbA=="
         }
       },
       "is_incremental": false,
@@ -8097,7 +9117,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.CompressionType.html",
-          "hash": "ifDR2AHFyc25A/nypX6qYg=="
+          "hash": "7AOMPKuyn7XqH+HZvlNXaw=="
         }
       },
       "is_incremental": false,
@@ -8133,7 +9153,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.ConsoleMessage.html",
-          "hash": "SU5r8VP9nVLaZ1v8qN/gYw=="
+          "hash": "jtL2cMPt+DdROq0ptuLCDw=="
         }
       },
       "is_incremental": false,
@@ -8145,7 +9165,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.Content.html",
-          "hash": "Iikm3IlFgC24xMjjC/5f+g=="
+          "hash": "IAE0sGJK2sw84h2RW+yAQg=="
         }
       },
       "is_incremental": false,
@@ -8157,7 +9177,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.ContentAggregationOnChannelRequest.html",
-          "hash": "R+4zIfm8tcm/9y0JZu0AeQ=="
+          "hash": "SyKb8KZCYtgqshzm6bjJ1w=="
         }
       },
       "is_incremental": false,
@@ -8169,7 +9189,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.ContentAggregationRequest.html",
-          "hash": "Mx+sM+oiwaceumHS8fAClg=="
+          "hash": "EKgBFEIrQlNcSXe/wrweuA=="
         }
       },
       "is_incremental": false,
@@ -8289,7 +9309,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.ContentDownloadLinkCreateRequest.html",
-          "hash": "ZFbRcR+Pj3XFk1AzEgIApg=="
+          "hash": "2hHkMDg7DVtvIYCt4J5liA=="
         }
       },
       "is_incremental": false,
@@ -8433,7 +9453,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.ContentMetadataUpdateItem.html",
-          "hash": "dK9xN6pefIC38IVdIG8p3g=="
+          "hash": "YbtMXN7Tyc3DNEog0o76Xw=="
         }
       },
       "is_incremental": false,
@@ -8469,7 +9489,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.ContentMetadataUpdateRequest.html",
-          "hash": "8Wa/dbXgcJlGz/QZ2vjB3g=="
+          "hash": "cgFYOYgafphme24VQBgHqg=="
         }
       },
       "is_incremental": false,
@@ -8541,7 +9561,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.ContentPermissionSetAssignedCondition.html",
-          "hash": "jy5+0WMjeF94ADVkFD95Rw=="
+          "hash": "FvNzdpYHSdemj+YHkxD1YQ=="
         }
       },
       "is_incremental": false,
@@ -8589,7 +9609,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.ContentPermissionSetUnassignedCondition.html",
-          "hash": "zT8LI2h2Ei8tVtSGpCskhQ=="
+          "hash": "iCiAOn7JwCOvFwtBOhf6WQ=="
         }
       },
       "is_incremental": false,
@@ -8637,7 +9657,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.ContentPermissionSetsChangedCondition.html",
-          "hash": "M+0w03w+z+DFYDeHX/6P9w=="
+          "hash": "ngVZHSe87DowU1yxkEtwFg=="
         }
       },
       "is_incremental": false,
@@ -8709,7 +9729,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.ContentRelationItemAssignedCondition.html",
-          "hash": "EVvogCU4TcTfR7d7w1zJOw=="
+          "hash": "ViXSsy9Fe/Q9myJfA+rZFw=="
         }
       },
       "is_incremental": false,
@@ -8721,7 +9741,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.ContentRelationItemUnassignedCondition.html",
-          "hash": "udc1WJrY8QefDY7G83gypQ=="
+          "hash": "LbllnBJ+h2wWxRBSkKO9rQ=="
         }
       },
       "is_incremental": false,
@@ -8733,7 +9753,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.ContentRelationItemsChangedCondition.html",
-          "hash": "cVQ+IVKPRlBtNyQEXEYi+w=="
+          "hash": "46u3hJ4KcUoOlP2Iqbkc9A=="
         }
       },
       "is_incremental": false,
@@ -8793,7 +9813,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.ContentSchemaCondition.html",
-          "hash": "1ruJW0mBOozELutrTfygcA=="
+          "hash": "RZgzbgEY0LGf9ug8iNIM9w=="
         }
       },
       "is_incremental": false,
@@ -8805,7 +9825,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.ContentSearchRequest.html",
-          "hash": "WBP9CaKfonRYCwY2tzZQ9w=="
+          "hash": "EBlhYb1PZLOLbYwFkbP8ZQ=="
         }
       },
       "is_incremental": false,
@@ -8817,7 +9837,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.ContentSearchResult.html",
-          "hash": "l7hS0Bj3wDpRbkC/wJIEAA=="
+          "hash": "UAGNtnE/DYlgLh9mnVwGFA=="
         }
       },
       "is_incremental": false,
@@ -8897,23 +9917,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.CreateShareResult.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Picturepark.SDK.V1.Contract.CreateShareResult.html",
-          "hash": "FsDTWamF6pvVBOwQhl5hiw=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.CreateTransferRequest.yml",
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.CreateTransferRequest.html",
-          "hash": "dkoH/FcRfnuVFYyMiLxpEQ=="
+          "hash": "7hbT6bWpYPy0lybeecm30g=="
         }
       },
       "is_incremental": false,
@@ -8937,7 +9945,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.CropAction.html",
-          "hash": "LzEruaVkWwIdb59J3xikYQ=="
+          "hash": "wW86rGhKV88DlRBxqA3CBQ=="
         }
       },
       "is_incremental": false,
@@ -9029,6 +10037,18 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.CustomerClonesNotAcceptedException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.Contract.CustomerClonesNotAcceptedException.html",
+          "hash": "woWq2qMOZoaDNyWC4A7NvA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.CustomerDeactivationException.yml",
       "output": {
         ".html": {
@@ -9057,7 +10077,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.CustomerInfo.html",
-          "hash": "SfCiPF7pqMLIsKRW4rKsFw=="
+          "hash": "ClMEO8/R1hIMfBAmaLwlQQ=="
         }
       },
       "is_incremental": false,
@@ -9249,7 +10269,19 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.DisplayPatternType.html",
-          "hash": "7Fzic3q96FPKgw4kg1Mipw=="
+          "hash": "IwWYutQtR+JwmaT4AAPPkw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.DisplayPatternTypeNotSupportedException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.Contract.DisplayPatternTypeNotSupportedException.html",
+          "hash": "c4ExrHeIY9sEOcrXmwJVvQ=="
         }
       },
       "is_incremental": false,
@@ -9261,7 +10293,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.DisplayValueDictionary.html",
-          "hash": "3nSuRK1P1edyvKfThKt+zQ=="
+          "hash": "PNZ5974cSCB5M4f03r48Og=="
         }
       },
       "is_incremental": false,
@@ -9333,7 +10365,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.DocumentFormatBase.html",
-          "hash": "Y004OuF7TFmrHtn+vQrEEA=="
+          "hash": "4BUPKatyqwKtla7C4y8n1A=="
         }
       },
       "is_incremental": false,
@@ -9405,7 +10437,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.DocumentStillFormat.html",
-          "hash": "0bksm67NzR9vjbS58POnKg=="
+          "hash": "9BtFozQ8vNpn4gLDm2Iddw=="
         }
       },
       "is_incremental": false,
@@ -9442,6 +10474,18 @@
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.DownloadLink.html",
           "hash": "6DXXqoLuw2zoyYudRgyJtg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.DownloadLinkExpiredException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.Contract.DownloadLinkExpiredException.html",
+          "hash": "YP0eBVPYGHSUOm/cVItDxg=="
         }
       },
       "is_incremental": false,
@@ -9610,6 +10654,18 @@
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.ElasticVersionUpdateException.html",
           "hash": "spcPs2sg+dd8B9WP2e+jtA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.EnqueueTaggingAction.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.Contract.EnqueueTaggingAction.html",
+          "hash": "nVd3Rf9w8bc9UJTLUkfaZA=="
         }
       },
       "is_incremental": false,
@@ -9893,6 +10949,18 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.FieldEmptyCondition.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.Contract.FieldEmptyCondition.html",
+          "hash": "zdqD0mnd9KVAZL0T3gl0gQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.FieldExistsResponse.yml",
       "output": {
         ".html": {
@@ -10113,7 +11181,19 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.FieldValueChangedCondition.html",
-          "hash": "pn3ZezuMam7uMv1zW+f2yg=="
+          "hash": "PhBVTH8heiqZIW8Ht8V5Eg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.FileIdDuplicatedException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.Contract.FileIdDuplicatedException.html",
+          "hash": "fKSG2m786meixCrjqT6O8A=="
         }
       },
       "is_incremental": false,
@@ -10137,7 +11217,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.FileMetadata.html",
-          "hash": "6SO5WA9JY4bKfft3U/8zcw=="
+          "hash": "DkFo7qRXhODm5ZHRDYxgbg=="
         }
       },
       "is_incremental": false,
@@ -10305,7 +11385,19 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.FormatBase.html",
-          "hash": "I31gCxYKUILcVM7d6ukFDA=="
+          "hash": "SLekNxOsf/fCHIlthRBraA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.FormatNotApplicableForRenderingException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.Contract.FormatNotApplicableForRenderingException.html",
+          "hash": "zgY3SrykysKRhYACk6gJ5g=="
         }
       },
       "is_incremental": false,
@@ -10389,7 +11481,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.GeoPointWithinPolygonCondition.html",
-          "hash": "5W3Q04IWyUxjd9jvh0z1hw=="
+          "hash": "iVdnEEiDx8PgeCXqNEz/MQ=="
         }
       },
       "is_incremental": false,
@@ -10401,7 +11493,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.IBusinessProcessClient.html",
-          "hash": "0hkzpHJGh9jCdMHWXuDTlw=="
+          "hash": "JmSYjQDO6xvoxQJEvi+G4w=="
         }
       },
       "is_incremental": false,
@@ -10413,7 +11505,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.IBusinessRuleClient.html",
-          "hash": "7iJQPEMC8b0JsDhuG0+ttw=="
+          "hash": "cYyFZhF1OvqALsReo/Wuxg=="
         }
       },
       "is_incremental": false,
@@ -10425,7 +11517,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.IChannelClient.html",
-          "hash": "OmufLPO295yTjmz1U9ETgA=="
+          "hash": "i0+75cAXUInV4+oqCqch4w=="
         }
       },
       "is_incremental": false,
@@ -10437,7 +11529,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.IContentClient.html",
-          "hash": "K1ND2t19olufAxEiARYytA=="
+          "hash": "qpknqrkcapQiFyRSaIfNpQ=="
         }
       },
       "is_incremental": false,
@@ -10449,7 +11541,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.IContentPermissionSetClient.html",
-          "hash": "sx33X/5eME++YMVs9a1FsQ=="
+          "hash": "KaEiCsyW6zGi3Ow5xticYg=="
         }
       },
       "is_incremental": false,
@@ -10461,7 +11553,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.IDisplayValueClient.html",
-          "hash": "Ck/DeZ3zItBYjLhtFdzo9Q=="
+          "hash": "6ycmcL1Z83hGKf8Vtz52Rg=="
         }
       },
       "is_incremental": false,
@@ -10473,7 +11565,19 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.IDocumentHistoryClient.html",
-          "hash": "lHOAb+HNRrQuIKFxGiBrzw=="
+          "hash": "/+pWR/RNxOA6NJliIaXngQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.IIdentityProviderClient.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.Contract.IIdentityProviderClient.html",
+          "hash": "0glZX5N+pekRqxx6XtxcZw=="
         }
       },
       "is_incremental": false,
@@ -10485,7 +11589,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.IInfoClient.html",
-          "hash": "DoDtSG6a/ZujBatnXesJrQ=="
+          "hash": "gciSPCq/b91D+JPyyBPvfg=="
         }
       },
       "is_incremental": false,
@@ -10509,7 +11613,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.IListItemClient.html",
-          "hash": "ywZx5549ZYgn6CSPdPaNpg=="
+          "hash": "kvim7doP2a6jMZybNeyA7Q=="
         }
       },
       "is_incremental": false,
@@ -10521,7 +11625,19 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.ILiveStreamClient.html",
-          "hash": "bBcTnlLQYDqNe/JuB9OwGQ=="
+          "hash": "iBN0vRaFxAsO/R257QOJaQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.IMetadataClient.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.Contract.IMetadataClient.html",
+          "hash": "wWJKiZsKgwDRJFn6AmpfqA=="
         }
       },
       "is_incremental": false,
@@ -10533,7 +11649,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.IOutputClient.html",
-          "hash": "xqRIfVEHUBawH1yNINManQ=="
+          "hash": "H1QAekhnabGWLaLxrcgbNA=="
         }
       },
       "is_incremental": false,
@@ -10545,7 +11661,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.IOutputFormatClient.html",
-          "hash": "qkQQVWSVQYXDrErC/XLsUA=="
+          "hash": "rYbAxpXXONymnDRYhAyS/A=="
         }
       },
       "is_incremental": false,
@@ -10557,7 +11673,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.IPictureparkService.html",
-          "hash": "UVWqpIaWZuNozdo+eG92xA=="
+          "hash": "nLUnIPO04wYoNvJlLtSx0A=="
         }
       },
       "is_incremental": false,
@@ -10581,7 +11697,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.IProfileClient.html",
-          "hash": "6KBRcy/x7gfxkmkyZMZ4Cw=="
+          "hash": "GqakixfxsDueP/d5Zj0gSg=="
         }
       },
       "is_incremental": false,
@@ -10605,7 +11721,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.ISchemaClient.html",
-          "hash": "xPDeOI6utmYMK442yp+Nnw=="
+          "hash": "Bg4elX0wYlg47kUy1isveA=="
         }
       },
       "is_incremental": false,
@@ -10617,7 +11733,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.ISchemaPermissionSetClient.html",
-          "hash": "rCwqD8dlBYQ75SlHxtjVdw=="
+          "hash": "uoew1Fj5iUmYMNf1xKi0zA=="
         }
       },
       "is_incremental": false,
@@ -10641,7 +11757,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.ISchemaTransferClient.html",
-          "hash": "BjPvEm2hBLTzJ3+qykHjMQ=="
+          "hash": "iFssSck4eSKjdq07dV1KOQ=="
         }
       },
       "is_incremental": false,
@@ -10653,7 +11769,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.IShareClient.html",
-          "hash": "KrAblDBgqPGorXStdH3BOA=="
+          "hash": "VI+pIsnkluRj5z4Utr8tyw=="
         }
       },
       "is_incremental": false,
@@ -10665,7 +11781,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.ITransferClient.html",
-          "hash": "pT8kM+TKx4iH+Slrw3eFFA=="
+          "hash": "W4Y9Db4d1395bIU+cDq4UA=="
         }
       },
       "is_incremental": false,
@@ -10689,7 +11805,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.IUserClient.html",
-          "hash": "ul7llNadqDMU5ShXZCasfQ=="
+          "hash": "UQHRB3OhT68wLIye1HfGxA=="
         }
       },
       "is_incremental": false,
@@ -10701,7 +11817,79 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.IUserRoleClient.html",
-          "hash": "k3vgOV/UfpLUGatQP47alg=="
+          "hash": "UApXCh1ZONp9bgp7HOhAIQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.IdentityProvider.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.Contract.IdentityProvider.html",
+          "hash": "1ELUyN81+PRnZC5GKnViDA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.IdentityProviderBasicInfo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.Contract.IdentityProviderBasicInfo.html",
+          "hash": "4muQ47zRjTQQfeAqExp8vw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.IdentityProviderEditable.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.Contract.IdentityProviderEditable.html",
+          "hash": "YSqsPPOdkSOeP/VBh3Wpjw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.IdentityProviderNotFoundException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.Contract.IdentityProviderNotFoundException.html",
+          "hash": "auJ59nxS5xL/JJmzuoYfjA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.IdpClaimToUserAttributeMapping.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.Contract.IdpClaimToUserAttributeMapping.html",
+          "hash": "SBbQ6U05yFdNN1ZJ5OtC7g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.IdpGroupToUserRoleMapping.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.Contract.IdpGroupToUserRoleMapping.html",
+          "hash": "gSyObWqCYDkn9KIwhyxrqw=="
         }
       },
       "is_incremental": false,
@@ -10713,7 +11901,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.IllegalAuthorizationStateTransitionException.html",
-          "hash": "fKsrR1YM/CYiATDwHNpK2w=="
+          "hash": "K04JJN/+YfOxLsJ9XkteGQ=="
         }
       },
       "is_incremental": false,
@@ -10737,7 +11925,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.ImageFormatBase.html",
-          "hash": "3UBeZtMGKsQckztnLok3Ug=="
+          "hash": "PGExHh1sPJsNpVEO5V4KLg=="
         }
       },
       "is_incremental": false,
@@ -10774,6 +11962,18 @@
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.ImportTransferRequest.html",
           "hash": "UKbbImcfqYBZLSUU1kiZAg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.InactiveOrDeletedUserRefusedAccessException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.Contract.InactiveOrDeletedUserRefusedAccessException.html",
+          "hash": "nlReGnDio2PQckbZHisHOg=="
         }
       },
       "is_incremental": false,
@@ -10893,7 +12093,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.InvalidArgumentException.html",
-          "hash": "w1RP8YMMw51PYf5v2NNb1Q=="
+          "hash": "MIIZ56igHpPp4r7nommCqg=="
         }
       },
       "is_incremental": false,
@@ -10930,6 +12130,18 @@
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.InvalidChangeCommandSchemaChangeInvalidException.html",
           "hash": "HsJ9jxS6uKNIdWQolUQrHw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.InvalidDataTypeException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.Contract.InvalidDataTypeException.html",
+          "hash": "0hGiMpMeEchZeGqJG7wuwA=="
         }
       },
       "is_incremental": false,
@@ -11033,6 +12245,18 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.InverseListItemNamedCacheConfiguration.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.Contract.InverseListItemNamedCacheConfiguration.html",
+          "hash": "jKE4ToVMCg6bIXxmG7yYYw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.ItemIdDuplicatedException.yml",
       "output": {
         ".html": {
@@ -11049,7 +12273,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.JoinByTransformation.html",
-          "hash": "P259AhNncRiOxA+U62k50g=="
+          "hash": "cRYRPYtPlcAj332PvllScg=="
         }
       },
       "is_incremental": false,
@@ -11061,7 +12285,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.JpegFormat.html",
-          "hash": "UzbeBE4/XHjnFyT7HxDSLg=="
+          "hash": "FmNm/ZjfQkCQj8iKfGUspQ=="
         }
       },
       "is_incremental": false,
@@ -11121,7 +12345,31 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.LayerAssignedCondition.html",
-          "hash": "99+IAnLsg46k/Qi7cYZyJQ=="
+          "hash": "LXzBDTe2xhONdyZ7xdxHxA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.LayerAssignmentInUseWithContentsException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.Contract.LayerAssignmentInUseWithContentsException.html",
+          "hash": "yNNfJA97SjLnk2cBQ2fX6A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.LayerAssignmentInvalidException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.Contract.LayerAssignmentInvalidException.html",
+          "hash": "vk83t+gdjoueutqtUSGUJg=="
         }
       },
       "is_incremental": false,
@@ -11145,7 +12393,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.LayerUnassignedCondition.html",
-          "hash": "Q/ZOE/+6RLqpHRQptUVfbg=="
+          "hash": "vcqfCEOCrZRWxmdSZBtFrg=="
         }
       },
       "is_incremental": false,
@@ -11157,7 +12405,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.LayersChangedCondition.html",
-          "hash": "pB9egTi568xMmlUw2BvPvg=="
+          "hash": "CcE5/nLhQTO9tLgYUiZkZA=="
         }
       },
       "is_incremental": false,
@@ -11217,7 +12465,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.ListItem.html",
-          "hash": "BzVekWGbB/p5wJ/U3cKpvg=="
+          "hash": "nBFtD4tYFs/udOAxyFgGmQ=="
         }
       },
       "is_incremental": false,
@@ -11229,7 +12477,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.ListItemAggregationRequest.html",
-          "hash": "vn7jFjzn2x2t9dV9MEpOnw=="
+          "hash": "LQyX2UoXp+Xu3n2pPcAgww=="
         }
       },
       "is_incremental": false,
@@ -11501,11 +12749,23 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.ListItemSearchAndAggregationBaseRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.Contract.ListItemSearchAndAggregationBaseRequest.html",
+          "hash": "tn0aU2IaX44D/V9IF5woKQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.ListItemSearchRequest.yml",
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.ListItemSearchRequest.html",
-          "hash": "DuRQAA3e7s/ZZWcxQOZp5w=="
+          "hash": "WAY7WDKC59irLLNG9WiVVQ=="
         }
       },
       "is_incremental": false,
@@ -11517,7 +12777,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.ListItemSearchResult.html",
-          "hash": "qGabLtLXsmZA83o18OtoHg=="
+          "hash": "hquHf06E0gGuDU0YZD2UKw=="
         }
       },
       "is_incremental": false,
@@ -11529,7 +12789,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.ListItemUpdateItem.html",
-          "hash": "6pztzSXBqL535gAfcDfYMA=="
+          "hash": "z8c2G+wcWV4n7qyeCbH2dQ=="
         }
       },
       "is_incremental": false,
@@ -11565,19 +12825,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.ListItemUpdateRequest.html",
-          "hash": "3zI+WnihIea8PeKwmXhTQw=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.ListTemplate.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Picturepark.SDK.V1.Contract.ListTemplate.html",
-          "hash": "101fEV5GGMPgHnkuMdK+HA=="
+          "hash": "vyd/brAa8XFli1InxHfnog=="
         }
       },
       "is_incremental": false,
@@ -11601,7 +12849,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.LiveStreamMessage.html",
-          "hash": "12AckXRam6wb4vqzsZYzbg=="
+          "hash": "cFO3T9FLnll/UkPIUXTBAw=="
         }
       },
       "is_incremental": false,
@@ -11645,11 +12893,23 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.LoginUsingIncorrectIdentityProviderException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.Contract.LoginUsingIncorrectIdentityProviderException.html",
+          "hash": "XKU+lQNtFmR1DRJDAlxamA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.LookupCacheTransformation.yml",
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.LookupCacheTransformation.html",
-          "hash": "YFU5hgbGez+xFr8Hs1UI0g=="
+          "hash": "OF4RR5BazdKqPcxlaUh9Hg=="
         }
       },
       "is_incremental": false,
@@ -11673,7 +12933,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.MatchRegexCondition.html",
-          "hash": "9MiVFvsCHdv1dg/J+JNdoQ=="
+          "hash": "0vabXNo2/rYtSuVrV1Wq/Q=="
         }
       },
       "is_incremental": false,
@@ -11697,7 +12957,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.Message.html",
-          "hash": "q1ajpV/Z5o/60jARpvhJgQ=="
+          "hash": "RqanXm6Nnef0RG7G5OTKVg=="
         }
       },
       "is_incremental": false,
@@ -11770,6 +13030,30 @@
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.MetadataRight.html",
           "hash": "28tpsE0IdwBkvuo8nqpgKg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.MetadataState.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.Contract.MetadataState.html",
+          "hash": "ORy1wuey3i2kLYPzMqJctw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.MetadataStatus.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.Contract.MetadataStatus.html",
+          "hash": "Y3q/t7vFLaE5XGZ/E18R7w=="
         }
       },
       "is_incremental": false,
@@ -11921,11 +13205,23 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.ModelNotFoundException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.Contract.ModelNotFoundException.html",
+          "hash": "QEKbwLzsVInLt426mcFCfQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.Mp3AudioFormat.yml",
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.Mp3AudioFormat.html",
-          "hash": "dtPJGM5621bTvNX0z3FGsQ=="
+          "hash": "oscVehhtPYzpuZ90k13WMA=="
         }
       },
       "is_incremental": false,
@@ -11937,7 +13233,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.Mp4VideoFormat.html",
-          "hash": "lqikgic4wh8FgM8qgwFHzQ=="
+          "hash": "UxtUXU0WsgZyScVuDmDr1Q=="
         }
       },
       "is_incremental": false,
@@ -11961,7 +13257,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.NGramTransformation.html",
-          "hash": "laOPsTo9aTmYbkTLJcfFQg=="
+          "hash": "uygXOtObiOX7pPPCB3KwPA=="
         }
       },
       "is_incremental": false,
@@ -11973,7 +13269,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.NamedCacheConfigurationBase.html",
-          "hash": "6o3VYn+97mfL0P8o0ir/Xw=="
+          "hash": "U0ofwkS/fr87Feg9kjP5Jw=="
         }
       },
       "is_incremental": false,
@@ -12069,7 +13365,19 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.NodeInfoMessage.html",
-          "hash": "ubQpYkqyIlRIV07WN/lz3w=="
+          "hash": "NSwy8UpLGGOCfme8MuHpsA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.NotCondition.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.Contract.NotCondition.html",
+          "hash": "MsEM316IWKy9MidrY8jt0Q=="
         }
       },
       "is_incremental": false,
@@ -12093,7 +13401,19 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.NotSupportedFileExtensionException.html",
-          "hash": "UUDJpzBSLUYn57yTNnTWAQ=="
+          "hash": "xL8ePH5jTlC2LQIv6BiTbg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.NotSupportedFileExtensionForFormatException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.Contract.NotSupportedFileExtensionForFormatException.html",
+          "hash": "COBXHAvmH1YnPWiE3E0HCA=="
         }
       },
       "is_incremental": false,
@@ -12105,7 +13425,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.NotSupportedFileMappingException.html",
-          "hash": "dfXzrLPaLVbGjVGhtqTNOw=="
+          "hash": "iy0MX0PzQ+MCrTnIh6MCeA=="
         }
       },
       "is_incremental": false,
@@ -12117,7 +13437,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.NotSupportedFileMappingForDynamicFormatException.html",
-          "hash": "RLFCAcuZZym01bhcJQGgZw=="
+          "hash": "mHyoQmiB71Fm6BMooh+sMg=="
         }
       },
       "is_incremental": false,
@@ -12141,7 +13461,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.NumberCompareCondition.html",
-          "hash": "oFMnLVvU1tZjD8G1N4oNYg=="
+          "hash": "uCqJ7fO7GwZAVD1w0RiqyQ=="
         }
       },
       "is_incremental": false,
@@ -12201,7 +13521,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.ObjectAggregationResult.html",
-          "hash": "OVgU7MugyvPKlmaMrtE31A=="
+          "hash": "sMImWTL+VOTRovf/jibnog=="
         }
       },
       "is_incremental": false,
@@ -12273,7 +13593,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.OrCondition.html",
-          "hash": "KC2s2LrkXoWs8DWJyTHf3g=="
+          "hash": "DSOOCGjGOMTC51Fl11LyYg=="
         }
       },
       "is_incremental": false,
@@ -12297,7 +13617,19 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.OriginalFormat.html",
-          "hash": "AMo69mcMjXxM131Qi65kIw=="
+          "hash": "v4BJz0+VRRM/kChbvczNXQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.OutdatedMetadataUpdateInProgressException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.Contract.OutdatedMetadataUpdateInProgressException.html",
+          "hash": "MXVOiHu64oP42aAcLeFiAA=="
         }
       },
       "is_incremental": false,
@@ -12329,11 +13661,23 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.OutputBackupNotRequestedException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.Contract.OutputBackupNotRequestedException.html",
+          "hash": "piePsBUTsA9BFNJs443B8g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.OutputDataAudio.yml",
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.OutputDataAudio.html",
-          "hash": "WFJgNBoWM0oD8Jj96MCzDg=="
+          "hash": "TWyMSvH3twXsdvuRm7paGg=="
         }
       },
       "is_incremental": false,
@@ -12345,7 +13689,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.OutputDataBase.html",
-          "hash": "iI1nJ6owNgSMo79RbQ622g=="
+          "hash": "zmuixrldl3nHFE3FrRdQww=="
         }
       },
       "is_incremental": false,
@@ -12357,7 +13701,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.OutputDataDefault.html",
-          "hash": "x7VnEjjbGorsdOWQT/rLeA=="
+          "hash": "F89Xo7rzZTjizYREOWzY6A=="
         }
       },
       "is_incremental": false,
@@ -12369,7 +13713,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.OutputDataDocument.html",
-          "hash": "j5mWMxn346eg1NY+8V2U+A=="
+          "hash": "n6wni6ozDBgFfjTvxw4Ajw=="
         }
       },
       "is_incremental": false,
@@ -12381,7 +13725,19 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.OutputDataImage.html",
-          "hash": "JQ+LA7IeOX+pv9lh53nbmQ=="
+          "hash": "9FTz+BdkdyuAK7cSv9aZSw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.OutputDataVector.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.Contract.OutputDataVector.html",
+          "hash": "oNlpzJ85MIdOBfWieRSKTw=="
         }
       },
       "is_incremental": false,
@@ -12393,7 +13749,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.OutputDataVideo.html",
-          "hash": "FBrXsBu3wpfclG1YVg9InA=="
+          "hash": "9Zx+4q+IeLMaso83xExAJw=="
         }
       },
       "is_incremental": false,
@@ -12417,7 +13773,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.OutputFormat.html",
-          "hash": "zOJ2R8BkYaeUAwqJQAfMVg=="
+          "hash": "STxCfTlPvu6y+VDUcj7kmQ=="
         }
       },
       "is_incremental": false,
@@ -12453,7 +13809,31 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.OutputFormatDetail.html",
-          "hash": "wF4ObtXsbVQBV1Qe7U14XQ=="
+          "hash": "8ANn0Q7xUuKrlB+ULr04Pg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.OutputFormatDownloadFileNamePatternUpdateManyRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.Contract.OutputFormatDownloadFileNamePatternUpdateManyRequest.html",
+          "hash": "/InBiSKEifz4YCMqWpWJvg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.OutputFormatDownloadFileNamePatternUpdateRequestItem.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.Contract.OutputFormatDownloadFileNamePatternUpdateRequestItem.html",
+          "hash": "n4XJlfjKZ+7W2d1RKr77eA=="
         }
       },
       "is_incremental": false,
@@ -12465,7 +13845,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.OutputFormatEditable.html",
-          "hash": "wZX5lYhbSijZuMIYkVPnCQ=="
+          "hash": "+yifVbnPFeAmkaQMSivTqg=="
         }
       },
       "is_incremental": false,
@@ -12485,11 +13865,71 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.OutputFormatNotFoundException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.Contract.OutputFormatNotFoundException.html",
+          "hash": "zA7DMqclWw9JcBW97BLfdg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.OutputFormatRenderPreviewRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.Contract.OutputFormatRenderPreviewRequest.html",
+          "hash": "ToGzzrZrsZCo3lpJ+NfRrw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.OutputFormatRenderingSpecification.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.Contract.OutputFormatRenderingSpecification.html",
+          "hash": "xFAT4ET+AuZ1pVq4D1LbYg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.OutputFormatResizingNotSupportedException.yml",
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.OutputFormatResizingNotSupportedException.html",
           "hash": "fvGbtHzNEZGuXlUhZ0FCHg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.OutputFormatRetentionTimeOutOfRangeException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.Contract.OutputFormatRetentionTimeOutOfRangeException.html",
+          "hash": "FLy1bgt9Ls96djuQrny9dg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.OutputFormatSourceNotDefinedException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.Contract.OutputFormatSourceNotDefinedException.html",
+          "hash": "6a4YLuQ8ucCytZg0LnTLhA=="
         }
       },
       "is_incremental": false,
@@ -12513,7 +13953,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.OutputFormatUpdateManyRequestItem.html",
-          "hash": "Jl1XCdW/ATNwollKR0D0MA=="
+          "hash": "bVWR6SDTYDd2RF0WDchpyg=="
         }
       },
       "is_incremental": false,
@@ -12586,6 +14026,30 @@
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.OutputResetRetryAttemptsRequest.html",
           "hash": "S1pyTKA6SHu7c0YyXxpK0A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.OutputResolveManyRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.Contract.OutputResolveManyRequest.html",
+          "hash": "ue22PpciWLILCTNo2/P5HQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.OutputResolveResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.Contract.OutputResolveResult.html",
+          "hash": "Uk8eYqSEU5UiiH6fc6Aa7Q=="
         }
       },
       "is_incremental": false,
@@ -12717,7 +14181,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.PdfFormat.html",
-          "hash": "t+hIqGsgLI4z7WXAt4Df4Q=="
+          "hash": "cvOXV+LmkN9cWe4x0TQHmA=="
         }
       },
       "is_incremental": false,
@@ -12801,7 +14265,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.PermissionSetDetailOfContentRight.html",
-          "hash": "4/AKsylEiNh+TQD4LCQJ0g=="
+          "hash": "z/9h4r9N7fPBp6gOLrFGqQ=="
         }
       },
       "is_incremental": false,
@@ -12813,7 +14277,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.PermissionSetDetailOfMetadataRight.html",
-          "hash": "JqMMbJwL7uAMMv/3jb2Kmg=="
+          "hash": "pnVbl5GfEOOFq94qXtLfeg=="
         }
       },
       "is_incremental": false,
@@ -12837,7 +14301,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.PermissionSetInvalidRightCombinationException.html",
-          "hash": "87GMpQumf5RRgUotQKtErQ=="
+          "hash": "IxiVref83o/Bxqtf2lRsAg=="
         }
       },
       "is_incremental": false,
@@ -12933,7 +14397,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.PermissionSetUpdateRequestItemOfContentRight.html",
-          "hash": "noXr+WNtuDmierd4A3Zq+A=="
+          "hash": "FVHo/SJ8rYIeqKjUjbV3LQ=="
         }
       },
       "is_incremental": false,
@@ -12945,7 +14409,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.PermissionSetUpdateRequestItemOfMetadataRight.html",
-          "hash": "wGHVeV/2QdtQm/Mi/pfZYw=="
+          "hash": "t4zMxAb/ZlNQ5g4GDO34mA=="
         }
       },
       "is_incremental": false,
@@ -12957,7 +14421,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.PermissionSetUpdateRequestOfContentRight.html",
-          "hash": "wr4gzfhVri8XcqZGVc4bzQ=="
+          "hash": "AOQGMaXa/q63mlgYrxwk+Q=="
         }
       },
       "is_incremental": false,
@@ -12969,7 +14433,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.PermissionSetUpdateRequestOfMetadataRight.html",
-          "hash": "pofUuwspculy0BNRzhtdRQ=="
+          "hash": "UVyWNYfxir2DfUMDVTOf9Q=="
         }
       },
       "is_incremental": false,
@@ -12993,7 +14457,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.PermissionSetValidationException.html",
-          "hash": "2Jl4Cg72jk/OncQ+Qjkf7w=="
+          "hash": "uKR7Dx9vtg3WRAy+owupww=="
         }
       },
       "is_incremental": false,
@@ -13005,7 +14469,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.PermissionUserRoleRightsOfContentRight.html",
-          "hash": "M2tfPvn5CidgytgDC+M8lw=="
+          "hash": "jddtvBpcwV88Gd1YW8NTSw=="
         }
       },
       "is_incremental": false,
@@ -13017,7 +14481,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.PermissionUserRoleRightsOfMetadataRight.html",
-          "hash": "ruh1tPvWxNgpUWkVRv3cGQ=="
+          "hash": "YYVFOOWdJoTne7yeHaQfJg=="
         }
       },
       "is_incremental": false,
@@ -13029,7 +14493,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.PermissionUserRoleRightsOfPermissionSetRight.html",
-          "hash": "wkoiCAG8teK0P4I8zVZ6fw=="
+          "hash": "lUHCzc+SXxAOMam57N/R4g=="
         }
       },
       "is_incremental": false,
@@ -13077,7 +14541,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.PictureparkBusinessException.html",
-          "hash": "Rx9Az/kq+pAFV+nC12wuiw=="
+          "hash": "Hf6tsrLIYFd8A1Vtt+OepA=="
         }
       },
       "is_incremental": false,
@@ -13113,7 +14577,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.PictureparkForbiddenException.html",
-          "hash": "rD2slcKDOfCK6y3RqAYQvw=="
+          "hash": "sCQwTsu4DuzZkPdRkhacRw=="
         }
       },
       "is_incremental": false,
@@ -13125,7 +14589,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html",
-          "hash": "hxXClPU9rLK0NzrhkYpXEg=="
+          "hash": "iz+/Hwb7uJ2fKTCmYYS6NA=="
         }
       },
       "is_incremental": false,
@@ -13173,7 +14637,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.PictureparkValidationException.html",
-          "hash": "ErbUN68SYfQUNy5m6U++Pw=="
+          "hash": "eJUCQ3oSpU6k0Rp93HWNcg=="
         }
       },
       "is_incremental": false,
@@ -13185,7 +14649,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.PngFormat.html",
-          "hash": "F1QEfhoGeXO+mc71nZLSnQ=="
+          "hash": "Y0IKCcgxFv5zjNP7ADt1dg=="
         }
       },
       "is_incremental": false,
@@ -13209,7 +14673,19 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.Preset.html",
-          "hash": "Lk7Wb3YGQW2f3Cp6/WndGA=="
+          "hash": "+j3i3+CSyueGuMA+m9sdzA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.ProblemDetails.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.Contract.ProblemDetails.html",
+          "hash": "VUZtaF5SpEWeB8CmtkBcpA=="
         }
       },
       "is_incremental": false,
@@ -13221,7 +14697,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.ProduceMessageAction.html",
-          "hash": "XnB5Kv6B0N4EO0mO1qZO4w=="
+          "hash": "59ts72zsjKDand36+7kI+A=="
         }
       },
       "is_incremental": false,
@@ -13234,6 +14710,18 @@
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.Profile.html",
           "hash": "ZjgNUIGlQwUQnBn9FttL4A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.ProjectionTransformation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.Contract.ProjectionTransformation.html",
+          "hash": "d8rHP7L0HIAO3Kr0WvIRWA=="
         }
       },
       "is_incremental": false,
@@ -13445,11 +14933,35 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.RenderingCategory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.Contract.RenderingCategory.html",
+          "hash": "XVPv/MbD1efnD3vY5i+Xkg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.RenderingException.yml",
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.RenderingException.html",
-          "hash": "OgvmgEDMYXHiqKo5mYRw1g=="
+          "hash": "32eaJDCQzn4b+FDMMGgE2w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.RenderingNotAwaitedException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.Contract.RenderingNotAwaitedException.html",
+          "hash": "Z5L+Jmha7Zhm4WdZG5pFig=="
         }
       },
       "is_incremental": false,
@@ -13461,7 +14973,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.RequestSizeLimitExceededException.html",
-          "hash": "py3ewLoRPX/Qp1l9FijibQ=="
+          "hash": "Y15tnkFdXEMySm+1HLqHCw=="
         }
       },
       "is_incremental": false,
@@ -13473,19 +14985,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.ResizeAction.html",
-          "hash": "9RI7fMnbfU4ujW5A3fAFbA=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.ResizeAction2.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Picturepark.SDK.V1.Contract.ResizeAction2.html",
-          "hash": "s17NE92ZjaiPXHNFda0YHg=="
+          "hash": "zQUQ/57bNnsVjMaA4OwIiQ=="
         }
       },
       "is_incremental": false,
@@ -13497,7 +14997,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.ResizeMode.html",
-          "hash": "HQHRSowW9bkOpfYkzMARIA=="
+          "hash": "41houwxIvse/U0wwJjC/wg=="
         }
       },
       "is_incremental": false,
@@ -13725,7 +15225,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.SchemaCreateManyRequest.html",
-          "hash": "OF7kaZOncJ+xf4Km+IX7+A=="
+          "hash": "qc2cpZ7YuSqqPT3UtGvfgQ=="
         }
       },
       "is_incremental": false,
@@ -14537,11 +16037,35 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.SchemaUpdateItem.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.Contract.SchemaUpdateItem.html",
+          "hash": "lTFQyKbmy3EDg0SkzcVoog=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.SchemaUpdateManyRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.Contract.SchemaUpdateManyRequest.html",
+          "hash": "k9s4MY1v0mmvMvnLo6AXEQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.SchemaUpdateRequest.yml",
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.SchemaUpdateRequest.html",
-          "hash": "qHrFaIng0cN9Q67suXOn+A=="
+          "hash": "0B0g+TLk9M3GJ1EWx/yMBw=="
         }
       },
       "is_incremental": false,
@@ -14601,7 +16125,19 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.SearchBehaviorBaseResultOfBusinessProcess.html",
-          "hash": "fKTmQMRh13Dyi5vfBZt2ug=="
+          "hash": "E/cRNKwZq8GwrGyNaWYSgQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.SearchBehaviorBaseResultOfBusinessRuleTraceLog.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.Contract.SearchBehaviorBaseResultOfBusinessRuleTraceLog.html",
+          "hash": "PAMzeETlPLLRghQjGb3wdQ=="
         }
       },
       "is_incremental": false,
@@ -14613,7 +16149,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.SearchBehaviorBaseResultOfContent.html",
-          "hash": "6o3IFWy7Rlwt7R2gD1Rlbg=="
+          "hash": "QEESqHr8qhlz47Z/bbNItw=="
         }
       },
       "is_incremental": false,
@@ -14625,7 +16161,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.SearchBehaviorBaseResultOfFileTransfer.html",
-          "hash": "gbtlDYZ1O6/uRBvWwG7zhw=="
+          "hash": "upBjQHUSKKvjEokBoSKhPQ=="
         }
       },
       "is_incremental": false,
@@ -14637,7 +16173,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.SearchBehaviorBaseResultOfListItem.html",
-          "hash": "hV9dCNtJGFPzTR9iRlXPCw=="
+          "hash": "1hSmQzJw9YkGrBUcxZl0TQ=="
         }
       },
       "is_incremental": false,
@@ -14649,7 +16185,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.SearchBehaviorBaseResultOfPermissionSet.html",
-          "hash": "yy4zprrsjItWTTRif/cfOw=="
+          "hash": "uy+ma6AFIZz91G5OhgoPow=="
         }
       },
       "is_incremental": false,
@@ -14661,7 +16197,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.SearchBehaviorBaseResultOfSchema.html",
-          "hash": "lSHAMQNYo7yvBJvIx2dNAA=="
+          "hash": "gRplJA6XT0o97kmnsLgC6w=="
         }
       },
       "is_incremental": false,
@@ -14673,7 +16209,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.SearchBehaviorBaseResultOfShare.html",
-          "hash": "UsjW+3qXbG4v6Gups4O+1w=="
+          "hash": "RZxSOM19OHdQn6xFaO7iCA=="
         }
       },
       "is_incremental": false,
@@ -14685,7 +16221,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.SearchBehaviorBaseResultOfTransfer.html",
-          "hash": "hjQA/XY0itopMqvCsYGpsQ=="
+          "hash": "sevoVVANjfsG/FgiVE/nyw=="
         }
       },
       "is_incremental": false,
@@ -14697,7 +16233,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.SearchBehaviorBaseResultOfUserRole.html",
-          "hash": "C6IdlpwqHKK6+9Tj8W58XA=="
+          "hash": "/eL4dj42UbAjrYmgVpPfyg=="
         }
       },
       "is_incremental": false,
@@ -14709,7 +16245,67 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.SearchBehaviorBaseResultOfUserWithRoles.html",
-          "hash": "zxmusnHt2Ar7p9P+zT19CQ=="
+          "hash": "vKCQTIVCm8u9fqzapwna8Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.SearchBehaviorWithAggregationBaseResultOfBusinessRuleTraceLog.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.Contract.SearchBehaviorWithAggregationBaseResultOfBusinessRuleTraceLog.html",
+          "hash": "mpY0HX96DQX4UJp+fHLi3g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.SearchBehaviorWithAggregationBaseResultOfContent.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.Contract.SearchBehaviorWithAggregationBaseResultOfContent.html",
+          "hash": "pGHpGI2S8hTZgCDBLEMpfA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.SearchBehaviorWithAggregationBaseResultOfListItem.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.Contract.SearchBehaviorWithAggregationBaseResultOfListItem.html",
+          "hash": "2Tr5HybSNkIVh5inlEUiFA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.SearchBehaviorWithAggregationBaseResultOfShare.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.Contract.SearchBehaviorWithAggregationBaseResultOfShare.html",
+          "hash": "XewkhAHaesrZjNtZX3rWCA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.SearchBehaviorWithAggregationBaseResultOfUserWithRoles.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.Contract.SearchBehaviorWithAggregationBaseResultOfUserWithRoles.html",
+          "hash": "l5i3BRlTks5pcnVOAl7TRA=="
         }
       },
       "is_incremental": false,
@@ -14877,7 +16473,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.ShareAggregationRequest.html",
-          "hash": "D6Bh1GH61sV+48i/c72UxQ=="
+          "hash": "3CU1EbYs8pUhGjJK1XQQow=="
         }
       },
       "is_incremental": false,
@@ -14889,7 +16485,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.ShareBaseCreateRequest.html",
-          "hash": "XFS8YyLNUJI+c9GiBBxZGg=="
+          "hash": "ABngXU8iK01p7ygb6ISp+Q=="
         }
       },
       "is_incremental": false,
@@ -14901,7 +16497,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.ShareBaseUpdateRequest.html",
-          "hash": "BP4gIBUd2YSsznrb0Qy0Lg=="
+          "hash": "+RQrpFSKCaZQpdkPMdUSmQ=="
         }
       },
       "is_incremental": false,
@@ -14913,7 +16509,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.ShareBasicCreateRequest.html",
-          "hash": "iXfj0+EviTfpJtMQMTqh1Q=="
+          "hash": "Ipay74A1KdcIyDVgj8qUpQ=="
         }
       },
       "is_incremental": false,
@@ -14925,7 +16521,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.ShareBasicUpdateRequest.html",
-          "hash": "KvjH+8/DAVm3MUg0gJvidQ=="
+          "hash": "P7m6ccphMSRAOQhpBqLAKg=="
         }
       },
       "is_incremental": false,
@@ -15021,7 +16617,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.ShareDetail.html",
-          "hash": "bfhIkEAQEBQlvWehAXsa8Q=="
+          "hash": "ZN/uyn0QTzeXikXgqDMTbA=="
         }
       },
       "is_incremental": false,
@@ -15033,7 +16629,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.ShareEmbedCreateRequest.html",
-          "hash": "H/DmPO9RLzlx2V6K6rgppw=="
+          "hash": "Da+RAzWdwLpHSsa4WY7p+Q=="
         }
       },
       "is_incremental": false,
@@ -15045,7 +16641,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.ShareEmbedUpdateRequest.html",
-          "hash": "UefhXWBeWsQnsuIqqX0rjA=="
+          "hash": "/apSobxNu0DFlzWdCd7gqQ=="
         }
       },
       "is_incremental": false,
@@ -15125,11 +16721,35 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.ShareRevokeManyRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.Contract.ShareRevokeManyRequest.html",
+          "hash": "mxukkE/c1f29gHpl8mmgqA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.ShareSearchAndAggregationBaseRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.Contract.ShareSearchAndAggregationBaseRequest.html",
+          "hash": "SOfzmL5/JtQBFRuk0+O0ow=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.ShareSearchRequest.yml",
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.ShareSearchRequest.html",
-          "hash": "SXC1ZNYMZzWNO1HAcolcHw=="
+          "hash": "ET/CFTHdRFqzu64VV6A6mg=="
         }
       },
       "is_incremental": false,
@@ -15141,7 +16761,19 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.ShareSearchResult.html",
-          "hash": "TlHCLSUTgrPnkPUIIWtyFQ=="
+          "hash": "skX7wJCG+PcGNX4Q6akroQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.ShareSizeLimitExceededException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.Contract.ShareSizeLimitExceededException.html",
+          "hash": "uH95mB+DjjyqDoCffNVYxw=="
         }
       },
       "is_incremental": false,
@@ -15185,11 +16817,35 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.SimulatedTaggingOptions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.Contract.SimulatedTaggingOptions.html",
+          "hash": "O0HV6Ur430Sx0Kpz3ImNCA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.SnapshotFailedException.yml",
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.SnapshotFailedException.html",
           "hash": "hBNZ+x8VjogQ9FbFlrK5BQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.SnapshotRetentionTimeTooShortException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.Contract.SnapshotRetentionTimeTooShortException.html",
+          "hash": "Vyemdgmxso4BvdGi1zQhpA=="
         }
       },
       "is_incremental": false,
@@ -15261,7 +16917,19 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.SourceOutputFormats.html",
-          "hash": "kH8WvvSclMio5OlzEqiNrA=="
+          "hash": "l/B7q2QRC4xXF1xSSj8G1Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.SplitTransformation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.Contract.SplitTransformation.html",
+          "hash": "PguHV2xbc/UZG83EHtqG9w=="
         }
       },
       "is_incremental": false,
@@ -15293,6 +16961,18 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.StatusOfMetadataState.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.Contract.StatusOfMetadataState.html",
+          "hash": "CYeMS71i5z+rKHRsq1wVuA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.StatusOfSearchIndexState.yml",
       "output": {
         ".html": {
@@ -15310,6 +16990,18 @@
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.SuperAdminRolesNotAssignableToChannelException.html",
           "hash": "ykbqczS27lPeuyWO0In+iA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.SvgFormat.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.Contract.SvgFormat.html",
+          "hash": "0Ga06U4HWCZxzofTwLFNog=="
         }
       },
       "is_incremental": false,
@@ -15345,7 +17037,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.SystemStatus.html",
-          "hash": "NbHGNdS5LyM591JBKd0pJw=="
+          "hash": "oOoaKSvkFHI90cFtngI8+w=="
         }
       },
       "is_incremental": false,
@@ -15393,7 +17085,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.TagboxItemAssignedCondition.html",
-          "hash": "xKhLt64ouVe+QioNKVP71A=="
+          "hash": "qRPT0/xkoWXzg/DaaP1G/A=="
         }
       },
       "is_incremental": false,
@@ -15405,7 +17097,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.TagboxItemUnassignedCondition.html",
-          "hash": "9i9WywyRIGfoTbTAggvfZQ=="
+          "hash": "zTX6n6LSwt4VKs9+XJCm2w=="
         }
       },
       "is_incremental": false,
@@ -15417,7 +17109,19 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.TagboxItemsChangedCondition.html",
-          "hash": "Uao63gL0peQPo1PwakzVdQ=="
+          "hash": "v93r/jVwqZuudn100B4vUw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.TaggingOptionsBase.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.Contract.TaggingOptionsBase.html",
+          "hash": "634LBBBy82MKsh74436/hQ=="
         }
       },
       "is_incremental": false,
@@ -15429,7 +17133,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.TakeArrayValueTransformation.html",
-          "hash": "B2aeK6D1cWFOu8j6QcGHRQ=="
+          "hash": "sOnoZDY6IQP3UYtJ5SX29Q=="
         }
       },
       "is_incremental": false,
@@ -15441,19 +17145,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.TakeDictionaryValueTransformation.html",
-          "hash": "pWvNaZtsJSaL+irRDR7Gaw=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.TemplateBase.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Picturepark.SDK.V1.Contract.TemplateBase.html",
-          "hash": "W4vSoYTbGYkJcVhF9tTwwA=="
+          "hash": "EQpF3tAOQn2uENpXrcVm1w=="
         }
       },
       "is_incremental": false,
@@ -15561,7 +17253,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.TermsRelationAggregatorDocumentType.html",
-          "hash": "cJ6Vvxi1yeoE9RJNNA0WDg=="
+          "hash": "I5TOnfVEt4/YOm6yglHBGQ=="
         }
       },
       "is_incremental": false,
@@ -15585,7 +17277,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.TiffFormat.html",
-          "hash": "Nz3rcZpDc7massjvt2i4ag=="
+          "hash": "EzP98sl+48kA6VtK9CfX4A=="
         }
       },
       "is_incremental": false,
@@ -15717,7 +17409,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.TransferState.html",
-          "hash": "p7a5NZwo/BbX4Gq0rxxlOg=="
+          "hash": "9JYSCUqywsZJdiOsZtTzkA=="
         }
       },
       "is_incremental": false,
@@ -15753,7 +17445,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.TransferWebLink.html",
-          "hash": "KR9Yqvzz6ugIug+XA3bsmw=="
+          "hash": "IGDcP2eNUJp80xBWD9bu8A=="
         }
       },
       "is_incremental": false,
@@ -15797,6 +17489,18 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.UnableToChangeUserRolesForFederatedUser.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.Contract.UnableToChangeUserRolesForFederatedUser.html",
+          "hash": "ZW1/GeY1sQSdX6gCs2gXSQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.UnableToCreateOrModifyStaticOutputFormatException.yml",
       "output": {
         ".html": {
@@ -15809,11 +17513,59 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.UnableToDeleteDefaultUserRoleException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.Contract.UnableToDeleteDefaultUserRoleException.html",
+          "hash": "+DuIi1Of/q9+9BSeKsPhUw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.UnableToDeleteUserRoleException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.Contract.UnableToDeleteUserRoleException.html",
+          "hash": "J3KtUAq1UZ8W3U0huc5Ozg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.UnableToDeleteUserRoleReferencedInIdentityProviderGroupMappingException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.Contract.UnableToDeleteUserRoleReferencedInIdentityProviderGroupMappingException.html",
+          "hash": "xiA0R/QcB9qKDI26Ar2LXw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.UnableToMapMultipleClaimTypesIntoSameAttributeException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.Contract.UnableToMapMultipleClaimTypesIntoSameAttributeException.html",
+          "hash": "cWNU/74wnoIbl/GZ4ioIdQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.UnassignContentPermissionSetsAction.yml",
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.UnassignContentPermissionSetsAction.html",
-          "hash": "hiKGD9d9qt+ycMnRiq5A9A=="
+          "hash": "g0v5RybMbu2gjzDj5OpZsw=="
         }
       },
       "is_incremental": false,
@@ -15825,7 +17577,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.UnassignLayerAction.html",
-          "hash": "7DLJ7pUnlyZJt04Ha9v1hg=="
+          "hash": "rQpqxRcy09oeQ7+2X3+SwA=="
         }
       },
       "is_incremental": false,
@@ -15837,7 +17589,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.UnassignTagboxItemsAction.html",
-          "hash": "tAlh6QxQ9O3KF8/xtcGFdQ=="
+          "hash": "W1cfsdlShY0jFf5bAj6uIg=="
         }
       },
       "is_incremental": false,
@@ -15873,7 +17625,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.UnsharpenMaskAction.html",
-          "hash": "eUg7XqWqgIvLznp7bMCyiQ=="
+          "hash": "BtGQO7MBB0LIzxQcqnJWbg=="
         }
       },
       "is_incremental": false,
@@ -15909,7 +17661,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.UploadOptions.html",
-          "hash": "wQWnWMV+ARoL2i+b/qz1Tw=="
+          "hash": "Lu1HOknZUxSMq+VAo+4HLA=="
         }
       },
       "is_incremental": false,
@@ -15945,7 +17697,31 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.UserAggregationRequest.html",
-          "hash": "Krv7sCwF6Czfz6F+4clk4Q=="
+          "hash": "P5v7zGQCm/GU2RtEhI1Rnw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.UserAlreadyInRequestedLockStateException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.Contract.UserAlreadyInRequestedLockStateException.html",
+          "hash": "0h2DdWerPr4AGvaxgeMkSA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.UserAttributeNotSynchronizableException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.Contract.UserAttributeNotSynchronizableException.html",
+          "hash": "jUkGJvPSH3xKWEKNN43vXg=="
         }
       },
       "is_incremental": false,
@@ -16017,7 +17793,19 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.UserDetail.html",
-          "hash": "zpAjgL/GYbE1RE9gcTG0wQ=="
+          "hash": "bl+owGnaw0PFiuGj4MWVsg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.UserDoesNotSupportLocalLoginException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.Contract.UserDoesNotSupportLocalLoginException.html",
+          "hash": "YneSNpjAXLveIJqynQ9wUw=="
         }
       },
       "is_incremental": false,
@@ -16053,7 +17841,31 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.UserInactiveOrDeletedException.html",
-          "hash": "0om/YLgjnlWY9OFpyvkJqg=="
+          "hash": "I2BuDiWUh/nO7sP/yYYgPA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.UserInviteManyRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.Contract.UserInviteManyRequest.html",
+          "hash": "4RA9GuN23EclG/7Lb6i+Yg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.UserLockManyRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.Contract.UserLockManyRequest.html",
+          "hash": "SIj/l2yGGZrDxawjUqc8KA=="
         }
       },
       "is_incremental": false,
@@ -16065,7 +17877,19 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.UserLockRequest.html",
-          "hash": "FdpT2+ZMws+FuaVMJLtrIA=="
+          "hash": "+7vLXe5XimU9U9m2HKCADA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.UserManyRequestBase.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.Contract.UserManyRequestBase.html",
+          "hash": "ZpOAudzUF1QOQla4AULr7g=="
         }
       },
       "is_incremental": false,
@@ -16089,7 +17913,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.UserProfile.html",
-          "hash": "47a+LYDCoJJPujwMz7I4bQ=="
+          "hash": "VJ8Tcq3WxXRrTyBvnPrk0w=="
         }
       },
       "is_incremental": false,
@@ -16102,6 +17926,30 @@
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.UserProfileUpdateRequest.html",
           "hash": "NTFwx605EZkX0UJa6YUMHQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.UserReinviteManyRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.Contract.UserReinviteManyRequest.html",
+          "hash": "UwcKXnrDZHRc/2TwMJVhEw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.UserReviewManyRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.Contract.UserReviewManyRequest.html",
+          "hash": "gFbSa1ID2uY1G+nJId2uHw=="
         }
       },
       "is_incremental": false,
@@ -16125,7 +17973,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.UserRight.html",
-          "hash": "wXuakuQMe6ItokH5sazqGg=="
+          "hash": "AMih6A+7YLhRHvjc13lPzQ=="
         }
       },
       "is_incremental": false,
@@ -16145,11 +17993,35 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.UserRoleAssignManyRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.Contract.UserRoleAssignManyRequest.html",
+          "hash": "tZxIvyaMkh5FcrLO98BpOw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.UserRoleAssignedException.yml",
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.UserRoleAssignedException.html",
-          "hash": "N7xsfNEOVcXCj+f0+djbFA=="
+          "hash": "FEvMozSOhPr5rSvD3P/Z1g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.UserRoleAssignmentOperationType.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.Contract.UserRoleAssignmentOperationType.html",
+          "hash": "53kz/WSTSylvtS5rj1X6QQ=="
         }
       },
       "is_incremental": false,
@@ -16221,7 +18093,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.UserRoleRightsOfContentRight.html",
-          "hash": "Ud8lGFk+zDL3PDxdnhA4DQ=="
+          "hash": "SdSU0lyVqqNncmej4smXJg=="
         }
       },
       "is_incremental": false,
@@ -16233,7 +18105,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.UserRoleRightsOfMetadataRight.html",
-          "hash": "VcPHeMwLU2aiyCTnSyh2vA=="
+          "hash": "4rJGmFbM1FPXwVzici0Esg=="
         }
       },
       "is_incremental": false,
@@ -16245,7 +18117,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.UserRoleRightsOfPermissionSetRight.html",
-          "hash": "sbylOaKAOPwOD9+PylPYKA=="
+          "hash": "1eroCbj3JUU7TKUInWhOfw=="
         }
       },
       "is_incremental": false,
@@ -16301,11 +18173,23 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.UserSearchAndAggregationBaseRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.Contract.UserSearchAndAggregationBaseRequest.html",
+          "hash": "nTostewducYzDKLWEei6RQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.UserSearchRequest.yml",
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.UserSearchRequest.html",
-          "hash": "+ECJ5X7shZbmTfzrM6sXVg=="
+          "hash": "i7YUe2tBThTfXqRe3+QG7A=="
         }
       },
       "is_incremental": false,
@@ -16317,7 +18201,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.UserSearchResult.html",
-          "hash": "r/7ILElS5D80spcIRNbHcQ=="
+          "hash": "6r20Yx1+FcoBnRdvwqVF+g=="
         }
       },
       "is_incremental": false,
@@ -16329,7 +18213,19 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.UserUnlockDisallowedException.html",
-          "hash": "VCMnlZAK4OXOCPuCfPJn6g=="
+          "hash": "Qb+j6iEO5YjnUu6qiLEBlg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.UserUpdateIdentityProviderManyRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.Contract.UserUpdateIdentityProviderManyRequest.html",
+          "hash": "bIwwmxADndYrD6QBgnF5Pw=="
         }
       },
       "is_incremental": false,
@@ -16341,7 +18237,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.UserUpdateRequest.html",
-          "hash": "1YBUzz3ZYMT5KRDHSSNA/Q=="
+          "hash": "bsuRT+B4+mEGuI9HjpXy3Q=="
         }
       },
       "is_incremental": false,
@@ -16353,7 +18249,43 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.UserWithRoles.html",
-          "hash": "1kNG/HRKIP/dApxItyxHpA=="
+          "hash": "lFe3+Gp8EJFTQLU+LYVIxw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.VectorFormatBase.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.Contract.VectorFormatBase.html",
+          "hash": "rAoDK1KpXrB406XV4LpYqQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.VectorMetadata.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.Contract.VectorMetadata.html",
+          "hash": "mWKN1/gol1s+pr6Z7/rqqQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.VectorStillFormat.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.Contract.VectorStillFormat.html",
+          "hash": "WZJr0M/hsjDfGiw1xh90gQ=="
         }
       },
       "is_incremental": false,
@@ -16377,7 +18309,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.VideoFormatBase.html",
-          "hash": "zpKndsUYXXOhB44UaMD1pg=="
+          "hash": "F6q6Lv1bbnjx87MlL8EQHQ=="
         }
       },
       "is_incremental": false,
@@ -16401,7 +18333,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.VideoSpriteFormat.html",
-          "hash": "wgPYpySpiVjnA2W1ZvBk3g=="
+          "hash": "fkWt+TXW+rMUWQchwg8ybg=="
         }
       },
       "is_incremental": false,
@@ -16413,7 +18345,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.VideoStillFormat.html",
-          "hash": "mHTYRtha0mD6t3b8OMAm0A=="
+          "hash": "Ke6xKIthjS2LVR+XB9RUKw=="
         }
       },
       "is_incremental": false,
@@ -16437,7 +18369,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.WatermarkAction.html",
-          "hash": "oF4oZxbnO52V4IIXO/cECQ=="
+          "hash": "kKCOGwqgJbMpsa24awRK0Q=="
         }
       },
       "is_incremental": false,
@@ -16461,7 +18393,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.html",
-          "hash": "X5voKT36M/iIuLOQEo2Owg=="
+          "hash": "bCNNEaFVJxIBgRkkpSTDZQ=="
         }
       },
       "is_incremental": false,
@@ -16509,7 +18441,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.DisplayValueClient.html",
-          "hash": "bPNlw6K8J5w06/z9ESVxmw=="
+          "hash": "6Dm6CZ1lmclX4d0xH2JSeA=="
         }
       },
       "is_incremental": false,
@@ -16533,7 +18465,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.DocumentHistoryClient.html",
-          "hash": "sEQDqscd39/1ZfAE4AFtzg=="
+          "hash": "1VU8wutOVmCIVh/aTqsazQ=="
         }
       },
       "is_incremental": false,
@@ -16546,6 +18478,30 @@
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.FileResponseExtensions.html",
           "hash": "XWDgJBkWX8sKgOkc6kR+Ig=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.IdentityProviderClient.ObjectResponseResult-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.IdentityProviderClient.ObjectResponseResult-1.html",
+          "hash": "HcRyZA+8mnr1Kd96hkP/Iw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.IdentityProviderClient.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.IdentityProviderClient.html",
+          "hash": "RIxd1wIRkOiyeRonatxZfg=="
         }
       },
       "is_incremental": false,
@@ -16569,7 +18525,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.InfoClient.html",
-          "hash": "8U4c3gn5VEhzHKp+of2fdw=="
+          "hash": "AUU+qZUv5fvvtcM3heNxjQ=="
         }
       },
       "is_incremental": false,
@@ -16593,7 +18549,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.JsonSchemaClient.html",
-          "hash": "wCPksQCoFktHBkM7dUJdEg=="
+          "hash": "pGje9jGFFS7NifqWNgrWWQ=="
         }
       },
       "is_incremental": false,
@@ -16617,7 +18573,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.ListItemClient.html",
-          "hash": "2eZ0rlYWhwF6chGXS8G5JA=="
+          "hash": "TvANpThEjDM3QDUFACh4Ug=="
         }
       },
       "is_incremental": false,
@@ -16641,7 +18597,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.LiveStreamClient.html",
-          "hash": "seP2uZaumJyTQ9+C4VZSGQ=="
+          "hash": "8bumPfSVJ+ZWQ1e4sn3pyA=="
         }
       },
       "is_incremental": false,
@@ -16685,6 +18641,30 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.MetadataClient.ObjectResponseResult-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.MetadataClient.ObjectResponseResult-1.html",
+          "hash": "Pz2XeRApSGV3Sjxu2jVo4g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.MetadataClient.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.MetadataClient.html",
+          "hash": "i50qfUbAFPpJnvYaswLmoQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/api/Picturepark.SDK.V1.OutputClient.ObjectResponseResult-1.yml",
       "output": {
         ".html": {
@@ -16701,7 +18681,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.OutputClient.html",
-          "hash": "Xkt3ZD/iUMfMatDP2KNaHw=="
+          "hash": "ir+2ZOvXbp96WOYv4h/KPQ=="
         }
       },
       "is_incremental": false,
@@ -16725,7 +18705,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.OutputFormatClient.html",
-          "hash": "D3h70F3crDBSzZpQljFMJA=="
+          "hash": "c7PmJNRzdE0TGA8Smuoamw=="
         }
       },
       "is_incremental": false,
@@ -16761,7 +18741,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.PictureparkService.html",
-          "hash": "+8wgK6PY41gVv0ruVd912g=="
+          "hash": "M4LQCK/7HRpXEzQhzaB5nQ=="
         }
       },
       "is_incremental": false,
@@ -16785,7 +18765,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.ProfileClient.html",
-          "hash": "X8dvPGDRD40iMthbDMtmaQ=="
+          "hash": "wxPL64hxtVnXcYKDWf3d/Q=="
         }
       },
       "is_incremental": false,
@@ -16817,18 +18797,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/api/Picturepark.SDK.V1.PublicAccessClient.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Picturepark.SDK.V1.PublicAccessClient.html",
-          "hash": "GgovjMvXwbRXgUivpHTItg=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "obj/api/Picturepark.SDK.V1.SchemaClient.ObjectResponseResult-1.yml",
       "output": {
         ".html": {
@@ -16845,7 +18813,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.SchemaClient.html",
-          "hash": "UvMVoUnhxSYLahTI1Fx0Kg=="
+          "hash": "FEdiCQBOQKpIfhQlRyA+oQ=="
         }
       },
       "is_incremental": false,
@@ -16869,7 +18837,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.SchemaPermissionSetClient.html",
-          "hash": "GGAQGgmzKjJidyCiGODKiw=="
+          "hash": "a5x2nbkt23nmEd11MXPIPw=="
         }
       },
       "is_incremental": false,
@@ -16893,7 +18861,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.SchemaTransferClient.html",
-          "hash": "0PXz0rBr5vogjFhEKmKkNg=="
+          "hash": "68yXU08rCpk0H51cYSjMBg=="
         }
       },
       "is_incremental": false,
@@ -17013,7 +18981,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.ShareClient.html",
-          "hash": "Lb807ifAPzTQDGpAVeFzvw=="
+          "hash": "B3DSi3iOk8MSCvfzgDHFdg=="
         }
       },
       "is_incremental": false,
@@ -17049,7 +19017,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.TransferClient.html",
-          "hash": "p+XL3PrAcY3IdcYhjq1k9w=="
+          "hash": "/DYzgLGBwLkpLxIAqWsCQQ=="
         }
       },
       "is_incremental": false,
@@ -17073,7 +19041,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.UserClient.html",
-          "hash": "xx+x7MzGu+1zPpJ7uTANaQ=="
+          "hash": "at1QQifzNyl3AaDvb3m3sg=="
         }
       },
       "is_incremental": false,
@@ -17097,7 +19065,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.UserRoleClient.html",
-          "hash": "wsfuEz4b4ovcOaG3Cozi9w=="
+          "hash": "8jObECtgL827S8UNH8rKFw=="
         }
       },
       "is_incremental": false,
@@ -17109,7 +19077,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.html",
-          "hash": "PAqP0hAz0V2K08MHPkmFPQ=="
+          "hash": "+fCDclcewCH5+PU6CgqI0A=="
         }
       },
       "is_incremental": false,
@@ -17241,7 +19209,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "VX85xn4qsl/NgPsoGbib8Q=="
+          "hash": "zgSkfIL53J5usEuwF8i/Yg=="
         }
       },
       "is_incremental": false,
@@ -17263,10 +19231,12 @@
   "incremental_info": [
     {
       "status": {
-        "can_incremental": true,
+        "can_incremental": false,
+        "details": "Cannot build incrementally because docfx version changed from 1.0.0.0 to 2.45.1.0.",
         "incrementalPhase": "build",
         "total_file_count": 0,
-        "skipped_file_count": 0
+        "skipped_file_count": 0,
+        "full_build_reason_code": "DocfxVersionChanged"
       },
       "processors": {
         "TocDocumentProcessor": {
@@ -17277,16 +19247,16 @@
           "skipped_file_count": 0
         },
         "ManagedReferenceDocumentProcessor": {
-          "can_incremental": true,
+          "can_incremental": false,
           "incrementalPhase": "build",
-          "total_file_count": 1434,
-          "skipped_file_count": 1267
+          "total_file_count": 1598,
+          "skipped_file_count": 0
         },
         "ConceptualDocumentProcessor": {
-          "can_incremental": true,
+          "can_incremental": false,
           "incrementalPhase": "build",
           "total_file_count": 1,
-          "skipped_file_count": 1
+          "skipped_file_count": 0
         }
       }
     },

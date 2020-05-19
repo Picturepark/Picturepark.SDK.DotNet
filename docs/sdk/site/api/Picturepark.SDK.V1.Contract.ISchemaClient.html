@@ -113,7 +113,7 @@
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task&lt;SchemaCreateResult&gt; CreateAsync(SchemaCreateRequest schema, TimeSpan? timeout = default(TimeSpan? ), CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">Task&lt;SchemaCreateResult&gt; CreateAsync(SchemaCreateRequest request, TimeSpan? timeout = default(TimeSpan? ), CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -121,7 +121,7 @@
     <tr>
       <td>
         <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.SchemaCreateRequest.html">SchemaCreateRequest</a></span>
-        <span class="parametername">schema</span>
+        <span class="parametername">request</span>
         <p><p>The schema create request.</p>
 </p>
       </td>
@@ -175,36 +175,8 @@
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.DuplicateSchemaException.html">DuplicateSchemaException</a>
-        <p><p>Schema with this name already exists</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkArgumentNullException.html">PictureparkArgumentNullException</a>
-        <p><p>Argument must not be null</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
         <a class="xref" href="Picturepark.SDK.V1.Contract.SchemaValidationException.html">SchemaValidationException</a>
         <p><p>The validation exception of schema creation</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
 </p>
       </td>
     </tr>
@@ -219,6 +191,13 @@
       <td>
         <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
         <p><p>Version conflict</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
 </p>
       </td>
     </tr>
@@ -597,7 +576,7 @@
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task&lt;SchemaDeleteResult&gt; DeleteAsync(string schemaId, TimeSpan? timeout = default(TimeSpan? ), CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">Task&lt;SchemaDeleteResult&gt; DeleteAsync(string id, TimeSpan? timeout = default(TimeSpan? ), CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -605,7 +584,7 @@
     <tr>
       <td>
         <span class="pull-right"><span class="xref">System.String</span></span>
-        <span class="parametername">schemaId</span>
+        <span class="parametername">id</span>
         <p><p>The schema ID.</p>
 </p>
       </td>
@@ -659,27 +638,6 @@
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.SchemaNotFoundException.html">SchemaNotFoundException</a>
-        <p><p>Schema with this ID could not be found</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
-        <p><p>Entity not found</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkArgumentNullException.html">PictureparkArgumentNullException</a>
-        <p><p>Argument must not be null</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
         <a class="xref" href="Picturepark.SDK.V1.Contract.SchemaInUseException.html">SchemaInUseException</a>
         <p><p>Schema is used in other entities and cannot be deleted</p>
 </p>
@@ -687,15 +645,8 @@
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.SchemaNotFoundException.html">SchemaNotFoundException</a>
+        <p><p>Schema with this ID could not be found</p>
 </p>
       </td>
     </tr>
@@ -703,6 +654,13 @@
       <td>
         <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
         <p><p>Version conflict</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
 </p>
       </td>
     </tr>
@@ -850,8 +808,8 @@
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
 </p>
       </td>
     </tr>
@@ -871,8 +829,8 @@
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
 </p>
       </td>
     </tr>
@@ -965,7 +923,7 @@
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task&lt;SchemaDetail&gt; GetAsync(string schemaId, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">Task&lt;SchemaDetail&gt; GetAsync(string id, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -973,7 +931,7 @@
     <tr>
       <td>
         <span class="pull-right"><span class="xref">System.String</span></span>
-        <span class="parametername">schemaId</span>
+        <span class="parametername">id</span>
         <p><p>The schema ID.</p>
 </p>
       </td>
@@ -1018,22 +976,15 @@
     </tr>
     <tr>
       <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
         <a class="xref" href="Picturepark.SDK.V1.Contract.SchemaNotFoundException.html">SchemaNotFoundException</a>
         <p><p>Requested schema could not be found</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
-        <p><p>Entity not found</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
 </p>
       </td>
     </tr>
@@ -1046,8 +997,8 @@
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
 </p>
       </td>
     </tr>
@@ -1120,8 +1071,8 @@
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
 </p>
       </td>
     </tr>
@@ -1141,8 +1092,8 @@
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
 </p>
       </td>
     </tr>
@@ -1215,8 +1166,8 @@
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.RequestSizeLimitExceededException.html">RequestSizeLimitExceededException</a>
+        <p><p>List of IDs exceeded maximum size</p>
 </p>
       </td>
     </tr>
@@ -1236,8 +1187,8 @@
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
 </p>
       </td>
     </tr>
@@ -1310,8 +1261,8 @@
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
 </p>
       </td>
     </tr>
@@ -1331,8 +1282,8 @@
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
 </p>
       </td>
     </tr>
@@ -1352,7 +1303,7 @@
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task&lt;ICollection&lt;SchemaDetail&gt;&gt; GetReferencedAsync(string schemaId, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">Task&lt;ICollection&lt;SchemaDetail&gt;&gt; GetReferencedAsync(string id, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -1360,7 +1311,7 @@
     <tr>
       <td>
         <span class="pull-right"><span class="xref">System.String</span></span>
-        <span class="parametername">schemaId</span>
+        <span class="parametername">id</span>
         <p><p>The schema ID.</p>
 </p>
       </td>
@@ -1405,8 +1356,8 @@
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.RequestSizeLimitExceededException.html">RequestSizeLimitExceededException</a>
+        <p><p>List of IDs exceeded maximum size</p>
 </p>
       </td>
     </tr>
@@ -1426,8 +1377,8 @@
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
 </p>
       </td>
     </tr>
@@ -1447,7 +1398,7 @@
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task&lt;SchemaSearchResult&gt; SearchAsync(SchemaSearchRequest schemaSearchRequest, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">Task&lt;SchemaSearchResult&gt; SearchAsync(SchemaSearchRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -1455,7 +1406,7 @@
     <tr>
       <td>
         <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.SchemaSearchRequest.html">SchemaSearchRequest</a></span>
-        <span class="parametername">schemaSearchRequest</span>
+        <span class="parametername">request</span>
         <p><p>The schema search request.</p>
 </p>
       </td>
@@ -1500,8 +1451,8 @@
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
 </p>
       </td>
     </tr>
@@ -1521,8 +1472,8 @@
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
 </p>
       </td>
     </tr>
@@ -1533,16 +1484,16 @@
   
   <a id="Picturepark_SDK_V1_Contract_ISchemaClient_TransferOwnershipAsync_" data-uid="Picturepark.SDK.V1.Contract.ISchemaClient.TransferOwnershipAsync*"></a>
   
-  <h4 id="Picturepark_SDK_V1_Contract_ISchemaClient_TransferOwnershipAsync_System_String_Picturepark_SDK_V1_Contract_SchemaOwnershipTransferRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.Contract.ISchemaClient.TransferOwnershipAsync(System.String,Picturepark.SDK.V1.Contract.SchemaOwnershipTransferRequest,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_Contract_ISchemaClient_TransferOwnershipAsync_System_String_Picturepark_SDK_V1_Contract_SchemaOwnershipTransferRequest_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">TransferOwnershipAsync(String, SchemaOwnershipTransferRequest, CancellationToken)</a></h4>
+  <h4 id="Picturepark_SDK_V1_Contract_ISchemaClient_TransferOwnershipAsync_System_String_Picturepark_SDK_V1_Contract_SchemaOwnershipTransferRequest_System_Nullable_System_TimeSpan__System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.Contract.ISchemaClient.TransferOwnershipAsync(System.String,Picturepark.SDK.V1.Contract.SchemaOwnershipTransferRequest,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_Contract_ISchemaClient_TransferOwnershipAsync_System_String_Picturepark_SDK_V1_Contract_SchemaOwnershipTransferRequest_System_Nullable_System_TimeSpan__System_Threading_CancellationToken_" class="expander" data-toggle="collapse">TransferOwnershipAsync(String, SchemaOwnershipTransferRequest, Nullable&lt;TimeSpan&gt;, CancellationToken)</a></h4>
   
-  <div id="collapsible-Picturepark_SDK_V1_Contract_ISchemaClient_TransferOwnershipAsync_System_String_Picturepark_SDK_V1_Contract_SchemaOwnershipTransferRequest_System_Threading_CancellationToken_" class="collapse in">
+  <div id="collapsible-Picturepark_SDK_V1_Contract_ISchemaClient_TransferOwnershipAsync_System_String_Picturepark_SDK_V1_Contract_SchemaOwnershipTransferRequest_System_Nullable_System_TimeSpan__System_Threading_CancellationToken_" class="collapse in">
   <div class="markdown level1 summary"><p>Transfer ownership</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task TransferOwnershipAsync(string schemaId, SchemaOwnershipTransferRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">Task TransferOwnershipAsync(string id, SchemaOwnershipTransferRequest request, TimeSpan? timeout = default(TimeSpan? ), CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -1550,7 +1501,7 @@
     <tr>
       <td>
         <span class="pull-right"><span class="xref">System.String</span></span>
-        <span class="parametername">schemaId</span>
+        <span class="parametername">id</span>
         <p><p>The schema ID.</p>
 </p>
       </td>
@@ -1560,6 +1511,15 @@
         <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.SchemaOwnershipTransferRequest.html">SchemaOwnershipTransferRequest</a></span>
         <span class="parametername">request</span>
         <p><p>Request detailing which user to transfer to.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Nullable</span>&lt;<span class="xref">System.TimeSpan</span>&gt;</span>
+        <span class="parametername">timeout</span>
+        <p><p>Maximum time to wait for the operation to complete. If timeout is exceeded, the operation is not aborted but continues anyhow.
+            Only the waiting is aborted, and the calls returned.</p>
 </p>
       </td>
     </tr>
@@ -1603,8 +1563,8 @@
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
 </p>
       </td>
     </tr>
@@ -1624,8 +1584,8 @@
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
 </p>
       </td>
     </tr>
@@ -1698,8 +1658,8 @@
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
 </p>
       </td>
     </tr>
@@ -1719,8 +1679,8 @@
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
 </p>
       </td>
     </tr>
@@ -1823,7 +1783,7 @@
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task&lt;SchemaUpdateResult&gt; UpdateAsync(string schemaId, SchemaUpdateRequest schema, TimeSpan? timeout = default(TimeSpan? ), CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">Task&lt;SchemaUpdateResult&gt; UpdateAsync(string id, SchemaUpdateRequest request, TimeSpan? timeout = default(TimeSpan? ), CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -1831,7 +1791,7 @@
     <tr>
       <td>
         <span class="pull-right"><span class="xref">System.String</span></span>
-        <span class="parametername">schemaId</span>
+        <span class="parametername">id</span>
         <p><p>The schema ID.</p>
 </p>
       </td>
@@ -1839,7 +1799,7 @@
     <tr>
       <td>
         <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.SchemaUpdateRequest.html">SchemaUpdateRequest</a></span>
-        <span class="parametername">schema</span>
+        <span class="parametername">request</span>
         <p><p>The schema update request.</p>
 </p>
       </td>
@@ -1893,43 +1853,15 @@
     </tr>
     <tr>
       <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.SchemaValidationException.html">SchemaValidationException</a>
+        <p><p>The validation exception of schema update</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
         <a class="xref" href="Picturepark.SDK.V1.Contract.SchemaNotFoundException.html">SchemaNotFoundException</a>
         <p><p>Schema with this ID could not be found</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
-        <p><p>Entity not found</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkArgumentNullException.html">PictureparkArgumentNullException</a>
-        <p><p>Argument must not be null</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.SchemaValidationException.html">SchemaValidationException</a>
-        <p><p>The validation exception of schema creation</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
 </p>
       </td>
     </tr>
@@ -1940,7 +1872,152 @@
 </p>
       </td>
     </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
+</p>
+      </td>
+    </tr>
   </table>
+  
+  </div>
+  
+  
+  <a id="Picturepark_SDK_V1_Contract_ISchemaClient_UpdateManyAsync_" data-uid="Picturepark.SDK.V1.Contract.ISchemaClient.UpdateManyAsync*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_Contract_ISchemaClient_UpdateManyAsync_IEnumerable_Picturepark_SDK_V1_Contract_SchemaDetail__System_Boolean_System_Nullable_System_TimeSpan__System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.Contract.ISchemaClient.UpdateManyAsync(IEnumerable{Picturepark.SDK.V1.Contract.SchemaDetail},System.Boolean,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_Contract_ISchemaClient_UpdateManyAsync_IEnumerable_Picturepark_SDK_V1_Contract_SchemaDetail__System_Boolean_System_Nullable_System_TimeSpan__System_Threading_CancellationToken_" class="expander" data-toggle="collapse">UpdateManyAsync(IEnumerable&lt;SchemaDetail&gt;, Boolean, Nullable&lt;TimeSpan&gt;, CancellationToken)</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_Contract_ISchemaClient_UpdateManyAsync_IEnumerable_Picturepark_SDK_V1_Contract_SchemaDetail__System_Boolean_System_Nullable_System_TimeSpan__System_Threading_CancellationToken_" class="collapse in">
+  <div class="markdown level1 summary"><p>Update the given enumerable of <a class="xref" href="Picturepark.SDK.V1.Contract.SchemaDetail.html">SchemaDetail</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;SchemaBatchOperationResult&gt; UpdateManyAsync(IEnumerable&lt;SchemaDetail&gt; schemaDetails, bool enableForBinaryFiles, TimeSpan? timeout = default(TimeSpan? ), CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">IEnumerable</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.SchemaDetail.html">SchemaDetail</a>&gt;</span>
+        <span class="parametername">schemaDetails</span>
+        <p><p>The schema details.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Boolean</span></span>
+        <span class="parametername">enableForBinaryFiles</span>
+        <p><p>Specifies whether to enable the schemas for binary files.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Nullable</span>&lt;<span class="xref">System.TimeSpan</span>&gt;</span>
+        <span class="parametername">timeout</span>
+        <p><p>Maximum time to wait for the underlying business process to complete.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
+        <span class="parametername">cancellationToken</span>
+        <p><p>The cancellation token.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">SchemaBatchOperationResult</span>&gt;
+        <p><p>The <see cref="!:SchemaBatchOperationResult"></see>.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="Picturepark_SDK_V1_Contract_ISchemaClient_UpdateManyAsync_" data-uid="Picturepark.SDK.V1.Contract.ISchemaClient.UpdateManyAsync*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_Contract_ISchemaClient_UpdateManyAsync_Picturepark_SDK_V1_Contract_SchemaUpdateManyRequest_System_Nullable_System_TimeSpan__System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.Contract.ISchemaClient.UpdateManyAsync(Picturepark.SDK.V1.Contract.SchemaUpdateManyRequest,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_Contract_ISchemaClient_UpdateManyAsync_Picturepark_SDK_V1_Contract_SchemaUpdateManyRequest_System_Nullable_System_TimeSpan__System_Threading_CancellationToken_" class="expander" data-toggle="collapse">UpdateManyAsync(SchemaUpdateManyRequest, Nullable&lt;TimeSpan&gt;, CancellationToken)</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_Contract_ISchemaClient_UpdateManyAsync_Picturepark_SDK_V1_Contract_SchemaUpdateManyRequest_System_Nullable_System_TimeSpan__System_Threading_CancellationToken_" class="collapse in">
+  <div class="markdown level1 summary"><p>Updates schemas using the given request.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;SchemaBatchOperationResult&gt; UpdateManyAsync(SchemaUpdateManyRequest request, TimeSpan? timeout = default(TimeSpan? ), CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.SchemaUpdateManyRequest.html">SchemaUpdateManyRequest</a></span>
+        <span class="parametername">request</span>
+        <p><p>The <a class="xref" href="Picturepark.SDK.V1.Contract.SchemaUpdateManyRequest.html">SchemaUpdateManyRequest</a>.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Nullable</span>&lt;<span class="xref">System.TimeSpan</span>&gt;</span>
+        <span class="parametername">timeout</span>
+        <p><p>Maximum time to wait for the underlying business process to complete.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
+        <span class="parametername">cancellationToken</span>
+        <p><p>The cancellation token.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">SchemaBatchOperationResult</span>&gt;
+        <p><p>The <see cref="!:SchemaBatchOperationResult"></see>.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
   
   </div>
   

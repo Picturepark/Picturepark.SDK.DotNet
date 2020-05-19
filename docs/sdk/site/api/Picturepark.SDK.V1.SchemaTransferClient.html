@@ -272,7 +272,7 @@
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;Transfer&gt; ImportAsync(SchemaImportRequest schemaImportRequest, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;Transfer&gt; ImportAsync(SchemaImportRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -280,7 +280,7 @@
     <tr>
       <td>
         <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.SchemaImportRequest.html">SchemaImportRequest</a></span>
-        <span class="parametername">schemaImportRequest</span>
+        <span class="parametername">request</span>
         <p><p>The schema import request.</p>
 </p>
       </td>
@@ -327,29 +327,8 @@
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.FileTransferNotFoundException.html">FileTransferNotFoundException</a>
-        <p><p>File transfer not found</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
         <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkArgumentNullException.html">PictureparkArgumentNullException</a>
         <p><p>Argument must not be null</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
 </p>
       </td>
     </tr>
@@ -364,6 +343,13 @@
       <td>
         <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
         <p><p>Version conflict</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
 </p>
       </td>
     </tr>

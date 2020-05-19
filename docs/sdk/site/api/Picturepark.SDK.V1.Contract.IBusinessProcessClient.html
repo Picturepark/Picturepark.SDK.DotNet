@@ -113,7 +113,7 @@
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task CancelAsync(string processId, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">Task CancelAsync(string id, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -121,7 +121,7 @@
     <tr>
       <td>
         <span class="pull-right"><span class="xref">System.String</span></span>
-        <span class="parametername">processId</span>
+        <span class="parametername">id</span>
         <p><p>The business process id.</p>
 </p>
       </td>
@@ -165,22 +165,8 @@
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.BusinessProcessCancellationNotSupportedException.html">BusinessProcessCancellationNotSupportedException</a>
-        <p><p>Business process does not support cancellation.</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
         <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
         <p><p>Validation exception</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
 </p>
       </td>
     </tr>
@@ -195,6 +181,13 @@
       <td>
         <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
         <p><p>Version conflict</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
 </p>
       </td>
     </tr>
@@ -214,7 +207,7 @@
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task&lt;BusinessProcess&gt; ChangeStateAsync(string processId, BusinessProcessStateChangeRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">Task&lt;BusinessProcess&gt; ChangeStateAsync(string id, BusinessProcessStateChangeRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -222,7 +215,7 @@
     <tr>
       <td>
         <span class="pull-right"><span class="xref">System.String</span></span>
-        <span class="parametername">processId</span>
+        <span class="parametername">id</span>
         <p><p>The business process id.</p>
 </p>
       </td>
@@ -275,15 +268,8 @@
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.BusinessProcessNotExternalException.html">BusinessProcessNotExternalException</a>
-        <p><p>Business process is not driven externally, no state changes are allowed.</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
 </p>
       </td>
     </tr>
@@ -303,8 +289,8 @@
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
 </p>
       </td>
     </tr>
@@ -377,8 +363,8 @@
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
 </p>
       </td>
     </tr>
@@ -398,8 +384,8 @@
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
 </p>
       </td>
     </tr>
@@ -419,7 +405,7 @@
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task&lt;BusinessProcess&gt; GetAsync(string processId, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">Task&lt;BusinessProcess&gt; GetAsync(string id, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -427,7 +413,7 @@
     <tr>
       <td>
         <span class="pull-right"><span class="xref">System.String</span></span>
-        <span class="parametername">processId</span>
+        <span class="parametername">id</span>
         <p><p>The business process id.</p>
 </p>
       </td>
@@ -472,8 +458,8 @@
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
 </p>
       </td>
     </tr>
@@ -493,8 +479,8 @@
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
 </p>
       </td>
     </tr>
@@ -514,7 +500,7 @@
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task&lt;BusinessProcessDetails&gt; GetDetailsAsync(string processId, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">Task&lt;BusinessProcessDetails&gt; GetDetailsAsync(string id, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -522,7 +508,7 @@
     <tr>
       <td>
         <span class="pull-right"><span class="xref">System.String</span></span>
-        <span class="parametername">processId</span>
+        <span class="parametername">id</span>
         <p><p>The business process id.</p>
 </p>
       </td>
@@ -567,8 +553,8 @@
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
 </p>
       </td>
     </tr>
@@ -588,8 +574,8 @@
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
 </p>
       </td>
     </tr>
@@ -609,7 +595,7 @@
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task&lt;BusinessProcessSearchResult&gt; SearchAsync(BusinessProcessSearchRequest businessProcessSearchRequest, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">Task&lt;BusinessProcessSearchResult&gt; SearchAsync(BusinessProcessSearchRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -617,7 +603,7 @@
     <tr>
       <td>
         <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.BusinessProcessSearchRequest.html">BusinessProcessSearchRequest</a></span>
-        <span class="parametername">businessProcessSearchRequest</span>
+        <span class="parametername">request</span>
         <p><p>The business process request.</p>
 </p>
       </td>
@@ -662,8 +648,8 @@
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
 </p>
       </td>
     </tr>
@@ -683,8 +669,8 @@
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
 </p>
       </td>
     </tr>
@@ -704,7 +690,7 @@
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task UpdateNotificationAsync(string processId, BusinessProcessNotificationUpdateRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">Task UpdateNotificationAsync(string id, BusinessProcessNotificationUpdateRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -712,7 +698,7 @@
     <tr>
       <td>
         <span class="pull-right"><span class="xref">System.String</span></span>
-        <span class="parametername">processId</span>
+        <span class="parametername">id</span>
         <p><p>The business process id.</p>
 </p>
       </td>
@@ -764,15 +750,8 @@
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.BusinessProcessNotExternalException.html">BusinessProcessNotExternalException</a>
-        <p><p>Business process is not driven externally, no notification changes are allowed.</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
 </p>
       </td>
     </tr>
@@ -792,8 +771,8 @@
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
 </p>
       </td>
     </tr>

@@ -261,94 +261,6 @@
   </h3>
   
   
-  <a id="Picturepark_SDK_V1_LiveStreamClient_GetMessageCoreAsync_" data-uid="Picturepark.SDK.V1.LiveStreamClient.GetMessageCoreAsync*"></a>
-  
-  <h4 id="Picturepark_SDK_V1_LiveStreamClient_GetMessageCoreAsync_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.LiveStreamClient.GetMessageCoreAsync(System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_LiveStreamClient_GetMessageCoreAsync_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">GetMessageCoreAsync(CancellationToken)</a></h4>
-  
-  <div id="collapsible-Picturepark_SDK_V1_LiveStreamClient_GetMessageCoreAsync_System_Threading_CancellationToken_" class="collapse in">
-  <div class="markdown level1 summary"><p>This endpoint cannot be used. It is kept to generate LiveStream message contracts.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Obsolete]
-protected Task&lt;LiveStreamMessage&gt; GetMessageCoreAsync(CancellationToken cancellationToken = default(CancellationToken))</code></pre>
-  </div>
-  
-  <h5 class="parameters">Parameters</h5>
-  <table>
-    <tr>
-      <td>
-        <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
-        <span class="parametername">cancellationToken</span>
-        <p><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
-</p>
-      </td>
-    </tr>
-  </table>
-  
-  <h5 class="returns">Returns</h5>
-  <table>
-    <tr>
-      <td>
-        <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.LiveStreamMessage.html">LiveStreamMessage</a>&gt;
-        <p><p>OK</p>
-</p>
-      </td>
-    </tr>
-  </table>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  <h5 class="exceptions">Exceptions</h5>
-  <table>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
-        <p><p>A server side error occurred.</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
-        <p><p>Entity not found</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
-        <p><p>Version conflict</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
-</p>
-      </td>
-    </tr>
-  </table>
-  
-  </div>
-  
-  
   <a id="Picturepark_SDK_V1_LiveStreamClient_ReadObjectResponseAsync_" data-uid="Picturepark.SDK.V1.LiveStreamClient.ReadObjectResponseAsync*"></a>
   
   <h4 id="Picturepark_SDK_V1_LiveStreamClient_ReadObjectResponseAsync__1_System_Net_Http_HttpResponseMessage_System_Collections_Generic_IReadOnlyDictionary_System_String_System_Collections_Generic_IEnumerable_System_String___" data-uid="Picturepark.SDK.V1.LiveStreamClient.ReadObjectResponseAsync``1(System.Net.Http.HttpResponseMessage,System.Collections.Generic.IReadOnlyDictionary{System.String,System.Collections.Generic.IEnumerable{System.String}})"><a href="#collapsible-Picturepark_SDK_V1_LiveStreamClient_ReadObjectResponseAsync__1_System_Net_Http_HttpResponseMessage_System_Collections_Generic_IReadOnlyDictionary_System_String_System_Collections_Generic_IEnumerable_System_String___" class="expander" data-toggle="collapse">ReadObjectResponseAsync&lt;T&gt;(Net.Http.HttpResponseMessage, IReadOnlyDictionary&lt;String, IEnumerable&lt;String&gt;&gt;)</a></h4>
@@ -477,8 +389,8 @@ protected Task&lt;LiveStreamMessage&gt; GetMessageCoreAsync(CancellationToken ca
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
 </p>
       </td>
     </tr>
@@ -498,8 +410,8 @@ protected Task&lt;LiveStreamMessage&gt; GetMessageCoreAsync(CancellationToken ca
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
 </p>
       </td>
     </tr>

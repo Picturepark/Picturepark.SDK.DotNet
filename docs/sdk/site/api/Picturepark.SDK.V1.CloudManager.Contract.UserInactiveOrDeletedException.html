@@ -90,7 +90,7 @@
     <div class="level1"><span class="xref">System.Exception</span></div>
     <div class="level2"><a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.PictureparkException.html">PictureparkException</a></div>
     <div class="level3"><a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.PictureparkBusinessException.html">PictureparkBusinessException</a></div>
-    <div class="level4"><a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.PictureparkForbiddenException.html">PictureparkForbiddenException</a></div>
+    <div class="level4"><a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.PictureparkValidationException.html">PictureparkValidationException</a></div>
     <div class="level5"><span class="xref">UserInactiveOrDeletedException</span></div>
   </div>
   
@@ -181,13 +181,52 @@
   
   <h5 id="Picturepark_SDK_V1_CloudManager_Contract_UserInactiveOrDeletedException_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class UserInactiveOrDeletedException : PictureparkForbiddenException, ISerializable, _Exception</code></pre>
+    <pre><code class="lang-csharp hljs">public class UserInactiveOrDeletedException : PictureparkValidationException, ISerializable, _Exception</code></pre>
   </div>
   
   
   
   
   
+  <h3 id="properties">Properties
+  </h3>
+  
+  
+  <a id="Picturepark_SDK_V1_CloudManager_Contract_UserInactiveOrDeletedException_AffectedUserId_" data-uid="Picturepark.SDK.V1.CloudManager.Contract.UserInactiveOrDeletedException.AffectedUserId*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_CloudManager_Contract_UserInactiveOrDeletedException_AffectedUserId" data-uid="Picturepark.SDK.V1.CloudManager.Contract.UserInactiveOrDeletedException.AffectedUserId"><a href="#collapsible-Picturepark_SDK_V1_CloudManager_Contract_UserInactiveOrDeletedException_AffectedUserId" class="expander" data-toggle="collapse">AffectedUserId</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_CloudManager_Contract_UserInactiveOrDeletedException_AffectedUserId" class="collapse in">
+  <div class="markdown level1 summary"><p>The ID of the inactive or deleted user in question.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string AffectedUserId { get; set; }</code></pre>
+  </div>
+  
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.String</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
   <h3 id="methods">Methods
   </h3>
   

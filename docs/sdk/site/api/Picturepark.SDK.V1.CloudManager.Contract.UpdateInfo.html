@@ -81,7 +81,7 @@
             <article class="content wrap" id="_content" data-uid="Picturepark.SDK.V1.CloudManager.Contract.UpdateInfo">
   <h1 id="Picturepark_SDK_V1_CloudManager_Contract_UpdateInfo" data-uid="Picturepark.SDK.V1.CloudManager.Contract.UpdateInfo">Class UpdateInfo
   </h1>
-  <div class="markdown level0 summary"><p>The UpdateInfoViewItem is the view item for update commands.</p>
+  <div class="markdown level0 summary"><p>Contains information about a possibly available update</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   
@@ -132,55 +132,18 @@
   </h3>
   
   
-  <a id="Picturepark_SDK_V1_CloudManager_Contract_UpdateInfo_CreationDate_" data-uid="Picturepark.SDK.V1.CloudManager.Contract.UpdateInfo.CreationDate*"></a>
+  <a id="Picturepark_SDK_V1_CloudManager_Contract_UpdateInfo_CurrentVersion_" data-uid="Picturepark.SDK.V1.CloudManager.Contract.UpdateInfo.CurrentVersion*"></a>
   
-  <h4 id="Picturepark_SDK_V1_CloudManager_Contract_UpdateInfo_CreationDate" data-uid="Picturepark.SDK.V1.CloudManager.Contract.UpdateInfo.CreationDate"><a href="#collapsible-Picturepark_SDK_V1_CloudManager_Contract_UpdateInfo_CreationDate" class="expander" data-toggle="collapse">CreationDate</a></h4>
+  <h4 id="Picturepark_SDK_V1_CloudManager_Contract_UpdateInfo_CurrentVersion" data-uid="Picturepark.SDK.V1.CloudManager.Contract.UpdateInfo.CurrentVersion"><a href="#collapsible-Picturepark_SDK_V1_CloudManager_Contract_UpdateInfo_CurrentVersion" class="expander" data-toggle="collapse">CurrentVersion</a></h4>
   
-  <div id="collapsible-Picturepark_SDK_V1_CloudManager_Contract_UpdateInfo_CreationDate" class="collapse in">
-  <div class="markdown level1 summary"><p>The creation date of the update command.</p>
+  <div id="collapsible-Picturepark_SDK_V1_CloudManager_Contract_UpdateInfo_CurrentVersion" class="collapse in">
+  <div class="markdown level1 summary"><p>The current version.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public DateTime CreationDate { get; set; }</code></pre>
-  </div>
-  
-  
-  
-  
-  
-  <h5 class="propertyValue">Property Value</h5>
-  <table>
-    <tr>
-      <td>
-        <span class="xref">System.DateTime</span>
-        <p>
-      </td>
-    </tr>
-  </table>
-  
-  
-  
-  
-  
-  
-  
-  </div>
-  
-  
-  <a id="Picturepark_SDK_V1_CloudManager_Contract_UpdateInfo_Creator_" data-uid="Picturepark.SDK.V1.CloudManager.Contract.UpdateInfo.Creator*"></a>
-  
-  <h4 id="Picturepark_SDK_V1_CloudManager_Contract_UpdateInfo_Creator" data-uid="Picturepark.SDK.V1.CloudManager.Contract.UpdateInfo.Creator"><a href="#collapsible-Picturepark_SDK_V1_CloudManager_Contract_UpdateInfo_Creator" class="expander" data-toggle="collapse">Creator</a></h4>
-  
-  <div id="collapsible-Picturepark_SDK_V1_CloudManager_Contract_UpdateInfo_Creator" class="collapse in">
-  <div class="markdown level1 summary"><p>The creator of the update command.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string Creator { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public string CurrentVersion { get; set; }</code></pre>
   </div>
   
   
@@ -206,18 +169,18 @@
   </div>
   
   
-  <a id="Picturepark_SDK_V1_CloudManager_Contract_UpdateInfo_Description_" data-uid="Picturepark.SDK.V1.CloudManager.Contract.UpdateInfo.Description*"></a>
+  <a id="Picturepark_SDK_V1_CloudManager_Contract_UpdateInfo_UpdateAvailable_" data-uid="Picturepark.SDK.V1.CloudManager.Contract.UpdateInfo.UpdateAvailable*"></a>
   
-  <h4 id="Picturepark_SDK_V1_CloudManager_Contract_UpdateInfo_Description" data-uid="Picturepark.SDK.V1.CloudManager.Contract.UpdateInfo.Description"><a href="#collapsible-Picturepark_SDK_V1_CloudManager_Contract_UpdateInfo_Description" class="expander" data-toggle="collapse">Description</a></h4>
+  <h4 id="Picturepark_SDK_V1_CloudManager_Contract_UpdateInfo_UpdateAvailable" data-uid="Picturepark.SDK.V1.CloudManager.Contract.UpdateInfo.UpdateAvailable"><a href="#collapsible-Picturepark_SDK_V1_CloudManager_Contract_UpdateInfo_UpdateAvailable" class="expander" data-toggle="collapse">UpdateAvailable</a></h4>
   
-  <div id="collapsible-Picturepark_SDK_V1_CloudManager_Contract_UpdateInfo_Description" class="collapse in">
-  <div class="markdown level1 summary"><p>The description of the update command.</p>
+  <div id="collapsible-Picturepark_SDK_V1_CloudManager_Contract_UpdateInfo_UpdateAvailable" class="collapse in">
+  <div class="markdown level1 summary"><p>Indicates if an update is available.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string Description { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public bool UpdateAvailable { get; set; }</code></pre>
   </div>
   
   
@@ -228,44 +191,7 @@
   <table>
     <tr>
       <td>
-        <span class="xref">System.String</span>
-        <p>
-      </td>
-    </tr>
-  </table>
-  
-  
-  
-  
-  
-  
-  
-  </div>
-  
-  
-  <a id="Picturepark_SDK_V1_CloudManager_Contract_UpdateInfo_ObjectStoreVersion_" data-uid="Picturepark.SDK.V1.CloudManager.Contract.UpdateInfo.ObjectStoreVersion*"></a>
-  
-  <h4 id="Picturepark_SDK_V1_CloudManager_Contract_UpdateInfo_ObjectStoreVersion" data-uid="Picturepark.SDK.V1.CloudManager.Contract.UpdateInfo.ObjectStoreVersion"><a href="#collapsible-Picturepark_SDK_V1_CloudManager_Contract_UpdateInfo_ObjectStoreVersion" class="expander" data-toggle="collapse">ObjectStoreVersion</a></h4>
-  
-  <div id="collapsible-Picturepark_SDK_V1_CloudManager_Contract_UpdateInfo_ObjectStoreVersion" class="collapse in">
-  <div class="markdown level1 summary"><p>The version of the object store (elastic search) at the time of the update command creation.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string ObjectStoreVersion { get; set; }</code></pre>
-  </div>
-  
-  
-  
-  
-  
-  <h5 class="propertyValue">Property Value</h5>
-  <table>
-    <tr>
-      <td>
-        <span class="xref">System.String</span>
+        <span class="xref">System.Boolean</span>
         <p>
       </td>
     </tr>
@@ -285,7 +211,7 @@
   <h4 id="Picturepark_SDK_V1_CloudManager_Contract_UpdateInfo_UpdateVersion" data-uid="Picturepark.SDK.V1.CloudManager.Contract.UpdateInfo.UpdateVersion"><a href="#collapsible-Picturepark_SDK_V1_CloudManager_Contract_UpdateInfo_UpdateVersion" class="expander" data-toggle="collapse">UpdateVersion</a></h4>
   
   <div id="collapsible-Picturepark_SDK_V1_CloudManager_Contract_UpdateInfo_UpdateVersion" class="collapse in">
-  <div class="markdown level1 summary"><p>The version of the update command.</p>
+  <div class="markdown level1 summary"><p>The maximum version available to update to.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>

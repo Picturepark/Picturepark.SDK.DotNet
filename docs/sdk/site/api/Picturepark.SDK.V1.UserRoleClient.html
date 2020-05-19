@@ -281,7 +281,7 @@
       <td>
         <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.UserRoleCreateRequest.html">UserRoleCreateRequest</a></span>
         <span class="parametername">request</span>
-        <p><p>User role creation request.</p>
+        <p><p>Request containing information needed to create new user role.</p>
 </p>
       </td>
     </tr>
@@ -300,7 +300,7 @@
     <tr>
       <td>
         <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.UserRoleDetail.html">UserRoleDetail</a>&gt;
-        <p><p>Newly created user role</p>
+        <p><p>Represents a user role, which associates users with user rights.</p>
 </p>
       </td>
     </tr>
@@ -327,8 +327,8 @@
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
 </p>
       </td>
     </tr>
@@ -348,8 +348,8 @@
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
 </p>
       </td>
     </tr>
@@ -378,7 +378,7 @@
       <td>
         <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.UserRoleCreateManyRequest.html">UserRoleCreateManyRequest</a></span>
         <span class="parametername">request</span>
-        <p><p>Multiple user role creation request.</p>
+        <p><p>Request containing information needed to create new user role.</p>
 </p>
       </td>
     </tr>
@@ -397,7 +397,7 @@
     <tr>
       <td>
         <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.BulkResponse.html">BulkResponse</a>&gt;
-        <p><p>Bulk response</p>
+        <p><p>Response to a bulk operation</p>
 </p>
       </td>
     </tr>
@@ -424,8 +424,8 @@
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
 </p>
       </td>
     </tr>
@@ -445,8 +445,8 @@
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
 </p>
       </td>
     </tr>
@@ -475,7 +475,7 @@
       <td>
         <span class="pull-right"><span class="xref">System.String</span></span>
         <span class="parametername">id</span>
-        <p><p>ID of user role to delete</p>
+        <p><p>User role ID.</p>
 </p>
       </td>
     </tr>
@@ -494,8 +494,7 @@
     <tr>
       <td>
         <span class="xref">System.Threading.Tasks.Task</span>
-        <p><p>OK</p>
-</p>
+        <p>
       </td>
     </tr>
   </table>
@@ -521,8 +520,8 @@
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
 </p>
       </td>
     </tr>
@@ -542,8 +541,8 @@
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
 </p>
       </td>
     </tr>
@@ -572,7 +571,7 @@
       <td>
         <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.UserRoleDeleteManyRequest.html">UserRoleDeleteManyRequest</a></span>
         <span class="parametername">request</span>
-        <p><p>Multiple user role deletion request.</p>
+        <p><p>The request with user role IDs to delete.</p>
 </p>
       </td>
     </tr>
@@ -591,7 +590,7 @@
     <tr>
       <td>
         <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.BulkResponse.html">BulkResponse</a>&gt;
-        <p><p>Bulk request</p>
+        <p><p>Response to a bulk operation</p>
 </p>
       </td>
     </tr>
@@ -618,8 +617,8 @@
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
 </p>
       </td>
     </tr>
@@ -639,8 +638,8 @@
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
 </p>
       </td>
     </tr>
@@ -660,7 +659,7 @@
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;UserRoleDetail&gt; GetAsync(string userRoleId, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;UserRoleDetail&gt; GetAsync(string id, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -668,8 +667,8 @@
     <tr>
       <td>
         <span class="pull-right"><span class="xref">System.String</span></span>
-        <span class="parametername">userRoleId</span>
-        <p><p>The user role ID</p>
+        <span class="parametername">id</span>
+        <p><p>User role ID.</p>
 </p>
       </td>
     </tr>
@@ -688,7 +687,7 @@
     <tr>
       <td>
         <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.UserRoleDetail.html">UserRoleDetail</a>&gt;
-        <p><p>User role or null if not found</p>
+        <p><p>Represents a user role, which associates users with user rights.</p>
 </p>
       </td>
     </tr>
@@ -715,8 +714,8 @@
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
 </p>
       </td>
     </tr>
@@ -736,8 +735,8 @@
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
 </p>
       </td>
     </tr>
@@ -757,7 +756,7 @@
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;ICollection&lt;UserRoleDetail&gt;&gt; GetManyAsync(IEnumerable&lt;string&gt; ids, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;ICollection&lt;UserRoleDetail&gt;&gt; GetManyAsync(IEnumerable&lt;string&gt; ids = null, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -785,7 +784,7 @@
     <tr>
       <td>
         <span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">System.Collections.Generic.ICollection</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.UserRoleDetail.html">UserRoleDetail</a>&gt;&gt;
-        <p><p>List of user roles</p>
+        <p><p>Array of Represents a user role, which associates users with user rights.</p>
 </p>
       </td>
     </tr>
@@ -812,8 +811,8 @@
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.RequestSizeLimitExceededException.html">RequestSizeLimitExceededException</a>
+        <p><p>List of IDs exceeded maximum size</p>
 </p>
       </td>
     </tr>
@@ -833,8 +832,8 @@
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
 </p>
       </td>
     </tr>
@@ -916,7 +915,7 @@
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;UserRoleSearchResult&gt; SearchAsync(UserRoleSearchRequest searchRequest, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;UserRoleSearchResult&gt; SearchAsync(UserRoleSearchRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -924,7 +923,7 @@
     <tr>
       <td>
         <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.UserRoleSearchRequest.html">UserRoleSearchRequest</a></span>
-        <span class="parametername">searchRequest</span>
+        <span class="parametername">request</span>
         <p><p>User role search request.</p>
 </p>
       </td>
@@ -971,8 +970,8 @@
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
 </p>
       </td>
     </tr>
@@ -992,8 +991,8 @@
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
 </p>
       </td>
     </tr>
@@ -1007,7 +1006,7 @@
   <h4 id="Picturepark_SDK_V1_UserRoleClient_UpdateAsync_System_String_Picturepark_SDK_V1_Contract_UserRoleEditable_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.UserRoleClient.UpdateAsync(System.String,Picturepark.SDK.V1.Contract.UserRoleEditable,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_UserRoleClient_UpdateAsync_System_String_Picturepark_SDK_V1_Contract_UserRoleEditable_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">UpdateAsync(String, UserRoleEditable, CancellationToken)</a></h4>
   
   <div id="collapsible-Picturepark_SDK_V1_UserRoleClient_UpdateAsync_System_String_Picturepark_SDK_V1_Contract_UserRoleEditable_System_Threading_CancellationToken_" class="collapse in">
-  <div class="markdown level1 summary"><p>Update user roles</p>
+  <div class="markdown level1 summary"><p>Update user role</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -1022,7 +1021,7 @@
       <td>
         <span class="pull-right"><span class="xref">System.String</span></span>
         <span class="parametername">id</span>
-        <p><p>ID of the user role to update.</p>
+        <p><p>User role ID.</p>
 </p>
       </td>
     </tr>
@@ -1030,7 +1029,7 @@
       <td>
         <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.UserRoleEditable.html">UserRoleEditable</a></span>
         <span class="parametername">request</span>
-        <p><p>User role update request.</p>
+        <p><p>Request containing information needed to update the user role.</p>
 </p>
       </td>
     </tr>
@@ -1049,7 +1048,7 @@
     <tr>
       <td>
         <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.UserRoleDetail.html">UserRoleDetail</a>&gt;
-        <p><p>Updated user role</p>
+        <p><p>Represents a user role, which associates users with user rights.</p>
 </p>
       </td>
     </tr>
@@ -1076,8 +1075,8 @@
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
 </p>
       </td>
     </tr>
@@ -1097,8 +1096,8 @@
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
 </p>
       </td>
     </tr>
@@ -1127,7 +1126,7 @@
       <td>
         <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.UserRoleUpdateManyRequest.html">UserRoleUpdateManyRequest</a></span>
         <span class="parametername">request</span>
-        <p><p>Multiple user role update request.</p>
+        <p><p>Request containing information needed to update the user role.</p>
 </p>
       </td>
     </tr>
@@ -1146,7 +1145,7 @@
     <tr>
       <td>
         <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.BulkResponse.html">BulkResponse</a>&gt;
-        <p><p>Bulk response</p>
+        <p><p>Response to a bulk operation</p>
 </p>
       </td>
     </tr>
@@ -1173,8 +1172,8 @@
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
 </p>
       </td>
     </tr>
@@ -1194,8 +1193,8 @@
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
 </p>
       </td>
     </tr>

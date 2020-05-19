@@ -323,7 +323,7 @@
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;ObjectAggregationResult&gt; AggregateAsync(ContentAggregationRequest contentAggregationRequest, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;ObjectAggregationResult&gt; AggregateAsync(ContentAggregationRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -331,7 +331,7 @@
     <tr>
       <td>
         <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.ContentAggregationRequest.html">ContentAggregationRequest</a></span>
-        <span class="parametername">contentAggregationRequest</span>
+        <span class="parametername">request</span>
         <p><p>Content aggregation request.</p>
 </p>
       </td>
@@ -378,8 +378,8 @@
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
 </p>
       </td>
     </tr>
@@ -399,8 +399,8 @@
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
 </p>
       </td>
     </tr>
@@ -420,7 +420,7 @@
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;ObjectAggregationResult&gt; AggregateOnChannelAsync(ContentAggregationOnChannelRequest contentAggregationOnChannelRequest, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;ObjectAggregationResult&gt; AggregateOnChannelAsync(ContentAggregationOnChannelRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -428,7 +428,7 @@
     <tr>
       <td>
         <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.ContentAggregationOnChannelRequest.html">ContentAggregationOnChannelRequest</a></span>
-        <span class="parametername">contentAggregationOnChannelRequest</span>
+        <span class="parametername">request</span>
         <p><p>Content aggregation on channel request.</p>
 </p>
       </td>
@@ -475,8 +475,8 @@
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
 </p>
       </td>
     </tr>
@@ -496,8 +496,8 @@
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
 </p>
       </td>
     </tr>
@@ -631,7 +631,7 @@ By default the method waits for the search documents creation. Passing false, th
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected Task&lt;BusinessProcess&gt; BatchUpdateFieldsByFilterCoreAsync(ContentFieldsBatchUpdateFilterRequest updateRequest, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">protected Task&lt;BusinessProcess&gt; BatchUpdateFieldsByFilterCoreAsync(ContentFieldsBatchUpdateFilterRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -639,7 +639,7 @@ By default the method waits for the search documents creation. Passing false, th
     <tr>
       <td>
         <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.ContentFieldsBatchUpdateFilterRequest.html">ContentFieldsBatchUpdateFilterRequest</a></span>
-        <span class="parametername">updateRequest</span>
+        <span class="parametername">request</span>
         <p><p>Content fields batch update filter request. It contains the changes that need to be applied to the contents and the filter request to identify the contents.</p>
 </p>
       </td>
@@ -684,8 +684,8 @@ By default the method waits for the search documents creation. Passing false, th
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
 </p>
       </td>
     </tr>
@@ -705,8 +705,8 @@ By default the method waits for the search documents creation. Passing false, th
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
 </p>
       </td>
     </tr>
@@ -840,7 +840,7 @@ By default the method waits for the search documents creation. Passing false, th
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected Task&lt;BusinessProcess&gt; BatchUpdateFieldsByIdsCoreAsync(ContentFieldsBatchUpdateRequest updateRequest, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">protected Task&lt;BusinessProcess&gt; BatchUpdateFieldsByIdsCoreAsync(ContentFieldsBatchUpdateRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -848,7 +848,7 @@ By default the method waits for the search documents creation. Passing false, th
     <tr>
       <td>
         <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.ContentFieldsBatchUpdateRequest.html">ContentFieldsBatchUpdateRequest</a></span>
-        <span class="parametername">updateRequest</span>
+        <span class="parametername">request</span>
         <p><p>Content fields batch update request.</p>
 </p>
       </td>
@@ -893,8 +893,8 @@ By default the method waits for the search documents creation. Passing false, th
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
 </p>
       </td>
     </tr>
@@ -914,12 +914,79 @@ By default the method waits for the search documents creation. Passing false, th
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
 </p>
       </td>
     </tr>
   </table>
+  
+  </div>
+  
+  
+  <a id="Picturepark_SDK_V1_ContentClient_CreateAndAwaitDownloadLinkAsync_" data-uid="Picturepark.SDK.V1.ContentClient.CreateAndAwaitDownloadLinkAsync*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_ContentClient_CreateAndAwaitDownloadLinkAsync_Picturepark_SDK_V1_Contract_ContentDownloadLinkCreateRequest_System_Nullable_System_TimeSpan__System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.ContentClient.CreateAndAwaitDownloadLinkAsync(Picturepark.SDK.V1.Contract.ContentDownloadLinkCreateRequest,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_ContentClient_CreateAndAwaitDownloadLinkAsync_Picturepark_SDK_V1_Contract_ContentDownloadLinkCreateRequest_System_Nullable_System_TimeSpan__System_Threading_CancellationToken_" class="expander" data-toggle="collapse">CreateAndAwaitDownloadLinkAsync(ContentDownloadLinkCreateRequest, Nullable&lt;TimeSpan&gt;, CancellationToken)</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_ContentClient_CreateAndAwaitDownloadLinkAsync_Picturepark_SDK_V1_Contract_ContentDownloadLinkCreateRequest_System_Nullable_System_TimeSpan__System_Threading_CancellationToken_" class="collapse in">
+  <div class="markdown level1 summary"><p>Creates a download link and awaits potential dynamic output format rendering</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;DownloadLink&gt; CreateAndAwaitDownloadLinkAsync(ContentDownloadLinkCreateRequest request, TimeSpan? timeout = default(TimeSpan? ), CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.ContentDownloadLinkCreateRequest.html">ContentDownloadLinkCreateRequest</a></span>
+        <span class="parametername">request</span>
+        <p><p>Content download link request</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Nullable</span>&lt;<span class="xref">System.TimeSpan</span>&gt;</span>
+        <span class="parametername">timeout</span>
+        <p><p>Timeout for operation</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
+        <span class="parametername">cancellationToken</span>
+        <p><p>The cancellation token.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.DownloadLink.html">DownloadLink</a>&gt;
+        <p><p>Download link</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="Picturepark.SDK.V1.Contract.IContentClient.html#Picturepark_SDK_V1_Contract_IContentClient_CreateAndAwaitDownloadLinkAsync_Picturepark_SDK_V1_Contract_ContentDownloadLinkCreateRequest_System_Nullable_System_TimeSpan__System_Threading_CancellationToken_">IContentClient.CreateAndAwaitDownloadLinkAsync(ContentDownloadLinkCreateRequest, Nullable&lt;TimeSpan&gt;, CancellationToken)</a></div>
+  
+  
+  
   
   </div>
   
@@ -935,7 +1002,7 @@ By default the method waits for the search documents creation. Passing false, th
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;ContentDetail&gt; CreateAsync(ContentCreateRequest contentCreateRequest, IEnumerable&lt;ContentResolveBehavior&gt; resolveBehaviors = null, bool? allowMissingDependencies = default(bool? ), TimeSpan? timeout = default(TimeSpan? ), bool? waitSearchDocCreation = default(bool? ), CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;ContentDetail&gt; CreateAsync(ContentCreateRequest request, IEnumerable&lt;ContentResolveBehavior&gt; resolveBehaviors = null, bool? allowMissingDependencies = default(bool? ), TimeSpan? timeout = default(TimeSpan? ), bool? waitSearchDocCreation = default(bool? ), CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -943,7 +1010,7 @@ By default the method waits for the search documents creation. Passing false, th
     <tr>
       <td>
         <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.ContentCreateRequest.html">ContentCreateRequest</a></span>
-        <span class="parametername">contentCreateRequest</span>
+        <span class="parametername">request</span>
         <p><p>Content create request.</p>
 </p>
       </td>
@@ -1031,20 +1098,6 @@ By default the method waits for the search documents creation. Passing false, th
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
         <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
         <p><p>Entity not found</p>
 </p>
@@ -1054,6 +1107,13 @@ By default the method waits for the search documents creation. Passing false, th
       <td>
         <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
         <p><p>Version conflict</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
 </p>
       </td>
     </tr>
@@ -1073,7 +1133,7 @@ By default the method waits for the search documents creation. Passing false, th
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;DownloadLink&gt; CreateDownloadLinkAsync(ContentDownloadLinkCreateRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;BusinessProcess&gt; CreateDownloadLinkAsync(ContentDownloadLinkCreateRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -1100,7 +1160,7 @@ By default the method waits for the search documents creation. Passing false, th
   <table>
     <tr>
       <td>
-        <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.DownloadLink.html">DownloadLink</a>&gt;
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.BusinessProcess.html">BusinessProcess</a>&gt;
         <p><p>Download link</p>
 </p>
       </td>
@@ -1128,8 +1188,8 @@ By default the method waits for the search documents creation. Passing false, th
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
 </p>
       </td>
     </tr>
@@ -1149,8 +1209,8 @@ By default the method waits for the search documents creation. Passing false, th
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
 </p>
       </td>
     </tr>
@@ -1284,7 +1344,7 @@ By default the method waits for the search documents creation. Passing false, th
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected Task&lt;BusinessProcess&gt; CreateManyCoreAsync(ContentCreateManyRequest contentCreateManyRequest, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">protected Task&lt;BusinessProcess&gt; CreateManyCoreAsync(ContentCreateManyRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -1292,7 +1352,7 @@ By default the method waits for the search documents creation. Passing false, th
     <tr>
       <td>
         <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.ContentCreateManyRequest.html">ContentCreateManyRequest</a></span>
-        <span class="parametername">contentCreateManyRequest</span>
+        <span class="parametername">request</span>
         <p><p>Content create many request.</p>
 </p>
       </td>
@@ -1337,8 +1397,8 @@ By default the method waits for the search documents creation. Passing false, th
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
 </p>
       </td>
     </tr>
@@ -1358,8 +1418,8 @@ By default the method waits for the search documents creation. Passing false, th
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
 </p>
       </td>
     </tr>
@@ -1379,7 +1439,7 @@ By default the method waits for the search documents creation. Passing false, th
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task DeleteAsync(string contentId, bool? forceReferenceRemoval = default(bool? ), TimeSpan? timeout = default(TimeSpan? ), bool? waitSearchDocCreation = default(bool? ), CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public Task DeleteAsync(string id, bool? forceReferenceRemoval = default(bool? ), TimeSpan? timeout = default(TimeSpan? ), bool? waitSearchDocCreation = default(bool? ), CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -1387,7 +1447,7 @@ By default the method waits for the search documents creation. Passing false, th
     <tr>
       <td>
         <span class="pull-right"><span class="xref">System.String</span></span>
-        <span class="parametername">contentId</span>
+        <span class="parametername">id</span>
         <p><p>The ID of the content to delete.</p>
 </p>
       </td>
@@ -1460,22 +1520,8 @@ By default the method waits for the search documents creation. Passing false, th
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.BusinessProcessLifeCycleNotHitException.html">BusinessProcessLifeCycleNotHitException</a>
-        <p><p>The specified wait timeout exceeded</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
         <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
         <p><p>Validation exception</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
 </p>
       </td>
     </tr>
@@ -1490,6 +1536,13 @@ By default the method waits for the search documents creation. Passing false, th
       <td>
         <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
         <p><p>Version conflict</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
 </p>
       </td>
     </tr>
@@ -1509,7 +1562,7 @@ By default the method waits for the search documents creation. Passing false, th
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;BusinessProcess&gt; DeleteManyAsync(ContentDeleteManyRequest deleteManyRequest, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;BusinessProcess&gt; DeleteManyAsync(ContentDeleteManyRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -1517,7 +1570,7 @@ By default the method waits for the search documents creation. Passing false, th
     <tr>
       <td>
         <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.ContentDeleteManyRequest.html">ContentDeleteManyRequest</a></span>
-        <span class="parametername">deleteManyRequest</span>
+        <span class="parametername">request</span>
         <p><p>Delete many request.</p>
 </p>
       </td>
@@ -1564,8 +1617,8 @@ By default the method waits for the search documents creation. Passing false, th
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
 </p>
       </td>
     </tr>
@@ -1585,8 +1638,8 @@ By default the method waits for the search documents creation. Passing false, th
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
 </p>
       </td>
     </tr>
@@ -1606,7 +1659,7 @@ By default the method waits for the search documents creation. Passing false, th
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;BusinessProcess&gt; DeleteManyByFilterAsync(ContentDeleteManyFilterRequest deleteManyFilterRequest, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;BusinessProcess&gt; DeleteManyByFilterAsync(ContentDeleteManyFilterRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -1614,7 +1667,7 @@ By default the method waits for the search documents creation. Passing false, th
     <tr>
       <td>
         <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.ContentDeleteManyFilterRequest.html">ContentDeleteManyFilterRequest</a></span>
-        <span class="parametername">deleteManyFilterRequest</span>
+        <span class="parametername">request</span>
         <p><p>Delete many by filter request.</p>
 </p>
       </td>
@@ -1661,8 +1714,8 @@ By default the method waits for the search documents creation. Passing false, th
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
 </p>
       </td>
     </tr>
@@ -1682,8 +1735,8 @@ By default the method waits for the search documents creation. Passing false, th
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
 </p>
       </td>
     </tr>
@@ -1763,8 +1816,7 @@ By default the method waits for the search documents creation. Passing false, th
     <tr>
       <td>
         <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.FileResponse.html">FileResponse</a>&gt;
-        <p><p>Http response message</p>
-</p>
+        <p>
       </td>
     </tr>
   </table>
@@ -1790,8 +1842,8 @@ By default the method waits for the search documents creation. Passing false, th
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
 </p>
       </td>
     </tr>
@@ -1811,8 +1863,8 @@ By default the method waits for the search documents creation. Passing false, th
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
 </p>
       </td>
     </tr>
@@ -1955,7 +2007,7 @@ By default the method waits for the search documents creation. Passing false, th
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;FileResponse&gt; DownloadThumbnailAsync(string contentId, ThumbnailSize size, int? width = default(int? ), int? height = default(int? ), CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;FileResponse&gt; DownloadThumbnailAsync(string id, ThumbnailSize size, int? width = default(int? ), int? height = default(int? ), CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -1963,7 +2015,7 @@ By default the method waits for the search documents creation. Passing false, th
     <tr>
       <td>
         <span class="pull-right"><span class="xref">System.String</span></span>
-        <span class="parametername">contentId</span>
+        <span class="parametername">id</span>
         <p><p>The content ID.</p>
 </p>
       </td>
@@ -2007,8 +2059,7 @@ By default the method waits for the search documents creation. Passing false, th
     <tr>
       <td>
         <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.FileResponse.html">FileResponse</a>&gt;
-        <p><p>Http response message</p>
-</p>
+        <p>
       </td>
     </tr>
   </table>
@@ -2034,8 +2085,8 @@ By default the method waits for the search documents creation. Passing false, th
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
 </p>
       </td>
     </tr>
@@ -2055,8 +2106,8 @@ By default the method waits for the search documents creation. Passing false, th
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
 </p>
       </td>
     </tr>
@@ -2076,7 +2127,7 @@ By default the method waits for the search documents creation. Passing false, th
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;ContentDetail&gt; GetAsync(string contentId, IEnumerable&lt;ContentResolveBehavior&gt; resolveBehaviors = null, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;ContentDetail&gt; GetAsync(string id, IEnumerable&lt;ContentResolveBehavior&gt; resolveBehaviors = null, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -2084,7 +2135,7 @@ By default the method waits for the search documents creation. Passing false, th
     <tr>
       <td>
         <span class="pull-right"><span class="xref">System.String</span></span>
-        <span class="parametername">contentId</span>
+        <span class="parametername">id</span>
         <p><p>The content ID.</p>
 </p>
       </td>
@@ -2139,22 +2190,15 @@ By default the method waits for the search documents creation. Passing false, th
     </tr>
     <tr>
       <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
         <a class="xref" href="Picturepark.SDK.V1.Contract.ContentNotFoundException.html">ContentNotFoundException</a>
         <p><p>Content not found</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
-        <p><p>Entity not found</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
 </p>
       </td>
     </tr>
@@ -2167,8 +2211,105 @@ By default the method waits for the search documents creation. Passing false, th
     </tr>
     <tr>
       <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  </div>
+  
+  
+  <a id="Picturepark_SDK_V1_ContentClient_GetDownloadLinkAsync_" data-uid="Picturepark.SDK.V1.ContentClient.GetDownloadLinkAsync*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_ContentClient_GetDownloadLinkAsync_System_String_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.ContentClient.GetDownloadLinkAsync(System.String,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_ContentClient_GetDownloadLinkAsync_System_String_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">GetDownloadLinkAsync(String, CancellationToken)</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_ContentClient_GetDownloadLinkAsync_System_String_System_Threading_CancellationToken_" class="collapse in">
+  <div class="markdown level1 summary"><p>Resolve download token to Url</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;DownloadLink&gt; GetDownloadLinkAsync(string token, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.String</span></span>
+        <span class="parametername">token</span>
+        <p><p>Token</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
+        <span class="parametername">cancellationToken</span>
+        <p><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.DownloadLink.html">DownloadLink</a>&gt;
+        <p><p>Download link information</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="Picturepark.SDK.V1.Contract.IContentClient.html#Picturepark_SDK_V1_Contract_IContentClient_GetDownloadLinkAsync_System_String_System_Threading_CancellationToken_">IContentClient.GetDownloadLinkAsync(String, CancellationToken)</a></div>
+  
+  
+  
+  <h5 class="exceptions">Exceptions</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
+        <p><p>A server side error occurred.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
         <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
         <p><p>Validation exception</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
+        <p><p>Entity not found</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
+        <p><p>Version conflict</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
 </p>
       </td>
     </tr>
@@ -2251,22 +2392,15 @@ By default the method waits for the search documents creation. Passing false, th
     </tr>
     <tr>
       <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.RequestSizeLimitExceededException.html">RequestSizeLimitExceededException</a>
+        <p><p>List of IDs exceeded maximum size</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
         <a class="xref" href="Picturepark.SDK.V1.Contract.ContentNotFoundException.html">ContentNotFoundException</a>
         <p><p>One or more contents not found</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
-        <p><p>Entity not found</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
 </p>
       </td>
     </tr>
@@ -2279,8 +2413,202 @@ By default the method waits for the search documents creation. Passing false, th
     </tr>
     <tr>
       <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  </div>
+  
+  
+  <a id="Picturepark_SDK_V1_ContentClient_GetOutputsAsync_" data-uid="Picturepark.SDK.V1.ContentClient.GetOutputsAsync*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_ContentClient_GetOutputsAsync_System_String_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.ContentClient.GetOutputsAsync(System.String,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_ContentClient_GetOutputsAsync_System_String_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">GetOutputsAsync(String, CancellationToken)</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_ContentClient_GetOutputsAsync_System_String_System_Threading_CancellationToken_" class="collapse in">
+  <div class="markdown level1 summary"><p>Get outputs</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;ICollection&lt;OutputResolveResult&gt;&gt; GetOutputsAsync(string id, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.String</span></span>
+        <span class="parametername">id</span>
+        <p><p>ID of content.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
+        <span class="parametername">cancellationToken</span>
+        <p><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">System.Collections.Generic.ICollection</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.OutputResolveResult.html">OutputResolveResult</a>&gt;&gt;
+        <p><p>Array of Result of output resolution.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="Picturepark.SDK.V1.Contract.IContentClient.html#Picturepark_SDK_V1_Contract_IContentClient_GetOutputsAsync_System_String_System_Threading_CancellationToken_">IContentClient.GetOutputsAsync(String, CancellationToken)</a></div>
+  
+  
+  
+  <h5 class="exceptions">Exceptions</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
+        <p><p>A server side error occurred.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
         <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
         <p><p>Validation exception</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
+        <p><p>Entity not found</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
+        <p><p>Version conflict</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  </div>
+  
+  
+  <a id="Picturepark_SDK_V1_ContentClient_GetOutputsManyAsync_" data-uid="Picturepark.SDK.V1.ContentClient.GetOutputsManyAsync*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_ContentClient_GetOutputsManyAsync_Picturepark_SDK_V1_Contract_OutputResolveManyRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.ContentClient.GetOutputsManyAsync(Picturepark.SDK.V1.Contract.OutputResolveManyRequest,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_ContentClient_GetOutputsManyAsync_Picturepark_SDK_V1_Contract_OutputResolveManyRequest_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">GetOutputsManyAsync(OutputResolveManyRequest, CancellationToken)</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_ContentClient_GetOutputsManyAsync_Picturepark_SDK_V1_Contract_OutputResolveManyRequest_System_Threading_CancellationToken_" class="collapse in">
+  <div class="markdown level1 summary"><p>Get outputs</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;ICollection&lt;OutputResolveResult&gt;&gt; GetOutputsManyAsync(OutputResolveManyRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.OutputResolveManyRequest.html">OutputResolveManyRequest</a></span>
+        <span class="parametername">request</span>
+        <p><p>Output resolve many request.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
+        <span class="parametername">cancellationToken</span>
+        <p><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">System.Collections.Generic.ICollection</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.OutputResolveResult.html">OutputResolveResult</a>&gt;&gt;
+        <p><p>Array of Result of output resolution.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="Picturepark.SDK.V1.Contract.IContentClient.html#Picturepark_SDK_V1_Contract_IContentClient_GetOutputsManyAsync_Picturepark_SDK_V1_Contract_OutputResolveManyRequest_System_Threading_CancellationToken_">IContentClient.GetOutputsManyAsync(OutputResolveManyRequest, CancellationToken)</a></div>
+  
+  
+  
+  <h5 class="exceptions">Exceptions</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
+        <p><p>A server side error occurred.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
+        <p><p>Entity not found</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
+        <p><p>Version conflict</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
 </p>
       </td>
     </tr>
@@ -2300,7 +2628,7 @@ By default the method waits for the search documents creation. Passing false, th
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;ContentReferencesResult&gt; GetReferencesAsync(string contentId, ContentReferencesRequest contentReferencesRequest, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;ContentReferencesResult&gt; GetReferencesAsync(string id, ContentReferencesRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -2308,7 +2636,7 @@ By default the method waits for the search documents creation. Passing false, th
     <tr>
       <td>
         <span class="pull-right"><span class="xref">System.String</span></span>
-        <span class="parametername">contentId</span>
+        <span class="parametername">id</span>
         <p><p>The content ID whose references to retrieve.</p>
 </p>
       </td>
@@ -2316,7 +2644,7 @@ By default the method waits for the search documents creation. Passing false, th
     <tr>
       <td>
         <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.ContentReferencesRequest.html">ContentReferencesRequest</a></span>
-        <span class="parametername">contentReferencesRequest</span>
+        <span class="parametername">request</span>
         <p><p>Content references request.</p>
 </p>
       </td>
@@ -2363,8 +2691,8 @@ By default the method waits for the search documents creation. Passing false, th
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
 </p>
       </td>
     </tr>
@@ -2384,8 +2712,8 @@ By default the method waits for the search documents creation. Passing false, th
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
 </p>
       </td>
     </tr>
@@ -2405,7 +2733,7 @@ By default the method waits for the search documents creation. Passing false, th
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;ContentReferencesResult&gt; GetReferencesManyAsync(ContentManyReferencesRequest contentManyReferencesRequest, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;ContentReferencesResult&gt; GetReferencesManyAsync(ContentManyReferencesRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -2413,7 +2741,7 @@ By default the method waits for the search documents creation. Passing false, th
     <tr>
       <td>
         <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.ContentManyReferencesRequest.html">ContentManyReferencesRequest</a></span>
-        <span class="parametername">contentManyReferencesRequest</span>
+        <span class="parametername">request</span>
         <p><p>Content many references request.</p>
 </p>
       </td>
@@ -2460,8 +2788,8 @@ By default the method waits for the search documents creation. Passing false, th
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
 </p>
       </td>
     </tr>
@@ -2481,8 +2809,8 @@ By default the method waits for the search documents creation. Passing false, th
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
 </p>
       </td>
     </tr>
@@ -2564,7 +2892,7 @@ By default the method waits for the search documents creation. Passing false, th
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task RestoreAsync(string contentId, bool? allowMissingDependencies = default(bool? ), TimeSpan? timeout = default(TimeSpan? ), bool? waitSearchDocCreation = default(bool? ), CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public Task RestoreAsync(string id, bool? allowMissingDependencies = default(bool? ), TimeSpan? timeout = default(TimeSpan? ), bool? waitSearchDocCreation = default(bool? ), CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -2572,7 +2900,7 @@ By default the method waits for the search documents creation. Passing false, th
     <tr>
       <td>
         <span class="pull-right"><span class="xref">System.String</span></span>
-        <span class="parametername">contentId</span>
+        <span class="parametername">id</span>
         <p><p>The content ID.</p>
 </p>
       </td>
@@ -2645,22 +2973,8 @@ By default the method waits for the search documents creation. Passing false, th
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.BusinessProcessLifeCycleNotHitException.html">BusinessProcessLifeCycleNotHitException</a>
-        <p><p>The specified wait timeout exceeded</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
         <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
         <p><p>Validation exception</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
 </p>
       </td>
     </tr>
@@ -2675,6 +2989,13 @@ By default the method waits for the search documents creation. Passing false, th
       <td>
         <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
         <p><p>Version conflict</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
 </p>
       </td>
     </tr>
@@ -2694,7 +3015,7 @@ By default the method waits for the search documents creation. Passing false, th
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;BusinessProcess&gt; RestoreManyAsync(ContentRestoreManyRequest restoreManyRequest, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;BusinessProcess&gt; RestoreManyAsync(ContentRestoreManyRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -2702,7 +3023,7 @@ By default the method waits for the search documents creation. Passing false, th
     <tr>
       <td>
         <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.ContentRestoreManyRequest.html">ContentRestoreManyRequest</a></span>
-        <span class="parametername">restoreManyRequest</span>
+        <span class="parametername">request</span>
         <p><p>Content restore many request.</p>
 </p>
       </td>
@@ -2749,8 +3070,8 @@ By default the method waits for the search documents creation. Passing false, th
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
 </p>
       </td>
     </tr>
@@ -2770,8 +3091,8 @@ By default the method waits for the search documents creation. Passing false, th
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
 </p>
       </td>
     </tr>
@@ -2791,7 +3112,7 @@ By default the method waits for the search documents creation. Passing false, th
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;ContentSearchResult&gt; SearchAsync(ContentSearchRequest contentSearchRequest, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;ContentSearchResult&gt; SearchAsync(ContentSearchRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -2799,7 +3120,7 @@ By default the method waits for the search documents creation. Passing false, th
     <tr>
       <td>
         <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.ContentSearchRequest.html">ContentSearchRequest</a></span>
-        <span class="parametername">contentSearchRequest</span>
+        <span class="parametername">request</span>
         <p><p>Content search request.</p>
 </p>
       </td>
@@ -2819,7 +3140,7 @@ By default the method waits for the search documents creation. Passing false, th
     <tr>
       <td>
         <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.ContentSearchResult.html">ContentSearchResult</a>&gt;
-        <p><p>Content search result</p>
+        <p><p>Result for content search operation</p>
 </p>
       </td>
     </tr>
@@ -2846,8 +3167,8 @@ By default the method waits for the search documents creation. Passing false, th
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
 </p>
       </td>
     </tr>
@@ -2867,8 +3188,8 @@ By default the method waits for the search documents creation. Passing false, th
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
 </p>
       </td>
     </tr>
@@ -2888,7 +3209,7 @@ By default the method waits for the search documents creation. Passing false, th
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task TransferOwnershipAsync(string contentId, ContentOwnershipTransferRequest updateRequest, TimeSpan? timeout = default(TimeSpan? ), bool? waitSearchDocCreation = default(bool? ), CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public Task TransferOwnershipAsync(string id, ContentOwnershipTransferRequest request, TimeSpan? timeout = default(TimeSpan? ), bool? waitSearchDocCreation = default(bool? ), CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -2896,7 +3217,7 @@ By default the method waits for the search documents creation. Passing false, th
     <tr>
       <td>
         <span class="pull-right"><span class="xref">System.String</span></span>
-        <span class="parametername">contentId</span>
+        <span class="parametername">id</span>
         <p><p>The content ID.</p>
 </p>
       </td>
@@ -2904,7 +3225,7 @@ By default the method waits for the search documents creation. Passing false, th
     <tr>
       <td>
         <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.ContentOwnershipTransferRequest.html">ContentOwnershipTransferRequest</a></span>
-        <span class="parametername">updateRequest</span>
+        <span class="parametername">request</span>
         <p><p>Content ownership transfer request.</p>
 </p>
       </td>
@@ -2969,22 +3290,8 @@ By default the method waits for the search documents creation. Passing false, th
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.BusinessProcessLifeCycleNotHitException.html">BusinessProcessLifeCycleNotHitException</a>
-        <p><p>The specified wait timeout exceeded</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
         <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
         <p><p>Validation exception</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
 </p>
       </td>
     </tr>
@@ -2999,6 +3306,13 @@ By default the method waits for the search documents creation. Passing false, th
       <td>
         <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
         <p><p>Version conflict</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
 </p>
       </td>
     </tr>
@@ -3132,7 +3446,7 @@ By default the method waits for the search documents creation. Passing false, th
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected Task&lt;BusinessProcess&gt; TransferOwnershipManyCoreAsync(ContentOwnershipTransferManyRequest contentOwnershipTransferManyRequest, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">protected Task&lt;BusinessProcess&gt; TransferOwnershipManyCoreAsync(ContentOwnershipTransferManyRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -3140,7 +3454,7 @@ By default the method waits for the search documents creation. Passing false, th
     <tr>
       <td>
         <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.ContentOwnershipTransferManyRequest.html">ContentOwnershipTransferManyRequest</a></span>
-        <span class="parametername">contentOwnershipTransferManyRequest</span>
+        <span class="parametername">request</span>
         <p><p>Content ownership transfer many request.</p>
 </p>
       </td>
@@ -3185,8 +3499,8 @@ By default the method waits for the search documents creation. Passing false, th
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
 </p>
       </td>
     </tr>
@@ -3206,8 +3520,8 @@ By default the method waits for the search documents creation. Passing false, th
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
 </p>
       </td>
     </tr>
@@ -3227,7 +3541,7 @@ By default the method waits for the search documents creation. Passing false, th
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;BusinessProcess&gt; UpdateFileAsync(string contentId, ContentFileUpdateRequest updateRequest, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;BusinessProcess&gt; UpdateFileAsync(string id, ContentFileUpdateRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -3235,7 +3549,7 @@ By default the method waits for the search documents creation. Passing false, th
     <tr>
       <td>
         <span class="pull-right"><span class="xref">System.String</span></span>
-        <span class="parametername">contentId</span>
+        <span class="parametername">id</span>
         <p><p>The ID of the content to replace.</p>
 </p>
       </td>
@@ -3243,7 +3557,7 @@ By default the method waits for the search documents creation. Passing false, th
     <tr>
       <td>
         <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.ContentFileUpdateRequest.html">ContentFileUpdateRequest</a></span>
-        <span class="parametername">updateRequest</span>
+        <span class="parametername">request</span>
         <p><p>Content file update request</p>
 </p>
       </td>
@@ -3290,8 +3604,8 @@ By default the method waits for the search documents creation. Passing false, th
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
 </p>
       </td>
     </tr>
@@ -3311,8 +3625,8 @@ By default the method waits for the search documents creation. Passing false, th
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
 </p>
       </td>
     </tr>
@@ -3332,7 +3646,7 @@ By default the method waits for the search documents creation. Passing false, th
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;ContentDetail&gt; UpdateMetadataAsync(string contentId, ContentMetadataUpdateRequest updateRequest, IEnumerable&lt;ContentResolveBehavior&gt; resolveBehaviors = null, bool? allowMissingDependencies = default(bool? ), TimeSpan? timeout = default(TimeSpan? ), bool? waitSearchDocCreation = default(bool? ), CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;ContentDetail&gt; UpdateMetadataAsync(string id, ContentMetadataUpdateRequest request, IEnumerable&lt;ContentResolveBehavior&gt; resolveBehaviors = null, bool? allowMissingDependencies = default(bool? ), TimeSpan? timeout = default(TimeSpan? ), bool? waitSearchDocCreation = default(bool? ), CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -3340,7 +3654,7 @@ By default the method waits for the search documents creation. Passing false, th
     <tr>
       <td>
         <span class="pull-right"><span class="xref">System.String</span></span>
-        <span class="parametername">contentId</span>
+        <span class="parametername">id</span>
         <p><p>The content ID.</p>
 </p>
       </td>
@@ -3348,7 +3662,7 @@ By default the method waits for the search documents creation. Passing false, th
     <tr>
       <td>
         <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.ContentMetadataUpdateRequest.html">ContentMetadataUpdateRequest</a></span>
-        <span class="parametername">updateRequest</span>
+        <span class="parametername">request</span>
         <p><p>Content metadata update request.</p>
 </p>
       </td>
@@ -3436,20 +3750,6 @@ By default the method waits for the search documents creation. Passing false, th
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
         <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
         <p><p>Entity not found</p>
 </p>
@@ -3459,6 +3759,13 @@ By default the method waits for the search documents creation. Passing false, th
       <td>
         <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
         <p><p>Version conflict</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
 </p>
       </td>
     </tr>
@@ -3599,7 +3906,7 @@ By default the method waits for the search documents creation. Passing false, th
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected Task&lt;BusinessProcess&gt; UpdateMetadataManyCoreAsync(ContentMetadataUpdateManyRequest updateRequest, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">protected Task&lt;BusinessProcess&gt; UpdateMetadataManyCoreAsync(ContentMetadataUpdateManyRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -3607,7 +3914,7 @@ By default the method waits for the search documents creation. Passing false, th
     <tr>
       <td>
         <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.ContentMetadataUpdateManyRequest.html">ContentMetadataUpdateManyRequest</a></span>
-        <span class="parametername">updateRequest</span>
+        <span class="parametername">request</span>
         <p><p>Content metadata update many request.</p>
 </p>
       </td>
@@ -3652,22 +3959,15 @@ By default the method waits for the search documents creation. Passing false, th
     </tr>
     <tr>
       <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
         <a class="xref" href="Picturepark.SDK.V1.Contract.ContentNotFoundException.html">ContentNotFoundException</a>
-        <p><p>Not all provided contents could be found</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
-        <p><p>Entity not found</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
+        <p><p>One or more contents not found</p>
 </p>
       </td>
     </tr>
@@ -3680,8 +3980,8 @@ By default the method waits for the search documents creation. Passing false, th
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
 </p>
       </td>
     </tr>
@@ -3701,7 +4001,7 @@ By default the method waits for the search documents creation. Passing false, th
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;ContentDetail&gt; UpdatePermissionsAsync(string contentId, ContentPermissionsUpdateRequest updateRequest, IEnumerable&lt;ContentResolveBehavior&gt; resolveBehaviors = null, TimeSpan? timeout = default(TimeSpan? ), bool? waitSearchDocCreation = default(bool? ), CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;ContentDetail&gt; UpdatePermissionsAsync(string id, ContentPermissionsUpdateRequest request, IEnumerable&lt;ContentResolveBehavior&gt; resolveBehaviors = null, TimeSpan? timeout = default(TimeSpan? ), bool? waitSearchDocCreation = default(bool? ), CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -3709,7 +4009,7 @@ By default the method waits for the search documents creation. Passing false, th
     <tr>
       <td>
         <span class="pull-right"><span class="xref">System.String</span></span>
-        <span class="parametername">contentId</span>
+        <span class="parametername">id</span>
         <p><p>The content ID.</p>
 </p>
       </td>
@@ -3717,7 +4017,7 @@ By default the method waits for the search documents creation. Passing false, th
     <tr>
       <td>
         <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.ContentPermissionsUpdateRequest.html">ContentPermissionsUpdateRequest</a></span>
-        <span class="parametername">updateRequest</span>
+        <span class="parametername">request</span>
         <p><p>Content permissions update request.</p>
 </p>
       </td>
@@ -3797,20 +4097,6 @@ By default the method waits for the search documents creation. Passing false, th
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
         <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
         <p><p>Entity not found</p>
 </p>
@@ -3820,6 +4106,13 @@ By default the method waits for the search documents creation. Passing false, th
       <td>
         <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
         <p><p>Version conflict</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
 </p>
       </td>
     </tr>
@@ -3953,7 +4246,7 @@ By default the method waits for the search documents creation. Passing false, th
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected Task&lt;BusinessProcess&gt; UpdatePermissionsManyCoreAsync(ContentPermissionsUpdateManyRequest updateManyRequest, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">protected Task&lt;BusinessProcess&gt; UpdatePermissionsManyCoreAsync(ContentPermissionsUpdateManyRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -3961,7 +4254,7 @@ By default the method waits for the search documents creation. Passing false, th
     <tr>
       <td>
         <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.ContentPermissionsUpdateManyRequest.html">ContentPermissionsUpdateManyRequest</a></span>
-        <span class="parametername">updateManyRequest</span>
+        <span class="parametername">request</span>
         <p><p>Content permissions update many request.</p>
 </p>
       </td>
@@ -4006,8 +4299,8 @@ By default the method waits for the search documents creation. Passing false, th
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
 </p>
       </td>
     </tr>
@@ -4027,8 +4320,8 @@ By default the method waits for the search documents creation. Passing false, th
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
 </p>
       </td>
     </tr>

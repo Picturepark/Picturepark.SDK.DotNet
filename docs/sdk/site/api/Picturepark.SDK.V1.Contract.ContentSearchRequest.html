@@ -88,12 +88,43 @@
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><span class="xref">System.Object</span></div>
-    <div class="level1"><span class="xref">ContentSearchRequest</span></div>
+    <div class="level1"><a class="xref" href="Picturepark.SDK.V1.Contract.ContentAggregationOnChannelRequest.html">ContentAggregationOnChannelRequest</a></div>
+    <div class="level2"><span class="xref">ContentSearchRequest</span></div>
   </div>
   
   
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="Picturepark.SDK.V1.Contract.ContentAggregationOnChannelRequest.html#Picturepark_SDK_V1_Contract_ContentAggregationOnChannelRequest_SearchString">ContentAggregationOnChannelRequest.SearchString</a>
+    </div>
+    <div>
+      <a class="xref" href="Picturepark.SDK.V1.Contract.ContentAggregationOnChannelRequest.html#Picturepark_SDK_V1_Contract_ContentAggregationOnChannelRequest_SearchBehaviors">ContentAggregationOnChannelRequest.SearchBehaviors</a>
+    </div>
+    <div>
+      <a class="xref" href="Picturepark.SDK.V1.Contract.ContentAggregationOnChannelRequest.html#Picturepark_SDK_V1_Contract_ContentAggregationOnChannelRequest_Filter">ContentAggregationOnChannelRequest.Filter</a>
+    </div>
+    <div>
+      <a class="xref" href="Picturepark.SDK.V1.Contract.ContentAggregationOnChannelRequest.html#Picturepark_SDK_V1_Contract_ContentAggregationOnChannelRequest_AggregationFilters">ContentAggregationOnChannelRequest.AggregationFilters</a>
+    </div>
+    <div>
+      <a class="xref" href="Picturepark.SDK.V1.Contract.ContentAggregationOnChannelRequest.html#Picturepark_SDK_V1_Contract_ContentAggregationOnChannelRequest_ChannelId">ContentAggregationOnChannelRequest.ChannelId</a>
+    </div>
+    <div>
+      <a class="xref" href="Picturepark.SDK.V1.Contract.ContentAggregationOnChannelRequest.html#Picturepark_SDK_V1_Contract_ContentAggregationOnChannelRequest_SearchLanguages">ContentAggregationOnChannelRequest.SearchLanguages</a>
+    </div>
+    <div>
+      <a class="xref" href="Picturepark.SDK.V1.Contract.ContentAggregationOnChannelRequest.html#Picturepark_SDK_V1_Contract_ContentAggregationOnChannelRequest_CollectionId">ContentAggregationOnChannelRequest.CollectionId</a>
+    </div>
+    <div>
+      <a class="xref" href="Picturepark.SDK.V1.Contract.ContentAggregationOnChannelRequest.html#Picturepark_SDK_V1_Contract_ContentAggregationOnChannelRequest_LifeCycleFilter">ContentAggregationOnChannelRequest.LifeCycleFilter</a>
+    </div>
+    <div>
+      <a class="xref" href="Picturepark.SDK.V1.Contract.ContentAggregationOnChannelRequest.html#Picturepark_SDK_V1_Contract_ContentAggregationOnChannelRequest_BrokenDependenciesFilter">ContentAggregationOnChannelRequest.BrokenDependenciesFilter</a>
+    </div>
+    <div>
+      <a class="xref" href="Picturepark.SDK.V1.Contract.ContentAggregationOnChannelRequest.html#Picturepark_SDK_V1_Contract_ContentAggregationOnChannelRequest_SearchType">ContentAggregationOnChannelRequest.SearchType</a>
+    </div>
     <div>
       <span class="xref">System.Object.ToString()</span>
     </div>
@@ -121,7 +152,7 @@
   
   <h5 id="Picturepark_SDK_V1_Contract_ContentSearchRequest_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class ContentSearchRequest</code></pre>
+    <pre><code class="lang-csharp hljs">public class ContentSearchRequest : ContentAggregationOnChannelRequest</code></pre>
   </div>
   
   
@@ -132,18 +163,18 @@
   </h3>
   
   
-  <a id="Picturepark_SDK_V1_Contract_ContentSearchRequest_BrokenDependenciesFilter_" data-uid="Picturepark.SDK.V1.Contract.ContentSearchRequest.BrokenDependenciesFilter*"></a>
+  <a id="Picturepark_SDK_V1_Contract_ContentSearchRequest_Aggregators_" data-uid="Picturepark.SDK.V1.Contract.ContentSearchRequest.Aggregators*"></a>
   
-  <h4 id="Picturepark_SDK_V1_Contract_ContentSearchRequest_BrokenDependenciesFilter" data-uid="Picturepark.SDK.V1.Contract.ContentSearchRequest.BrokenDependenciesFilter"><a href="#collapsible-Picturepark_SDK_V1_Contract_ContentSearchRequest_BrokenDependenciesFilter" class="expander" data-toggle="collapse">BrokenDependenciesFilter</a></h4>
+  <h4 id="Picturepark_SDK_V1_Contract_ContentSearchRequest_Aggregators" data-uid="Picturepark.SDK.V1.Contract.ContentSearchRequest.Aggregators"><a href="#collapsible-Picturepark_SDK_V1_Contract_ContentSearchRequest_Aggregators" class="expander" data-toggle="collapse">Aggregators</a></h4>
   
-  <div id="collapsible-Picturepark_SDK_V1_Contract_ContentSearchRequest_BrokenDependenciesFilter" class="collapse in">
-  <div class="markdown level1 summary"><p>Limits the search to the contents that have or not have broken references. By default it includes both.</p>
+  <div id="collapsible-Picturepark_SDK_V1_Contract_ContentSearchRequest_Aggregators" class="collapse in">
+  <div class="markdown level1 summary"><p>List of aggregators that defines how the items should be aggregated.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public BrokenDependenciesFilter BrokenDependenciesFilter { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public ICollection&lt;AggregatorBase&gt; Aggregators { get; set; }</code></pre>
   </div>
   
   
@@ -154,81 +185,7 @@
   <table>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.BrokenDependenciesFilter.html">BrokenDependenciesFilter</a>
-        <p>
-      </td>
-    </tr>
-  </table>
-  
-  
-  
-  
-  
-  
-  
-  </div>
-  
-  
-  <a id="Picturepark_SDK_V1_Contract_ContentSearchRequest_ChannelId_" data-uid="Picturepark.SDK.V1.Contract.ContentSearchRequest.ChannelId*"></a>
-  
-  <h4 id="Picturepark_SDK_V1_Contract_ContentSearchRequest_ChannelId" data-uid="Picturepark.SDK.V1.Contract.ContentSearchRequest.ChannelId"><a href="#collapsible-Picturepark_SDK_V1_Contract_ContentSearchRequest_ChannelId" class="expander" data-toggle="collapse">ChannelId</a></h4>
-  
-  <div id="collapsible-Picturepark_SDK_V1_Contract_ContentSearchRequest_ChannelId" class="collapse in">
-  <div class="markdown level1 summary"><p>Limits the simple search fields to the fields available in the specified channel.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string ChannelId { get; set; }</code></pre>
-  </div>
-  
-  
-  
-  
-  
-  <h5 class="propertyValue">Property Value</h5>
-  <table>
-    <tr>
-      <td>
-        <span class="xref">System.String</span>
-        <p>
-      </td>
-    </tr>
-  </table>
-  
-  
-  
-  
-  
-  
-  
-  </div>
-  
-  
-  <a id="Picturepark_SDK_V1_Contract_ContentSearchRequest_CollectionId_" data-uid="Picturepark.SDK.V1.Contract.ContentSearchRequest.CollectionId*"></a>
-  
-  <h4 id="Picturepark_SDK_V1_Contract_ContentSearchRequest_CollectionId" data-uid="Picturepark.SDK.V1.Contract.ContentSearchRequest.CollectionId"><a href="#collapsible-Picturepark_SDK_V1_Contract_ContentSearchRequest_CollectionId" class="expander" data-toggle="collapse">CollectionId</a></h4>
-  
-  <div id="collapsible-Picturepark_SDK_V1_Contract_ContentSearchRequest_CollectionId" class="collapse in">
-  <div class="markdown level1 summary"><p>Limits the search among the contents belonging to the specified collection.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string CollectionId { get; set; }</code></pre>
-  </div>
-  
-  
-  
-  
-  
-  <h5 class="propertyValue">Property Value</h5>
-  <table>
-    <tr>
-      <td>
-        <span class="xref">System.String</span>
+        <span class="xref">System.Collections.Generic.ICollection</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.AggregatorBase.html">AggregatorBase</a>&gt;
         <p>
       </td>
     </tr>
@@ -318,86 +275,12 @@ Warning! It severely affects performance.</p>
   </div>
   
   
-  <a id="Picturepark_SDK_V1_Contract_ContentSearchRequest_Filter_" data-uid="Picturepark.SDK.V1.Contract.ContentSearchRequest.Filter*"></a>
-  
-  <h4 id="Picturepark_SDK_V1_Contract_ContentSearchRequest_Filter" data-uid="Picturepark.SDK.V1.Contract.ContentSearchRequest.Filter"><a href="#collapsible-Picturepark_SDK_V1_Contract_ContentSearchRequest_Filter" class="expander" data-toggle="collapse">Filter</a></h4>
-  
-  <div id="collapsible-Picturepark_SDK_V1_Contract_ContentSearchRequest_Filter" class="collapse in">
-  <div class="markdown level1 summary"><p>An optional filter to limit the contents.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public FilterBase Filter { get; set; }</code></pre>
-  </div>
-  
-  
-  
-  
-  
-  <h5 class="propertyValue">Property Value</h5>
-  <table>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.FilterBase.html">FilterBase</a>
-        <p>
-      </td>
-    </tr>
-  </table>
-  
-  
-  
-  
-  
-  
-  
-  </div>
-  
-  
-  <a id="Picturepark_SDK_V1_Contract_ContentSearchRequest_LifeCycleFilter_" data-uid="Picturepark.SDK.V1.Contract.ContentSearchRequest.LifeCycleFilter*"></a>
-  
-  <h4 id="Picturepark_SDK_V1_Contract_ContentSearchRequest_LifeCycleFilter" data-uid="Picturepark.SDK.V1.Contract.ContentSearchRequest.LifeCycleFilter"><a href="#collapsible-Picturepark_SDK_V1_Contract_ContentSearchRequest_LifeCycleFilter" class="expander" data-toggle="collapse">LifeCycleFilter</a></h4>
-  
-  <div id="collapsible-Picturepark_SDK_V1_Contract_ContentSearchRequest_LifeCycleFilter" class="collapse in">
-  <div class="markdown level1 summary"><p>Limits the search to the contents that have the specified life cycle state. Defaults to ActiveOnly.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public LifeCycleFilter LifeCycleFilter { get; set; }</code></pre>
-  </div>
-  
-  
-  
-  
-  
-  <h5 class="propertyValue">Property Value</h5>
-  <table>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.LifeCycleFilter.html">LifeCycleFilter</a>
-        <p>
-      </td>
-    </tr>
-  </table>
-  
-  
-  
-  
-  
-  
-  
-  </div>
-  
-  
   <a id="Picturepark_SDK_V1_Contract_ContentSearchRequest_Limit_" data-uid="Picturepark.SDK.V1.Contract.ContentSearchRequest.Limit*"></a>
   
   <h4 id="Picturepark_SDK_V1_Contract_ContentSearchRequest_Limit" data-uid="Picturepark.SDK.V1.Contract.ContentSearchRequest.Limit"><a href="#collapsible-Picturepark_SDK_V1_Contract_ContentSearchRequest_Limit" class="expander" data-toggle="collapse">Limit</a></h4>
   
   <div id="collapsible-Picturepark_SDK_V1_Contract_ContentSearchRequest_Limit" class="collapse in">
-  <div class="markdown level1 summary"><p>Limits the number of the returned schemas. Defaults to 30.</p>
+  <div class="markdown level1 summary"><p>Limits the document count of the result set.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -527,155 +410,6 @@ Produces the rightsAggregationCounts on the ContentSearchResult. View will be ig
     <tr>
       <td>
         <span class="xref">System.Collections.Generic.ICollection</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.ContentRight.html">ContentRight</a>&gt;
-        <p>
-      </td>
-    </tr>
-  </table>
-  
-  
-  
-  
-  
-  
-  
-  </div>
-  
-  
-  <a id="Picturepark_SDK_V1_Contract_ContentSearchRequest_SearchBehaviors_" data-uid="Picturepark.SDK.V1.Contract.ContentSearchRequest.SearchBehaviors*"></a>
-  
-  <h4 id="Picturepark_SDK_V1_Contract_ContentSearchRequest_SearchBehaviors" data-uid="Picturepark.SDK.V1.Contract.ContentSearchRequest.SearchBehaviors"><a href="#collapsible-Picturepark_SDK_V1_Contract_ContentSearchRequest_SearchBehaviors" class="expander" data-toggle="collapse">SearchBehaviors</a></h4>
-  
-  <div id="collapsible-Picturepark_SDK_V1_Contract_ContentSearchRequest_SearchBehaviors" class="collapse in">
-  <div class="markdown level1 summary"><p>An optional list of search behaviors. All the passed behaviors will be applied in the specified order.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ICollection&lt;SearchBehavior&gt; SearchBehaviors { get; set; }</code></pre>
-  </div>
-  
-  
-  
-  
-  
-  <h5 class="propertyValue">Property Value</h5>
-  <table>
-    <tr>
-      <td>
-        <span class="xref">System.Collections.Generic.ICollection</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.SearchBehavior.html">SearchBehavior</a>&gt;
-        <p>
-      </td>
-    </tr>
-  </table>
-  
-  
-  
-  
-  
-  
-  
-  </div>
-  
-  
-  <a id="Picturepark_SDK_V1_Contract_ContentSearchRequest_SearchLanguages_" data-uid="Picturepark.SDK.V1.Contract.ContentSearchRequest.SearchLanguages*"></a>
-  
-  <h4 id="Picturepark_SDK_V1_Contract_ContentSearchRequest_SearchLanguages" data-uid="Picturepark.SDK.V1.Contract.ContentSearchRequest.SearchLanguages"><a href="#collapsible-Picturepark_SDK_V1_Contract_ContentSearchRequest_SearchLanguages" class="expander" data-toggle="collapse">SearchLanguages</a></h4>
-  
-  <div id="collapsible-Picturepark_SDK_V1_Contract_ContentSearchRequest_SearchLanguages" class="collapse in">
-  <div class="markdown level1 summary"><p>When searching in multi language fields, limit the searchable fields to the ones corresponding to the specified languages.
-If not specified, all metadata languages defined in the system are used.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ICollection&lt;string&gt; SearchLanguages { get; set; }</code></pre>
-  </div>
-  
-  
-  
-  
-  
-  <h5 class="propertyValue">Property Value</h5>
-  <table>
-    <tr>
-      <td>
-        <span class="xref">System.Collections.Generic.ICollection</span>&lt;<span class="xref">System.String</span>&gt;
-        <p>
-      </td>
-    </tr>
-  </table>
-  
-  
-  
-  
-  
-  
-  
-  </div>
-  
-  
-  <a id="Picturepark_SDK_V1_Contract_ContentSearchRequest_SearchString_" data-uid="Picturepark.SDK.V1.Contract.ContentSearchRequest.SearchString*"></a>
-  
-  <h4 id="Picturepark_SDK_V1_Contract_ContentSearchRequest_SearchString" data-uid="Picturepark.SDK.V1.Contract.ContentSearchRequest.SearchString"><a href="#collapsible-Picturepark_SDK_V1_Contract_ContentSearchRequest_SearchString" class="expander" data-toggle="collapse">SearchString</a></h4>
-  
-  <div id="collapsible-Picturepark_SDK_V1_Contract_ContentSearchRequest_SearchString" class="collapse in">
-  <div class="markdown level1 summary"><p>The string used to query the data. The Lucene query string syntax is supported.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string SearchString { get; set; }</code></pre>
-  </div>
-  
-  
-  
-  
-  
-  <h5 class="propertyValue">Property Value</h5>
-  <table>
-    <tr>
-      <td>
-        <span class="xref">System.String</span>
-        <p>
-      </td>
-    </tr>
-  </table>
-  
-  
-  
-  
-  
-  
-  
-  </div>
-  
-  
-  <a id="Picturepark_SDK_V1_Contract_ContentSearchRequest_SearchType_" data-uid="Picturepark.SDK.V1.Contract.ContentSearchRequest.SearchType*"></a>
-  
-  <h4 id="Picturepark_SDK_V1_Contract_ContentSearchRequest_SearchType" data-uid="Picturepark.SDK.V1.Contract.ContentSearchRequest.SearchType"><a href="#collapsible-Picturepark_SDK_V1_Contract_ContentSearchRequest_SearchType" class="expander" data-toggle="collapse">SearchType</a></h4>
-  
-  <div id="collapsible-Picturepark_SDK_V1_Contract_ContentSearchRequest_SearchType" class="collapse in">
-  <div class="markdown level1 summary"><p>Type of search to be performed: search only in metadata, only in the extracted fulltext from the file or both. Default to Metadata.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ContentSearchType SearchType { get; set; }</code></pre>
-  </div>
-  
-  
-  
-  
-  
-  <h5 class="propertyValue">Property Value</h5>
-  <table>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.ContentSearchType.html">ContentSearchType</a>
         <p>
       </td>
     </tr>

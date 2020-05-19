@@ -102,17 +102,17 @@
   </h3>
   
   
-  <a id="Picturepark_SDK_V1_CloudManager_Contract_ICdnClient_PurgeCdnForCustomerAsync_" data-uid="Picturepark.SDK.V1.CloudManager.Contract.ICdnClient.PurgeCdnForCustomerAsync*"></a>
+  <a id="Picturepark_SDK_V1_CloudManager_Contract_ICdnClient_PurgeForCustomerAsync_" data-uid="Picturepark.SDK.V1.CloudManager.Contract.ICdnClient.PurgeForCustomerAsync*"></a>
   
-  <h4 id="Picturepark_SDK_V1_CloudManager_Contract_ICdnClient_PurgeCdnForCustomerAsync_System_String_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.CloudManager.Contract.ICdnClient.PurgeCdnForCustomerAsync(System.String,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_CloudManager_Contract_ICdnClient_PurgeCdnForCustomerAsync_System_String_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">PurgeCdnForCustomerAsync(String, CancellationToken)</a></h4>
+  <h4 id="Picturepark_SDK_V1_CloudManager_Contract_ICdnClient_PurgeForCustomerAsync_System_String_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.CloudManager.Contract.ICdnClient.PurgeForCustomerAsync(System.String,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_CloudManager_Contract_ICdnClient_PurgeForCustomerAsync_System_String_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">PurgeForCustomerAsync(String, CancellationToken)</a></h4>
   
-  <div id="collapsible-Picturepark_SDK_V1_CloudManager_Contract_ICdnClient_PurgeCdnForCustomerAsync_System_String_System_Threading_CancellationToken_" class="collapse in">
+  <div id="collapsible-Picturepark_SDK_V1_CloudManager_Contract_ICdnClient_PurgeForCustomerAsync_System_String_System_Threading_CancellationToken_" class="collapse in">
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task&lt;BusinessProcess&gt; PurgeCdnForCustomerAsync(string customerAlias, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">Task&lt;BusinessProcess&gt; PurgeForCustomerAsync(string alias, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -120,7 +120,7 @@
     <tr>
       <td>
         <span class="pull-right"><span class="xref">System.String</span></span>
-        <span class="parametername">customerAlias</span>
+        <span class="parametername">alias</span>
         <p>
       </td>
     </tr>
@@ -163,8 +163,8 @@
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
+        <a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
 </p>
       </td>
     </tr>
@@ -184,8 +184,8 @@
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
+        <a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
 </p>
       </td>
     </tr>
