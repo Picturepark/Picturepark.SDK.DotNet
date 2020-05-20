@@ -19208,6 +19208,10 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("boost", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public double Boost { get; set; } = 1D;
     
+        /// <summary>If set to true, the date time value is automatically set when a content or list item is created.</summary>
+        [Newtonsoft.Json.JsonProperty("initializeOnItemCreation", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool InitializeOnItemCreation { get; set; } = false;
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
