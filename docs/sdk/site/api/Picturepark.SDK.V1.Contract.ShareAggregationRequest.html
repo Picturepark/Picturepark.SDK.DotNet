@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class ShareAggregationRequest
    | Picturepark.SDK.V1 API ">
-    <meta name="generator" content="docfx 2.45.1.0">
+    <meta name="generator" content="docfx 2.53.1.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -88,12 +88,25 @@
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><span class="xref">System.Object</span></div>
-    <div class="level1"><span class="xref">ShareAggregationRequest</span></div>
+    <div class="level1"><a class="xref" href="Picturepark.SDK.V1.Contract.ShareSearchAndAggregationBaseRequest.html">ShareSearchAndAggregationBaseRequest</a></div>
+    <div class="level2"><span class="xref">ShareAggregationRequest</span></div>
   </div>
   
   
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="Picturepark.SDK.V1.Contract.ShareSearchAndAggregationBaseRequest.html#Picturepark_SDK_V1_Contract_ShareSearchAndAggregationBaseRequest_SearchString">ShareSearchAndAggregationBaseRequest.SearchString</a>
+    </div>
+    <div>
+      <a class="xref" href="Picturepark.SDK.V1.Contract.ShareSearchAndAggregationBaseRequest.html#Picturepark_SDK_V1_Contract_ShareSearchAndAggregationBaseRequest_SearchBehaviors">ShareSearchAndAggregationBaseRequest.SearchBehaviors</a>
+    </div>
+    <div>
+      <a class="xref" href="Picturepark.SDK.V1.Contract.ShareSearchAndAggregationBaseRequest.html#Picturepark_SDK_V1_Contract_ShareSearchAndAggregationBaseRequest_Filter">ShareSearchAndAggregationBaseRequest.Filter</a>
+    </div>
+    <div>
+      <a class="xref" href="Picturepark.SDK.V1.Contract.ShareSearchAndAggregationBaseRequest.html#Picturepark_SDK_V1_Contract_ShareSearchAndAggregationBaseRequest_AggregationFilters">ShareSearchAndAggregationBaseRequest.AggregationFilters</a>
+    </div>
     <div>
       <span class="xref">System.Object.ToString()</span>
     </div>
@@ -121,7 +134,7 @@
   
   <h5 id="Picturepark_SDK_V1_Contract_ShareAggregationRequest_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class ShareAggregationRequest</code></pre>
+    <pre><code class="lang-csharp hljs">public class ShareAggregationRequest : ShareSearchAndAggregationBaseRequest</code></pre>
   </div>
   
   
@@ -132,51 +145,12 @@
   </h3>
   
   
-  <a id="Picturepark_SDK_V1_Contract_ShareAggregationRequest_AggregationFilters_" data-uid="Picturepark.SDK.V1.Contract.ShareAggregationRequest.AggregationFilters*"></a>
-  
-  <h4 id="Picturepark_SDK_V1_Contract_ShareAggregationRequest_AggregationFilters" data-uid="Picturepark.SDK.V1.Contract.ShareAggregationRequest.AggregationFilters"><a href="#collapsible-Picturepark_SDK_V1_Contract_ShareAggregationRequest_AggregationFilters" class="expander" data-toggle="collapse">AggregationFilters</a></h4>
-  
-  <div id="collapsible-Picturepark_SDK_V1_Contract_ShareAggregationRequest_AggregationFilters" class="collapse in">
-  <div class="markdown level1 summary"><p>Special filters used to filter down the aggregations&apos; values on specific conditions. The behavior is different when
-filtering an aggregation that matches the same AggregationName or another aggregation.
-In the first case, the filter is put in &quot;or&quot; with (eventual) other existing filters. In the second case it is put in &quot;and&quot;.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ICollection&lt;AggregationFilter&gt; AggregationFilters { get; set; }</code></pre>
-  </div>
-  
-  
-  
-  
-  
-  <h5 class="propertyValue">Property Value</h5>
-  <table>
-    <tr>
-      <td>
-        <span class="xref">System.Collections.Generic.ICollection</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.AggregationFilter.html">AggregationFilter</a>&gt;
-        <p>
-      </td>
-    </tr>
-  </table>
-  
-  
-  
-  
-  
-  
-  
-  </div>
-  
-  
   <a id="Picturepark_SDK_V1_Contract_ShareAggregationRequest_Aggregators_" data-uid="Picturepark.SDK.V1.Contract.ShareAggregationRequest.Aggregators*"></a>
   
   <h4 id="Picturepark_SDK_V1_Contract_ShareAggregationRequest_Aggregators" data-uid="Picturepark.SDK.V1.Contract.ShareAggregationRequest.Aggregators"><a href="#collapsible-Picturepark_SDK_V1_Contract_ShareAggregationRequest_Aggregators" class="expander" data-toggle="collapse">Aggregators</a></h4>
   
   <div id="collapsible-Picturepark_SDK_V1_Contract_ShareAggregationRequest_Aggregators" class="collapse in">
-  <div class="markdown level1 summary"><p>List of aggregators that defines how the list item should be aggregated.</p>
+  <div class="markdown level1 summary"><p>List of aggregators that defines how the items should be aggregated.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -194,154 +168,6 @@ In the first case, the filter is put in &quot;or&quot; with (eventual) other exi
     <tr>
       <td>
         <span class="xref">System.Collections.Generic.ICollection</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.AggregatorBase.html">AggregatorBase</a>&gt;
-        <p>
-      </td>
-    </tr>
-  </table>
-  
-  
-  
-  
-  
-  
-  
-  </div>
-  
-  
-  <a id="Picturepark_SDK_V1_Contract_ShareAggregationRequest_Filter_" data-uid="Picturepark.SDK.V1.Contract.ShareAggregationRequest.Filter*"></a>
-  
-  <h4 id="Picturepark_SDK_V1_Contract_ShareAggregationRequest_Filter" data-uid="Picturepark.SDK.V1.Contract.ShareAggregationRequest.Filter"><a href="#collapsible-Picturepark_SDK_V1_Contract_ShareAggregationRequest_Filter" class="expander" data-toggle="collapse">Filter</a></h4>
-  
-  <div id="collapsible-Picturepark_SDK_V1_Contract_ShareAggregationRequest_Filter" class="collapse in">
-  <div class="markdown level1 summary"><p>An optional search filter. Limits the document result set.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public FilterBase Filter { get; set; }</code></pre>
-  </div>
-  
-  
-  
-  
-  
-  <h5 class="propertyValue">Property Value</h5>
-  <table>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.FilterBase.html">FilterBase</a>
-        <p>
-      </td>
-    </tr>
-  </table>
-  
-  
-  
-  
-  
-  
-  
-  </div>
-  
-  
-  <a id="Picturepark_SDK_V1_Contract_ShareAggregationRequest_SearchBehaviors_" data-uid="Picturepark.SDK.V1.Contract.ShareAggregationRequest.SearchBehaviors*"></a>
-  
-  <h4 id="Picturepark_SDK_V1_Contract_ShareAggregationRequest_SearchBehaviors" data-uid="Picturepark.SDK.V1.Contract.ShareAggregationRequest.SearchBehaviors"><a href="#collapsible-Picturepark_SDK_V1_Contract_ShareAggregationRequest_SearchBehaviors" class="expander" data-toggle="collapse">SearchBehaviors</a></h4>
-  
-  <div id="collapsible-Picturepark_SDK_V1_Contract_ShareAggregationRequest_SearchBehaviors" class="collapse in">
-  <div class="markdown level1 summary"><p>An optional list of search behaviors. All the passed behaviors will be applied.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ICollection&lt;SearchBehavior&gt; SearchBehaviors { get; set; }</code></pre>
-  </div>
-  
-  
-  
-  
-  
-  <h5 class="propertyValue">Property Value</h5>
-  <table>
-    <tr>
-      <td>
-        <span class="xref">System.Collections.Generic.ICollection</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.SearchBehavior.html">SearchBehavior</a>&gt;
-        <p>
-      </td>
-    </tr>
-  </table>
-  
-  
-  
-  
-  
-  
-  
-  </div>
-  
-  
-  <a id="Picturepark_SDK_V1_Contract_ShareAggregationRequest_SearchString_" data-uid="Picturepark.SDK.V1.Contract.ShareAggregationRequest.SearchString*"></a>
-  
-  <h4 id="Picturepark_SDK_V1_Contract_ShareAggregationRequest_SearchString" data-uid="Picturepark.SDK.V1.Contract.ShareAggregationRequest.SearchString"><a href="#collapsible-Picturepark_SDK_V1_Contract_ShareAggregationRequest_SearchString" class="expander" data-toggle="collapse">SearchString</a></h4>
-  
-  <div id="collapsible-Picturepark_SDK_V1_Contract_ShareAggregationRequest_SearchString" class="collapse in">
-  <div class="markdown level1 summary"><p>Limits the search by using a query string filter. The Lucene query string syntax is supported.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string SearchString { get; set; }</code></pre>
-  </div>
-  
-  
-  
-  
-  
-  <h5 class="propertyValue">Property Value</h5>
-  <table>
-    <tr>
-      <td>
-        <span class="xref">System.String</span>
-        <p>
-      </td>
-    </tr>
-  </table>
-  
-  
-  
-  
-  
-  
-  
-  </div>
-  
-  
-  <a id="Picturepark_SDK_V1_Contract_ShareAggregationRequest_Sort_" data-uid="Picturepark.SDK.V1.Contract.ShareAggregationRequest.Sort*"></a>
-  
-  <h4 id="Picturepark_SDK_V1_Contract_ShareAggregationRequest_Sort" data-uid="Picturepark.SDK.V1.Contract.ShareAggregationRequest.Sort"><a href="#collapsible-Picturepark_SDK_V1_Contract_ShareAggregationRequest_Sort" class="expander" data-toggle="collapse">Sort</a></h4>
-  
-  <div id="collapsible-Picturepark_SDK_V1_Contract_ShareAggregationRequest_Sort" class="collapse in">
-  <div class="markdown level1 summary"><p>Fields and respective directions requested to sort the search results. Sorting on a not indexed field will throw an exception.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ICollection&lt;SortInfo&gt; Sort { get; set; }</code></pre>
-  </div>
-  
-  
-  
-  
-  
-  <h5 class="propertyValue">Property Value</h5>
-  <table>
-    <tr>
-      <td>
-        <span class="xref">System.Collections.Generic.ICollection</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.SortInfo.html">SortInfo</a>&gt;
         <p>
       </td>
     </tr>
