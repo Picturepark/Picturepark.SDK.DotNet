@@ -35179,6 +35179,11 @@
                 "description": "Value to prioritize search results. Set to 1 by default. Ignored if SimpleSearch not set to true.",
                 "format": "double",
                 "default": 1
+              },
+              "initializeOnItemCreation": {
+                "type": "boolean",
+                "description": "If set to true, the date time value is automatically set when a content or list item is created.",
+                "default": false
               }
             }
           }
