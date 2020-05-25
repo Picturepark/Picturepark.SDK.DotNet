@@ -18574,6 +18574,518 @@
             }
           }
         ]
+      },
+      "AudioMetadata": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/FileMetadata"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "audioStreams": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/AudioStream"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "AudioStream": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "bitRate": {
+            "type": "string",
+            "nullable": true
+          },
+          "bitRateMode": {
+            "type": "string",
+            "nullable": true
+          },
+          "channels": {
+            "type": "string",
+            "nullable": true
+          },
+          "channelPositions": {
+            "type": "string",
+            "nullable": true
+          },
+          "codec": {
+            "type": "string",
+            "nullable": true
+          },
+          "durationInSeconds": {
+            "type": "number",
+            "format": "float",
+            "nullable": true
+          },
+          "format": {
+            "type": "string",
+            "nullable": true
+          },
+          "language": {
+            "type": "string",
+            "nullable": true
+          },
+          "resolution": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "samplingRate": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "streamSize": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          }
+        }
+      },
+      "FileMetadata": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "names": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/TranslatedStringDictionary"
+              }
+            ]
+          },
+          "descriptions": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/TranslatedStringDictionary"
+              }
+            ]
+          },
+          "fileExtension": {
+            "type": "string",
+            "nullable": true
+          },
+          "fileName": {
+            "type": "string",
+            "nullable": true
+          },
+          "filePath": {
+            "type": "string",
+            "nullable": true
+          },
+          "fileSizeInBytes": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "sha1Hash": {
+            "type": "string",
+            "nullable": true
+          },
+          "xmpMetadata": {
+            "nullable": true
+          },
+          "exifMetadata": {
+            "nullable": true
+          },
+          "language": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "DocumentMetadata": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/FileMetadata"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "applicationName": {
+                "type": "string",
+                "nullable": true
+              },
+              "applicationVersion": {
+                "type": "string",
+                "nullable": true
+              },
+              "author": {
+                "type": "string",
+                "nullable": true
+              },
+              "creator": {
+                "type": "string",
+                "nullable": true
+              },
+              "publisher": {
+                "type": "string",
+                "nullable": true
+              },
+              "company": {
+                "type": "string",
+                "nullable": true
+              },
+              "documentTitle": {
+                "type": "string",
+                "nullable": true
+              },
+              "characterCount": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "characterCountWithSpaces": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "lineCount": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "pageCount": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "slideCount": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "paragraphCount": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "revisionNumber": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "titles": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "type": "string"
+                }
+              },
+              "imageTitles": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "type": "string"
+                }
+              },
+              "epsInfo": {
+                "nullable": true,
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/EpsMetadata"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "EpsMetadata": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "isRasterized",
+          "widthInPoints",
+          "heightInPoints"
+        ],
+        "properties": {
+          "isRasterized": {
+            "type": "boolean"
+          },
+          "widthInPoints": {
+            "type": "number",
+            "format": "double"
+          },
+          "heightInPoints": {
+            "type": "number",
+            "format": "double"
+          }
+        }
+      },
+      "ImageMetadata": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/FileMetadata"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "width": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "height": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "widthInInch": {
+                "type": "number",
+                "format": "double"
+              },
+              "heightInInch": {
+                "type": "number",
+                "format": "double"
+              },
+              "widthInCm": {
+                "type": "number",
+                "format": "double"
+              },
+              "heightInCm": {
+                "type": "number",
+                "format": "double"
+              },
+              "colorSpace": {
+                "type": "string",
+                "nullable": true
+              },
+              "colorProfile": {
+                "type": "string",
+                "nullable": true
+              },
+              "bitsPerPixel": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "bitsPerChannel": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "channels": {
+                "type": "string",
+                "nullable": true
+              },
+              "pixelFormat": {
+                "type": "string",
+                "nullable": true
+              },
+              "hasAlpha": {
+                "type": "boolean"
+              },
+              "isIndexed": {
+                "type": "boolean"
+              },
+              "isExtended": {
+                "type": "boolean"
+              },
+              "horizontalResolution": {
+                "type": "number",
+                "format": "double"
+              },
+              "verticalResolution": {
+                "type": "number",
+                "format": "double"
+              },
+              "totalFrames": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "totalUnspecifiedTiffExtraChannels": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "hasExifData": {
+                "type": "boolean"
+              },
+              "hasIptcData": {
+                "type": "boolean"
+              },
+              "hasAdobeResourceData": {
+                "type": "boolean"
+              },
+              "hasXmpData": {
+                "type": "boolean"
+              },
+              "uncompressedSizeInBytes": {
+                "type": "integer",
+                "format": "int64"
+              }
+            }
+          }
+        ]
+      },
+      "VideoMetadata": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/FileMetadata"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "width": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "height": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "durationInSeconds": {
+                "type": "number",
+                "format": "float"
+              },
+              "format": {
+                "type": "string",
+                "nullable": true
+              },
+              "codec": {
+                "type": "string",
+                "nullable": true
+              },
+              "overallBitrate": {
+                "type": "integer",
+                "format": "int32",
+                "nullable": true
+              },
+              "videoStreams": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/VideoStream"
+                }
+              },
+              "audioStreams": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/AudioStream"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "VideoStream": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "durationInSeconds"
+        ],
+        "properties": {
+          "bitRate": {
+            "type": "string",
+            "nullable": true
+          },
+          "codec": {
+            "type": "string",
+            "nullable": true
+          },
+          "displayAspectRatio": {
+            "type": "string",
+            "nullable": true
+          },
+          "durationInSeconds": {
+            "type": "number",
+            "format": "float"
+          },
+          "format": {
+            "type": "string",
+            "nullable": true
+          },
+          "frameCount": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "frameRate": {
+            "type": "number",
+            "format": "float",
+            "nullable": true
+          },
+          "height": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "language": {
+            "type": "string",
+            "nullable": true
+          },
+          "pixelAspectRatio": {
+            "type": "number",
+            "format": "float",
+            "nullable": true
+          },
+          "resolution": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "streamSize": {
+            "type": "integer",
+            "format": "int64",
+            "nullable": true
+          },
+          "width": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "rotation": {
+            "type": "number",
+            "format": "float",
+            "nullable": true
+          }
+        }
+      },
+      "VectorMetadata": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/FileMetadata"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "author": {
+                "type": "string",
+                "nullable": true
+              },
+              "creator": {
+                "type": "string",
+                "nullable": true
+              },
+              "publisher": {
+                "type": "string",
+                "nullable": true
+              },
+              "company": {
+                "type": "string",
+                "nullable": true
+              },
+              "title": {
+                "type": "string",
+                "nullable": true
+              },
+              "pageCount": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "epsInfo": {
+                "nullable": true,
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/EpsMetadata"
+                  }
+                ]
+              }
+            }
+          }
+        ]
       }
     }
   }
