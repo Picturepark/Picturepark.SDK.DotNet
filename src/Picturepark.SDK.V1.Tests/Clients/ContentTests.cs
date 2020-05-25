@@ -1094,7 +1094,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var request = new ContentSearchRequest
             {
                 ChannelId = channelId,
-                SearchString = "*",
                 Sort = sortInfos,
                 Filter = filter,
             };
