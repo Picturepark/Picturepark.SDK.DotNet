@@ -50,9 +50,9 @@ namespace Picturepark.SDK.V1.Contract
         /// <summary>
         /// Resolves schema ID based on either the ID defined in <see cref="PictureparkSchemaAttribute"/> (if applied on the type) or based on type name.
         /// </summary>
-        /// <param name="layerType">Type for which to resolve schema ID</param>
+        /// <param name="type">Type for which to resolve schema ID</param>
         /// <returns>Resolved schema ID</returns>
-        public static string ResolveSchemaId(Type layerType) => layerType.GetTypeInfo().GetCustomAttribute<PictureparkSchemaAttribute>()?.Id ?? layerType.Name;
+        public static string ResolveSchemaId(Type type) => type.GetTypeInfo().GetCustomAttribute<PictureparkSchemaAttribute>()?.Id ?? type.Name;
 
         /// <summary>
         /// Resolves layer key for metadata dictionary based on either the ID defined in <see cref="PictureparkSchemaAttribute"/> (if applied on the type) or based on type name.
