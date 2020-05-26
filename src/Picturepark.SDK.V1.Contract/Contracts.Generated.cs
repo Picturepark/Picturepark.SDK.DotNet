@@ -1716,20 +1716,20 @@ namespace Picturepark.SDK.V1.Contract
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Upload file</summary>
-        /// <param name="formFile">Information about chunk.</param>
+        /// <param name="transferId">ID of transfer.</param>
+        /// <param name="requestId">Identifier of file.</param>
+        /// <param name="body">Body</param>
         /// <param name="chunkNumber">Information about chunk.</param>
         /// <param name="currentChunkSize">Information about chunk.</param>
         /// <param name="totalSize">Information about chunk.</param>
         /// <param name="totalChunks">Information about chunk.</param>
-        /// <param name="transferId">ID of transfer.</param>
-        /// <param name="requestId">Identifier of file.</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        System.Threading.Tasks.Task UploadFileAsync(FileParameter formFile, long chunkNumber, long currentChunkSize, long totalSize, long totalChunks, string transferId, string requestId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task UploadFileAsync(string transferId, string requestId, System.IO.Stream body = null, long? chunkNumber = null, long? currentChunkSize = null, long? totalSize = null, long? totalChunks = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
     }
     
