@@ -23235,41 +23235,41 @@ namespace Picturepark.SDK.V1
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Upload file</summary>
-        /// <param name="transferId">ID of transfer.</param>
-        /// <param name="requestId">Identifier of file.</param>
-        /// <param name="body">Body</param>
         /// <param name="chunkNumber">Information about chunk.</param>
         /// <param name="currentChunkSize">Information about chunk.</param>
         /// <param name="totalSize">Information about chunk.</param>
         /// <param name="totalChunks">Information about chunk.</param>
+        /// <param name="transferId">ID of transfer.</param>
+        /// <param name="requestId">Identifier of file.</param>
+        /// <param name="body">Body</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        public async System.Threading.Tasks.Task UploadFileAsync(string transferId, string requestId, System.IO.Stream body = null, long? chunkNumber = null, long? currentChunkSize = null, long? totalSize = null, long? totalChunks = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task UploadFileAsync(long chunkNumber, long currentChunkSize, long totalSize, long totalChunks, string transferId, string requestId, System.IO.Stream body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
+            if (chunkNumber == null)
+                throw new System.ArgumentNullException("chunkNumber");
+    
+            if (currentChunkSize == null)
+                throw new System.ArgumentNullException("currentChunkSize");
+    
+            if (totalSize == null)
+                throw new System.ArgumentNullException("totalSize");
+    
+            if (totalChunks == null)
+                throw new System.ArgumentNullException("totalChunks");
+    
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/Transfers/{transferId}/files/{requestId}/upload?");
             urlBuilder_.Replace("{transferId}", System.Uri.EscapeDataString(ConvertToString(transferId, System.Globalization.CultureInfo.InvariantCulture)));
             urlBuilder_.Replace("{requestId}", System.Uri.EscapeDataString(ConvertToString(requestId, System.Globalization.CultureInfo.InvariantCulture)));
-            if (chunkNumber != null) 
-            {
-                urlBuilder_.Append(System.Uri.EscapeDataString("ChunkNumber") + "=").Append(System.Uri.EscapeDataString(ConvertToString(chunkNumber, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
-            }
-            if (currentChunkSize != null) 
-            {
-                urlBuilder_.Append(System.Uri.EscapeDataString("CurrentChunkSize") + "=").Append(System.Uri.EscapeDataString(ConvertToString(currentChunkSize, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
-            }
-            if (totalSize != null) 
-            {
-                urlBuilder_.Append(System.Uri.EscapeDataString("TotalSize") + "=").Append(System.Uri.EscapeDataString(ConvertToString(totalSize, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
-            }
-            if (totalChunks != null) 
-            {
-                urlBuilder_.Append(System.Uri.EscapeDataString("TotalChunks") + "=").Append(System.Uri.EscapeDataString(ConvertToString(totalChunks, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
-            }
+            urlBuilder_.Append(System.Uri.EscapeDataString("ChunkNumber") + "=").Append(System.Uri.EscapeDataString(ConvertToString(chunkNumber, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            urlBuilder_.Append(System.Uri.EscapeDataString("CurrentChunkSize") + "=").Append(System.Uri.EscapeDataString(ConvertToString(currentChunkSize, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            urlBuilder_.Append(System.Uri.EscapeDataString("TotalSize") + "=").Append(System.Uri.EscapeDataString(ConvertToString(totalSize, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            urlBuilder_.Append(System.Uri.EscapeDataString("TotalChunks") + "=").Append(System.Uri.EscapeDataString(ConvertToString(totalChunks, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             urlBuilder_.Length--;
     
             var client_ = _httpClient;

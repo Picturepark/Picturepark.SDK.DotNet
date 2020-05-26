@@ -15541,6 +15541,7 @@
           {
             "name": "ChunkNumber",
             "in": "query",
+            "required": true,
             "description": "Information about chunk.",
             "schema": {
               "type": "integer",
@@ -15551,6 +15552,7 @@
           {
             "name": "CurrentChunkSize",
             "in": "query",
+            "required": true,
             "description": "Information about chunk.",
             "schema": {
               "type": "integer",
@@ -15561,6 +15563,7 @@
           {
             "name": "TotalSize",
             "in": "query",
+            "required": true,
             "description": "Information about chunk.",
             "schema": {
               "type": "integer",
@@ -15571,6 +15574,7 @@
           {
             "name": "TotalChunks",
             "in": "query",
+            "required": true,
             "description": "Information about chunk.",
             "schema": {
               "type": "integer",

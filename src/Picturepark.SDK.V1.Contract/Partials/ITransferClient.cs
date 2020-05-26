@@ -100,7 +100,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        [Obsolete("This overload is going to be removed in future versions. Please use the (string, string, Stream, long, long, long, long, CancellationToken) one")]
+        [Obsolete("This overload is going to be removed in future versions. Please use the (long, long, long, long, string, string, Stream, CancellationToken) one")]
         Task UploadFileAsync(
             long chunkNumber,
             long currentChunkSize,
@@ -110,26 +110,5 @@ namespace Picturepark.SDK.V1.Contract
             string requestId,
             FileParameter formFile = null,
             CancellationToken cancellationToken = default);
-
-        /// <summary>Upload file</summary>
-        /// <param name="transferId">ID of transfer.</param>
-        /// <param name="requestId">Identifier of file.</param>
-        /// <param name="chunkNumber">Information about chunk.</param>
-        /// <param name="currentChunkSize">Information about chunk.</param>
-        /// <param name="totalSize">Information about chunk.</param>
-        /// <param name="totalChunks">Information about chunk.</param>
-        /// <param name="formFile">Information about chunk.</param>
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <returns></returns>
-        [Obsolete("This overload is going to be removed in future versions. Please use the (string, string, Stream, long, long, long, long, CancellationToken) one")]
-        Task UploadFileAsync(
-            FileParameter formFile,
-            long chunkNumber,
-            long currentChunkSize,
-            long totalSize,
-            long totalChunks,
-            string transferId,
-            string requestId,
-            System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     }
 }
