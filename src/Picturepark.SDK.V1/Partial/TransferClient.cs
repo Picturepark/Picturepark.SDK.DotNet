@@ -246,6 +246,20 @@ namespace Picturepark.SDK.V1
                 .ConfigureAwait(false);
         }
 
+        public async Task UploadFileAsync(
+            FileParameter formFile,
+            long chunkNumber,
+            long currentChunkSize,
+            long totalSize,
+            long totalChunks,
+            string transferId,
+            string requestId,
+            CancellationToken cancellationToken = default(CancellationToken))
+        {
+            await UploadFileAsync(transferId, requestId, formFile.Data, chunkNumber, currentChunkSize, totalSize, totalChunks, cancellationToken)
+                .ConfigureAwait(false);
+        }
+
         private async Task UploadFileAsync(SemaphoreSlim chunkLimiter, string transferId, string identifier, FileLocations fileLocation, int chunkSize, CancellationToken cancellationToken = default)
         {
             var fileSize = new FileInfo(fileLocation.AbsoluteSourcePath).Length;
