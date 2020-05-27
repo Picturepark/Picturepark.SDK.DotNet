@@ -23235,20 +23235,20 @@ namespace Picturepark.SDK.V1
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Upload file</summary>
-        /// <param name="formFile">Information about chunk.</param>
         /// <param name="chunkNumber">Information about chunk.</param>
         /// <param name="currentChunkSize">Information about chunk.</param>
         /// <param name="totalSize">Information about chunk.</param>
         /// <param name="totalChunks">Information about chunk.</param>
         /// <param name="transferId">ID of transfer.</param>
         /// <param name="requestId">Identifier of file.</param>
+        /// <param name="body">Body</param>
         /// <returns>OK</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        public async System.Threading.Tasks.Task UploadFileAsync(FileParameter formFile, long chunkNumber, long currentChunkSize, long totalSize, long totalChunks, string transferId, string requestId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task UploadFileAsync(long chunkNumber, long currentChunkSize, long totalSize, long totalChunks, string transferId, string requestId, System.IO.Stream body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (chunkNumber == null)
                 throw new System.ArgumentNullException("chunkNumber");
@@ -23277,17 +23277,8 @@ namespace Picturepark.SDK.V1
             {
                 using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
                 {
-                    var boundary_ = System.Guid.NewGuid().ToString();
-                    var content_ = new System.Net.Http.MultipartFormDataContent(boundary_);
-                    content_.Headers.Remove("Content-Type");
-                    content_.Headers.TryAddWithoutValidation("Content-Type", "multipart/form-data; boundary=" + boundary_);
-                    if (formFile != null)
-                    {
-                        var content_formFile_ = new System.Net.Http.StreamContent(formFile.Data);
-                        if (!string.IsNullOrEmpty(formFile.ContentType))
-                            content_formFile_.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse(formFile.ContentType);
-                        content_.Add(content_formFile_, "formFile", formFile.FileName ?? "formFile");
-                    }
+                    var content_ = new System.Net.Http.StreamContent(body);
+                    content_.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/octet-stream");
                     request_.Content = content_;
                     request_.Method = new System.Net.Http.HttpMethod("POST");
     

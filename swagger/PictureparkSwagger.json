@@ -15535,22 +15535,9 @@
           "Transfer"
         ],
         "summary": "Upload file",
-        "description": "Uploads the specified chunk data.\n            \nUse `Content-Type: multipart/form-data` for uploading chunk data.\nThe chunk data should be uploaded using the name `formFile`.\n            \nTo upload a file, split it into chunks of reasonable size (accepted range is 1MB-100MB). The last chunk may be smaller than 1MB.",
+        "description": "Uploads the specified chunk data.\n            \nUse `Content-Type: application/octet-stream` for uploading chunked data.\nThe chunk data should be contained in the body of your request.\n            \nTo upload a file, split it into chunks of reasonable size (accepted range is 1MB-100MB). The last chunk may be smaller than 1MB.",
         "operationId": "Transfer_UploadFile",
         "parameters": [
-          {
-            "type": "file",
-            "name": "formFile",
-            "in": "formData",
-            "required": true,
-            "description": "Information about chunk.",
-            "schema": {
-              "type": "string",
-              "format": "binary",
-              "nullable": true
-            },
-            "nullable": true
-          },
           {
             "name": "ChunkNumber",
             "in": "query",
@@ -15618,6 +15605,17 @@
             "x-position": 6
           }
         ],
+        "requestBody": {
+          "x-name": "body",
+          "description": "Body",
+          "content": {
+            "application/octet-stream": {
+              "schema": {
+                "type": "file"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "OK"
