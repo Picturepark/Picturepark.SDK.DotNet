@@ -1289,7 +1289,14 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [JsonInheritanceAttribute("OutputFormatSourceNotDefinedException", typeof(OutputFormatSourceNotDefinedException))]
     [JsonInheritanceAttribute("OutputFormatRetentionTimeOutOfRangeException", typeof(OutputFormatRetentionTimeOutOfRangeException))]
     [JsonInheritanceAttribute("NotSupportedFileExtensionForFormatException", typeof(NotSupportedFileExtensionForFormatException))]
+    [JsonInheritanceAttribute("OutputFormatXmpWritebackNotSupportedException", typeof(OutputFormatXmpWritebackNotSupportedException))]
     [JsonInheritanceAttribute("CollectionSizeLimitExceededException", typeof(CollectionSizeLimitExceededException))]
+    [JsonInheritanceAttribute("XmpMappingFieldNotSupported", typeof(XmpMappingFieldNotSupported))]
+    [JsonInheritanceAttribute("XmpMappingFieldNotFoundException", typeof(XmpMappingFieldNotFoundException))]
+    [JsonInheritanceAttribute("XmpMappingSchemaNotAvailableForFileContentSchemaException", typeof(XmpMappingSchemaNotAvailableForFileContentSchemaException))]
+    [JsonInheritanceAttribute("XmpMappingFieldToLayerWithRequiredFieldsNotAllowedException", typeof(XmpMappingFieldToLayerWithRequiredFieldsNotAllowedException))]
+    [JsonInheritanceAttribute("XmpMappingFieldInUseException", typeof(XmpMappingFieldInUseException))]
+    [JsonInheritanceAttribute("XmpMappingConfigurationInvalidException", typeof(XmpMappingConfigurationInvalidException))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     [Newtonsoft.Json.JsonObjectAttribute]
     public partial class PictureparkException : System.Exception
@@ -3567,6 +3574,9 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
         [System.Runtime.Serialization.EnumMember(Value = @"ManageIdentityProviders")]
         ManageIdentityProviders = 20,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"ManageXmpMappings")]
+        ManageXmpMappings = 21,
     
     }
     
@@ -7547,6 +7557,25 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class OutputFormatXmpWritebackNotSupportedException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("outputFormatId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string OutputFormatId { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static OutputFormatXmpWritebackNotSupportedException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<OutputFormatXmpWritebackNotSupportedException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
     public partial class CollectionSizeLimitExceededException : PictureparkValidationException
     {
         [Newtonsoft.Json.JsonProperty("collectionId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -7563,6 +7592,126 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         public static CollectionSizeLimitExceededException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<CollectionSizeLimitExceededException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class XmpMappingFieldNotSupported : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("fieldPath", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string FieldPath { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static XmpMappingFieldNotSupported FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<XmpMappingFieldNotSupported>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class XmpMappingFieldNotFoundException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("fieldPath", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string FieldPath { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static XmpMappingFieldNotFoundException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<XmpMappingFieldNotFoundException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class XmpMappingSchemaNotAvailableForFileContentSchemaException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("schemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string SchemaId { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static XmpMappingSchemaNotAvailableForFileContentSchemaException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<XmpMappingSchemaNotAvailableForFileContentSchemaException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class XmpMappingFieldToLayerWithRequiredFieldsNotAllowedException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("layerId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string LayerId { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static XmpMappingFieldToLayerWithRequiredFieldsNotAllowedException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<XmpMappingFieldToLayerWithRequiredFieldsNotAllowedException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class XmpMappingFieldInUseException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("schemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string SchemaId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("fieldId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string FieldId { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static XmpMappingFieldInUseException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<XmpMappingFieldInUseException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class XmpMappingConfigurationInvalidException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("fieldPath", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string FieldPath { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("expectedConfiguration", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ExpectedConfiguration { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static XmpMappingConfigurationInvalidException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<XmpMappingConfigurationInvalidException>(data);
         }
     
     }
@@ -9232,6 +9381,10 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <summary>Indicates if outputs derived from original output format should be accessible also for users not having AccessOriginal permission on the content.</summary>
         [Newtonsoft.Json.JsonProperty("viewForAll", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool ViewForAll { get; set; }
+    
+        /// <summary>Indicates if metadata should be written into XMP header of outputs where applicable and configured.</summary>
+        [Newtonsoft.Json.JsonProperty("enableXmpWriteback", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool EnableXmpWriteback { get; set; }
     
         public string ToJson() 
         {

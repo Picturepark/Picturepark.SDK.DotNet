@@ -1047,6 +1047,29 @@ namespace Picturepark.SDK.V1.Contract
         System.Threading.Tasks.Task<BusinessProcess> SetDownloadFileNamePatternsManyAsync(OutputFormatDownloadFileNamePatternUpdateManyRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>Enables or disables XMP writeback for an output format</summary>
+        /// <param name="id">ID of the output format.</param>
+        /// <param name="enabled">Indicates if writeback should be enabled</param>
+        /// <returns>Business process</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        System.Threading.Tasks.Task<BusinessProcess> SetXmpWritebackStateAsync(string id, bool? enabled = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>Enables or disables XMP writeback for multiple output formats</summary>
+        /// <param name="request">The request containing the state changes for each output format.</param>
+        /// <returns>Business process</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        System.Threading.Tasks.Task<BusinessProcess> SetXmpWritebackState2Async(OutputFormatSetXmpWritebackStateManyRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Render output format preview</summary>
         /// <param name="request">Information about the OutputFormat as well as which Content to use for the preview.</param>
         /// <returns>Rendered file</returns>
@@ -2065,6 +2088,121 @@ namespace Picturepark.SDK.V1.Contract
         System.Threading.Tasks.Task<BusinessProcess> UpdateIdentityProviderManyAsync(UserUpdateIdentityProviderManyRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
     }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NSwag", "13.2.2.0 (NJsonSchema v10.1.4.0 (Newtonsoft.Json v11.0.0.0))")]
+    public partial interface IXmpMappingClient
+    {
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>Gets fields available for XMP mapping.</summary>
+        /// <returns>XmpMappingTargets containing both XMP fields and metadata fields that are available for mapping.</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        System.Threading.Tasks.Task<XmpMappingTargets> GetAvailableTargetsAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>Searches for XMP mappings</summary>
+        /// <param name="request">Search request for getting configured XMP mappings.</param>
+        /// <returns>Holds results of search for XMP mappings</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        System.Threading.Tasks.Task<XmpMappingEntrySearchResult> SearchAsync(XmpMappingEntrySearchRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>Get xmp mapping</summary>
+        /// <param name="id">Xmp mapping ID.</param>
+        /// <returns>XMP mapping entry</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        System.Threading.Tasks.Task<XmpMappingEntry> GetAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>Update xmp mapping</summary>
+        /// <param name="id">Xmp mapping ID.</param>
+        /// <param name="request">Request containing information needed to update the xmp mapping.</param>
+        /// <returns>Business process</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        System.Threading.Tasks.Task<BusinessProcess> UpdateAsync(string id, XmpMappingEntry request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>Delete xmp mapping</summary>
+        /// <param name="id">Xmp mapping ID.</param>
+        /// <returns>Business process</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        System.Threading.Tasks.Task<BusinessProcess> DeleteAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>Create xmp mapping</summary>
+        /// <param name="request">Request containing information needed to create new xmp mapping.</param>
+        /// <returns>Business process</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        System.Threading.Tasks.Task<BusinessProcess> CreateAsync(XmpMappingEntryCreateRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>Get multiple xmp mappings</summary>
+        /// <param name="ids">Xmp mapping IDs to get information about.</param>
+        /// <returns>Array of XMP mapping entry</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="RequestSizeLimitExceededException">List of IDs exceeded maximum size</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<XmpMappingEntry>> GetManyAsync(System.Collections.Generic.IEnumerable<string> ids = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>Create multiple xmp mappings</summary>
+        /// <param name="request">Request containing information needed to create new xmp mapping.</param>
+        /// <returns>Business process</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        System.Threading.Tasks.Task<BusinessProcess> CreateManyAsync(XmpMappingEntryCreateManyRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>Update multiple xmp mappings</summary>
+        /// <param name="request">Request containing information needed to update the xmp mapping.</param>
+        /// <returns>Business process</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        System.Threading.Tasks.Task<BusinessProcess> UpdateManyAsync(XmpMappingEntryUpdateManyRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>Delete multiple xmp mappings</summary>
+        /// <param name="request">The request with xmp mapping IDs to delete.</param>
+        /// <returns>Business process</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        System.Threading.Tasks.Task<BusinessProcess> DeleteManyAsync(XmpMappingEntryDeleteManyRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+    }
 
     /// <summary>Business process</summary>
     [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
@@ -2576,7 +2714,14 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("OutputFormatSourceNotDefinedException", typeof(OutputFormatSourceNotDefinedException))]
     [JsonInheritanceAttribute("OutputFormatRetentionTimeOutOfRangeException", typeof(OutputFormatRetentionTimeOutOfRangeException))]
     [JsonInheritanceAttribute("NotSupportedFileExtensionForFormatException", typeof(NotSupportedFileExtensionForFormatException))]
+    [JsonInheritanceAttribute("OutputFormatXmpWritebackNotSupportedException", typeof(OutputFormatXmpWritebackNotSupportedException))]
     [JsonInheritanceAttribute("CollectionSizeLimitExceededException", typeof(CollectionSizeLimitExceededException))]
+    [JsonInheritanceAttribute("XmpMappingFieldNotSupported", typeof(XmpMappingFieldNotSupported))]
+    [JsonInheritanceAttribute("XmpMappingFieldNotFoundException", typeof(XmpMappingFieldNotFoundException))]
+    [JsonInheritanceAttribute("XmpMappingSchemaNotAvailableForFileContentSchemaException", typeof(XmpMappingSchemaNotAvailableForFileContentSchemaException))]
+    [JsonInheritanceAttribute("XmpMappingFieldToLayerWithRequiredFieldsNotAllowedException", typeof(XmpMappingFieldToLayerWithRequiredFieldsNotAllowedException))]
+    [JsonInheritanceAttribute("XmpMappingFieldInUseException", typeof(XmpMappingFieldInUseException))]
+    [JsonInheritanceAttribute("XmpMappingConfigurationInvalidException", typeof(XmpMappingConfigurationInvalidException))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     [Newtonsoft.Json.JsonObjectAttribute]
     public partial class PictureparkException : System.Exception
@@ -4854,6 +4999,9 @@ namespace Picturepark.SDK.V1.Contract
     
         [System.Runtime.Serialization.EnumMember(Value = @"ManageIdentityProviders")]
         ManageIdentityProviders = 20,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"ManageXmpMappings")]
+        ManageXmpMappings = 21,
     
     }
     
@@ -8834,6 +8982,25 @@ namespace Picturepark.SDK.V1.Contract
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class OutputFormatXmpWritebackNotSupportedException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("outputFormatId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string OutputFormatId { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static OutputFormatXmpWritebackNotSupportedException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<OutputFormatXmpWritebackNotSupportedException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
     public partial class CollectionSizeLimitExceededException : PictureparkValidationException
     {
         [Newtonsoft.Json.JsonProperty("collectionId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -8850,6 +9017,126 @@ namespace Picturepark.SDK.V1.Contract
         public static CollectionSizeLimitExceededException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<CollectionSizeLimitExceededException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class XmpMappingFieldNotSupported : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("fieldPath", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string FieldPath { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static XmpMappingFieldNotSupported FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<XmpMappingFieldNotSupported>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class XmpMappingFieldNotFoundException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("fieldPath", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string FieldPath { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static XmpMappingFieldNotFoundException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<XmpMappingFieldNotFoundException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class XmpMappingSchemaNotAvailableForFileContentSchemaException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("schemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string SchemaId { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static XmpMappingSchemaNotAvailableForFileContentSchemaException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<XmpMappingSchemaNotAvailableForFileContentSchemaException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class XmpMappingFieldToLayerWithRequiredFieldsNotAllowedException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("layerId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string LayerId { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static XmpMappingFieldToLayerWithRequiredFieldsNotAllowedException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<XmpMappingFieldToLayerWithRequiredFieldsNotAllowedException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class XmpMappingFieldInUseException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("schemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string SchemaId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("fieldId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string FieldId { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static XmpMappingFieldInUseException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<XmpMappingFieldInUseException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class XmpMappingConfigurationInvalidException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("fieldPath", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string FieldPath { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("expectedConfiguration", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ExpectedConfiguration { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static XmpMappingConfigurationInvalidException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<XmpMappingConfigurationInvalidException>(data);
         }
     
     }
@@ -17162,6 +17449,51 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>Used to change the state of XMP writeback for multiple output formats at once.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class OutputFormatSetXmpWritebackStateManyRequest 
+    {
+        /// <summary>XMP writeback state changes to be processed.</summary>
+        [Newtonsoft.Json.JsonProperty("items", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<OutputFormatSetXmpWritebackStateRequestItem> Items { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static OutputFormatSetXmpWritebackStateManyRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<OutputFormatSetXmpWritebackStateManyRequest>(data);
+        }
+    
+    }
+    
+    /// <summary>Represents a change to the XMP writeback state to one output format.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class OutputFormatSetXmpWritebackStateRequestItem 
+    {
+        /// <summary>ID of the output format to set XMP writeback state for.</summary>
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public string Id { get; set; }
+    
+        /// <summary>Indicates if XMP writeback shall be enabled for the format.</summary>
+        [Newtonsoft.Json.JsonProperty("enabled", Required = Newtonsoft.Json.Required.Always)]
+        public bool Enabled { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static OutputFormatSetXmpWritebackStateRequestItem FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<OutputFormatSetXmpWritebackStateRequestItem>(data);
+        }
+    
+    }
+    
     /// <summary>Specifies for which content a given format should be rendered</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class OutputFormatRenderPreviewRequest 
@@ -18262,6 +18594,10 @@ namespace Picturepark.SDK.V1.Contract
         /// <summary>Indicates if outputs derived from original output format should be accessible also for users not having AccessOriginal permission on the content.</summary>
         [Newtonsoft.Json.JsonProperty("viewForAll", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool ViewForAll { get; set; }
+    
+        /// <summary>Indicates if metadata should be written into XMP header of outputs where applicable and configured.</summary>
+        [Newtonsoft.Json.JsonProperty("enableXmpWriteback", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool EnableXmpWriteback { get; set; }
     
         public string ToJson() 
         {
@@ -23497,6 +23833,488 @@ namespace Picturepark.SDK.V1.Contract
         public static UserUpdateIdentityProviderManyRequest FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<UserUpdateIdentityProviderManyRequest>(data);
+        }
+    
+    }
+    
+    /// <summary>Represents a list of source/target fields for XMP mappings</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class XmpMappingTargets 
+    {
+        /// <summary>Fields in XMP/Exif.</summary>
+        [Newtonsoft.Json.JsonProperty("xmpFields", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.Collections.Generic.ICollection<XmpField> XmpFields { get; set; } = new System.Collections.Generic.List<XmpField>();
+    
+        /// <summary>Fields in metadata.</summary>
+        [Newtonsoft.Json.JsonProperty("metadataFields", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.Collections.Generic.ICollection<MetadataField> MetadataFields { get; set; } = new System.Collections.Generic.List<MetadataField>();
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static XmpMappingTargets FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<XmpMappingTargets>(data);
+        }
+    
+    }
+    
+    /// <summary>Represents a field in XMP that can be mapped from or to</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class XmpField 
+    {
+        /// <summary>Path of the field in XMP.</summary>
+        [Newtonsoft.Json.JsonProperty("path", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Path { get; set; }
+    
+        /// <summary>Indicates if the field can be written to.</summary>
+        [Newtonsoft.Json.JsonProperty("isWritable", Required = Newtonsoft.Json.Required.Always)]
+        public bool IsWritable { get; set; }
+    
+        /// <summary>Data type of the field.</summary>
+        [Newtonsoft.Json.JsonProperty("dataType", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public XmpFieldDataType DataType { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static XmpField FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<XmpField>(data);
+        }
+    
+    }
+    
+    /// <summary>Data types of XMP fields</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public enum XmpFieldDataType
+    {
+        [System.Runtime.Serialization.EnumMember(Value = @"Simple")]
+        Simple = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"LangAlt")]
+        LangAlt = 1,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"List")]
+        List = 2,
+    
+    }
+    
+    /// <summary>Represents a field in metadata that XMP can be mapped to or from</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class MetadataField 
+    {
+        /// <summary>Path to the field in metadata.</summary>
+        [Newtonsoft.Json.JsonProperty("path", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public string Path { get; set; }
+    
+        /// <summary>Indicates if the field can act as target for a mapping.
+        /// If field is read-only, it can only act as source of a mapping.</summary>
+        [Newtonsoft.Json.JsonProperty("isWritable", Required = Newtonsoft.Json.Required.Always)]
+        public bool IsWritable { get; set; }
+    
+        /// <summary>Data type of the field.</summary>
+        [Newtonsoft.Json.JsonProperty("dataType", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public MetadataFieldDataType DataType { get; set; }
+    
+        /// <summary>A list of field IDs that can be used as a key field when a tagbox is mapped.</summary>
+        [Newtonsoft.Json.JsonProperty("availableKeyFields", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> AvailableKeyFields { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static MetadataField FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<MetadataField>(data);
+        }
+    
+    }
+    
+    /// <summary>Data types of metadata fields</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public enum MetadataFieldDataType
+    {
+        [System.Runtime.Serialization.EnumMember(Value = @"Simple")]
+        Simple = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"TranslatedString")]
+        TranslatedString = 1,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Tagbox")]
+        Tagbox = 2,
+    
+    }
+    
+    /// <summary>Holds results of search for XMP mappings</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class XmpMappingEntrySearchResult : SearchBehaviorWithAggregationBaseResultOfXmpMappingEntry
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static XmpMappingEntrySearchResult FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<XmpMappingEntrySearchResult>(data);
+        }
+    
+    }
+    
+    /// <summary>Base class for search result queries that support SearchBehaviors</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class SearchBehaviorWithAggregationBaseResultOfXmpMappingEntry : SearchBehaviorBaseResultOfXmpMappingEntry
+    {
+        /// <summary>Results of the aggregation, if any aggregators was passed in the request.</summary>
+        [Newtonsoft.Json.JsonProperty("aggregationResults", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<AggregationResult> AggregationResults { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static SearchBehaviorWithAggregationBaseResultOfXmpMappingEntry FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SearchBehaviorWithAggregationBaseResultOfXmpMappingEntry>(data);
+        }
+    
+    }
+    
+    /// <summary>Base class for search result queries that support SearchBehaviors</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class SearchBehaviorBaseResultOfXmpMappingEntry : BaseResultOfXmpMappingEntry
+    {
+        /// <summary>The search string used to query the data</summary>
+        [Newtonsoft.Json.JsonProperty("searchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string SearchString { get; set; }
+    
+        /// <summary>Flag to notify if the SearchString was modified compared to the original requested one</summary>
+        [Newtonsoft.Json.JsonProperty("isSearchStringRewritten", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool IsSearchStringRewritten { get; set; }
+    
+        /// <summary>Additional information regarding the query execution and reason of the matched documents. Multiple items are returned if multiple queries were performed.</summary>
+        [Newtonsoft.Json.JsonProperty("queryDebugInformation", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<QueryDebugInformation> QueryDebugInformation { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static SearchBehaviorBaseResultOfXmpMappingEntry FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SearchBehaviorBaseResultOfXmpMappingEntry>(data);
+        }
+    
+    }
+    
+    /// <summary>Base class for search results</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class BaseResultOfXmpMappingEntry 
+    {
+        /// <summary>The total number of matching documents.</summary>
+        [Newtonsoft.Json.JsonProperty("totalResults", Required = Newtonsoft.Json.Required.Always)]
+        public long TotalResults { get; set; }
+    
+        /// <summary>The matched documents.</summary>
+        [Newtonsoft.Json.JsonProperty("results", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.Collections.Generic.ICollection<XmpMappingEntry> Results { get; set; } = new System.Collections.Generic.List<XmpMappingEntry>();
+    
+        /// <summary>The search execution time in milliseconds.</summary>
+        [Newtonsoft.Json.JsonProperty("elapsedMilliseconds", Required = Newtonsoft.Json.Required.Always)]
+        public long ElapsedMilliseconds { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("pageToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string PageToken { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static BaseResultOfXmpMappingEntry FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BaseResultOfXmpMappingEntry>(data);
+        }
+    
+    }
+    
+    /// <summary>XMP mapping entry</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class XmpMappingEntry : XmpMappingEntryEditable
+    {
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public string Id { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static XmpMappingEntry FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<XmpMappingEntry>(data);
+        }
+    
+    }
+    
+    /// <summary>Editable properties of a XMP mapping entry</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class XmpMappingEntryEditable 
+    {
+        /// <summary>Direction of the mapping.</summary>
+        [Newtonsoft.Json.JsonProperty("direction", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public MappingDirection Direction { get; set; }
+    
+        /// <summary>Priority of the mapping.</summary>
+        [Newtonsoft.Json.JsonProperty("priority", Required = Newtonsoft.Json.Required.Always)]
+        public int Priority { get; set; }
+    
+        /// <summary>Stop processing further mappings for the same field if a value was found.</summary>
+        [Newtonsoft.Json.JsonProperty("stopProcessing", Required = Newtonsoft.Json.Required.Always)]
+        public bool StopProcessing { get; set; }
+    
+        /// <summary>Path to source property in XMP.</summary>
+        [Newtonsoft.Json.JsonProperty("xmpPath", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public string XmpPath { get; set; }
+    
+        /// <summary>Path to target property in metadata.</summary>
+        [Newtonsoft.Json.JsonProperty("metadataPath", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public string MetadataPath { get; set; }
+    
+        /// <summary>Optional additional configuration for the mapping.</summary>
+        [Newtonsoft.Json.JsonProperty("configuration", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public XmpMappingEntryConfigurationBase Configuration { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static XmpMappingEntryEditable FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<XmpMappingEntryEditable>(data);
+        }
+    
+    }
+    
+    /// <summary>Direction of mapping of XMP data</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public enum MappingDirection
+    {
+        [System.Runtime.Serialization.EnumMember(Value = @"XmpToMetadata")]
+        XmpToMetadata = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"MetadataToXmp")]
+        MetadataToXmp = 1,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Both")]
+        Both = 2,
+    
+    }
+    
+    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
+    [JsonInheritanceAttribute("XmpMappingEntryConfigurationTagbox", typeof(XmpMappingEntryConfigurationTagbox))]
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public abstract partial class XmpMappingEntryConfigurationBase 
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static XmpMappingEntryConfigurationBase FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<XmpMappingEntryConfigurationBase>(data);
+        }
+    
+    }
+    
+    /// <summary>Additional configuration for a mapping tagbox fields</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class XmpMappingEntryConfigurationTagbox : XmpMappingEntryConfigurationBase
+    {
+        /// <summary>IDs of key fields.</summary>
+        [Newtonsoft.Json.JsonProperty("keyFieldIds", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.Collections.Generic.ICollection<string> KeyFieldIds { get; set; } = new System.Collections.Generic.List<string>();
+    
+        /// <summary>Indicates if lookup shall be performed case sensitive.</summary>
+        [Newtonsoft.Json.JsonProperty("caseSensitive", Required = Newtonsoft.Json.Required.Always)]
+        public bool CaseSensitive { get; set; }
+    
+        /// <summary>Indicates if child schemas should also be included.</summary>
+        [Newtonsoft.Json.JsonProperty("includeAllSchemaChildren", Required = Newtonsoft.Json.Required.Always)]
+        public bool IncludeAllSchemaChildren { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static XmpMappingEntryConfigurationTagbox FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<XmpMappingEntryConfigurationTagbox>(data);
+        }
+    
+    }
+    
+    /// <summary>Search request for getting configured XMP mappings</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class XmpMappingEntrySearchRequest 
+    {
+        /// <summary>Enable debug mode to get as result of the Searched additional debug information. Warning! Severely affects performance.</summary>
+        [Newtonsoft.Json.JsonProperty("debugMode", Required = Newtonsoft.Json.Required.Always)]
+        public bool DebugMode { get; set; } = false;
+    
+        /// <summary>Special filters used to filter down independently the aggregations' values and the search results on specific conditions.
+        /// For the search results, the aggregation filters are used to create a Filter that is put in AND with the eventual existing Filter of the search request to nail down the search results. The filters generated
+        /// by the aggregation filters are put in OR each other if they have the same AggregationName, and then such groups are put in AND.
+        /// For the aggregation values, only the original Filter of the search request is used to nail down the data to be considered for the aggregations. Then, on top of that, for each aggregator in the search request, a Filter is created to filter down the
+        /// aggregation results of that aggregation: depending if the AggregationName of the AggregationFilter matches the AggregationName of the Aggregator, the filter is put in OR (if it matches) or in AND (if it does not match it).
+        /// Moreover, an AggregationFilter ensures that the related value is returned in the AggregationResults also if the top aggregation values returned by default do not contain it.</summary>
+        [Newtonsoft.Json.JsonProperty("aggregationFilters", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<AggregationFilter> AggregationFilters { get; set; }
+    
+        /// <summary>List of aggregators that defines how the items should be aggregated.</summary>
+        [Newtonsoft.Json.JsonProperty("aggregators", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<AggregatorBase> Aggregators { get; set; }
+    
+        /// <summary>An optional search filter. Limits the document result set.</summary>
+        [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public FilterBase Filter { get; set; }
+    
+        /// <summary>Limits the document count of the result set.</summary>
+        [Newtonsoft.Json.JsonProperty("limit", Required = Newtonsoft.Json.Required.Always)]
+        public int Limit { get; set; } = 30;
+    
+        /// <summary>The token used to retrieve the next page of results. It must be null on first request and only filled with the returned pageToken to request next page of results.</summary>
+        [Newtonsoft.Json.JsonProperty("pageToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string PageToken { get; set; }
+    
+        /// <summary>Limits the search by using a query string filter. The Lucene query string syntax is supported.</summary>
+        [Newtonsoft.Json.JsonProperty("searchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string SearchString { get; set; }
+    
+        /// <summary>An optional list of search behaviors. All the passed behaviors will be applied.</summary>
+        [Newtonsoft.Json.JsonProperty("searchBehaviors", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public System.Collections.Generic.ICollection<SearchBehavior> SearchBehaviors { get; set; }
+    
+        /// <summary>Fields and respective directions requested to sort the search results. Sorting on a not indexed field will throw an exception.</summary>
+        [Newtonsoft.Json.JsonProperty("sort", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<SortInfo> Sort { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static XmpMappingEntrySearchRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<XmpMappingEntrySearchRequest>(data);
+        }
+    
+    }
+    
+    /// <summary>Request to create XMP mapping</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class XmpMappingEntryCreateRequest : XmpMappingEntryEditable
+    {
+        /// <summary>Optional client reference for this request.
+        /// Will be returned back in response to make easier for clients to match request items with the respective results.
+        /// It is not persisted anywhere and it is ignored in single operations.</summary>
+        [Newtonsoft.Json.JsonProperty("requestId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string RequestId { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static XmpMappingEntryCreateRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<XmpMappingEntryCreateRequest>(data);
+        }
+    
+    }
+    
+    /// <summary>Request to create many XMP mappings</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class XmpMappingEntryCreateManyRequest 
+    {
+        /// <summary>Mappings to create.</summary>
+        [Newtonsoft.Json.JsonProperty("items", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<XmpMappingEntryCreateRequest> Items { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static XmpMappingEntryCreateManyRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<XmpMappingEntryCreateManyRequest>(data);
+        }
+    
+    }
+    
+    /// <summary>Request to update many XMP mappings</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class XmpMappingEntryUpdateManyRequest 
+    {
+        /// <summary>Items to update.</summary>
+        [Newtonsoft.Json.JsonProperty("items", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<XmpMappingEntry> Items { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static XmpMappingEntryUpdateManyRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<XmpMappingEntryUpdateManyRequest>(data);
+        }
+    
+    }
+    
+    /// <summary>Request to delete many XMP mappings</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class XmpMappingEntryDeleteManyRequest 
+    {
+        /// <summary>IDs to delete.</summary>
+        [Newtonsoft.Json.JsonProperty("ids", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> Ids { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static XmpMappingEntryDeleteManyRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<XmpMappingEntryDeleteManyRequest>(data);
         }
     
     }
