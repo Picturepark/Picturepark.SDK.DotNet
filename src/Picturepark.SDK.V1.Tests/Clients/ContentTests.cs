@@ -1045,14 +1045,13 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldGetVectorMetadata()
         {
             // sample001.ai
-            var contentId = await _fixture.GetRandomContentIdAsync("fileMetadata.sha1Hash:A72A58BDA484E06F07C6CCBB5A9B0A97E0A3BD4C", 1).ConfigureAwait(false);
+            var contentId = await _fixture.GetRandomContentIdAsync("contentType:VectorGraphic", 1).ConfigureAwait(false);
             contentId.Should().NotBeNullOrEmpty();
 
             ContentDetail result = await _client.Content.GetAsync(contentId, new[] { ContentResolveBehavior.Content }).ConfigureAwait(false);
 
             var metadata = result.GetFileMetadata().As<VectorMetadata>();
             metadata.Should().NotBeNull();
-            metadata.Title.Should().NotBeNullOrEmpty();
         }
 
         [Fact]
