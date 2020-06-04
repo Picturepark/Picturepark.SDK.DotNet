@@ -1045,7 +1045,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldGetVectorMetadata()
         {
             // sample001.ai
-            var contentId = await _fixture.GetRandomContentIdAsync("contentType:Vector", 1).ConfigureAwait(false);
+            var contentId = await _fixture.GetRandomContentIdAsync("contentType:VectorGraphic", 1).ConfigureAwait(false);
             contentId.Should().NotBeNullOrEmpty();
 
             ContentDetail result = await _client.Content.GetAsync(contentId, new[] { ContentResolveBehavior.Content }).ConfigureAwait(false);
