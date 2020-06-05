@@ -14108,6 +14108,9 @@ namespace Picturepark.SDK.V1.Contract
         [System.Runtime.Serialization.EnumMember(Value = @"Large")]
         Large = 2,
     
+        [System.Runtime.Serialization.EnumMember(Value = @"Preview")]
+        Preview = 3,
+    
     }
     
     /// <summary>Request to create a content</summary>
