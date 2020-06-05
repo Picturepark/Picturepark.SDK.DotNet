@@ -9,8 +9,10 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
+using Picturepark.SDK.V1.Tests.Helpers;
 using Xunit;
 
 namespace Picturepark.SDK.V1.Tests.Clients
@@ -488,22 +490,50 @@ namespace Picturepark.SDK.V1.Tests.Clients
             }
         }
 
-        [Fact]
+        [Theory,
+         InlineData(ThumbnailSize.Small),
+         InlineData(ThumbnailSize.Medium),
+         InlineData(ThumbnailSize.Large),
+         InlineData(ThumbnailSize.Preview)]
         [Trait("Stack", "Contents")]
-        public async Task ShouldDownloadThumbnail()
+        public async Task ShouldDownloadThumbnail(ThumbnailSize size)
         {
             // Arrange
             var contentId = await _fixture.GetRandomContentIdAsync("fileMetadata.fileExtension:.jpg", 20).ConfigureAwait(false);
 
             // Act
-            using (var response = await _client.Content.DownloadThumbnailAsync(contentId, ThumbnailSize.Medium).ConfigureAwait(false))
+            using (var response = await _client.Content.DownloadThumbnailAsync(contentId, size).ConfigureAwait(false))
             {
-                var stream = new MemoryStream();
-                await response.Stream.CopyToAsync(stream).ConfigureAwait(false);
-
                 // Assert
-                Assert.True(stream.Length > 10);
-                Assert.True(stream.CanRead);
+                await AssertFileResponseOkAndNonEmpty(response).ConfigureAwait(false);
+            }
+        }
+
+        [Theory,
+         InlineData(ThumbnailSize.Small),
+         InlineData(ThumbnailSize.Medium),
+         InlineData(ThumbnailSize.Large),
+         InlineData(ThumbnailSize.Preview)]
+        [Trait("Stack", "Contents")]
+        public async Task ShouldDownloadFileFormatIconIfOutputForThumbnailNotRendered(ThumbnailSize size)
+        {
+            // Arrange
+            var contentId = await _fixture.GetRandomContentIdAsync("fileMetadata.fileExtension:.json", 20).ConfigureAwait(false);
+
+            if (string.IsNullOrEmpty(contentId))
+            {
+                var planetJsonPath = Path.Combine(_fixture.ExampleSchemaBasePath, "Planet.json");
+                var (createResult, _) = await TransferHelper.CreateSingleFileTransferAsync(_client, planetJsonPath, new UploadOptions { WaitForTransferCompletion = true });
+                await _client.Transfer.ImportAndWaitForCompletionAsync(createResult.Transfer, new ImportTransferRequest()).ConfigureAwait(false);
+
+                contentId = await _fixture.GetRandomContentIdAsync("fileMetadata.fileExtension:.json", 20).ConfigureAwait(false);
+            }
+
+            // Act
+            using (var response = await _client.Content.DownloadThumbnailAsync(contentId, size).ConfigureAwait(false))
+            {
+                // Assert
+                await AssertFileResponseOkAndNonEmpty(response).ConfigureAwait(false);
             }
         }
 
@@ -976,28 +1006,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
                     1.02f * sourceAspectRatio,
                     "should keep aspect ratio");
             }
-        }
-
-        [Fact]
-        [Trait("Stack", "Contents")]
-        public async Task ShouldDownloadSingleThumbnail()
-        {
-            // Download a resized version of an image file
-            var contentId = await _fixture.GetRandomContentIdAsync("fileMetadata.fileExtension:.jpg", 20).ConfigureAwait(false);
-            Assert.False(string.IsNullOrEmpty(contentId));
-
-            var fileName = new Random().Next(0, 999999) + "-" + contentId + ".jpg";
-            var filePath = Path.Combine(_fixture.TempDirectory, fileName);
-
-            if (File.Exists(filePath))
-                File.Delete(filePath);
-
-            using (var response = await _client.Content.DownloadThumbnailAsync(contentId, ThumbnailSize.Small).ConfigureAwait(false))
-            {
-                await response.Stream.WriteToFileAsync(filePath).ConfigureAwait(false);
-            }
-
-            Assert.True(File.Exists(filePath));
         }
 
         [Fact]
@@ -1620,6 +1628,17 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             // Assert
             new DirectoryInfo(targetFolder).EnumerateFiles("*").Should().HaveCountGreaterOrEqualTo(numberOfUploads);
+        }
+
+        private static async Task AssertFileResponseOkAndNonEmpty(FileResponse response)
+        {
+            using (var stream = new MemoryStream())
+            {
+                response.StatusCode.Should().Be((int)HttpStatusCode.OK);
+
+                await response.Stream.CopyToAsync(stream).ConfigureAwait(false);
+                stream.Length.Should().BeGreaterOrEqualTo(10);
+            }
         }
 
         private async Task<ContentDetail> CreateContentItem()
