@@ -505,7 +505,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             using (var response = await _client.Content.DownloadThumbnailAsync(contentId, size).ConfigureAwait(false))
             {
                 // Assert
-                await AssertFileResponseOkAndNonEmpty(response).ConfigureAwait(false);
+                await AssertFileResponseOkAndNonEmpty(response, "image/jpeg").ConfigureAwait(false);
             }
         }
 
@@ -533,7 +533,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             using (var response = await _client.Content.DownloadThumbnailAsync(contentId, size).ConfigureAwait(false))
             {
                 // Assert
-                await AssertFileResponseOkAndNonEmpty(response).ConfigureAwait(false);
+                await AssertFileResponseOkAndNonEmpty(response, "image/svg+xml").ConfigureAwait(false);
             }
         }
 
@@ -1630,11 +1630,17 @@ namespace Picturepark.SDK.V1.Tests.Clients
             new DirectoryInfo(targetFolder).EnumerateFiles("*").Should().HaveCountGreaterOrEqualTo(numberOfUploads);
         }
 
-        private static async Task AssertFileResponseOkAndNonEmpty(FileResponse response)
+        private static async Task AssertFileResponseOkAndNonEmpty(FileResponse response, string expectedContentType = null)
         {
             using (var stream = new MemoryStream())
             {
                 response.StatusCode.Should().Be((int)HttpStatusCode.OK);
+
+                if (expectedContentType != null)
+                {
+                    var contentType = response.Headers["Content-Type"].Single();
+                    contentType.Should().Be(expectedContentType);
+                }
 
                 await response.Stream.CopyToAsync(stream).ConfigureAwait(false);
                 stream.Length.Should().BeGreaterOrEqualTo(10);
