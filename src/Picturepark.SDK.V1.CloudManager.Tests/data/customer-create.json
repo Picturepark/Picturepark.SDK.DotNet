@@ -41,6 +41,10 @@
     "sortableFieldThreshold": 0,
     "identityServerProviders": [],
     "externalProviders": [],
+    "licenseInformation": {
+        "subscription": "Standard",
+        "backupOption": "None"
+    },
     "outputFormats": [
         {
             "names": {
