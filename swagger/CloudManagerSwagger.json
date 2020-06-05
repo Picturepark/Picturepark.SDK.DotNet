@@ -13330,6 +13330,14 @@
           },
           "lifeCycle": {
             "$ref": "#/components/schemas/LifeCycle"
+          },
+          "licenseInformation": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/LicenseInformation"
+              }
+            ]
           }
         }
       },
@@ -13354,6 +13362,58 @@
           "Active",
           "Inactive",
           "Deleted"
+        ]
+      },
+      "LicenseInformation": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "backupOption",
+          "subscription"
+        ],
+        "properties": {
+          "backupOption": {
+            "description": "Backup option for the customer",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/LicenseBackupOption"
+              }
+            ]
+          },
+          "subscription": {
+            "description": "Subscription for the customer",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/LicenseSubscription"
+              }
+            ]
+          }
+        }
+      },
+      "LicenseBackupOption": {
+        "type": "string",
+        "description": "License backup option",
+        "x-enumNames": [
+          "None",
+          "SuisseSafe"
+        ],
+        "enum": [
+          "None",
+          "SuisseSafe"
+        ]
+      },
+      "LicenseSubscription": {
+        "type": "string",
+        "description": "License subscription",
+        "x-enumNames": [
+          "Standard",
+          "Premium",
+          "Enterprise"
+        ],
+        "enum": [
+          "Standard",
+          "Premium",
+          "Enterprise"
         ]
       },
       "SnapshotCustomerCloneRequest": {
@@ -15724,58 +15784,6 @@
           "Recovery",
           "Enabled",
           "Resetting"
-        ]
-      },
-      "LicenseInformation": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "backupOption",
-          "subscription"
-        ],
-        "properties": {
-          "backupOption": {
-            "description": "Backup option for the customer",
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/LicenseBackupOption"
-              }
-            ]
-          },
-          "subscription": {
-            "description": "Subscription for the customer",
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/LicenseSubscription"
-              }
-            ]
-          }
-        }
-      },
-      "LicenseBackupOption": {
-        "type": "string",
-        "description": "License backup option",
-        "x-enumNames": [
-          "None",
-          "SuisseSafe"
-        ],
-        "enum": [
-          "None",
-          "SuisseSafe"
-        ]
-      },
-      "LicenseSubscription": {
-        "type": "string",
-        "description": "License subscription",
-        "x-enumNames": [
-          "Standard",
-          "Premium",
-          "Enterprise"
-        ],
-        "enum": [
-          "Standard",
-          "Premium",
-          "Enterprise"
         ]
       },
       "CustomerConfiguration": {
