@@ -34798,10 +34798,6 @@
                 "description": "Compression quality. Must be in range [0,100] and defaults to 80.",
                 "format": "int32"
               },
-              "isProgressive": {
-                "type": "boolean",
-                "description": "Whether to use progressive encoding or not."
-              },
               "chromaSubsamplingEnabled": {
                 "type": "boolean",
                 "description": "Whether to use chroma subsampling or not."
@@ -34824,10 +34820,6 @@
             "description": "Renders a PNG image.",
             "additionalProperties": false,
             "properties": {
-              "interlaced": {
-                "type": "boolean",
-                "description": "Whether the image is interlaced or not."
-              },
               "extension": {
                 "type": "string",
                 "nullable": true

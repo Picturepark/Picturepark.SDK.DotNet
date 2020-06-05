@@ -9907,10 +9907,6 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [Newtonsoft.Json.JsonProperty("quality", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int Quality { get; set; }
     
-        /// <summary>Whether to use progressive encoding or not.</summary>
-        [Newtonsoft.Json.JsonProperty("isProgressive", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool IsProgressive { get; set; }
-    
         /// <summary>Whether to use chroma subsampling or not.</summary>
         [Newtonsoft.Json.JsonProperty("chromaSubsamplingEnabled", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool ChromaSubsamplingEnabled { get; set; }
@@ -9934,10 +9930,6 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class PngFormat : ImageFormatBase
     {
-        /// <summary>Whether the image is interlaced or not.</summary>
-        [Newtonsoft.Json.JsonProperty("interlaced", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool Interlaced { get; set; }
-    
         [Newtonsoft.Json.JsonProperty("extension", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Extension { get; set; }
     
