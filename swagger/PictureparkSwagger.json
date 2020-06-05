@@ -30772,12 +30772,14 @@
         "x-enumNames": [
           "Small",
           "Medium",
-          "Large"
+          "Large",
+          "Preview"
         ],
         "enum": [
           "Small",
           "Medium",
-          "Large"
+          "Large",
+          "Preview"
         ]
       },
       "ContentCreateRequest": {
