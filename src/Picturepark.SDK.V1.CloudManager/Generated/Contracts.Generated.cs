@@ -10701,6 +10701,9 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public ContentBackupState ContentBackupState { get; set; }
     
+        [Newtonsoft.Json.JsonProperty("contentBackupEnableDate", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.DateTime? ContentBackupEnableDate { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("apiCallsPerMinute", Required = Newtonsoft.Json.Required.Always)]
         public int ApiCallsPerMinute { get; set; }
     

@@ -16133,6 +16133,11 @@
           "contentBackupState": {
             "$ref": "#/components/schemas/ContentBackupState"
           },
+          "contentBackupEnableDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
           "apiCallsPerMinute": {
             "type": "integer",
             "format": "int32"
