@@ -23409,6 +23409,34 @@
           }
         ]
       },
+      "SchemaFieldSortableInUseException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "fieldId": {
+                "type": "string",
+                "nullable": true
+              },
+              "schemaId": {
+                "type": "string",
+                "nullable": true
+              },
+              "channelIds": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ]
+      },
       "SchemaNoContentException": {
         "allOf": [
           {
@@ -29274,6 +29302,7 @@
           "sortOrder",
           "searchIndexId",
           "names",
+          "sort",
           "sortFields",
           "aggregations",
           "extendedSimpleSearchFields",
@@ -29314,6 +29343,13 @@
                 "$ref": "#/components/schemas/TranslatedStringDictionary"
               }
             ]
+          },
+          "sort": {
+            "type": "array",
+            "description": "Default sort order specified for the channel to sort the results of a content search.",
+            "items": {
+              "$ref": "#/components/schemas/SortInfo"
+            }
           },
           "sortFields": {
             "type": "array",
@@ -29403,6 +29439,14 @@
             "description": "ID of the channel.",
             "nullable": true
           },
+          "sort": {
+            "type": "array",
+            "description": "Default sort order specified for the channel to sort the results of a content search.",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/SortInfo"
+            }
+          },
           "sortOrder": {
             "type": "integer",
             "description": "Order in which the channels should be displayed.",
@@ -29486,6 +29530,14 @@
           "viewForAll"
         ],
         "properties": {
+          "sort": {
+            "type": "array",
+            "description": "Default sort order specified for the channel to sort the results of a content search.",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/SortInfo"
+            }
+          },
           "sortOrder": {
             "type": "integer",
             "description": "Order in which the channels should be displayed.",
