@@ -150,6 +150,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             // Assert
             var updatedShare = await _client.Share.GetAsync(shareId).ConfigureAwait(false);
             updatedShare.Description.Should().Be("Foo");
+            updatedShare.Schemas.Should().BeNull();
         }
 
         [Fact]
@@ -264,6 +265,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             // Assert
             var share = await _client.Share.GetAsync(shareId).ConfigureAwait(false);
             share.Id.Should().Be(shareId);
+            share.Schemas.Should().BeNull();
         }
 
         [Fact]
@@ -350,13 +352,19 @@ namespace Picturepark.SDK.V1.Tests.Clients
             };
 
             var shareId = await CreateShareAndReturnId(request).ConfigureAwait(false);
-            var embedDetail = await _client.Share.GetAsync(shareId).ConfigureAwait(false);
+            var embedDetail = await _client.Share.GetAsync(shareId, new List<ShareResolveBehavior> { ShareResolveBehavior.Schemas }).ConfigureAwait(false);
+
+            embedDetail.Should().NotBeNull();
+            embedDetail.Id.Should().Be(shareId);
+            embedDetail.Schemas.Should().NotBeEmpty();
+            embedDetail.Schemas.Should().NotBeEmpty().And.Subject.Should().Contain(s => s.Id == "ImageMetadata");
 
             // Act
-            var result = await _client.Share.GetShareJsonAsync(((ShareDataEmbed)embedDetail.Data).Token).ConfigureAwait(false);
+            var result = await _client.Share.GetShareJsonAsync(((ShareDataEmbed)embedDetail.Data).Token, resolveBehaviors: new List<ShareResolveBehavior> { ShareResolveBehavior.Schemas }).ConfigureAwait(false);
 
-            // Assert
-            Assert.NotNull(result);
+            result.Should().NotBeNull();
+            result.Id.Should().Be(shareId);
+            result.Schemas.Should().NotBeEmpty().And.Subject.Should().Contain(s => s.Id == "ImageMetadata");
         }
 
         [Fact]
