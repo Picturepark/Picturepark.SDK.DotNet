@@ -38380,6 +38380,7 @@
       },
       "ShareDetail": {
         "type": "object",
+        "description": "Share detail",
         "additionalProperties": false,
         "required": [
           "id",
