@@ -337,6 +337,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             while (contentIds.Count < 2)
             {
                 var contentId = await _fixture.GetRandomContentIdAsync(string.Empty, 30).ConfigureAwait(false);
+
                 if (!contentIds.Contains(contentId))
                     contentIds.Add(contentId);
             }
@@ -351,20 +352,23 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 Name = "Embed share"
             };
 
+            var contents = await _client.Content.GetManyAsync(contentIds).ConfigureAwait(false);
+            var contentSchemaIds = contents.Select(s => s.ContentSchemaId).Distinct().ToList();
+
             var shareId = await CreateShareAndReturnId(request).ConfigureAwait(false);
             var embedDetail = await _client.Share.GetAsync(shareId, new List<ShareResolveBehavior> { ShareResolveBehavior.Schemas }).ConfigureAwait(false);
 
             embedDetail.Should().NotBeNull();
             embedDetail.Id.Should().Be(shareId);
             embedDetail.Schemas.Should().NotBeEmpty();
-            embedDetail.Schemas.Should().NotBeEmpty().And.Subject.Should().Contain(s => s.Id == "ImageMetadata");
+            embedDetail.Schemas.Should().NotBeEmpty().And.Subject.Should().Contain(s => contentSchemaIds.Contains(s.Id));
 
             // Act
             var result = await _client.Share.GetShareJsonAsync(((ShareDataEmbed)embedDetail.Data).Token, resolveBehaviors: new List<ShareResolveBehavior> { ShareResolveBehavior.Schemas }).ConfigureAwait(false);
 
             result.Should().NotBeNull();
             result.Id.Should().Be(shareId);
-            result.Schemas.Should().NotBeEmpty().And.Subject.Should().Contain(s => s.Id == "ImageMetadata");
+            result.Schemas.Should().NotBeEmpty().And.Subject.Should().Contain(s => contentSchemaIds.Contains(s.Id));
         }
 
         [Fact]
