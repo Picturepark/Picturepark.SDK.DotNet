@@ -13729,6 +13729,21 @@
               "nullable": true
             },
             "x-position": 2
+          },
+          {
+            "name": "resolveBehaviors",
+            "in": "query",
+            "style": "form",
+            "explode": true,
+            "description": "List of enums that control which parts of the share are resolved and returned.",
+            "schema": {
+              "type": "array",
+              "nullable": true,
+              "items": {
+                "$ref": "#/components/schemas/ShareResolveBehavior"
+              }
+            },
+            "x-position": 3
           }
         ],
         "responses": {
@@ -14096,6 +14111,21 @@
               "nullable": true
             },
             "x-position": 1
+          },
+          {
+            "name": "resolveBehaviors",
+            "in": "query",
+            "style": "form",
+            "explode": true,
+            "description": "List of enums that control which parts of the share are resolved and returned.",
+            "schema": {
+              "type": "array",
+              "nullable": true,
+              "items": {
+                "$ref": "#/components/schemas/ShareResolveBehavior"
+              }
+            },
+            "x-position": 2
           }
         ],
         "responses": {
@@ -38443,6 +38473,14 @@
                 "$ref": "#/components/schemas/ShareType"
               }
             ]
+          },
+          "schemas": {
+            "type": "array",
+            "description": "Schema detail of the content and the layers.",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/SchemaDetail"
+            }
           }
         }
       },
@@ -38804,6 +38842,16 @@
           "Full",
           "Preview",
           "None"
+        ]
+      },
+      "ShareResolveBehavior": {
+        "type": "string",
+        "description": "",
+        "x-enumNames": [
+          "Schemas"
+        ],
+        "enum": [
+          "Schemas"
         ]
       },
       "ShareBaseUpdateRequest": {
