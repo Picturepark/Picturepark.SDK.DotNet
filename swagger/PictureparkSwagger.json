@@ -9431,17 +9431,21 @@
               "nullable": true
             },
             "x-position": 1
-          },
-          {
-            "name": "enabled",
-            "in": "query",
-            "description": "Indicates if writeback should be enabled",
-            "schema": {
-              "type": "boolean"
-            },
-            "x-position": 2
           }
         ],
+        "requestBody": {
+          "x-name": "request",
+          "description": "The request containing the state to be set for the output format.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OutputFormatSetXmpWritebackStateRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 2
+        },
         "responses": {
           "200": {
             "description": "Business process",
@@ -9522,7 +9526,7 @@
         "operationId": "OutputFormat_SetXmpWritebackState2",
         "requestBody": {
           "x-name": "request",
-          "description": "The request containing the state changes for each output format.",
+          "description": "The request containing the state to be set for the output format.",
           "content": {
             "application/json": {
               "schema": {
@@ -34252,6 +34256,19 @@
           }
         }
       },
+      "OutputFormatSetXmpWritebackStateRequest": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "enabled"
+        ],
+        "properties": {
+          "enabled": {
+            "type": "boolean",
+            "description": "Indicates if XMP writeback shall be enabled for the format."
+          }
+        }
+      },
       "OutputFormatSetXmpWritebackStateManyRequest": {
         "type": "object",
         "description": "Used to change the state of XMP writeback for multiple output formats at once.",
@@ -34268,24 +34285,26 @@
         }
       },
       "OutputFormatSetXmpWritebackStateRequestItem": {
-        "type": "object",
-        "description": "Represents a change to the XMP writeback state to one output format.",
-        "additionalProperties": false,
-        "required": [
-          "id",
-          "enabled"
-        ],
-        "properties": {
-          "id": {
-            "type": "string",
-            "description": "ID of the output format to set XMP writeback state for.",
-            "minLength": 1
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/OutputFormatSetXmpWritebackStateRequest"
           },
-          "enabled": {
-            "type": "boolean",
-            "description": "Indicates if XMP writeback shall be enabled for the format."
+          {
+            "type": "object",
+            "description": "Represents a change to the XMP writeback state to one output format.",
+            "additionalProperties": false,
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "description": "ID of the output format to set XMP writeback state for.",
+                "minLength": 1
+              }
+            }
           }
-        }
+        ]
       },
       "OutputFormatRenderPreviewRequest": {
         "type": "object",
@@ -34445,22 +34464,6 @@
               "keepClippingPath": {
                 "type": "boolean",
                 "description": "Copy clipping paths from input."
-              },
-              "cloneExif": {
-                "type": "boolean",
-                "description": "Copy Exif metadata from input."
-              },
-              "cloneIptc": {
-                "type": "boolean",
-                "description": "Copy Iptc metadata from input."
-              },
-              "cloneAdobeResources": {
-                "type": "boolean",
-                "description": "Copy AdobeResources from input."
-              },
-              "cloneXmp": {
-                "type": "boolean",
-                "description": "Copy Xmp metadata from input."
               },
               "resizeAction": {
                 "description": "Allows resizing of the image.",
@@ -41695,7 +41698,8 @@
             "CustomerChangeEvent": "#/components/schemas/CustomerChangeEvent",
             "SearchReindexCompletedEvent": "#/components/schemas/SearchReindexCompletedEvent",
             "BusinessRuleFiredEvent": "#/components/schemas/BusinessRuleFiredEvent",
-            "BusinessProcessCancellationRequestedEvent": "#/components/schemas/BusinessProcessCancellationRequestedEvent"
+            "BusinessProcessCancellationRequestedEvent": "#/components/schemas/BusinessProcessCancellationRequestedEvent",
+            "XmpWritebackCompletedEvent": "#/components/schemas/XmpWritebackCompletedEvent"
           }
         },
         "additionalProperties": false,
@@ -42100,6 +42104,23 @@
             "additionalProperties": false,
             "properties": {
               "businessProcessId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "XmpWritebackCompletedEvent": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ApplicationEvent"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "outputDocId": {
                 "type": "string",
                 "nullable": true
               }
