@@ -14925,22 +14925,6 @@
                 "type": "boolean",
                 "description": "Copy clipping paths from input."
               },
-              "cloneExif": {
-                "type": "boolean",
-                "description": "Copy Exif metadata from input."
-              },
-              "cloneIptc": {
-                "type": "boolean",
-                "description": "Copy Iptc metadata from input."
-              },
-              "cloneAdobeResources": {
-                "type": "boolean",
-                "description": "Copy AdobeResources from input."
-              },
-              "cloneXmp": {
-                "type": "boolean",
-                "description": "Copy Xmp metadata from input."
-              },
               "resizeAction": {
                 "description": "Allows resizing of the image.",
                 "nullable": true,
@@ -18237,7 +18221,8 @@
             "CustomerChangeEvent": "#/components/schemas/CustomerChangeEvent",
             "SearchReindexCompletedEvent": "#/components/schemas/SearchReindexCompletedEvent",
             "BusinessRuleFiredEvent": "#/components/schemas/BusinessRuleFiredEvent",
-            "BusinessProcessCancellationRequestedEvent": "#/components/schemas/BusinessProcessCancellationRequestedEvent"
+            "BusinessProcessCancellationRequestedEvent": "#/components/schemas/BusinessProcessCancellationRequestedEvent",
+            "XmpWritebackCompletedEvent": "#/components/schemas/XmpWritebackCompletedEvent"
           }
         },
         "additionalProperties": false,
@@ -18682,6 +18667,23 @@
             "additionalProperties": false,
             "properties": {
               "businessProcessId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "XmpWritebackCompletedEvent": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ApplicationEvent"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "outputDocId": {
                 "type": "string",
                 "nullable": true
               }
