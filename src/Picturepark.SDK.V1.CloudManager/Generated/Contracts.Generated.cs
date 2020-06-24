@@ -8894,6 +8894,9 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [Newtonsoft.Json.JsonProperty("defaultUserRoleId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string DefaultUserRoleId { get; set; }
     
+        [Newtonsoft.Json.JsonProperty("skipSignUpCaptcha", Required = Newtonsoft.Json.Required.Always)]
+        public bool SkipSignUpCaptcha { get; set; }
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -10496,6 +10499,9 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [Newtonsoft.Json.JsonProperty("defaultUserRoleId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string DefaultUserRoleId { get; set; }
     
+        [Newtonsoft.Json.JsonProperty("skipSignUpCaptcha", Required = Newtonsoft.Json.Required.Always)]
+        public bool SkipSignUpCaptcha { get; set; }
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -10659,6 +10665,9 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
         [Newtonsoft.Json.JsonProperty("defaultUserRoleId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string DefaultUserRoleId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("skipSignUpCaptcha", Required = Newtonsoft.Json.Required.Always)]
+        public bool SkipSignUpCaptcha { get; set; }
     
         public string ToJson() 
         {
