@@ -11718,7 +11718,7 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Name { get; set; }
     
-        /// <summary>Indicates if the lookup should be cache sensitive.</summary>
+        /// <summary>Indicates if the lookup should be case sensitive.</summary>
         [Newtonsoft.Json.JsonProperty("caseSensitive", Required = Newtonsoft.Json.Required.Always)]
         public bool CaseSensitive { get; set; }
     
