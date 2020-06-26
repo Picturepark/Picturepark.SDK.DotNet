@@ -14195,7 +14195,8 @@
           "contentBackupState",
           "apiCallsPerMinute",
           "enableSupportUserRegistrationEmailNotification",
-          "enableSupportUserRegistrationNotification"
+          "enableSupportUserRegistrationNotification",
+          "skipSignUpCaptcha"
         ],
         "properties": {
           "alias": {
@@ -14422,6 +14423,9 @@
           "defaultUserRoleId": {
             "type": "string",
             "nullable": true
+          },
+          "skipSignUpCaptcha": {
+            "type": "boolean"
           },
           "licenseInformation": {
             "nullable": true,
@@ -15806,7 +15810,8 @@
           "apiCallsPerMinute",
           "enableSupportUserRegistrationEmailNotification",
           "enableSupportUserRegistrationNotification",
-          "isClone"
+          "isClone",
+          "skipSignUpCaptcha"
         ],
         "properties": {
           "id": {
@@ -16158,6 +16163,9 @@
             "type": "string",
             "nullable": true
           },
+          "skipSignUpCaptcha": {
+            "type": "boolean"
+          },
           "licenseInformation": {
             "nullable": true,
             "oneOf": [
@@ -16215,7 +16223,8 @@
           "enableQueryDetails",
           "apiCallsPerMinute",
           "enableSupportUserRegistrationEmailNotification",
-          "enableSupportUserRegistrationNotification"
+          "enableSupportUserRegistrationNotification",
+          "skipSignUpCaptcha"
         ],
         "properties": {
           "id": {
@@ -16374,6 +16383,9 @@
           "defaultUserRoleId": {
             "type": "string",
             "nullable": true
+          },
+          "skipSignUpCaptcha": {
+            "type": "boolean"
           },
           "licenseInformation": {
             "nullable": true,
