@@ -28270,7 +28270,7 @@
           },
           "caseSensitive": {
             "type": "boolean",
-            "description": "Indicates if the lookup should be cache sensitive."
+            "description": "Indicates if the lookup should be case sensitive."
           },
           "kind": {
             "type": "string"
