@@ -23443,6 +23443,34 @@
           }
         ]
       },
+      "SchemaFieldSortableInUseException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "fieldId": {
+                "type": "string",
+                "nullable": true
+              },
+              "schemaId": {
+                "type": "string",
+                "nullable": true
+              },
+              "channelIds": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ]
+      },
       "SchemaNoContentException": {
         "allOf": [
           {
@@ -29309,6 +29337,7 @@
           "searchIndexId",
           "names",
           "sort",
+          "sortFields",
           "aggregations",
           "extendedSimpleSearchFields",
           "grantedUserRoleIds",
@@ -29356,6 +29385,13 @@
               "$ref": "#/components/schemas/SortInfo"
             }
           },
+          "sortFields": {
+            "type": "array",
+            "description": "Fields to be used for sorting in content browser when displaying the channel. The information is only set and consumed by the client, not by the server.",
+            "items": {
+              "$ref": "#/components/schemas/SortField"
+            }
+          },
           "aggregations": {
             "type": "array",
             "description": "An optional list of aggregators. These aggregations are added by default on each aggregation requests.",
@@ -29399,10 +29435,34 @@
           }
         }
       },
+      "SortField": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "path",
+          "names"
+        ],
+        "properties": {
+          "path": {
+            "type": "string",
+            "description": "The path of the field ({schemaId}.{fieldId})",
+            "minLength": 1
+          },
+          "names": {
+            "description": "The translated name of the field to be shown in the UI.",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/TranslatedStringDictionary"
+              }
+            ]
+          }
+        }
+      },
       "ChannelCreateRequest": {
         "type": "object",
         "additionalProperties": false,
         "required": [
+          "sortFields",
           "names",
           "sortOrder",
           "viewForAll"
@@ -29410,10 +29470,12 @@
         "properties": {
           "id": {
             "type": "string",
+            "description": "ID of the channel.",
             "nullable": true
           },
           "sort": {
             "type": "array",
+            "description": "Default sort order specified for the channel to sort the results of a content search.",
             "nullable": true,
             "items": {
               "$ref": "#/components/schemas/SortInfo"
@@ -29421,10 +29483,23 @@
           },
           "sortOrder": {
             "type": "integer",
+            "description": "Order in which the channels should be displayed.",
             "format": "int32"
           },
+          "sortFields": {
+            "type": "array",
+            "description": "Fields to be used for sorting in content browser when displaying the channel. The information is only set and consumed by the client, not by the server.",
+            "items": {
+              "$ref": "#/components/schemas/SortField"
+            }
+          },
           "names": {
-            "$ref": "#/components/schemas/TranslatedStringDictionary"
+            "description": "Language specific channel names.",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/TranslatedStringDictionary"
+              }
+            ]
           },
           "searchIndexId": {
             "type": "string",
@@ -29483,6 +29558,7 @@
         "type": "object",
         "additionalProperties": false,
         "required": [
+          "sortFields",
           "names",
           "sortOrder",
           "viewForAll"
@@ -29490,6 +29566,7 @@
         "properties": {
           "sort": {
             "type": "array",
+            "description": "Default sort order specified for the channel to sort the results of a content search.",
             "nullable": true,
             "items": {
               "$ref": "#/components/schemas/SortInfo"
@@ -29497,7 +29574,15 @@
           },
           "sortOrder": {
             "type": "integer",
+            "description": "Order in which the channels should be displayed.",
             "format": "int32"
+          },
+          "sortFields": {
+            "type": "array",
+            "description": "Fields to be used for sorting in content browser when displaying the channel. The information is only set and consumed by the client, not by the server.",
+            "items": {
+              "$ref": "#/components/schemas/SortField"
+            }
           },
           "names": {
             "$ref": "#/components/schemas/TranslatedStringDictionary"

@@ -2621,6 +2621,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("SchemaFieldNotSortableException", typeof(SchemaFieldNotSortableException))]
     [JsonInheritanceAttribute("SchemaFieldNotSearchableException", typeof(SchemaFieldNotSearchableException))]
     [JsonInheritanceAttribute("SchemaFieldInvalidBoostException", typeof(SchemaFieldInvalidBoostException))]
+    [JsonInheritanceAttribute("SchemaFieldSortableInUseException", typeof(SchemaFieldSortableInUseException))]
     [JsonInheritanceAttribute("SchemaNoContentException", typeof(SchemaNoContentException))]
     [JsonInheritanceAttribute("SchemaParentChangeException", typeof(SchemaParentChangeException))]
     [JsonInheritanceAttribute("SchemaMissingTypeException", typeof(SchemaMissingTypeException))]
@@ -6792,6 +6793,31 @@ namespace Picturepark.SDK.V1.Contract
         public static SchemaFieldInvalidBoostException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaFieldInvalidBoostException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class SchemaFieldSortableInUseException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("fieldId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string FieldId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("schemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string SchemaId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("channelIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> ChannelIds { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static SchemaFieldSortableInUseException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaFieldSortableInUseException>(data);
         }
     
     }
@@ -12728,6 +12754,11 @@ namespace Picturepark.SDK.V1.Contract
         [System.ComponentModel.DataAnnotations.Required]
         public System.Collections.Generic.ICollection<SortInfo> Sort { get; set; } = new System.Collections.Generic.List<SortInfo>();
     
+        /// <summary>Fields to be used for sorting in content browser when displaying the channel. The information is only set and consumed by the client, not by the server.</summary>
+        [Newtonsoft.Json.JsonProperty("sortFields", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.Collections.Generic.ICollection<SortField> SortFields { get; set; } = new System.Collections.Generic.List<SortField>();
+    
         /// <summary>An optional list of aggregators. These aggregations are added by default on each aggregation requests.</summary>
         [Newtonsoft.Json.JsonProperty("aggregations", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
@@ -12770,17 +12801,51 @@ namespace Picturepark.SDK.V1.Contract
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class SortField 
+    {
+        /// <summary>The path of the field ({schemaId}.{fieldId})</summary>
+        [Newtonsoft.Json.JsonProperty("path", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public string Path { get; set; }
+    
+        /// <summary>The translated name of the field to be shown in the UI.</summary>
+        [Newtonsoft.Json.JsonProperty("names", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public TranslatedStringDictionary Names { get; set; } = new TranslatedStringDictionary();
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static SortField FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SortField>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class ChannelCreateRequest 
     {
+        /// <summary>ID of the channel.</summary>
         [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Id { get; set; }
     
+        /// <summary>Default sort order specified for the channel to sort the results of a content search.</summary>
         [Newtonsoft.Json.JsonProperty("sort", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<SortInfo> Sort { get; set; }
     
+        /// <summary>Order in which the channels should be displayed.</summary>
         [Newtonsoft.Json.JsonProperty("sortOrder", Required = Newtonsoft.Json.Required.Always)]
         public int SortOrder { get; set; }
     
+        /// <summary>Fields to be used for sorting in content browser when displaying the channel. The information is only set and consumed by the client, not by the server.</summary>
+        [Newtonsoft.Json.JsonProperty("sortFields", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.Collections.Generic.ICollection<SortField> SortFields { get; set; } = new System.Collections.Generic.List<SortField>();
+    
+        /// <summary>Language specific channel names.</summary>
         [Newtonsoft.Json.JsonProperty("names", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
         public TranslatedStringDictionary Names { get; set; } = new TranslatedStringDictionary();
@@ -12828,11 +12893,18 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class ChannelUpdateRequest 
     {
+        /// <summary>Default sort order specified for the channel to sort the results of a content search.</summary>
         [Newtonsoft.Json.JsonProperty("sort", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<SortInfo> Sort { get; set; }
     
+        /// <summary>Order in which the channels should be displayed.</summary>
         [Newtonsoft.Json.JsonProperty("sortOrder", Required = Newtonsoft.Json.Required.Always)]
         public int SortOrder { get; set; }
+    
+        /// <summary>Fields to be used for sorting in content browser when displaying the channel. The information is only set and consumed by the client, not by the server.</summary>
+        [Newtonsoft.Json.JsonProperty("sortFields", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.Collections.Generic.ICollection<SortField> SortFields { get; set; } = new System.Collections.Generic.List<SortField>();
     
         [Newtonsoft.Json.JsonProperty("names", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
