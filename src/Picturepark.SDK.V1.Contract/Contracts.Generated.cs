@@ -2640,6 +2640,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("SchemaFieldRelationMultipleTypesException", typeof(SchemaFieldRelationMultipleTypesException))]
     [JsonInheritanceAttribute("SchemaFieldNotRequirableException", typeof(SchemaFieldNotRequirableException))]
     [JsonInheritanceAttribute("DisplayPatternTypeNotSupportedException", typeof(DisplayPatternTypeNotSupportedException))]
+    [JsonInheritanceAttribute("SchemaFieldActivityInUseException", typeof(SchemaFieldActivityInUseException))]
     [JsonInheritanceAttribute("DeleteContentsWithReferencesException", typeof(DeleteContentsWithReferencesException))]
     [JsonInheritanceAttribute("ContentMetadataUpdateManyException", typeof(ContentMetadataUpdateManyException))]
     [JsonInheritanceAttribute("ContentLayerInvalidException", typeof(ContentLayerInvalidException))]
@@ -2725,6 +2726,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("XmpMappingFieldToLayerWithRequiredFieldsNotAllowedException", typeof(XmpMappingFieldToLayerWithRequiredFieldsNotAllowedException))]
     [JsonInheritanceAttribute("XmpMappingFieldInUseException", typeof(XmpMappingFieldInUseException))]
     [JsonInheritanceAttribute("XmpMappingConfigurationInvalidException", typeof(XmpMappingConfigurationInvalidException))]
+    [JsonInheritanceAttribute("ActivityMappingInvalidException", typeof(ActivityMappingInvalidException))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     [Newtonsoft.Json.JsonObjectAttribute]
     public partial class PictureparkException : System.Exception
@@ -7311,6 +7313,28 @@ namespace Picturepark.SDK.V1.Contract
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class SchemaFieldActivityInUseException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("fieldId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string FieldId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("schemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string SchemaId { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static SchemaFieldActivityInUseException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaFieldActivityInUseException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
     public partial class DeleteContentsWithReferencesException : PictureparkValidationException
     {
         [Newtonsoft.Json.JsonProperty("numberOfReferences", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -9165,6 +9189,25 @@ namespace Picturepark.SDK.V1.Contract
         public static XmpMappingConfigurationInvalidException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<XmpMappingConfigurationInvalidException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class ActivityMappingInvalidException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("activityMapping", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ActivityMapping { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static ActivityMappingInvalidException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ActivityMappingInvalidException>(data);
         }
     
     }
@@ -13767,6 +13810,10 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("contentRights", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public System.Collections.Generic.ICollection<ContentRight> ContentRights { get; set; }
     
+        /// <summary>Activity information: dynamically mapped from configured metadata fields or from audit information if no mapping is configured.</summary>
+        [Newtonsoft.Json.JsonProperty("activity", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public Activity Activity { get; set; }
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -14119,6 +14166,29 @@ namespace Picturepark.SDK.V1.Contract
     
         [System.Runtime.Serialization.EnumMember(Value = @"Deleted")]
         Deleted = 3,
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class Activity 
+    {
+        [Newtonsoft.Json.JsonProperty("creationDate", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public System.DateTime CreationDate { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("modificationDate", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public System.DateTime ModificationDate { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static Activity FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<Activity>(data);
+        }
     
     }
     
@@ -16583,6 +16653,10 @@ namespace Picturepark.SDK.V1.Contract
         /// <summary>Audit information.</summary>
         [Newtonsoft.Json.JsonProperty("audit", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public UserAuditDetail Audit { get; set; }
+    
+        /// <summary>Activity information: dynamically mapped from configured metadata fields or from audit information if no mapping is configured.</summary>
+        [Newtonsoft.Json.JsonProperty("activity", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public Activity Activity { get; set; }
     
         public string ToJson() 
         {

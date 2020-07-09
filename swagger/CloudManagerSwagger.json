@@ -11344,6 +11344,27 @@
           }
         ]
       },
+      "SchemaFieldActivityInUseException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "fieldId": {
+                "type": "string",
+                "nullable": true
+              },
+              "schemaId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
       "DeleteContentsWithReferencesException": {
         "allOf": [
           {
@@ -12985,6 +13006,23 @@
                 "nullable": true
               },
               "expectedConfiguration": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "ActivityMappingInvalidException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "activityMapping": {
                 "type": "string",
                 "nullable": true
               }
@@ -16201,6 +16239,14 @@
                 "$ref": "#/components/schemas/LicenseInformation"
               }
             ]
+          },
+          "activityMapping": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ActivityMapping"
+              }
+            ]
           }
         }
       },
@@ -16224,6 +16270,20 @@
             }
           },
           "settings": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "ActivityMapping": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "creationDateFieldPath": {
+            "type": "string",
+            "nullable": true
+          },
+          "modificationDateFieldPath": {
             "type": "string",
             "nullable": true
           }
@@ -16420,6 +16480,14 @@
             "oneOf": [
               {
                 "$ref": "#/components/schemas/LicenseInformation"
+              }
+            ]
+          },
+          "activityMapping": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ActivityMapping"
               }
             ]
           }
