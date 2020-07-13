@@ -30899,18 +30899,16 @@
       "Activity": {
         "type": "object",
         "additionalProperties": false,
-        "required": [
-          "creationDate",
-          "modificationDate"
-        ],
         "properties": {
           "creationDate": {
             "type": "string",
-            "format": "date-time"
+            "format": "date-time",
+            "nullable": true
           },
           "modificationDate": {
             "type": "string",
-            "format": "date-time"
+            "format": "date-time",
+            "nullable": true
           }
         }
       },
