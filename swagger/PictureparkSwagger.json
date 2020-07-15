@@ -2200,7 +2200,7 @@
         ],
         "requestBody": {
           "x-name": "request",
-          "description": "Request to transfer the ownership of a permission set.",
+          "description": "Request",
           "content": {
             "application/json": {
               "schema": {
@@ -2378,7 +2378,7 @@
         "operationId": "ContentPermissionSet_CreateMany",
         "requestBody": {
           "x-name": "request",
-          "description": "Request to create multiple content permission sets.",
+          "description": "Request",
           "content": {
             "application/json": {
               "schema": {
@@ -2558,7 +2558,7 @@
         "operationId": "ContentPermissionSet_DeleteMany",
         "requestBody": {
           "x-name": "request",
-          "description": "Request to delete multiple permission sets.",
+          "description": "Request",
           "content": {
             "application/json": {
               "schema": {
@@ -2649,7 +2649,7 @@
         "operationId": "ContentPermissionSet_TransferOwnershipMany",
         "requestBody": {
           "x-name": "request",
-          "description": "Request to transfer the ownership of multiple permission sets.",
+          "description": "Request",
           "content": {
             "application/json": {
               "schema": {
@@ -2750,7 +2750,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Array of Rights that the current user has on a permission set",
+            "description": "Array of ",
             "content": {
               "application/json": {
                 "schema": {
@@ -11449,7 +11449,7 @@
         ],
         "requestBody": {
           "x-name": "request",
-          "description": "Request to transfer the ownership of a permission set.",
+          "description": "Request",
           "content": {
             "application/json": {
               "schema": {
@@ -11627,7 +11627,7 @@
         "operationId": "SchemaPermissionSet_CreateMany",
         "requestBody": {
           "x-name": "request",
-          "description": "Request to update multiple schema permission sets.",
+          "description": "Request",
           "content": {
             "application/json": {
               "schema": {
@@ -11807,7 +11807,7 @@
         "operationId": "SchemaPermissionSet_DeleteMany",
         "requestBody": {
           "x-name": "request",
-          "description": "Request to delete multiple permission sets.",
+          "description": "Request",
           "content": {
             "application/json": {
               "schema": {
@@ -11898,7 +11898,7 @@
         "operationId": "SchemaPermissionSet_TransferOwnershipMany",
         "requestBody": {
           "x-name": "request",
-          "description": "Request to transfer the ownership of multiple permission sets.",
+          "description": "Request",
           "content": {
             "application/json": {
               "schema": {
@@ -11999,7 +11999,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Array of Rights that the current user has on a permission set",
+            "description": "Array of ",
             "content": {
               "application/json": {
                 "schema": {
@@ -21109,7 +21109,7 @@
       "CustomerAliasInUseException": {
         "allOf": [
           {
-            "$ref": "#/components/schemas/PictureparkBusinessException"
+            "$ref": "#/components/schemas/PictureparkValidationException"
           },
           {
             "type": "object",
@@ -29719,7 +29719,7 @@
           },
           "userRolesRights": {
             "type": "array",
-            "description": "A list of content or metadata rights authorizing operations on Content Items or List Items.",
+            "description": "A list of content or metadata rights authorizing operations on content documents or list items.",
             "nullable": true,
             "items": {
               "$ref": "#/components/schemas/PermissionUserRoleRightsOfContentRight"
@@ -29735,7 +29735,7 @@
           },
           "exclusive": {
             "type": "boolean",
-            "description": "When true this permission set will derogate all other configured permission sets on the Content Item or List Item."
+            "description": "When true this permission set will derogate all other configured permission sets on content documents or list items."
           },
           "ownerTokenId": {
             "type": "string",
@@ -29903,7 +29903,6 @@
           },
           {
             "type": "object",
-            "description": "Request to create a content permission set",
             "additionalProperties": false
           }
         ]
@@ -29918,16 +29917,10 @@
         ],
         "properties": {
           "names": {
-            "description": "Language specific permission set names.",
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/TranslatedStringDictionary"
-              }
-            ]
+            "$ref": "#/components/schemas/TranslatedStringDictionary"
           },
           "userRolesRights": {
             "type": "array",
-            "description": "A list of content or metadata rights authorizing operations on Content Items or List Items.",
             "nullable": true,
             "items": {
               "$ref": "#/components/schemas/UserRoleRightsOfContentRight"
@@ -29935,19 +29928,16 @@
           },
           "userRolesPermissionSetRights": {
             "type": "array",
-            "description": "A list of permission set rights authorizing operations on this permission set.",
             "nullable": true,
             "items": {
               "$ref": "#/components/schemas/UserRoleRightsOfPermissionSetRight"
             }
           },
           "exclusive": {
-            "type": "boolean",
-            "description": "When true this permission set will derogate all other configured permission sets on Content Items or List Items."
+            "type": "boolean"
           },
           "requestId": {
             "type": "string",
-            "description": "Optional client reference for this request.\nWill be returned back in response to make easier for clients to match request items with the respective results.\nIt is not persisted anywhere and it is ignored in single operations.",
             "nullable": true
           }
         }
@@ -30021,7 +30011,7 @@
           },
           "userRolesRights": {
             "type": "array",
-            "description": "A list of content or metadata rights authorizing operations on Content Items or List Items.",
+            "description": "A list of content or metadata rights authorizing operations on content documents or list items.",
             "nullable": true,
             "items": {
               "$ref": "#/components/schemas/UserRoleRightsOfContentRight"
@@ -30039,7 +30029,6 @@
       },
       "PermissionSetOwnershipTransferRequest": {
         "type": "object",
-        "description": "Request to transfer the ownership of a permission set",
         "additionalProperties": false,
         "required": [
           "transferUserId"
@@ -30111,12 +30100,10 @@
       },
       "ContentPermissionSetCreateManyRequest": {
         "type": "object",
-        "description": "Request to create multiple content permission sets",
         "additionalProperties": false,
         "properties": {
           "items": {
             "type": "array",
-            "description": "Content permission set update requests.",
             "nullable": true,
             "items": {
               "$ref": "#/components/schemas/ContentPermissionSetCreateRequest"
@@ -30176,12 +30163,10 @@
       },
       "PermissionSetDeleteManyRequest": {
         "type": "object",
-        "description": "Request to delete multiple permission sets",
         "additionalProperties": false,
         "properties": {
           "permissionSetIds": {
             "type": "array",
-            "description": "Permission set IDs.",
             "nullable": true,
             "items": {
               "type": "string"
@@ -30191,12 +30176,10 @@
       },
       "PermissionSetOwnershipTransferManyRequest": {
         "type": "object",
-        "description": "Request to transfer the ownership of multiple permission sets",
         "additionalProperties": false,
         "properties": {
           "items": {
             "type": "array",
-            "description": "Permission set ownership transfer requests.",
             "nullable": true,
             "items": {
               "$ref": "#/components/schemas/PermissionSetOwnershipTransferItem"
@@ -30224,17 +30207,14 @@
       },
       "PermissionSetUserPermissionRights": {
         "type": "object",
-        "description": "Rights that the current user has on a permission set",
         "additionalProperties": false,
         "properties": {
           "permissionSetId": {
             "type": "string",
-            "description": "Permission set ID.",
             "nullable": true
           },
           "permissionSetRights": {
             "type": "array",
-            "description": "List of rights on the permission set specified by PermissionSetId",
             "nullable": true,
             "items": {
               "$ref": "#/components/schemas/PermissionSetRight"
@@ -31066,6 +31046,17 @@
           "layerSchemasUpdateOptions": {
             "description": "Options to modify the behavior for updating the layers.\nMerge: the content is updated so that the assigned layers to the content will be a merge of the ones specified in the LayerSchemaIds property\nand the ones already existing; existing assigned layers not specified in the property are kept and missing layers are assigned.\nReplace: the content is updated so that only the layers specified in the LayerSchemaIds property are assigned to the content;\nexisting assigned layers not specified in the property are removed and missing layers are assigned.\nDefaults to Merge.",
             "default": "Merge",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/UpdateOption"
+              }
+            ]
+          },
+          "schemaFieldsUpdateOptions": {
+            "description": "Obsolete attribute, please use LayerFieldsUpdateOption and ContentFieldsUpdateOption for finer control over metadata and/or content update.",
+            "deprecated": true,
+            "x-deprecatedMessage": "Value of this attribute is not used anymore. Please use LayerFieldsUpdateOption and ContentFieldsUpdateOption for finer control over metadata and/or content update.",
+            "nullable": true,
             "oneOf": [
               {
                 "$ref": "#/components/schemas/UpdateOption"
@@ -36043,7 +36034,7 @@
           },
           "userRolesRights": {
             "type": "array",
-            "description": "A list of content or metadata rights authorizing operations on Content Items or List Items.",
+            "description": "A list of content or metadata rights authorizing operations on content documents or list items.",
             "nullable": true,
             "items": {
               "$ref": "#/components/schemas/PermissionUserRoleRightsOfMetadataRight"
@@ -36059,7 +36050,7 @@
           },
           "exclusive": {
             "type": "boolean",
-            "description": "When true this permission set will derogate all other configured permission sets on the Content Item or List Item."
+            "description": "When true this permission set will derogate all other configured permission sets on content documents or list items."
           },
           "ownerTokenId": {
             "type": "string",
@@ -36113,7 +36104,6 @@
           },
           {
             "type": "object",
-            "description": "Request to create a schema permission set",
             "additionalProperties": false
           }
         ]
@@ -36128,16 +36118,10 @@
         ],
         "properties": {
           "names": {
-            "description": "Language specific permission set names.",
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/TranslatedStringDictionary"
-              }
-            ]
+            "$ref": "#/components/schemas/TranslatedStringDictionary"
           },
           "userRolesRights": {
             "type": "array",
-            "description": "A list of content or metadata rights authorizing operations on Content Items or List Items.",
             "nullable": true,
             "items": {
               "$ref": "#/components/schemas/UserRoleRightsOfMetadataRight"
@@ -36145,19 +36129,16 @@
           },
           "userRolesPermissionSetRights": {
             "type": "array",
-            "description": "A list of permission set rights authorizing operations on this permission set.",
             "nullable": true,
             "items": {
               "$ref": "#/components/schemas/UserRoleRightsOfPermissionSetRight"
             }
           },
           "exclusive": {
-            "type": "boolean",
-            "description": "When true this permission set will derogate all other configured permission sets on Content Items or List Items."
+            "type": "boolean"
           },
           "requestId": {
             "type": "string",
-            "description": "Optional client reference for this request.\nWill be returned back in response to make easier for clients to match request items with the respective results.\nIt is not persisted anywhere and it is ignored in single operations.",
             "nullable": true
           }
         }
@@ -36212,7 +36193,7 @@
           },
           "userRolesRights": {
             "type": "array",
-            "description": "A list of content or metadata rights authorizing operations on Content Items or List Items.",
+            "description": "A list of content or metadata rights authorizing operations on content documents or list items.",
             "nullable": true,
             "items": {
               "$ref": "#/components/schemas/UserRoleRightsOfMetadataRight"
@@ -36230,12 +36211,10 @@
       },
       "SchemaPermissionSetCreateManyRequest": {
         "type": "object",
-        "description": "Request to update multiple schema permission sets",
         "additionalProperties": false,
         "properties": {
           "items": {
             "type": "array",
-            "description": "Schema permission sets create requests.",
             "nullable": true,
             "items": {
               "$ref": "#/components/schemas/SchemaPermissionSetCreateRequest"
