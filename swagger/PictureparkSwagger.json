@@ -1,5 +1,5 @@
-﻿{
-  "x-generator": "NSwag v13.3.0.0 (NJsonSchema v10.1.11.0 (Newtonsoft.Json v12.0.0.0))",
+{
+  "x-generator": "NSwag v13.6.2.0 (NJsonSchema v10.1.23.0 (Newtonsoft.Json v12.0.0.0))",
   "openapi": "3.0.0",
   "info": {
     "title": "Picturepark API V1",
@@ -26340,12 +26340,12 @@
             "properties": {
               "searchString": {
                 "type": "string",
-                "description": "The search string used to query the data",
+                "description": "The search string used to query the data.",
                 "nullable": true
               },
               "isSearchStringRewritten": {
                 "type": "boolean",
-                "description": "Flag to notify if the SearchString was modified compared to the original requested one"
+                "description": "Flag to notify if the SearchString was modified compared to the original requested one."
               },
               "queryDebugInformation": {
                 "type": "array",
@@ -26408,6 +26408,7 @@
           },
           "pageToken": {
             "type": "string",
+            "description": "An optional token to access the next page of results for those endpoints that support backend scrolling logic.",
             "nullable": true
           }
         }
@@ -28604,12 +28605,12 @@
             "properties": {
               "searchString": {
                 "type": "string",
-                "description": "The search string used to query the data",
+                "description": "The search string used to query the data.",
                 "nullable": true
               },
               "isSearchStringRewritten": {
                 "type": "boolean",
-                "description": "Flag to notify if the SearchString was modified compared to the original requested one"
+                "description": "Flag to notify if the SearchString was modified compared to the original requested one."
               },
               "queryDebugInformation": {
                 "type": "array",
@@ -28652,6 +28653,7 @@
           },
           "pageToken": {
             "type": "string",
+            "description": "An optional token to access the next page of results for those endpoints that support backend scrolling logic.",
             "nullable": true
           }
         }
@@ -30290,12 +30292,12 @@
             "properties": {
               "searchString": {
                 "type": "string",
-                "description": "The search string used to query the data",
+                "description": "The search string used to query the data.",
                 "nullable": true
               },
               "isSearchStringRewritten": {
                 "type": "boolean",
-                "description": "Flag to notify if the SearchString was modified compared to the original requested one"
+                "description": "Flag to notify if the SearchString was modified compared to the original requested one."
               },
               "queryDebugInformation": {
                 "type": "array",
@@ -30338,6 +30340,7 @@
           },
           "pageToken": {
             "type": "string",
+            "description": "An optional token to access the next page of results for those endpoints that support backend scrolling logic.",
             "nullable": true
           }
         }
@@ -31097,6 +31100,8 @@
           },
           "schemaFieldsUpdateOptions": {
             "description": "Obsolete attribute, please use LayerFieldsUpdateOption and ContentFieldsUpdateOption for finer control over metadata and/or content update.",
+            "deprecated": true,
+            "x-deprecatedMessage": "Value of this attribute is not used anymore. Please use LayerFieldsUpdateOption and ContentFieldsUpdateOption for finer control over metadata and/or content update.",
             "nullable": true,
             "oneOf": [
               {
@@ -31254,6 +31259,7 @@
           },
           "pageToken": {
             "type": "string",
+            "description": "An optional token to access the next page of results for those endpoints that support backend scrolling logic.",
             "nullable": true
           }
         }
@@ -31329,6 +31335,7 @@
           },
           "pageToken": {
             "type": "string",
+            "description": "An optional token to access the next page of results for those endpoints that support backend scrolling logic.",
             "nullable": true
           }
         }
@@ -32317,12 +32324,12 @@
             "properties": {
               "searchString": {
                 "type": "string",
-                "description": "The search string used to query the data",
+                "description": "The search string used to query the data.",
                 "nullable": true
               },
               "isSearchStringRewritten": {
                 "type": "boolean",
-                "description": "Flag to notify if the SearchString was modified compared to the original requested one"
+                "description": "Flag to notify if the SearchString was modified compared to the original requested one."
               },
               "queryDebugInformation": {
                 "type": "array",
@@ -32365,6 +32372,7 @@
           },
           "pageToken": {
             "type": "string",
+            "description": "An optional token to access the next page of results for those endpoints that support backend scrolling logic.",
             "nullable": true
           }
         }
@@ -32876,6 +32884,7 @@
           },
           "pageToken": {
             "type": "string",
+            "description": "An optional token to access the next page of results for those endpoints that support backend scrolling logic.",
             "nullable": true
           }
         }
@@ -33932,12 +33941,12 @@
             "properties": {
               "searchString": {
                 "type": "string",
-                "description": "The search string used to query the data",
+                "description": "The search string used to query the data.",
                 "nullable": true
               },
               "isSearchStringRewritten": {
                 "type": "boolean",
-                "description": "Flag to notify if the SearchString was modified compared to the original requested one"
+                "description": "Flag to notify if the SearchString was modified compared to the original requested one."
               },
               "queryDebugInformation": {
                 "type": "array",
@@ -33980,6 +33989,7 @@
           },
           "pageToken": {
             "type": "string",
+            "description": "An optional token to access the next page of results for those endpoints that support backend scrolling logic.",
             "nullable": true
           }
         }
@@ -34259,6 +34269,7 @@
           },
           "pageToken": {
             "type": "string",
+            "description": "An optional token to access the next page of results for those endpoints that support backend scrolling logic.",
             "nullable": true
           }
         }
@@ -35734,6 +35745,7 @@
           },
           "pageToken": {
             "type": "string",
+            "description": "An optional token to access the next page of results for those endpoints that support backend scrolling logic.",
             "nullable": true
           }
         }
@@ -38155,12 +38167,12 @@
             "properties": {
               "searchString": {
                 "type": "string",
-                "description": "The search string used to query the data",
+                "description": "The search string used to query the data.",
                 "nullable": true
               },
               "isSearchStringRewritten": {
                 "type": "boolean",
-                "description": "Flag to notify if the SearchString was modified compared to the original requested one"
+                "description": "Flag to notify if the SearchString was modified compared to the original requested one."
               },
               "queryDebugInformation": {
                 "type": "array",
@@ -38203,6 +38215,7 @@
           },
           "pageToken": {
             "type": "string",
+            "description": "An optional token to access the next page of results for those endpoints that support backend scrolling logic.",
             "nullable": true
           }
         }
@@ -39414,12 +39427,12 @@
             "properties": {
               "searchString": {
                 "type": "string",
-                "description": "The search string used to query the data",
+                "description": "The search string used to query the data.",
                 "nullable": true
               },
               "isSearchStringRewritten": {
                 "type": "boolean",
-                "description": "Flag to notify if the SearchString was modified compared to the original requested one"
+                "description": "Flag to notify if the SearchString was modified compared to the original requested one."
               },
               "queryDebugInformation": {
                 "type": "array",
@@ -39462,6 +39475,7 @@
           },
           "pageToken": {
             "type": "string",
+            "description": "An optional token to access the next page of results for those endpoints that support backend scrolling logic.",
             "nullable": true
           }
         }
@@ -39650,6 +39664,8 @@
           "identifier": {
             "type": "string",
             "description": "Replaced in favor of RequestId. Client generated identifier of the item.",
+            "deprecated": true,
+            "x-deprecatedMessage": "Replaced by RequestId",
             "nullable": true
           },
           "requestId": {
@@ -39853,12 +39869,12 @@
             "properties": {
               "searchString": {
                 "type": "string",
-                "description": "The search string used to query the data",
+                "description": "The search string used to query the data.",
                 "nullable": true
               },
               "isSearchStringRewritten": {
                 "type": "boolean",
-                "description": "Flag to notify if the SearchString was modified compared to the original requested one"
+                "description": "Flag to notify if the SearchString was modified compared to the original requested one."
               },
               "queryDebugInformation": {
                 "type": "array",
@@ -39901,6 +39917,7 @@
           },
           "pageToken": {
             "type": "string",
+            "description": "An optional token to access the next page of results for those endpoints that support backend scrolling logic.",
             "nullable": true
           }
         }
@@ -40106,6 +40123,8 @@
           "identifier": {
             "type": "string",
             "description": "Replaced in favor of RequestId. Client provided identifier.",
+            "deprecated": true,
+            "x-deprecatedMessage": "Replaced by RequestId",
             "nullable": true
           },
           "requestId": {
@@ -40195,12 +40214,12 @@
             "properties": {
               "searchString": {
                 "type": "string",
-                "description": "The search string used to query the data",
+                "description": "The search string used to query the data.",
                 "nullable": true
               },
               "isSearchStringRewritten": {
                 "type": "boolean",
-                "description": "Flag to notify if the SearchString was modified compared to the original requested one"
+                "description": "Flag to notify if the SearchString was modified compared to the original requested one."
               },
               "queryDebugInformation": {
                 "type": "array",
@@ -40243,6 +40262,7 @@
           },
           "pageToken": {
             "type": "string",
+            "description": "An optional token to access the next page of results for those endpoints that support backend scrolling logic.",
             "nullable": true
           }
         }
@@ -40375,12 +40395,12 @@
             "properties": {
               "searchString": {
                 "type": "string",
-                "description": "The search string used to query the data",
+                "description": "The search string used to query the data.",
                 "nullable": true
               },
               "isSearchStringRewritten": {
                 "type": "boolean",
-                "description": "Flag to notify if the SearchString was modified compared to the original requested one"
+                "description": "Flag to notify if the SearchString was modified compared to the original requested one."
               },
               "queryDebugInformation": {
                 "type": "array",
@@ -40423,6 +40443,7 @@
           },
           "pageToken": {
             "type": "string",
+            "description": "An optional token to access the next page of results for those endpoints that support backend scrolling logic.",
             "nullable": true
           }
         }
@@ -41025,12 +41046,12 @@
             "properties": {
               "searchString": {
                 "type": "string",
-                "description": "The search string used to query the data",
+                "description": "The search string used to query the data.",
                 "nullable": true
               },
               "isSearchStringRewritten": {
                 "type": "boolean",
-                "description": "Flag to notify if the SearchString was modified compared to the original requested one"
+                "description": "Flag to notify if the SearchString was modified compared to the original requested one."
               },
               "queryDebugInformation": {
                 "type": "array",
@@ -41073,6 +41094,7 @@
           },
           "pageToken": {
             "type": "string",
+            "description": "An optional token to access the next page of results for those endpoints that support backend scrolling logic.",
             "nullable": true
           }
         }
@@ -41477,12 +41499,12 @@
             "properties": {
               "searchString": {
                 "type": "string",
-                "description": "The search string used to query the data",
+                "description": "The search string used to query the data.",
                 "nullable": true
               },
               "isSearchStringRewritten": {
                 "type": "boolean",
-                "description": "Flag to notify if the SearchString was modified compared to the original requested one"
+                "description": "Flag to notify if the SearchString was modified compared to the original requested one."
               },
               "queryDebugInformation": {
                 "type": "array",
@@ -41525,6 +41547,7 @@
           },
           "pageToken": {
             "type": "string",
+            "description": "An optional token to access the next page of results for those endpoints that support backend scrolling logic.",
             "nullable": true
           }
         }

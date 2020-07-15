@@ -14000,6 +14000,7 @@
           },
           "pageToken": {
             "type": "string",
+            "description": "An optional token to access the next page of results for those endpoints that support backend scrolling logic.",
             "nullable": true
           }
         }
@@ -16784,6 +16785,7 @@
           },
           "pageToken": {
             "type": "string",
+            "description": "An optional token to access the next page of results for those endpoints that support backend scrolling logic.",
             "nullable": true
           }
         }

@@ -9914,11 +9914,11 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class SearchBehaviorBaseResultOfBusinessProcess : BaseResultOfBusinessProcess
     {
-        /// <summary>The search string used to query the data</summary>
+        /// <summary>The search string used to query the data.</summary>
         [Newtonsoft.Json.JsonProperty("searchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string SearchString { get; set; }
     
-        /// <summary>Flag to notify if the SearchString was modified compared to the original requested one</summary>
+        /// <summary>Flag to notify if the SearchString was modified compared to the original requested one.</summary>
         [Newtonsoft.Json.JsonProperty("isSearchStringRewritten", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool IsSearchStringRewritten { get; set; }
     
@@ -9982,6 +9982,7 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("elapsedMilliseconds", Required = Newtonsoft.Json.Required.Always)]
         public long ElapsedMilliseconds { get; set; }
     
+        /// <summary>An optional token to access the next page of results for those endpoints that support backend scrolling logic.</summary>
         [Newtonsoft.Json.JsonProperty("pageToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string PageToken { get; set; }
     
@@ -12094,11 +12095,11 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class SearchBehaviorBaseResultOfBusinessRuleTraceLog : BaseResultOfBusinessRuleTraceLog
     {
-        /// <summary>The search string used to query the data</summary>
+        /// <summary>The search string used to query the data.</summary>
         [Newtonsoft.Json.JsonProperty("searchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string SearchString { get; set; }
     
-        /// <summary>Flag to notify if the SearchString was modified compared to the original requested one</summary>
+        /// <summary>Flag to notify if the SearchString was modified compared to the original requested one.</summary>
         [Newtonsoft.Json.JsonProperty("isSearchStringRewritten", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool IsSearchStringRewritten { get; set; }
     
@@ -12135,6 +12136,7 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("elapsedMilliseconds", Required = Newtonsoft.Json.Required.Always)]
         public long ElapsedMilliseconds { get; set; }
     
+        /// <summary>An optional token to access the next page of results for those endpoints that support backend scrolling logic.</summary>
         [Newtonsoft.Json.JsonProperty("pageToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string PageToken { get; set; }
     
@@ -13656,11 +13658,11 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class SearchBehaviorBaseResultOfPermissionSet : BaseResultOfPermissionSet
     {
-        /// <summary>The search string used to query the data</summary>
+        /// <summary>The search string used to query the data.</summary>
         [Newtonsoft.Json.JsonProperty("searchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string SearchString { get; set; }
     
-        /// <summary>Flag to notify if the SearchString was modified compared to the original requested one</summary>
+        /// <summary>Flag to notify if the SearchString was modified compared to the original requested one.</summary>
         [Newtonsoft.Json.JsonProperty("isSearchStringRewritten", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool IsSearchStringRewritten { get; set; }
     
@@ -13697,6 +13699,7 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("elapsedMilliseconds", Required = Newtonsoft.Json.Required.Always)]
         public long ElapsedMilliseconds { get; set; }
     
+        /// <summary>An optional token to access the next page of results for those endpoints that support backend scrolling logic.</summary>
         [Newtonsoft.Json.JsonProperty("pageToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string PageToken { get; set; }
     
@@ -14578,6 +14581,7 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("elapsedMilliseconds", Required = Newtonsoft.Json.Required.Always)]
         public long ElapsedMilliseconds { get; set; }
     
+        /// <summary>An optional token to access the next page of results for those endpoints that support backend scrolling logic.</summary>
         [Newtonsoft.Json.JsonProperty("pageToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string PageToken { get; set; }
     
@@ -14662,6 +14666,7 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("elapsedMilliseconds", Required = Newtonsoft.Json.Required.Always)]
         public long ElapsedMilliseconds { get; set; }
     
+        /// <summary>An optional token to access the next page of results for those endpoints that support backend scrolling logic.</summary>
         [Newtonsoft.Json.JsonProperty("pageToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string PageToken { get; set; }
     
@@ -15643,11 +15648,11 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class SearchBehaviorBaseResultOfContent : BaseResultOfContent
     {
-        /// <summary>The search string used to query the data</summary>
+        /// <summary>The search string used to query the data.</summary>
         [Newtonsoft.Json.JsonProperty("searchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string SearchString { get; set; }
     
-        /// <summary>Flag to notify if the SearchString was modified compared to the original requested one</summary>
+        /// <summary>Flag to notify if the SearchString was modified compared to the original requested one.</summary>
         [Newtonsoft.Json.JsonProperty("isSearchStringRewritten", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool IsSearchStringRewritten { get; set; }
     
@@ -15684,6 +15689,7 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("elapsedMilliseconds", Required = Newtonsoft.Json.Required.Always)]
         public long ElapsedMilliseconds { get; set; }
     
+        /// <summary>An optional token to access the next page of results for those endpoints that support backend scrolling logic.</summary>
         [Newtonsoft.Json.JsonProperty("pageToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string PageToken { get; set; }
     
@@ -16130,6 +16136,7 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("elapsedMilliseconds", Required = Newtonsoft.Json.Required.Always)]
         public long ElapsedMilliseconds { get; set; }
     
+        /// <summary>An optional token to access the next page of results for those endpoints that support backend scrolling logic.</summary>
         [Newtonsoft.Json.JsonProperty("pageToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string PageToken { get; set; }
     
@@ -17203,11 +17210,11 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class SearchBehaviorBaseResultOfListItem : BaseResultOfListItem
     {
-        /// <summary>The search string used to query the data</summary>
+        /// <summary>The search string used to query the data.</summary>
         [Newtonsoft.Json.JsonProperty("searchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string SearchString { get; set; }
     
-        /// <summary>Flag to notify if the SearchString was modified compared to the original requested one</summary>
+        /// <summary>Flag to notify if the SearchString was modified compared to the original requested one.</summary>
         [Newtonsoft.Json.JsonProperty("isSearchStringRewritten", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool IsSearchStringRewritten { get; set; }
     
@@ -17244,6 +17251,7 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("elapsedMilliseconds", Required = Newtonsoft.Json.Required.Always)]
         public long ElapsedMilliseconds { get; set; }
     
+        /// <summary>An optional token to access the next page of results for those endpoints that support backend scrolling logic.</summary>
         [Newtonsoft.Json.JsonProperty("pageToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string PageToken { get; set; }
     
@@ -17470,6 +17478,7 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("elapsedMilliseconds", Required = Newtonsoft.Json.Required.Always)]
         public long ElapsedMilliseconds { get; set; }
     
+        /// <summary>An optional token to access the next page of results for those endpoints that support backend scrolling logic.</summary>
         [Newtonsoft.Json.JsonProperty("pageToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string PageToken { get; set; }
     
@@ -18934,6 +18943,7 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("elapsedMilliseconds", Required = Newtonsoft.Json.Required.Always)]
         public long ElapsedMilliseconds { get; set; }
     
+        /// <summary>An optional token to access the next page of results for those endpoints that support backend scrolling logic.</summary>
         [Newtonsoft.Json.JsonProperty("pageToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string PageToken { get; set; }
     
@@ -21079,11 +21089,11 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class SearchBehaviorBaseResultOfSchema : BaseResultOfSchema
     {
-        /// <summary>The search string used to query the data</summary>
+        /// <summary>The search string used to query the data.</summary>
         [Newtonsoft.Json.JsonProperty("searchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string SearchString { get; set; }
     
-        /// <summary>Flag to notify if the SearchString was modified compared to the original requested one</summary>
+        /// <summary>Flag to notify if the SearchString was modified compared to the original requested one.</summary>
         [Newtonsoft.Json.JsonProperty("isSearchStringRewritten", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool IsSearchStringRewritten { get; set; }
     
@@ -21120,6 +21130,7 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("elapsedMilliseconds", Required = Newtonsoft.Json.Required.Always)]
         public long ElapsedMilliseconds { get; set; }
     
+        /// <summary>An optional token to access the next page of results for those endpoints that support backend scrolling logic.</summary>
         [Newtonsoft.Json.JsonProperty("pageToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string PageToken { get; set; }
     
@@ -22232,11 +22243,11 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class SearchBehaviorBaseResultOfShare : BaseResultOfShare
     {
-        /// <summary>The search string used to query the data</summary>
+        /// <summary>The search string used to query the data.</summary>
         [Newtonsoft.Json.JsonProperty("searchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string SearchString { get; set; }
     
-        /// <summary>Flag to notify if the SearchString was modified compared to the original requested one</summary>
+        /// <summary>Flag to notify if the SearchString was modified compared to the original requested one.</summary>
         [Newtonsoft.Json.JsonProperty("isSearchStringRewritten", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool IsSearchStringRewritten { get; set; }
     
@@ -22273,6 +22284,7 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("elapsedMilliseconds", Required = Newtonsoft.Json.Required.Always)]
         public long ElapsedMilliseconds { get; set; }
     
+        /// <summary>An optional token to access the next page of results for those endpoints that support backend scrolling logic.</summary>
         [Newtonsoft.Json.JsonProperty("pageToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string PageToken { get; set; }
     
@@ -22641,11 +22653,11 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class SearchBehaviorBaseResultOfTransfer : BaseResultOfTransfer
     {
-        /// <summary>The search string used to query the data</summary>
+        /// <summary>The search string used to query the data.</summary>
         [Newtonsoft.Json.JsonProperty("searchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string SearchString { get; set; }
     
-        /// <summary>Flag to notify if the SearchString was modified compared to the original requested one</summary>
+        /// <summary>Flag to notify if the SearchString was modified compared to the original requested one.</summary>
         [Newtonsoft.Json.JsonProperty("isSearchStringRewritten", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool IsSearchStringRewritten { get; set; }
     
@@ -22682,6 +22694,7 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("elapsedMilliseconds", Required = Newtonsoft.Json.Required.Always)]
         public long ElapsedMilliseconds { get; set; }
     
+        /// <summary>An optional token to access the next page of results for those endpoints that support backend scrolling logic.</summary>
         [Newtonsoft.Json.JsonProperty("pageToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string PageToken { get; set; }
     
@@ -22969,11 +22982,11 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class SearchBehaviorBaseResultOfFileTransfer : BaseResultOfFileTransfer
     {
-        /// <summary>The search string used to query the data</summary>
+        /// <summary>The search string used to query the data.</summary>
         [Newtonsoft.Json.JsonProperty("searchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string SearchString { get; set; }
     
-        /// <summary>Flag to notify if the SearchString was modified compared to the original requested one</summary>
+        /// <summary>Flag to notify if the SearchString was modified compared to the original requested one.</summary>
         [Newtonsoft.Json.JsonProperty("isSearchStringRewritten", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool IsSearchStringRewritten { get; set; }
     
@@ -23010,6 +23023,7 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("elapsedMilliseconds", Required = Newtonsoft.Json.Required.Always)]
         public long ElapsedMilliseconds { get; set; }
     
+        /// <summary>An optional token to access the next page of results for those endpoints that support backend scrolling logic.</summary>
         [Newtonsoft.Json.JsonProperty("pageToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string PageToken { get; set; }
     
@@ -23154,11 +23168,11 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class SearchBehaviorBaseResultOfUserRole : BaseResultOfUserRole
     {
-        /// <summary>The search string used to query the data</summary>
+        /// <summary>The search string used to query the data.</summary>
         [Newtonsoft.Json.JsonProperty("searchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string SearchString { get; set; }
     
-        /// <summary>Flag to notify if the SearchString was modified compared to the original requested one</summary>
+        /// <summary>Flag to notify if the SearchString was modified compared to the original requested one.</summary>
         [Newtonsoft.Json.JsonProperty("isSearchStringRewritten", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool IsSearchStringRewritten { get; set; }
     
@@ -23195,6 +23209,7 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("elapsedMilliseconds", Required = Newtonsoft.Json.Required.Always)]
         public long ElapsedMilliseconds { get; set; }
     
+        /// <summary>An optional token to access the next page of results for those endpoints that support backend scrolling logic.</summary>
         [Newtonsoft.Json.JsonProperty("pageToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string PageToken { get; set; }
     
@@ -23804,11 +23819,11 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class SearchBehaviorBaseResultOfUserWithRoles : BaseResultOfUserWithRoles
     {
-        /// <summary>The search string used to query the data</summary>
+        /// <summary>The search string used to query the data.</summary>
         [Newtonsoft.Json.JsonProperty("searchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string SearchString { get; set; }
     
-        /// <summary>Flag to notify if the SearchString was modified compared to the original requested one</summary>
+        /// <summary>Flag to notify if the SearchString was modified compared to the original requested one.</summary>
         [Newtonsoft.Json.JsonProperty("isSearchStringRewritten", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool IsSearchStringRewritten { get; set; }
     
@@ -23845,6 +23860,7 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("elapsedMilliseconds", Required = Newtonsoft.Json.Required.Always)]
         public long ElapsedMilliseconds { get; set; }
     
+        /// <summary>An optional token to access the next page of results for those endpoints that support backend scrolling logic.</summary>
         [Newtonsoft.Json.JsonProperty("pageToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string PageToken { get; set; }
     
@@ -24222,11 +24238,11 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class SearchBehaviorBaseResultOfXmpMappingEntry : BaseResultOfXmpMappingEntry
     {
-        /// <summary>The search string used to query the data</summary>
+        /// <summary>The search string used to query the data.</summary>
         [Newtonsoft.Json.JsonProperty("searchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string SearchString { get; set; }
     
-        /// <summary>Flag to notify if the SearchString was modified compared to the original requested one</summary>
+        /// <summary>Flag to notify if the SearchString was modified compared to the original requested one.</summary>
         [Newtonsoft.Json.JsonProperty("isSearchStringRewritten", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool IsSearchStringRewritten { get; set; }
     
@@ -24263,6 +24279,7 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("elapsedMilliseconds", Required = Newtonsoft.Json.Required.Always)]
         public long ElapsedMilliseconds { get; set; }
     
+        /// <summary>An optional token to access the next page of results for those endpoints that support backend scrolling logic.</summary>
         [Newtonsoft.Json.JsonProperty("pageToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string PageToken { get; set; }
     
