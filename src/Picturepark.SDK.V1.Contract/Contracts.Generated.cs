@@ -254,7 +254,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Transfer ownership of content permission set</summary>
         /// <param name="id">Content permission set ID.</param>
-        /// <param name="request">Request</param>
+        /// <param name="request">Request to transfer the ownership of a permission set.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -275,7 +275,7 @@ namespace Picturepark.SDK.V1.Contract
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Create multiple content permission sets</summary>
-        /// <param name="request">Request</param>
+        /// <param name="request">Request to create multiple content permission sets.</param>
         /// <returns>Response to a bulk operation</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
@@ -297,7 +297,7 @@ namespace Picturepark.SDK.V1.Contract
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Delete multiple content permission sets</summary>
-        /// <param name="request">Request</param>
+        /// <param name="request">Request to delete multiple permission sets.</param>
         /// <returns>Response to a bulk operation</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
@@ -308,7 +308,7 @@ namespace Picturepark.SDK.V1.Contract
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Transfer ownership of multiple content permission sets</summary>
-        /// <param name="request">Request</param>
+        /// <param name="request">Request to transfer the ownership of multiple permission sets.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -319,7 +319,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Get permissions for multiple content permission sets</summary>
         /// <param name="ids">Ids</param>
-        /// <returns>Array of</returns>
+        /// <returns>Array of Rights that the current user has on a permission set</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -1239,7 +1239,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Transfer ownership of schema permission set</summary>
         /// <param name="id">Schema permission set ID.</param>
-        /// <param name="request">Request</param>
+        /// <param name="request">Request to transfer the ownership of a permission set.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -1260,7 +1260,7 @@ namespace Picturepark.SDK.V1.Contract
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Create multiple schema permission sets</summary>
-        /// <param name="request">Request</param>
+        /// <param name="request">Request to update multiple schema permission sets.</param>
         /// <returns>Response to a bulk operation</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
@@ -1282,7 +1282,7 @@ namespace Picturepark.SDK.V1.Contract
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Delete multiple schema permission sets</summary>
-        /// <param name="request">Request</param>
+        /// <param name="request">Request to delete multiple permission sets.</param>
         /// <returns>Response to a bulk operation</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
@@ -1293,7 +1293,7 @@ namespace Picturepark.SDK.V1.Contract
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Transfer ownership of multiple schema permission sets</summary>
-        /// <param name="request">Request</param>
+        /// <param name="request">Request to transfer the ownership of multiple permission sets.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -1304,7 +1304,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Get permissions for multiple schema permission sets</summary>
         /// <param name="ids">Ids</param>
-        /// <returns>Array of</returns>
+        /// <returns>Array of Rights that the current user has on a permission set</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -9843,11 +9843,11 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class SearchBehaviorBaseResultOfBusinessProcess : BaseResultOfBusinessProcess
     {
-        /// <summary>The search string used to query the data</summary>
+        /// <summary>The search string used to query the data.</summary>
         [Newtonsoft.Json.JsonProperty("searchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string SearchString { get; set; }
     
-        /// <summary>Flag to notify if the SearchString was modified compared to the original requested one</summary>
+        /// <summary>Flag to notify if the SearchString was modified compared to the original requested one.</summary>
         [Newtonsoft.Json.JsonProperty("isSearchStringRewritten", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool IsSearchStringRewritten { get; set; }
     
@@ -9911,6 +9911,7 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("elapsedMilliseconds", Required = Newtonsoft.Json.Required.Always)]
         public long ElapsedMilliseconds { get; set; }
     
+        /// <summary>An optional token to access the next page of results for those endpoints that support backend scrolling logic.</summary>
         [Newtonsoft.Json.JsonProperty("pageToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string PageToken { get; set; }
     
@@ -12023,11 +12024,11 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class SearchBehaviorBaseResultOfBusinessRuleTraceLog : BaseResultOfBusinessRuleTraceLog
     {
-        /// <summary>The search string used to query the data</summary>
+        /// <summary>The search string used to query the data.</summary>
         [Newtonsoft.Json.JsonProperty("searchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string SearchString { get; set; }
     
-        /// <summary>Flag to notify if the SearchString was modified compared to the original requested one</summary>
+        /// <summary>Flag to notify if the SearchString was modified compared to the original requested one.</summary>
         [Newtonsoft.Json.JsonProperty("isSearchStringRewritten", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool IsSearchStringRewritten { get; set; }
     
@@ -12064,6 +12065,7 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("elapsedMilliseconds", Required = Newtonsoft.Json.Required.Always)]
         public long ElapsedMilliseconds { get; set; }
     
+        /// <summary>An optional token to access the next page of results for those endpoints that support backend scrolling logic.</summary>
         [Newtonsoft.Json.JsonProperty("pageToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string PageToken { get; set; }
     
@@ -13023,7 +13025,7 @@ namespace Picturepark.SDK.V1.Contract
         [System.ComponentModel.DataAnnotations.Required]
         public TranslatedStringDictionary Names { get; set; } = new TranslatedStringDictionary();
     
-        /// <summary>A list of content or metadata rights authorizing operations on content documents or list items.</summary>
+        /// <summary>A list of content or metadata rights authorizing operations on Content Items or List Items.</summary>
         [Newtonsoft.Json.JsonProperty("userRolesRights", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<PermissionUserRoleRightsOfContentRight> UserRolesRights { get; set; }
     
@@ -13031,7 +13033,7 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("userRolesPermissionSetRights", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<PermissionUserRoleRightsOfPermissionSetRight> UserRolesPermissionSetRights { get; set; }
     
-        /// <summary>When true this permission set will derogate all other configured permission sets on content documents or list items.</summary>
+        /// <summary>When true this permission set will derogate all other configured permission sets on the Content Item or List Item.</summary>
         [Newtonsoft.Json.JsonProperty("exclusive", Required = Newtonsoft.Json.Required.Always)]
         public bool Exclusive { get; set; }
     
@@ -13196,6 +13198,7 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>Request to create a content permission set</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class ContentPermissionSetCreateRequest : PermissionSetCreateRequestOfContentRight
     {
@@ -13214,19 +13217,26 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     public abstract partial class PermissionSetCreateRequestOfContentRight 
     {
+        /// <summary>Language specific permission set names.</summary>
         [Newtonsoft.Json.JsonProperty("names", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
         public TranslatedStringDictionary Names { get; set; } = new TranslatedStringDictionary();
     
+        /// <summary>A list of content or metadata rights authorizing operations on Content Items or List Items.</summary>
         [Newtonsoft.Json.JsonProperty("userRolesRights", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<UserRoleRightsOfContentRight> UserRolesRights { get; set; }
     
+        /// <summary>A list of permission set rights authorizing operations on this permission set.</summary>
         [Newtonsoft.Json.JsonProperty("userRolesPermissionSetRights", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<UserRoleRightsOfPermissionSetRight> UserRolesPermissionSetRights { get; set; }
     
+        /// <summary>When true this permission set will derogate all other configured permission sets on Content Items or List Items.</summary>
         [Newtonsoft.Json.JsonProperty("exclusive", Required = Newtonsoft.Json.Required.Always)]
         public bool Exclusive { get; set; }
     
+        /// <summary>Optional client reference for this request.
+        /// Will be returned back in response to make easier for clients to match request items with the respective results.
+        /// It is not persisted anywhere and it is ignored in single operations.</summary>
         [Newtonsoft.Json.JsonProperty("requestId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string RequestId { get; set; }
     
@@ -13313,7 +13323,7 @@ namespace Picturepark.SDK.V1.Contract
         [System.ComponentModel.DataAnnotations.Required]
         public TranslatedStringDictionary Names { get; set; } = new TranslatedStringDictionary();
     
-        /// <summary>A list of content or metadata rights authorizing operations on content documents or list items.</summary>
+        /// <summary>A list of content or metadata rights authorizing operations on Content Items or List Items.</summary>
         [Newtonsoft.Json.JsonProperty("userRolesRights", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<UserRoleRightsOfContentRight> UserRolesRights { get; set; }
     
@@ -13333,6 +13343,7 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>Request to transfer the ownership of a permission set</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class PermissionSetOwnershipTransferRequest 
     {
@@ -13414,9 +13425,11 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>Request to create multiple content permission sets</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class ContentPermissionSetCreateManyRequest 
     {
+        /// <summary>Content permission set update requests.</summary>
         [Newtonsoft.Json.JsonProperty("items", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<ContentPermissionSetCreateRequest> Items { get; set; }
     
@@ -13489,9 +13502,11 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>Request to delete multiple permission sets</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class PermissionSetDeleteManyRequest 
     {
+        /// <summary>Permission set IDs.</summary>
         [Newtonsoft.Json.JsonProperty("permissionSetIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> PermissionSetIds { get; set; }
     
@@ -13507,9 +13522,11 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>Request to transfer the ownership of multiple permission sets</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class PermissionSetOwnershipTransferManyRequest 
     {
+        /// <summary>Permission set ownership transfer requests.</summary>
         [Newtonsoft.Json.JsonProperty("items", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<PermissionSetOwnershipTransferItem> Items { get; set; }
     
@@ -13544,12 +13561,15 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>Rights that the current user has on a permission set</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class PermissionSetUserPermissionRights 
     {
+        /// <summary>Permission set ID.</summary>
         [Newtonsoft.Json.JsonProperty("permissionSetId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string PermissionSetId { get; set; }
     
+        /// <summary>List of rights on the permission set specified by PermissionSetId</summary>
         [Newtonsoft.Json.JsonProperty("permissionSetRights", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public System.Collections.Generic.ICollection<PermissionSetRight> PermissionSetRights { get; set; }
     
@@ -13585,11 +13605,11 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class SearchBehaviorBaseResultOfPermissionSet : BaseResultOfPermissionSet
     {
-        /// <summary>The search string used to query the data</summary>
+        /// <summary>The search string used to query the data.</summary>
         [Newtonsoft.Json.JsonProperty("searchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string SearchString { get; set; }
     
-        /// <summary>Flag to notify if the SearchString was modified compared to the original requested one</summary>
+        /// <summary>Flag to notify if the SearchString was modified compared to the original requested one.</summary>
         [Newtonsoft.Json.JsonProperty("isSearchStringRewritten", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool IsSearchStringRewritten { get; set; }
     
@@ -13626,6 +13646,7 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("elapsedMilliseconds", Required = Newtonsoft.Json.Required.Always)]
         public long ElapsedMilliseconds { get; set; }
     
+        /// <summary>An optional token to access the next page of results for those endpoints that support backend scrolling logic.</summary>
         [Newtonsoft.Json.JsonProperty("pageToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string PageToken { get; set; }
     
@@ -14336,11 +14357,6 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public UpdateOption LayerSchemasUpdateOptions { get; set; } = Picturepark.SDK.V1.Contract.UpdateOption.Merge;
     
-        /// <summary>Obsolete attribute, please use LayerFieldsUpdateOption and ContentFieldsUpdateOption for finer control over metadata and/or content update.</summary>
-        [Newtonsoft.Json.JsonProperty("schemaFieldsUpdateOptions", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public UpdateOption? SchemaFieldsUpdateOptions { get; set; }
-    
         /// <summary>Options to modify the behavior for updating the values of schemas.
         /// Merge: the values specified in the Metadata dictionary are merged to the existing values of the corresponding schema on the content.
         /// Replace: the values specified in the Metadata dictionary entirely replace any existing value of the corresponding schema on the content.
@@ -14507,6 +14523,7 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("elapsedMilliseconds", Required = Newtonsoft.Json.Required.Always)]
         public long ElapsedMilliseconds { get; set; }
     
+        /// <summary>An optional token to access the next page of results for those endpoints that support backend scrolling logic.</summary>
         [Newtonsoft.Json.JsonProperty("pageToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string PageToken { get; set; }
     
@@ -14591,6 +14608,7 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("elapsedMilliseconds", Required = Newtonsoft.Json.Required.Always)]
         public long ElapsedMilliseconds { get; set; }
     
+        /// <summary>An optional token to access the next page of results for those endpoints that support backend scrolling logic.</summary>
         [Newtonsoft.Json.JsonProperty("pageToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string PageToken { get; set; }
     
@@ -15572,11 +15590,11 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class SearchBehaviorBaseResultOfContent : BaseResultOfContent
     {
-        /// <summary>The search string used to query the data</summary>
+        /// <summary>The search string used to query the data.</summary>
         [Newtonsoft.Json.JsonProperty("searchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string SearchString { get; set; }
     
-        /// <summary>Flag to notify if the SearchString was modified compared to the original requested one</summary>
+        /// <summary>Flag to notify if the SearchString was modified compared to the original requested one.</summary>
         [Newtonsoft.Json.JsonProperty("isSearchStringRewritten", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool IsSearchStringRewritten { get; set; }
     
@@ -15613,6 +15631,7 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("elapsedMilliseconds", Required = Newtonsoft.Json.Required.Always)]
         public long ElapsedMilliseconds { get; set; }
     
+        /// <summary>An optional token to access the next page of results for those endpoints that support backend scrolling logic.</summary>
         [Newtonsoft.Json.JsonProperty("pageToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string PageToken { get; set; }
     
@@ -16059,6 +16078,7 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("elapsedMilliseconds", Required = Newtonsoft.Json.Required.Always)]
         public long ElapsedMilliseconds { get; set; }
     
+        /// <summary>An optional token to access the next page of results for those endpoints that support backend scrolling logic.</summary>
         [Newtonsoft.Json.JsonProperty("pageToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string PageToken { get; set; }
     
@@ -17132,11 +17152,11 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class SearchBehaviorBaseResultOfListItem : BaseResultOfListItem
     {
-        /// <summary>The search string used to query the data</summary>
+        /// <summary>The search string used to query the data.</summary>
         [Newtonsoft.Json.JsonProperty("searchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string SearchString { get; set; }
     
-        /// <summary>Flag to notify if the SearchString was modified compared to the original requested one</summary>
+        /// <summary>Flag to notify if the SearchString was modified compared to the original requested one.</summary>
         [Newtonsoft.Json.JsonProperty("isSearchStringRewritten", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool IsSearchStringRewritten { get; set; }
     
@@ -17173,6 +17193,7 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("elapsedMilliseconds", Required = Newtonsoft.Json.Required.Always)]
         public long ElapsedMilliseconds { get; set; }
     
+        /// <summary>An optional token to access the next page of results for those endpoints that support backend scrolling logic.</summary>
         [Newtonsoft.Json.JsonProperty("pageToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string PageToken { get; set; }
     
@@ -17399,6 +17420,7 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("elapsedMilliseconds", Required = Newtonsoft.Json.Required.Always)]
         public long ElapsedMilliseconds { get; set; }
     
+        /// <summary>An optional token to access the next page of results for those endpoints that support backend scrolling logic.</summary>
         [Newtonsoft.Json.JsonProperty("pageToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string PageToken { get; set; }
     
@@ -18863,6 +18885,7 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("elapsedMilliseconds", Required = Newtonsoft.Json.Required.Always)]
         public long ElapsedMilliseconds { get; set; }
     
+        /// <summary>An optional token to access the next page of results for those endpoints that support backend scrolling logic.</summary>
         [Newtonsoft.Json.JsonProperty("pageToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string PageToken { get; set; }
     
@@ -19153,7 +19176,7 @@ namespace Picturepark.SDK.V1.Contract
         [System.ComponentModel.DataAnnotations.Required]
         public TranslatedStringDictionary Names { get; set; } = new TranslatedStringDictionary();
     
-        /// <summary>A list of content or metadata rights authorizing operations on content documents or list items.</summary>
+        /// <summary>A list of content or metadata rights authorizing operations on Content Items or List Items.</summary>
         [Newtonsoft.Json.JsonProperty("userRolesRights", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<PermissionUserRoleRightsOfMetadataRight> UserRolesRights { get; set; }
     
@@ -19161,7 +19184,7 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("userRolesPermissionSetRights", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<PermissionUserRoleRightsOfPermissionSetRight> UserRolesPermissionSetRights { get; set; }
     
-        /// <summary>When true this permission set will derogate all other configured permission sets on content documents or list items.</summary>
+        /// <summary>When true this permission set will derogate all other configured permission sets on the Content Item or List Item.</summary>
         [Newtonsoft.Json.JsonProperty("exclusive", Required = Newtonsoft.Json.Required.Always)]
         public bool Exclusive { get; set; }
     
@@ -19215,6 +19238,7 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>Request to create a schema permission set</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class SchemaPermissionSetCreateRequest : PermissionSetCreateRequestOfMetadataRight
     {
@@ -19233,19 +19257,26 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     public abstract partial class PermissionSetCreateRequestOfMetadataRight 
     {
+        /// <summary>Language specific permission set names.</summary>
         [Newtonsoft.Json.JsonProperty("names", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
         public TranslatedStringDictionary Names { get; set; } = new TranslatedStringDictionary();
     
+        /// <summary>A list of content or metadata rights authorizing operations on Content Items or List Items.</summary>
         [Newtonsoft.Json.JsonProperty("userRolesRights", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<UserRoleRightsOfMetadataRight> UserRolesRights { get; set; }
     
+        /// <summary>A list of permission set rights authorizing operations on this permission set.</summary>
         [Newtonsoft.Json.JsonProperty("userRolesPermissionSetRights", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<UserRoleRightsOfPermissionSetRight> UserRolesPermissionSetRights { get; set; }
     
+        /// <summary>When true this permission set will derogate all other configured permission sets on Content Items or List Items.</summary>
         [Newtonsoft.Json.JsonProperty("exclusive", Required = Newtonsoft.Json.Required.Always)]
         public bool Exclusive { get; set; }
     
+        /// <summary>Optional client reference for this request.
+        /// Will be returned back in response to make easier for clients to match request items with the respective results.
+        /// It is not persisted anywhere and it is ignored in single operations.</summary>
         [Newtonsoft.Json.JsonProperty("requestId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string RequestId { get; set; }
     
@@ -19309,7 +19340,7 @@ namespace Picturepark.SDK.V1.Contract
         [System.ComponentModel.DataAnnotations.Required]
         public TranslatedStringDictionary Names { get; set; } = new TranslatedStringDictionary();
     
-        /// <summary>A list of content or metadata rights authorizing operations on content documents or list items.</summary>
+        /// <summary>A list of content or metadata rights authorizing operations on Content Items or List Items.</summary>
         [Newtonsoft.Json.JsonProperty("userRolesRights", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<UserRoleRightsOfMetadataRight> UserRolesRights { get; set; }
     
@@ -19329,9 +19360,11 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>Request to update multiple schema permission sets</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class SchemaPermissionSetCreateManyRequest 
     {
+        /// <summary>Schema permission sets create requests.</summary>
         [Newtonsoft.Json.JsonProperty("items", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<SchemaPermissionSetCreateRequest> Items { get; set; }
     
@@ -21008,11 +21041,11 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class SearchBehaviorBaseResultOfSchema : BaseResultOfSchema
     {
-        /// <summary>The search string used to query the data</summary>
+        /// <summary>The search string used to query the data.</summary>
         [Newtonsoft.Json.JsonProperty("searchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string SearchString { get; set; }
     
-        /// <summary>Flag to notify if the SearchString was modified compared to the original requested one</summary>
+        /// <summary>Flag to notify if the SearchString was modified compared to the original requested one.</summary>
         [Newtonsoft.Json.JsonProperty("isSearchStringRewritten", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool IsSearchStringRewritten { get; set; }
     
@@ -21049,6 +21082,7 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("elapsedMilliseconds", Required = Newtonsoft.Json.Required.Always)]
         public long ElapsedMilliseconds { get; set; }
     
+        /// <summary>An optional token to access the next page of results for those endpoints that support backend scrolling logic.</summary>
         [Newtonsoft.Json.JsonProperty("pageToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string PageToken { get; set; }
     
@@ -22161,11 +22195,11 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class SearchBehaviorBaseResultOfShare : BaseResultOfShare
     {
-        /// <summary>The search string used to query the data</summary>
+        /// <summary>The search string used to query the data.</summary>
         [Newtonsoft.Json.JsonProperty("searchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string SearchString { get; set; }
     
-        /// <summary>Flag to notify if the SearchString was modified compared to the original requested one</summary>
+        /// <summary>Flag to notify if the SearchString was modified compared to the original requested one.</summary>
         [Newtonsoft.Json.JsonProperty("isSearchStringRewritten", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool IsSearchStringRewritten { get; set; }
     
@@ -22202,6 +22236,7 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("elapsedMilliseconds", Required = Newtonsoft.Json.Required.Always)]
         public long ElapsedMilliseconds { get; set; }
     
+        /// <summary>An optional token to access the next page of results for those endpoints that support backend scrolling logic.</summary>
         [Newtonsoft.Json.JsonProperty("pageToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string PageToken { get; set; }
     
@@ -22570,11 +22605,11 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class SearchBehaviorBaseResultOfTransfer : BaseResultOfTransfer
     {
-        /// <summary>The search string used to query the data</summary>
+        /// <summary>The search string used to query the data.</summary>
         [Newtonsoft.Json.JsonProperty("searchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string SearchString { get; set; }
     
-        /// <summary>Flag to notify if the SearchString was modified compared to the original requested one</summary>
+        /// <summary>Flag to notify if the SearchString was modified compared to the original requested one.</summary>
         [Newtonsoft.Json.JsonProperty("isSearchStringRewritten", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool IsSearchStringRewritten { get; set; }
     
@@ -22611,6 +22646,7 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("elapsedMilliseconds", Required = Newtonsoft.Json.Required.Always)]
         public long ElapsedMilliseconds { get; set; }
     
+        /// <summary>An optional token to access the next page of results for those endpoints that support backend scrolling logic.</summary>
         [Newtonsoft.Json.JsonProperty("pageToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string PageToken { get; set; }
     
@@ -22898,11 +22934,11 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class SearchBehaviorBaseResultOfFileTransfer : BaseResultOfFileTransfer
     {
-        /// <summary>The search string used to query the data</summary>
+        /// <summary>The search string used to query the data.</summary>
         [Newtonsoft.Json.JsonProperty("searchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string SearchString { get; set; }
     
-        /// <summary>Flag to notify if the SearchString was modified compared to the original requested one</summary>
+        /// <summary>Flag to notify if the SearchString was modified compared to the original requested one.</summary>
         [Newtonsoft.Json.JsonProperty("isSearchStringRewritten", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool IsSearchStringRewritten { get; set; }
     
@@ -22939,6 +22975,7 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("elapsedMilliseconds", Required = Newtonsoft.Json.Required.Always)]
         public long ElapsedMilliseconds { get; set; }
     
+        /// <summary>An optional token to access the next page of results for those endpoints that support backend scrolling logic.</summary>
         [Newtonsoft.Json.JsonProperty("pageToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string PageToken { get; set; }
     
@@ -23083,11 +23120,11 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class SearchBehaviorBaseResultOfUserRole : BaseResultOfUserRole
     {
-        /// <summary>The search string used to query the data</summary>
+        /// <summary>The search string used to query the data.</summary>
         [Newtonsoft.Json.JsonProperty("searchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string SearchString { get; set; }
     
-        /// <summary>Flag to notify if the SearchString was modified compared to the original requested one</summary>
+        /// <summary>Flag to notify if the SearchString was modified compared to the original requested one.</summary>
         [Newtonsoft.Json.JsonProperty("isSearchStringRewritten", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool IsSearchStringRewritten { get; set; }
     
@@ -23124,6 +23161,7 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("elapsedMilliseconds", Required = Newtonsoft.Json.Required.Always)]
         public long ElapsedMilliseconds { get; set; }
     
+        /// <summary>An optional token to access the next page of results for those endpoints that support backend scrolling logic.</summary>
         [Newtonsoft.Json.JsonProperty("pageToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string PageToken { get; set; }
     
@@ -23733,11 +23771,11 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class SearchBehaviorBaseResultOfUserWithRoles : BaseResultOfUserWithRoles
     {
-        /// <summary>The search string used to query the data</summary>
+        /// <summary>The search string used to query the data.</summary>
         [Newtonsoft.Json.JsonProperty("searchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string SearchString { get; set; }
     
-        /// <summary>Flag to notify if the SearchString was modified compared to the original requested one</summary>
+        /// <summary>Flag to notify if the SearchString was modified compared to the original requested one.</summary>
         [Newtonsoft.Json.JsonProperty("isSearchStringRewritten", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool IsSearchStringRewritten { get; set; }
     
@@ -23774,6 +23812,7 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("elapsedMilliseconds", Required = Newtonsoft.Json.Required.Always)]
         public long ElapsedMilliseconds { get; set; }
     
+        /// <summary>An optional token to access the next page of results for those endpoints that support backend scrolling logic.</summary>
         [Newtonsoft.Json.JsonProperty("pageToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string PageToken { get; set; }
     
@@ -24151,11 +24190,11 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class SearchBehaviorBaseResultOfXmpMappingEntry : BaseResultOfXmpMappingEntry
     {
-        /// <summary>The search string used to query the data</summary>
+        /// <summary>The search string used to query the data.</summary>
         [Newtonsoft.Json.JsonProperty("searchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string SearchString { get; set; }
     
-        /// <summary>Flag to notify if the SearchString was modified compared to the original requested one</summary>
+        /// <summary>Flag to notify if the SearchString was modified compared to the original requested one.</summary>
         [Newtonsoft.Json.JsonProperty("isSearchStringRewritten", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool IsSearchStringRewritten { get; set; }
     
@@ -24192,6 +24231,7 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("elapsedMilliseconds", Required = Newtonsoft.Json.Required.Always)]
         public long ElapsedMilliseconds { get; set; }
     
+        /// <summary>An optional token to access the next page of results for those endpoints that support backend scrolling logic.</summary>
         [Newtonsoft.Json.JsonProperty("pageToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string PageToken { get; set; }
     
