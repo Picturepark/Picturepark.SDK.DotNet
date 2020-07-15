@@ -376,6 +376,22 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<EnvironmentProcess> UpdateBoostValuesAsync(string alias, CustomerBoostValuesUpdateRequest request, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Index>> GetIndicesAsync(string alias, bool? onlyForReshard = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        System.Threading.Tasks.Task<EnvironmentProcess> ReshardElasticIndicesAsync(string alias, CustomerReshardRequest request, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "13.2.2.0 (NJsonSchema v10.1.4.0 (Newtonsoft.Json v11.0.0.0))")]
@@ -1094,6 +1110,10 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [JsonInheritanceAttribute("CustomerAliasInUseException", typeof(CustomerAliasInUseException))]
     [JsonInheritanceAttribute("CustomerBoostValuesInvalidException", typeof(CustomerBoostValuesInvalidException))]
     [JsonInheritanceAttribute("SnapshotRetentionTimeTooShortException", typeof(SnapshotRetentionTimeTooShortException))]
+    [JsonInheritanceAttribute("ReshardIndexNotAllowedException", typeof(ReshardIndexNotAllowedException))]
+    [JsonInheritanceAttribute("ReshardNumberOfShardsInvalidException", typeof(ReshardNumberOfShardsInvalidException))]
+    [JsonInheritanceAttribute("ReshardNumberOfRoutingShardsInvalidException", typeof(ReshardNumberOfRoutingShardsInvalidException))]
+    [JsonInheritanceAttribute("ReshardNumberOfShardsInvalidForExistingRoutingShardsException", typeof(ReshardNumberOfShardsInvalidForExistingRoutingShardsException))]
     [JsonInheritanceAttribute("DuplicateSearchIndexDocException", typeof(DuplicateSearchIndexDocException))]
     [JsonInheritanceAttribute("SearchIndexDocNotFoundException", typeof(SearchIndexDocNotFoundException))]
     [JsonInheritanceAttribute("IndexDocumentNotFoundException", typeof(IndexDocumentNotFoundException))]
@@ -3056,6 +3076,70 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         public static SnapshotRetentionTimeTooShortException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<SnapshotRetentionTimeTooShortException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class ReshardIndexNotAllowedException : PictureparkValidationException
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static ReshardIndexNotAllowedException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ReshardIndexNotAllowedException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class ReshardNumberOfShardsInvalidException : PictureparkValidationException
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static ReshardNumberOfShardsInvalidException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ReshardNumberOfShardsInvalidException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class ReshardNumberOfRoutingShardsInvalidException : ReshardNumberOfShardsInvalidException
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static ReshardNumberOfRoutingShardsInvalidException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ReshardNumberOfRoutingShardsInvalidException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class ReshardNumberOfShardsInvalidForExistingRoutingShardsException : ReshardNumberOfShardsInvalidException
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static ReshardNumberOfShardsInvalidForExistingRoutingShardsException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ReshardNumberOfShardsInvalidForExistingRoutingShardsException>(data);
         }
     
     }
@@ -6530,6 +6614,9 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
         [System.Runtime.Serialization.EnumMember(Value = @"CustomerBoostValuesUpdate")]
         CustomerBoostValuesUpdate = 3,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"CustomerReshard")]
+        CustomerReshard = 4,
     
     }
     
@@ -10985,6 +11072,12 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [Newtonsoft.Json.JsonProperty("licenseInformation", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public LicenseInformation LicenseInformation { get; set; }
     
+        [Newtonsoft.Json.JsonProperty("elasticSearchNumberOfShards", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int? ElasticSearchNumberOfShards { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("elasticSearchNumberOfRoutingShards", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int? ElasticSearchNumberOfRoutingShards { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("activityMapping", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public ActivityMapping ActivityMapping { get; set; }
     
@@ -11916,6 +12009,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [JsonInheritanceAttribute("EnvironmentProcessCustomerUpdateData", typeof(EnvironmentProcessCustomerUpdateData))]
     [JsonInheritanceAttribute("EnvironmentProcessEnvironmentUpdateData", typeof(EnvironmentProcessEnvironmentUpdateData))]
     [JsonInheritanceAttribute("EnvironmentProcessCustomerBoostValuesUpdateData", typeof(EnvironmentProcessCustomerBoostValuesUpdateData))]
+    [JsonInheritanceAttribute("EnvironmentProcessCustomerReshard", typeof(EnvironmentProcessCustomerReshard))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     public abstract partial class EnvironmentProcessDataViewItemBase 
     {
@@ -12202,6 +12296,63 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class EnvironmentProcessCustomerReshard : EnvironmentProcessDataViewItemBase
+    {
+        [Newtonsoft.Json.JsonProperty("state", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public CustomerReshardState State { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("shrunkIndices", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public System.Collections.Generic.ICollection<IndexType> ShrunkIndices { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("splitIndices", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public System.Collections.Generic.ICollection<IndexType> SplitIndices { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("stateHistory", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<EnvironmentProcessState> StateHistory { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static EnvironmentProcessCustomerReshard FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<EnvironmentProcessCustomerReshard>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public enum CustomerReshardState
+    {
+        [System.Runtime.Serialization.EnumMember(Value = @"Draft")]
+        Draft = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"InProgress")]
+        InProgress = 1,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"ExportingCustomer")]
+        ExportingCustomer = 2,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"ShrinkingIndices")]
+        ShrinkingIndices = 3,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"SplittingIndices")]
+        SplittingIndices = 4,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Succeeded")]
+        Succeeded = 5,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Cancelled")]
+        Cancelled = 6,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Failed")]
+        Failed = 7,
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class CustomerMetadataLanguageCreateRequest 
     {
         [Newtonsoft.Json.JsonProperty("language", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -12238,6 +12389,48 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         public static CustomerBoostValuesUpdateRequest FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<CustomerBoostValuesUpdateRequest>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class CustomerReshardRequest 
+    {
+        [Newtonsoft.Json.JsonProperty("indices", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.IDictionary<IndexType, IndexShardSettings> Indices { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("skipCustomerExport", Required = Newtonsoft.Json.Required.Always)]
+        public bool SkipCustomerExport { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static CustomerReshardRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<CustomerReshardRequest>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class IndexShardSettings 
+    {
+        [Newtonsoft.Json.JsonProperty("numberOfShards", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int? NumberOfShards { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("numberOfRoutingShards", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int? NumberOfRoutingShards { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static IndexShardSettings FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<IndexShardSettings>(data);
         }
     
     }
