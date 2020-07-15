@@ -157,7 +157,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             user.Address.City = city;
 
             // Act
-            var updatedUserResponse = await _client.User.UpdateAsync(user.Id, user).ConfigureAwait(false);
+            var updatedUserResponse = await _client.User.UpdateAsync(user.Id, user.AsUpdateRequest()).ConfigureAwait(false);
             var updatedUser = await _client.User.GetAsync(user.Id).ConfigureAwait(false);
 
             // Assert

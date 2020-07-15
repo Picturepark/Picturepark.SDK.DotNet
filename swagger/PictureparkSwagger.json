@@ -20140,7 +20140,7 @@
           }
         ]
       },
-      "UnableToChangeUserRolesForFederatedUser": {
+      "UnableToChangeMappedUserRolesForFederatedUserException": {
         "allOf": [
           {
             "$ref": "#/components/schemas/PictureparkValidationException"
@@ -20152,6 +20152,13 @@
               "affectedUserId": {
                 "type": "string",
                 "nullable": true
+              },
+              "userRoleIds": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "type": "string"
+                }
               }
             }
           }
@@ -40636,13 +40643,45 @@
       "UserDetail": {
         "allOf": [
           {
-            "$ref": "#/components/schemas/UserUpdateRequest"
+            "$ref": "#/components/schemas/User"
           },
           {
             "type": "object",
             "description": "Detail information about a user.",
             "additionalProperties": false,
             "properties": {
+              "userRoles": {
+                "type": "array",
+                "description": "User roles the user should be assigned to. Overwrites the original user roles.",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/UserRoleAssignment"
+                }
+              },
+              "comment": {
+                "type": "string",
+                "description": "Comment saved for the user.",
+                "nullable": true
+              },
+              "languageCode": {
+                "type": "string",
+                "description": "Preferred language, e.g. for correspondence.",
+                "nullable": true
+              },
+              "address": {
+                "description": "User's address.",
+                "nullable": true,
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/UserAddress"
+                  }
+                ]
+              },
+              "identityProviderId": {
+                "type": "string",
+                "description": "Identity provider that governs this user or null for Picturepark's own IdentityServer.",
+                "nullable": true
+              },
               "ownerTokens": {
                 "type": "array",
                 "description": "Owner tokens referencing the user.",
@@ -40695,6 +40734,28 @@
             }
           }
         ]
+      },
+      "UserRoleAssignment": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "isFederated"
+        ],
+        "properties": {
+          "userRole": {
+            "description": "User role assigned.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/UserRole"
+              }
+            ]
+          },
+          "isFederated": {
+            "type": "boolean",
+            "description": "Marks user roles that were assigned automatically to a federated user based on group mapping of a federated identity provider."
+          }
+        }
       },
       "OwnerToken": {
         "type": "object",
