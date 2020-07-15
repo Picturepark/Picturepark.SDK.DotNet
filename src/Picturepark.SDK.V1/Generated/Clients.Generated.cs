@@ -3320,7 +3320,7 @@ namespace Picturepark.SDK.V1
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Transfer ownership of content permission set</summary>
         /// <param name="id">Content permission set ID.</param>
-        /// <param name="request">Request</param>
+        /// <param name="request">Request to transfer the ownership of a permission set.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -3568,7 +3568,7 @@ namespace Picturepark.SDK.V1
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Create multiple content permission sets</summary>
-        /// <param name="request">Request</param>
+        /// <param name="request">Request to create multiple content permission sets.</param>
         /// <returns>Response to a bulk operation</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
@@ -3822,7 +3822,7 @@ namespace Picturepark.SDK.V1
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Delete multiple content permission sets</summary>
-        /// <param name="request">Request</param>
+        /// <param name="request">Request to delete multiple permission sets.</param>
         /// <returns>Response to a bulk operation</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
@@ -3949,7 +3949,7 @@ namespace Picturepark.SDK.V1
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Transfer ownership of multiple content permission sets</summary>
-        /// <param name="request">Request</param>
+        /// <param name="request">Request to transfer the ownership of multiple permission sets.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -4072,7 +4072,7 @@ namespace Picturepark.SDK.V1
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Get permissions for multiple content permission sets</summary>
         /// <param name="ids">Ids</param>
-        /// <returns>Array of</returns>
+        /// <returns>Array of Rights that the current user has on a permission set</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -17232,7 +17232,7 @@ namespace Picturepark.SDK.V1
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Transfer ownership of schema permission set</summary>
         /// <param name="id">Schema permission set ID.</param>
-        /// <param name="request">Request</param>
+        /// <param name="request">Request to transfer the ownership of a permission set.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -17480,7 +17480,7 @@ namespace Picturepark.SDK.V1
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Create multiple schema permission sets</summary>
-        /// <param name="request">Request</param>
+        /// <param name="request">Request to update multiple schema permission sets.</param>
         /// <returns>Response to a bulk operation</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
@@ -17734,7 +17734,7 @@ namespace Picturepark.SDK.V1
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Delete multiple schema permission sets</summary>
-        /// <param name="request">Request</param>
+        /// <param name="request">Request to delete multiple permission sets.</param>
         /// <returns>Response to a bulk operation</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
@@ -17861,7 +17861,7 @@ namespace Picturepark.SDK.V1
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Transfer ownership of multiple schema permission sets</summary>
-        /// <param name="request">Request</param>
+        /// <param name="request">Request to transfer the ownership of multiple permission sets.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -17984,7 +17984,7 @@ namespace Picturepark.SDK.V1
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Get permissions for multiple schema permission sets</summary>
         /// <param name="ids">Ids</param>
-        /// <returns>Array of</returns>
+        /// <returns>Array of Rights that the current user has on a permission set</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>

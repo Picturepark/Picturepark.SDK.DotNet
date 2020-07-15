@@ -3492,201 +3492,6 @@
         }
       }
     },
-    "/Customer/{alias}/indices": {
-      "get": {
-        "tags": [
-          "Customer"
-        ],
-        "operationId": "Customer_GetIndices",
-        "parameters": [
-          {
-            "name": "alias",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 1
-          },
-          {
-            "name": "onlyForReshard",
-            "in": "query",
-            "schema": {
-              "type": "boolean"
-            },
-            "x-position": 2
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Index"
-                  }
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Validation exception",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkValidationException"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "404": {
-            "description": "Entity not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkNotFoundException"
-                }
-              }
-            }
-          },
-          "405": {
-            "description": "Method not allowed"
-          },
-          "409": {
-            "description": "Version conflict",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkConflictException"
-                }
-              }
-            }
-          },
-          "429": {
-            "description": "Too many requests"
-          },
-          "500": {
-            "description": "Internal server error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkException"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/Customer/{alias}/reshard": {
-      "post": {
-        "tags": [
-          "Customer"
-        ],
-        "operationId": "Customer_ReshardElasticIndices",
-        "parameters": [
-          {
-            "name": "alias",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 1
-          },
-          {
-            "name": "timeout",
-            "in": "query",
-            "schema": {
-              "type": "string",
-              "format": "time-span",
-              "nullable": true
-            },
-            "x-position": 3
-          }
-        ],
-        "requestBody": {
-          "x-name": "request",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CustomerReshardRequest"
-              }
-            }
-          },
-          "required": true,
-          "x-position": 2
-        },
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/EnvironmentProcess"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Validation exception",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkValidationException"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "404": {
-            "description": "Entity not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkNotFoundException"
-                }
-              }
-            }
-          },
-          "405": {
-            "description": "Method not allowed"
-          },
-          "409": {
-            "description": "Version conflict",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkConflictException"
-                }
-              }
-            }
-          },
-          "429": {
-            "description": "Too many requests"
-          },
-          "500": {
-            "description": "Internal server error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkException"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/service/customer/serviceProvider": {
       "post": {
         "tags": [
@@ -8846,50 +8651,6 @@
           }
         ]
       },
-      "ReshardIndexNotAllowedException": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/PictureparkValidationException"
-          },
-          {
-            "type": "object",
-            "additionalProperties": false
-          }
-        ]
-      },
-      "ReshardNumberOfShardsInvalidException": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/PictureparkValidationException"
-          },
-          {
-            "type": "object",
-            "additionalProperties": false
-          }
-        ]
-      },
-      "ReshardNumberOfRoutingShardsInvalidException": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/ReshardNumberOfShardsInvalidException"
-          },
-          {
-            "type": "object",
-            "additionalProperties": false
-          }
-        ]
-      },
-      "ReshardNumberOfShardsInvalidForExistingRoutingShardsException": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/ReshardNumberOfShardsInvalidException"
-          },
-          {
-            "type": "object",
-            "additionalProperties": false
-          }
-        ]
-      },
       "ConfigurationIndexNotFoundException": {
         "allOf": [
           {
@@ -12172,15 +11933,13 @@
           "AddMetadataLanguage",
           "CustomerUpdate",
           "EnvironmentUpdate",
-          "CustomerBoostValuesUpdate",
-          "CustomerReshard"
+          "CustomerBoostValuesUpdate"
         ],
         "enum": [
           "AddMetadataLanguage",
           "CustomerUpdate",
           "EnvironmentUpdate",
-          "CustomerBoostValuesUpdate",
-          "CustomerReshard"
+          "CustomerBoostValuesUpdate"
         ]
       },
       "EnvironmentProcessNotFoundException": {
@@ -16725,16 +16484,6 @@
               }
             ]
           },
-          "elasticSearchNumberOfShards": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "elasticSearchNumberOfRoutingShards": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
           "activityMapping": {
             "nullable": true,
             "oneOf": [
@@ -17693,8 +17442,7 @@
             "EnvironmentProcessAddMetadataLanguageData": "#/components/schemas/EnvironmentProcessAddMetadataLanguageData",
             "EnvironmentProcessCustomerUpdateData": "#/components/schemas/EnvironmentProcessCustomerUpdateData",
             "EnvironmentProcessEnvironmentUpdateData": "#/components/schemas/EnvironmentProcessEnvironmentUpdateData",
-            "EnvironmentProcessCustomerBoostValuesUpdateData": "#/components/schemas/EnvironmentProcessCustomerBoostValuesUpdateData",
-            "EnvironmentProcessCustomerReshard": "#/components/schemas/EnvironmentProcessCustomerReshard"
+            "EnvironmentProcessCustomerBoostValuesUpdateData": "#/components/schemas/EnvironmentProcessCustomerBoostValuesUpdateData"
           }
         },
         "x-abstract": true,
@@ -17966,67 +17714,6 @@
           }
         }
       },
-      "EnvironmentProcessCustomerReshard": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/EnvironmentProcessDataViewItemBase"
-          },
-          {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "state": {
-                "$ref": "#/components/schemas/CustomerReshardState"
-              },
-              "shrunkIndices": {
-                "type": "array",
-                "nullable": true,
-                "items": {
-                  "$ref": "#/components/schemas/IndexType"
-                }
-              },
-              "splitIndices": {
-                "type": "array",
-                "nullable": true,
-                "items": {
-                  "$ref": "#/components/schemas/IndexType"
-                }
-              },
-              "stateHistory": {
-                "type": "array",
-                "nullable": true,
-                "items": {
-                  "$ref": "#/components/schemas/EnvironmentProcessState"
-                }
-              }
-            }
-          }
-        ]
-      },
-      "CustomerReshardState": {
-        "type": "string",
-        "description": "",
-        "x-enumNames": [
-          "Draft",
-          "InProgress",
-          "ExportingCustomer",
-          "ShrinkingIndices",
-          "SplittingIndices",
-          "Succeeded",
-          "Cancelled",
-          "Failed"
-        ],
-        "enum": [
-          "Draft",
-          "InProgress",
-          "ExportingCustomer",
-          "ShrinkingIndices",
-          "SplittingIndices",
-          "Succeeded",
-          "Cancelled",
-          "Failed"
-        ]
-      },
       "CustomerMetadataLanguageCreateRequest": {
         "type": "object",
         "additionalProperties": false,
@@ -18057,44 +17744,6 @@
             "items": {
               "$ref": "#/components/schemas/CustomerBoostValueRemoveInfo"
             }
-          }
-        }
-      },
-      "CustomerReshardRequest": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "skipCustomerExport"
-        ],
-        "properties": {
-          "indices": {
-            "type": "object",
-            "nullable": true,
-            "x-dictionaryKey": {
-              "$ref": "#/components/schemas/IndexType"
-            },
-            "additionalProperties": {
-              "$ref": "#/components/schemas/IndexShardSettings"
-            }
-          },
-          "skipCustomerExport": {
-            "type": "boolean"
-          }
-        }
-      },
-      "IndexShardSettings": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "numberOfShards": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "numberOfRoutingShards": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
           }
         }
       },
