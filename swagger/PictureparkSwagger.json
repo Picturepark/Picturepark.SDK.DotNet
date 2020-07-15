@@ -1,5 +1,5 @@
-﻿{
-  "x-generator": "NSwag v13.3.0.0 (NJsonSchema v10.1.11.0 (Newtonsoft.Json v12.0.0.0))",
+{
+  "x-generator": "NSwag v13.6.2.0 (NJsonSchema v10.1.23.0 (Newtonsoft.Json v12.0.0.0))",
   "openapi": "3.0.0",
   "info": {
     "title": "Picturepark API V1",
@@ -2200,7 +2200,7 @@
         ],
         "requestBody": {
           "x-name": "request",
-          "description": "Request",
+          "description": "Request to transfer the ownership of a permission set.",
           "content": {
             "application/json": {
               "schema": {
@@ -2378,7 +2378,7 @@
         "operationId": "ContentPermissionSet_CreateMany",
         "requestBody": {
           "x-name": "request",
-          "description": "Request",
+          "description": "Request to create multiple content permission sets.",
           "content": {
             "application/json": {
               "schema": {
@@ -2558,7 +2558,7 @@
         "operationId": "ContentPermissionSet_DeleteMany",
         "requestBody": {
           "x-name": "request",
-          "description": "Request",
+          "description": "Request to delete multiple permission sets.",
           "content": {
             "application/json": {
               "schema": {
@@ -2649,7 +2649,7 @@
         "operationId": "ContentPermissionSet_TransferOwnershipMany",
         "requestBody": {
           "x-name": "request",
-          "description": "Request",
+          "description": "Request to transfer the ownership of multiple permission sets.",
           "content": {
             "application/json": {
               "schema": {
@@ -2750,7 +2750,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Array of ",
+            "description": "Array of Rights that the current user has on a permission set",
             "content": {
               "application/json": {
                 "schema": {
@@ -11449,7 +11449,7 @@
         ],
         "requestBody": {
           "x-name": "request",
-          "description": "Request",
+          "description": "Request to transfer the ownership of a permission set.",
           "content": {
             "application/json": {
               "schema": {
@@ -11627,7 +11627,7 @@
         "operationId": "SchemaPermissionSet_CreateMany",
         "requestBody": {
           "x-name": "request",
-          "description": "Request",
+          "description": "Request to update multiple schema permission sets.",
           "content": {
             "application/json": {
               "schema": {
@@ -11807,7 +11807,7 @@
         "operationId": "SchemaPermissionSet_DeleteMany",
         "requestBody": {
           "x-name": "request",
-          "description": "Request",
+          "description": "Request to delete multiple permission sets.",
           "content": {
             "application/json": {
               "schema": {
@@ -11898,7 +11898,7 @@
         "operationId": "SchemaPermissionSet_TransferOwnershipMany",
         "requestBody": {
           "x-name": "request",
-          "description": "Request",
+          "description": "Request to transfer the ownership of multiple permission sets.",
           "content": {
             "application/json": {
               "schema": {
@@ -11999,7 +11999,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Array of ",
+            "description": "Array of Rights that the current user has on a permission set",
             "content": {
               "application/json": {
                 "schema": {
@@ -26294,12 +26294,12 @@
             "properties": {
               "searchString": {
                 "type": "string",
-                "description": "The search string used to query the data",
+                "description": "The search string used to query the data.",
                 "nullable": true
               },
               "isSearchStringRewritten": {
                 "type": "boolean",
-                "description": "Flag to notify if the SearchString was modified compared to the original requested one"
+                "description": "Flag to notify if the SearchString was modified compared to the original requested one."
               },
               "queryDebugInformation": {
                 "type": "array",
@@ -26362,6 +26362,7 @@
           },
           "pageToken": {
             "type": "string",
+            "description": "An optional token to access the next page of results for those endpoints that support backend scrolling logic.",
             "nullable": true
           }
         }
@@ -28558,12 +28559,12 @@
             "properties": {
               "searchString": {
                 "type": "string",
-                "description": "The search string used to query the data",
+                "description": "The search string used to query the data.",
                 "nullable": true
               },
               "isSearchStringRewritten": {
                 "type": "boolean",
-                "description": "Flag to notify if the SearchString was modified compared to the original requested one"
+                "description": "Flag to notify if the SearchString was modified compared to the original requested one."
               },
               "queryDebugInformation": {
                 "type": "array",
@@ -28606,6 +28607,7 @@
           },
           "pageToken": {
             "type": "string",
+            "description": "An optional token to access the next page of results for those endpoints that support backend scrolling logic.",
             "nullable": true
           }
         }
@@ -29901,6 +29903,7 @@
           },
           {
             "type": "object",
+            "description": "Request to create a content permission set",
             "additionalProperties": false
           }
         ]
@@ -29915,10 +29918,16 @@
         ],
         "properties": {
           "names": {
-            "$ref": "#/components/schemas/TranslatedStringDictionary"
+            "description": "Language specific permission set names.",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/TranslatedStringDictionary"
+              }
+            ]
           },
           "userRolesRights": {
             "type": "array",
+            "description": "A list of content or metadata rights authorizing operations on content documents or list items.",
             "nullable": true,
             "items": {
               "$ref": "#/components/schemas/UserRoleRightsOfContentRight"
@@ -29926,16 +29935,19 @@
           },
           "userRolesPermissionSetRights": {
             "type": "array",
+            "description": "A list of permission set rights authorizing operations on this permission set.",
             "nullable": true,
             "items": {
               "$ref": "#/components/schemas/UserRoleRightsOfPermissionSetRight"
             }
           },
           "exclusive": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "When true this permission set will derogate all other configured permission sets on content documents or list items."
           },
           "requestId": {
             "type": "string",
+            "description": "Optional client reference for this request.\nWill be returned back in response to make easier for clients to match request items with the respective results.\nIt is not persisted anywhere and it is ignored in single operations.",
             "nullable": true
           }
         }
@@ -30027,6 +30039,7 @@
       },
       "PermissionSetOwnershipTransferRequest": {
         "type": "object",
+        "description": "Request to transfer the ownership of a permission set",
         "additionalProperties": false,
         "required": [
           "transferUserId"
@@ -30098,10 +30111,12 @@
       },
       "ContentPermissionSetCreateManyRequest": {
         "type": "object",
+        "description": "Request to create multiple content permission sets",
         "additionalProperties": false,
         "properties": {
           "items": {
             "type": "array",
+            "description": "Content permission set update requests.",
             "nullable": true,
             "items": {
               "$ref": "#/components/schemas/ContentPermissionSetCreateRequest"
@@ -30161,10 +30176,12 @@
       },
       "PermissionSetDeleteManyRequest": {
         "type": "object",
+        "description": "Request to delete multiple permission sets",
         "additionalProperties": false,
         "properties": {
           "permissionSetIds": {
             "type": "array",
+            "description": "Permission set IDs.",
             "nullable": true,
             "items": {
               "type": "string"
@@ -30174,10 +30191,12 @@
       },
       "PermissionSetOwnershipTransferManyRequest": {
         "type": "object",
+        "description": "Request to transfer the ownership of multiple permission sets",
         "additionalProperties": false,
         "properties": {
           "items": {
             "type": "array",
+            "description": "Permission set ownership transfer requests.",
             "nullable": true,
             "items": {
               "$ref": "#/components/schemas/PermissionSetOwnershipTransferItem"
@@ -30205,14 +30224,17 @@
       },
       "PermissionSetUserPermissionRights": {
         "type": "object",
+        "description": "Rights that the current user has on a permission set",
         "additionalProperties": false,
         "properties": {
           "permissionSetId": {
             "type": "string",
+            "description": "Permission set ID.",
             "nullable": true
           },
           "permissionSetRights": {
             "type": "array",
+            "description": "List of rights on the permission set specified by PermissionSetId",
             "nullable": true,
             "items": {
               "$ref": "#/components/schemas/PermissionSetRight"
@@ -30244,12 +30266,12 @@
             "properties": {
               "searchString": {
                 "type": "string",
-                "description": "The search string used to query the data",
+                "description": "The search string used to query the data.",
                 "nullable": true
               },
               "isSearchStringRewritten": {
                 "type": "boolean",
-                "description": "Flag to notify if the SearchString was modified compared to the original requested one"
+                "description": "Flag to notify if the SearchString was modified compared to the original requested one."
               },
               "queryDebugInformation": {
                 "type": "array",
@@ -30292,6 +30314,7 @@
           },
           "pageToken": {
             "type": "string",
+            "description": "An optional token to access the next page of results for those endpoints that support backend scrolling logic.",
             "nullable": true
           }
         }
@@ -31051,6 +31074,8 @@
           },
           "schemaFieldsUpdateOptions": {
             "description": "Obsolete attribute, please use LayerFieldsUpdateOption and ContentFieldsUpdateOption for finer control over metadata and/or content update.",
+            "deprecated": true,
+            "x-deprecatedMessage": "Value of this attribute is not used anymore. Please use LayerFieldsUpdateOption and ContentFieldsUpdateOption for finer control over metadata and/or content update.",
             "nullable": true,
             "oneOf": [
               {
@@ -31208,6 +31233,7 @@
           },
           "pageToken": {
             "type": "string",
+            "description": "An optional token to access the next page of results for those endpoints that support backend scrolling logic.",
             "nullable": true
           }
         }
@@ -31283,6 +31309,7 @@
           },
           "pageToken": {
             "type": "string",
+            "description": "An optional token to access the next page of results for those endpoints that support backend scrolling logic.",
             "nullable": true
           }
         }
@@ -32271,12 +32298,12 @@
             "properties": {
               "searchString": {
                 "type": "string",
-                "description": "The search string used to query the data",
+                "description": "The search string used to query the data.",
                 "nullable": true
               },
               "isSearchStringRewritten": {
                 "type": "boolean",
-                "description": "Flag to notify if the SearchString was modified compared to the original requested one"
+                "description": "Flag to notify if the SearchString was modified compared to the original requested one."
               },
               "queryDebugInformation": {
                 "type": "array",
@@ -32319,6 +32346,7 @@
           },
           "pageToken": {
             "type": "string",
+            "description": "An optional token to access the next page of results for those endpoints that support backend scrolling logic.",
             "nullable": true
           }
         }
@@ -32830,6 +32858,7 @@
           },
           "pageToken": {
             "type": "string",
+            "description": "An optional token to access the next page of results for those endpoints that support backend scrolling logic.",
             "nullable": true
           }
         }
@@ -33886,12 +33915,12 @@
             "properties": {
               "searchString": {
                 "type": "string",
-                "description": "The search string used to query the data",
+                "description": "The search string used to query the data.",
                 "nullable": true
               },
               "isSearchStringRewritten": {
                 "type": "boolean",
-                "description": "Flag to notify if the SearchString was modified compared to the original requested one"
+                "description": "Flag to notify if the SearchString was modified compared to the original requested one."
               },
               "queryDebugInformation": {
                 "type": "array",
@@ -33934,6 +33963,7 @@
           },
           "pageToken": {
             "type": "string",
+            "description": "An optional token to access the next page of results for those endpoints that support backend scrolling logic.",
             "nullable": true
           }
         }
@@ -34213,6 +34243,7 @@
           },
           "pageToken": {
             "type": "string",
+            "description": "An optional token to access the next page of results for those endpoints that support backend scrolling logic.",
             "nullable": true
           }
         }
@@ -35688,6 +35719,7 @@
           },
           "pageToken": {
             "type": "string",
+            "description": "An optional token to access the next page of results for those endpoints that support backend scrolling logic.",
             "nullable": true
           }
         }
@@ -36092,6 +36124,7 @@
           },
           {
             "type": "object",
+            "description": "Request to create a schema permission set",
             "additionalProperties": false
           }
         ]
@@ -36106,10 +36139,16 @@
         ],
         "properties": {
           "names": {
-            "$ref": "#/components/schemas/TranslatedStringDictionary"
+            "description": "Language specific permission set names.",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/TranslatedStringDictionary"
+              }
+            ]
           },
           "userRolesRights": {
             "type": "array",
+            "description": "A list of content or metadata rights authorizing operations on content documents or list items.",
             "nullable": true,
             "items": {
               "$ref": "#/components/schemas/UserRoleRightsOfMetadataRight"
@@ -36117,16 +36156,19 @@
           },
           "userRolesPermissionSetRights": {
             "type": "array",
+            "description": "A list of permission set rights authorizing operations on this permission set.",
             "nullable": true,
             "items": {
               "$ref": "#/components/schemas/UserRoleRightsOfPermissionSetRight"
             }
           },
           "exclusive": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "When true this permission set will derogate all other configured permission sets on content documents or list items."
           },
           "requestId": {
             "type": "string",
+            "description": "Optional client reference for this request.\nWill be returned back in response to make easier for clients to match request items with the respective results.\nIt is not persisted anywhere and it is ignored in single operations.",
             "nullable": true
           }
         }
@@ -36199,10 +36241,12 @@
       },
       "SchemaPermissionSetCreateManyRequest": {
         "type": "object",
+        "description": "Request to update multiple schema permission sets",
         "additionalProperties": false,
         "properties": {
           "items": {
             "type": "array",
+            "description": "Schema permission sets create requests.",
             "nullable": true,
             "items": {
               "$ref": "#/components/schemas/SchemaPermissionSetCreateRequest"
@@ -38109,12 +38153,12 @@
             "properties": {
               "searchString": {
                 "type": "string",
-                "description": "The search string used to query the data",
+                "description": "The search string used to query the data.",
                 "nullable": true
               },
               "isSearchStringRewritten": {
                 "type": "boolean",
-                "description": "Flag to notify if the SearchString was modified compared to the original requested one"
+                "description": "Flag to notify if the SearchString was modified compared to the original requested one."
               },
               "queryDebugInformation": {
                 "type": "array",
@@ -38157,6 +38201,7 @@
           },
           "pageToken": {
             "type": "string",
+            "description": "An optional token to access the next page of results for those endpoints that support backend scrolling logic.",
             "nullable": true
           }
         }
@@ -39368,12 +39413,12 @@
             "properties": {
               "searchString": {
                 "type": "string",
-                "description": "The search string used to query the data",
+                "description": "The search string used to query the data.",
                 "nullable": true
               },
               "isSearchStringRewritten": {
                 "type": "boolean",
-                "description": "Flag to notify if the SearchString was modified compared to the original requested one"
+                "description": "Flag to notify if the SearchString was modified compared to the original requested one."
               },
               "queryDebugInformation": {
                 "type": "array",
@@ -39416,6 +39461,7 @@
           },
           "pageToken": {
             "type": "string",
+            "description": "An optional token to access the next page of results for those endpoints that support backend scrolling logic.",
             "nullable": true
           }
         }
@@ -39604,6 +39650,8 @@
           "identifier": {
             "type": "string",
             "description": "Replaced in favor of RequestId. Client generated identifier of the item.",
+            "deprecated": true,
+            "x-deprecatedMessage": "Replaced by RequestId",
             "nullable": true
           },
           "requestId": {
@@ -39807,12 +39855,12 @@
             "properties": {
               "searchString": {
                 "type": "string",
-                "description": "The search string used to query the data",
+                "description": "The search string used to query the data.",
                 "nullable": true
               },
               "isSearchStringRewritten": {
                 "type": "boolean",
-                "description": "Flag to notify if the SearchString was modified compared to the original requested one"
+                "description": "Flag to notify if the SearchString was modified compared to the original requested one."
               },
               "queryDebugInformation": {
                 "type": "array",
@@ -39855,6 +39903,7 @@
           },
           "pageToken": {
             "type": "string",
+            "description": "An optional token to access the next page of results for those endpoints that support backend scrolling logic.",
             "nullable": true
           }
         }
@@ -40060,6 +40109,8 @@
           "identifier": {
             "type": "string",
             "description": "Replaced in favor of RequestId. Client provided identifier.",
+            "deprecated": true,
+            "x-deprecatedMessage": "Replaced by RequestId",
             "nullable": true
           },
           "requestId": {
@@ -40149,12 +40200,12 @@
             "properties": {
               "searchString": {
                 "type": "string",
-                "description": "The search string used to query the data",
+                "description": "The search string used to query the data.",
                 "nullable": true
               },
               "isSearchStringRewritten": {
                 "type": "boolean",
-                "description": "Flag to notify if the SearchString was modified compared to the original requested one"
+                "description": "Flag to notify if the SearchString was modified compared to the original requested one."
               },
               "queryDebugInformation": {
                 "type": "array",
@@ -40197,6 +40248,7 @@
           },
           "pageToken": {
             "type": "string",
+            "description": "An optional token to access the next page of results for those endpoints that support backend scrolling logic.",
             "nullable": true
           }
         }
@@ -40329,12 +40381,12 @@
             "properties": {
               "searchString": {
                 "type": "string",
-                "description": "The search string used to query the data",
+                "description": "The search string used to query the data.",
                 "nullable": true
               },
               "isSearchStringRewritten": {
                 "type": "boolean",
-                "description": "Flag to notify if the SearchString was modified compared to the original requested one"
+                "description": "Flag to notify if the SearchString was modified compared to the original requested one."
               },
               "queryDebugInformation": {
                 "type": "array",
@@ -40377,6 +40429,7 @@
           },
           "pageToken": {
             "type": "string",
+            "description": "An optional token to access the next page of results for those endpoints that support backend scrolling logic.",
             "nullable": true
           }
         }
@@ -40979,12 +41032,12 @@
             "properties": {
               "searchString": {
                 "type": "string",
-                "description": "The search string used to query the data",
+                "description": "The search string used to query the data.",
                 "nullable": true
               },
               "isSearchStringRewritten": {
                 "type": "boolean",
-                "description": "Flag to notify if the SearchString was modified compared to the original requested one"
+                "description": "Flag to notify if the SearchString was modified compared to the original requested one."
               },
               "queryDebugInformation": {
                 "type": "array",
@@ -41027,6 +41080,7 @@
           },
           "pageToken": {
             "type": "string",
+            "description": "An optional token to access the next page of results for those endpoints that support backend scrolling logic.",
             "nullable": true
           }
         }
@@ -41431,12 +41485,12 @@
             "properties": {
               "searchString": {
                 "type": "string",
-                "description": "The search string used to query the data",
+                "description": "The search string used to query the data.",
                 "nullable": true
               },
               "isSearchStringRewritten": {
                 "type": "boolean",
-                "description": "Flag to notify if the SearchString was modified compared to the original requested one"
+                "description": "Flag to notify if the SearchString was modified compared to the original requested one."
               },
               "queryDebugInformation": {
                 "type": "array",
@@ -41479,6 +41533,7 @@
           },
           "pageToken": {
             "type": "string",
+            "description": "An optional token to access the next page of results for those endpoints that support backend scrolling logic.",
             "nullable": true
           }
         }
