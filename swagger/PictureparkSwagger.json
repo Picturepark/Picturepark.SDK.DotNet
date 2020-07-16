@@ -21255,6 +21255,50 @@
           }
         ]
       },
+      "ReshardIndexNotAllowedException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "ReshardNumberOfShardsInvalidException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "ReshardNumberOfRoutingShardsInvalidException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ReshardNumberOfShardsInvalidException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "ReshardNumberOfShardsInvalidForExistingRoutingShardsException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ReshardNumberOfShardsInvalidException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
       "ConfigurationIndexNotFoundException": {
         "allOf": [
           {
@@ -24537,13 +24581,15 @@
           "AddMetadataLanguage",
           "CustomerUpdate",
           "EnvironmentUpdate",
-          "CustomerBoostValuesUpdate"
+          "CustomerBoostValuesUpdate",
+          "CustomerReshard"
         ],
         "enum": [
           "AddMetadataLanguage",
           "CustomerUpdate",
           "EnvironmentUpdate",
-          "CustomerBoostValuesUpdate"
+          "CustomerBoostValuesUpdate",
+          "CustomerReshard"
         ]
       },
       "EnvironmentProcessNotFoundException": {

@@ -2527,6 +2527,10 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("CustomerAliasInUseException", typeof(CustomerAliasInUseException))]
     [JsonInheritanceAttribute("CustomerBoostValuesInvalidException", typeof(CustomerBoostValuesInvalidException))]
     [JsonInheritanceAttribute("SnapshotRetentionTimeTooShortException", typeof(SnapshotRetentionTimeTooShortException))]
+    [JsonInheritanceAttribute("ReshardIndexNotAllowedException", typeof(ReshardIndexNotAllowedException))]
+    [JsonInheritanceAttribute("ReshardNumberOfShardsInvalidException", typeof(ReshardNumberOfShardsInvalidException))]
+    [JsonInheritanceAttribute("ReshardNumberOfRoutingShardsInvalidException", typeof(ReshardNumberOfRoutingShardsInvalidException))]
+    [JsonInheritanceAttribute("ReshardNumberOfShardsInvalidForExistingRoutingShardsException", typeof(ReshardNumberOfShardsInvalidForExistingRoutingShardsException))]
     [JsonInheritanceAttribute("DuplicateSearchIndexDocException", typeof(DuplicateSearchIndexDocException))]
     [JsonInheritanceAttribute("SearchIndexDocNotFoundException", typeof(SearchIndexDocNotFoundException))]
     [JsonInheritanceAttribute("IndexDocumentNotFoundException", typeof(IndexDocumentNotFoundException))]
@@ -4486,6 +4490,70 @@ namespace Picturepark.SDK.V1.Contract
         public static SnapshotRetentionTimeTooShortException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<SnapshotRetentionTimeTooShortException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class ReshardIndexNotAllowedException : PictureparkValidationException
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static ReshardIndexNotAllowedException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ReshardIndexNotAllowedException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class ReshardNumberOfShardsInvalidException : PictureparkValidationException
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static ReshardNumberOfShardsInvalidException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ReshardNumberOfShardsInvalidException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class ReshardNumberOfRoutingShardsInvalidException : ReshardNumberOfShardsInvalidException
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static ReshardNumberOfRoutingShardsInvalidException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ReshardNumberOfRoutingShardsInvalidException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class ReshardNumberOfShardsInvalidForExistingRoutingShardsException : ReshardNumberOfShardsInvalidException
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static ReshardNumberOfShardsInvalidForExistingRoutingShardsException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ReshardNumberOfShardsInvalidForExistingRoutingShardsException>(data);
         }
     
     }
@@ -7960,6 +8028,9 @@ namespace Picturepark.SDK.V1.Contract
     
         [System.Runtime.Serialization.EnumMember(Value = @"CustomerBoostValuesUpdate")]
         CustomerBoostValuesUpdate = 3,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"CustomerReshard")]
+        CustomerReshard = 4,
     
     }
     
