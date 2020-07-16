@@ -2924,7 +2924,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     [Newtonsoft.Json.JsonObjectAttribute]
-    public partial class CustomerAliasInUseException : PictureparkBusinessException
+    public partial class CustomerAliasInUseException : PictureparkValidationException
     {
         [Newtonsoft.Json.JsonProperty("existingCustomerId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ExistingCustomerId { get; set; }

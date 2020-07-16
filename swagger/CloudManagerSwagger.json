@@ -8707,7 +8707,7 @@
       "CustomerAliasInUseException": {
         "allOf": [
           {
-            "$ref": "#/components/schemas/PictureparkBusinessException"
+            "$ref": "#/components/schemas/PictureparkValidationException"
           },
           {
             "type": "object",
