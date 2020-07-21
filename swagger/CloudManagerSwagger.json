@@ -7738,7 +7738,7 @@
           }
         ]
       },
-      "UnableToChangeUserRolesForFederatedUser": {
+      "UnableToChangeMappedUserRolesForFederatedUserException": {
         "allOf": [
           {
             "$ref": "#/components/schemas/PictureparkValidationException"
@@ -7750,6 +7750,13 @@
               "affectedUserId": {
                 "type": "string",
                 "nullable": true
+              },
+              "userRoleIds": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "type": "string"
+                }
               }
             }
           }

@@ -2481,7 +2481,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("UserDoesNotSupportLocalLoginException", typeof(UserDoesNotSupportLocalLoginException))]
     [JsonInheritanceAttribute("UserAttributeNotSynchronizableException", typeof(UserAttributeNotSynchronizableException))]
     [JsonInheritanceAttribute("UnableToMapMultipleClaimTypesIntoSameAttributeException", typeof(UnableToMapMultipleClaimTypesIntoSameAttributeException))]
-    [JsonInheritanceAttribute("UnableToChangeUserRolesForFederatedUser", typeof(UnableToChangeUserRolesForFederatedUser))]
+    [JsonInheritanceAttribute("UnableToChangeMappedUserRolesForFederatedUserException", typeof(UnableToChangeMappedUserRolesForFederatedUserException))]
     [JsonInheritanceAttribute("UnableToDeleteDefaultUserRoleException", typeof(UnableToDeleteDefaultUserRoleException))]
     [JsonInheritanceAttribute("UnableToDeleteUserRoleReferencedInIdentityProviderGroupMappingException", typeof(UnableToDeleteUserRoleReferencedInIdentityProviderGroupMappingException))]
     [JsonInheritanceAttribute("RenderingException", typeof(RenderingException))]
@@ -3219,19 +3219,22 @@ namespace Picturepark.SDK.V1.Contract
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     [Newtonsoft.Json.JsonObjectAttribute]
-    public partial class UnableToChangeUserRolesForFederatedUser : PictureparkValidationException
+    public partial class UnableToChangeMappedUserRolesForFederatedUserException : PictureparkValidationException
     {
         [Newtonsoft.Json.JsonProperty("affectedUserId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string AffectedUserId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("userRoleIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> UserRoleIds { get; set; }
     
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
         }
     
-        public static UnableToChangeUserRolesForFederatedUser FromJson(string data)
+        public static UnableToChangeMappedUserRolesForFederatedUserException FromJson(string data)
         {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<UnableToChangeUserRolesForFederatedUser>(data);
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<UnableToChangeMappedUserRolesForFederatedUserException>(data);
         }
     
     }
@@ -23453,8 +23456,28 @@ namespace Picturepark.SDK.V1.Contract
     
     /// <summary>Detail information about a user.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
-    public partial class UserDetail : UserUpdateRequest
+    public partial class UserDetail : User
     {
+        /// <summary>User roles the user should be assigned to. Overwrites the original user roles.</summary>
+        [Newtonsoft.Json.JsonProperty("userRoles", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<UserRoleAssignment> UserRoles { get; set; }
+    
+        /// <summary>Comment saved for the user.</summary>
+        [Newtonsoft.Json.JsonProperty("comment", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Comment { get; set; }
+    
+        /// <summary>Preferred language, e.g. for correspondence.</summary>
+        [Newtonsoft.Json.JsonProperty("languageCode", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string LanguageCode { get; set; }
+    
+        /// <summary>User's address.</summary>
+        [Newtonsoft.Json.JsonProperty("address", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public UserAddress Address { get; set; }
+    
+        /// <summary>Identity provider that governs this user or null for Picturepark's own IdentityServer.</summary>
+        [Newtonsoft.Json.JsonProperty("identityProviderId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string IdentityProviderId { get; set; }
+    
         /// <summary>Owner tokens referencing the user.</summary>
         [Newtonsoft.Json.JsonProperty("ownerTokens", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<OwnerToken> OwnerTokens { get; set; }
@@ -23497,6 +23520,29 @@ namespace Picturepark.SDK.V1.Contract
         public static UserDetail FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<UserDetail>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class UserRoleAssignment 
+    {
+        /// <summary>User role assigned.</summary>
+        [Newtonsoft.Json.JsonProperty("userRole", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public UserRole UserRole { get; set; }
+    
+        /// <summary>Marks user roles that were assigned automatically to a federated user based on group mapping of a federated identity provider.</summary>
+        [Newtonsoft.Json.JsonProperty("isFederated", Required = Newtonsoft.Json.Required.Always)]
+        public bool IsFederated { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static UserRoleAssignment FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<UserRoleAssignment>(data);
         }
     
     }
