@@ -20195,6 +20195,27 @@
           }
         ]
       },
+      "UserPropertyChangeNotSupportedException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "propertyPath": {
+                "type": "string",
+                "nullable": true
+              },
+              "affectedUserId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
       "RenderingException": {
         "allOf": [
           {
