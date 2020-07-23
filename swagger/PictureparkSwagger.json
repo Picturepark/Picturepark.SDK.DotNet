@@ -24013,6 +24013,102 @@
           }
         ]
       },
+      "SchemaFieldReferencedSchemaChangeNotAllowedException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "schemaId": {
+                "type": "string",
+                "nullable": true
+              },
+              "fieldId": {
+                "type": "string",
+                "nullable": true
+              },
+              "oldReferencedSchemaId": {
+                "type": "string",
+                "nullable": true
+              },
+              "newReferencedSchemaId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "SchemaFieldReferencedSchemaSystemSchemaException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "schemaId": {
+                "type": "string",
+                "nullable": true
+              },
+              "fieldId": {
+                "type": "string",
+                "nullable": true
+              },
+              "referencedSchemaId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "SchemaFieldRelationRelationTypeIdModificationNotAllowedException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "schemaId": {
+                "type": "string",
+                "nullable": true
+              },
+              "fieldId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "SchemaFieldRelationTargetDocTypeModificationNotAllowedException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "schemaId": {
+                "type": "string",
+                "nullable": true
+              },
+              "fieldId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
       "DeleteContentsWithReferencesException": {
         "allOf": [
           {
