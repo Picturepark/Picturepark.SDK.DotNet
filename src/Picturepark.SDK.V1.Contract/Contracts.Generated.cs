@@ -2484,6 +2484,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("UnableToChangeMappedUserRolesForFederatedUserException", typeof(UnableToChangeMappedUserRolesForFederatedUserException))]
     [JsonInheritanceAttribute("UnableToDeleteDefaultUserRoleException", typeof(UnableToDeleteDefaultUserRoleException))]
     [JsonInheritanceAttribute("UnableToDeleteUserRoleReferencedInIdentityProviderGroupMappingException", typeof(UnableToDeleteUserRoleReferencedInIdentityProviderGroupMappingException))]
+    [JsonInheritanceAttribute("UserPropertyChangeNotSupportedException", typeof(UserPropertyChangeNotSupportedException))]
     [JsonInheritanceAttribute("RenderingException", typeof(RenderingException))]
     [JsonInheritanceAttribute("FormatNotApplicableForRenderingException", typeof(FormatNotApplicableForRenderingException))]
     [JsonInheritanceAttribute("DocumentVersionNotFoundException", typeof(DocumentVersionNotFoundException))]
@@ -3274,6 +3275,28 @@ namespace Picturepark.SDK.V1.Contract
         public static UnableToDeleteUserRoleReferencedInIdentityProviderGroupMappingException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<UnableToDeleteUserRoleReferencedInIdentityProviderGroupMappingException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class UserPropertyChangeNotSupportedException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("propertyPath", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string PropertyPath { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("affectedUserId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string AffectedUserId { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static UserPropertyChangeNotSupportedException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<UserPropertyChangeNotSupportedException>(data);
         }
     
     }
