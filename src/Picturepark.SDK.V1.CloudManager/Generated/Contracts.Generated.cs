@@ -12277,17 +12277,14 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [System.Runtime.Serialization.EnumMember(Value = @"InProgress")]
         InProgress = 1,
     
-        [System.Runtime.Serialization.EnumMember(Value = @"CustomerExported")]
-        CustomerExported = 2,
-    
         [System.Runtime.Serialization.EnumMember(Value = @"Succeeded")]
-        Succeeded = 3,
+        Succeeded = 2,
     
         [System.Runtime.Serialization.EnumMember(Value = @"Cancelled")]
-        Cancelled = 4,
+        Cancelled = 3,
     
         [System.Runtime.Serialization.EnumMember(Value = @"Failed")]
-        Failed = 5,
+        Failed = 4,
     
     }
     

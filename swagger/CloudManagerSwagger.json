@@ -17945,7 +17945,6 @@
         "x-enumNames": [
           "Draft",
           "InProgress",
-          "CustomerExported",
           "Succeeded",
           "Cancelled",
           "Failed"
@@ -17953,7 +17952,6 @@
         "enum": [
           "Draft",
           "InProgress",
-          "CustomerExported",
           "Succeeded",
           "Cancelled",
           "Failed"
