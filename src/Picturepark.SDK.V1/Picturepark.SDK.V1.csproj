@@ -5,7 +5,7 @@
     <Description>Picturepark .NET SDK: The client implementations to access the Picturepark backend.</Description>
     <AssemblyTitle>Picturepark.SDK.V1</AssemblyTitle>
     <TargetFrameworks>netstandard1.3;net45;netstandard2.0</TargetFrameworks>
-    <NoWarn>$(NoWarn);CS1591;SA1600;SA1601</NoWarn>
+    <NoWarn>$(NoWarn);CS1591;SA1600;SA1601;CS0618</NoWarn>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <AssemblyName>Picturepark.SDK.V1</AssemblyName>
     <PackageId>Picturepark.SDK.V1</PackageId>

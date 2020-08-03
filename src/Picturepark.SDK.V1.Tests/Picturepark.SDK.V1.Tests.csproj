@@ -16,6 +16,7 @@
     <ApplicationIcon />
     <StartupObject />
     <LangVersion>7.1</LangVersion>
+    <NoWarn>$(NoWarn);CS0618</NoWarn>
   </PropertyGroup>
 
   <ItemGroup>
