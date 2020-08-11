@@ -169,7 +169,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        System.Threading.Tasks.Task<ContentBackupSearchResult> SearchMissingAsync(ContentBackupSearchRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ContentBackupSearchResult> SearchMissingOriginalsAsync(ContentBackupSearchRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
@@ -9106,7 +9106,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
     }
     
-    /// <summary>Request to search aggregation values for Contents</summary>
+    /// <summary>Request to search for outputs that are not yet marked as backed up.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class ContentBackupSearchRequest 
     {
