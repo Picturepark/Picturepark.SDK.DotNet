@@ -1392,12 +1392,12 @@
         }
       }
     },
-    "/ContentBackup/contents/searchMissing": {
+    "/ContentBackup/outputs/searchMissingOriginals": {
       "post": {
         "tags": [
           "ContentBackup"
         ],
-        "operationId": "ContentBackup_SearchMissing",
+        "operationId": "ContentBackup_SearchMissingOriginals",
         "requestBody": {
           "x-name": "request",
           "content": {
@@ -14492,7 +14492,7 @@
       },
       "ContentBackupSearchRequest": {
         "type": "object",
-        "description": "Request to search aggregation values for Contents",
+        "description": "Request to search for outputs that are not yet marked as backed up.",
         "additionalProperties": false,
         "required": [
           "exclusionTime",
