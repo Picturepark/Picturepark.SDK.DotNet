@@ -444,15 +444,17 @@ namespace Picturepark.SDK.V1.Conversion
 
             if (property.IsDictionary)
             {
-                if (property.TypeName == "TranslatedStringDictionary")
+                if (property.TypeName == nameof(TranslatedStringDictionary))
                 {
+                    var translatedStringAttribute = property.PictureparkAttributes.OfType<PictureparkTranslatedStringAttribute>().SingleOrDefault();
+
                     field = new FieldTranslatedString
                     {
                         Required = false,
                         Fixed = false,
                         Index = true,
                         SimpleSearch = true,
-                        MultiLine = false,
+                        MultiLine = translatedStringAttribute?.MultiLine ?? default,
                         Boost = 1,
                         IndexAnalyzers = new List<AnalyzerBase>
                         {
@@ -461,7 +463,8 @@ namespace Picturepark.SDK.V1.Conversion
                         SimpleSearchAnalyzers = new List<AnalyzerBase>
                         {
                             new LanguageAnalyzer()
-                        }
+                        },
+                        RenderingType = translatedStringAttribute?.RenderingType ?? default
                     };
                 }
                 else if (property.IsArray)
@@ -535,7 +538,8 @@ namespace Picturepark.SDK.V1.Conversion
                                 {
                                     new SimpleAnalyzer()
                                 },
-                                MultiLine = stringInfos?.MultiLine ?? false
+                                MultiLine = stringInfos?.MultiLine ?? false,
+                                RenderingType = stringInfos?.RenderingType ?? default
                             };
                             break;
                         case TypeCode.DateTime:
