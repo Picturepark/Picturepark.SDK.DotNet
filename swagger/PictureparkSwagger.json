@@ -37319,7 +37319,7 @@
               },
               "minimumLength": {
                 "type": "integer",
-                "description": "The minimum string's lenght.",
+                "description": "The minimum string's length.",
                 "format": "int32",
                 "nullable": true
               },
@@ -37362,6 +37362,14 @@
                 "description": "Value to prioritize search results. Set to 1 by default. Ignored if SimpleSearch not set to true.",
                 "format": "double",
                 "default": 1
+              },
+              "renderingType": {
+                "description": "Stores information on how values of this field should be rendered",
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/StringRenderingType"
+                  }
+                ]
               }
             }
           }
@@ -37526,6 +37534,18 @@
           }
         ]
       },
+      "StringRenderingType": {
+        "type": "string",
+        "description": "Describes how a string value should be rendered",
+        "x-enumNames": [
+          "None",
+          "Markdown"
+        ],
+        "enum": [
+          "None",
+          "Markdown"
+        ]
+      },
       "FieldStringArray": {
         "allOf": [
           {
@@ -37569,7 +37589,7 @@
               },
               "minimumLength": {
                 "type": "integer",
-                "description": "The minimum string's lenght.",
+                "description": "The minimum string's length.",
                 "format": "int32",
                 "nullable": true
               },
@@ -37617,6 +37637,14 @@
                 "description": "Value to prioritize search results. Set to 1 by default. Ignored if SimpleSearch not set to true.",
                 "format": "double",
                 "default": 1
+              },
+              "renderingType": {
+                "description": "Stores information on how values of this field should be rendered",
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/StringRenderingType"
+                  }
+                ]
               }
             }
           }
