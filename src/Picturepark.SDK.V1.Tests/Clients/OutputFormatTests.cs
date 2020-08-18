@@ -71,6 +71,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         {
             // Arrange
             var outputFormat = await _fixture.CreateOutputFormat().ConfigureAwait(false);
+            const int updatedJpegQuality = 42;
 
             var update = new OutputFormatEditable
             {
@@ -79,7 +80,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 RetentionTime = outputFormat.RetentionTime,
                 SourceOutputFormats = outputFormat.SourceOutputFormats
             };
-            update.Format.As<JpegFormat>().IsProgressive = true;
+            update.Format.As<JpegFormat>().Quality = updatedJpegQuality;
             update.SourceOutputFormats.Audio = "Preview";
 
             // Act
@@ -89,7 +90,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             // Assert
             result.Should().NotBeNull();
-            result.Format.As<JpegFormat>().IsProgressive.Should().BeTrue();
+            result.Format.As<JpegFormat>().Quality.Should().Be(updatedJpegQuality);
             result.SourceOutputFormats.Audio.Should().Be("Preview");
 
             result.Audit.CreatedByUser.Should().BeResolved();
@@ -97,7 +98,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             var verifyOutputFormat = await _client.OutputFormat.GetAsync(outputFormat.Id).ConfigureAwait(false);
 
-            verifyOutputFormat.Format.As<JpegFormat>().IsProgressive.Should().BeTrue();
+            verifyOutputFormat.Format.As<JpegFormat>().Quality.Should().Be(updatedJpegQuality);
             verifyOutputFormat.SourceOutputFormats.Audio.Should().Be("Preview");
         }
 
@@ -119,7 +120,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                     RetentionTime = of.RetentionTime,
                     SourceOutputFormats = of.SourceOutputFormats
                 };
-                request.Format.As<JpegFormat>().IsProgressive = true;
+                request.Format.As<JpegFormat>().HorizontalResolution = (i + 1) * 100;
                 request.SourceOutputFormats.Audio = "Preview";
                 request.Format.As<JpegFormat>().Quality = i;
                 request.DownloadFileNamePatterns = new TranslatedStringDictionary
@@ -144,7 +145,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             for (var j = 0; j < outputFormats.Count; j++)
             {
                 var verifyFormat = verifyOutputFormats.Should().ContainSingle(of => of.Id == outputFormats[j].Id).Subject;
-                verifyFormat.Format.As<JpegFormat>().IsProgressive.Should().BeTrue();
+                verifyFormat.Format.As<JpegFormat>().HorizontalResolution.Should().Be((j + 1) * 100);
                 verifyFormat.Format.As<JpegFormat>().Quality.Should().Be(j);
                 verifyFormat.SourceOutputFormats.Audio.Should().Be("Preview");
                 verifyFormat.DownloadFileNamePatterns[_fixture.DefaultLanguage].Should().Be("{{ fileNamePattern }} (updated)");

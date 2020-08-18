@@ -1,7 +1,5 @@
 ﻿using System.Linq;
 using System.Threading.Tasks;
-using Newtonsoft.Json;
-using NJsonSchema.Converters;
 using Picturepark.SDK.V1.Contract;
 using Picturepark.SDK.V1.Contract.Attributes;
 using Picturepark.SDK.V1.Tests.Fixtures;
@@ -52,7 +50,6 @@ namespace Picturepark.SDK.V1.Tests.Conversion
 
         [PictureparkReference]
         [PictureparkSchema(SchemaType.List)]
-        [JsonConverter(typeof(JsonInheritanceConverter), "kind")]
         public class Person
         {
             public string FirstName { get; set; }
