@@ -23,7 +23,7 @@ namespace Picturepark.SDK.V1.Tests
 
             await client.Schema.CreateManyAsync(schemasToCreate, true, TimeSpan.FromMinutes(1)).ConfigureAwait(false);
 
-            var schemaId = typeof(T).Name;
+            var schemaId = Metadata.ResolveSchemaId(typeof(T));
             return await client.Schema.GetAsync(schemaId).ConfigureAwait(false);
         }
     }

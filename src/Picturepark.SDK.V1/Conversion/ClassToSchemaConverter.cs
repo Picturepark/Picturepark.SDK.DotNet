@@ -136,7 +136,7 @@ namespace Picturepark.SDK.V1.Conversion
                             {
                                 propertyInfo.IsArray = typeInfo.ImplementedInterfaces.Contains(typeof(IList));
                                 propertyInfo.IsDictionary = true;
-                                propertyInfo.TypeName = property.PropertyType.Name;
+                                propertyInfo.TypeName = ResolveSchemaId(property.PropertyType);
                             }
                             else
                             {
@@ -148,7 +148,7 @@ namespace Picturepark.SDK.V1.Conversion
                                 }
                                 else
                                 {
-                                    propertyInfo.TypeName = propertyGenericArg.Name;
+                                    propertyInfo.TypeName = ResolveSchemaId(propertyGenericArg);
                                     typesToReflect.Push(propertyGenericArg);
                                 }
 
@@ -163,7 +163,7 @@ namespace Picturepark.SDK.V1.Conversion
                         }
                         else
                         {
-                            propertyInfo.TypeName = property.PropertyType.Name;
+                            propertyInfo.TypeName = ResolveSchemaId(property.PropertyType);
                             if (typeInfo.GetCustomAttribute<PictureparkReferenceAttribute>() != null)
                             {
                                 propertyInfo.IsReference = true;

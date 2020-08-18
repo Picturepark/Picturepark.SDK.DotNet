@@ -157,7 +157,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             user.Address.City = city;
 
             // Act
-            var updatedUserResponse = await _client.User.UpdateAsync(user.Id, user).ConfigureAwait(false);
+            var updatedUserResponse = await _client.User.UpdateAsync(user.Id, user.AsUpdateRequest()).ConfigureAwait(false);
             var updatedUser = await _client.User.GetAsync(user.Id).ConfigureAwait(false);
 
             // Assert
@@ -267,11 +267,19 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 Filter = FilterBase.FromExpression<User>(u => u.Id, users.Select(u => u.Id).ToArray()),
                 Aggregators = new List<AggregatorBase>
                 {
-                    new TermsRelationAggregator
+                    new NestedAggregator
                     {
-                        DocumentType = TermsRelationAggregatorDocumentType.UserRole,
-                        Name = "roles",
-                        Field = nameof(UserWithRoles.UserRoleIds).ToLowerCamelCase()
+                        Path = nameof(UserDetail.UserRoles).ToLowerCamelCase(),
+                        Name = "roles-nested",
+                        Aggregators = new[]
+                        {
+                            new TermsRelationAggregator
+                            {
+                                DocumentType = TermsRelationAggregatorDocumentType.UserRole,
+                                Name = "roles",
+                                Field = $"{nameof(UserDetail.UserRoles).ToLowerCamelCase()}.userRoleId"
+                            }
+                        }
                     }
                 }
             }).ConfigureAwait(false);
@@ -279,8 +287,9 @@ namespace Picturepark.SDK.V1.Tests.Clients
             // Assert
             result.Results.Should().HaveCount(users.Count);
 
-            var aggregationResult = result.AggregationResults.Should()
-                .ContainSingle(aggResult => aggResult.Name == "roles").Which;
+            var aggregationResult = result.AggregationResults.Should().ContainSingle(aggResult => aggResult.Name == "roles-nested")
+                .Which.AggregationResultItems.Should().ContainSingle().Which.AggregationResults.Should()
+                .ContainSingle(aggResult => aggResult.Name == "roles").Subject;
             aggregationResult.AggregationResultItems.Count.Should().Be(2);
 
             aggregationResult.AggregationResultItems.Should()

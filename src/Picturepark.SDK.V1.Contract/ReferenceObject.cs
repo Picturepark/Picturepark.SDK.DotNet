@@ -2,6 +2,7 @@
 
 namespace Picturepark.SDK.V1.Contract
 {
+    [JsonConverter(typeof(ReferenceObjectConverter))]
     public abstract class ReferenceObject : IReferenceObject
     {
         [JsonProperty("_refId", NullValueHandling = NullValueHandling.Ignore)]

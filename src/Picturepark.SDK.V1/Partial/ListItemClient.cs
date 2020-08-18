@@ -220,7 +220,7 @@ namespace Picturepark.SDK.V1
                             var refObject = value as IReferenceObject;
                             if (refObject == null || (string.IsNullOrEmpty(refObject.RefId) && string.IsNullOrEmpty(refObject.RefRequestId)))
                             {
-                                var schemaId = value.GetType().Name;
+                                var schemaId = Metadata.ResolveSchemaId(value.GetType());
 
                                 // Add metadata object if it does not already exist
                                 if (referencedListItems.Where(i => i.ContentSchemaId == schemaId).Select(i => i.Content).All(i => i != value))
@@ -249,7 +249,7 @@ namespace Picturepark.SDK.V1
                         var refObject = value as IReferenceObject;
                         if (refObject == null || (string.IsNullOrEmpty(refObject.RefId) && string.IsNullOrEmpty(refObject.RefRequestId)))
                         {
-                            var schemaId = value.GetType().Name;
+                            var schemaId = Metadata.ResolveSchemaId(value.GetType());
 
                             var hasValueBeenAdded = referencedListItems
                                 .Any(i => i.ContentSchemaId == schemaId && i.Content == value);

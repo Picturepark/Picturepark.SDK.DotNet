@@ -1,5 +1,4 @@
 ﻿using Newtonsoft.Json;
-using NJsonSchema.Converters;
 using Picturepark.SDK.V1.Contract;
 using Picturepark.SDK.V1.Contract.Attributes;
 using System;
@@ -14,7 +13,6 @@ namespace Picturepark.SDK.V1.Tests.Contracts
     [KnownType(typeof(SoccerPlayer))]
     [KnownType(typeof(SoccerTrainer))]
     [PictureparkSchema(SchemaType.List)]
-    [JsonConverter(typeof(JsonInheritanceConverter), "kind")]
     [PictureparkDisplayPattern(DisplayPatternType.Name, TemplateEngine.DotLiquid, "{{data.person.firstname}} {{data.person.lastName}}")]
     [PictureparkDisplayPattern(DisplayPatternType.List, TemplateEngine.DotLiquid, "{{data.person.firstname}} {{data.person.lastName}}, {{data.person.emailAddress}}")]
     [PictureparkDisplayPattern(DisplayPatternType.Thumbnail, TemplateEngine.DotLiquid, "{{data.person.firstname}} {{data.person.lastName}}")]
@@ -58,6 +56,7 @@ namespace Picturepark.SDK.V1.Tests.Contracts
         public List<AddressesPlus> AddressesPlus { get; set; }
     }
 
+    [PictureparkSchema(SchemaType.List, "SeniorSoccerTrainer")]
     public class SoccerTrainer : Person
     {
         [PictureparkDate]
@@ -85,7 +84,9 @@ namespace Picturepark.SDK.V1.Tests.Contracts
     }
 
     [PictureparkReference]
-    [PictureparkSchema(SchemaType.List)]
+    [KnownType(typeof(LeagueClub))]
+    [KnownType(typeof(SchoolClub))]
+    [PictureparkSchema(SchemaType.List, "ClubId")]
     public class Club : ReferenceObject
     {
         [MaxLength(10)]
@@ -94,10 +95,21 @@ namespace Picturepark.SDK.V1.Tests.Contracts
         public string Country { get; set; }
     }
 
+    [PictureparkSchema(SchemaType.List, "LeagueClubId")]
+    public class LeagueClub : Club
+    {
+        public string League { get; set; }
+    }
+
+    [PictureparkSchema(SchemaType.List, "SchoolClubId")]
+    public class SchoolClub : Club
+    {
+        public string School { get; set; }
+    }
+
     [PictureparkReference]
     [KnownType(typeof(Dog))]
     [KnownType(typeof(Cat))]
-    [JsonConverter(typeof(JsonInheritanceConverter), "kind")]
     [PictureparkSchema(SchemaType.List)]
     public class Pet : ReferenceObject
     {

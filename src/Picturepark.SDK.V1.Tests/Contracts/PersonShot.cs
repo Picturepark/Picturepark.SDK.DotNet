@@ -11,8 +11,6 @@ namespace Picturepark.SDK.V1.Tests.Contracts
     {
         public IReadOnlyList<Person> Persons { get; set; }
 
-        public IReadOnlyList<Country> Countries { get; set; }
-
         [PictureparkSimpleAnalyzer(SimpleSearch = true)]
         public string Description { get; set; }
 

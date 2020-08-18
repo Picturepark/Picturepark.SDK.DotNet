@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using FluentAssertions;
 using Newtonsoft.Json.Linq;
 using Picturepark.SDK.V1.Tests.Contracts;
+using Picturepark.SDK.V1.Tests.Helpers;
 using Xunit;
 
 namespace Picturepark.SDK.V1.Tests.Clients
@@ -638,28 +639,8 @@ namespace Picturepark.SDK.V1.Tests.Clients
             }
         }
 
-        private async Task<(CreateTransferResult, string fileId)> CreateFileTransferAsync()
-        {
-            var transferName = new Random().Next(1000, 9999).ToString();
-            var files = new FileLocations[]
-            {
-                Path.Combine(_fixture.ExampleFilesBasePath, "0030_JabLtzJl8bc.jpg")
-            };
-
-            var createTransferResult = await _client.Transfer.CreateAndWaitForCompletionAsync(transferName, files).ConfigureAwait(false);
-            await _client.Transfer.UploadFilesAsync(createTransferResult.Transfer, files, new UploadOptions()).ConfigureAwait(false);
-
-            var searchRequest = new FileTransferSearchRequest
-            {
-                Limit = 1,
-                SearchString = "*",
-                Filter = FilterBase.FromExpression<FileTransfer>(i => i.TransferId, createTransferResult.Transfer.Id)
-            };
-            var searchResult = await _client.Transfer.SearchFilesAsync(searchRequest).ConfigureAwait(false);
-            var fileId = searchResult.Results.ToList()[0].Id;
-
-            return (createTransferResult, fileId);
-        }
+        private Task<(CreateTransferResult, string fileId)> CreateFileTransferAsync() =>
+           TransferHelper.CreateSingleFileTransferAsync(_client, Path.Combine(_fixture.ExampleFilesBasePath, "0030_JabLtzJl8bc.jpg"));
 
         private async Task<CreateTransferResult> CreateWebTransferAsync(IReadOnlyList<string> urls)
         {

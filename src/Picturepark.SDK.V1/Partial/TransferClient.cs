@@ -242,7 +242,22 @@ namespace Picturepark.SDK.V1
             if (formFile == null)
                 throw new ArgumentNullException(nameof(formFile), "Parameter `formFile` cannot be null. You're probably using an obsolete method call.");
 
-            await UploadFileAsync(formFile, chunkNumber, currentChunkSize, totalSize, totalChunks, transferId, requestId, cancellationToken).ConfigureAwait(false);
+            await UploadFileAsync(chunkNumber, currentChunkSize, totalSize, totalChunks, transferId, requestId, formFile.Data, cancellationToken)
+                .ConfigureAwait(false);
+        }
+
+        public async Task UploadFileAsync(
+            FileParameter formFile,
+            long chunkNumber,
+            long currentChunkSize,
+            long totalSize,
+            long totalChunks,
+            string transferId,
+            string requestId,
+            CancellationToken cancellationToken = default(CancellationToken))
+        {
+            await UploadFileAsync(chunkNumber, currentChunkSize, totalSize, totalChunks, transferId, requestId, formFile.Data, cancellationToken)
+                .ConfigureAwait(false);
         }
 
         private async Task UploadFileAsync(SemaphoreSlim chunkLimiter, string transferId, string identifier, FileLocations fileLocation, int chunkSize, CancellationToken cancellationToken = default)

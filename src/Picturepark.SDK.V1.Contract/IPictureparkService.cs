@@ -49,5 +49,7 @@ namespace Picturepark.SDK.V1.Contract
         IMetadataClient Metadata { get; }
 
         IIdentityProviderClient IdentityProvider { get; }
+
+        IXmpMappingClient XmpMapping { get; }
     }
 }

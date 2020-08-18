@@ -20,6 +20,7 @@
 	  <LangVersion>7.1</LangVersion>
   </PropertyGroup>
   <ItemGroup>
+    <PackageReference Include="Microsoft.CSharp" Version="4.3.0" />
     <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
     <PackageReference Include="Nerdbank.GitVersioning" Version="2.3.38">
       <PrivateAssets>All</PrivateAssets>

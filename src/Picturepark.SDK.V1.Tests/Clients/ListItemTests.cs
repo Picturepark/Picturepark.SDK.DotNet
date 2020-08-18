@@ -177,25 +177,83 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
         [Fact]
         [Trait("Stack", "ListItem")]
-        public async Task ShouldCreateWithHelper()
+        public async Task ShouldCreateWithHelperContainingBaseClassOfInheritance()
         {
             // Arrange
-            var tag = new Tag
-            {
-                Name = "ThisObjectB" + new Random().Next(0, 999999)
-            };
+            var pet = new Pet { Name = "Pet" + new Random().Next(0, 999999) };
 
             // Act
-            var createResult = await _client.ListItem.CreateFromObjectAsync(tag).ConfigureAwait(false);
-            var createDetail = await createResult.FetchDetail().ConfigureAwait(false);
+            var petCreateResult = await _client.ListItem.CreateFromObjectAsync(pet).ConfigureAwait(false);
+            var petCreateDetail = await petCreateResult.FetchDetail(new[] { ListItemResolveBehavior.Content, ListItemResolveBehavior.LinkedListItems }).ConfigureAwait(false);
+            var petListItem = petCreateDetail.SucceededItems.First().Item;
 
             // Assert
-            Assert.Single(createDetail.SucceededItems);
+            var petObject = petListItem.ConvertTo<Pet>();
+            petObject.Name.Should().Be(pet.Name);
         }
 
         [Fact]
         [Trait("Stack", "ListItem")]
-        public async Task ShouldCreateComplexObjectWithHelper()
+        public async Task ShouldCreateWithHelperContainingInheritedClass1()
+        {
+            // Arrange
+            var dog = new Dog { Name = "Dog" + new Random().Next(0, 999999), PlaysCatch = true };
+
+            // Act
+            var dogCreateResult = await _client.ListItem.CreateFromObjectAsync(dog).ConfigureAwait(false);
+            var dogCreateDetail = await dogCreateResult.FetchDetail(new[] { ListItemResolveBehavior.Content, ListItemResolveBehavior.LinkedListItems }).ConfigureAwait(false);
+            var dogListItem = dogCreateDetail.SucceededItems.First().Item;
+
+            // Assert
+            var dogObject = dogListItem.ConvertTo<Dog>();
+            dogObject.PlaysCatch.Should().BeTrue();
+        }
+
+        [Fact]
+        [Trait("Stack", "ListItem")]
+        public async Task ShouldCreateWithHelperContainingInheritedClass2()
+        {
+            // Arrange
+            var cat = new Cat { Name = "Cat" + new Random().Next(0, 999999), ChasesLaser = true };
+
+            // Act
+            var catCreateResult = await _client.ListItem.CreateFromObjectAsync(cat).ConfigureAwait(false);
+            var catCreateDetail = await catCreateResult.FetchDetail(new[] { ListItemResolveBehavior.Content, ListItemResolveBehavior.LinkedListItems }).ConfigureAwait(false);
+            var catListItem = catCreateDetail.SucceededItems.First().Item;
+
+            // Assert
+            var catObject = catListItem.ConvertTo<Cat>();
+            catObject.ChasesLaser.Should().BeTrue();
+        }
+
+        [Fact]
+        [Trait("Stack", "ListItem")]
+        public async Task ShouldCreateObjectWithHelperContainingBaseClassOfInheritance()
+        {
+            // Arrange
+            await SchemaHelper.CreateSchemasIfNotExistentAsync<Person>(_client).ConfigureAwait(false);
+
+            // Act
+            var personResult = await _client.ListItem.CreateFromObjectAsync(
+                new Person
+                {
+                    BirthDate = DateTime.Now,
+                    EmailAddress = "xyyyy@teyyyyyyst.com",
+                    Firstname = "Urxxxxs",
+                    LastName = "xxxxxxxx"
+                }).ConfigureAwait(false);
+
+            var personDetail = await personResult.FetchDetail(new[] { ListItemResolveBehavior.Content, ListItemResolveBehavior.LinkedListItems }).ConfigureAwait(false);
+
+            // Assert
+            personDetail.SucceededItems.Should().NotBeEmpty();
+            var person = personDetail.SucceededItems.First().Item.ConvertTo<Person>();
+            person.EmailAddress.Should().Be("xyyyy@teyyyyyyst.com");
+        }
+
+        [Fact]
+        [Trait("Stack", "ListItem")]
+        public async Task ShouldCreateComplexObjectWithHelperContainingInheritance()
         {
             // Arrange
             await SchemaHelper.CreateSchemasIfNotExistentAsync<Person>(_client).ConfigureAwait(false);
@@ -244,7 +302,56 @@ namespace Picturepark.SDK.V1.Tests.Clients
                     }
                 }).ConfigureAwait(false);
 
-            var soccerPlayerDetail = await soccerPlayerResult.FetchDetail().ConfigureAwait(false);
+            var soccerPlayerDetail = await soccerPlayerResult.FetchDetail(new[] { ListItemResolveBehavior.Content, ListItemResolveBehavior.LinkedListItems }).ConfigureAwait(false);
+
+            // Assert
+            soccerPlayerDetail.SucceededItems.Should().NotBeEmpty();
+            foreach (var succeededItem in soccerPlayerDetail.SucceededItems)
+            {
+                var listItemDetail = succeededItem.Item;
+                if (listItemDetail.ContentSchemaId == "SoccerPlayer")
+                {
+                    var soccerPlayer = listItemDetail.ConvertTo<SoccerPlayer>();
+                    soccerPlayer.OwnsPets.First(p => p.Name == "Catname1").Should().BeOfType<Cat>().Subject.ChasesLaser.Should().BeTrue();
+                    soccerPlayer.OwnsPets.First(p => p.Name == "Dogname1").Should().BeOfType<Dog>().Subject.PlaysCatch.Should().BeTrue();
+                    soccerPlayer.Addresses.First().SecurityPet.Should().BeOfType<Dog>().Subject.PlaysCatch.Should().BeTrue();
+                    soccerPlayer.AddressesPlus.First().SecurityPet.Should().BeOfType<Dog>().Subject.PlaysCatch.Should().BeTrue();
+                }
+
+                if (listItemDetail.ContentSchemaId == "Cat")
+                {
+                    var cat = listItemDetail.ConvertTo<Cat>();
+                    cat.ChasesLaser.Should().BeTrue();
+
+                    var pet = listItemDetail.ConvertTo<Pet>();
+                    pet.Name.Should().Be("Catname1");
+                    ((Cat)pet).ChasesLaser.Should().BeTrue();
+                }
+
+                if (listItemDetail.ContentSchemaId == "Dog")
+                {
+                    var dogObject = listItemDetail.ConvertTo<Dog>();
+                    dogObject.PlaysCatch.Should().BeTrue();
+
+                    var pet = listItemDetail.ConvertTo<Pet>();
+                    pet.Name.Should().Be(dog.Name);
+                    ((Dog)pet).PlaysCatch.Should().BeTrue();
+                }
+            }
+        }
+
+        [Fact]
+        [Trait("Stack", "ListItem")]
+        public async Task ShouldCreateComplexObjectWithHelperContainingInheritanceWithSchemaIdsDifferentFromStrongTypes()
+        {
+            // Arrange
+            await SchemaHelper.CreateSchemasIfNotExistentAsync<Person>(_client).ConfigureAwait(false);
+
+            // Act
+            var club = new Club { Country = "Country1", Name = "Name1" };
+            var leagueClub = new LeagueClub { Country = "Country2", Name = "Club2", League = "League2" };
+            var schoolClub = new SchoolClub { Country = "Country3", Name = "Name3", School = "School3" };
+
             var soccerTrainerResult = await _client.ListItem.CreateFromObjectAsync(
                 new SoccerTrainer
                 {
@@ -252,26 +359,59 @@ namespace Picturepark.SDK.V1.Tests.Clients
                     EmailAddress = "xyyyy@teyyyyyyst.com",
                     Firstname = "Urxxxxs",
                     LastName = "xxxxxxxx",
-                    TrainerSince = new DateTime(2000, 1, 1)
+                    TrainerSince = new DateTime(2000, 1, 1),
+                    PreviousClubs = new List<Club> { club, leagueClub, schoolClub }
                 }).ConfigureAwait(false);
 
-            var soccerTrainerDetail = await soccerTrainerResult.FetchDetail().ConfigureAwait(false);
-
-            var personResult = await _client.ListItem.CreateFromObjectAsync(
-                new Person
-                {
-                    BirthDate = DateTime.Now,
-                    EmailAddress = "xyyyy@teyyyyyyst.com",
-                    Firstname = "Urxxxxs",
-                    LastName = "xxxxxxxx"
-                }).ConfigureAwait(false);
-
-            var personDetail = await personResult.FetchDetail().ConfigureAwait(false);
+            var soccerTrainerDetail = await soccerTrainerResult.FetchDetail(new[] { ListItemResolveBehavior.Content, ListItemResolveBehavior.LinkedListItems }).ConfigureAwait(false);
 
             // Assert
-            soccerPlayerDetail.SucceededItems.Should().NotBeEmpty();
             soccerTrainerDetail.SucceededItems.Should().NotBeEmpty();
-            personDetail.SucceededItems.Should().NotBeEmpty();
+            foreach (var succeededItem in soccerTrainerDetail.SucceededItems)
+            {
+                var listItemDetail = succeededItem.Item;
+                switch (listItemDetail.ContentSchemaId)
+                {
+                    case "SoccerTrainer":
+                    {
+                        var soccerTrainerObject = listItemDetail.ConvertTo<SoccerTrainer>();
+                        soccerTrainerObject.TrainerSince.Should().Be(new DateTime(2000, 1, 1));
+                        soccerTrainerObject.PreviousClubs.First(p => p.Name == club.Name).Should().BeOfType<Club>().Subject.Country.Should().Be(club.Country);
+                        soccerTrainerObject.PreviousClubs.First(p => p.Name == leagueClub.Name).Should().BeOfType<LeagueClub>().Subject.League.Should().Be(leagueClub.League);
+                        soccerTrainerObject.PreviousClubs.First(p => p.Name == schoolClub.Name).Should().BeOfType<SchoolClub>().Subject.School.Should().Be(schoolClub.School);
+                        break;
+                    }
+
+                    case "ClubId":
+                    {
+                        var clubObject = listItemDetail.ConvertTo<Club>();
+                        clubObject.Name.Should().Be(club.Name);
+                        break;
+                    }
+
+                    case "LeagueClubId":
+                    {
+                        var leagueClubObject = listItemDetail.ConvertTo<LeagueClub>();
+                        leagueClubObject.League.Should().Be(leagueClub.League);
+
+                        var clubObject = listItemDetail.ConvertTo<Club>();
+                        clubObject.Name.Should().Be(leagueClub.Name);
+                        ((LeagueClub)clubObject).League.Should().Be(leagueClub.League);
+                        break;
+                    }
+
+                    case "SchoolClubId":
+                    {
+                        var schoolClubObject = listItemDetail.ConvertTo<SchoolClub>();
+                        schoolClubObject.School.Should().Be(schoolClub.School);
+
+                        var clubObject = listItemDetail.ConvertTo<Club>();
+                        clubObject.Name.Should().Be(schoolClub.Name);
+                        ((SchoolClub)clubObject).School.Should().Be(schoolClub.School);
+                        break;
+                    }
+                }
+            }
         }
 
         [Fact]
@@ -280,6 +420,43 @@ namespace Picturepark.SDK.V1.Tests.Clients
         {
             // Arrange
             await SchemaHelper.CreateSchemasIfNotExistentAsync<Person>(_client).ConfigureAwait(false);
+
+            var petsCreateRequest = new ListItemCreateManyRequest
+            {
+                Items = new List<ListItemCreateRequest>
+                {
+                    new ListItemCreateRequest { ContentSchemaId = nameof(Cat), Content = new Cat { ChasesLaser = true, Name = "Cat1" } },
+                    new ListItemCreateRequest { ContentSchemaId = nameof(Dog), Content = new Dog { PlaysCatch = true, Name = "Dog1" } },
+                    new ListItemCreateRequest { ContentSchemaId = nameof(Pet), Content = new Pet { Name = "Pet1" } }
+                }
+            };
+
+            var result = await _client.ListItem.CreateManyAsync(petsCreateRequest).ConfigureAwait(false);
+            var succeededItems = (await result.FetchDetail(new[] { ListItemResolveBehavior.Content }).ConfigureAwait(false)).SucceededItems.ToArray();
+            succeededItems.Should().HaveCount(3);
+
+            Cat cat = null;
+            Dog dog = null;
+            Pet pet = null;
+
+            foreach (var item in succeededItems)
+            {
+                switch (item.Item.ContentSchemaId)
+                {
+                    case nameof(Pet):
+                        pet = item.Item.ConvertTo<Pet>();
+                        pet.Name.Should().Be("Pet1");
+                        break;
+                    case nameof(Cat):
+                        cat = item.Item.ConvertTo<Cat>();
+                        cat.ChasesLaser.Should().BeTrue();
+                        break;
+                    case nameof(Dog):
+                        dog = item.Item.ConvertTo<Dog>();
+                        dog.PlaysCatch.Should().BeTrue();
+                        break;
+                }
+            }
 
             var originalPlayer = new SoccerPlayer
             {
@@ -291,7 +468,8 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 {
                     new Addresses
                     {
-                        Name = "Aarau"
+                        Name = "Aarau",
+                        SecurityPet = cat
                     }
                 },
                 AddressesPlus = new List<AddressesPlus>
@@ -299,9 +477,11 @@ namespace Picturepark.SDK.V1.Tests.Clients
                     new AddressesPlus
                     {
                         Name = "Lenzburg",
-                        Number = 2
+                        Number = 2,
+                        SecurityPet = dog
                     }
-                }
+                },
+                OwnsPets = new List<Pet> { cat, dog, pet }
             };
 
             // Act
@@ -311,7 +491,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 Content = originalPlayer
             };
 
-            var playerItem = await _client.ListItem.CreateAsync(createRequest, new[] { ListItemResolveBehavior.Content }).ConfigureAwait(false);
+            var playerItem = await _client.ListItem.CreateAsync(createRequest, new[] { ListItemResolveBehavior.Content, ListItemResolveBehavior.LinkedListItems }).ConfigureAwait(false);
 
             // Assert
             Assert.NotNull(playerItem);
@@ -319,7 +499,13 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var createdPlayer = playerItem.ConvertTo<SoccerPlayer>();
             Assert.Equal("Urs", createdPlayer.Firstname);
             createdPlayer.Addresses.First().Name.Should().Be("Aarau");
+            createdPlayer.Addresses.First().SecurityPet.Should().BeOfType<Cat>();
             createdPlayer.AddressesPlus.First().Number.Should().Be(2);
+            createdPlayer.AddressesPlus.First().SecurityPet.Should().BeOfType<Dog>();
+            createdPlayer.OwnsPets.Should().HaveCount(3);
+            createdPlayer.OwnsPets.First(p => p.Name == "Pet1").Should().BeOfType<Pet>();
+            createdPlayer.OwnsPets.First(p => p.Name == "Cat1").Should().BeOfType<Cat>();
+            createdPlayer.OwnsPets.First(p => p.Name == "Dog1").Should().BeOfType<Dog>();
         }
 
         [Fact]
@@ -556,7 +742,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var objectName = "Superclub" + new Random().Next(0, 999999);
             var listItem = new ListItemCreateRequest
             {
-                ContentSchemaId = nameof(Club),
+                ContentSchemaId = "ClubId",
                 Content = new Club { Name = objectName, Country = "Switzerland" }
             };
             var clubItem = await _client.ListItem.CreateAsync(listItem, new[] { ListItemResolveBehavior.Content }).ConfigureAwait(false);
