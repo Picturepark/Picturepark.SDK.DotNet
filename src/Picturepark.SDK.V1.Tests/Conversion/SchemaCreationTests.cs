@@ -348,43 +348,28 @@ namespace Picturepark.SDK.V1.Tests.Conversion
         public async Task ShouldGenerateFormattedStringFields()
         {
             var schemas = await _client.Schema.GenerateSchemasAsync(typeof(SchemaWithFormattedStrings)).ConfigureAwait(false);
-            var generatedSchema = schemas.Should().ContainSingle().Which;
+            var schema = schemas.Should().ContainSingle().Which;
 
-            void Assert(SchemaDetail schema)
-            {
-                var nonTranslatedFields = schema.Fields.OfType<FieldString>().ToList();
-                nonTranslatedFields.Should().HaveCount(2);
+            var nonTranslatedFields = schema.Fields.OfType<FieldString>().ToList();
+            nonTranslatedFields.Should().HaveCount(2);
 
-                var fieldPlainSimple = nonTranslatedFields.Should().ContainSingle(f => f.Id == nameof(SchemaWithFormattedStrings.PlainSimple).ToLowerCamelCase()).Which;
-                fieldPlainSimple.RenderingType.Should().Be(StringRenderingType.Default);
+            var fieldPlainSimple = nonTranslatedFields.Should().ContainSingle(f => f.Id == nameof(SchemaWithFormattedStrings.PlainSimple).ToLowerCamelCase()).Which;
+            fieldPlainSimple.RenderingType.Should().Be(StringRenderingType.Default);
 
-                var fieldFormattedSimple = nonTranslatedFields.Should().ContainSingle(f => f.Id == nameof(SchemaWithFormattedStrings.FormattedSimple).ToLowerCamelCase()).Which;
-                fieldFormattedSimple.RenderingType.Should().Be(StringRenderingType.Markdown);
+            var fieldFormattedSimple = nonTranslatedFields.Should().ContainSingle(f => f.Id == nameof(SchemaWithFormattedStrings.FormattedSimple).ToLowerCamelCase()).Which;
+            fieldFormattedSimple.RenderingType.Should().Be(StringRenderingType.Markdown);
 
-                var translatedFields = schema.Fields.OfType<FieldTranslatedString>().ToList();
-                translatedFields.Should().HaveCount(2);
+            var translatedFields = schema.Fields.OfType<FieldTranslatedString>().ToList();
+            translatedFields.Should().HaveCount(2);
 
-                var fieldTranslatedSimple = translatedFields.Should().ContainSingle(f => f.Id == nameof(SchemaWithFormattedStrings.PlainTranslated).ToLowerCamelCase()).Which;
-                fieldTranslatedSimple.RenderingType.Should().Be(StringRenderingType.Default);
+            var fieldTranslatedSimple = translatedFields.Should().ContainSingle(f => f.Id == nameof(SchemaWithFormattedStrings.PlainTranslated).ToLowerCamelCase()).Which;
+            fieldTranslatedSimple.RenderingType.Should().Be(StringRenderingType.Default);
 
-                var fieldTranslatedFormatted = translatedFields.Should().ContainSingle(f => f.Id == nameof(SchemaWithFormattedStrings.FormattedTranslated).ToLowerCamelCase()).Which;
-                fieldTranslatedFormatted.RenderingType.Should().Be(StringRenderingType.Markdown);
-            }
-
-            Assert(generatedSchema);
-
-            var createResult = await _client.Schema.CreateAsync(schemas.Single()).ConfigureAwait(false);
-            try
-            {
-                Assert(createResult.Schema);
-            }
-            finally
-            {
-                await _client.Schema.DeleteAsync(createResult.Schema.Id).ConfigureAwait(false);
-            }
+            var fieldTranslatedFormatted = translatedFields.Should().ContainSingle(f => f.Id == nameof(SchemaWithFormattedStrings.FormattedTranslated).ToLowerCamelCase()).Which;
+            fieldTranslatedFormatted.RenderingType.Should().Be(StringRenderingType.Markdown);
         }
 
-        [PictureparkSchema(SchemaType.List)]
+        [PictureparkSchema(SchemaType.Layer)]
         public class SchemaWithFormattedStrings
         {
             public string PlainSimple { get; set; }
