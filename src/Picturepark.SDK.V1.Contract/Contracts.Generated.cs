@@ -20543,8 +20543,8 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     public enum StringRenderingType
     {
-        [System.Runtime.Serialization.EnumMember(Value = @"None")]
-        None = 0,
+        [System.Runtime.Serialization.EnumMember(Value = @"Default")]
+        Default = 0,
     
         [System.Runtime.Serialization.EnumMember(Value = @"Markdown")]
         Markdown = 1,

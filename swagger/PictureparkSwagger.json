@@ -37538,11 +37538,11 @@
         "type": "string",
         "description": "Describes how a string value should be rendered",
         "x-enumNames": [
-          "None",
+          "Default",
           "Markdown"
         ],
         "enum": [
-          "None",
+          "Default",
           "Markdown"
         ]
       },

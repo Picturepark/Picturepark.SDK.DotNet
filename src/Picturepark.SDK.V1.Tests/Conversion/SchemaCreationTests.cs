@@ -356,7 +356,7 @@ namespace Picturepark.SDK.V1.Tests.Conversion
                 nonTranslatedFields.Should().HaveCount(2);
 
                 var fieldPlainSimple = nonTranslatedFields.Should().ContainSingle(f => f.Id == nameof(SchemaWithFormattedStrings.PlainSimple).ToLowerCamelCase()).Which;
-                fieldPlainSimple.RenderingType.Should().Be(StringRenderingType.None);
+                fieldPlainSimple.RenderingType.Should().Be(StringRenderingType.Default);
 
                 var fieldFormattedSimple = nonTranslatedFields.Should().ContainSingle(f => f.Id == nameof(SchemaWithFormattedStrings.FormattedSimple).ToLowerCamelCase()).Which;
                 fieldFormattedSimple.RenderingType.Should().Be(StringRenderingType.Markdown);
@@ -365,7 +365,7 @@ namespace Picturepark.SDK.V1.Tests.Conversion
                 translatedFields.Should().HaveCount(2);
 
                 var fieldTranslatedSimple = translatedFields.Should().ContainSingle(f => f.Id == nameof(SchemaWithFormattedStrings.PlainTranslated).ToLowerCamelCase()).Which;
-                fieldTranslatedSimple.RenderingType.Should().Be(StringRenderingType.None);
+                fieldTranslatedSimple.RenderingType.Should().Be(StringRenderingType.Default);
 
                 var fieldTranslatedFormatted = translatedFields.Should().ContainSingle(f => f.Id == nameof(SchemaWithFormattedStrings.FormattedTranslated).ToLowerCamelCase()).Which;
                 fieldTranslatedFormatted.RenderingType.Should().Be(StringRenderingType.Markdown);
