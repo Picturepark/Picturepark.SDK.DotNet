@@ -20345,7 +20345,7 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("pattern", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Pattern { get; set; }
     
-        /// <summary>The minimum string's lenght.</summary>
+        /// <summary>The minimum string's length.</summary>
         [Newtonsoft.Json.JsonProperty("minimumLength", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int? MinimumLength { get; set; }
     
@@ -20374,6 +20374,11 @@ namespace Picturepark.SDK.V1.Contract
         /// <summary>Value to prioritize search results. Set to 1 by default. Ignored if SimpleSearch not set to true.</summary>
         [Newtonsoft.Json.JsonProperty("boost", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public double Boost { get; set; } = 1D;
+    
+        /// <summary>Stores information on how values of this field should be rendered</summary>
+        [Newtonsoft.Json.JsonProperty("renderingType", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public StringRenderingType RenderingType { get; set; }
     
         public string ToJson() 
         {
@@ -20534,6 +20539,18 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>Describes how a string value should be rendered</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public enum StringRenderingType
+    {
+        [System.Runtime.Serialization.EnumMember(Value = @"Default")]
+        Default = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Markdown")]
+        Markdown = 1,
+    
+    }
+    
     /// <summary>The field used to store multiple string values</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class FieldStringArray : FieldString
@@ -20566,7 +20583,7 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("pattern", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Pattern { get; set; }
     
-        /// <summary>The minimum string's lenght.</summary>
+        /// <summary>The minimum string's length.</summary>
         [Newtonsoft.Json.JsonProperty("minimumLength", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int? MinimumLength { get; set; }
     
@@ -20602,6 +20619,11 @@ namespace Picturepark.SDK.V1.Contract
         /// <summary>Value to prioritize search results. Set to 1 by default. Ignored if SimpleSearch not set to true.</summary>
         [Newtonsoft.Json.JsonProperty("boost", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public double Boost { get; set; } = 1D;
+    
+        /// <summary>Stores information on how values of this field should be rendered</summary>
+        [Newtonsoft.Json.JsonProperty("renderingType", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public StringRenderingType RenderingType { get; set; }
     
         public string ToJson() 
         {
