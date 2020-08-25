@@ -25413,6 +25413,56 @@
           }
         ]
       },
+      "BusinessRuleNotificationInvalidIdException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "BusinessRuleNotificationNoRecipientsException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "BusinessRuleNotificationRecipientUserIdMissingException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "BusinessRuleNotificationRecipientUserRoleIdMissingException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
       "NamedCacheConfigurationException": {
         "allOf": [
           {
@@ -25655,6 +25705,40 @@
               "limit": {
                 "type": "integer",
                 "format": "int32"
+              }
+            }
+          }
+        ]
+      },
+      "CollectionModificationNotAllowedException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "collectionId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "CollectionNotFoundException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkNotFoundException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "collectionId": {
+                "type": "string",
+                "nullable": true
               }
             }
           }
@@ -27149,11 +27233,11 @@
         "properties": {
           "disableRuleEngine": {
             "type": "boolean",
-            "description": "Disables the rule completely."
+            "description": "Disables the rule engine completely."
           },
           "rules": {
             "type": "array",
-            "description": "Rules",
+            "description": "Rules.",
             "nullable": true,
             "items": {
               "$ref": "#/components/schemas/BusinessRule"
@@ -27165,6 +27249,14 @@
             "nullable": true,
             "items": {
               "$ref": "#/components/schemas/NamedCacheConfigurationBase"
+            }
+          },
+          "notifications": {
+            "type": "array",
+            "description": "Notifications.",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/BusinessRuleNotification"
             }
           }
         }
@@ -28076,7 +28168,8 @@
             "UnassignContentPermissionSetsAction": "#/components/schemas/UnassignContentPermissionSetsAction",
             "ProduceMessageAction": "#/components/schemas/ProduceMessageAction",
             "AssignTagboxItemsInLayerAction": "#/components/schemas/AssignTagboxItemsInLayerAction",
-            "EnqueueTaggingAction": "#/components/schemas/EnqueueTaggingAction"
+            "EnqueueTaggingAction": "#/components/schemas/EnqueueTaggingAction",
+            "ProduceNotificationAction": "#/components/schemas/ProduceNotificationAction"
           }
         },
         "description": "Action to be performed by a business rule",
@@ -28278,6 +28371,7 @@
           },
           {
             "type": "object",
+            "description": "Produces a message that is enqueued to the integration bus for a service provider to consume",
             "additionalProperties": false
           }
         ]
@@ -28422,6 +28516,134 @@
                 "nullable": true
               }
             }
+          }
+        ]
+      },
+      "ProduceNotificationAction": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BusinessRuleAction"
+          },
+          {
+            "type": "object",
+            "description": "Produces a notification that is enqueued to users, user groups or owners recipients",
+            "additionalProperties": false,
+            "required": [
+              "recipients"
+            ],
+            "properties": {
+              "notificationId": {
+                "type": "string",
+                "description": "ID of the notification to produce.",
+                "nullable": true
+              },
+              "recipients": {
+                "type": "array",
+                "description": "Recipients of the notification.",
+                "items": {
+                  "$ref": "#/components/schemas/NotificationRecipientBase"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "NotificationRecipientBase": {
+        "type": "object",
+        "discriminator": {
+          "propertyName": "kind",
+          "mapping": {
+            "UserNotificationRecipient": "#/components/schemas/UserNotificationRecipient",
+            "UserRoleNotificationRecipient": "#/components/schemas/UserRoleNotificationRecipient",
+            "UserRightNotificationRecipient": "#/components/schemas/UserRightNotificationRecipient",
+            "OwnerNotificationRecipient": "#/components/schemas/OwnerNotificationRecipient"
+          }
+        },
+        "x-abstract": true,
+        "additionalProperties": false,
+        "required": [
+          "kind"
+        ],
+        "properties": {
+          "kind": {
+            "type": "string"
+          }
+        }
+      },
+      "UserNotificationRecipient": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/NotificationRecipientBase"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "userId"
+            ],
+            "properties": {
+              "userId": {
+                "type": "string",
+                "description": "User ID.",
+                "minLength": 1
+              }
+            }
+          }
+        ]
+      },
+      "UserRoleNotificationRecipient": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/NotificationRecipientBase"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "userRoleId"
+            ],
+            "properties": {
+              "userRoleId": {
+                "type": "string",
+                "description": "User role ID.",
+                "minLength": 1
+              }
+            }
+          }
+        ]
+      },
+      "UserRightNotificationRecipient": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/NotificationRecipientBase"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "userRight"
+            ],
+            "properties": {
+              "userRight": {
+                "description": "User right.",
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/UserRight"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "OwnerNotificationRecipient": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/NotificationRecipientBase"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
           }
         ]
       },
@@ -28571,6 +28793,43 @@
           }
         ]
       },
+      "BusinessRuleNotification": {
+        "type": "object",
+        "description": "Configuration for a notification sent by ProduceNotificationAction.",
+        "additionalProperties": false,
+        "required": [
+          "createCollection"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "ID of the notification.",
+            "nullable": true
+          },
+          "title": {
+            "description": "Title of the notification.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/TranslatedStringDictionary"
+              }
+            ]
+          },
+          "message": {
+            "description": "Message of the notification.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/TranslatedStringDictionary"
+              }
+            ]
+          },
+          "createCollection": {
+            "type": "boolean",
+            "description": "Indicates if a collection of the items affected should be created."
+          }
+        }
+      },
       "BusinessRuleConfigurationUpdateRequest": {
         "type": "object",
         "description": "Update request for changing business rule configuration",
@@ -28597,6 +28856,14 @@
             "nullable": true,
             "items": {
               "$ref": "#/components/schemas/NamedCacheConfigurationBase"
+            }
+          },
+          "notifications": {
+            "type": "array",
+            "description": "Notifications.",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/BusinessRuleNotification"
             }
           }
         }
