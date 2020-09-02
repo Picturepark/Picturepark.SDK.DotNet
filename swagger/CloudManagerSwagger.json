@@ -13700,7 +13700,8 @@
         "type": "object",
         "additionalProperties": false,
         "required": [
-          "keepRepository"
+          "keepRepository",
+          "excludeSecondaryIndices"
         ],
         "properties": {
           "customerAlias": {
@@ -13708,6 +13709,9 @@
             "nullable": true
           },
           "keepRepository": {
+            "type": "boolean"
+          },
+          "excludeSecondaryIndices": {
             "type": "boolean"
           }
         }
@@ -13762,6 +13766,11 @@
               },
               "skipUpdateAfterRestore": {
                 "type": "boolean"
+              },
+              "refillRecreatedSecondaryIndices": {
+                "type": "boolean",
+                "description": "Defines whether secondary indices which are missing for customer are filled or left empty\nIgnored if needed updates are skipped",
+                "default": true
               }
             }
           }
@@ -13779,13 +13788,6 @@
           "repositoryName": {
             "type": "string",
             "nullable": true
-          },
-          "indices": {
-            "type": "array",
-            "nullable": true,
-            "items": {
-              "type": "string"
-            }
           }
         }
       },
@@ -14042,7 +14044,8 @@
         "required": [
           "resetExternalUserIds",
           "resetIdentityProviderIds",
-          "resetServiceProviders"
+          "resetServiceProviders",
+          "refillRecreatedSecondaryIndices"
         ],
         "properties": {
           "customerId": {
@@ -14122,6 +14125,11 @@
             "items": {
               "type": "string"
             }
+          },
+          "refillRecreatedSecondaryIndices": {
+            "type": "boolean",
+            "description": "Defines whether secondary indices which are missing for customer are filled or left empty",
+            "default": true
           }
         }
       },
@@ -18734,6 +18742,9 @@
       "UpdateCustomerRequest": {
         "type": "object",
         "additionalProperties": false,
+        "required": [
+          "refillRecreatedSecondaryIndices"
+        ],
         "properties": {
           "targetVersion": {
             "type": "string",
@@ -18744,6 +18755,11 @@
             "type": "string",
             "description": "The customer id.",
             "nullable": true
+          },
+          "refillRecreatedSecondaryIndices": {
+            "type": "boolean",
+            "description": "Defines whether secondary indices which are missing for customer are filled or left empty",
+            "default": true
           }
         }
       },
