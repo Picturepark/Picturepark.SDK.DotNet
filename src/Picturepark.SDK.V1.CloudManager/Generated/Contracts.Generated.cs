@@ -8356,6 +8356,9 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [Newtonsoft.Json.JsonProperty("keepRepository", Required = Newtonsoft.Json.Required.Always)]
         public bool KeepRepository { get; set; }
     
+        [Newtonsoft.Json.JsonProperty("excludeSecondaryIndices", Required = Newtonsoft.Json.Required.Always)]
+        public bool ExcludeSecondaryIndices { get; set; }
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -8411,6 +8414,11 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [Newtonsoft.Json.JsonProperty("skipUpdateAfterRestore", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool SkipUpdateAfterRestore { get; set; }
     
+        /// <summary>Defines whether secondary indices which are missing for customer are filled or left empty
+        /// Ignored if needed updates are skipped</summary>
+        [Newtonsoft.Json.JsonProperty("refillRecreatedSecondaryIndices", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool RefillRecreatedSecondaryIndices { get; set; } = true;
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -8431,9 +8439,6 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
         [Newtonsoft.Json.JsonProperty("repositoryName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string RepositoryName { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("indices", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> Indices { get; set; }
     
         public string ToJson() 
         {
@@ -8741,6 +8746,10 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <summary>List of CORS allowed hosts</summary>
         [Newtonsoft.Json.JsonProperty("corsAllowedHosts", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> CorsAllowedHosts { get; set; }
+    
+        /// <summary>Defines whether secondary indices which are missing for customer are filled or left empty</summary>
+        [Newtonsoft.Json.JsonProperty("refillRecreatedSecondaryIndices", Required = Newtonsoft.Json.Required.Always)]
+        public bool RefillRecreatedSecondaryIndices { get; set; } = true;
     
         public string ToJson() 
         {
@@ -13169,6 +13178,10 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <summary>The customer id.</summary>
         [Newtonsoft.Json.JsonProperty("customerId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string CustomerId { get; set; }
+    
+        /// <summary>Defines whether secondary indices which are missing for customer are filled or left empty</summary>
+        [Newtonsoft.Json.JsonProperty("refillRecreatedSecondaryIndices", Required = Newtonsoft.Json.Required.Always)]
+        public bool RefillRecreatedSecondaryIndices { get; set; } = true;
     
         public string ToJson() 
         {
