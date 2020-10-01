@@ -1446,7 +1446,7 @@
           "Channel"
         ],
         "summary": "Get channel",
-        "description": "Gets the channel information by the output format ID.",
+        "description": "Gets the channel information by the channel ID.",
         "operationId": "Channel_Get",
         "parameters": [
           {
@@ -1710,6 +1710,166 @@
           {
             "Bearer": [
               "channel_write"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/Channels/fields/aggregation": {
+      "get": {
+        "tags": [
+          "Channel"
+        ],
+        "summary": "Retrieve the fields that can be used in an aggregator on any channel.",
+        "operationId": "Channel_GetAvailableAggregationFields",
+        "responses": {
+          "200": {
+            "description": "The list of fields",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/FieldInfo"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "channel_read"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/Channels/fields/sort": {
+      "get": {
+        "tags": [
+          "Channel"
+        ],
+        "summary": "Retrieve the fields that can be used as sort fields on any channel.",
+        "operationId": "Channel_GetAvailableSortFields",
+        "responses": {
+          "200": {
+            "description": "The list of fields",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SortFieldInfo"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "channel_read"
             ]
           }
         ]
@@ -13519,36 +13679,132 @@
         ]
       }
     },
-    "/v1/Schemas/indexFields/searchBySchemaIds": {
-      "post": {
+    "/v1/Schemas/{id}/availableAggregationFields": {
+      "get": {
         "tags": [
           "Schema"
         ],
-        "summary": "Search index fields",
-        "description": "Search the indexed fields based on the search request.\nAn indexed field object is created for a schema field only if that field has one of the following properties set to true: Index,\nSimpleSearch or Sortable.\nAll indexed fields are aggregated and returned as a a single list.",
-        "operationId": "Schema_GetIndexFields",
-        "requestBody": {
-          "x-name": "request",
-          "description": "The search request.",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/IndexFieldsSearchBySchemaIdsRequest"
-              }
-            }
-          },
-          "required": true,
-          "x-position": 1
-        },
+        "summary": "Retrieve the fields that can be used in an aggregator on a schema.",
+        "operationId": "Schema_GetAvailableAggregationFields",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "The ID of the schema.",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 1
+          }
+        ],
         "responses": {
           "200": {
-            "description": "Indexed fields",
+            "description": "The list of fields",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/IndexField"
+                    "$ref": "#/components/schemas/FieldInfo"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "schema_read"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/Schemas/many/availableAggregationFields": {
+      "get": {
+        "tags": [
+          "Schema"
+        ],
+        "summary": "Retrieve the fields that can be used in an aggregator on multiple schemas.",
+        "operationId": "Schema_GetAvailableAggregationFieldsMany",
+        "parameters": [
+          {
+            "name": "ids",
+            "in": "query",
+            "style": "form",
+            "explode": true,
+            "description": "The IDs of the schemas.",
+            "schema": {
+              "type": "array",
+              "nullable": true,
+              "items": {
+                "type": "string"
+              }
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The list of fields",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/FieldInfo"
                   }
                 }
               }
@@ -30107,6 +30363,58 @@
           }
         }
       },
+      "FieldInfo": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "allowSearch",
+          "static"
+        ],
+        "properties": {
+          "path": {
+            "type": "string",
+            "description": "The path of the field ({schemaId}.{fieldId})",
+            "nullable": true
+          },
+          "fieldId": {
+            "type": "string",
+            "description": "The ID of the field.",
+            "nullable": true
+          },
+          "type": {
+            "type": "string",
+            "description": "The type of the field.",
+            "nullable": true
+          },
+          "allowSearch": {
+            "type": "boolean",
+            "description": "Flag indicating if the search when aggregating the field is supported or not."
+          },
+          "static": {
+            "type": "boolean",
+            "description": "Identifies a static field not retrieved from the dynamic metadata fields."
+          }
+        }
+      },
+      "SortFieldInfo": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "path",
+          "static"
+        ],
+        "properties": {
+          "path": {
+            "type": "string",
+            "description": "The path of the field ({schemaId}.{fieldId})",
+            "minLength": 1
+          },
+          "static": {
+            "type": "boolean",
+            "description": "Identifies a static field not retrieved from the dynamic metadata fields."
+          }
+        }
+      },
       "ContentPermissionSetDetail": {
         "allOf": [
           {
@@ -38799,111 +39107,6 @@
             }
           }
         }
-      },
-      "IndexField": {
-        "type": "object",
-        "description": "Contains compiled field information.",
-        "additionalProperties": false,
-        "required": [
-          "boost",
-          "ignoreForSearch"
-        ],
-        "properties": {
-          "id": {
-            "type": "string",
-            "nullable": true
-          },
-          "fieldId": {
-            "type": "string",
-            "description": "The field id.",
-            "nullable": true
-          },
-          "type": {
-            "type": "string",
-            "description": "The field's type name.",
-            "nullable": true
-          },
-          "indexFields": {
-            "type": "object",
-            "description": "Contains all index field name variants of the field.",
-            "nullable": true,
-            "x-dictionaryKey": {
-              "$ref": "#/components/schemas/Analyzer"
-            },
-            "additionalProperties": {
-              "type": "string"
-            }
-          },
-          "simpleSearchFields": {
-            "type": "object",
-            "description": "Contains all simple search field name variants of the field.\nThe amount of simple search fields can be equal or less to the amount of IndexFields, but never more.",
-            "nullable": true,
-            "x-dictionaryKey": {
-              "$ref": "#/components/schemas/Analyzer"
-            },
-            "additionalProperties": {
-              "type": "string"
-            }
-          },
-          "boost": {
-            "type": "number",
-            "description": "Contains the fields boost value.",
-            "format": "double"
-          },
-          "ignoreForSearch": {
-            "type": "boolean",
-            "description": "Not to be returned for search query, but only used for mapping purposes"
-          },
-          "nestedPath": {
-            "type": "string",
-            "description": "The path of the Nested document this property belongs to. If set to null, it means that there is no Nested document",
-            "nullable": true
-          },
-          "sortField": {
-            "type": "string",
-            "description": "Path to the sorting information in the DataSortValuesField sort index.",
-            "nullable": true
-          }
-        }
-      },
-      "IndexFieldsSearchBySchemaIdsRequest": {
-        "type": "object",
-        "description": "Request to search indexed fields of specific schemas",
-        "additionalProperties": false,
-        "required": [
-          "searchMode"
-        ],
-        "properties": {
-          "schemaIds": {
-            "type": "array",
-            "description": "The IDs of the schemas for which the indexed fields should be returned.",
-            "nullable": true,
-            "items": {
-              "type": "string"
-            }
-          },
-          "searchMode": {
-            "description": "Controls how the search works which schemas should be considered in the search.\nAllDescendantsFieldsOnRootSchema: All indexed fields from descendant schemas of root ones will be returned. Schemas that are not root schemas will be ignored.\nSchemaAndParentFieldsOnly: Indexed fields of the requested schema and its parents will be returned.",
-            "default": "AllDescendantsFieldsOnRootSchema",
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/IndexFieldsSearchMode"
-              }
-            ]
-          }
-        }
-      },
-      "IndexFieldsSearchMode": {
-        "type": "string",
-        "description": "How the index field search works",
-        "x-enumNames": [
-          "AllDescendantsFieldsOnRootSchema",
-          "SchemaAndParentFieldsOnly"
-        ],
-        "enum": [
-          "AllDescendantsFieldsOnRootSchema",
-          "SchemaAndParentFieldsOnly"
-        ]
       },
       "Transfer": {
         "type": "object",

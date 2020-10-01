@@ -191,6 +191,26 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task DeleteAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>Retrieve the fields that can be used in an aggregator on any channel.</summary>
+        /// <returns>The list of fields</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<FieldInfo>> GetAvailableAggregationFieldsAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>Retrieve the fields that can be used as sort fields on any channel.</summary>
+        /// <returns>The list of fields</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<SortFieldInfo>> GetAvailableSortFieldsAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "13.2.2.0 (NJsonSchema v10.1.4.0 (Newtonsoft.Json v11.0.0.0))")]
@@ -1461,15 +1481,26 @@ namespace Picturepark.SDK.V1.Contract
         System.Threading.Tasks.Task<SchemaSearchResult> SearchAsync(SchemaSearchRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <summary>Search index fields</summary>
-        /// <param name="request">The search request.</param>
-        /// <returns>Indexed fields</returns>
+        /// <summary>Retrieve the fields that can be used in an aggregator on a schema.</summary>
+        /// <param name="id">The ID of the schema.</param>
+        /// <returns>The list of fields</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<IndexField>> GetIndexFieldsAsync(IndexFieldsSearchBySchemaIdsRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<FieldInfo>> GetAvailableAggregationFieldsAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>Retrieve the fields that can be used in an aggregator on multiple schemas.</summary>
+        /// <param name="ids">The IDs of the schemas.</param>
+        /// <returns>The list of fields</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<FieldInfo>> GetAvailableAggregationFieldsManyAsync(System.Collections.Generic.IEnumerable<string> ids = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
     }
     
@@ -13466,6 +13497,65 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class FieldInfo 
+    {
+        /// <summary>The path of the field ({schemaId}.{fieldId})</summary>
+        [Newtonsoft.Json.JsonProperty("path", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Path { get; set; }
+    
+        /// <summary>The ID of the field.</summary>
+        [Newtonsoft.Json.JsonProperty("fieldId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string FieldId { get; set; }
+    
+        /// <summary>The type of the field.</summary>
+        [Newtonsoft.Json.JsonProperty("type", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Type { get; set; }
+    
+        /// <summary>Flag indicating if the search when aggregating the field is supported or not.</summary>
+        [Newtonsoft.Json.JsonProperty("allowSearch", Required = Newtonsoft.Json.Required.Always)]
+        public bool AllowSearch { get; set; }
+    
+        /// <summary>Identifies a static field not retrieved from the dynamic metadata fields.</summary>
+        [Newtonsoft.Json.JsonProperty("static", Required = Newtonsoft.Json.Required.Always)]
+        public bool Static { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static FieldInfo FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<FieldInfo>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class SortFieldInfo 
+    {
+        /// <summary>The path of the field ({schemaId}.{fieldId})</summary>
+        [Newtonsoft.Json.JsonProperty("path", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public string Path { get; set; }
+    
+        /// <summary>Identifies a static field not retrieved from the dynamic metadata fields.</summary>
+        [Newtonsoft.Json.JsonProperty("static", Required = Newtonsoft.Json.Required.Always)]
+        public bool Static { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static SortFieldInfo FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SortFieldInfo>(data);
+        }
+    
+    }
+    
     /// <summary>Detail of a content permission set</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class ContentPermissionSetDetail : PermissionSetDetailOfContentRight
@@ -21699,98 +21789,6 @@ namespace Picturepark.SDK.V1.Contract
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaSearchRequest>(data);
         }
-    
-    }
-    
-    /// <summary>Contains compiled field information.</summary>
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
-    public partial class IndexField 
-    {
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Id { get; set; }
-    
-        /// <summary>The field id.</summary>
-        [Newtonsoft.Json.JsonProperty("fieldId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string FieldId { get; set; }
-    
-        /// <summary>The field's type name.</summary>
-        [Newtonsoft.Json.JsonProperty("type", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Type { get; set; }
-    
-        /// <summary>Contains all index field name variants of the field.</summary>
-        [Newtonsoft.Json.JsonProperty("indexFields", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.IDictionary<Analyzer, string> IndexFields { get; set; }
-    
-        /// <summary>Contains all simple search field name variants of the field.
-        /// The amount of simple search fields can be equal or less to the amount of IndexFields, but never more.</summary>
-        [Newtonsoft.Json.JsonProperty("simpleSearchFields", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.IDictionary<Analyzer, string> SimpleSearchFields { get; set; }
-    
-        /// <summary>Contains the fields boost value.</summary>
-        [Newtonsoft.Json.JsonProperty("boost", Required = Newtonsoft.Json.Required.Always)]
-        public double Boost { get; set; }
-    
-        /// <summary>Not to be returned for search query, but only used for mapping purposes</summary>
-        [Newtonsoft.Json.JsonProperty("ignoreForSearch", Required = Newtonsoft.Json.Required.Always)]
-        public bool IgnoreForSearch { get; set; }
-    
-        /// <summary>The path of the Nested document this property belongs to. If set to null, it means that there is no Nested document</summary>
-        [Newtonsoft.Json.JsonProperty("nestedPath", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string NestedPath { get; set; }
-    
-        /// <summary>Path to the sorting information in the DataSortValuesField sort index.</summary>
-        [Newtonsoft.Json.JsonProperty("sortField", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string SortField { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-    
-        public static IndexField FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<IndexField>(data);
-        }
-    
-    }
-    
-    /// <summary>Request to search indexed fields of specific schemas</summary>
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
-    public partial class IndexFieldsSearchBySchemaIdsRequest 
-    {
-        /// <summary>The IDs of the schemas for which the indexed fields should be returned.</summary>
-        [Newtonsoft.Json.JsonProperty("schemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> SchemaIds { get; set; }
-    
-        /// <summary>Controls how the search works which schemas should be considered in the search.
-        /// AllDescendantsFieldsOnRootSchema: All indexed fields from descendant schemas of root ones will be returned. Schemas that are not root schemas will be ignored.
-        /// SchemaAndParentFieldsOnly: Indexed fields of the requested schema and its parents will be returned.</summary>
-        [Newtonsoft.Json.JsonProperty("searchMode", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public IndexFieldsSearchMode SearchMode { get; set; } = Picturepark.SDK.V1.Contract.IndexFieldsSearchMode.AllDescendantsFieldsOnRootSchema;
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-    
-        public static IndexFieldsSearchBySchemaIdsRequest FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<IndexFieldsSearchBySchemaIdsRequest>(data);
-        }
-    
-    }
-    
-    /// <summary>How the index field search works</summary>
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
-    public enum IndexFieldsSearchMode
-    {
-        [System.Runtime.Serialization.EnumMember(Value = @"AllDescendantsFieldsOnRootSchema")]
-        AllDescendantsFieldsOnRootSchema = 0,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"SchemaAndParentFieldsOnly")]
-        SchemaAndParentFieldsOnly = 1,
     
     }
     

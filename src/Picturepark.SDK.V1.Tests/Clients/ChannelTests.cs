@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Linq;
+using System.Threading.Tasks;
 using FluentAssertions;
 using Picturepark.SDK.V1.Contract;
 using Xunit;
@@ -77,6 +78,30 @@ namespace Picturepark.SDK.V1.Tests.Clients
             // Assert
             var deletedChannel = await _client.Channel.GetAsync(createdChannel.Id).ConfigureAwait(false);
             deletedChannel.Should().BeNull();
+        }
+
+        [Fact]
+        [Trait("Stack", "Schema")]
+        public async Task ShouldGetAvailableAggregationFields()
+        {
+            // Act
+            var fieldsInfo = await _client.Channel.GetAvailableAggregationFieldsAsync().ConfigureAwait(false);
+
+            // Assert
+            fieldsInfo.Count(f => !f.Static).Should().BePositive();
+            fieldsInfo.Count(f => f.Static).Should().BePositive();
+        }
+
+        [Fact]
+        [Trait("Stack", "Schema")]
+        public async Task ShouldGetAvailableSortFields()
+        {
+            // Act
+            var sortFields = await _client.Channel.GetAvailableSortFieldsAsync().ConfigureAwait(false);
+
+            // Assert
+            sortFields.Count(f => !f.Static).Should().BePositive();
+            sortFields.Count(f => f.Static).Should().BePositive();
         }
     }
 }
