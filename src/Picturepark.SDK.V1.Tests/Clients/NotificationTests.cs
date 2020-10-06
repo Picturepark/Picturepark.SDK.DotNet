@@ -151,14 +151,22 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var result = await _client.Notification.SearchAsync(
                 new NotificationSearchRequest
                 {
+                    Filter = new AndFilter
+                    {
+                        Filters = new List<FilterBase>
+                        {
+                            FilterBase.FromExpression<Notification>(n => n.ReferenceDocType, "ShareDoc"),
+                            FilterBase.FromExpression<Notification>(n => n.ReferenceId, shareId),
+                        }
+                    },
                     Sort = new List<SortInfo>
                     {
                         new SortInfo { Field = "audit.creationDate", Direction = SortDirection.Desc }
                     },
-                    Limit = 500
+                    Limit = 1
                 }).ConfigureAwait(false);
 
-            return result.Results.Single(r => r.ReferenceDocType == "ShareDoc" && r.ReferenceId == shareId).Id;
+            return result.Results.Single().Id;
         }
 
         private async Task<string> CreateShareForNotification()
