@@ -3734,7 +3734,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                  "$ref": "#/components/schemas/PictureparkException"
                 }
               }
             }
@@ -3818,7 +3818,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                  "$ref": "#/components/schemas/PictureparkException"
                 }
               }
             }
