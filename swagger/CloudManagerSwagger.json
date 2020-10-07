@@ -16898,7 +16898,6 @@
         "type": "object",
         "additionalProperties": false,
         "required": [
-          "lifeCycle",
           "snapshotEnabled",
           "liveStreamRetentionTime",
           "snapshotFullbackupScheduleTime",
@@ -16927,9 +16926,6 @@
           "name": {
             "type": "string",
             "nullable": true
-          },
-          "lifeCycle": {
-            "$ref": "#/components/schemas/LifeCycle"
           },
           "snapshotEnabled": {
             "type": "boolean"
