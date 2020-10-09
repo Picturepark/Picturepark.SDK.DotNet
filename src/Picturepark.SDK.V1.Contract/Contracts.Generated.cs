@@ -17151,7 +17151,7 @@ namespace Picturepark.SDK.V1.Contract
         [System.ComponentModel.DataAnnotations.Required]
         public LanguageConfiguration LanguageConfiguration { get; set; } = new LanguageConfiguration();
     
-        /// <summary>Languages including translations for the configured system and metadata languages.</summary>
+        /// <summary>Languages including translations for the configured system and metadata and share languages.</summary>
         [Newtonsoft.Json.JsonProperty("languages", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
         public System.Collections.Generic.ICollection<Language> Languages { get; set; } = new System.Collections.Generic.List<Language>();
@@ -17183,6 +17183,11 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("logosUrl", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
         public string LogosUrl { get; set; }
+    
+        /// <summary>Share languages based on defined ShareMail templates.</summary>
+        [Newtonsoft.Json.JsonProperty("shareLanguages", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.Collections.Generic.ICollection<string> ShareLanguages { get; set; } = new System.Collections.Generic.List<string>();
     
         public string ToJson() 
         {
