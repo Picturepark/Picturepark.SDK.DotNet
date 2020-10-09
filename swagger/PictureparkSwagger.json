@@ -34927,7 +34927,8 @@
           "boostValues",
           "modificationDate",
           "baseUrl",
-          "logosUrl"
+          "logosUrl",
+          "shareLanguages"
         ],
         "properties": {
           "customerId": {
@@ -34969,7 +34970,7 @@
           },
           "languages": {
             "type": "array",
-            "description": "Languages including translations for the configured system and metadata languages.",
+            "description": "Languages including translations for the configured system and metadata and share languages.",
             "items": {
               "$ref": "#/components/schemas/Language"
             }
@@ -35011,6 +35012,13 @@
             "type": "string",
             "description": "Base bath to access logos of customer (including trailing slash), available images: name, full, small, background",
             "minLength": 1
+          },
+          "shareLanguages": {
+            "type": "array",
+            "description": "Share languages based on defined ShareMail templates.",
+            "items": {
+              "type": "string"
+            }
           }
         }
       },
