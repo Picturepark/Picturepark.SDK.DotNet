@@ -82,10 +82,10 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
         [Fact]
         [Trait("Stack", "Schema")]
-        public async Task ShouldGetAvailableAggregationFields()
+        public async Task ShouldGetAggregationFields()
         {
             // Act
-            var fieldsInfo = await _client.Channel.GetAvailableAggregationFieldsAsync().ConfigureAwait(false);
+            var fieldsInfo = await _client.Channel.GetAggregationFieldsAsync().ConfigureAwait(false);
 
             // Assert
             fieldsInfo.Count(f => !f.Static).Should().BePositive();
@@ -94,10 +94,22 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
         [Fact]
         [Trait("Stack", "Schema")]
-        public async Task ShouldGetAvailableSortFields()
+        public async Task ShouldGetFilterFields()
         {
             // Act
-            var sortFields = await _client.Channel.GetAvailableSortFieldsAsync().ConfigureAwait(false);
+            var fieldsInfo = await _client.Channel.GetFilterFieldsAsync().ConfigureAwait(false);
+
+            // Assert
+            fieldsInfo.Count(f => !f.Static).Should().BePositive();
+            fieldsInfo.Count(f => f.Static).Should().BePositive();
+        }
+
+        [Fact]
+        [Trait("Stack", "Schema")]
+        public async Task ShouldGetSortFields()
+        {
+            // Act
+            var sortFields = await _client.Channel.GetSortFieldsAsync().ConfigureAwait(false);
 
             // Assert
             sortFields.Count(f => !f.Static).Should().BePositive();
