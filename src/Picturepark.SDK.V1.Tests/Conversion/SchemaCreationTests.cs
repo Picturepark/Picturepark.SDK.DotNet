@@ -1,7 +1,6 @@
 ﻿#pragma warning disable SA1201 // Elements must appear in the correct order
 
 using System;
-using System.Collections.Generic;
 using Newtonsoft.Json;
 using Picturepark.SDK.V1.Contract;
 using Picturepark.SDK.V1.Contract.Attributes;
@@ -376,10 +375,10 @@ namespace Picturepark.SDK.V1.Tests.Conversion
 
             public TranslatedStringDictionary PlainTranslated { get; set; }
 
-            [PictureparkString(RenderingType = StringRenderingType.Markdown)]
+            [PictureparkString(RenderingType = StringRenderingType.Markdown, MultiLine = true)]
             public string FormattedSimple { get; set; }
 
-            [PictureparkTranslatedString(RenderingType = StringRenderingType.Markdown)]
+            [PictureparkTranslatedString(RenderingType = StringRenderingType.Markdown, MultiLine = true)]
             public TranslatedStringDictionary FormattedTranslated { get; set; }
         }
     }

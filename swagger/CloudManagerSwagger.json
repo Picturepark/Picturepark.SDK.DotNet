@@ -3734,7 +3734,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                  "$ref": "#/components/schemas/PictureparkException"
                 }
               }
             }
@@ -3818,7 +3818,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                  "$ref": "#/components/schemas/PictureparkException"
                 }
               }
             }
@@ -13373,6 +13373,132 @@
           }
         ]
       },
+      "NonDefaultTemplateNameNotAllowedException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "name": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "SystemTemplateModificationNotAllowedException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "templateId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "TemplateDuplicationException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "duplicatedTemplateId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "TemplateLanguageCodeNotSupportedException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "languageCode": {
+                "type": "string",
+                "nullable": true
+              },
+              "supportedLanguageCodes": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "TemplateMediaTypesMissingException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "requiredMediaTypes": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "TemplateMediaTypesNotSupportedException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "unsupportedMediaTypes": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "TemplateNotFoundException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkNotFoundException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
       "XmpMappingFieldNotSupported": {
         "allOf": [
           {
@@ -16772,7 +16898,6 @@
         "type": "object",
         "additionalProperties": false,
         "required": [
-          "lifeCycle",
           "snapshotEnabled",
           "liveStreamRetentionTime",
           "snapshotFullbackupScheduleTime",
@@ -16801,9 +16926,6 @@
           "name": {
             "type": "string",
             "nullable": true
-          },
-          "lifeCycle": {
-            "$ref": "#/components/schemas/LifeCycle"
           },
           "snapshotEnabled": {
             "type": "boolean"

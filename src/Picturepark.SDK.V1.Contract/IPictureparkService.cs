@@ -51,5 +51,9 @@ namespace Picturepark.SDK.V1.Contract
         IIdentityProviderClient IdentityProvider { get; }
 
         IXmpMappingClient XmpMapping { get; }
+
+        INotificationClient Notification { get; }
+
+        ITemplateClient Template { get; }
     }
 }
