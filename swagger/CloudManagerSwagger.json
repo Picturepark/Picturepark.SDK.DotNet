@@ -13916,8 +13916,13 @@
               },
               "refillRecreatedSecondaryIndices": {
                 "type": "boolean",
-                "description": "Defines whether secondary indices which are missing for customer are filled or left empty\nIgnored if needed updates are skipped",
+                "description": "Defines whether secondary indices which are missing for customer are filled or left empty",
                 "default": true
+              },
+              "recreateSearchIndicesCluster": {
+                "type": "string",
+                "description": "Defines where searchIndices are recreated if they did not exist (not part of restored snapshot, for example)\nIf null, searchIndices will be recreated on the cluster they were on when the snapshot was taken (or, if that cluster does not exist, on core)",
+                "nullable": true
               }
             }
           }
@@ -14277,6 +14282,11 @@
             "type": "boolean",
             "description": "Defines whether secondary indices which are missing for customer are filled or left empty",
             "default": true
+          },
+          "recreateSearchIndicesCluster": {
+            "type": "string",
+            "description": "Defines where searchIndices are recreated if they did not exist (not part of restored snapshot, for example)\nIf null, searchIndices will be recreated on the cluster they were on when the snapshot was taken (or, if that cluster does not exist, on core)",
+            "nullable": true
           }
         }
       },
@@ -14960,6 +14970,11 @@
             "type": "integer",
             "format": "int32"
           },
+          "rootContentSearchIndexClusterName": {
+            "type": "string",
+            "description": "Specify ES cluster for ContentSearch index",
+            "nullable": true
+          },
           "rootContentSearchIndexNumberOfShards": {
             "type": "integer",
             "format": "int32"
@@ -14967,6 +14982,11 @@
           "rootContentSearchIndexNumberOfReplicas": {
             "type": "integer",
             "format": "int32"
+          },
+          "rootListItemSearchIndexClusterName": {
+            "type": "string",
+            "description": "Specify ES cluster for ListItemSearch index",
+            "nullable": true
           },
           "rootListItemSearchIndexNumberOfShards": {
             "type": "integer",
@@ -17939,6 +17959,10 @@
             "type": "object",
             "additionalProperties": false,
             "properties": {
+              "clusterName": {
+                "type": "string",
+                "nullable": true
+              },
               "numberOfShards": {
                 "type": "integer",
                 "format": "int32",
@@ -18903,6 +18927,11 @@
             "type": "boolean",
             "description": "Defines whether secondary indices which are missing for customer are filled or left empty",
             "default": true
+          },
+          "recreateSearchIndicesCluster": {
+            "type": "string",
+            "description": "Defines where searchIndices are recreated if they did not exist (not part of restored snapshot, for example)\nIf null, searchIndices will be recreated on the cluster they were on when the snapshot was taken (or, if that cluster does not exist, on core)",
+            "nullable": true
           }
         }
       },

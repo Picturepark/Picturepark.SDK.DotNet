@@ -42002,6 +42002,7 @@
           "creator",
           "audit",
           "contentSelections",
+          "contents",
           "expired",
           "outputAccess",
           "shareType",
@@ -42044,6 +42045,13 @@
             "description": "Detailed information about contents in the share.",
             "items": {
               "$ref": "#/components/schemas/ShareContentDetail"
+            }
+          },
+          "contents": {
+            "type": "array",
+            "description": "List of all contents in share including outputs.",
+            "items": {
+              "$ref": "#/components/schemas/ShareContent"
             }
           },
           "layerSchemaIds": {
@@ -42288,6 +42296,28 @@
             }
           }
         ]
+      },
+      "ShareContent": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "contentId"
+        ],
+        "properties": {
+          "contentId": {
+            "type": "string",
+            "description": "Content ID to share.",
+            "minLength": 1
+          },
+          "outputFormatIds": {
+            "type": "array",
+            "description": "List of output formats for this content to share. If not specified outer OutputAccess is used.",
+            "nullable": true,
+            "items": {
+              "type": "string"
+            }
+          }
+        }
       },
       "ShareDataBase": {
         "type": "object",
@@ -42584,28 +42614,6 @@
           },
           "kind": {
             "type": "string"
-          }
-        }
-      },
-      "ShareContent": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "contentId"
-        ],
-        "properties": {
-          "contentId": {
-            "type": "string",
-            "description": "Content ID to share.",
-            "minLength": 1
-          },
-          "outputFormatIds": {
-            "type": "array",
-            "description": "List of output formats for this content to share. If not specified outer OutputAccess is used.",
-            "nullable": true,
-            "items": {
-              "type": "string"
-            }
           }
         }
       },
