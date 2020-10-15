@@ -8577,10 +8577,14 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [Newtonsoft.Json.JsonProperty("skipUpdateAfterRestore", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool SkipUpdateAfterRestore { get; set; }
     
-        /// <summary>Defines whether secondary indices which are missing for customer are filled or left empty
-        /// Ignored if needed updates are skipped</summary>
+        /// <summary>Defines whether secondary indices which are missing for customer are filled or left empty</summary>
         [Newtonsoft.Json.JsonProperty("refillRecreatedSecondaryIndices", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool RefillRecreatedSecondaryIndices { get; set; } = true;
+    
+        /// <summary>Defines where searchIndices are recreated if they did not exist (not part of restored snapshot, for example)
+        /// If null, searchIndices will be recreated on the cluster they were on when the snapshot was taken (or, if that cluster does not exist, on core)</summary>
+        [Newtonsoft.Json.JsonProperty("recreateSearchIndicesCluster", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string RecreateSearchIndicesCluster { get; set; }
     
         public string ToJson() 
         {
@@ -8913,6 +8917,11 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <summary>Defines whether secondary indices which are missing for customer are filled or left empty</summary>
         [Newtonsoft.Json.JsonProperty("refillRecreatedSecondaryIndices", Required = Newtonsoft.Json.Required.Always)]
         public bool RefillRecreatedSecondaryIndices { get; set; } = true;
+    
+        /// <summary>Defines where searchIndices are recreated if they did not exist (not part of restored snapshot, for example)
+        /// If null, searchIndices will be recreated on the cluster they were on when the snapshot was taken (or, if that cluster does not exist, on core)</summary>
+        [Newtonsoft.Json.JsonProperty("recreateSearchIndicesCluster", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string RecreateSearchIndicesCluster { get; set; }
     
         public string ToJson() 
         {
@@ -9584,11 +9593,19 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [Newtonsoft.Json.JsonProperty("elasticSearchNumberOfReplicas", Required = Newtonsoft.Json.Required.Always)]
         public int ElasticSearchNumberOfReplicas { get; set; }
     
+        /// <summary>Specify ES cluster for ContentSearch index</summary>
+        [Newtonsoft.Json.JsonProperty("rootContentSearchIndexClusterName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string RootContentSearchIndexClusterName { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("rootContentSearchIndexNumberOfShards", Required = Newtonsoft.Json.Required.Always)]
         public int RootContentSearchIndexNumberOfShards { get; set; }
     
         [Newtonsoft.Json.JsonProperty("rootContentSearchIndexNumberOfReplicas", Required = Newtonsoft.Json.Required.Always)]
         public int RootContentSearchIndexNumberOfReplicas { get; set; }
+    
+        /// <summary>Specify ES cluster for ListItemSearch index</summary>
+        [Newtonsoft.Json.JsonProperty("rootListItemSearchIndexClusterName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string RootListItemSearchIndexClusterName { get; set; }
     
         [Newtonsoft.Json.JsonProperty("rootListItemSearchIndexNumberOfShards", Required = Newtonsoft.Json.Required.Always)]
         public int RootListItemSearchIndexNumberOfShards { get; set; }
@@ -12296,6 +12313,9 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class SearchIndexReindexShardsRequest : SearchIndexReindexRequest
     {
+        [Newtonsoft.Json.JsonProperty("clusterName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ClusterName { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("numberOfShards", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int? NumberOfShards { get; set; }
     
@@ -13340,6 +13360,11 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <summary>Defines whether secondary indices which are missing for customer are filled or left empty</summary>
         [Newtonsoft.Json.JsonProperty("refillRecreatedSecondaryIndices", Required = Newtonsoft.Json.Required.Always)]
         public bool RefillRecreatedSecondaryIndices { get; set; } = true;
+    
+        /// <summary>Defines where searchIndices are recreated if they did not exist (not part of restored snapshot, for example)
+        /// If null, searchIndices will be recreated on the cluster they were on when the snapshot was taken (or, if that cluster does not exist, on core)</summary>
+        [Newtonsoft.Json.JsonProperty("recreateSearchIndicesCluster", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string RecreateSearchIndicesCluster { get; set; }
     
         public string ToJson() 
         {
