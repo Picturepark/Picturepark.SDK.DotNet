@@ -17272,10 +17272,9 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("enableQueryDetails", Required = Newtonsoft.Json.Required.Always)]
         public bool EnableQueryDetails { get; set; }
     
-        /// <summary>Configured languages of customer instance (system, metadata, default).</summary>
+        /// <summary>Configured languages of customer instance (system, metadata, share, default).</summary>
         [Newtonsoft.Json.JsonProperty("languageConfiguration", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public LanguageConfiguration LanguageConfiguration { get; set; } = new LanguageConfiguration();
+        public LanguageConfigurationInfo LanguageConfiguration { get; set; }
     
         /// <summary>Languages including translations for the configured system and metadata and share languages.</summary>
         [Newtonsoft.Json.JsonProperty("languages", Required = Newtonsoft.Json.Required.Always)]
@@ -17310,11 +17309,6 @@ namespace Picturepark.SDK.V1.Contract
         [System.ComponentModel.DataAnnotations.Required]
         public string LogosUrl { get; set; }
     
-        /// <summary>Share languages based on defined ShareMail templates.</summary>
-        [Newtonsoft.Json.JsonProperty("shareLanguages", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.Collections.Generic.ICollection<string> ShareLanguages { get; set; } = new System.Collections.Generic.List<string>();
-    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -17328,18 +17322,41 @@ namespace Picturepark.SDK.V1.Contract
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class LanguageConfigurationInfo : LanguageConfiguration
+    {
+        /// <summary>Share languages based on defined ShareMail templates.</summary>
+        [Newtonsoft.Json.JsonProperty("shareLanguages", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.Collections.Generic.ICollection<string> ShareLanguages { get; set; } = new System.Collections.Generic.List<string>();
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static LanguageConfigurationInfo FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<LanguageConfigurationInfo>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class LanguageConfiguration 
     {
         /// <summary>A list of languages serving as system languages.</summary>
-        [Newtonsoft.Json.JsonProperty("systemLanguages", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> SystemLanguages { get; set; }
+        [Newtonsoft.Json.JsonProperty("systemLanguages", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.Collections.Generic.ICollection<string> SystemLanguages { get; set; } = new System.Collections.Generic.List<string>();
     
         /// <summary>A list of languages serving as metadata languages.</summary>
-        [Newtonsoft.Json.JsonProperty("metadataLanguages", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> MetadataLanguages { get; set; }
+        [Newtonsoft.Json.JsonProperty("metadataLanguages", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.Collections.Generic.ICollection<string> MetadataLanguages { get; set; } = new System.Collections.Generic.List<string>();
     
         /// <summary>The default language. Not the be confused with the metadata fallback language x-default.</summary>
-        [Newtonsoft.Json.JsonProperty("defaultLanguage", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("defaultLanguage", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
         public string DefaultLanguage { get; set; }
     
         public string ToJson() 
