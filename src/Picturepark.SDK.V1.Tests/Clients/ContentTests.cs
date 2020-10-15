@@ -966,7 +966,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             }).ConfigureAwait(false);
         }
 
-        [Fact]
+        [Fact(Skip = "PP9-11893: Backend bug causing dimensions not always to be exactly as specified in the request makes this test randomly fail.")]
         [Trait("Stack", "Contents")]
         public async Task ShouldDownloadSingleResized()
         {
