@@ -35510,8 +35510,7 @@
           "boostValues",
           "modificationDate",
           "baseUrl",
-          "logosUrl",
-          "shareLanguages"
+          "logosUrl"
         ],
         "properties": {
           "customerId": {
@@ -35544,10 +35543,10 @@
             "description": "Information if the query details can be enabled when searching. For debug purposes only."
           },
           "languageConfiguration": {
-            "description": "Configured languages of customer instance (system, metadata, default).",
+            "description": "Configured languages of customer instance (system, metadata, share, default).",
             "oneOf": [
               {
-                "$ref": "#/components/schemas/LanguageConfiguration"
+                "$ref": "#/components/schemas/LanguageConfigurationInfo"
               }
             ]
           },
@@ -35595,24 +35594,44 @@
             "type": "string",
             "description": "Base bath to access logos of customer (including trailing slash), available images: name, full, small, background",
             "minLength": 1
-          },
-          "shareLanguages": {
-            "type": "array",
-            "description": "Share languages based on defined ShareMail templates.",
-            "items": {
-              "type": "string"
-            }
           }
         }
+      },
+      "LanguageConfigurationInfo": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/LanguageConfiguration"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "shareLanguages"
+            ],
+            "properties": {
+              "shareLanguages": {
+                "type": "array",
+                "description": "Share languages based on defined ShareMail templates.",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ]
       },
       "LanguageConfiguration": {
         "type": "object",
         "additionalProperties": false,
+        "required": [
+          "systemLanguages",
+          "metadataLanguages",
+          "defaultLanguage"
+        ],
         "properties": {
           "systemLanguages": {
             "type": "array",
             "description": "A list of languages serving as system languages.",
-            "nullable": true,
             "items": {
               "type": "string"
             }
@@ -35620,7 +35639,6 @@
           "metadataLanguages": {
             "type": "array",
             "description": "A list of languages serving as metadata languages.",
-            "nullable": true,
             "items": {
               "type": "string"
             }
@@ -35628,7 +35646,7 @@
           "defaultLanguage": {
             "type": "string",
             "description": "The default language. Not the be confused with the metadata fallback language x-default.",
-            "nullable": true
+            "minLength": 1
           }
         }
       },

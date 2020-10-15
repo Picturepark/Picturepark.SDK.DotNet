@@ -15348,11 +15348,15 @@
       "LanguageConfiguration": {
         "type": "object",
         "additionalProperties": false,
+        "required": [
+          "systemLanguages",
+          "metadataLanguages",
+          "defaultLanguage"
+        ],
         "properties": {
           "systemLanguages": {
             "type": "array",
             "description": "A list of languages serving as system languages.",
-            "nullable": true,
             "items": {
               "type": "string"
             }
@@ -15360,7 +15364,6 @@
           "metadataLanguages": {
             "type": "array",
             "description": "A list of languages serving as metadata languages.",
-            "nullable": true,
             "items": {
               "type": "string"
             }
@@ -15368,7 +15371,7 @@
           "defaultLanguage": {
             "type": "string",
             "description": "The default language. Not the be confused with the metadata fallback language x-default.",
-            "nullable": true
+            "minLength": 1
           }
         }
       },
