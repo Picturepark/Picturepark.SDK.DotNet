@@ -8582,7 +8582,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         public bool RefillRecreatedSecondaryIndices { get; set; } = true;
     
         /// <summary>Defines where searchIndices are recreated if they did not exist (not part of restored snapshot, for example)
-        /// If null, searchIndices will be recreated on the cluster they were on when the snapshot was taken (or, if that cluster does not exist, on core)</summary>
+        /// If null, searchIndices will be recreated on the cluster they were on when the snapshot was taken (or, if that cluster does not exist, on the default)</summary>
         [Newtonsoft.Json.JsonProperty("recreateSearchIndicesCluster", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string RecreateSearchIndicesCluster { get; set; }
     
@@ -8919,7 +8919,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         public bool RefillRecreatedSecondaryIndices { get; set; } = true;
     
         /// <summary>Defines where searchIndices are recreated if they did not exist (not part of restored snapshot, for example)
-        /// If null, searchIndices will be recreated on the cluster they were on when the snapshot was taken (or, if that cluster does not exist, on core)</summary>
+        /// If null, searchIndices will be recreated on the cluster they were on when the snapshot was taken (or, if that cluster does not exist, on the default)</summary>
         [Newtonsoft.Json.JsonProperty("recreateSearchIndicesCluster", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string RecreateSearchIndicesCluster { get; set; }
     
@@ -13365,7 +13365,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         public bool RefillRecreatedSecondaryIndices { get; set; } = true;
     
         /// <summary>Defines where searchIndices are recreated if they did not exist (not part of restored snapshot, for example)
-        /// If null, searchIndices will be recreated on the cluster they were on when the snapshot was taken (or, if that cluster does not exist, on core)</summary>
+        /// If null, searchIndices will be recreated on the cluster they were on when the snapshot was taken (or, if that cluster does not exist, on the default)</summary>
         [Newtonsoft.Json.JsonProperty("recreateSearchIndicesCluster", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string RecreateSearchIndicesCluster { get; set; }
     
