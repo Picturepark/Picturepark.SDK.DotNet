@@ -13921,7 +13921,7 @@
               },
               "recreateSearchIndicesCluster": {
                 "type": "string",
-                "description": "Defines where searchIndices are recreated if they did not exist (not part of restored snapshot, for example)\nIf null, searchIndices will be recreated on the cluster they were on when the snapshot was taken (or, if that cluster does not exist, on core)",
+                "description": "Defines where searchIndices are recreated if they did not exist (not part of restored snapshot, for example)\nIf null, searchIndices will be recreated on the cluster they were on when the snapshot was taken (or, if that cluster does not exist, on the default)",
                 "nullable": true
               }
             }
@@ -14285,7 +14285,7 @@
           },
           "recreateSearchIndicesCluster": {
             "type": "string",
-            "description": "Defines where searchIndices are recreated if they did not exist (not part of restored snapshot, for example)\nIf null, searchIndices will be recreated on the cluster they were on when the snapshot was taken (or, if that cluster does not exist, on core)",
+            "description": "Defines where searchIndices are recreated if they did not exist (not part of restored snapshot, for example)\nIf null, searchIndices will be recreated on the cluster they were on when the snapshot was taken (or, if that cluster does not exist, on the default)",
             "nullable": true
           }
         }
@@ -18933,7 +18933,7 @@
           },
           "recreateSearchIndicesCluster": {
             "type": "string",
-            "description": "Defines where searchIndices are recreated if they did not exist (not part of restored snapshot, for example)\nIf null, searchIndices will be recreated on the cluster they were on when the snapshot was taken (or, if that cluster does not exist, on core)",
+            "description": "Defines where searchIndices are recreated if they did not exist (not part of restored snapshot, for example)\nIf null, searchIndices will be recreated on the cluster they were on when the snapshot was taken (or, if that cluster does not exist, on the default)",
             "nullable": true
           }
         }
