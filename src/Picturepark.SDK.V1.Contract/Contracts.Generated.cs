@@ -2818,6 +2818,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("InvalidDataTypeException", typeof(InvalidDataTypeException))]
     [JsonInheritanceAttribute("LayerAssignmentInvalidException", typeof(LayerAssignmentInvalidException))]
     [JsonInheritanceAttribute("OutdatedMetadataUpdateInProgressException", typeof(OutdatedMetadataUpdateInProgressException))]
+    [JsonInheritanceAttribute("SortingSupportedOnlyOnTermsAggregatorSuperclassException", typeof(SortingSupportedOnlyOnTermsAggregatorSuperclassException))]
     [JsonInheritanceAttribute("SchemaFieldOverwriteTypeMismatchException", typeof(SchemaFieldOverwriteTypeMismatchException))]
     [JsonInheritanceAttribute("SchemaFieldOverwriteIdException", typeof(SchemaFieldOverwriteIdException))]
     [JsonInheritanceAttribute("SchemaFieldIdDuplicatedException", typeof(SchemaFieldIdDuplicatedException))]
@@ -2883,6 +2884,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("SchemaFieldNotSupportedException", typeof(SchemaFieldNotSupportedException))]
     [JsonInheritanceAttribute("SchemaFieldDisplayPatternTypeNotSupportedException", typeof(SchemaFieldDisplayPatternTypeNotSupportedException))]
     [JsonInheritanceAttribute("SchemaFieldMarkdownNotMultilineException", typeof(SchemaFieldMarkdownNotMultilineException))]
+    [JsonInheritanceAttribute("IndexingDisplayValueInFilterOnlySupportedForTagboxFieldsException", typeof(IndexingDisplayValueInFilterOnlySupportedForTagboxFieldsException))]
     [JsonInheritanceAttribute("DeleteContentsWithReferencesException", typeof(DeleteContentsWithReferencesException))]
     [JsonInheritanceAttribute("ContentMetadataUpdateManyException", typeof(ContentMetadataUpdateManyException))]
     [JsonInheritanceAttribute("ContentNotFoundException", typeof(ContentNotFoundException))]
@@ -6392,6 +6394,25 @@ namespace Picturepark.SDK.V1.Contract
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class SortingSupportedOnlyOnTermsAggregatorSuperclassException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("aggregationName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string AggregationName { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static SortingSupportedOnlyOnTermsAggregatorSuperclassException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SortingSupportedOnlyOnTermsAggregatorSuperclassException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
     public partial class SchemaFieldOverwriteTypeMismatchException : PictureparkValidationException
     {
         [Newtonsoft.Json.JsonProperty("schemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -7921,6 +7942,28 @@ namespace Picturepark.SDK.V1.Contract
         public static SchemaFieldMarkdownNotMultilineException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaFieldMarkdownNotMultilineException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class IndexingDisplayValueInFilterOnlySupportedForTagboxFieldsException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("schemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string SchemaId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("fieldId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string FieldId { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static IndexingDisplayValueInFilterOnlySupportedForTagboxFieldsException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<IndexingDisplayValueInFilterOnlySupportedForTagboxFieldsException>(data);
         }
     
     }
@@ -13518,6 +13561,10 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("searchFields", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> SearchFields { get; set; }
     
+        /// <summary>Sort settings for the aggregation results. If no sort is specified, aggregation is sorted on the item count.</summary>
+        [Newtonsoft.Json.JsonProperty("sort", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public SortInfo Sort { get; set; }
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -13527,6 +13574,44 @@ namespace Picturepark.SDK.V1.Contract
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<TermsAggregator>(data);
         }
+    
+    }
+    
+    /// <summary>Sorting information</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class SortInfo 
+    {
+        /// <summary>The field's ID to sort on.</summary>
+        [Newtonsoft.Json.JsonProperty("field", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Field { get; set; }
+    
+        /// <summary>The sort direction (ascending/descending).</summary>
+        [Newtonsoft.Json.JsonProperty("direction", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public SortDirection Direction { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static SortInfo FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SortInfo>(data);
+        }
+    
+    }
+    
+    /// <summary>The sort direction</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public enum SortDirection
+    {
+        [System.Runtime.Serialization.EnumMember(Value = @"Asc")]
+        Asc = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Desc")]
+        Desc = 1,
     
     }
     
@@ -13595,44 +13680,6 @@ namespace Picturepark.SDK.V1.Contract
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<TermsEnumAggregator>(data);
         }
-    
-    }
-    
-    /// <summary>Sorting information</summary>
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
-    public partial class SortInfo 
-    {
-        /// <summary>The field's ID to sort on.</summary>
-        [Newtonsoft.Json.JsonProperty("field", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Field { get; set; }
-    
-        /// <summary>The sort direction (ascending/descending).</summary>
-        [Newtonsoft.Json.JsonProperty("direction", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public SortDirection Direction { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-    
-        public static SortInfo FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<SortInfo>(data);
-        }
-    
-    }
-    
-    /// <summary>The sort direction</summary>
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
-    public enum SortDirection
-    {
-        [System.Runtime.Serialization.EnumMember(Value = @"Asc")]
-        Asc = 0,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"Desc")]
-        Desc = 1,
     
     }
     
@@ -22107,6 +22154,10 @@ namespace Picturepark.SDK.V1.Contract
         /// <summary>A collection of indexing information for the fields of a schema</summary>
         [Newtonsoft.Json.JsonProperty("fields", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<FieldIndexingInfo> Fields { get; set; }
+    
+        /// <summary>Schema's display value Name is stored for filtering. Only available for tagbox fields.</summary>
+        [Newtonsoft.Json.JsonProperty("includeNameDisplayValueInFilters", Required = Newtonsoft.Json.Required.Always)]
+        public bool IncludeNameDisplayValueInFilters { get; set; }
     
         public string ToJson() 
         {

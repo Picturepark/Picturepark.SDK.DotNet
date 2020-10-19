@@ -10368,6 +10368,23 @@
           }
         ]
       },
+      "SortingSupportedOnlyOnTermsAggregatorSuperclassException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "aggregationName": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
       "SchemaFieldOverwriteTypeMismatchException": {
         "allOf": [
           {
@@ -11877,6 +11894,27 @@
                 "nullable": true
               },
               "schemaId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "IndexingDisplayValueInFilterOnlySupportedForTagboxFieldsException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "schemaId": {
+                "type": "string",
+                "nullable": true
+              },
+              "fieldId": {
                 "type": "string",
                 "nullable": true
               }

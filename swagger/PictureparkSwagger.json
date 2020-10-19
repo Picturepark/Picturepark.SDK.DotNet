@@ -24566,6 +24566,23 @@
           }
         ]
       },
+      "SortingSupportedOnlyOnTermsAggregatorSuperclassException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "aggregationName": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
       "SchemaFieldOverwriteTypeMismatchException": {
         "allOf": [
           {
@@ -26075,6 +26092,27 @@
                 "nullable": true
               },
               "schemaId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "IndexingDisplayValueInFilterOnlySupportedForTagboxFieldsException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "schemaId": {
+                "type": "string",
+                "nullable": true
+              },
+              "fieldId": {
                 "type": "string",
                 "nullable": true
               }
@@ -31647,9 +31685,53 @@
                 "items": {
                   "type": "string"
                 }
+              },
+              "sort": {
+                "description": "Sort settings for the aggregation results. If no sort is specified, aggregation is sorted on the item count.",
+                "nullable": true,
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/SortInfo"
+                  }
+                ]
               }
             }
           }
+        ]
+      },
+      "SortInfo": {
+        "type": "object",
+        "description": "Sorting information",
+        "additionalProperties": false,
+        "required": [
+          "direction"
+        ],
+        "properties": {
+          "field": {
+            "type": "string",
+            "description": "The field's ID to sort on.",
+            "nullable": true
+          },
+          "direction": {
+            "description": "The sort direction (ascending/descending).",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/SortDirection"
+              }
+            ]
+          }
+        }
+      },
+      "SortDirection": {
+        "type": "string",
+        "description": "The sort direction",
+        "x-enumNames": [
+          "Asc",
+          "Desc"
+        ],
+        "enum": [
+          "Asc",
+          "Desc"
         ]
       },
       "TermsRelationAggregator": {
@@ -31716,41 +31798,6 @@
               }
             }
           }
-        ]
-      },
-      "SortInfo": {
-        "type": "object",
-        "description": "Sorting information",
-        "additionalProperties": false,
-        "required": [
-          "direction"
-        ],
-        "properties": {
-          "field": {
-            "type": "string",
-            "description": "The field's ID to sort on.",
-            "nullable": true
-          },
-          "direction": {
-            "description": "The sort direction (ascending/descending).",
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/SortDirection"
-              }
-            ]
-          }
-        }
-      },
-      "SortDirection": {
-        "type": "string",
-        "description": "The sort direction",
-        "x-enumNames": [
-          "Asc",
-          "Desc"
-        ],
-        "enum": [
-          "Asc",
-          "Desc"
         ]
       },
       "Channel": {
@@ -40432,6 +40479,9 @@
         "type": "object",
         "description": "Indexing information for a schema",
         "additionalProperties": false,
+        "required": [
+          "includeNameDisplayValueInFilters"
+        ],
         "properties": {
           "fields": {
             "type": "array",
@@ -40440,6 +40490,10 @@
             "items": {
               "$ref": "#/components/schemas/FieldIndexingInfo"
             }
+          },
+          "includeNameDisplayValueInFilters": {
+            "type": "boolean",
+            "description": "Schema's display value Name is stored for filtering. Only available for tagbox fields."
           }
         }
       },
