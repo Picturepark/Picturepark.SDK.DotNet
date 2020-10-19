@@ -11537,7 +11537,8 @@
           "Language",
           "PathHierarchy",
           "EdgeNGram",
-          "NGram"
+          "NGram",
+          "NoDiactrics"
         ],
         "enum": [
           "None",
@@ -11545,7 +11546,8 @@
           "Language",
           "PathHierarchy",
           "EdgeNGram",
-          "NGram"
+          "NGram",
+          "NoDiactrics"
         ]
       },
       "SchemaFieldRelationMultipleTypesException": {

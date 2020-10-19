@@ -60,7 +60,8 @@ namespace Picturepark.SDK.V1.Tests
                     },
                     NGramField = "NGramFieldValue",
                     PathHierarchyField = "Path/Hierarchy/Field",
-                    SimpleField = "Simple12Field"
+                    SimpleField = "Simple12Field",
+                    NoDiactricsField = "Bröt"
                 };
 
                 var res = await _client.ListItem.CreateFromObjectAsync(analyzerValue).ConfigureAwait(false);
@@ -109,6 +110,14 @@ namespace Picturepark.SDK.V1.Tests
             }).ConfigureAwait(false);
 
             Assert.True(ngramResults.TotalResults > 0);
+
+            var noDiactricsResults = await _client.ListItem.SearchAsync(new ListItemSearchRequest
+            {
+                SchemaIds = requestSchemaIds,
+                Filter = FilterBase.FromExpression<AnalyzerTestObject>(o => o.NoDiactricsField, "brot", Analyzer.NoDiactrics)
+            }).ConfigureAwait(false);
+
+            Assert.True(noDiactricsResults.TotalResults > 0);
         }
 
         [PictureparkSchema(SchemaType.List)]
@@ -128,6 +137,9 @@ namespace Picturepark.SDK.V1.Tests
 
             [PictureparkLanguageAnalyzer(Index = true)]
             public TranslatedStringDictionary LanguageField { get; set; }
+
+            [PictureparkNoDiactricsAnalyzer(Index = true)]
+            public string NoDiactricsField { get; set; }
         }
     }
 }

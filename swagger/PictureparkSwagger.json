@@ -25735,7 +25735,8 @@
           "Language",
           "PathHierarchy",
           "EdgeNGram",
-          "NGram"
+          "NGram",
+          "NoDiactrics"
         ],
         "enum": [
           "None",
@@ -25743,7 +25744,8 @@
           "Language",
           "PathHierarchy",
           "EdgeNGram",
-          "NGram"
+          "NGram",
+          "NoDiactrics"
         ]
       },
       "SchemaFieldRelationMultipleTypesException": {
@@ -40739,7 +40741,8 @@
             "LanguageAnalyzer": "#/components/schemas/LanguageAnalyzer",
             "NGramAnalyzer": "#/components/schemas/NGramAnalyzer",
             "PathHierarchyAnalyzer": "#/components/schemas/PathHierarchyAnalyzer",
-            "SimpleAnalyzer": "#/components/schemas/SimpleAnalyzer"
+            "SimpleAnalyzer": "#/components/schemas/SimpleAnalyzer",
+            "NoDiactricsAnalyzer": "#/components/schemas/NoDiactricsAnalyzer"
           }
         },
         "description": "The analyzer base class",
@@ -40883,6 +40886,33 @@
               "fieldSuffix": {
                 "type": "string",
                 "description": "The suffix for the analyzed field: simple.",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "NoDiactricsAnalyzer": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/AnalyzerBase"
+          },
+          {
+            "type": "object",
+            "description": "An analyzer that removes diactrics from words and uses a custom pattern tokenizer",
+            "additionalProperties": false,
+            "properties": {
+              "type": {
+                "description": "The analyzer type: NoDiactrics",
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/Analyzer"
+                  }
+                ]
+              },
+              "fieldSuffix": {
+                "type": "string",
+                "description": "The suffix for the analyzed field: AnalyzedFieldSuffixNoDiactrics.",
                 "nullable": true
               }
             }

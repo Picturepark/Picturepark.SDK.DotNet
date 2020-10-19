@@ -7584,6 +7584,9 @@ namespace Picturepark.SDK.V1.Contract
         [System.Runtime.Serialization.EnumMember(Value = @"NGram")]
         NGram = 5,
     
+        [System.Runtime.Serialization.EnumMember(Value = @"NoDiactrics")]
+        NoDiactrics = 6,
+    
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
@@ -22346,6 +22349,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("NGramAnalyzer", typeof(NGramAnalyzer))]
     [JsonInheritanceAttribute("PathHierarchyAnalyzer", typeof(PathHierarchyAnalyzer))]
     [JsonInheritanceAttribute("SimpleAnalyzer", typeof(SimpleAnalyzer))]
+    [JsonInheritanceAttribute("NoDiactricsAnalyzer", typeof(NoDiactricsAnalyzer))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     public abstract partial class AnalyzerBase 
     {
@@ -22482,6 +22486,31 @@ namespace Picturepark.SDK.V1.Contract
         public static SimpleAnalyzer FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<SimpleAnalyzer>(data);
+        }
+    
+    }
+    
+    /// <summary>An analyzer that removes diactrics from words and uses a custom pattern tokenizer</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class NoDiactricsAnalyzer : AnalyzerBase
+    {
+        /// <summary>The analyzer type: NoDiactrics</summary>
+        [Newtonsoft.Json.JsonProperty("type", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public Analyzer Type { get; set; }
+    
+        /// <summary>The suffix for the analyzed field: AnalyzedFieldSuffixNoDiactrics.</summary>
+        [Newtonsoft.Json.JsonProperty("fieldSuffix", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string FieldSuffix { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static NoDiactricsAnalyzer FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<NoDiactricsAnalyzer>(data);
         }
     
     }
