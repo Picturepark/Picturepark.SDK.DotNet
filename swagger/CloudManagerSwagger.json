@@ -432,6 +432,75 @@
         }
       }
     },
+    "/backup/customer/cloneRequest": {
+      "get": {
+        "tags": [
+          "CloudBackup"
+        ],
+        "operationId": "CloudBackup_CloneRequest",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SnapshotCustomerCloneRequest"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/backup/customer/clone": {
       "post": {
         "tags": [
@@ -13945,6 +14014,110 @@
           }
         }
       },
+      "SnapshotCustomerCloneRequest": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "anonymize"
+        ],
+        "properties": {
+          "snapshotName": {
+            "type": "string",
+            "nullable": true
+          },
+          "repositoryName": {
+            "type": "string",
+            "nullable": true
+          },
+          "sourceCustomerAlias": {
+            "type": "string",
+            "nullable": true
+          },
+          "customerName": {
+            "type": "string",
+            "nullable": true
+          },
+          "customerAlias": {
+            "type": "string",
+            "nullable": true
+          },
+          "customerHosts": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "type": "string"
+            }
+          },
+          "corsAllowedHosts": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "type": "string"
+            }
+          },
+          "storagePath": {
+            "type": "string",
+            "nullable": true
+          },
+          "baseUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "redirectUri": {
+            "type": "string",
+            "nullable": true
+          },
+          "anonymize": {
+            "type": "boolean"
+          },
+          "adminUser": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/User"
+              }
+            ]
+          },
+          "adminUserPassword": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "User": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "emailAddress",
+          "isDeleted"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "User's Picturepark ID.",
+            "nullable": true
+          },
+          "firstName": {
+            "type": "string",
+            "description": "User's first name.",
+            "nullable": true
+          },
+          "lastName": {
+            "type": "string",
+            "description": "User's last name.",
+            "nullable": true
+          },
+          "emailAddress": {
+            "type": "string",
+            "description": "Email address of the user (doubles as username).",
+            "minLength": 1
+          },
+          "isDeleted": {
+            "type": "boolean",
+            "description": "Marks a user that was deleted from the system."
+          }
+        }
+      },
       "Customer": {
         "type": "object",
         "additionalProperties": false,
@@ -14086,110 +14259,6 @@
           "Premium",
           "Enterprise"
         ]
-      },
-      "SnapshotCustomerCloneRequest": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "anonymize"
-        ],
-        "properties": {
-          "snapshotName": {
-            "type": "string",
-            "nullable": true
-          },
-          "repositoryName": {
-            "type": "string",
-            "nullable": true
-          },
-          "sourceCustomerAlias": {
-            "type": "string",
-            "nullable": true
-          },
-          "customerName": {
-            "type": "string",
-            "nullable": true
-          },
-          "customerAlias": {
-            "type": "string",
-            "nullable": true
-          },
-          "customerHosts": {
-            "type": "array",
-            "nullable": true,
-            "items": {
-              "type": "string"
-            }
-          },
-          "corsAllowedHosts": {
-            "type": "array",
-            "nullable": true,
-            "items": {
-              "type": "string"
-            }
-          },
-          "storagePath": {
-            "type": "string",
-            "nullable": true
-          },
-          "baseUrl": {
-            "type": "string",
-            "nullable": true
-          },
-          "redirectUri": {
-            "type": "string",
-            "nullable": true
-          },
-          "anonymize": {
-            "type": "boolean"
-          },
-          "adminUser": {
-            "nullable": true,
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/User"
-              }
-            ]
-          },
-          "adminUserPassword": {
-            "type": "string",
-            "nullable": true
-          }
-        }
-      },
-      "User": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "emailAddress",
-          "isDeleted"
-        ],
-        "properties": {
-          "id": {
-            "type": "string",
-            "description": "User's Picturepark ID.",
-            "nullable": true
-          },
-          "firstName": {
-            "type": "string",
-            "description": "User's first name.",
-            "nullable": true
-          },
-          "lastName": {
-            "type": "string",
-            "description": "User's last name.",
-            "nullable": true
-          },
-          "emailAddress": {
-            "type": "string",
-            "description": "Email address of the user (doubles as username).",
-            "minLength": 1
-          },
-          "isDeleted": {
-            "type": "boolean",
-            "description": "Marks a user that was deleted from the system."
-          }
-        }
       },
       "CustomerImportRequest": {
         "type": "object",
