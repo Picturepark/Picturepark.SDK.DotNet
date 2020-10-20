@@ -7584,8 +7584,8 @@ namespace Picturepark.SDK.V1.Contract
         [System.Runtime.Serialization.EnumMember(Value = @"NGram")]
         NGram = 5,
     
-        [System.Runtime.Serialization.EnumMember(Value = @"NoDiactrics")]
-        NoDiactrics = 6,
+        [System.Runtime.Serialization.EnumMember(Value = @"NoDiacritics")]
+        NoDiacritics = 6,
     
     }
     
@@ -22349,7 +22349,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("NGramAnalyzer", typeof(NGramAnalyzer))]
     [JsonInheritanceAttribute("PathHierarchyAnalyzer", typeof(PathHierarchyAnalyzer))]
     [JsonInheritanceAttribute("SimpleAnalyzer", typeof(SimpleAnalyzer))]
-    [JsonInheritanceAttribute("NoDiactricsAnalyzer", typeof(NoDiactricsAnalyzer))]
+    [JsonInheritanceAttribute("NoDiacriticsAnalyzer", typeof(NoDiacriticsAnalyzer))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     public abstract partial class AnalyzerBase 
     {
@@ -22490,16 +22490,16 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    /// <summary>An analyzer that removes diactrics from words and uses a custom pattern tokenizer</summary>
+    /// <summary>An analyzer that removes diacritics from words and uses a custom pattern tokenizer</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
-    public partial class NoDiactricsAnalyzer : AnalyzerBase
+    public partial class NoDiacriticsAnalyzer : AnalyzerBase
     {
-        /// <summary>The analyzer type: NoDiactrics</summary>
+        /// <summary>The analyzer type: NoDiacritics</summary>
         [Newtonsoft.Json.JsonProperty("type", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Analyzer Type { get; set; }
     
-        /// <summary>The suffix for the analyzed field: AnalyzedFieldSuffixNoDiactrics.</summary>
+        /// <summary>The suffix for the analyzed field: AnalyzedFieldSuffixNoDiacritics.</summary>
         [Newtonsoft.Json.JsonProperty("fieldSuffix", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string FieldSuffix { get; set; }
     
@@ -22508,9 +22508,9 @@ namespace Picturepark.SDK.V1.Contract
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
         }
     
-        public static NoDiactricsAnalyzer FromJson(string data)
+        public static NoDiacriticsAnalyzer FromJson(string data)
         {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<NoDiactricsAnalyzer>(data);
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<NoDiacriticsAnalyzer>(data);
         }
     
     }

@@ -61,7 +61,7 @@ namespace Picturepark.SDK.V1.Tests
                     NGramField = "NGramFieldValue",
                     PathHierarchyField = "Path/Hierarchy/Field",
                     SimpleField = "Simple12Field",
-                    NoDiactricsField = "Bröt"
+                    NoDiacriticsField = "Bröt"
                 };
 
                 var res = await _client.ListItem.CreateFromObjectAsync(analyzerValue).ConfigureAwait(false);
@@ -114,7 +114,7 @@ namespace Picturepark.SDK.V1.Tests
             var noDiactricsResults = await _client.ListItem.SearchAsync(new ListItemSearchRequest
             {
                 SchemaIds = requestSchemaIds,
-                Filter = FilterBase.FromExpression<AnalyzerTestObject>(o => o.NoDiactricsField, "brot", Analyzer.NoDiactrics)
+                Filter = FilterBase.FromExpression<AnalyzerTestObject>(o => o.NoDiacriticsField, "brot", Analyzer.NoDiacritics)
             }).ConfigureAwait(false);
 
             Assert.True(noDiactricsResults.TotalResults > 0);
@@ -138,8 +138,8 @@ namespace Picturepark.SDK.V1.Tests
             [PictureparkLanguageAnalyzer(Index = true)]
             public TranslatedStringDictionary LanguageField { get; set; }
 
-            [PictureparkNoDiactricsAnalyzer(Index = true)]
-            public string NoDiactricsField { get; set; }
+            [PictureparkNoDiacriticsAnalyzer(Index = true)]
+            public string NoDiacriticsField { get; set; }
         }
     }
 }

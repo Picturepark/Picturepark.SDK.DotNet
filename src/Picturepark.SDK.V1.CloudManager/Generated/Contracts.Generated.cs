@@ -5944,8 +5944,8 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [System.Runtime.Serialization.EnumMember(Value = @"NGram")]
         NGram = 5,
     
-        [System.Runtime.Serialization.EnumMember(Value = @"NoDiactrics")]
-        NoDiactrics = 6,
+        [System.Runtime.Serialization.EnumMember(Value = @"NoDiacritics")]
+        NoDiacritics = 6,
     
     }
     

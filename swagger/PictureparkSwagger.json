@@ -25736,7 +25736,7 @@
           "PathHierarchy",
           "EdgeNGram",
           "NGram",
-          "NoDiactrics"
+          "NoDiacritics"
         ],
         "enum": [
           "None",
@@ -25745,7 +25745,7 @@
           "PathHierarchy",
           "EdgeNGram",
           "NGram",
-          "NoDiactrics"
+          "NoDiacritics"
         ]
       },
       "SchemaFieldRelationMultipleTypesException": {
@@ -40742,7 +40742,7 @@
             "NGramAnalyzer": "#/components/schemas/NGramAnalyzer",
             "PathHierarchyAnalyzer": "#/components/schemas/PathHierarchyAnalyzer",
             "SimpleAnalyzer": "#/components/schemas/SimpleAnalyzer",
-            "NoDiactricsAnalyzer": "#/components/schemas/NoDiactricsAnalyzer"
+            "NoDiacriticsAnalyzer": "#/components/schemas/NoDiacriticsAnalyzer"
           }
         },
         "description": "The analyzer base class",
@@ -40892,18 +40892,18 @@
           }
         ]
       },
-      "NoDiactricsAnalyzer": {
+      "NoDiacriticsAnalyzer": {
         "allOf": [
           {
             "$ref": "#/components/schemas/AnalyzerBase"
           },
           {
             "type": "object",
-            "description": "An analyzer that removes diactrics from words and uses a custom pattern tokenizer",
+            "description": "An analyzer that removes diacritics from words and uses a custom pattern tokenizer",
             "additionalProperties": false,
             "properties": {
               "type": {
-                "description": "The analyzer type: NoDiactrics",
+                "description": "The analyzer type: NoDiacritics",
                 "oneOf": [
                   {
                     "$ref": "#/components/schemas/Analyzer"
@@ -40912,7 +40912,7 @@
               },
               "fieldSuffix": {
                 "type": "string",
-                "description": "The suffix for the analyzed field: AnalyzedFieldSuffixNoDiactrics.",
+                "description": "The suffix for the analyzed field: AnalyzedFieldSuffixNoDiacritics.",
                 "nullable": true
               }
             }

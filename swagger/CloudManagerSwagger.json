@@ -11538,7 +11538,7 @@
           "PathHierarchy",
           "EdgeNGram",
           "NGram",
-          "NoDiactrics"
+          "NoDiacritics"
         ],
         "enum": [
           "None",
@@ -11547,7 +11547,7 @@
           "PathHierarchy",
           "EdgeNGram",
           "NGram",
-          "NoDiactrics"
+          "NoDiacritics"
         ]
       },
       "SchemaFieldRelationMultipleTypesException": {
