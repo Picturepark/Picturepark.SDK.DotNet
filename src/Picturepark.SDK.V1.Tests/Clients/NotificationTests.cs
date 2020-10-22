@@ -92,7 +92,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         public async Task ShouldGetDigestConfiguration()
         {
             // Act
-            var configuration = await _client.Notification.GetDigestConfigurationAsync().ConfigureAwait(false);
+            var configuration = await _client.Notification.GetEmailNotificationSettingsAsync().ConfigureAwait(false);
 
             // Assert
             configuration.Should().NotBeNull();
@@ -120,28 +120,20 @@ namespace Picturepark.SDK.V1.Tests.Clients
             await _client.BusinessProcess.WaitForCompletionAsync(businessProcess.Id).ConfigureAwait(false);
 
             // Act
-            var configuration = await _client.Notification.PutDigestConfigurationAsync(
-                new NotificationDigestConfiguration
+            var configuration = await _client.Notification.PutEmailNotificationSettingsAsync(
+                new EmailNotificationsSettings
                 {
-                    Interval = NotificationDigestInterval.Hourly,
-                    DigestDisabledByDefault = true,
-                    Items = new List<NotificationDigestConfigurationItem>
-                    {
-                        new NotificationDigestConfigurationItem
-                        {
-                            DigestEnabled = true,
-                            NotificationId = notificationId
-                        }
-                    }
+                    Interval = EmailNotificationsInterval.Hourly,
+                    DisableAll = true,
+                    Exclusions = new[] { notificationId }
                 }).ConfigureAwait(false);
 
             // Assert
-            configuration.Interval.Should().Be(NotificationDigestInterval.Hourly);
-            configuration.DigestDisabledByDefault.Should().BeTrue();
+            configuration.Interval.Should().Be(EmailNotificationsInterval.Hourly);
+            configuration.DisableAll.Should().BeTrue();
 
-            var item = configuration.Items.Should().HaveCount(1).And.ContainSingle().Which;
-            item.NotificationId.Should().Be(notificationId);
-            item.DigestEnabled.Should().BeTrue();
+            var exclusion = configuration.Exclusions.Should().HaveCount(1).And.ContainSingle().Which;
+            exclusion.Should().Be(notificationId);
         }
 
         private async Task<string> GetNotificationId()
