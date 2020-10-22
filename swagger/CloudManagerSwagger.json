@@ -8448,27 +8448,6 @@
           "SchemaEditing"
         ]
       },
-      "RetryException": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/PictureparkBusinessException"
-          },
-          {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "retries": {
-                "type": "integer",
-                "format": "int32"
-              },
-              "innerExceptionDetail": {
-                "type": "string",
-                "nullable": true
-              }
-            }
-          }
-        ]
-      },
       "OwnerTokenNotFoundException": {
         "allOf": [
           {
@@ -11606,7 +11585,8 @@
           "Language",
           "PathHierarchy",
           "EdgeNGram",
-          "NGram"
+          "NGram",
+          "NoDiacritics"
         ],
         "enum": [
           "None",
@@ -11614,7 +11594,8 @@
           "Language",
           "PathHierarchy",
           "EdgeNGram",
-          "NGram"
+          "NGram",
+          "NoDiacritics"
         ]
       },
       "SchemaFieldRelationMultipleTypesException": {

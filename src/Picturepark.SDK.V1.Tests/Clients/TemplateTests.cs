@@ -123,7 +123,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 new TemplateCreateRequest
                 {
                     Name = $"{Guid.NewGuid():N}",
-                    TemplateType = TemplateType.NotificationDigestItem,
+                    TemplateType = TemplateType.NotificationMailItem,
                     Names = new TranslatedStringDictionary
                     {
                         [_fixture.DefaultLanguage] = "Custom template"
