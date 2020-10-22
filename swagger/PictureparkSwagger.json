@@ -9887,20 +9887,20 @@
         ]
       }
     },
-    "/v1/Notifications/digestConfiguration": {
+    "/v1/Notifications/emailNotifications/settings": {
       "get": {
         "tags": [
           "Notification"
         ],
-        "summary": "Get notification digest configuration",
-        "operationId": "Notification_GetDigestConfiguration",
+        "summary": "Get email notification settings",
+        "operationId": "Notification_GetEmailNotificationSettings",
         "responses": {
           "200": {
-            "description": "Notification digest configuration",
+            "description": "Email notification settings",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/NotificationDigestConfiguration"
+                  "$ref": "#/components/schemas/EmailNotificationsSettings"
                 }
               }
             }
@@ -9967,15 +9967,15 @@
         "tags": [
           "Notification"
         ],
-        "summary": "Update notification digest configuration",
-        "operationId": "Notification_PutDigestConfiguration",
+        "summary": "Update email notification settings",
+        "operationId": "Notification_PutEmailNotificationSettings",
         "requestBody": {
           "x-name": "configuration",
-          "description": "Notification digest configuration",
+          "description": "Email notification settings",
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NotificationDigestConfiguration"
+                "$ref": "#/components/schemas/EmailNotificationsSettings"
               }
             }
           },
@@ -9984,11 +9984,11 @@
         },
         "responses": {
           "200": {
-            "description": "Notification digest configuration",
+            "description": "Email notification settings",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/NotificationDigestConfiguration"
+                  "$ref": "#/components/schemas/EmailNotificationsSettings"
                 }
               }
             }
@@ -10047,6 +10047,86 @@
           {
             "Bearer": [
               "notification_write"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/Notifications/emailNotifications/types": {
+      "get": {
+        "tags": [
+          "Notification"
+        ],
+        "summary": "Get notification types available for email settings.",
+        "operationId": "Notification_GetAvailableNotificationTypes",
+        "responses": {
+          "200": {
+            "description": "Array of Notification that is available for email settings.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/NotificationType"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "notification_read"
             ]
           }
         ]
@@ -22577,27 +22657,6 @@
           "SchemaEditing"
         ]
       },
-      "RetryException": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/PictureparkBusinessException"
-          },
-          {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "retries": {
-                "type": "integer",
-                "format": "int32"
-              },
-              "innerExceptionDetail": {
-                "type": "string",
-                "nullable": true
-              }
-            }
-          }
-        ]
-      },
       "OwnerTokenNotFoundException": {
         "allOf": [
           {
@@ -25752,7 +25811,8 @@
           "Language",
           "PathHierarchy",
           "EdgeNGram",
-          "NGram"
+          "NGram",
+          "NoDiacritics"
         ],
         "enum": [
           "None",
@@ -25760,7 +25820,8 @@
           "Language",
           "PathHierarchy",
           "EdgeNGram",
-          "NGram"
+          "NGram",
+          "NoDiacritics"
         ]
       },
       "SchemaFieldRelationMultipleTypesException": {
@@ -30821,7 +30882,7 @@
           },
           "templateName": {
             "type": "string",
-            "description": "Name of the template to use when creating an e-mail digest out of this notification.",
+            "description": "Name of the template to use when converting the notification to an item in the email notifications.",
             "nullable": true
           }
         }
@@ -37888,40 +37949,40 @@
           }
         ]
       },
-      "NotificationDigestConfiguration": {
+      "EmailNotificationsSettings": {
         "type": "object",
-        "description": "Digest configuration",
+        "description": "Email notification settings",
         "additionalProperties": false,
         "required": [
           "interval",
-          "digestDisabledByDefault"
+          "disableAll"
         ],
         "properties": {
           "interval": {
-            "description": "Digest interval.",
+            "description": "Interval.",
             "oneOf": [
               {
-                "$ref": "#/components/schemas/NotificationDigestInterval"
+                "$ref": "#/components/schemas/EmailNotificationsInterval"
               }
             ]
           },
-          "items": {
+          "exclusions": {
             "type": "array",
-            "description": "Item override to enable/disable digest for a specific notification item.",
+            "description": "Exclusions from the default set by DisableAll property.\nList of notification IDs which are excluded or included from the email, depending on the DisableAll property.",
             "nullable": true,
             "items": {
-              "$ref": "#/components/schemas/NotificationDigestConfigurationItem"
+              "type": "string"
             }
           },
-          "digestDisabledByDefault": {
+          "disableAll": {
             "type": "boolean",
-            "description": "Disable all items by default.\n            \nWhen set to false, Items property acts as a blacklist (all items are digested by default).\nWhen set to true, Items property acts as a whitelist (no items are digested by default)."
+            "description": "Receive all\n            \nWhen set to false, Exclusions property acts as a blacklist (all items are included by default).\nWhen set to true, Exclusions property acts as a whitelist (no items are included by default)."
           }
         }
       },
-      "NotificationDigestInterval": {
+      "EmailNotificationsInterval": {
         "type": "string",
-        "description": "Interval for notification digest",
+        "description": "Interval for email notifications",
         "x-enumNames": [
           "Daily",
           "Hourly",
@@ -37935,22 +37996,24 @@
           "Off"
         ]
       },
-      "NotificationDigestConfigurationItem": {
+      "NotificationType": {
         "type": "object",
-        "description": "Configuration for a specific notification item",
+        "description": "Notification that is available for email settings.",
         "additionalProperties": false,
-        "required": [
-          "digestEnabled"
-        ],
         "properties": {
-          "notificationId": {
+          "id": {
             "type": "string",
-            "description": "ID of notification",
+            "description": "ID of the notification.",
             "nullable": true
           },
-          "digestEnabled": {
-            "type": "boolean",
-            "description": "Enable digest for this item"
+          "title": {
+            "description": "Title of the notification.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/TranslatedStringDictionary"
+              }
+            ]
           }
         }
       },
@@ -40793,7 +40856,8 @@
             "LanguageAnalyzer": "#/components/schemas/LanguageAnalyzer",
             "NGramAnalyzer": "#/components/schemas/NGramAnalyzer",
             "PathHierarchyAnalyzer": "#/components/schemas/PathHierarchyAnalyzer",
-            "SimpleAnalyzer": "#/components/schemas/SimpleAnalyzer"
+            "SimpleAnalyzer": "#/components/schemas/SimpleAnalyzer",
+            "NoDiacriticsAnalyzer": "#/components/schemas/NoDiacriticsAnalyzer"
           }
         },
         "description": "The analyzer base class",
@@ -40937,6 +41001,33 @@
               "fieldSuffix": {
                 "type": "string",
                 "description": "The suffix for the analyzed field: simple.",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "NoDiacriticsAnalyzer": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/AnalyzerBase"
+          },
+          {
+            "type": "object",
+            "description": "An analyzer that removes diacritics from words and uses a custom pattern tokenizer",
+            "additionalProperties": false,
+            "properties": {
+              "type": {
+                "description": "The analyzer type: NoDiacritics",
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/Analyzer"
+                  }
+                ]
+              },
+              "fieldSuffix": {
+                "type": "string",
+                "description": "The suffix for the analyzed field: AnalyzedFieldSuffixNoDiacritics.",
                 "nullable": true
               }
             }
@@ -43197,8 +43288,8 @@
           "ShareNotFoundPage",
           "UserTriggeredDeactivationRequestMail",
           "UserEmailConflictSolvedMail",
-          "NotificationDigestMail",
-          "NotificationDigestItem"
+          "NotificationMail",
+          "NotificationMailItem"
         ],
         "enum": [
           "ShareMail",
@@ -43211,8 +43302,8 @@
           "ShareNotFoundPage",
           "UserTriggeredDeactivationRequestMail",
           "UserEmailConflictSolvedMail",
-          "NotificationDigestMail",
-          "NotificationDigestItem"
+          "NotificationMail",
+          "NotificationMailItem"
         ]
       },
       "TemplateUpdateRequest": {

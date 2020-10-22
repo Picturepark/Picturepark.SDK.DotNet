@@ -1104,25 +1104,35 @@ namespace Picturepark.SDK.V1.Contract
         System.Threading.Tasks.Task MarkAllAsReadAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <summary>Get notification digest configuration</summary>
-        /// <returns>Notification digest configuration</returns>
+        /// <summary>Get email notification settings</summary>
+        /// <returns>Email notification settings</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        System.Threading.Tasks.Task<NotificationDigestConfiguration> GetDigestConfigurationAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<EmailNotificationsSettings> GetEmailNotificationSettingsAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <summary>Update notification digest configuration</summary>
-        /// <param name="configuration">Notification digest configuration</param>
-        /// <returns>Notification digest configuration</returns>
+        /// <summary>Update email notification settings</summary>
+        /// <param name="configuration">Email notification settings</param>
+        /// <returns>Email notification settings</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        System.Threading.Tasks.Task<NotificationDigestConfiguration> PutDigestConfigurationAsync(NotificationDigestConfiguration configuration, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<EmailNotificationsSettings> PutEmailNotificationSettingsAsync(EmailNotificationsSettings configuration, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>Get notification types available for email settings.</summary>
+        /// <returns>Array of Notification that is available for email settings.</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<NotificationType>> GetAvailableNotificationTypesAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
     }
     
@@ -2731,7 +2741,6 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("RenderingNotAwaitedException", typeof(RenderingNotAwaitedException))]
     [JsonInheritanceAttribute("LeaseNotAcquiredException", typeof(LeaseNotAcquiredException))]
     [JsonInheritanceAttribute("OperationInProgressException", typeof(OperationInProgressException))]
-    [JsonInheritanceAttribute("RetryException", typeof(RetryException))]
     [JsonInheritanceAttribute("OwnerTokenNotFoundException", typeof(OwnerTokenNotFoundException))]
     [JsonInheritanceAttribute("InvalidStateException", typeof(InvalidStateException))]
     [JsonInheritanceAttribute("PictureparkArgumentNullException", typeof(PictureparkArgumentNullException))]
@@ -4203,28 +4212,6 @@ namespace Picturepark.SDK.V1.Contract
     {
         [System.Runtime.Serialization.EnumMember(Value = @"SchemaEditing")]
         SchemaEditing = 0,
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
-    [Newtonsoft.Json.JsonObjectAttribute]
-    public partial class RetryException : PictureparkBusinessException
-    {
-        [Newtonsoft.Json.JsonProperty("retries", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int Retries { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("innerExceptionDetail", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string InnerExceptionDetail { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-    
-        public static RetryException FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<RetryException>(data);
-        }
     
     }
     
@@ -7604,6 +7591,9 @@ namespace Picturepark.SDK.V1.Contract
     
         [System.Runtime.Serialization.EnumMember(Value = @"NGram")]
         NGram = 5,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"NoDiacritics")]
+        NoDiacritics = 6,
     
     }
     
@@ -12779,7 +12769,7 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("createCollection", Required = Newtonsoft.Json.Required.Always)]
         public bool CreateCollection { get; set; }
     
-        /// <summary>Name of the template to use when creating an e-mail digest out of this notification.</summary>
+        /// <summary>Name of the template to use when converting the notification to an item in the email notifications.</summary>
         [Newtonsoft.Json.JsonProperty("templateName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string TemplateName { get; set; }
     
@@ -19689,42 +19679,43 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    /// <summary>Digest configuration</summary>
+    /// <summary>Email notification settings</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
-    public partial class NotificationDigestConfiguration 
+    public partial class EmailNotificationsSettings 
     {
-        /// <summary>Digest interval.</summary>
+        /// <summary>Interval.</summary>
         [Newtonsoft.Json.JsonProperty("interval", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public NotificationDigestInterval Interval { get; set; }
+        public EmailNotificationsInterval Interval { get; set; }
     
-        /// <summary>Item override to enable/disable digest for a specific notification item.</summary>
-        [Newtonsoft.Json.JsonProperty("items", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<NotificationDigestConfigurationItem> Items { get; set; }
+        /// <summary>Exclusions from the default set by DisableAll property.
+        /// List of notification IDs which are excluded or included from the email, depending on the DisableAll property.</summary>
+        [Newtonsoft.Json.JsonProperty("exclusions", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> Exclusions { get; set; }
     
-        /// <summary>Disable all items by default.
+        /// <summary>Receive all
         ///             
-        /// When set to false, Items property acts as a blacklist (all items are digested by default).
-        /// When set to true, Items property acts as a whitelist (no items are digested by default).</summary>
-        [Newtonsoft.Json.JsonProperty("digestDisabledByDefault", Required = Newtonsoft.Json.Required.Always)]
-        public bool DigestDisabledByDefault { get; set; }
+        /// When set to false, Exclusions property acts as a blacklist (all items are included by default).
+        /// When set to true, Exclusions property acts as a whitelist (no items are included by default).</summary>
+        [Newtonsoft.Json.JsonProperty("disableAll", Required = Newtonsoft.Json.Required.Always)]
+        public bool DisableAll { get; set; }
     
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
         }
     
-        public static NotificationDigestConfiguration FromJson(string data)
+        public static EmailNotificationsSettings FromJson(string data)
         {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<NotificationDigestConfiguration>(data);
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<EmailNotificationsSettings>(data);
         }
     
     }
     
-    /// <summary>Interval for notification digest</summary>
+    /// <summary>Interval for email notifications</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
-    public enum NotificationDigestInterval
+    public enum EmailNotificationsInterval
     {
         [System.Runtime.Serialization.EnumMember(Value = @"Daily")]
         Daily = 0,
@@ -19740,26 +19731,26 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    /// <summary>Configuration for a specific notification item</summary>
+    /// <summary>Notification that is available for email settings.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
-    public partial class NotificationDigestConfigurationItem 
+    public partial class NotificationType 
     {
-        /// <summary>ID of notification</summary>
-        [Newtonsoft.Json.JsonProperty("notificationId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string NotificationId { get; set; }
+        /// <summary>ID of the notification.</summary>
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
     
-        /// <summary>Enable digest for this item</summary>
-        [Newtonsoft.Json.JsonProperty("digestEnabled", Required = Newtonsoft.Json.Required.Always)]
-        public bool DigestEnabled { get; set; }
+        /// <summary>Title of the notification.</summary>
+        [Newtonsoft.Json.JsonProperty("title", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public TranslatedStringDictionary Title { get; set; }
     
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
         }
     
-        public static NotificationDigestConfigurationItem FromJson(string data)
+        public static NotificationType FromJson(string data)
         {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<NotificationDigestConfigurationItem>(data);
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<NotificationType>(data);
         }
     
     }
@@ -22397,6 +22388,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("NGramAnalyzer", typeof(NGramAnalyzer))]
     [JsonInheritanceAttribute("PathHierarchyAnalyzer", typeof(PathHierarchyAnalyzer))]
     [JsonInheritanceAttribute("SimpleAnalyzer", typeof(SimpleAnalyzer))]
+    [JsonInheritanceAttribute("NoDiacriticsAnalyzer", typeof(NoDiacriticsAnalyzer))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     public abstract partial class AnalyzerBase 
     {
@@ -22533,6 +22525,31 @@ namespace Picturepark.SDK.V1.Contract
         public static SimpleAnalyzer FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<SimpleAnalyzer>(data);
+        }
+    
+    }
+    
+    /// <summary>An analyzer that removes diacritics from words and uses a custom pattern tokenizer</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class NoDiacriticsAnalyzer : AnalyzerBase
+    {
+        /// <summary>The analyzer type: NoDiacritics</summary>
+        [Newtonsoft.Json.JsonProperty("type", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public Analyzer Type { get; set; }
+    
+        /// <summary>The suffix for the analyzed field: AnalyzedFieldSuffixNoDiacritics.</summary>
+        [Newtonsoft.Json.JsonProperty("fieldSuffix", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string FieldSuffix { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static NoDiacriticsAnalyzer FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<NoDiacriticsAnalyzer>(data);
         }
     
     }
@@ -24616,11 +24633,11 @@ namespace Picturepark.SDK.V1.Contract
         [System.Runtime.Serialization.EnumMember(Value = @"UserEmailConflictSolvedMail")]
         UserEmailConflictSolvedMail = 9,
     
-        [System.Runtime.Serialization.EnumMember(Value = @"NotificationDigestMail")]
-        NotificationDigestMail = 10,
+        [System.Runtime.Serialization.EnumMember(Value = @"NotificationMail")]
+        NotificationMail = 10,
     
-        [System.Runtime.Serialization.EnumMember(Value = @"NotificationDigestItem")]
-        NotificationDigestItem = 11,
+        [System.Runtime.Serialization.EnumMember(Value = @"NotificationMailItem")]
+        NotificationMailItem = 11,
     
     }
     
