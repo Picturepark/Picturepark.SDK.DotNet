@@ -10416,7 +10416,7 @@
           }
         ]
       },
-      "SortingSupportedOnlyOnTermsAggregatorSuperclassException": {
+      "SortingSupportedOnlyOnTermsAndTermsRelationAggregatorsException": {
         "allOf": [
           {
             "$ref": "#/components/schemas/PictureparkValidationException"
@@ -11965,6 +11965,10 @@
                 "nullable": true
               },
               "fieldId": {
+                "type": "string",
+                "nullable": true
+              },
+              "relatedFieldId": {
                 "type": "string",
                 "nullable": true
               }

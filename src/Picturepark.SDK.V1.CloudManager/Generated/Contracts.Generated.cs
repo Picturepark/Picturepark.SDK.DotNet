@@ -1185,7 +1185,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [JsonInheritanceAttribute("InvalidDataTypeException", typeof(InvalidDataTypeException))]
     [JsonInheritanceAttribute("LayerAssignmentInvalidException", typeof(LayerAssignmentInvalidException))]
     [JsonInheritanceAttribute("OutdatedMetadataUpdateInProgressException", typeof(OutdatedMetadataUpdateInProgressException))]
-    [JsonInheritanceAttribute("SortingSupportedOnlyOnTermsAggregatorSuperclassException", typeof(SortingSupportedOnlyOnTermsAggregatorSuperclassException))]
+    [JsonInheritanceAttribute("SortingSupportedOnlyOnTermsAndTermsRelationAggregatorsException", typeof(SortingSupportedOnlyOnTermsAndTermsRelationAggregatorsException))]
     [JsonInheritanceAttribute("SchemaFieldOverwriteTypeMismatchException", typeof(SchemaFieldOverwriteTypeMismatchException))]
     [JsonInheritanceAttribute("SchemaFieldOverwriteIdException", typeof(SchemaFieldOverwriteIdException))]
     [JsonInheritanceAttribute("SchemaFieldIdDuplicatedException", typeof(SchemaFieldIdDuplicatedException))]
@@ -4739,7 +4739,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     [Newtonsoft.Json.JsonObjectAttribute]
-    public partial class SortingSupportedOnlyOnTermsAggregatorSuperclassException : PictureparkValidationException
+    public partial class SortingSupportedOnlyOnTermsAndTermsRelationAggregatorsException : PictureparkValidationException
     {
         [Newtonsoft.Json.JsonProperty("aggregationName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string AggregationName { get; set; }
@@ -4749,9 +4749,9 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
         }
     
-        public static SortingSupportedOnlyOnTermsAggregatorSuperclassException FromJson(string data)
+        public static SortingSupportedOnlyOnTermsAndTermsRelationAggregatorsException FromJson(string data)
         {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<SortingSupportedOnlyOnTermsAggregatorSuperclassException>(data);
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SortingSupportedOnlyOnTermsAndTermsRelationAggregatorsException>(data);
         }
     
     }
@@ -6303,6 +6303,9 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
         [Newtonsoft.Json.JsonProperty("fieldId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string FieldId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("relatedFieldId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string RelatedFieldId { get; set; }
     
         public string ToJson() 
         {
