@@ -40973,7 +40973,7 @@
               },
               "fieldSuffix": {
                 "type": "string",
-                "description": "The suffix for the analyzed field: AnalyzedFieldSuffixNoDiacritics.",
+                "description": "The suffix for the analyzed field: nodiacritics.",
                 "nullable": true
               }
             }

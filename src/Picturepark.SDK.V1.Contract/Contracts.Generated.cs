@@ -22487,7 +22487,7 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Analyzer Type { get; set; }
     
-        /// <summary>The suffix for the analyzed field: AnalyzedFieldSuffixNoDiacritics.</summary>
+        /// <summary>The suffix for the analyzed field: nodiacritics.</summary>
         [Newtonsoft.Json.JsonProperty("fieldSuffix", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string FieldSuffix { get; set; }
     
