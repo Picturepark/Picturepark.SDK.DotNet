@@ -26160,7 +26160,7 @@
           }
         ]
       },
-      "IndexingDisplayValueInFilterOnlySupportedForTagboxFieldsException": {
+      "IndexingDisplayValueInFilterOnlySupportedForIndexedTagboxFieldsException": {
         "allOf": [
           {
             "$ref": "#/components/schemas/PictureparkValidationException"
