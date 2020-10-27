@@ -1185,6 +1185,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [JsonInheritanceAttribute("InvalidDataTypeException", typeof(InvalidDataTypeException))]
     [JsonInheritanceAttribute("LayerAssignmentInvalidException", typeof(LayerAssignmentInvalidException))]
     [JsonInheritanceAttribute("OutdatedMetadataUpdateInProgressException", typeof(OutdatedMetadataUpdateInProgressException))]
+    [JsonInheritanceAttribute("SortingSupportedOnlyOnTermsAndTermsRelationAggregatorsException", typeof(SortingSupportedOnlyOnTermsAndTermsRelationAggregatorsException))]
     [JsonInheritanceAttribute("SchemaFieldOverwriteTypeMismatchException", typeof(SchemaFieldOverwriteTypeMismatchException))]
     [JsonInheritanceAttribute("SchemaFieldOverwriteIdException", typeof(SchemaFieldOverwriteIdException))]
     [JsonInheritanceAttribute("SchemaFieldIdDuplicatedException", typeof(SchemaFieldIdDuplicatedException))]
@@ -1250,6 +1251,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [JsonInheritanceAttribute("SchemaFieldNotSupportedException", typeof(SchemaFieldNotSupportedException))]
     [JsonInheritanceAttribute("SchemaFieldDisplayPatternTypeNotSupportedException", typeof(SchemaFieldDisplayPatternTypeNotSupportedException))]
     [JsonInheritanceAttribute("SchemaFieldMarkdownNotMultilineException", typeof(SchemaFieldMarkdownNotMultilineException))]
+    [JsonInheritanceAttribute("IndexingDisplayValueInFilterOnlySupportedForTagboxFieldsException", typeof(IndexingDisplayValueInFilterOnlySupportedForTagboxFieldsException))]
     [JsonInheritanceAttribute("DeleteContentsWithReferencesException", typeof(DeleteContentsWithReferencesException))]
     [JsonInheritanceAttribute("ContentMetadataUpdateManyException", typeof(ContentMetadataUpdateManyException))]
     [JsonInheritanceAttribute("ContentNotFoundException", typeof(ContentNotFoundException))]
@@ -4737,6 +4739,25 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class SortingSupportedOnlyOnTermsAndTermsRelationAggregatorsException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("aggregationName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string AggregationName { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static SortingSupportedOnlyOnTermsAndTermsRelationAggregatorsException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SortingSupportedOnlyOnTermsAndTermsRelationAggregatorsException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
     public partial class SchemaFieldOverwriteTypeMismatchException : PictureparkValidationException
     {
         [Newtonsoft.Json.JsonProperty("schemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -6269,6 +6290,31 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         public static SchemaFieldMarkdownNotMultilineException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaFieldMarkdownNotMultilineException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class IndexingDisplayValueInFilterOnlySupportedForTagboxFieldsException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("schemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string SchemaId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("fieldId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string FieldId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("relatedFieldId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string RelatedFieldId { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static IndexingDisplayValueInFilterOnlySupportedForTagboxFieldsException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<IndexingDisplayValueInFilterOnlySupportedForTagboxFieldsException>(data);
         }
     
     }
