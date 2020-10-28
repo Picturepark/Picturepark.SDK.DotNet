@@ -1251,7 +1251,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [JsonInheritanceAttribute("SchemaFieldNotSupportedException", typeof(SchemaFieldNotSupportedException))]
     [JsonInheritanceAttribute("SchemaFieldDisplayPatternTypeNotSupportedException", typeof(SchemaFieldDisplayPatternTypeNotSupportedException))]
     [JsonInheritanceAttribute("SchemaFieldMarkdownNotMultilineException", typeof(SchemaFieldMarkdownNotMultilineException))]
-    [JsonInheritanceAttribute("IndexingDisplayValueInFilterOnlySupportedForTagboxFieldsException", typeof(IndexingDisplayValueInFilterOnlySupportedForTagboxFieldsException))]
+    [JsonInheritanceAttribute("IndexingDisplayValueInFilterOnlySupportedForIndexedTagboxFieldsException", typeof(IndexingDisplayValueInFilterOnlySupportedForIndexedTagboxFieldsException))]
     [JsonInheritanceAttribute("DeleteContentsWithReferencesException", typeof(DeleteContentsWithReferencesException))]
     [JsonInheritanceAttribute("ContentMetadataUpdateManyException", typeof(ContentMetadataUpdateManyException))]
     [JsonInheritanceAttribute("ContentNotFoundException", typeof(ContentNotFoundException))]
@@ -6296,7 +6296,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     [Newtonsoft.Json.JsonObjectAttribute]
-    public partial class IndexingDisplayValueInFilterOnlySupportedForTagboxFieldsException : PictureparkValidationException
+    public partial class IndexingDisplayValueInFilterOnlySupportedForIndexedTagboxFieldsException : PictureparkValidationException
     {
         [Newtonsoft.Json.JsonProperty("schemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string SchemaId { get; set; }
@@ -6312,9 +6312,9 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
         }
     
-        public static IndexingDisplayValueInFilterOnlySupportedForTagboxFieldsException FromJson(string data)
+        public static IndexingDisplayValueInFilterOnlySupportedForIndexedTagboxFieldsException FromJson(string data)
         {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<IndexingDisplayValueInFilterOnlySupportedForTagboxFieldsException>(data);
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<IndexingDisplayValueInFilterOnlySupportedForIndexedTagboxFieldsException>(data);
         }
     
     }
