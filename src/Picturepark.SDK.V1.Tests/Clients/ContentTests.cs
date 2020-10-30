@@ -271,7 +271,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             var contentSchema = contentSchemaResult.Schema;
 
-            var creationResult = await _client.ListItem.CreateManyAsync(new ListItemCreateManyRequest
+            var peopleCreation = await _client.ListItem.CreateManyAsync(new ListItemCreateManyRequest
             {
                 Items = new List<ListItemCreateRequest>
                 {
@@ -282,10 +282,10 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 }
             });
 
-            var creationResultDetail = await creationResult.FetchDetail();
-            var people = creationResultDetail.SucceededIds.Select(id => new Person { RefId = id }).ToArray();
+            var peopleCreationResult = await peopleCreation.FetchDetail();
+            var people = peopleCreationResult.SucceededIds.Select(id => new Person { RefId = id }).ToArray();
 
-            await _client.Content.CreateAsync(
+            var content1 = await _client.Content.CreateAsync(
                 new ContentCreateRequest
                 {
                     ContentSchemaId = contentSchema.Id,
@@ -295,19 +295,21 @@ namespace Picturepark.SDK.V1.Tests.Clients
                     },
                     LayerSchemaIds = new List<string> { nameof(PersonShot) },
                     Metadata = Metadata.From(new PersonShot { Description = "test description", Persons = new[] { people[0], people[1] } })
-                }).ConfigureAwait(false);
-
-            await _client.Content.CreateAsync(
-                new ContentCreateRequest
-            {
-                ContentSchemaId = contentSchema.Id,
-                Content = new
-                {
-                    name = "Content 2"
                 },
-                LayerSchemaIds = new List<string> { nameof(PersonShot) },
-                Metadata = Metadata.From(new PersonShot { Description = "test description", Persons = new[] { people[1], people[2], people[3] } })
-            }).ConfigureAwait(false);
+                waitSearchDocCreation: true).ConfigureAwait(false);
+
+            var content2 = await _client.Content.CreateAsync(
+                new ContentCreateRequest
+                {
+                    ContentSchemaId = contentSchema.Id,
+                    Content = new
+                    {
+                        name = "Content 2"
+                    },
+                    LayerSchemaIds = new List<string> { nameof(PersonShot) },
+                    Metadata = Metadata.From(new PersonShot { Description = "test description", Persons = new[] { people[1], people[2], people[3] } })
+                },
+                waitSearchDocCreation: true).ConfigureAwait(false);
 
             var request = new ContentAggregationRequest
             {
@@ -341,13 +343,28 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var result = await _client.Content.AggregateAsync(request).ConfigureAwait(false);
 
             // Assert
-            result.AggregationResults.First().AggregationResultItems.First().AggregationResults.First()
-                .AggregationResultItems.Select(ari => ari.Name).Should().Equal(
-                    "Carl Jung",
-                    "John Doe",
-                    "Max Frisch",
-                    "Roger Federer"
-                );
+            try
+            {
+                result.AggregationResults.First().AggregationResultItems.First().AggregationResults.First()
+                    .AggregationResultItems.Select(ari => ari.Name).Should().Equal(
+                        "Carl Jung",
+                        "John Doe",
+                        "Max Frisch",
+                        "Roger Federer"
+                    );
+            }
+            finally
+            {
+                await _client.Content.DeleteManyAsync(new ContentDeleteManyRequest
+                {
+                    ContentIds = new[] { content1.Id, content2.Id }
+                }).ConfigureAwait(false);
+
+                await _client.ListItem.DeleteManyAsync(new ListItemDeleteManyRequest
+                {
+                    ListItemIds = peopleCreationResult.SucceededIds.ToArray()
+                }).ConfigureAwait(false);
+            }
         }
 
         [Fact]
