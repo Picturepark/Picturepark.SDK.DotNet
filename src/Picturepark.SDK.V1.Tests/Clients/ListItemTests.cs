@@ -36,7 +36,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 SchemaIds = new List<string> { nameof(Country) },
                 Aggregators = new List<AggregatorBase>
                 {
-                    new TermsAggregator { Name = fieldName, Field = fieldName, Size = 20 }
+                    new TermsAggregator { Name = fieldName, Field = fieldName, Size = 20, Sort = new SortInfo { Direction = SortDirection.Asc } }
                 }
             };
 

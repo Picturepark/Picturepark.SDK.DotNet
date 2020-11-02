@@ -248,6 +248,127 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
         [Fact]
         [Trait("Stack", "Contents")]
+        public async Task ShouldSortAggregationResults()
+        {
+            // Arrange
+            var contentSchemaResult = await _client.Schema.CreateAsync(new SchemaCreateRequest
+            {
+                Id = $"ContentSchema{Guid.NewGuid():N}",
+                Names = new TranslatedStringDictionary { { "en", "Test content schema" } },
+                Types = new[] { SchemaType.Content },
+                ViewForAll = true,
+                LayerSchemaIds = new List<string> { nameof(PersonShot) },
+                Fields = new[]
+                {
+                    new FieldString
+                    {
+                        Id = "name",
+                        Index = true,
+                        Names = new TranslatedStringDictionary { { "en", "Name" } }
+                    }
+                }
+            });
+
+            var contentSchema = contentSchemaResult.Schema;
+
+            var peopleCreation = await _client.ListItem.CreateManyAsync(new ListItemCreateManyRequest
+            {
+                Items = new List<ListItemCreateRequest>
+                {
+                    new ListItemCreateRequest { ContentSchemaId = nameof(Person), Content = new Person { Firstname = "John", LastName = "Doe", EmailAddress = "john.doe@whatever.com" } },
+                    new ListItemCreateRequest { ContentSchemaId = nameof(Person), Content = new Person { Firstname = "Max", LastName = "Frisch", EmailAddress = "max.frisch@whatever.com" } },
+                    new ListItemCreateRequest { ContentSchemaId = nameof(Person), Content = new Person { Firstname = "Roger", LastName = "Federer", EmailAddress = "roger.federer@example.com" } },
+                    new ListItemCreateRequest { ContentSchemaId = nameof(Person), Content = new Person { Firstname = "Carl", LastName = "Jung", EmailAddress = "carl.jung@example.com" } },
+                }
+            });
+
+            var peopleCreationResult = await peopleCreation.FetchDetail();
+            var people = peopleCreationResult.SucceededIds.Select(id => new Person { RefId = id }).ToArray();
+
+            var content1 = await _client.Content.CreateAsync(
+                new ContentCreateRequest
+                {
+                    ContentSchemaId = contentSchema.Id,
+                    Content = new
+                    {
+                        name = "Content 1"
+                    },
+                    LayerSchemaIds = new List<string> { nameof(PersonShot) },
+                    Metadata = Metadata.From(new PersonShot { Description = "test description", Persons = new[] { people[0], people[1] } })
+                },
+                waitSearchDocCreation: true).ConfigureAwait(false);
+
+            var content2 = await _client.Content.CreateAsync(
+                new ContentCreateRequest
+                {
+                    ContentSchemaId = contentSchema.Id,
+                    Content = new
+                    {
+                        name = "Content 2"
+                    },
+                    LayerSchemaIds = new List<string> { nameof(PersonShot) },
+                    Metadata = Metadata.From(new PersonShot { Description = "test description", Persons = new[] { people[1], people[2], people[3] } })
+                },
+                waitSearchDocCreation: true).ConfigureAwait(false);
+
+            var request = new ContentAggregationRequest
+            {
+                Filter = new TermFilter { Field = nameof(Content.ContentSchemaId).ToLowerCamelCase(), Term = contentSchema.Id },
+                Aggregators = new List<AggregatorBase>
+                {
+                    new NestedAggregator
+                    {
+                        Name = "PeopleAggregation",
+                        Path = $"{nameof(PersonShot).ToLowerCamelCase()}.persons",
+                        Aggregators = new List<AggregatorBase>
+                        {
+                            new TermsRelationAggregator
+                            {
+                                DocumentType = TermsRelationAggregatorDocumentType.ListItem,
+                                Name = "PeopleAggregationInner",
+                                Field = $"{nameof(PersonShot).ToLowerCamelCase()}.persons._refId",
+                                Size = 10,
+                                Sort = new SortInfo
+                                {
+                                    Direction = SortDirection.Asc,
+                                    Field = $"{nameof(PersonShot).ToLowerCamelCase()}.persons._displayValues.name",
+                                }
+                            }
+                        }
+                    }
+                }
+            };
+
+            // Act
+            var result = await _client.Content.AggregateAsync(request).ConfigureAwait(false);
+
+            // Assert
+            try
+            {
+                result.AggregationResults.First().AggregationResultItems.First().AggregationResults.First()
+                    .AggregationResultItems.Select(ari => ari.Name).Should().Equal(
+                        "Carl Jung",
+                        "John Doe",
+                        "Max Frisch",
+                        "Roger Federer"
+                    );
+            }
+            finally
+            {
+                await _client.Content.DeleteManyAsync(new ContentDeleteManyRequest
+                {
+                    ContentIds = new[] { content1.Id, content2.Id }
+                }).ConfigureAwait(false);
+
+                await _client.ListItem.DeleteManyAsync(new ListItemDeleteManyRequest
+                {
+                    ListItemIds = peopleCreationResult.SucceededIds.ToArray()
+                }).ConfigureAwait(false);
+            }
+        }
+
+        [Fact]
+        [Trait("Stack", "Contents")]
         public async Task ShouldSearchAndAggregateOnChannelWithTermsAggregator()
         {
             // Arrange

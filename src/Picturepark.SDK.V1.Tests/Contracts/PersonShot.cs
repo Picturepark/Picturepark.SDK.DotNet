@@ -9,6 +9,7 @@ namespace Picturepark.SDK.V1.Tests.Contracts
     [PictureparkDisplayPattern(DisplayPatternType.Name, TemplateEngine.DotLiquid, "{{data.personShot.description}}")]
     public class PersonShot
     {
+        [PictureparkSchemaIndexing("{ includeNameDisplayValueInFilters: true }")]
         public IReadOnlyList<Person> Persons { get; set; }
 
         [PictureparkSimpleAnalyzer(SimpleSearch = true)]
