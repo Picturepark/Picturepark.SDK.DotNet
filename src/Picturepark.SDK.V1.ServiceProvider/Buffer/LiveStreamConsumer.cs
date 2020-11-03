@@ -21,12 +21,12 @@ namespace Picturepark.SDK.V1.ServiceProvider.Buffer
 
         public void OnReceived(object sender, BasicDeliverEventArgs e)
         {
-            LiveStreamMessage message = Newtonsoft.Json.JsonConvert.DeserializeObject<LiveStreamMessage>(
-                Encoding.UTF8.GetString(e.Body),
+            var message = Newtonsoft.Json.JsonConvert.DeserializeObject<LiveStreamMessage>(
+                Encoding.UTF8.GetString(e.Body.ToArray()),
                 _configuration.SerializerSettings
             );
 
-            var bufferMessage = new EventArgsLiveStreamMessage()
+            var bufferMessage = new EventArgsLiveStreamMessage
             {
                 Created = message.Timestamp,
                 Received = DateTime.Now,
