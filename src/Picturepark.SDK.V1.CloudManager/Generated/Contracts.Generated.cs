@@ -1316,6 +1316,8 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [JsonInheritanceAttribute("BusinessRuleNotificationNoRecipientsException", typeof(BusinessRuleNotificationNoRecipientsException))]
     [JsonInheritanceAttribute("BusinessRuleNotificationRecipientUserIdMissingException", typeof(BusinessRuleNotificationRecipientUserIdMissingException))]
     [JsonInheritanceAttribute("BusinessRuleNotificationRecipientUserRoleIdMissingException", typeof(BusinessRuleNotificationRecipientUserRoleIdMissingException))]
+    [JsonInheritanceAttribute("BusinessRuleNumberSequenceInvalidIdException", typeof(BusinessRuleNumberSequenceInvalidIdException))]
+    [JsonInheritanceAttribute("BusinessRuleNumberSequenceIdDuplicationException", typeof(BusinessRuleNumberSequenceIdDuplicationException))]
     [JsonInheritanceAttribute("NamedCacheConfigurationException", typeof(NamedCacheConfigurationException))]
     [JsonInheritanceAttribute("NamedCacheNameMissingException", typeof(NamedCacheNameMissingException))]
     [JsonInheritanceAttribute("NamedCacheNameDuplicationException", typeof(NamedCacheNameDuplicationException))]
@@ -7701,6 +7703,44 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         public static BusinessRuleNotificationRecipientUserRoleIdMissingException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessRuleNotificationRecipientUserRoleIdMissingException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class BusinessRuleNumberSequenceInvalidIdException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static BusinessRuleNumberSequenceInvalidIdException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessRuleNumberSequenceInvalidIdException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class BusinessRuleNumberSequenceIdDuplicationException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static BusinessRuleNumberSequenceIdDuplicationException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessRuleNumberSequenceIdDuplicationException>(data);
         }
     
     }
