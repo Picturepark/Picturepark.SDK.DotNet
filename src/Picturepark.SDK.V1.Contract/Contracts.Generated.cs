@@ -13330,6 +13330,10 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public FilterBase Filter { get; set; }
     
+        /// <summary>Optional behavior that the UI should keep in regards to the aggregation</summary>
+        [Newtonsoft.Json.JsonProperty("uiBehavior", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public UiAggregatorBehavior UiBehavior { get; set; }
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -13338,6 +13342,34 @@ namespace Picturepark.SDK.V1.Contract
         public static AggregatorBase FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<AggregatorBase>(data);
+        }
+    
+    }
+    
+    /// <summary>Behavior that the UI should keep in regards to the aggregation</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class UiAggregatorBehavior 
+    {
+        /// <summary>Filters should be enabled in the UI.</summary>
+        [Newtonsoft.Json.JsonProperty("enableFilter", Required = Newtonsoft.Json.Required.Always)]
+        public bool EnableFilter { get; set; }
+    
+        /// <summary>Suggestions should be enabled in the UI.</summary>
+        [Newtonsoft.Json.JsonProperty("enableSuggestions", Required = Newtonsoft.Json.Required.Always)]
+        public bool EnableSuggestions { get; set; }
+    
+        /// <summary>Search functionality should be enabled in the filters in the UI.</summary>
+        [Newtonsoft.Json.JsonProperty("enableSearchInFilter", Required = Newtonsoft.Json.Required.Always)]
+        public bool EnableSearchInFilter { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static UiAggregatorBehavior FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<UiAggregatorBehavior>(data);
         }
     
     }
