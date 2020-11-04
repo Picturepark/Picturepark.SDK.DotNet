@@ -30973,7 +30973,7 @@
           },
           "format": {
             "type": "string",
-            "description": "Format.",
+            "description": "Format.\nRefer to https://docs.microsoft.com/en-us/dotnet/standard/base-types/custom-numeric-format-strings for guidance.\nNote: formatting of numbers use invariant culture.",
             "nullable": true
           },
           "start": {
