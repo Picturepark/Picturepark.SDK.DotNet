@@ -23430,6 +23430,61 @@
           }
         ]
       },
+      "InvalidUiBehaviorInNonRootAggregatorException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "aggregatorName": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "InvalidUiBehaviorConfigurationException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "aggregatorName": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "InvalidSearchFieldInAggregatorException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "fieldName": {
+                "type": "string",
+                "nullable": true
+              },
+              "aggregatorName": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
       "DocumentVersionConflictException": {
         "allOf": [
           {

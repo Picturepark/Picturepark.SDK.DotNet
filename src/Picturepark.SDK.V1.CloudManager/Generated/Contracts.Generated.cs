@@ -1135,6 +1135,9 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [JsonInheritanceAttribute("DuplicateAggregatorException", typeof(DuplicateAggregatorException))]
     [JsonInheritanceAttribute("InvalidDateTimeFormatException", typeof(InvalidDateTimeFormatException))]
     [JsonInheritanceAttribute("InvalidSortFieldException", typeof(InvalidSortFieldException))]
+    [JsonInheritanceAttribute("InvalidUiBehaviorInNonRootAggregatorException", typeof(InvalidUiBehaviorInNonRootAggregatorException))]
+    [JsonInheritanceAttribute("InvalidUiBehaviorConfigurationException", typeof(InvalidUiBehaviorConfigurationException))]
+    [JsonInheritanceAttribute("InvalidSearchFieldInAggregatorException", typeof(InvalidSearchFieldInAggregatorException))]
     [JsonInheritanceAttribute("DocumentVersionConflictException", typeof(DocumentVersionConflictException))]
     [JsonInheritanceAttribute("DuplicateDocumentException", typeof(DuplicateDocumentException))]
     [JsonInheritanceAttribute("ObjectStoreResponseException", typeof(ObjectStoreResponseException))]
@@ -3459,6 +3462,66 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         public static InvalidSortFieldException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<InvalidSortFieldException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class InvalidUiBehaviorInNonRootAggregatorException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("aggregatorName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string AggregatorName { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static InvalidUiBehaviorInNonRootAggregatorException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<InvalidUiBehaviorInNonRootAggregatorException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class InvalidUiBehaviorConfigurationException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("aggregatorName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string AggregatorName { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static InvalidUiBehaviorConfigurationException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<InvalidUiBehaviorConfigurationException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class InvalidSearchFieldInAggregatorException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("fieldName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string FieldName { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("aggregatorName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string AggregatorName { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static InvalidSearchFieldInAggregatorException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<InvalidSearchFieldInAggregatorException>(data);
         }
     
     }
