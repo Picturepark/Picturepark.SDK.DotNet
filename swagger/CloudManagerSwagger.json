@@ -13239,6 +13239,40 @@
           }
         ]
       },
+      "BusinessRuleNumberSequenceInvalidIdException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "BusinessRuleNumberSequenceIdDuplicationException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
       "NamedCacheConfigurationException": {
         "allOf": [
           {

@@ -2961,6 +2961,8 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("BusinessRuleNotificationNoRecipientsException", typeof(BusinessRuleNotificationNoRecipientsException))]
     [JsonInheritanceAttribute("BusinessRuleNotificationRecipientUserIdMissingException", typeof(BusinessRuleNotificationRecipientUserIdMissingException))]
     [JsonInheritanceAttribute("BusinessRuleNotificationRecipientUserRoleIdMissingException", typeof(BusinessRuleNotificationRecipientUserRoleIdMissingException))]
+    [JsonInheritanceAttribute("BusinessRuleNumberSequenceInvalidIdException", typeof(BusinessRuleNumberSequenceInvalidIdException))]
+    [JsonInheritanceAttribute("BusinessRuleNumberSequenceIdDuplicationException", typeof(BusinessRuleNumberSequenceIdDuplicationException))]
     [JsonInheritanceAttribute("NamedCacheConfigurationException", typeof(NamedCacheConfigurationException))]
     [JsonInheritanceAttribute("NamedCacheNameMissingException", typeof(NamedCacheNameMissingException))]
     [JsonInheritanceAttribute("NamedCacheNameDuplicationException", typeof(NamedCacheNameDuplicationException))]
@@ -9412,6 +9414,44 @@ namespace Picturepark.SDK.V1.Contract
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class BusinessRuleNumberSequenceInvalidIdException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static BusinessRuleNumberSequenceInvalidIdException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessRuleNumberSequenceInvalidIdException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class BusinessRuleNumberSequenceIdDuplicationException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static BusinessRuleNumberSequenceIdDuplicationException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessRuleNumberSequenceIdDuplicationException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
     public partial class NamedCacheConfigurationException : PictureparkValidationException
     {
         [Newtonsoft.Json.JsonProperty("innerExceptions", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -11308,6 +11348,10 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("notifications", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<BusinessRuleNotification> Notifications { get; set; }
     
+        /// <summary>Numbers sequences.</summary>
+        [Newtonsoft.Json.JsonProperty("numberSequences", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<BusinessRuleNumberSequence> NumberSequences { get; set; }
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -12208,6 +12252,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("AssignTagboxItemsInLayerAction", typeof(AssignTagboxItemsInLayerAction))]
     [JsonInheritanceAttribute("EnqueueTaggingAction", typeof(EnqueueTaggingAction))]
     [JsonInheritanceAttribute("ProduceNotificationAction", typeof(ProduceNotificationAction))]
+    [JsonInheritanceAttribute("GetNumberFromNumberSequenceAction", typeof(GetNumberFromNumberSequenceAction))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     public abstract partial class BusinessRuleAction 
     {
@@ -12683,6 +12728,30 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>Action to get a number from a configured number sequence and store it in a variable.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class GetNumberFromNumberSequenceAction : BusinessRuleAction
+    {
+        /// <summary>ID of the sequence number to get number from.</summary>
+        [Newtonsoft.Json.JsonProperty("numberSequenceId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string NumberSequenceId { get; set; }
+    
+        /// <summary>Variable name to store number in.</summary>
+        [Newtonsoft.Json.JsonProperty("storeIn", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string StoreIn { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static GetNumberFromNumberSequenceAction FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<GetNumberFromNumberSequenceAction>(data);
+        }
+    
+    }
+    
     /// <summary>A business rule expressed as a script</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class BusinessRuleScript : BusinessRule
@@ -12851,6 +12920,37 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>Configuration for a number sequence.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class BusinessRuleNumberSequence 
+    {
+        /// <summary>ID of number sequence.</summary>
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
+        /// <summary>Format.
+        /// Refer to https://docs.microsoft.com/en-us/dotnet/standard/base-types/custom-numeric-format-strings for guidance.
+        /// Note: formatting of numbers use invariant culture.</summary>
+        [Newtonsoft.Json.JsonProperty("format", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Format { get; set; }
+    
+        /// <summary>Starting number of the sequence.
+        /// Note: When changing this, existing sequence number will be reset to new starting number and might produce duplicate numbers.</summary>
+        [Newtonsoft.Json.JsonProperty("start", Required = Newtonsoft.Json.Required.Always)]
+        public long Start { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static BusinessRuleNumberSequence FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessRuleNumberSequence>(data);
+        }
+    
+    }
+    
     /// <summary>Update request for changing business rule configuration</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class BusinessRuleConfigurationUpdateRequest 
@@ -12870,6 +12970,10 @@ namespace Picturepark.SDK.V1.Contract
         /// <summary>Notifications.</summary>
         [Newtonsoft.Json.JsonProperty("notifications", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<BusinessRuleNotification> Notifications { get; set; }
+    
+        /// <summary>Numbers sequences.</summary>
+        [Newtonsoft.Json.JsonProperty("numberSequences", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<BusinessRuleNumberSequence> NumberSequences { get; set; }
     
         public string ToJson() 
         {
