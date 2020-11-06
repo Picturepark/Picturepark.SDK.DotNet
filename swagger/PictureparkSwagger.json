@@ -27393,6 +27393,40 @@
           }
         ]
       },
+      "BusinessRuleNumberSequenceInvalidIdException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "BusinessRuleNumberSequenceIdDuplicationException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
       "NamedCacheConfigurationException": {
         "allOf": [
           {
@@ -29314,6 +29348,14 @@
             "items": {
               "$ref": "#/components/schemas/BusinessRuleNotification"
             }
+          },
+          "numberSequences": {
+            "type": "array",
+            "description": "Numbers sequences.",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/BusinessRuleNumberSequence"
+            }
           }
         }
       },
@@ -30225,7 +30267,8 @@
             "ProduceMessageAction": "#/components/schemas/ProduceMessageAction",
             "AssignTagboxItemsInLayerAction": "#/components/schemas/AssignTagboxItemsInLayerAction",
             "EnqueueTaggingAction": "#/components/schemas/EnqueueTaggingAction",
-            "ProduceNotificationAction": "#/components/schemas/ProduceNotificationAction"
+            "ProduceNotificationAction": "#/components/schemas/ProduceNotificationAction",
+            "GetNumberFromNumberSequenceAction": "#/components/schemas/GetNumberFromNumberSequenceAction"
           }
         },
         "description": "Action to be performed by a business rule",
@@ -30703,6 +30746,30 @@
           }
         ]
       },
+      "GetNumberFromNumberSequenceAction": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BusinessRuleAction"
+          },
+          {
+            "type": "object",
+            "description": "Action to get a number from a configured number sequence and store it in a variable.",
+            "additionalProperties": false,
+            "properties": {
+              "numberSequenceId": {
+                "type": "string",
+                "description": "ID of the sequence number to get number from.",
+                "nullable": true
+              },
+              "storeIn": {
+                "type": "string",
+                "description": "Variable name to store number in.",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
       "BusinessRuleScript": {
         "allOf": [
           {
@@ -30891,6 +30958,31 @@
           }
         }
       },
+      "BusinessRuleNumberSequence": {
+        "type": "object",
+        "description": "Configuration for a number sequence.",
+        "additionalProperties": false,
+        "required": [
+          "start"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "ID of number sequence.",
+            "nullable": true
+          },
+          "format": {
+            "type": "string",
+            "description": "Format.\nRefer to https://docs.microsoft.com/en-us/dotnet/standard/base-types/custom-numeric-format-strings for guidance.\nNote: formatting of numbers use invariant culture.",
+            "nullable": true
+          },
+          "start": {
+            "type": "integer",
+            "description": "Starting number of the sequence.\nNote: When changing this, existing sequence number will be reset to new starting number and might produce duplicate numbers.",
+            "format": "int64"
+          }
+        }
+      },
       "BusinessRuleConfigurationUpdateRequest": {
         "type": "object",
         "description": "Update request for changing business rule configuration",
@@ -30925,6 +31017,14 @@
             "nullable": true,
             "items": {
               "$ref": "#/components/schemas/BusinessRuleNotification"
+            }
+          },
+          "numberSequences": {
+            "type": "array",
+            "description": "Numbers sequences.",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/BusinessRuleNumberSequence"
             }
           }
         }
