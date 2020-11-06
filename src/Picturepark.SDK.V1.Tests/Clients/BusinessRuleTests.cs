@@ -39,11 +39,14 @@ namespace Picturepark.SDK.V1.Tests.Clients
                             { "en", "Assign a permission set upon uploading of any image or video" }
                         },
                         IsEnabled = true,
-                        TriggerPoint = new BusinessRuleTriggerPoint
+                        TriggerPoints = new[]
                         {
-                            DocumentType = BusinessRuleTriggerDocType.Content,
-                            ExecutionScope = BusinessRuleExecutionScope.MainDoc,
-                            Action = BusinessRuleTriggerAction.Create
+                            new BusinessRuleTriggerPoint
+                            {
+                                DocumentType = BusinessRuleTriggerDocType.Content,
+                                ExecutionScope = BusinessRuleExecutionScope.MainDoc,
+                                Action = BusinessRuleTriggerAction.Create
+                            }
                         },
                         Condition = new OrCondition
                         {
@@ -105,11 +108,14 @@ namespace Picturepark.SDK.V1.Tests.Clients
                         Condition = new ContentSchemaCondition { SchemaId = contentSchemaId },
                         Actions = new List<BusinessRuleAction> { new ProduceMessageAction() },
                         IsEnabled = true,
-                        TriggerPoint = new BusinessRuleTriggerPoint
+                        TriggerPoints = new[]
                         {
-                            DocumentType = BusinessRuleTriggerDocType.Content,
-                            Action = BusinessRuleTriggerAction.Create,
-                            ExecutionScope = BusinessRuleExecutionScope.MainDoc
+                            new BusinessRuleTriggerPoint
+                            {
+                                DocumentType = BusinessRuleTriggerDocType.Content,
+                                Action = BusinessRuleTriggerAction.Create,
+                                ExecutionScope = BusinessRuleExecutionScope.MainDoc
+                            }
                         }
                     }
                 }
