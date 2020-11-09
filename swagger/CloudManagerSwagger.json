@@ -12698,38 +12698,6 @@
           "Content"
         ]
       },
-      "BusinessRuleActionInvalidExecutionScopeException": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/PictureparkValidationException"
-          },
-          {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "allowedScopes": {
-                "type": "array",
-                "nullable": true,
-                "items": {
-                  "$ref": "#/components/schemas/BusinessRuleExecutionScope"
-                }
-              }
-            }
-          }
-        ]
-      },
-      "BusinessRuleExecutionScope": {
-        "type": "string",
-        "description": "",
-        "x-enumNames": [
-          "MainDoc",
-          "SearchDoc"
-        ],
-        "enum": [
-          "MainDoc",
-          "SearchDoc"
-        ]
-      },
       "BusinessRuleActionsMissingException": {
         "allOf": [
           {
@@ -12874,26 +12842,6 @@
           }
         ]
       },
-      "BusinessRuleConditionInvalidTriggerPointDocumentTypeException": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/PictureparkValidationException"
-          },
-          {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "allowedDocumentTypes": {
-                "type": "array",
-                "nullable": true,
-                "items": {
-                  "$ref": "#/components/schemas/BusinessRuleTriggerDocType"
-                }
-              }
-            }
-          }
-        ]
-      },
       "BusinessRuleRegularExpressionInvalidException": {
         "allOf": [
           {
@@ -12911,7 +12859,7 @@
           }
         ]
       },
-      "BusinessRuleConditionInvalidTriggerPointActionException": {
+      "BusinessRuleConditionInvalidTriggerPointException": {
         "allOf": [
           {
             "$ref": "#/components/schemas/PictureparkValidationException"
@@ -12920,6 +12868,13 @@
             "type": "object",
             "additionalProperties": false,
             "properties": {
+              "allowedDocTypes": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/BusinessRuleTriggerDocType"
+                }
+              },
               "allowedActions": {
                 "type": "array",
                 "nullable": true,
