@@ -23430,6 +23430,61 @@
           }
         ]
       },
+      "InvalidUiBehaviorInNonRootAggregatorException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "aggregatorName": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "InvalidUiBehaviorConfigurationException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "aggregatorName": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "InvalidSearchFieldInAggregatorException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "fieldName": {
+                "type": "string",
+                "nullable": true
+              },
+              "aggregatorName": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
       "DocumentVersionConflictException": {
         "allOf": [
           {
@@ -31561,8 +31616,41 @@
               }
             ]
           },
+          "uiBehavior": {
+            "description": "Optional behavior that the UI should keep in regards to the aggregation",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/UiAggregatorBehavior"
+              }
+            ]
+          },
           "kind": {
             "type": "string"
+          }
+        }
+      },
+      "UiAggregatorBehavior": {
+        "type": "object",
+        "description": "Behavior that the UI should keep in regards to the aggregation",
+        "additionalProperties": false,
+        "required": [
+          "enableFilter",
+          "enableSuggestions",
+          "enableSearchInFilter"
+        ],
+        "properties": {
+          "enableFilter": {
+            "type": "boolean",
+            "description": "Filters should be enabled in the UI."
+          },
+          "enableSuggestions": {
+            "type": "boolean",
+            "description": "Suggestions should be enabled in the UI."
+          },
+          "enableSearchInFilter": {
+            "type": "boolean",
+            "description": "Search functionality should be enabled in the filters in the UI."
           }
         }
       },
