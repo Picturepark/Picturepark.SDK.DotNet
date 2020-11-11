@@ -1270,6 +1270,96 @@
         ]
       }
     },
+    "/v1/BusinessRules/schedule/run": {
+      "post": {
+        "tags": [
+          "BusinessRule"
+        ],
+        "summary": "Runs the supplied business rule schedule immediately.\nAllows for testing of schedules.",
+        "operationId": "BusinessRule_RunSchedule",
+        "requestBody": {
+          "x-name": "schedule",
+          "description": "BusinessRuleSchedule",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BusinessRuleSchedule"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "BusinessProcess of the metadata operation triggered by the schedule.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BusinessProcess"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "businessrule_write"
+            ]
+          }
+        ]
+      }
+    },
     "/v1/Channels": {
       "get": {
         "tags": [
@@ -27437,6 +27527,45 @@
           }
         ]
       },
+      "BusinessRuleScheduleInvalidCronExpressionException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "expression": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "BusinessRuleScheduleFilterMissingException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "BusinessRuleScheduleRulesMissingException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
       "NamedCacheConfigurationException": {
         "allOf": [
           {
@@ -29366,6 +29495,14 @@
             "items": {
               "$ref": "#/components/schemas/BusinessRuleNumberSequence"
             }
+          },
+          "schedules": {
+            "type": "array",
+            "description": "Schedules.",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/BusinessRuleSchedule"
+            }
           }
         }
       },
@@ -31004,51 +31141,67 @@
           }
         }
       },
-      "BusinessRuleConfigurationUpdateRequest": {
+      "BusinessRuleSchedule": {
         "type": "object",
-        "description": "Update request for changing business rule configuration",
+        "description": "Schedules business rules to run on a regular time frame.\nNote: If schedules do not complete within 15 minutes, next execution will be skipped",
         "additionalProperties": false,
         "required": [
-          "disableRuleEngine"
+          "docType",
+          "isEnabled"
         ],
         "properties": {
-          "disableRuleEngine": {
+          "cronExpression": {
+            "type": "string",
+            "description": "Cron expression to specify run time.\nRefer to https://github.com/HangfireIO/Cronos#cron-format for reference.\nMinimum interval supported is 15 minutes.",
+            "nullable": true
+          },
+          "ruleIds": {
+            "type": "array",
+            "description": "IDs of business rules to run during schedule, regardless of trigger point",
+            "nullable": true,
+            "items": {
+              "type": "string"
+            }
+          },
+          "docType": {
+            "description": "Doc type of items that should be loaded.",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/BusinessRuleTriggerDocType"
+              }
+            ]
+          },
+          "searchString": {
+            "type": "string",
+            "description": "Search string to apply when searching for items to load.",
+            "nullable": true
+          },
+          "filter": {
+            "description": "Filter to apply when searching for items to load.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/FilterBase"
+              }
+            ]
+          },
+          "isEnabled": {
             "type": "boolean",
-            "description": "Disables the rule engine completely."
-          },
-          "rules": {
-            "type": "array",
-            "description": "Rules.",
-            "nullable": true,
-            "items": {
-              "$ref": "#/components/schemas/BusinessRule"
-            }
-          },
-          "caches": {
-            "type": "array",
-            "description": "Named caches.",
-            "nullable": true,
-            "items": {
-              "$ref": "#/components/schemas/NamedCacheConfigurationBase"
-            }
-          },
-          "notifications": {
-            "type": "array",
-            "description": "Notifications.",
-            "nullable": true,
-            "items": {
-              "$ref": "#/components/schemas/BusinessRuleNotification"
-            }
-          },
-          "numberSequences": {
-            "type": "array",
-            "description": "Numbers sequences.",
-            "nullable": true,
-            "items": {
-              "$ref": "#/components/schemas/BusinessRuleNumberSequence"
-            }
+            "description": "Indicates if schedule is enabled."
           }
         }
+      },
+      "BusinessRuleConfigurationUpdateRequest": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BusinessRuleConfiguration"
+          },
+          {
+            "type": "object",
+            "description": "Update request for changing business rule configuration",
+            "additionalProperties": false
+          }
+        ]
       },
       "BusinessRuleTraceLogSearchResult": {
         "allOf": [
