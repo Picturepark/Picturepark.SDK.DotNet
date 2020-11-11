@@ -7364,6 +7364,9 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [System.Runtime.Serialization.EnumMember(Value = @"FileReplacement")]
         FileReplacement = 2,
     
+        [System.Runtime.Serialization.EnumMember(Value = @"Schedule")]
+        Schedule = 3,
+    
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
