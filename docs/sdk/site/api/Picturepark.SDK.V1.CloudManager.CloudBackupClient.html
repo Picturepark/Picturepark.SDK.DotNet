@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class CloudBackupClient
    | Picturepark.SDK.V1 API ">
-    <meta name="generator" content="docfx 2.56.2.0">
+    <meta name="generator" content="docfx 2.56.5.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -61,11 +61,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -472,6 +472,91 @@
     <tr>
       <td>
         <span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">Customer</span>&gt;
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <h5 class="exceptions">Exceptions</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
+        <p><p>A server side error occurred.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
+        <p><p>Entity not found</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
+        <p><p>Version conflict</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  </div>
+  
+  
+  <a id="Picturepark_SDK_V1_CloudManager_CloudBackupClient_CloneRequestAsync_" data-uid="Picturepark.SDK.V1.CloudManager.CloudBackupClient.CloneRequestAsync*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_CloudManager_CloudBackupClient_CloneRequestAsync_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.CloudManager.CloudBackupClient.CloneRequestAsync(System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_CloudManager_CloudBackupClient_CloneRequestAsync_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">CloneRequestAsync(CancellationToken)</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_CloudManager_CloudBackupClient_CloneRequestAsync_System_Threading_CancellationToken_" class="collapse in">
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;SnapshotCustomerCloneRequest&gt; CloneRequestAsync(CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
+        <span class="parametername">cancellationToken</span>
+        <p><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">SnapshotCustomerCloneRequest</span>&gt;
         <p>
       </td>
     </tr>

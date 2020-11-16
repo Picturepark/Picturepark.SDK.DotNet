@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class SchemaClient
    | Picturepark.SDK.V1 API ">
-    <meta name="generator" content="docfx 2.56.2.0">
+    <meta name="generator" content="docfx 2.56.5.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -61,11 +61,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -1342,6 +1342,200 @@
   </div>
   
   
+  <a id="Picturepark_SDK_V1_SchemaClient_GetAggregationFieldsAsync_" data-uid="Picturepark.SDK.V1.SchemaClient.GetAggregationFieldsAsync*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_SchemaClient_GetAggregationFieldsAsync_System_String_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.SchemaClient.GetAggregationFieldsAsync(System.String,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_SchemaClient_GetAggregationFieldsAsync_System_String_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">GetAggregationFieldsAsync(String, CancellationToken)</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_SchemaClient_GetAggregationFieldsAsync_System_String_System_Threading_CancellationToken_" class="collapse in">
+  <div class="markdown level1 summary"><p>Retrieve the fields that can be used in an aggregator on a schema.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;ICollection&lt;FieldInfo&gt;&gt; GetAggregationFieldsAsync(string id, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.String</span></span>
+        <span class="parametername">id</span>
+        <p><p>The ID of the schema.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
+        <span class="parametername">cancellationToken</span>
+        <p><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">System.Collections.Generic.ICollection</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.FieldInfo.html">FieldInfo</a>&gt;&gt;
+        <p><p>The list of fields</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="Picturepark.SDK.V1.Contract.ISchemaClient.html#Picturepark_SDK_V1_Contract_ISchemaClient_GetAggregationFieldsAsync_System_String_System_Threading_CancellationToken_">ISchemaClient.GetAggregationFieldsAsync(String, CancellationToken)</a></div>
+  
+  
+  
+  <h5 class="exceptions">Exceptions</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
+        <p><p>A server side error occurred.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
+        <p><p>Entity not found</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
+        <p><p>Version conflict</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  </div>
+  
+  
+  <a id="Picturepark_SDK_V1_SchemaClient_GetAggregationFieldsManyAsync_" data-uid="Picturepark.SDK.V1.SchemaClient.GetAggregationFieldsManyAsync*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_SchemaClient_GetAggregationFieldsManyAsync_System_Collections_Generic_IEnumerable_System_String__System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.SchemaClient.GetAggregationFieldsManyAsync(System.Collections.Generic.IEnumerable{System.String},System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_SchemaClient_GetAggregationFieldsManyAsync_System_Collections_Generic_IEnumerable_System_String__System_Threading_CancellationToken_" class="expander" data-toggle="collapse">GetAggregationFieldsManyAsync(IEnumerable&lt;String&gt;, CancellationToken)</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_SchemaClient_GetAggregationFieldsManyAsync_System_Collections_Generic_IEnumerable_System_String__System_Threading_CancellationToken_" class="collapse in">
+  <div class="markdown level1 summary"><p>Retrieve the fields that can be used in an aggregator on multiple schemas.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;ICollection&lt;FieldInfo&gt;&gt; GetAggregationFieldsManyAsync(IEnumerable&lt;string&gt; ids = null, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">System.String</span>&gt;</span>
+        <span class="parametername">ids</span>
+        <p><p>The IDs of the schemas.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
+        <span class="parametername">cancellationToken</span>
+        <p><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">System.Collections.Generic.ICollection</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.FieldInfo.html">FieldInfo</a>&gt;&gt;
+        <p><p>The list of fields</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="Picturepark.SDK.V1.Contract.ISchemaClient.html#Picturepark_SDK_V1_Contract_ISchemaClient_GetAggregationFieldsManyAsync_System_Collections_Generic_IEnumerable_System_String__System_Threading_CancellationToken_">ISchemaClient.GetAggregationFieldsManyAsync(IEnumerable&lt;String&gt;, CancellationToken)</a></div>
+  
+  
+  
+  <h5 class="exceptions">Exceptions</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
+        <p><p>A server side error occurred.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
+        <p><p>Entity not found</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
+        <p><p>Version conflict</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  </div>
+  
+  
   <a id="Picturepark_SDK_V1_SchemaClient_GetAsync_" data-uid="Picturepark.SDK.V1.SchemaClient.GetAsync*"></a>
   
   <h4 id="Picturepark_SDK_V1_SchemaClient_GetAsync_System_String_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.SchemaClient.GetAsync(System.String,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_SchemaClient_GetAsync_System_String_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">GetAsync(String, CancellationToken)</a></h4>
@@ -1439,27 +1633,27 @@
   </div>
   
   
-  <a id="Picturepark_SDK_V1_SchemaClient_GetIndexFieldsAsync_" data-uid="Picturepark.SDK.V1.SchemaClient.GetIndexFieldsAsync*"></a>
+  <a id="Picturepark_SDK_V1_SchemaClient_GetFilterFieldsAsync_" data-uid="Picturepark.SDK.V1.SchemaClient.GetFilterFieldsAsync*"></a>
   
-  <h4 id="Picturepark_SDK_V1_SchemaClient_GetIndexFieldsAsync_Picturepark_SDK_V1_Contract_IndexFieldsSearchBySchemaIdsRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.SchemaClient.GetIndexFieldsAsync(Picturepark.SDK.V1.Contract.IndexFieldsSearchBySchemaIdsRequest,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_SchemaClient_GetIndexFieldsAsync_Picturepark_SDK_V1_Contract_IndexFieldsSearchBySchemaIdsRequest_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">GetIndexFieldsAsync(IndexFieldsSearchBySchemaIdsRequest, CancellationToken)</a></h4>
+  <h4 id="Picturepark_SDK_V1_SchemaClient_GetFilterFieldsAsync_System_String_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.SchemaClient.GetFilterFieldsAsync(System.String,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_SchemaClient_GetFilterFieldsAsync_System_String_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">GetFilterFieldsAsync(String, CancellationToken)</a></h4>
   
-  <div id="collapsible-Picturepark_SDK_V1_SchemaClient_GetIndexFieldsAsync_Picturepark_SDK_V1_Contract_IndexFieldsSearchBySchemaIdsRequest_System_Threading_CancellationToken_" class="collapse in">
-  <div class="markdown level1 summary"><p>Search index fields</p>
+  <div id="collapsible-Picturepark_SDK_V1_SchemaClient_GetFilterFieldsAsync_System_String_System_Threading_CancellationToken_" class="collapse in">
+  <div class="markdown level1 summary"><p>Retrieve the fields that can be used in a filter on a schema.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;ICollection&lt;IndexField&gt;&gt; GetIndexFieldsAsync(IndexFieldsSearchBySchemaIdsRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public Task&lt;ICollection&lt;FieldInfo&gt;&gt; GetFilterFieldsAsync(string id, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
       <td>
-        <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.IndexFieldsSearchBySchemaIdsRequest.html">IndexFieldsSearchBySchemaIdsRequest</a></span>
-        <span class="parametername">request</span>
-        <p><p>The search request.</p>
+        <span class="pull-right"><span class="xref">System.String</span></span>
+        <span class="parametername">id</span>
+        <p><p>The ID of the schema.</p>
 </p>
       </td>
     </tr>
@@ -1477,8 +1671,8 @@
   <table>
     <tr>
       <td>
-        <span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">System.Collections.Generic.ICollection</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.IndexField.html">IndexField</a>&gt;&gt;
-        <p><p>Indexed fields</p>
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">System.Collections.Generic.ICollection</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.FieldInfo.html">FieldInfo</a>&gt;&gt;
+        <p><p>The list of fields</p>
 </p>
       </td>
     </tr>
@@ -1490,7 +1684,104 @@
   
   
   <h5 class="implements">Implements</h5>
-      <div><a class="xref" href="Picturepark.SDK.V1.Contract.ISchemaClient.html#Picturepark_SDK_V1_Contract_ISchemaClient_GetIndexFieldsAsync_Picturepark_SDK_V1_Contract_IndexFieldsSearchBySchemaIdsRequest_System_Threading_CancellationToken_">ISchemaClient.GetIndexFieldsAsync(IndexFieldsSearchBySchemaIdsRequest, CancellationToken)</a></div>
+      <div><a class="xref" href="Picturepark.SDK.V1.Contract.ISchemaClient.html#Picturepark_SDK_V1_Contract_ISchemaClient_GetFilterFieldsAsync_System_String_System_Threading_CancellationToken_">ISchemaClient.GetFilterFieldsAsync(String, CancellationToken)</a></div>
+  
+  
+  
+  <h5 class="exceptions">Exceptions</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
+        <p><p>A server side error occurred.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
+        <p><p>Entity not found</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
+        <p><p>Version conflict</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  </div>
+  
+  
+  <a id="Picturepark_SDK_V1_SchemaClient_GetFilterFieldsManyAsync_" data-uid="Picturepark.SDK.V1.SchemaClient.GetFilterFieldsManyAsync*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_SchemaClient_GetFilterFieldsManyAsync_System_Collections_Generic_IEnumerable_System_String__System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.SchemaClient.GetFilterFieldsManyAsync(System.Collections.Generic.IEnumerable{System.String},System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_SchemaClient_GetFilterFieldsManyAsync_System_Collections_Generic_IEnumerable_System_String__System_Threading_CancellationToken_" class="expander" data-toggle="collapse">GetFilterFieldsManyAsync(IEnumerable&lt;String&gt;, CancellationToken)</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_SchemaClient_GetFilterFieldsManyAsync_System_Collections_Generic_IEnumerable_System_String__System_Threading_CancellationToken_" class="collapse in">
+  <div class="markdown level1 summary"><p>Retrieve the fields that can be used in a filter on multiple schemas.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;ICollection&lt;FieldInfo&gt;&gt; GetFilterFieldsManyAsync(IEnumerable&lt;string&gt; ids = null, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">System.String</span>&gt;</span>
+        <span class="parametername">ids</span>
+        <p><p>The IDs of the schemas.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
+        <span class="parametername">cancellationToken</span>
+        <p><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">System.Collections.Generic.ICollection</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.FieldInfo.html">FieldInfo</a>&gt;&gt;
+        <p><p>The list of fields</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="Picturepark.SDK.V1.Contract.ISchemaClient.html#Picturepark_SDK_V1_Contract_ISchemaClient_GetFilterFieldsManyAsync_System_Collections_Generic_IEnumerable_System_String__System_Threading_CancellationToken_">ISchemaClient.GetFilterFieldsManyAsync(IEnumerable&lt;String&gt;, CancellationToken)</a></div>
   
   
   
