@@ -534,6 +534,43 @@ namespace Picturepark.SDK.V1.Tests.Clients
             await AssertSharesContainCorrectOutputs(fullId, previewId, formatIdOriginal, formatIdPreview);
         }
 
+        [Fact]
+        public async Task ShouldRetrieveContentsBasedOnLimit()
+        {
+            // Arrange
+            var shareId = await CreateShareWithContentsAndReturnId(10).ConfigureAwait(false);
+
+            // Act
+            var share = await _client.Share.GetAsync(shareId, new ShareResolveBehavior[0], 5).ConfigureAwait(false);
+
+            // Assert
+            share.ContentSelections.Should().HaveCount(5);
+            share.ContentCount.Should().Be(10);
+        }
+
+        [Fact]
+        public async Task ShouldPageOverContentsInShare()
+        {
+            // Arrange
+            var shareId = await CreateShareWithContentsAndReturnId(10).ConfigureAwait(false);
+
+            // Act
+            string pageToken = null;
+            ShareContentDetailResult result;
+
+            var totalContents = 0;
+
+            do
+            {
+                result = await _client.Share.GetContentsInShareAsync(shareId, 2, pageToken).ConfigureAwait(false);
+                totalContents += result.Results.Count;
+            }
+            while ((pageToken = result.PageToken) != null);
+
+            // Assert
+            totalContents.Should().Be(10);
+        }
+
         private async Task AssertSharesContainCorrectOutputs(
             string shareFullId,
             string sharePreviewId,
@@ -613,6 +650,23 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 }).ToList();
 
             return shareContentItems;
+        }
+
+        private async Task<string> CreateShareWithContentsAndReturnId(int count)
+        {
+            var contents = await _fixture.GetRandomContentsAsync("fileMetadata.fileExtension:.jpg", count).ConfigureAwait(false);
+            return await CreateShareAndReturnId(
+                new ShareBasicCreateRequest
+                {
+                    LanguageCode = _fixture.DefaultLanguage,
+                    Contents = contents.Results.Select(
+                        c => new ShareContent
+                        {
+                            ContentId = c.Id,
+                            OutputFormatIds = new[] { "Original" }
+                        }).ToList(),
+                    Name = $"{Guid.NewGuid():N}"
+                }).ConfigureAwait(false);
         }
 
         private async Task<string> CreateShareAndReturnId(ShareBaseCreateRequest createRequest)

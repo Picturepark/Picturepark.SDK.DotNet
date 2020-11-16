@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class ShareDetail
    | Picturepark.SDK.V1 API ">
-    <meta name="generator" content="docfx 2.56.2.0">
+    <meta name="generator" content="docfx 2.56.5.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -61,11 +61,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -155,6 +155,80 @@
     <tr>
       <td>
         <a class="xref" href="Picturepark.SDK.V1.Contract.UserAudit.html">UserAudit</a>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="Picturepark_SDK_V1_Contract_ShareDetail_ContentCount_" data-uid="Picturepark.SDK.V1.Contract.ShareDetail.ContentCount*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_Contract_ShareDetail_ContentCount" data-uid="Picturepark.SDK.V1.Contract.ShareDetail.ContentCount"><a href="#collapsible-Picturepark_SDK_V1_Contract_ShareDetail_ContentCount" class="expander" data-toggle="collapse">ContentCount</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_Contract_ShareDetail_ContentCount" class="collapse in">
+  <div class="markdown level1 summary"><p>Number of contents in share.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int ContentCount { get; set; }</code></pre>
+  </div>
+  
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Int32</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="Picturepark_SDK_V1_Contract_ShareDetail_Contents_" data-uid="Picturepark.SDK.V1.Contract.ShareDetail.Contents*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_Contract_ShareDetail_Contents" data-uid="Picturepark.SDK.V1.Contract.ShareDetail.Contents"><a href="#collapsible-Picturepark_SDK_V1_Contract_ShareDetail_Contents" class="expander" data-toggle="collapse">Contents</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_Contract_ShareDetail_Contents" class="collapse in">
+  <div class="markdown level1 summary"><p>List of all contents in share including outputs.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ICollection&lt;ShareContent&gt; Contents { get; set; }</code></pre>
+  </div>
+  
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Collections.Generic.ICollection</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.ShareContent.html">ShareContent</a>&gt;
         <p>
       </td>
     </tr>
@@ -525,6 +599,43 @@
     <tr>
       <td>
         <a class="xref" href="Picturepark.SDK.V1.Contract.OutputAccess.html">OutputAccess</a>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="Picturepark_SDK_V1_Contract_ShareDetail_PageToken_" data-uid="Picturepark.SDK.V1.Contract.ShareDetail.PageToken*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_Contract_ShareDetail_PageToken" data-uid="Picturepark.SDK.V1.Contract.ShareDetail.PageToken"><a href="#collapsible-Picturepark_SDK_V1_Contract_ShareDetail_PageToken" class="expander" data-toggle="collapse">PageToken</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_Contract_ShareDetail_PageToken" class="collapse in">
+  <div class="markdown level1 summary"><p>Page token to retrieve next page of content selections.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string PageToken { get; set; }</code></pre>
+  </div>
+  
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.String</span>
         <p>
       </td>
     </tr>

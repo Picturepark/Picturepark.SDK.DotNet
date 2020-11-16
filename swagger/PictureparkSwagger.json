@@ -1446,7 +1446,7 @@
           "Channel"
         ],
         "summary": "Get channel",
-        "description": "Gets the channel information by the output format ID.",
+        "description": "Gets the channel information by the channel ID.",
         "operationId": "Channel_Get",
         "parameters": [
           {
@@ -1710,6 +1710,246 @@
           {
             "Bearer": [
               "channel_write"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/Channels/fields/aggregation": {
+      "get": {
+        "tags": [
+          "Channel"
+        ],
+        "summary": "Retrieve the fields that can be used in an aggregator on any channel.",
+        "operationId": "Channel_GetAggregationFields",
+        "responses": {
+          "200": {
+            "description": "The list of fields",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/FieldInfo"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "channel_read"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/Channels/fields/sort": {
+      "get": {
+        "tags": [
+          "Channel"
+        ],
+        "summary": "Retrieve the fields that can be used as sort fields on any channel.",
+        "operationId": "Channel_GetSortFields",
+        "responses": {
+          "200": {
+            "description": "The list of fields",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SortFieldInfo"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "channel_read"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/Channels/fields/filter": {
+      "get": {
+        "tags": [
+          "Channel"
+        ],
+        "summary": "Retrieve the fields that can be used as filter fields on any channel.",
+        "operationId": "Channel_GetFilterFields",
+        "responses": {
+          "200": {
+            "description": "The list of fields",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/FieldInfo"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "channel_read"
             ]
           }
         ]
@@ -9217,6 +9457,681 @@
         ]
       }
     },
+    "/v1/Notifications/{id}": {
+      "get": {
+        "tags": [
+          "Notification"
+        ],
+        "summary": "Get notification",
+        "operationId": "Notification_Get",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "ID of notification",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Notification",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Notification"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "notification_read"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/Notifications/{id}/markAsRead": {
+      "post": {
+        "tags": [
+          "Notification"
+        ],
+        "summary": "Mark notification as read",
+        "operationId": "Notification_MarkAsRead",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "ID of notification",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Notification",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Notification"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "notification_write"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/Notifications/search": {
+      "post": {
+        "tags": [
+          "Notification"
+        ],
+        "summary": "Search notifications",
+        "operationId": "Notification_Search",
+        "requestBody": {
+          "x-name": "request",
+          "description": "Notification search request",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NotificationSearchRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "Notification search result",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotificationCompactResult"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "notification_read"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/Notifications/aggregate": {
+      "post": {
+        "tags": [
+          "Notification"
+        ],
+        "summary": "Aggregate on notifications",
+        "operationId": "Notification_Aggregate",
+        "requestBody": {
+          "x-name": "request",
+          "description": "Notification aggregation request",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NotificationAggregationRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "Aggregation result",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ObjectAggregationResult"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "notification_read"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/Notifications/markAllAsRead": {
+      "post": {
+        "tags": [
+          "Notification"
+        ],
+        "summary": "Mark all notifications as read",
+        "operationId": "Notification_MarkAllAsRead",
+        "responses": {
+          "200": {
+            "description": null
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "notification_write"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/Notifications/emailNotifications/settings": {
+      "get": {
+        "tags": [
+          "Notification"
+        ],
+        "summary": "Get email notification settings",
+        "operationId": "Notification_GetEmailNotificationSettings",
+        "responses": {
+          "200": {
+            "description": "Email notification settings",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmailNotificationsSettings"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "notification_read"
+            ]
+          }
+        ]
+      },
+      "put": {
+        "tags": [
+          "Notification"
+        ],
+        "summary": "Update email notification settings",
+        "operationId": "Notification_PutEmailNotificationSettings",
+        "requestBody": {
+          "x-name": "configuration",
+          "description": "Email notification settings",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EmailNotificationsSettings"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "Email notification settings",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmailNotificationsSettings"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "notification_write"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/Notifications/emailNotifications/types": {
+      "get": {
+        "tags": [
+          "Notification"
+        ],
+        "summary": "Get notification types available for email settings.",
+        "operationId": "Notification_GetAvailableNotificationTypes",
+        "responses": {
+          "200": {
+            "description": "Array of Notification that is available for email settings.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/NotificationType"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "notification_read"
+            ]
+          }
+        ]
+      }
+    },
     "/v1/OutputFormats/{id}/downloadFileNamePatterns": {
       "put": {
         "tags": [
@@ -13519,36 +14434,322 @@
         ]
       }
     },
-    "/v1/Schemas/indexFields/searchBySchemaIds": {
-      "post": {
+    "/v1/Schemas/{id}/aggregationFields": {
+      "get": {
         "tags": [
           "Schema"
         ],
-        "summary": "Search index fields",
-        "description": "Search the indexed fields based on the search request.\nAn indexed field object is created for a schema field only if that field has one of the following properties set to true: Index,\nSimpleSearch or Sortable.\nAll indexed fields are aggregated and returned as a a single list.",
-        "operationId": "Schema_GetIndexFields",
-        "requestBody": {
-          "x-name": "request",
-          "description": "The search request.",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/IndexFieldsSearchBySchemaIdsRequest"
-              }
-            }
-          },
-          "required": true,
-          "x-position": 1
-        },
+        "summary": "Retrieve the fields that can be used in an aggregator on a schema.",
+        "operationId": "Schema_GetAggregationFields",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "The ID of the schema.",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 1
+          }
+        ],
         "responses": {
           "200": {
-            "description": "Indexed fields",
+            "description": "The list of fields",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/IndexField"
+                    "$ref": "#/components/schemas/FieldInfo"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "schema_read"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/Schemas/many/aggregationFields": {
+      "get": {
+        "tags": [
+          "Schema"
+        ],
+        "summary": "Retrieve the fields that can be used in an aggregator on multiple schemas.",
+        "operationId": "Schema_GetAggregationFieldsMany",
+        "parameters": [
+          {
+            "name": "ids",
+            "in": "query",
+            "style": "form",
+            "explode": true,
+            "description": "The IDs of the schemas.",
+            "schema": {
+              "type": "array",
+              "nullable": true,
+              "items": {
+                "type": "string"
+              }
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The list of fields",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/FieldInfo"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "schema_read"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/Schemas/{id}/filterFields": {
+      "get": {
+        "tags": [
+          "Schema"
+        ],
+        "summary": "Retrieve the fields that can be used in a filter on a schema.",
+        "operationId": "Schema_GetFilterFields",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "The ID of the schema.",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The list of fields",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/FieldInfo"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "schema_read"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/Schemas/many/filterFields": {
+      "get": {
+        "tags": [
+          "Schema"
+        ],
+        "summary": "Retrieve the fields that can be used in a filter on multiple schemas.",
+        "operationId": "Schema_GetFilterFieldsMany",
+        "parameters": [
+          {
+            "name": "ids",
+            "in": "query",
+            "style": "form",
+            "explode": true,
+            "description": "The IDs of the schemas.",
+            "schema": {
+              "type": "array",
+              "nullable": true,
+              "items": {
+                "type": "string"
+              }
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The list of fields",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/FieldInfo"
                   }
                 }
               }
@@ -13748,6 +14949,17 @@
               }
             },
             "x-position": 3
+          },
+          {
+            "name": "contentResolveLimit",
+            "in": "query",
+            "description": "Optional limit the number of contents to resolve. Use a lower value for higher performance. If nothing is specified, everything is resolved.",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "nullable": true
+            },
+            "x-position": 4
           }
         ],
         "responses": {
@@ -13757,6 +14969,119 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ShareDetail"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/Shares/json/{token}/contents": {
+      "get": {
+        "tags": [
+          "Share"
+        ],
+        "summary": "Get share contents",
+        "operationId": "Share_GetShareContents",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "path",
+            "required": true,
+            "description": "Share token",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 1
+          },
+          {
+            "name": "lang",
+            "in": "query",
+            "description": "Language code",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 2
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Number of contents to return",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 3
+          },
+          {
+            "name": "pageToken",
+            "in": "query",
+            "description": "PageToken to page over contents",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 4
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "ShareContentDetailResult",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ShareContentDetailResult"
                 }
               }
             }
@@ -14130,6 +15455,17 @@
               }
             },
             "x-position": 2
+          },
+          {
+            "name": "contentResolveLimit",
+            "in": "query",
+            "description": "Optional limit the number of contents to resolve. Use a lower value for higher performance. If nothing is specified, everything is resolved.",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "nullable": true
+            },
+            "x-position": 3
           }
         ],
         "responses": {
@@ -14299,6 +15635,116 @@
           {
             "Bearer": [
               "share_write"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/Shares/{id}/contents": {
+      "get": {
+        "tags": [
+          "Share"
+        ],
+        "summary": "Get contents in share",
+        "operationId": "Share_GetContentsInShare",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Share Id",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 1
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Number of contents to return",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 2
+          },
+          {
+            "name": "pageToken",
+            "in": "query",
+            "description": "PageToken to page over contents",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 3
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "ShareContentDetailResult",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ShareContentDetailResult"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "share_read"
             ]
           }
         ]
@@ -14753,6 +16199,446 @@
           {
             "Bearer": [
               "share_read"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/Templates/{id}": {
+      "get": {
+        "tags": [
+          "Template"
+        ],
+        "summary": "Get template",
+        "operationId": "Template_Get",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "ID of template.",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Template",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Template"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "template_read"
+            ]
+          }
+        ]
+      },
+      "put": {
+        "tags": [
+          "Template"
+        ],
+        "summary": "Update template",
+        "operationId": "Template_Update",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "ID of template.",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 1
+          }
+        ],
+        "requestBody": {
+          "x-name": "request",
+          "description": "Template",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TemplateUpdateRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 2
+        },
+        "responses": {
+          "200": {
+            "description": "Template",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Template"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "template_write"
+            ]
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "Template"
+        ],
+        "summary": "Delete template",
+        "operationId": "Template_Delete",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "ID of template",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": null
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "template_write"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/Templates": {
+      "post": {
+        "tags": [
+          "Template"
+        ],
+        "summary": "Create template",
+        "operationId": "Template_Create",
+        "requestBody": {
+          "x-name": "request",
+          "description": "TemplateCreateRequest",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TemplateCreateRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "Template",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Template"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "template_write"
+            ]
+          }
+        ]
+      },
+      "get": {
+        "tags": [
+          "Template"
+        ],
+        "summary": "Get all templates",
+        "operationId": "Template_GetAll",
+        "responses": {
+          "200": {
+            "description": "All templates",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Template"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "template_read"
             ]
           }
         ]
@@ -20771,27 +22657,6 @@
           "SchemaEditing"
         ]
       },
-      "RetryException": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/PictureparkBusinessException"
-          },
-          {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "retries": {
-                "type": "integer",
-                "format": "int32"
-              },
-              "innerExceptionDetail": {
-                "type": "string",
-                "nullable": true
-              }
-            }
-          }
-        ]
-      },
       "OwnerTokenNotFoundException": {
         "allOf": [
           {
@@ -22760,6 +24625,23 @@
           }
         ]
       },
+      "SortingSupportedOnlyOnTermsAndTermsRelationAggregatorsException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "aggregationName": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
       "SchemaFieldOverwriteTypeMismatchException": {
         "allOf": [
           {
@@ -23929,7 +25811,8 @@
           "Language",
           "PathHierarchy",
           "EdgeNGram",
-          "NGram"
+          "NGram",
+          "NoDiacritics"
         ],
         "enum": [
           "None",
@@ -23937,7 +25820,8 @@
           "Language",
           "PathHierarchy",
           "EdgeNGram",
-          "NGram"
+          "NGram",
+          "NoDiacritics"
         ]
       },
       "SchemaFieldRelationMultipleTypesException": {
@@ -24113,6 +25997,187 @@
                 "nullable": true
               },
               "fieldId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "SchemaFieldImportMismatchException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "schemaId": {
+                "type": "string",
+                "nullable": true
+              },
+              "importingFieldIds": {
+                "type": "string",
+                "nullable": true
+              },
+              "existingFieldIds": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "SchemaFieldImportRelatedSchemaMismatchException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "schemaId": {
+                "type": "string",
+                "nullable": true
+              },
+              "fieldId": {
+                "type": "string",
+                "nullable": true
+              },
+              "importingRelatedSchemaId": {
+                "type": "string",
+                "nullable": true
+              },
+              "existingRelatedSchemaId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "SchemaFieldImportTypeMismatchException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "schemaId": {
+                "type": "string",
+                "nullable": true
+              },
+              "fieldId": {
+                "type": "string",
+                "nullable": true
+              },
+              "importingFieldType": {
+                "type": "string",
+                "nullable": true
+              },
+              "existingFieldType": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "SchemaFieldNotSupportedException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "fieldId": {
+                "type": "string",
+                "nullable": true
+              },
+              "schemaId": {
+                "type": "string",
+                "nullable": true
+              },
+              "fieldType": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "SchemaFieldDisplayPatternTypeNotSupportedException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "fieldId": {
+                "type": "string",
+                "nullable": true
+              },
+              "displayPatternType": {
+                "$ref": "#/components/schemas/DisplayPatternType"
+              },
+              "supportedDisplayPatternTypes": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/DisplayPatternType"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "SchemaFieldMarkdownNotMultilineException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "fieldId": {
+                "type": "string",
+                "nullable": true
+              },
+              "schemaId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "IndexingDisplayValueInFilterOnlySupportedForIndexedTagboxFieldsException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "schemaId": {
+                "type": "string",
+                "nullable": true
+              },
+              "fieldId": {
+                "type": "string",
+                "nullable": true
+              },
+              "relatedFieldId": {
                 "type": "string",
                 "nullable": true
               }
@@ -24475,141 +26540,6 @@
                     "$ref": "#/components/schemas/PictureparkException"
                   }
                 ]
-              }
-            }
-          }
-        ]
-      },
-      "SchemaFieldImportMismatchException": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/PictureparkValidationException"
-          },
-          {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "schemaId": {
-                "type": "string",
-                "nullable": true
-              },
-              "importingFieldIds": {
-                "type": "string",
-                "nullable": true
-              },
-              "existingFieldIds": {
-                "type": "string",
-                "nullable": true
-              }
-            }
-          }
-        ]
-      },
-      "SchemaFieldImportRelatedSchemaMismatchException": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/PictureparkValidationException"
-          },
-          {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "schemaId": {
-                "type": "string",
-                "nullable": true
-              },
-              "fieldId": {
-                "type": "string",
-                "nullable": true
-              },
-              "importingRelatedSchemaId": {
-                "type": "string",
-                "nullable": true
-              },
-              "existingRelatedSchemaId": {
-                "type": "string",
-                "nullable": true
-              }
-            }
-          }
-        ]
-      },
-      "SchemaFieldImportTypeMismatchException": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/PictureparkValidationException"
-          },
-          {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "schemaId": {
-                "type": "string",
-                "nullable": true
-              },
-              "fieldId": {
-                "type": "string",
-                "nullable": true
-              },
-              "importingFieldType": {
-                "type": "string",
-                "nullable": true
-              },
-              "existingFieldType": {
-                "type": "string",
-                "nullable": true
-              }
-            }
-          }
-        ]
-      },
-      "SchemaFieldNotSupportedException": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/PictureparkValidationException"
-          },
-          {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "fieldId": {
-                "type": "string",
-                "nullable": true
-              },
-              "schemaId": {
-                "type": "string",
-                "nullable": true
-              },
-              "fieldType": {
-                "type": "string",
-                "nullable": true
-              }
-            }
-          }
-        ]
-      },
-      "SchemaFieldDisplayPatternTypeNotSupportedException": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/PictureparkValidationException"
-          },
-          {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "fieldId": {
-                "type": "string",
-                "nullable": true
-              },
-              "displayPatternType": {
-                "$ref": "#/components/schemas/DisplayPatternType"
-              },
-              "supportedDisplayPatternTypes": {
-                "type": "array",
-                "nullable": true,
-                "items": {
-                  "$ref": "#/components/schemas/DisplayPatternType"
-                }
               }
             }
           }
@@ -25413,6 +27343,56 @@
           }
         ]
       },
+      "BusinessRuleNotificationInvalidIdException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "BusinessRuleNotificationNoRecipientsException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "BusinessRuleNotificationRecipientUserIdMissingException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "BusinessRuleNotificationRecipientUserRoleIdMissingException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
       "NamedCacheConfigurationException": {
         "allOf": [
           {
@@ -25657,6 +27637,166 @@
                 "format": "int32"
               }
             }
+          }
+        ]
+      },
+      "CollectionModificationNotAllowedException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "collectionId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "CollectionNotFoundException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkNotFoundException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "collectionId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "NonDefaultTemplateNameNotAllowedException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "name": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "SystemTemplateModificationNotAllowedException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "templateId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "TemplateDuplicationException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "duplicatedTemplateId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "TemplateLanguageCodeNotSupportedException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "languageCode": {
+                "type": "string",
+                "nullable": true
+              },
+              "supportedLanguageCodes": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "TemplateMediaTypesMissingException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "requiredMediaTypes": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "TemplateMediaTypesNotSupportedException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "unsupportedMediaTypes": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "TemplateNotFoundException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkNotFoundException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
           }
         ]
       },
@@ -27149,11 +29289,11 @@
         "properties": {
           "disableRuleEngine": {
             "type": "boolean",
-            "description": "Disables the rule completely."
+            "description": "Disables the rule engine completely."
           },
           "rules": {
             "type": "array",
-            "description": "Rules",
+            "description": "Rules.",
             "nullable": true,
             "items": {
               "$ref": "#/components/schemas/BusinessRule"
@@ -27165,6 +29305,14 @@
             "nullable": true,
             "items": {
               "$ref": "#/components/schemas/NamedCacheConfigurationBase"
+            }
+          },
+          "notifications": {
+            "type": "array",
+            "description": "Notifications.",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/BusinessRuleNotification"
             }
           }
         }
@@ -28076,7 +30224,8 @@
             "UnassignContentPermissionSetsAction": "#/components/schemas/UnassignContentPermissionSetsAction",
             "ProduceMessageAction": "#/components/schemas/ProduceMessageAction",
             "AssignTagboxItemsInLayerAction": "#/components/schemas/AssignTagboxItemsInLayerAction",
-            "EnqueueTaggingAction": "#/components/schemas/EnqueueTaggingAction"
+            "EnqueueTaggingAction": "#/components/schemas/EnqueueTaggingAction",
+            "ProduceNotificationAction": "#/components/schemas/ProduceNotificationAction"
           }
         },
         "description": "Action to be performed by a business rule",
@@ -28278,6 +30427,7 @@
           },
           {
             "type": "object",
+            "description": "Produces a message that is enqueued to the integration bus for a service provider to consume",
             "additionalProperties": false
           }
         ]
@@ -28422,6 +30572,134 @@
                 "nullable": true
               }
             }
+          }
+        ]
+      },
+      "ProduceNotificationAction": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BusinessRuleAction"
+          },
+          {
+            "type": "object",
+            "description": "Produces a notification that is enqueued to users, user groups or owners recipients",
+            "additionalProperties": false,
+            "required": [
+              "recipients"
+            ],
+            "properties": {
+              "notificationId": {
+                "type": "string",
+                "description": "ID of the notification to produce.",
+                "nullable": true
+              },
+              "recipients": {
+                "type": "array",
+                "description": "Recipients of the notification.",
+                "items": {
+                  "$ref": "#/components/schemas/NotificationRecipientBase"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "NotificationRecipientBase": {
+        "type": "object",
+        "discriminator": {
+          "propertyName": "kind",
+          "mapping": {
+            "UserNotificationRecipient": "#/components/schemas/UserNotificationRecipient",
+            "UserRoleNotificationRecipient": "#/components/schemas/UserRoleNotificationRecipient",
+            "UserRightNotificationRecipient": "#/components/schemas/UserRightNotificationRecipient",
+            "OwnerNotificationRecipient": "#/components/schemas/OwnerNotificationRecipient"
+          }
+        },
+        "x-abstract": true,
+        "additionalProperties": false,
+        "required": [
+          "kind"
+        ],
+        "properties": {
+          "kind": {
+            "type": "string"
+          }
+        }
+      },
+      "UserNotificationRecipient": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/NotificationRecipientBase"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "userId"
+            ],
+            "properties": {
+              "userId": {
+                "type": "string",
+                "description": "User ID.",
+                "minLength": 1
+              }
+            }
+          }
+        ]
+      },
+      "UserRoleNotificationRecipient": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/NotificationRecipientBase"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "userRoleId"
+            ],
+            "properties": {
+              "userRoleId": {
+                "type": "string",
+                "description": "User role ID.",
+                "minLength": 1
+              }
+            }
+          }
+        ]
+      },
+      "UserRightNotificationRecipient": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/NotificationRecipientBase"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "userRight"
+            ],
+            "properties": {
+              "userRight": {
+                "description": "User right.",
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/UserRight"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "OwnerNotificationRecipient": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/NotificationRecipientBase"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
           }
         ]
       },
@@ -28571,6 +30849,48 @@
           }
         ]
       },
+      "BusinessRuleNotification": {
+        "type": "object",
+        "description": "Configuration for a notification sent by ProduceNotificationAction.",
+        "additionalProperties": false,
+        "required": [
+          "createCollection"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "ID of the notification.",
+            "nullable": true
+          },
+          "title": {
+            "description": "Title of the notification.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/TranslatedStringDictionary"
+              }
+            ]
+          },
+          "message": {
+            "description": "Message of the notification.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/TranslatedStringDictionary"
+              }
+            ]
+          },
+          "createCollection": {
+            "type": "boolean",
+            "description": "Indicates if a collection of the items affected should be created."
+          },
+          "templateName": {
+            "type": "string",
+            "description": "Name of the template to use when converting the notification to an item in the email notifications.",
+            "nullable": true
+          }
+        }
+      },
       "BusinessRuleConfigurationUpdateRequest": {
         "type": "object",
         "description": "Update request for changing business rule configuration",
@@ -28597,6 +30917,14 @@
             "nullable": true,
             "items": {
               "$ref": "#/components/schemas/NamedCacheConfigurationBase"
+            }
+          },
+          "notifications": {
+            "type": "array",
+            "description": "Notifications.",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/BusinessRuleNotification"
             }
           }
         }
@@ -29422,9 +31750,53 @@
                 "items": {
                   "type": "string"
                 }
+              },
+              "sort": {
+                "description": "Sort settings for the aggregation results. If no sort is specified, aggregation is sorted on the item count.",
+                "nullable": true,
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/SortInfo"
+                  }
+                ]
               }
             }
           }
+        ]
+      },
+      "SortInfo": {
+        "type": "object",
+        "description": "Sorting information",
+        "additionalProperties": false,
+        "required": [
+          "direction"
+        ],
+        "properties": {
+          "field": {
+            "type": "string",
+            "description": "The field's ID to sort on.",
+            "nullable": true
+          },
+          "direction": {
+            "description": "The sort direction (ascending/descending).",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/SortDirection"
+              }
+            ]
+          }
+        }
+      },
+      "SortDirection": {
+        "type": "string",
+        "description": "The sort direction",
+        "x-enumNames": [
+          "Asc",
+          "Desc"
+        ],
+        "enum": [
+          "Asc",
+          "Desc"
         ]
       },
       "TermsRelationAggregator": {
@@ -29491,41 +31863,6 @@
               }
             }
           }
-        ]
-      },
-      "SortInfo": {
-        "type": "object",
-        "description": "Sorting information",
-        "additionalProperties": false,
-        "required": [
-          "direction"
-        ],
-        "properties": {
-          "field": {
-            "type": "string",
-            "description": "The field's ID to sort on.",
-            "nullable": true
-          },
-          "direction": {
-            "description": "The sort direction (ascending/descending).",
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/SortDirection"
-              }
-            ]
-          }
-        }
-      },
-      "SortDirection": {
-        "type": "string",
-        "description": "The sort direction",
-        "x-enumNames": [
-          "Asc",
-          "Desc"
-        ],
-        "enum": [
-          "Asc",
-          "Desc"
         ]
       },
       "Channel": {
@@ -29837,6 +32174,63 @@
           "viewForAll": {
             "type": "boolean",
             "description": "Grants rights to all the users to view the channel."
+          }
+        }
+      },
+      "FieldInfo": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "allowSearch",
+          "static"
+        ],
+        "properties": {
+          "path": {
+            "type": "string",
+            "description": "The path of the field ({schemaId}.{fieldId})",
+            "nullable": true
+          },
+          "fieldId": {
+            "type": "string",
+            "description": "The ID of the field.",
+            "nullable": true
+          },
+          "type": {
+            "type": "string",
+            "description": "The type of the field.",
+            "nullable": true
+          },
+          "allowSearch": {
+            "type": "boolean",
+            "description": "Flag indicating if the search when aggregating the field is supported or not."
+          },
+          "static": {
+            "type": "boolean",
+            "description": "Identifies a static field not retrieved from the dynamic metadata fields."
+          },
+          "nestedPath": {
+            "type": "string",
+            "description": "Path of the nested object, if the current field is part of a nested object",
+            "nullable": true
+          }
+        }
+      },
+      "SortFieldInfo": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "path",
+          "static"
+        ],
+        "properties": {
+          "path": {
+            "type": "string",
+            "description": "The path of the field ({schemaId}.{fieldId})",
+            "minLength": 1
+          },
+          "static": {
+            "type": "boolean",
+            "description": "Identifies a static field not retrieved from the dynamic metadata fields."
           }
         }
       },
@@ -33261,16 +35655,16 @@
             "description": "Information if the query details can be enabled when searching. For debug purposes only."
           },
           "languageConfiguration": {
-            "description": "Configured languages of customer instance (system, metadata, default).",
+            "description": "Configured languages of customer instance (system, metadata, share, default).",
             "oneOf": [
               {
-                "$ref": "#/components/schemas/LanguageConfiguration"
+                "$ref": "#/components/schemas/LanguageConfigurationInfo"
               }
             ]
           },
           "languages": {
             "type": "array",
-            "description": "Languages including translations for the configured system and metadata languages.",
+            "description": "Languages including translations for the configured system and metadata and share languages.",
             "items": {
               "$ref": "#/components/schemas/Language"
             }
@@ -33315,14 +35709,41 @@
           }
         }
       },
+      "LanguageConfigurationInfo": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/LanguageConfiguration"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "shareLanguages"
+            ],
+            "properties": {
+              "shareLanguages": {
+                "type": "array",
+                "description": "Share languages based on defined ShareMail templates.",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ]
+      },
       "LanguageConfiguration": {
         "type": "object",
         "additionalProperties": false,
+        "required": [
+          "systemLanguages",
+          "metadataLanguages",
+          "defaultLanguage"
+        ],
         "properties": {
           "systemLanguages": {
             "type": "array",
             "description": "A list of languages serving as system languages.",
-            "nullable": true,
             "items": {
               "type": "string"
             }
@@ -33330,7 +35751,6 @@
           "metadataLanguages": {
             "type": "array",
             "description": "A list of languages serving as metadata languages.",
-            "nullable": true,
             "items": {
               "type": "string"
             }
@@ -33338,7 +35758,7 @@
           "defaultLanguage": {
             "type": "string",
             "description": "The default language. Not the be confused with the metadata fallback language x-default.",
-            "nullable": true
+            "minLength": 1
           }
         }
       },
@@ -34549,6 +36969,1055 @@
                 "type": "string"
               }
             }
+          }
+        }
+      },
+      "Notification": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "titleCode",
+          "messageCode",
+          "state",
+          "eventType"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "recipientUserId": {
+            "type": "string",
+            "nullable": true
+          },
+          "referenceDocType": {
+            "type": "string",
+            "nullable": true
+          },
+          "referenceId": {
+            "type": "string",
+            "nullable": true
+          },
+          "audit": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/UserAudit"
+              }
+            ]
+          },
+          "titleCode": {
+            "$ref": "#/components/schemas/TitleCode"
+          },
+          "messageCode": {
+            "$ref": "#/components/schemas/MessageCode"
+          },
+          "detail": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/NotificationDetailBase"
+              }
+            ]
+          },
+          "state": {
+            "$ref": "#/components/schemas/NotificationState"
+          },
+          "eventType": {
+            "$ref": "#/components/schemas/NotificationEventType"
+          }
+        }
+      },
+      "TitleCode": {
+        "type": "string",
+        "description": "",
+        "x-enumNames": [
+          "TransferInProgressTitle",
+          "TransferCompletedTitle",
+          "ImportInProgressTitle",
+          "ImportCompletedTitle",
+          "ShareNewShareTitle",
+          "TransferCancelledTitle",
+          "ImportCancelledTitle",
+          "ImportCompletedWithErrors",
+          "SchemaImportInProgressTitle",
+          "SchemaImportCompletedTitle",
+          "SchemaImportFailedTitle",
+          "UserRegisteredTitle",
+          "NewUserRegisteredEmailSubject",
+          "UserLockedEmailSubject",
+          "UserUnlockedEmailSubject",
+          "UserReviewedEmailSubject",
+          "UserInvitationEmailSubject",
+          "UserTriggeredDeactivationRequest",
+          "UserTriggeredDeactivationRequestMailSubject",
+          "IndexDraft",
+          "IndexCreate",
+          "IndexInactive",
+          "IndexActive",
+          "IndexClosed",
+          "IndexReindexInProgress",
+          "IndexCancelled",
+          "ReindexProgressDraft",
+          "ReindexProgressInProgress",
+          "ReindexProgressCompleted",
+          "ReindexProgressCancelled",
+          "ReindexProgressFailed",
+          "ReindexProgressCompletedWithErrors",
+          "ContentBatchEditInProgress",
+          "ContentBatchEditCompleted",
+          "ContentBatchEditProgressFailed",
+          "ContentBatchEditProgressCompletedWithErrors",
+          "ListItemBatchEditInProgress",
+          "ListItemBatchEditCompleted",
+          "ListItemBatchEditProgressFailed",
+          "ListItemBatchEditProgressCompletedWithErrors",
+          "ContentBackupRecoveryDraft",
+          "ContentBackupRecoveryInProgress",
+          "ContentBackupRecoveryCompleted",
+          "ContentBackupRecoveryForcefullyCompleted",
+          "ContentBackupRecoveryCancelled",
+          "ContentBackupRecoveryFailed",
+          "ContentOwnershipBatchEditInProgress",
+          "ContentOwnershipBatchEditCompleted",
+          "ContentOwnershipBatchEditProgressFailed",
+          "ContentOwnershipBatchEditProgressCompletedWithErrors",
+          "ContentPermissionsBatchEditInProgress",
+          "ContentPermissionsBatchEditCompleted",
+          "ContentPermissionsBatchEditProgressFailed",
+          "ContentPermissionsBatchEditProgressCompletedWithErrors",
+          "ListItemDeactivateManyInProgress",
+          "ListItemDeactivateManyCompleted",
+          "ListItemDeactivateManyProgressFailed",
+          "ListItemDeactivateManyProgressCompletedWithErrors",
+          "ContentDeactivateManyInProgress",
+          "ContentDeactivateManyCompleted",
+          "ContentDeactivateManyProgressFailed",
+          "ContentDeactivateManyProgressCompletedWithErrors",
+          "ExternalBusinessProcessTitle",
+          "MetadataRelatedItemsInProgress",
+          "MetadataRelatedItemsProgressFailed",
+          "MetadataRelatedItemsProgressCompletedWithErrors",
+          "MetadataRelatedItemsCompleted",
+          "AutoTaggingInProgress",
+          "AutoTaggingSucceeded",
+          "AutoTaggingSucceededWithErrors",
+          "AutoTaggingFailed",
+          "AutoTaggingCancelled",
+          "ListItemUpdateManyInProgress",
+          "ListItemUpdateManyCompleted",
+          "ListItemUpdateManyCompletedWithErrors",
+          "ListItemUpdateManyFailed",
+          "ContentUpdateManyInProgress",
+          "ContentUpdateManyCompleted",
+          "ContentUpdateManyCompletedWithErrors",
+          "ContentUpdateManyFailed",
+          "MetadataRelatedItemsBySchemaInProgress",
+          "MetadataRelatedItemsBySchemaFailed",
+          "MetadataRelatedItemsBySchemaCompletedWithErrors",
+          "MetadataRelatedItemsBySchemaCompleted",
+          "MetadataOutdatedItemsUpdateInProgress",
+          "MetadataOutdatedItemsUpdateCompleted",
+          "MetadataOutdatedItemsUpdateCompletedWithErrors",
+          "MetadataOutdatedItemsUpdateFailed",
+          "BatchRenderingInProgress",
+          "BatchRenderingCompleted",
+          "BatchRenderingCompletedWithErrors",
+          "BatchRenderingFailed",
+          "BusinessRuleTitle",
+          "UserEmailConflictSolved",
+          "UserEmailConflictSolvedSubject",
+          "SupportUserDeactivation",
+          "ImportFailedTitle"
+        ],
+        "enum": [
+          "TransferInProgressTitle",
+          "TransferCompletedTitle",
+          "ImportInProgressTitle",
+          "ImportCompletedTitle",
+          "ShareNewShareTitle",
+          "TransferCancelledTitle",
+          "ImportCancelledTitle",
+          "ImportCompletedWithErrors",
+          "SchemaImportInProgressTitle",
+          "SchemaImportCompletedTitle",
+          "SchemaImportFailedTitle",
+          "UserRegisteredTitle",
+          "NewUserRegisteredEmailSubject",
+          "UserLockedEmailSubject",
+          "UserUnlockedEmailSubject",
+          "UserReviewedEmailSubject",
+          "UserInvitationEmailSubject",
+          "UserTriggeredDeactivationRequest",
+          "UserTriggeredDeactivationRequestMailSubject",
+          "IndexDraft",
+          "IndexCreate",
+          "IndexInactive",
+          "IndexActive",
+          "IndexClosed",
+          "IndexReindexInProgress",
+          "IndexCancelled",
+          "ReindexProgressDraft",
+          "ReindexProgressInProgress",
+          "ReindexProgressCompleted",
+          "ReindexProgressCancelled",
+          "ReindexProgressFailed",
+          "ReindexProgressCompletedWithErrors",
+          "ContentBatchEditInProgress",
+          "ContentBatchEditCompleted",
+          "ContentBatchEditProgressFailed",
+          "ContentBatchEditProgressCompletedWithErrors",
+          "ListItemBatchEditInProgress",
+          "ListItemBatchEditCompleted",
+          "ListItemBatchEditProgressFailed",
+          "ListItemBatchEditProgressCompletedWithErrors",
+          "ContentBackupRecoveryDraft",
+          "ContentBackupRecoveryInProgress",
+          "ContentBackupRecoveryCompleted",
+          "ContentBackupRecoveryForcefullyCompleted",
+          "ContentBackupRecoveryCancelled",
+          "ContentBackupRecoveryFailed",
+          "ContentOwnershipBatchEditInProgress",
+          "ContentOwnershipBatchEditCompleted",
+          "ContentOwnershipBatchEditProgressFailed",
+          "ContentOwnershipBatchEditProgressCompletedWithErrors",
+          "ContentPermissionsBatchEditInProgress",
+          "ContentPermissionsBatchEditCompleted",
+          "ContentPermissionsBatchEditProgressFailed",
+          "ContentPermissionsBatchEditProgressCompletedWithErrors",
+          "ListItemDeactivateManyInProgress",
+          "ListItemDeactivateManyCompleted",
+          "ListItemDeactivateManyProgressFailed",
+          "ListItemDeactivateManyProgressCompletedWithErrors",
+          "ContentDeactivateManyInProgress",
+          "ContentDeactivateManyCompleted",
+          "ContentDeactivateManyProgressFailed",
+          "ContentDeactivateManyProgressCompletedWithErrors",
+          "ExternalBusinessProcessTitle",
+          "MetadataRelatedItemsInProgress",
+          "MetadataRelatedItemsProgressFailed",
+          "MetadataRelatedItemsProgressCompletedWithErrors",
+          "MetadataRelatedItemsCompleted",
+          "AutoTaggingInProgress",
+          "AutoTaggingSucceeded",
+          "AutoTaggingSucceededWithErrors",
+          "AutoTaggingFailed",
+          "AutoTaggingCancelled",
+          "ListItemUpdateManyInProgress",
+          "ListItemUpdateManyCompleted",
+          "ListItemUpdateManyCompletedWithErrors",
+          "ListItemUpdateManyFailed",
+          "ContentUpdateManyInProgress",
+          "ContentUpdateManyCompleted",
+          "ContentUpdateManyCompletedWithErrors",
+          "ContentUpdateManyFailed",
+          "MetadataRelatedItemsBySchemaInProgress",
+          "MetadataRelatedItemsBySchemaFailed",
+          "MetadataRelatedItemsBySchemaCompletedWithErrors",
+          "MetadataRelatedItemsBySchemaCompleted",
+          "MetadataOutdatedItemsUpdateInProgress",
+          "MetadataOutdatedItemsUpdateCompleted",
+          "MetadataOutdatedItemsUpdateCompletedWithErrors",
+          "MetadataOutdatedItemsUpdateFailed",
+          "BatchRenderingInProgress",
+          "BatchRenderingCompleted",
+          "BatchRenderingCompletedWithErrors",
+          "BatchRenderingFailed",
+          "BusinessRuleTitle",
+          "UserEmailConflictSolved",
+          "UserEmailConflictSolvedSubject",
+          "SupportUserDeactivation",
+          "ImportFailedTitle"
+        ]
+      },
+      "MessageCode": {
+        "type": "string",
+        "description": "",
+        "x-enumNames": [
+          "TransferInProgressMessage",
+          "TransferCompletedMessage",
+          "ImportInProgressMessage",
+          "ImportCompletedMessage",
+          "ShareNewShareMessage",
+          "TransferCancelledMessage",
+          "ImportCancelledMessage",
+          "ImportFailedMessage",
+          "TransferInProgressWithFailedMessage",
+          "TransferCompletedWithFailedMessage",
+          "TransferCancelledWithFailedMessage",
+          "ImportInProgressWithFailedMessage",
+          "ImportCompletedWithFailedMessage",
+          "ImportCancelledWithFailedMessage",
+          "SchemaImportInProgressMessage",
+          "SchemaImportCompletedMessage",
+          "SchemaImportFailedMessage",
+          "UserRegisteredMessage",
+          "UserLockedMessage",
+          "UserReviewedMessage",
+          "IndexDraft",
+          "IndexCreate",
+          "IndexInactive",
+          "IndexActive",
+          "IndexClosed",
+          "IndexReindexInProgress",
+          "IndexCancelled",
+          "ReindexProgressDraft",
+          "ReindexProgressInProgress",
+          "ReindexProgressCompleted",
+          "ReindexProgressCancelled",
+          "ReindexProgressFailed",
+          "ReindexProgressCompletedWithErrors",
+          "ContentBatchEditInProgress",
+          "ContentBatchEditCompleted",
+          "ContentBatchEditProgressFailed",
+          "ContentBatchEditProgressCompletedWithErrors",
+          "ListItemBatchEditInProgress",
+          "ListItemBatchEditCompleted",
+          "ListItemBatchEditProgressFailed",
+          "ListItemBatchEditProgressCompletedWithErrors",
+          "ContentBackupRecoveryDraft",
+          "ContentBackupRecoveryInProgress",
+          "ContentBackupRecoveryCompleted",
+          "ContentBackupRecoveryForcefullyCompleted",
+          "ContentBackupRecoveryCancelled",
+          "ContentBackupRecoveryFailed",
+          "ContentOwnershipBatchEditInProgress",
+          "ContentOwnershipBatchEditCompleted",
+          "ContentOwnershipBatchEditProgressFailed",
+          "ContentOwnershipBatchEditProgressCompletedWithErrors",
+          "ContentPermissionsBatchEditInProgress",
+          "ContentPermissionsBatchEditCompleted",
+          "ContentPermissionsBatchEditProgressFailed",
+          "ContentPermissionsBatchEditProgressCompletedWithErrors",
+          "UserTriggeredDeactivationRequestMessage",
+          "UserEmailConflictSolved",
+          "ListItemDeactivateManyInProgress",
+          "ListItemDeactivateManyCompleted",
+          "ListItemDeactivateManyProgressFailed",
+          "ListItemDeactivateManyProgressCompletedWithErrors",
+          "ContentDeactivateManyInProgress",
+          "ContentDeactivateManyCompleted",
+          "ContentDeactivateManyProgressFailed",
+          "ContentDeactivateManyProgressCompletedWithErrors",
+          "ExternalBusinessProcessMessage",
+          "MetadataRelatedItemsInProgress",
+          "MetadataRelatedItemsProgressFailed",
+          "MetadataRelatedItemsProgressCompletedWithErrors",
+          "MetadataRelatedItemsCompleted",
+          "AutoTaggingInProgress",
+          "AutoTaggingSucceeded",
+          "AutoTaggingSucceededWithErrors",
+          "AutoTaggingFailed",
+          "AutoTaggingCancelled",
+          "ListItemUpdateManyInProgress",
+          "ListItemUpdateManyCompleted",
+          "ListItemUpdateManyCompletedWithErrors",
+          "ListItemUpdateManyFailed",
+          "ContentUpdateManyInProgress",
+          "ContentUpdateManyCompleted",
+          "ContentUpdateManyCompletedWithErrors",
+          "ContentUpdateManyFailed",
+          "MetadataRelatedItemsBySchemaInProgress",
+          "MetadataRelatedItemsBySchemaFailed",
+          "MetadataRelatedItemsBySchemaCompletedWithErrors",
+          "MetadataRelatedItemsBySchemaCompleted",
+          "MetadataOutdatedItemsUpdateInProgress",
+          "MetadataOutdatedItemsUpdateCompleted",
+          "MetadataOutdatedItemsUpdateCompletedWithErrors",
+          "MetadataOutdatedItemsUpdateFailed",
+          "BatchRenderingInProgress",
+          "BatchRenderingCompleted",
+          "BatchRenderingCompletedWithErrors",
+          "BatchRenderingFailed",
+          "BusinessRuleMessage"
+        ],
+        "enum": [
+          "TransferInProgressMessage",
+          "TransferCompletedMessage",
+          "ImportInProgressMessage",
+          "ImportCompletedMessage",
+          "ShareNewShareMessage",
+          "TransferCancelledMessage",
+          "ImportCancelledMessage",
+          "ImportFailedMessage",
+          "TransferInProgressWithFailedMessage",
+          "TransferCompletedWithFailedMessage",
+          "TransferCancelledWithFailedMessage",
+          "ImportInProgressWithFailedMessage",
+          "ImportCompletedWithFailedMessage",
+          "ImportCancelledWithFailedMessage",
+          "SchemaImportInProgressMessage",
+          "SchemaImportCompletedMessage",
+          "SchemaImportFailedMessage",
+          "UserRegisteredMessage",
+          "UserLockedMessage",
+          "UserReviewedMessage",
+          "IndexDraft",
+          "IndexCreate",
+          "IndexInactive",
+          "IndexActive",
+          "IndexClosed",
+          "IndexReindexInProgress",
+          "IndexCancelled",
+          "ReindexProgressDraft",
+          "ReindexProgressInProgress",
+          "ReindexProgressCompleted",
+          "ReindexProgressCancelled",
+          "ReindexProgressFailed",
+          "ReindexProgressCompletedWithErrors",
+          "ContentBatchEditInProgress",
+          "ContentBatchEditCompleted",
+          "ContentBatchEditProgressFailed",
+          "ContentBatchEditProgressCompletedWithErrors",
+          "ListItemBatchEditInProgress",
+          "ListItemBatchEditCompleted",
+          "ListItemBatchEditProgressFailed",
+          "ListItemBatchEditProgressCompletedWithErrors",
+          "ContentBackupRecoveryDraft",
+          "ContentBackupRecoveryInProgress",
+          "ContentBackupRecoveryCompleted",
+          "ContentBackupRecoveryForcefullyCompleted",
+          "ContentBackupRecoveryCancelled",
+          "ContentBackupRecoveryFailed",
+          "ContentOwnershipBatchEditInProgress",
+          "ContentOwnershipBatchEditCompleted",
+          "ContentOwnershipBatchEditProgressFailed",
+          "ContentOwnershipBatchEditProgressCompletedWithErrors",
+          "ContentPermissionsBatchEditInProgress",
+          "ContentPermissionsBatchEditCompleted",
+          "ContentPermissionsBatchEditProgressFailed",
+          "ContentPermissionsBatchEditProgressCompletedWithErrors",
+          "UserTriggeredDeactivationRequestMessage",
+          "UserEmailConflictSolved",
+          "ListItemDeactivateManyInProgress",
+          "ListItemDeactivateManyCompleted",
+          "ListItemDeactivateManyProgressFailed",
+          "ListItemDeactivateManyProgressCompletedWithErrors",
+          "ContentDeactivateManyInProgress",
+          "ContentDeactivateManyCompleted",
+          "ContentDeactivateManyProgressFailed",
+          "ContentDeactivateManyProgressCompletedWithErrors",
+          "ExternalBusinessProcessMessage",
+          "MetadataRelatedItemsInProgress",
+          "MetadataRelatedItemsProgressFailed",
+          "MetadataRelatedItemsProgressCompletedWithErrors",
+          "MetadataRelatedItemsCompleted",
+          "AutoTaggingInProgress",
+          "AutoTaggingSucceeded",
+          "AutoTaggingSucceededWithErrors",
+          "AutoTaggingFailed",
+          "AutoTaggingCancelled",
+          "ListItemUpdateManyInProgress",
+          "ListItemUpdateManyCompleted",
+          "ListItemUpdateManyCompletedWithErrors",
+          "ListItemUpdateManyFailed",
+          "ContentUpdateManyInProgress",
+          "ContentUpdateManyCompleted",
+          "ContentUpdateManyCompletedWithErrors",
+          "ContentUpdateManyFailed",
+          "MetadataRelatedItemsBySchemaInProgress",
+          "MetadataRelatedItemsBySchemaFailed",
+          "MetadataRelatedItemsBySchemaCompletedWithErrors",
+          "MetadataRelatedItemsBySchemaCompleted",
+          "MetadataOutdatedItemsUpdateInProgress",
+          "MetadataOutdatedItemsUpdateCompleted",
+          "MetadataOutdatedItemsUpdateCompletedWithErrors",
+          "MetadataOutdatedItemsUpdateFailed",
+          "BatchRenderingInProgress",
+          "BatchRenderingCompleted",
+          "BatchRenderingCompletedWithErrors",
+          "BatchRenderingFailed",
+          "BusinessRuleMessage"
+        ]
+      },
+      "NotificationDetailBase": {
+        "type": "object",
+        "discriminator": {
+          "propertyName": "kind",
+          "mapping": {
+            "NotificationDetailBusinessProcessBase": "#/components/schemas/NotificationDetailBusinessProcessBase",
+            "NotificationDetailTransfer": "#/components/schemas/NotificationDetailTransfer",
+            "NotificationDetailShare": "#/components/schemas/NotificationDetailShare",
+            "NotificationDetailSchemaImport": "#/components/schemas/NotificationDetailSchemaImport",
+            "NotificationDetailIndexReindexProgress": "#/components/schemas/NotificationDetailIndexReindexProgress",
+            "NotificationDetailUserRegistered": "#/components/schemas/NotificationDetailUserRegistered",
+            "NotificationDetailContentBackupRecovery": "#/components/schemas/NotificationDetailContentBackupRecovery",
+            "NotificationDetailProgress": "#/components/schemas/NotificationDetailProgress",
+            "NotificationDetailMetadataItemDeactivation": "#/components/schemas/NotificationDetailMetadataItemDeactivation",
+            "NotificationDetailExternalBusinessProcess": "#/components/schemas/NotificationDetailExternalBusinessProcess",
+            "NotificationDetailBusinessRule": "#/components/schemas/NotificationDetailBusinessRule"
+          }
+        },
+        "x-abstract": true,
+        "additionalProperties": false,
+        "required": [
+          "kind"
+        ],
+        "properties": {
+          "kind": {
+            "type": "string"
+          }
+        }
+      },
+      "NotificationDetailTransfer": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/NotificationDetailBusinessProcessBase"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "fileProgress": {
+                "type": "integer",
+                "format": "int64"
+              },
+              "fileCount": {
+                "type": "integer",
+                "format": "int64"
+              },
+              "failedCount": {
+                "type": "integer",
+                "format": "int64"
+              },
+              "cancelledCount": {
+                "type": "integer",
+                "format": "int64"
+              },
+              "name": {
+                "type": "string",
+                "nullable": true
+              },
+              "transferId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "NotificationDetailBusinessProcessBase": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/NotificationDetailBase"
+          },
+          {
+            "type": "object",
+            "x-abstract": true,
+            "additionalProperties": false,
+            "properties": {
+              "businessProcessId": {
+                "type": "string",
+                "nullable": true
+              },
+              "businessProcessLifeCycle": {
+                "$ref": "#/components/schemas/BusinessProcessLifeCycle"
+              }
+            }
+          }
+        ]
+      },
+      "NotificationDetailShare": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/NotificationDetailBase"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "token": {
+                "type": "string",
+                "nullable": true
+              },
+              "shareId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "NotificationDetailSchemaImport": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/NotificationDetailBusinessProcessBase"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "schemaCount": {
+                "type": "integer",
+                "format": "int64"
+              },
+              "schemaProgress": {
+                "type": "integer",
+                "format": "int64"
+              },
+              "listItemCount": {
+                "type": "integer",
+                "format": "int64"
+              },
+              "listItemProgress": {
+                "type": "integer",
+                "format": "int64"
+              },
+              "name": {
+                "type": "string",
+                "nullable": true
+              },
+              "transferId": {
+                "type": "string",
+                "nullable": true
+              },
+              "importedSchemaCount": {
+                "type": "integer",
+                "format": "int64"
+              },
+              "skippedSchemaCount": {
+                "type": "integer",
+                "format": "int64"
+              },
+              "importedListItemCount": {
+                "type": "integer",
+                "format": "int64"
+              },
+              "skippedListItemCount": {
+                "type": "integer",
+                "format": "int64"
+              },
+              "relatedItemCount": {
+                "type": "integer",
+                "format": "int64"
+              },
+              "relatedItemProgress": {
+                "type": "integer",
+                "format": "int64"
+              }
+            }
+          }
+        ]
+      },
+      "NotificationDetailIndexReindexProgress": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/NotificationDetailBusinessProcessBase"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "indexId": {
+                "type": "string",
+                "nullable": true
+              },
+              "expected": {
+                "type": "integer",
+                "format": "int64"
+              },
+              "current": {
+                "type": "integer",
+                "format": "int64"
+              }
+            }
+          }
+        ]
+      },
+      "NotificationDetailUserRegistered": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/NotificationDetailBase"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "displayName": {
+                "type": "string",
+                "nullable": true
+              },
+              "userId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "NotificationDetailContentBackupRecovery": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/NotificationDetailBusinessProcessBase"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "contentTotalCount": {
+                "type": "integer",
+                "format": "int64"
+              },
+              "contentProgressCount": {
+                "type": "integer",
+                "format": "int64"
+              }
+            }
+          }
+        ]
+      },
+      "NotificationDetailProgress": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/NotificationDetailBusinessProcessBase"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "total": {
+                "type": "integer",
+                "format": "int64"
+              },
+              "succeeded": {
+                "type": "integer",
+                "format": "int64"
+              },
+              "failed": {
+                "type": "integer",
+                "format": "int64"
+              },
+              "relatedItemCount": {
+                "type": "integer",
+                "format": "int64"
+              },
+              "relatedItemProgress": {
+                "type": "integer",
+                "format": "int64"
+              }
+            }
+          }
+        ]
+      },
+      "NotificationDetailMetadataItemDeactivation": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/NotificationDetailProgress"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "referencingItemsCount": {
+                "type": "integer",
+                "format": "int64"
+              },
+              "referencingItemsProgress": {
+                "type": "integer",
+                "format": "int64"
+              }
+            }
+          }
+        ]
+      },
+      "NotificationDetailExternalBusinessProcess": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/NotificationDetailBusinessProcessBase"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "title": {
+                "nullable": true,
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/TranslatedStringDictionary"
+                  }
+                ]
+              },
+              "message": {
+                "nullable": true,
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/TranslatedStringDictionary"
+                  }
+                ]
+              },
+              "navigationLink": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "NotificationDetailBusinessRule": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/NotificationDetailBase"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "title": {
+                "nullable": true,
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/TranslatedStringDictionary"
+                  }
+                ]
+              },
+              "message": {
+                "nullable": true,
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/TranslatedStringDictionary"
+                  }
+                ]
+              },
+              "collectionId": {
+                "type": "string",
+                "nullable": true
+              },
+              "notificationId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "NotificationState": {
+        "type": "string",
+        "description": "",
+        "x-enumNames": [
+          "Draft",
+          "Unread",
+          "Read",
+          "Deleted",
+          "Null"
+        ],
+        "enum": [
+          "Draft",
+          "Unread",
+          "Read",
+          "Deleted",
+          "Null"
+        ]
+      },
+      "NotificationCompactResult": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BaseResultOfNotification"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "dataFetchStamp": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "aggregationResults": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/AggregationResult"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "BaseResultOfNotification": {
+        "type": "object",
+        "description": "Base class for search results",
+        "additionalProperties": false,
+        "required": [
+          "results",
+          "totalResults",
+          "elapsedMilliseconds"
+        ],
+        "properties": {
+          "totalResults": {
+            "type": "integer",
+            "description": "The total number of matching documents.",
+            "format": "int64"
+          },
+          "results": {
+            "type": "array",
+            "description": "The matched documents.",
+            "items": {
+              "$ref": "#/components/schemas/Notification"
+            }
+          },
+          "elapsedMilliseconds": {
+            "type": "integer",
+            "description": "The search execution time in milliseconds.",
+            "format": "int64"
+          },
+          "pageToken": {
+            "type": "string",
+            "description": "An optional token to access the next page of results for those endpoints that support backend scrolling logic.",
+            "nullable": true
+          }
+        }
+      },
+      "NotificationSearchRequest": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/NotificationSearchAndAggregationBaseRequest"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "limit": {
+                "type": "integer",
+                "description": "Limits the document count of the result set.",
+                "format": "int32",
+                "default": 30
+              },
+              "pageToken": {
+                "type": "string",
+                "description": "The token used to retrieve the next page of results. It must be null on first request and only filled with the returned pageToken to request next page of results.",
+                "nullable": true
+              },
+              "sort": {
+                "type": "array",
+                "description": "Fields and respective directions requested to sort the search results. Sorting on a not indexed field will throw an exception.",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/SortInfo"
+                }
+              },
+              "aggregators": {
+                "type": "array",
+                "description": "List of aggregators that defines how the items should be aggregated.",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/AggregatorBase"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "NotificationSearchAndAggregationBaseRequest": {
+        "type": "object",
+        "x-abstract": true,
+        "additionalProperties": false,
+        "properties": {
+          "filter": {
+            "description": "An optional search filter. Limits the document result set.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/FilterBase"
+              }
+            ]
+          },
+          "aggregationFilters": {
+            "type": "array",
+            "description": "Special filters used to filter down independently the aggregations' values and the search results on specific conditions.\nFor the search results, the aggregation filters are used to create a Filter that is put in AND with the eventual existing Filter of the search request to nail down the search results. The filters generated\nby the aggregation filters are put in OR each other if they have the same AggregationName, and then such groups are put in AND.\nFor the aggregation values, only the original Filter of the search request is used to nail down the data to be considered for the aggregations. Then, on top of that, for each aggregator in the search request, a Filter is created to filter down the\naggregation results of that aggregation: depending if the AggregationName of the AggregationFilter matches the AggregationName of the Aggregator, the filter is put in OR (if it matches) or in AND (if it does not match it).\nMoreover, an AggregationFilter ensures that the related value is returned in the AggregationResults also if the top aggregation values returned by default do not contain it.",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/AggregationFilter"
+            }
+          }
+        }
+      },
+      "NotificationAggregationRequest": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/NotificationSearchAndAggregationBaseRequest"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "aggregators"
+            ],
+            "properties": {
+              "aggregators": {
+                "type": "array",
+                "description": "List of aggregators that defines how the items should be aggregated.",
+                "items": {
+                  "$ref": "#/components/schemas/AggregatorBase"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "EmailNotificationsSettings": {
+        "type": "object",
+        "description": "Email notification settings",
+        "additionalProperties": false,
+        "required": [
+          "interval",
+          "disableAll"
+        ],
+        "properties": {
+          "interval": {
+            "description": "Interval.",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/EmailNotificationsInterval"
+              }
+            ]
+          },
+          "exclusions": {
+            "type": "array",
+            "description": "Exclusions from the default set by DisableAll property.\nList of notification IDs which are excluded or included from the email, depending on the DisableAll property.",
+            "nullable": true,
+            "items": {
+              "type": "string"
+            }
+          },
+          "disableAll": {
+            "type": "boolean",
+            "description": "Receive all\n            \nWhen set to false, Exclusions property acts as a blacklist (all items are included by default).\nWhen set to true, Exclusions property acts as a whitelist (no items are included by default)."
+          }
+        }
+      },
+      "EmailNotificationsInterval": {
+        "type": "string",
+        "description": "Interval for email notifications",
+        "x-enumNames": [
+          "Daily",
+          "Hourly",
+          "QuarterHourly",
+          "Off"
+        ],
+        "enum": [
+          "Daily",
+          "Hourly",
+          "QuarterHourly",
+          "Off"
+        ]
+      },
+      "NotificationType": {
+        "type": "object",
+        "description": "Notification that is available for email settings.",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "ID of the notification.",
+            "nullable": true
+          },
+          "title": {
+            "description": "Title of the notification.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/TranslatedStringDictionary"
+              }
+            ]
           }
         }
       },
@@ -37077,6 +40546,9 @@
         "type": "object",
         "description": "Indexing information for a schema",
         "additionalProperties": false,
+        "required": [
+          "includeNameDisplayValueInFilters"
+        ],
         "properties": {
           "fields": {
             "type": "array",
@@ -37085,6 +40557,10 @@
             "items": {
               "$ref": "#/components/schemas/FieldIndexingInfo"
             }
+          },
+          "includeNameDisplayValueInFilters": {
+            "type": "boolean",
+            "description": "Schema's display value Name is stored for filtering. Only available for tagbox fields."
           }
         }
       },
@@ -37319,7 +40795,7 @@
               },
               "minimumLength": {
                 "type": "integer",
-                "description": "The minimum string's lenght.",
+                "description": "The minimum string's length.",
                 "format": "int32",
                 "nullable": true
               },
@@ -37362,6 +40838,14 @@
                 "description": "Value to prioritize search results. Set to 1 by default. Ignored if SimpleSearch not set to true.",
                 "format": "double",
                 "default": 1
+              },
+              "renderingType": {
+                "description": "Stores information on how values of this field should be rendered",
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/StringRenderingType"
+                  }
+                ]
               }
             }
           }
@@ -37376,7 +40860,8 @@
             "LanguageAnalyzer": "#/components/schemas/LanguageAnalyzer",
             "NGramAnalyzer": "#/components/schemas/NGramAnalyzer",
             "PathHierarchyAnalyzer": "#/components/schemas/PathHierarchyAnalyzer",
-            "SimpleAnalyzer": "#/components/schemas/SimpleAnalyzer"
+            "SimpleAnalyzer": "#/components/schemas/SimpleAnalyzer",
+            "NoDiacriticsAnalyzer": "#/components/schemas/NoDiacriticsAnalyzer"
           }
         },
         "description": "The analyzer base class",
@@ -37526,6 +41011,45 @@
           }
         ]
       },
+      "NoDiacriticsAnalyzer": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/AnalyzerBase"
+          },
+          {
+            "type": "object",
+            "description": "An analyzer that removes diacritics from words and uses a custom pattern tokenizer",
+            "additionalProperties": false,
+            "properties": {
+              "type": {
+                "description": "The analyzer type: NoDiacritics",
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/Analyzer"
+                  }
+                ]
+              },
+              "fieldSuffix": {
+                "type": "string",
+                "description": "The suffix for the analyzed field: nodiacritics.",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "StringRenderingType": {
+        "type": "string",
+        "description": "Describes how a string value should be rendered",
+        "x-enumNames": [
+          "Default",
+          "Markdown"
+        ],
+        "enum": [
+          "Default",
+          "Markdown"
+        ]
+      },
       "FieldStringArray": {
         "allOf": [
           {
@@ -37569,7 +41093,7 @@
               },
               "minimumLength": {
                 "type": "integer",
-                "description": "The minimum string's lenght.",
+                "description": "The minimum string's length.",
                 "format": "int32",
                 "nullable": true
               },
@@ -37617,6 +41141,14 @@
                 "description": "Value to prioritize search results. Set to 1 by default. Ignored if SimpleSearch not set to true.",
                 "format": "double",
                 "default": 1
+              },
+              "renderingType": {
+                "description": "Stores information on how values of this field should be rendered",
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/StringRenderingType"
+                  }
+                ]
               }
             }
           }
@@ -38505,111 +42037,6 @@
           }
         }
       },
-      "IndexField": {
-        "type": "object",
-        "description": "Contains compiled field information.",
-        "additionalProperties": false,
-        "required": [
-          "boost",
-          "ignoreForSearch"
-        ],
-        "properties": {
-          "id": {
-            "type": "string",
-            "nullable": true
-          },
-          "fieldId": {
-            "type": "string",
-            "description": "The field id.",
-            "nullable": true
-          },
-          "type": {
-            "type": "string",
-            "description": "The field's type name.",
-            "nullable": true
-          },
-          "indexFields": {
-            "type": "object",
-            "description": "Contains all index field name variants of the field.",
-            "nullable": true,
-            "x-dictionaryKey": {
-              "$ref": "#/components/schemas/Analyzer"
-            },
-            "additionalProperties": {
-              "type": "string"
-            }
-          },
-          "simpleSearchFields": {
-            "type": "object",
-            "description": "Contains all simple search field name variants of the field.\nThe amount of simple search fields can be equal or less to the amount of IndexFields, but never more.",
-            "nullable": true,
-            "x-dictionaryKey": {
-              "$ref": "#/components/schemas/Analyzer"
-            },
-            "additionalProperties": {
-              "type": "string"
-            }
-          },
-          "boost": {
-            "type": "number",
-            "description": "Contains the fields boost value.",
-            "format": "double"
-          },
-          "ignoreForSearch": {
-            "type": "boolean",
-            "description": "Not to be returned for search query, but only used for mapping purposes"
-          },
-          "nestedPath": {
-            "type": "string",
-            "description": "The path of the Nested document this property belongs to. If set to null, it means that there is no Nested document",
-            "nullable": true
-          },
-          "sortField": {
-            "type": "string",
-            "description": "Path to the sorting information in the DataSortValuesField sort index.",
-            "nullable": true
-          }
-        }
-      },
-      "IndexFieldsSearchBySchemaIdsRequest": {
-        "type": "object",
-        "description": "Request to search indexed fields of specific schemas",
-        "additionalProperties": false,
-        "required": [
-          "searchMode"
-        ],
-        "properties": {
-          "schemaIds": {
-            "type": "array",
-            "description": "The IDs of the schemas for which the indexed fields should be returned.",
-            "nullable": true,
-            "items": {
-              "type": "string"
-            }
-          },
-          "searchMode": {
-            "description": "Controls how the search works which schemas should be considered in the search.\nAllDescendantsFieldsOnRootSchema: All indexed fields from descendant schemas of root ones will be returned. Schemas that are not root schemas will be ignored.\nSchemaAndParentFieldsOnly: Indexed fields of the requested schema and its parents will be returned.",
-            "default": "AllDescendantsFieldsOnRootSchema",
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/IndexFieldsSearchMode"
-              }
-            ]
-          }
-        }
-      },
-      "IndexFieldsSearchMode": {
-        "type": "string",
-        "description": "How the index field search works",
-        "x-enumNames": [
-          "AllDescendantsFieldsOnRootSchema",
-          "SchemaAndParentFieldsOnly"
-        ],
-        "enum": [
-          "AllDescendantsFieldsOnRootSchema",
-          "SchemaAndParentFieldsOnly"
-        ]
-      },
       "Transfer": {
         "type": "object",
         "description": "Represents a transfer.",
@@ -38742,9 +42169,11 @@
           "creator",
           "audit",
           "contentSelections",
+          "contents",
           "expired",
           "outputAccess",
-          "shareType"
+          "shareType",
+          "contentCount"
         ],
         "properties": {
           "id": {
@@ -38783,6 +42212,13 @@
             "description": "Detailed information about contents in the share.",
             "items": {
               "$ref": "#/components/schemas/ShareContentDetail"
+            }
+          },
+          "contents": {
+            "type": "array",
+            "description": "List of all contents in share including outputs.",
+            "items": {
+              "$ref": "#/components/schemas/ShareContent"
             }
           },
           "layerSchemaIds": {
@@ -38835,6 +42271,16 @@
             "items": {
               "$ref": "#/components/schemas/SchemaDetail"
             }
+          },
+          "pageToken": {
+            "type": "string",
+            "description": "Page token to retrieve next page of content selections.",
+            "nullable": true
+          },
+          "contentCount": {
+            "type": "integer",
+            "description": "Number of contents in share.",
+            "format": "int32"
           }
         }
       },
@@ -39017,6 +42463,28 @@
             }
           }
         ]
+      },
+      "ShareContent": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "contentId"
+        ],
+        "properties": {
+          "contentId": {
+            "type": "string",
+            "description": "Content ID to share.",
+            "minLength": 1
+          },
+          "outputFormatIds": {
+            "type": "array",
+            "description": "List of output formats for this content to share. If not specified outer OutputAccess is used.",
+            "nullable": true,
+            "items": {
+              "type": "string"
+            }
+          }
+        }
       },
       "ShareDataBase": {
         "type": "object",
@@ -39208,6 +42676,51 @@
           "Schemas"
         ]
       },
+      "ShareContentDetailResult": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BaseResultOfShareContentDetail"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "BaseResultOfShareContentDetail": {
+        "type": "object",
+        "description": "Base class for search results",
+        "additionalProperties": false,
+        "required": [
+          "results",
+          "totalResults",
+          "elapsedMilliseconds"
+        ],
+        "properties": {
+          "totalResults": {
+            "type": "integer",
+            "description": "The total number of matching documents.",
+            "format": "int64"
+          },
+          "results": {
+            "type": "array",
+            "description": "The matched documents.",
+            "items": {
+              "$ref": "#/components/schemas/ShareContentDetail"
+            }
+          },
+          "elapsedMilliseconds": {
+            "type": "integer",
+            "description": "The search execution time in milliseconds.",
+            "format": "int64"
+          },
+          "pageToken": {
+            "type": "string",
+            "description": "An optional token to access the next page of results for those endpoints that support backend scrolling logic.",
+            "nullable": true
+          }
+        }
+      },
       "ShareBaseUpdateRequest": {
         "type": "object",
         "discriminator": {
@@ -39268,28 +42781,6 @@
           },
           "kind": {
             "type": "string"
-          }
-        }
-      },
-      "ShareContent": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "contentId"
-        ],
-        "properties": {
-          "contentId": {
-            "type": "string",
-            "description": "Content ID to share.",
-            "minLength": 1
-          },
-          "outputFormatIds": {
-            "type": "array",
-            "description": "List of output formats for this content to share. If not specified outer OutputAccess is used.",
-            "nullable": true,
-            "items": {
-              "type": "string"
-            }
           }
         }
       },
@@ -39717,6 +43208,154 @@
             }
           }
         ]
+      },
+      "Template": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/TemplateCreateRequest"
+          },
+          {
+            "type": "object",
+            "description": "Template",
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string",
+                "description": "ID of template.",
+                "nullable": true
+              },
+              "system": {
+                "type": "boolean",
+                "description": "Indicates if this is a read-only system template."
+              },
+              "audit": {
+                "description": "Audit information.",
+                "nullable": true,
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/UserAuditDetail"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "TemplateCreateRequest": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/TemplateUpdateRequest"
+          },
+          {
+            "type": "object",
+            "description": "Request to create a new template",
+            "additionalProperties": false,
+            "required": [
+              "name",
+              "languageCode",
+              "templateType"
+            ],
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "Name of the template.",
+                "minLength": 1
+              },
+              "languageCode": {
+                "type": "string",
+                "description": "Language code of the template.",
+                "minLength": 1
+              },
+              "templateType": {
+                "description": "Type of the template.",
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/TemplateType"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "TemplateType": {
+        "type": "string",
+        "description": "",
+        "x-enumNames": [
+          "ShareMail",
+          "SharePage",
+          "NewUserRegisteredMail",
+          "UserLockedMail",
+          "UserUnlockedMail",
+          "UserReviewedMail",
+          "UserInvitationMail",
+          "ShareNotFoundPage",
+          "UserTriggeredDeactivationRequestMail",
+          "UserEmailConflictSolvedMail",
+          "NotificationMail",
+          "NotificationMailItem"
+        ],
+        "enum": [
+          "ShareMail",
+          "SharePage",
+          "NewUserRegisteredMail",
+          "UserLockedMail",
+          "UserUnlockedMail",
+          "UserReviewedMail",
+          "UserInvitationMail",
+          "ShareNotFoundPage",
+          "UserTriggeredDeactivationRequestMail",
+          "UserEmailConflictSolvedMail",
+          "NotificationMail",
+          "NotificationMailItem"
+        ]
+      },
+      "TemplateUpdateRequest": {
+        "type": "object",
+        "description": "Request to update a template",
+        "additionalProperties": false,
+        "required": [
+          "names",
+          "values"
+        ],
+        "properties": {
+          "names": {
+            "description": "Language specific names.",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/TranslatedStringDictionary"
+              }
+            ]
+          },
+          "values": {
+            "type": "array",
+            "description": "Values per media type for the template.",
+            "items": {
+              "$ref": "#/components/schemas/TemplateValue"
+            }
+          }
+        }
+      },
+      "TemplateValue": {
+        "type": "object",
+        "description": "Media type specific value for a template",
+        "additionalProperties": false,
+        "required": [
+          "mediaType",
+          "text"
+        ],
+        "properties": {
+          "mediaType": {
+            "type": "string",
+            "description": "Media type.",
+            "minLength": 1
+          },
+          "text": {
+            "type": "string",
+            "description": "Text.",
+            "minLength": 1
+          }
+        }
       },
       "CreateTransferRequest": {
         "type": "object",
@@ -43160,6 +46799,8 @@
               "listitem_read": "Read list items",
               "listitem_write": "Write list items",
               "livestream_read": "Read live stream",
+              "notification_read": "Read notifications",
+              "notification_write": "Write notifications",
               "outputformat_read": "Read output formats",
               "outputformat_write": "Write output formats",
               "output_read": "Read outputs",
@@ -43168,6 +46809,8 @@
               "profile_write": "Write profile",
               "share_read": "Read shares",
               "share_write": "Write shares",
+              "template_read": "Read templates",
+              "template_write": "Write templates",
               "transfer_read": "Read transfers",
               "transfer_write": "Write transfers",
               "userrole_read": "Read user roles",
@@ -43236,6 +46879,10 @@
       "description": "Endpoints to work with metadata items (contents and list items).\r\n\r\n[Code examples](https://github.com/Picturepark/Picturepark.SDK.DotNet/blob/master/src/Picturepark.SDK.V1.Tests/Clients/MetadataTests.cs)\r\n"
     },
     {
+      "name": "Notification",
+      "description": "Endpoints to work with notifications."
+    },
+    {
       "name": "OutputFormat",
       "description": "Endpoints to access and manipulate with output formats.\r\n\r\n[Code examples](https://github.com/Picturepark/Picturepark.SDK.DotNet/blob/master/src/Picturepark.SDK.V1.Tests/Clients/OutputFormatTests.cs)\r\n"
     },
@@ -43262,6 +46909,10 @@
     {
       "name": "Share",
       "description": "Endpoints to work with shares.\r\n\r\n[Code examples](https://github.com/Picturepark/Picturepark.SDK.DotNet/blob/master/src/Picturepark.SDK.V1.Tests/Clients/ShareTests.cs)\r\n"
+    },
+    {
+      "name": "Template",
+      "description": "Endpoints to work with templates."
     },
     {
       "name": "Transfer",

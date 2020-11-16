@@ -341,5 +341,45 @@ namespace Picturepark.SDK.V1.Tests.Conversion
             [PictureparkSearch(Boost = 1.3, Index = false, SimpleSearch = true)]
             public TriggerObject Trigger { get; set; }
         }
+
+        [Fact]
+        [Trait("Stack", "SchemaCreation")]
+        public async Task ShouldGenerateFormattedStringFields()
+        {
+            var schemas = await _client.Schema.GenerateSchemasAsync(typeof(SchemaWithFormattedStrings)).ConfigureAwait(false);
+            var schema = schemas.Should().ContainSingle().Which;
+
+            var nonTranslatedFields = schema.Fields.OfType<FieldString>().ToList();
+            nonTranslatedFields.Should().HaveCount(2);
+
+            var fieldPlainSimple = nonTranslatedFields.Should().ContainSingle(f => f.Id == nameof(SchemaWithFormattedStrings.PlainSimple).ToLowerCamelCase()).Which;
+            fieldPlainSimple.RenderingType.Should().Be(StringRenderingType.Default);
+
+            var fieldFormattedSimple = nonTranslatedFields.Should().ContainSingle(f => f.Id == nameof(SchemaWithFormattedStrings.FormattedSimple).ToLowerCamelCase()).Which;
+            fieldFormattedSimple.RenderingType.Should().Be(StringRenderingType.Markdown);
+
+            var translatedFields = schema.Fields.OfType<FieldTranslatedString>().ToList();
+            translatedFields.Should().HaveCount(2);
+
+            var fieldTranslatedSimple = translatedFields.Should().ContainSingle(f => f.Id == nameof(SchemaWithFormattedStrings.PlainTranslated).ToLowerCamelCase()).Which;
+            fieldTranslatedSimple.RenderingType.Should().Be(StringRenderingType.Default);
+
+            var fieldTranslatedFormatted = translatedFields.Should().ContainSingle(f => f.Id == nameof(SchemaWithFormattedStrings.FormattedTranslated).ToLowerCamelCase()).Which;
+            fieldTranslatedFormatted.RenderingType.Should().Be(StringRenderingType.Markdown);
+        }
+
+        [PictureparkSchema(SchemaType.Layer)]
+        public class SchemaWithFormattedStrings
+        {
+            public string PlainSimple { get; set; }
+
+            public TranslatedStringDictionary PlainTranslated { get; set; }
+
+            [PictureparkString(RenderingType = StringRenderingType.Markdown, MultiLine = true)]
+            public string FormattedSimple { get; set; }
+
+            [PictureparkTranslatedString(RenderingType = StringRenderingType.Markdown, MultiLine = true)]
+            public TranslatedStringDictionary FormattedTranslated { get; set; }
+        }
     }
 }

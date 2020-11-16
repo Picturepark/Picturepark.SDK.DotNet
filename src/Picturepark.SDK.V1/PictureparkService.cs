@@ -72,6 +72,10 @@ namespace Picturepark.SDK.V1
 
         public IXmpMappingClient XmpMapping { get; private set; }
 
+        public INotificationClient Notification { get; private set; }
+
+        public ITemplateClient Template { get; private set; }
+
         public void Dispose()
         {
             if (_httpClient != null)
@@ -107,6 +111,8 @@ namespace Picturepark.SDK.V1
             Metadata = new MetadataClient(settings, httpClient);
             IdentityProvider = new IdentityProviderClient(settings, httpClient);
             XmpMapping = new XmpMappingClient(settings, httpClient);
+            Notification = new NotificationClient(settings, httpClient);
+            Template = new TemplateClient(settings, httpClient);
         }
     }
 }

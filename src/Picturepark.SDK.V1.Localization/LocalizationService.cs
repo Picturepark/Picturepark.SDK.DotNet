@@ -10,6 +10,7 @@ using System.IO;
 using System.Reflection;
 using Newtonsoft.Json.Linq;
 using System.Linq;
+using Template = DotLiquid.Template;
 
 namespace Picturepark.SDK.V1.Localization
 {

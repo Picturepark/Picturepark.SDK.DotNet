@@ -346,7 +346,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
         [Fact]
         [Trait("Stack", "Schema")]
-        public async Task ShouldGetIndexedFields()
+        public async Task ShouldGetAggregationFieldsFromSchema()
         {
             // Arrange
             var schemas = await _client.Schema.GenerateSchemasAsync(typeof(Vehicle)).ConfigureAwait(false);
@@ -354,15 +354,60 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var firstSchemaId = createdSchemas.First(x => x.Id.StartsWith("Vehicle")).Id;
 
             // Act
-            var indexedFields = await _client.Schema.GetIndexFieldsAsync(
-                new IndexFieldsSearchBySchemaIdsRequest
-                {
-                    SchemaIds = new[] { firstSchemaId },
-                    SearchMode = IndexFieldsSearchMode.SchemaAndParentFieldsOnly
-                }).ConfigureAwait(false);
+            var fieldsInfo = await _client.Schema.GetAggregationFieldsAsync(firstSchemaId).ConfigureAwait(false);
 
             // Assert
-            indexedFields.Count.Should().Be(2);
+            fieldsInfo.Count(f => !f.Static).Should().Be(2);
+        }
+
+        [Fact]
+        [Trait("Stack", "Schema")]
+        public async Task ShouldGetAggregationFieldsFromSchemas()
+        {
+            // Arrange
+            var schemas = await _client.Schema.GenerateSchemasAsync(typeof(Vehicle)).ConfigureAwait(false);
+            var createdSchemas = await _fixture.RandomizeSchemaIdsAndCreateMany(schemas).ConfigureAwait(false);
+            var vehicleSchemaId = createdSchemas.First(x => x.Id.StartsWith(nameof(Vehicle))).Id;
+            var carSchemaId = createdSchemas.First(x => x.Id.StartsWith("Automobile")).Id;
+
+            // Act
+            var fieldsInfo = await _client.Schema.GetAggregationFieldsManyAsync(new[] { vehicleSchemaId, carSchemaId }).ConfigureAwait(false);
+
+            // Assert
+            fieldsInfo.Count(f => !f.Static).Should().Be(8);
+        }
+
+        [Fact]
+        [Trait("Stack", "Schema")]
+        public async Task ShouldGetFilterFieldsFromSchema()
+        {
+            // Arrange
+            var schemas = await _client.Schema.GenerateSchemasAsync(typeof(Vehicle)).ConfigureAwait(false);
+            var createdSchemas = await _fixture.RandomizeSchemaIdsAndCreateMany(schemas).ConfigureAwait(false);
+            var firstSchemaId = createdSchemas.First(x => x.Id.StartsWith("Vehicle")).Id;
+
+            // Act
+            var fieldsInfo = await _client.Schema.GetFilterFieldsAsync(firstSchemaId).ConfigureAwait(false);
+
+            // Assert
+            fieldsInfo.Count(f => !f.Static).Should().Be(2);
+        }
+
+        [Fact]
+        [Trait("Stack", "Schema")]
+        public async Task ShouldGetFilterFieldsFromSchemas()
+        {
+            // Arrange
+            var schemas = await _client.Schema.GenerateSchemasAsync(typeof(Vehicle)).ConfigureAwait(false);
+            var createdSchemas = await _fixture.RandomizeSchemaIdsAndCreateMany(schemas).ConfigureAwait(false);
+            var vehicleSchemaId = createdSchemas.First(x => x.Id.StartsWith(nameof(Vehicle))).Id;
+            var carSchemaId = createdSchemas.First(x => x.Id.StartsWith("Automobile")).Id;
+
+            // Act
+            var fieldsInfo = await _client.Schema.GetFilterFieldsManyAsync(new[] { vehicleSchemaId, carSchemaId }).ConfigureAwait(false);
+
+            // Assert
+            fieldsInfo.Count(f => !f.Static).Should().Be(8);
         }
 
         [Fact]
