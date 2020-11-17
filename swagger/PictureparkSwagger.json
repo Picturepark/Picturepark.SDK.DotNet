@@ -22682,6 +22682,17 @@
           }
         ]
       },
+      "OutputBackupHashMismatchException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
       "DownloadLinkExpiredException": {
         "allOf": [
           {
@@ -27191,12 +27202,14 @@
         "x-enumNames": [
           "Create",
           "Update",
-          "FileReplacement"
+          "FileReplacement",
+          "Schedule"
         ],
         "enum": [
           "Create",
           "Update",
-          "FileReplacement"
+          "FileReplacement",
+          "Schedule"
         ]
       },
       "BusinessRuleRefIdsMissingException": {
