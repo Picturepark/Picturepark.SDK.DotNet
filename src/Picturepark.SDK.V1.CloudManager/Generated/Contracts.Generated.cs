@@ -1138,6 +1138,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [JsonInheritanceAttribute("InvalidUiBehaviorInNonRootAggregatorException", typeof(InvalidUiBehaviorInNonRootAggregatorException))]
     [JsonInheritanceAttribute("InvalidUiBehaviorConfigurationException", typeof(InvalidUiBehaviorConfigurationException))]
     [JsonInheritanceAttribute("InvalidSearchFieldInAggregatorException", typeof(InvalidSearchFieldInAggregatorException))]
+    [JsonInheritanceAttribute("SearchStringTooLongException", typeof(SearchStringTooLongException))]
     [JsonInheritanceAttribute("DocumentVersionConflictException", typeof(DocumentVersionConflictException))]
     [JsonInheritanceAttribute("DuplicateDocumentException", typeof(DuplicateDocumentException))]
     [JsonInheritanceAttribute("ObjectStoreResponseException", typeof(ObjectStoreResponseException))]
@@ -3525,6 +3526,25 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         public static InvalidSearchFieldInAggregatorException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<InvalidSearchFieldInAggregatorException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class SearchStringTooLongException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("limit", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int Limit { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static SearchStringTooLongException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SearchStringTooLongException>(data);
         }
     
     }

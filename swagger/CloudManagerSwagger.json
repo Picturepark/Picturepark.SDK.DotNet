@@ -9276,6 +9276,23 @@
           }
         ]
       },
+      "SearchStringTooLongException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "limit": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          }
+        ]
+      },
       "DocumentVersionConflictException": {
         "allOf": [
           {
@@ -12892,12 +12909,14 @@
         "x-enumNames": [
           "Create",
           "Update",
-          "FileReplacement"
+          "FileReplacement",
+          "Schedule"
         ],
         "enum": [
           "Create",
           "Update",
-          "FileReplacement"
+          "FileReplacement",
+          "Schedule"
         ]
       },
       "BusinessRuleRefIdsMissingException": {
