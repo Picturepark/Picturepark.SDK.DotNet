@@ -4159,6 +4159,12 @@ namespace Picturepark.SDK.V1.Contract
     [Newtonsoft.Json.JsonObjectAttribute]
     public partial class OutputBackupHashMismatchException : PictureparkValidationException
     {
+        [Newtonsoft.Json.JsonProperty("requestedHash", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string RequestedHash { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("documentHash", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string DocumentHash { get; set; }
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);

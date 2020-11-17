@@ -8489,7 +8489,17 @@
           },
           {
             "type": "object",
-            "additionalProperties": false
+            "additionalProperties": false,
+            "properties": {
+              "requestedHash": {
+                "type": "string",
+                "nullable": true
+              },
+              "documentHash": {
+                "type": "string",
+                "nullable": true
+              }
+            }
           }
         ]
       },
