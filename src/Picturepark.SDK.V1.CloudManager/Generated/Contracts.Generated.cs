@@ -257,6 +257,14 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<ContentBackupAcknowledgementResult>> AckBackupManyWithHashesAsync(string customerId, System.Collections.Generic.IEnumerable<ContentBackupAcknowledgementRequest> requests, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<long> NotAcknowledgedCountAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
     }
@@ -1094,6 +1102,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [JsonInheritanceAttribute("DuplicateOutputFormatIdException", typeof(DuplicateOutputFormatIdException))]
     [JsonInheritanceAttribute("OutputFormatResizingNotSupportedException", typeof(OutputFormatResizingNotSupportedException))]
     [JsonInheritanceAttribute("OutputBackupNotRequestedException", typeof(OutputBackupNotRequestedException))]
+    [JsonInheritanceAttribute("OutputBackupHashMismatchException", typeof(OutputBackupHashMismatchException))]
     [JsonInheritanceAttribute("DownloadLinkExpiredException", typeof(DownloadLinkExpiredException))]
     [JsonInheritanceAttribute("RenderingNotAwaitedException", typeof(RenderingNotAwaitedException))]
     [JsonInheritanceAttribute("LeaseNotAcquiredException", typeof(LeaseNotAcquiredException))]
@@ -2497,6 +2506,28 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         public static OutputBackupNotRequestedException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<OutputBackupNotRequestedException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class OutputBackupHashMismatchException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("requestedHash", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string RequestedHash { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("documentHash", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string DocumentHash { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static OutputBackupHashMismatchException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<OutputBackupHashMismatchException>(data);
         }
     
     }
@@ -9698,6 +9729,29 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         public static ContentBackupAcknowledgementResult FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentBackupAcknowledgementResult>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class ContentBackupAcknowledgementRequest 
+    {
+        [Newtonsoft.Json.JsonProperty("filePath", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public string FilePath { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("sha1Hash", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public string Sha1Hash { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static ContentBackupAcknowledgementRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentBackupAcknowledgementRequest>(data);
         }
     
     }

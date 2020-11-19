@@ -22682,6 +22682,27 @@
           }
         ]
       },
+      "OutputBackupHashMismatchException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "requestedHash": {
+                "type": "string",
+                "nullable": true
+              },
+              "documentHash": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
       "DownloadLinkExpiredException": {
         "allOf": [
           {
