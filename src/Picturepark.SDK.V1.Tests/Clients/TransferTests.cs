@@ -57,26 +57,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
         [Fact]
         [Trait("Stack", "Transfers")]
-        public async Task ShouldNotThrowUnknownExceptionOnCreationWithMissingArguments()
-        {
-            // Arrange
-            var transferName = new Random().Next(1000, 9999).ToString();
-
-            // Act
-            var ex = await Record.ExceptionAsync(() => _client.Transfer.CreateAndWaitForCompletionAsync(new CreateTransferRequest
-            {
-                CreateCollection = false,
-                Name = transferName,
-                TransferType = TransferType.FileUpload
-            })).ConfigureAwait(false);
-
-            // Assert
-            ex.Should().BeAssignableTo<PictureparkException>();
-            ex.Should().NotBeOfType<UnknownException>();
-        }
-
-        [Fact]
-        [Trait("Stack", "Transfers")]
         public async Task ShouldDeleteFiles()
         {
             // Arrange
