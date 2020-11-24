@@ -230,9 +230,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
         [Trait("Stack", "ListItem")]
         public async Task ShouldCreateObjectWithHelperContainingBaseClassOfInheritance()
         {
-            // Arrange
-            await SchemaHelper.CreateSchemasIfNotExistentAsync<Person>(_client).ConfigureAwait(false);
-
             // Act
             var personResult = await _client.ListItem.CreateFromObjectAsync(
                 new Person
