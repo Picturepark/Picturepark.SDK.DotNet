@@ -13035,6 +13035,14 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class BusinessRuleSchedule 
     {
+        /// <summary>Language specific names.</summary>
+        [Newtonsoft.Json.JsonProperty("names", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public TranslatedStringDictionary Names { get; set; }
+    
+        /// <summary>Language specific description.</summary>
+        [Newtonsoft.Json.JsonProperty("description", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public TranslatedStringDictionary Description { get; set; }
+    
         /// <summary>Cron expression to specify run time.
         /// Refer to https://github.com/HangfireIO/Cronos#cron-format for reference.
         /// Minimum interval supported is 15 minutes.</summary>
