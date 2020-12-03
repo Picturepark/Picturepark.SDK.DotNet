@@ -31190,6 +31190,24 @@
           "isEnabled"
         ],
         "properties": {
+          "names": {
+            "description": "Language specific names.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/TranslatedStringDictionary"
+              }
+            ]
+          },
+          "description": {
+            "description": "Language specific description.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/TranslatedStringDictionary"
+              }
+            ]
+          },
           "cronExpression": {
             "type": "string",
             "description": "Cron expression to specify run time.\nRefer to https://github.com/HangfireIO/Cronos#cron-format for reference.\nMinimum interval supported is 15 minutes.",
