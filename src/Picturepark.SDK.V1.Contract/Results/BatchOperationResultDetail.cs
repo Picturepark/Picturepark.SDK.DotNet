@@ -7,13 +7,13 @@ namespace Picturepark.SDK.V1.Contract.Results
 {
     public class BatchOperationResultDetail<T>
     {
-        internal BatchOperationResultDetail(BusinessProcessDetailsDataBatchResponse details, Func<string[], Task<IEnumerable<T>>> fetchEntities)
+        internal BatchOperationResultDetail(BatchResponseRow[] successfulRows, IReadOnlyList<BatchResponseRow> failedRows, Func<string[], Task<IEnumerable<T>>> fetchEntities)
         {
-            FailedItems = details.Response.Rows.Where(r => !r.Succeeded).ToArray();
+            FailedItems = failedRows;
             FailedIds = FailedItems.Select(i => i.Id).ToArray();
 
-            SucceededIds = details.Response.Rows.Where(r => r.Succeeded).Select(i => i.Id).ToArray();
-            SucceededItems = new BatchOperationResultCollection<T>(details, fetchEntities);
+            SucceededIds = successfulRows.Select(i => i.Id).ToArray();
+            SucceededItems = new BatchOperationResultCollection<T>(successfulRows, fetchEntities);
         }
 
         /// <summary>
