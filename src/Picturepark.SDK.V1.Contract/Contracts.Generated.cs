@@ -81,7 +81,49 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
+        [System.Obsolete]
         System.Threading.Tasks.Task<BusinessProcessDetails> GetDetailsAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>Returns a summary of the business process.
+        /// Depending on the type of the business process, this can be not available at all or contain just a minimal set of information.
+        /// If business process produces a batch based response, page over successful and failed items using respective endpoints.</summary>
+        /// <param name="id">Business process id.</param>
+        /// <returns>BusinessProcessSummaryBaseViewItem</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        System.Threading.Tasks.Task<BusinessProcessSummaryBase> GetSummaryAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>Gets a page of successful items of a batch based business process.
+        /// Use the page token to fetch next page.</summary>
+        /// <param name="id">Business process id.</param>
+        /// <param name="limit">Number of items to fetch.</param>
+        /// <param name="pageToken">PageToken for paging.</param>
+        /// <returns>BusinessProcessBatchViewItem</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        System.Threading.Tasks.Task<BusinessProcessBatch> GetSuccessfulItemsAsync(string id, int limit, string pageToken = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>Gets a page of failed items of a batch based business process.
+        /// Use the page token to fetch next page.</summary>
+        /// <param name="id">Business process id.</param>
+        /// <param name="limit">Number of items to fetch.</param>
+        /// <param name="pageToken">PageToken for paging.</param>
+        /// <returns>BusinessProcessBatchViewItem</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        System.Threading.Tasks.Task<BusinessProcessBatch> GetFailedItemsAsync(string id, int limit, string pageToken = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Search</summary>
@@ -2925,6 +2967,8 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("BusinessProcessNotExternalException", typeof(BusinessProcessNotExternalException))]
     [JsonInheritanceAttribute("BusinessProcessCancellationNotSupportedException", typeof(BusinessProcessCancellationNotSupportedException))]
     [JsonInheritanceAttribute("BusinessProcessContinuationException", typeof(BusinessProcessContinuationException))]
+    [JsonInheritanceAttribute("BusinessProcessSummaryNotBatchBasedException", typeof(BusinessProcessSummaryNotBatchBasedException))]
+    [JsonInheritanceAttribute("BusinessProcessSummaryNotFoundException", typeof(BusinessProcessSummaryNotFoundException))]
     [JsonInheritanceAttribute("SnapshotTimeoutException", typeof(SnapshotTimeoutException))]
     [JsonInheritanceAttribute("SnapshotFailedException", typeof(SnapshotFailedException))]
     [JsonInheritanceAttribute("SnapshotSkippedException", typeof(SnapshotSkippedException))]
@@ -8475,6 +8519,44 @@ namespace Picturepark.SDK.V1.Contract
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class BusinessProcessSummaryNotBatchBasedException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("businessProcessId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string BusinessProcessId { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static BusinessProcessSummaryNotBatchBasedException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessProcessSummaryNotBatchBasedException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class BusinessProcessSummaryNotFoundException : PictureparkNotFoundException
+    {
+        [Newtonsoft.Json.JsonProperty("businessProcessId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string BusinessProcessId { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static BusinessProcessSummaryNotFoundException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessProcessSummaryNotFoundException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
     public partial class SnapshotTimeoutException : PictureparkTimeoutException
     {
         public string ToJson() 
@@ -10377,7 +10459,6 @@ namespace Picturepark.SDK.V1.Contract
     [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
     [JsonInheritanceAttribute("BusinessProcessDetailsDataBatchResponse", typeof(BusinessProcessDetailsDataBatchResponse))]
     [JsonInheritanceAttribute("BusinessProcessDetailsDataSchemaImport", typeof(BusinessProcessDetailsDataSchemaImport))]
-    [JsonInheritanceAttribute("BusinessProcessDetailsDataCdnPurge", typeof(BusinessProcessDetailsDataCdnPurge))]
     [JsonInheritanceAttribute("BusinessProcessDetailsDataContentImport", typeof(BusinessProcessDetailsDataContentImport))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     public abstract partial class BusinessProcessDetailsDataBase 
@@ -10558,7 +10639,7 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("totalListItemCount", Required = Newtonsoft.Json.Required.Always)]
         public int TotalListItemCount { get; set; }
     
-        /// <summary>Ids of the list items that were not imported because already found in the system</summary>
+        /// <summary>Ids of the list items that were not imported because already found in the system or due to errors</summary>
         [Newtonsoft.Json.JsonProperty("skippedListItemIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> SkippedListItemIds { get; set; }
     
@@ -10578,99 +10659,6 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    /// <summary>Business process detailed information regarding a CDN purge operation</summary>
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
-    public partial class BusinessProcessDetailsDataCdnPurge : BusinessProcessDetailsDataBase
-    {
-        /// <summary>Serialized CDN configuration.</summary>
-        [Newtonsoft.Json.JsonProperty("serializedCdnConfiguration", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public string SerializedCdnConfiguration { get; set; }
-    
-        /// <summary>Jobs that were processed in the operation.</summary>
-        [Newtonsoft.Json.JsonProperty("jobs", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.Collections.Generic.ICollection<CdnPurgeJobBase> Jobs { get; set; } = new System.Collections.Generic.List<CdnPurgeJobBase>();
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-    
-        public static BusinessProcessDetailsDataCdnPurge FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessProcessDetailsDataCdnPurge>(data);
-        }
-    
-    }
-    
-    /// <summary>Base class for a CDN purge job</summary>
-    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
-    [JsonInheritanceAttribute("CdnPurgeJobByTag", typeof(CdnPurgeJobByTag))]
-    [JsonInheritanceAttribute("CdnPurgeJobByUri", typeof(CdnPurgeJobByUri))]
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
-    public partial class CdnPurgeJobBase 
-    {
-        /// <summary>Indicates if the operation was performed successfully.</summary>
-        [Newtonsoft.Json.JsonProperty("success", Required = Newtonsoft.Json.Required.Always)]
-        public bool Success { get; set; }
-    
-        /// <summary>Number of retries left until the operation is considered as failed.</summary>
-        [Newtonsoft.Json.JsonProperty("retriesLeft", Required = Newtonsoft.Json.Required.Always)]
-        public int RetriesLeft { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-    
-        public static CdnPurgeJobBase FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<CdnPurgeJobBase>(data);
-        }
-    
-    }
-    
-    /// <summary>Represents a CDN purge by tag (e.g. share ID)</summary>
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
-    public partial class CdnPurgeJobByTag : CdnPurgeJobBase
-    {
-        /// <summary>The tag that should be purged.</summary>
-        [Newtonsoft.Json.JsonProperty("tag", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public string Tag { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-    
-        public static CdnPurgeJobByTag FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<CdnPurgeJobByTag>(data);
-        }
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
-    public partial class CdnPurgeJobByUri : CdnPurgeJobBase
-    {
-        [Newtonsoft.Json.JsonProperty("uri", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Uri { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-    
-        public static CdnPurgeJobByUri FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<CdnPurgeJobByUri>(data);
-        }
-    
-    }
-    
-    /// <summary>Business process detailed information regarding Content import</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class BusinessProcessDetailsDataContentImport : BusinessProcessDetailsDataBase
     {
@@ -10723,6 +10711,152 @@ namespace Picturepark.SDK.V1.Contract
         public static ContentImportResult FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentImportResult>(data);
+        }
+    
+    }
+    
+    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
+    [JsonInheritanceAttribute("BusinessProcessSummarySchemaImport", typeof(BusinessProcessSummarySchemaImport))]
+    [JsonInheritanceAttribute("BusinessProcessSummaryBatchBased", typeof(BusinessProcessSummaryBatchBased))]
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class BusinessProcessSummaryBase 
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static BusinessProcessSummaryBase FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessProcessSummaryBase>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class BusinessProcessSummarySchemaImport : BusinessProcessSummaryBase
+    {
+        /// <summary>The result of the import schema operation</summary>
+        [Newtonsoft.Json.JsonProperty("schemaImportResult", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public SchemaImportResult SchemaImportResult { get; set; }
+    
+        /// <summary>The result of the import list item operation</summary>
+        [Newtonsoft.Json.JsonProperty("listItemImportResult", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public ListItemImportResult ListItemImportResult { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static BusinessProcessSummarySchemaImport FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessProcessSummarySchemaImport>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class BusinessProcessSummaryBatchBased : BusinessProcessSummaryBase
+    {
+        /// <summary>Succeeded item count.</summary>
+        [Newtonsoft.Json.JsonProperty("succeededItemCount", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public long SucceededItemCount { get; set; }
+    
+        /// <summary>Failed item count.</summary>
+        [Newtonsoft.Json.JsonProperty("failedItemCount", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public long FailedItemCount { get; set; }
+    
+        /// <summary>Document type that was changed in the business process.</summary>
+        [Newtonsoft.Json.JsonProperty("docType", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string DocType { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static BusinessProcessSummaryBatchBased FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessProcessSummaryBatchBased>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class BusinessProcessBatch 
+    {
+        [Newtonsoft.Json.JsonProperty("pageToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string PageToken { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("data", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public BusinessProcessBatchItemBase Data { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static BusinessProcessBatch FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessProcessBatch>(data);
+        }
+    
+    }
+    
+    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
+    [JsonInheritanceAttribute("BusinessProcessBatchItemBatchResponse", typeof(BusinessProcessBatchItemBatchResponse))]
+    [JsonInheritanceAttribute("BusinessProcessBatchItemContentImport", typeof(BusinessProcessBatchItemContentImport))]
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public abstract partial class BusinessProcessBatchItemBase 
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static BusinessProcessBatchItemBase FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessProcessBatchItemBase>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class BusinessProcessBatchItemBatchResponse : BusinessProcessBatchItemBase
+    {
+        [Newtonsoft.Json.JsonProperty("docType", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string DocType { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("items", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<BatchResponseRow> Items { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static BusinessProcessBatchItemBatchResponse FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessProcessBatchItemBatchResponse>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class BusinessProcessBatchItemContentImport : BusinessProcessBatchItemBase
+    {
+        [Newtonsoft.Json.JsonProperty("items", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<ContentImportResult> Items { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static BusinessProcessBatchItemContentImport FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessProcessBatchItemContentImport>(data);
         }
     
     }

@@ -909,6 +909,319 @@
             }
           }
         },
+        "deprecated": true,
+        "security": [
+          {
+            "Bearer": [
+              "businessprocess_read"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/BusinessProcesses/{id}/summary": {
+      "get": {
+        "tags": [
+          "BusinessProcess"
+        ],
+        "summary": "Returns a summary of the business process.\nDepending on the type of the business process, this can be not available at all or contain just a minimal set of information.\nIf business process produces a batch based response, page over successful and failed items using respective endpoints.",
+        "operationId": "BusinessProcess_GetSummary",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Business process id.",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "BusinessProcessSummaryBaseViewItem",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BusinessProcessSummaryBase"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "businessprocess_read"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/BusinessProcesses/{id}/items/successful": {
+      "get": {
+        "tags": [
+          "BusinessProcess"
+        ],
+        "summary": "Gets a page of successful items of a batch based business process.\nUse the page token to fetch next page.",
+        "operationId": "BusinessProcess_GetSuccessfulItems",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Business process id.",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 1
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": true,
+            "description": "Number of items to fetch.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 2
+          },
+          {
+            "name": "pageToken",
+            "in": "query",
+            "description": "PageToken for paging.",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 3
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "BusinessProcessBatchViewItem",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BusinessProcessBatch"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "businessprocess_read"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/BusinessProcesses/{id}/items/failed": {
+      "get": {
+        "tags": [
+          "BusinessProcess"
+        ],
+        "summary": "Gets a page of failed items of a batch based business process.\nUse the page token to fetch next page.",
+        "operationId": "BusinessProcess_GetFailedItems",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Business process id.",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 1
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": true,
+            "description": "Number of items to fetch.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 2
+          },
+          {
+            "name": "pageToken",
+            "in": "query",
+            "description": "PageToken for paging.",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 3
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "BusinessProcessBatchViewItem",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BusinessProcessBatch"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          }
+        },
         "security": [
           {
             "Bearer": [
@@ -26728,6 +27041,40 @@
           }
         ]
       },
+      "BusinessProcessSummaryNotBatchBasedException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "businessProcessId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "BusinessProcessSummaryNotFoundException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkNotFoundException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "businessProcessId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
       "SnapshotTimeoutException": {
         "allOf": [
           {
@@ -28394,7 +28741,6 @@
           "mapping": {
             "BusinessProcessDetailsDataBatchResponse": "#/components/schemas/BusinessProcessDetailsDataBatchResponse",
             "BusinessProcessDetailsDataSchemaImport": "#/components/schemas/BusinessProcessDetailsDataSchemaImport",
-            "BusinessProcessDetailsDataCdnPurge": "#/components/schemas/BusinessProcessDetailsDataCdnPurge",
             "BusinessProcessDetailsDataContentImport": "#/components/schemas/BusinessProcessDetailsDataContentImport"
           }
         },
@@ -28606,7 +28952,7 @@
           },
           "skippedListItemIds": {
             "type": "array",
-            "description": "Ids of the list items that were not imported because already found in the system",
+            "description": "Ids of the list items that were not imported because already found in the system or due to errors",
             "nullable": true,
             "items": {
               "type": "string"
@@ -28622,106 +28968,6 @@
           }
         }
       },
-      "BusinessProcessDetailsDataCdnPurge": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/BusinessProcessDetailsDataBase"
-          },
-          {
-            "type": "object",
-            "description": "Business process detailed information regarding a CDN purge operation",
-            "additionalProperties": false,
-            "required": [
-              "serializedCdnConfiguration",
-              "jobs"
-            ],
-            "properties": {
-              "serializedCdnConfiguration": {
-                "type": "string",
-                "description": "Serialized CDN configuration.",
-                "minLength": 1
-              },
-              "jobs": {
-                "type": "array",
-                "description": "Jobs that were processed in the operation.",
-                "items": {
-                  "$ref": "#/components/schemas/CdnPurgeJobBase"
-                }
-              }
-            }
-          }
-        ]
-      },
-      "CdnPurgeJobBase": {
-        "type": "object",
-        "discriminator": {
-          "propertyName": "kind",
-          "mapping": {
-            "CdnPurgeJobByTag": "#/components/schemas/CdnPurgeJobByTag",
-            "CdnPurgeJobByUri": "#/components/schemas/CdnPurgeJobByUri"
-          }
-        },
-        "description": "Base class for a CDN purge job",
-        "additionalProperties": false,
-        "required": [
-          "kind",
-          "success",
-          "retriesLeft"
-        ],
-        "properties": {
-          "success": {
-            "type": "boolean",
-            "description": "Indicates if the operation was performed successfully."
-          },
-          "retriesLeft": {
-            "type": "integer",
-            "description": "Number of retries left until the operation is considered as failed.",
-            "format": "int32"
-          },
-          "kind": {
-            "type": "string"
-          }
-        }
-      },
-      "CdnPurgeJobByTag": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/CdnPurgeJobBase"
-          },
-          {
-            "type": "object",
-            "description": "Represents a CDN purge by tag (e.g. share ID)",
-            "additionalProperties": false,
-            "required": [
-              "tag"
-            ],
-            "properties": {
-              "tag": {
-                "type": "string",
-                "description": "The tag that should be purged.",
-                "minLength": 1
-              }
-            }
-          }
-        ]
-      },
-      "CdnPurgeJobByUri": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/CdnPurgeJobBase"
-          },
-          {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "uri": {
-                "type": "string",
-                "nullable": true
-              }
-            }
-          }
-        ]
-      },
       "BusinessProcessDetailsDataContentImport": {
         "allOf": [
           {
@@ -28729,7 +28975,6 @@
           },
           {
             "type": "object",
-            "description": "Business process detailed information regarding Content import",
             "additionalProperties": false,
             "properties": {
               "items": {
@@ -28782,6 +29027,166 @@
             ]
           }
         }
+      },
+      "BusinessProcessSummaryBase": {
+        "type": "object",
+        "discriminator": {
+          "propertyName": "kind",
+          "mapping": {
+            "BusinessProcessSummarySchemaImport": "#/components/schemas/BusinessProcessSummarySchemaImport",
+            "BusinessProcessSummaryBatchBased": "#/components/schemas/BusinessProcessSummaryBatchBased"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "kind"
+        ],
+        "properties": {
+          "kind": {
+            "type": "string"
+          }
+        }
+      },
+      "BusinessProcessSummarySchemaImport": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BusinessProcessSummaryBase"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "schemaImportResult": {
+                "description": "The result of the import schema operation",
+                "nullable": true,
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/SchemaImportResult"
+                  }
+                ]
+              },
+              "listItemImportResult": {
+                "description": "The result of the import list item operation",
+                "nullable": true,
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/ListItemImportResult"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "BusinessProcessSummaryBatchBased": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BusinessProcessSummaryBase"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "succeededItemCount": {
+                "type": "integer",
+                "description": "Succeeded item count.",
+                "format": "int64"
+              },
+              "failedItemCount": {
+                "type": "integer",
+                "description": "Failed item count.",
+                "format": "int64"
+              },
+              "docType": {
+                "type": "string",
+                "description": "Document type that was changed in the business process.",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "BusinessProcessBatch": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "pageToken": {
+            "type": "string",
+            "nullable": true
+          },
+          "data": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/BusinessProcessBatchItemBase"
+              }
+            ]
+          }
+        }
+      },
+      "BusinessProcessBatchItemBase": {
+        "type": "object",
+        "discriminator": {
+          "propertyName": "kind",
+          "mapping": {
+            "BusinessProcessBatchItemBatchResponse": "#/components/schemas/BusinessProcessBatchItemBatchResponse",
+            "BusinessProcessBatchItemContentImport": "#/components/schemas/BusinessProcessBatchItemContentImport"
+          }
+        },
+        "x-abstract": true,
+        "additionalProperties": false,
+        "required": [
+          "kind"
+        ],
+        "properties": {
+          "kind": {
+            "type": "string"
+          }
+        }
+      },
+      "BusinessProcessBatchItemBatchResponse": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BusinessProcessBatchItemBase"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "docType": {
+                "type": "string",
+                "nullable": true
+              },
+              "items": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/BatchResponseRow"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "BusinessProcessBatchItemContentImport": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BusinessProcessBatchItemBase"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "items": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/ContentImportResult"
+                }
+              }
+            }
+          }
+        ]
       },
       "BusinessProcessSearchResult": {
         "allOf": [

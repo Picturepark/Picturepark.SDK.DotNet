@@ -178,12 +178,9 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var deleteBusinessProcess = await _client.Share.DeleteManyAsync(deleteManyRequest).ConfigureAwait(false);
             await _client.BusinessProcess.WaitForCompletionAsync(deleteBusinessProcess.Id).ConfigureAwait(false);
 
-            var details = await _client.BusinessProcess.GetDetailsAsync(deleteBusinessProcess.Id).ConfigureAwait(false);
-            var response = details.Details as BusinessProcessDetailsDataBatchResponse;
-
-            // Assert
-            response.Should().NotBeNull();
-            response.Response.Rows.Should().OnlyContain(i => i.Succeeded);
+            var summary = await _client.BusinessProcess.GetSummaryAsync(deleteBusinessProcess.Id).ConfigureAwait(false) as BusinessProcessSummaryBatchBased;
+            summary.Should().NotBeNull();
+            summary.SucceededItemCount.Should().Be(1);
 
             await Assert.ThrowsAsync<ShareNotFoundException>(async () =>
             {

@@ -85,10 +85,25 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var result = await _client.ListItem.BatchUpdateFieldsByIdsAsync(updateRequest).ConfigureAwait(false);
 
             // Act
-            var details = await _client.BusinessProcess.GetDetailsAsync(result.BusinessProcessId).ConfigureAwait(false);
+            var summary = await _client.BusinessProcess.GetSummaryAsync(result.BusinessProcessId).ConfigureAwait(false) as BusinessProcessSummaryBatchBased;
+            var rows = new List<BatchResponseRow>();
+
+            string pageToken = null;
+            do
+            {
+                var page = await _client.BusinessProcess.GetSuccessfulItemsAsync(result.BusinessProcessId, 1, pageToken).ConfigureAwait(false);
+                if (page.Data is BusinessProcessBatchItemBatchResponse batchResponse)
+                    rows.AddRange(batchResponse.Items);
+
+                pageToken = page.PageToken;
+            }
+            while (pageToken != null);
 
             // Assert
-            Assert.True(details.LifeCycle == BusinessProcessLifeCycle.Succeeded);
+            summary.Should().NotBeNull();
+            summary.SucceededItemCount.Should().Be(2);
+
+            rows.Should().HaveCount(2);
         }
 
         [Fact]
