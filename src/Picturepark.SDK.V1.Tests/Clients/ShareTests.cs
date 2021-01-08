@@ -345,7 +345,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             {
                 Contents = shareContentItems,
                 Description = "Description of Embed share",
-                ExpirationDate = new DateTime(2020, 12, 31),
+                ExpirationDate = DateTime.Now + TimeSpan.FromDays(7),
                 Name = "Embed share"
             };
 
@@ -378,7 +378,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             {
                 Contents = contents,
                 Description = "Description of Embed share",
-                ExpirationDate = new DateTime(2020, 12, 31),
+                ExpirationDate = DateTime.Now + TimeSpan.FromDays(7),
                 Name = "Embed share"
             }).ConfigureAwait(false);
 
@@ -403,7 +403,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             {
                 Contents = contents,
                 Description = "Description of Embed share",
-                ExpirationDate = new DateTime(2020, 12, 31),
+                ExpirationDate = DateTime.Now + TimeSpan.FromDays(7),
                 Name = "Embed share"
             }).ConfigureAwait(false);
 
@@ -466,7 +466,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             {
                 Contents = shareContentItems,
                 Description = "Description of Embed share",
-                ExpirationDate = new DateTime(2020, 12, 31),
+                ExpirationDate = DateTime.Now + TimeSpan.FromDays(7),
                 Name = "Embed share"
             };
 
