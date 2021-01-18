@@ -22495,6 +22495,23 @@
           }
         ]
       },
+      "UserNotLinkedWithIdsException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkBusinessException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "affectedUserId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
       "RenderingException": {
         "allOf": [
           {

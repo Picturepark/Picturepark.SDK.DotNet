@@ -5061,6 +5061,109 @@
         }
       }
     },
+    "/Maintenance/customer/{id}/outputs/recalculateFileInformation": {
+      "post": {
+        "tags": [
+          "Maintenance"
+        ],
+        "operationId": "Maintenance_RecalculateFileInformation",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 1
+          },
+          {
+            "name": "timeout",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "time-span",
+              "nullable": true
+            },
+            "x-position": 3
+          }
+        ],
+        "requestBody": {
+          "x-name": "request",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RecalculateFileInformationRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 2
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BusinessProcess"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/Maintenance/customer/{id}/metadata/updateOutdated": {
       "post": {
         "tags": [
@@ -7974,6 +8077,23 @@
                 "type": "string",
                 "nullable": true
               },
+              "affectedUserId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "UserNotLinkedWithIdsException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkBusinessException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
               "affectedUserId": {
                 "type": "string",
                 "nullable": true
@@ -19069,6 +19189,55 @@
           "includeCompleted": {
             "type": "boolean",
             "description": "Should the successful filter results also be reset (and subsequently re-rendered)?"
+          }
+        }
+      },
+      "RecalculateFileInformationRequest": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "skipHashCalculation"
+        ],
+        "properties": {
+          "outputIds": {
+            "type": "array",
+            "description": "List of output IDs you want to filter on. If this field is not empty, the other will be ignored.",
+            "nullable": true,
+            "items": {
+              "type": "string"
+            }
+          },
+          "contentIds": {
+            "type": "array",
+            "description": "List of Content IDs you want to filter on.",
+            "nullable": true,
+            "items": {
+              "type": "string"
+            }
+          },
+          "outputFormatIds": {
+            "type": "array",
+            "description": "The IDs of the output formats you want to filter on.",
+            "nullable": true,
+            "items": {
+              "type": "string"
+            }
+          },
+          "createdBefore": {
+            "type": "string",
+            "description": "Set to filter on creation date.",
+            "format": "date-time",
+            "nullable": true
+          },
+          "createdAfter": {
+            "type": "string",
+            "description": "Set to filter on creation date.",
+            "format": "date-time",
+            "nullable": true
+          },
+          "skipHashCalculation": {
+            "type": "boolean",
+            "description": "Skip hash calculation (only fix file size)"
           }
         }
       },
