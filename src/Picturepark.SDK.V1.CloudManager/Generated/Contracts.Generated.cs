@@ -1188,6 +1188,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [JsonInheritanceAttribute("WrongChunkSizeException", typeof(WrongChunkSizeException))]
     [JsonInheritanceAttribute("ChunkSizeOutOfRangeException", typeof(ChunkSizeOutOfRangeException))]
     [JsonInheritanceAttribute("FileIdDuplicatedException", typeof(FileIdDuplicatedException))]
+    [JsonInheritanceAttribute("UploadFailedException", typeof(UploadFailedException))]
     [JsonInheritanceAttribute("MissingDependenciesException", typeof(MissingDependenciesException))]
     [JsonInheritanceAttribute("RelationSelfReferencingException", typeof(RelationSelfReferencingException))]
     [JsonInheritanceAttribute("InvalidChangeCommandFieldTypeInvalidException", typeof(InvalidChangeCommandFieldTypeInvalidException))]
@@ -4429,6 +4430,22 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         public static FileIdDuplicatedException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<FileIdDuplicatedException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class UploadFailedException : PictureparkBusinessException
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static UploadFailedException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<UploadFailedException>(data);
         }
     
     }
