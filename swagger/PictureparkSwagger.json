@@ -24699,6 +24699,17 @@
           }
         ]
       },
+      "UploadFailedException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkBusinessException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
       "MissingDependenciesException": {
         "allOf": [
           {
