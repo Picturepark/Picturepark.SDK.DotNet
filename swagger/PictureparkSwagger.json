@@ -38300,6 +38300,9 @@
               },
               "businessProcessLifeCycle": {
                 "$ref": "#/components/schemas/BusinessProcessLifeCycle"
+              },
+              "supportsCancellation": {
+                "type": "boolean"
               }
             }
           }
