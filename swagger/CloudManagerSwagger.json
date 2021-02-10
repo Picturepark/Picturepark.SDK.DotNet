@@ -5164,6 +5164,109 @@
         }
       }
     },
+    "/Maintenance/customer/{id}/outputs/recreateXmpUntouchedOriginals": {
+      "post": {
+        "tags": [
+          "Maintenance"
+        ],
+        "operationId": "Maintenance_RecreateXmpUntouchedOriginals",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 1
+          },
+          {
+            "name": "timeout",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "time-span",
+              "nullable": true
+            },
+            "x-position": 3
+          }
+        ],
+        "requestBody": {
+          "x-name": "request",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RecreateXmpUntouchedOriginalsRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 2
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RecreateXmpUntouchedOriginalsResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/Maintenance/customer/{id}/metadata/updateOutdated": {
       "post": {
         "tags": [
@@ -19249,6 +19352,50 @@
           "skipHashCalculation": {
             "type": "boolean",
             "description": "Skip hash calculation (only fix file size)"
+          }
+        }
+      },
+      "RecreateXmpUntouchedOriginalsResponse": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "checkedContents",
+          "createdOriginals"
+        ],
+        "properties": {
+          "resumeToken": {
+            "type": "string",
+            "description": "Null if operation finished, otherwise token which allows restart of operation",
+            "nullable": true
+          },
+          "checkedContents": {
+            "type": "integer",
+            "description": "Indicated the number of contents that were checked for missing Originals",
+            "format": "int32"
+          },
+          "createdOriginals": {
+            "type": "integer",
+            "description": "Indicates the number of Originals (can be &gt; 1 per Content) which were created",
+            "format": "int32"
+          }
+        }
+      },
+      "RecreateXmpUntouchedOriginalsRequest": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "contentIds": {
+            "type": "array",
+            "description": "Optional list of Content IDs you want to filter on.",
+            "nullable": true,
+            "items": {
+              "type": "string"
+            }
+          },
+          "resumeToken": {
+            "type": "string",
+            "description": "Token returned from previous call",
+            "nullable": true
           }
         }
       },

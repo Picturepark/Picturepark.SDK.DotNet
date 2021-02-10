@@ -567,6 +567,14 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
+        System.Threading.Tasks.Task<RecreateXmpUntouchedOriginalsResponse> RecreateXmpUntouchedOriginalsAsync(string id, RecreateXmpUntouchedOriginalsRequest request, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<BusinessProcess> UpdateOutdatedMetadataAsync(string id, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
     }
@@ -13429,6 +13437,56 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         public static RecalculateFileInformationRequest FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<RecalculateFileInformationRequest>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class RecreateXmpUntouchedOriginalsResponse 
+    {
+        /// <summary>Null if operation finished, otherwise token which allows restart of operation</summary>
+        [Newtonsoft.Json.JsonProperty("resumeToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ResumeToken { get; set; }
+    
+        /// <summary>Indicated the number of contents that were checked for missing Originals</summary>
+        [Newtonsoft.Json.JsonProperty("checkedContents", Required = Newtonsoft.Json.Required.Always)]
+        public int CheckedContents { get; set; }
+    
+        /// <summary>Indicates the number of Originals (can be &amp;gt; 1 per Content) which were created</summary>
+        [Newtonsoft.Json.JsonProperty("createdOriginals", Required = Newtonsoft.Json.Required.Always)]
+        public int CreatedOriginals { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static RecreateXmpUntouchedOriginalsResponse FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<RecreateXmpUntouchedOriginalsResponse>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class RecreateXmpUntouchedOriginalsRequest 
+    {
+        /// <summary>Optional list of Content IDs you want to filter on.</summary>
+        [Newtonsoft.Json.JsonProperty("contentIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> ContentIds { get; set; }
+    
+        /// <summary>Token returned from previous call</summary>
+        [Newtonsoft.Json.JsonProperty("resumeToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ResumeToken { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static RecreateXmpUntouchedOriginalsRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<RecreateXmpUntouchedOriginalsRequest>(data);
         }
     
     }
