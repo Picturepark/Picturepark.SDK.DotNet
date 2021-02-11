@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class BusinessRuleConfiguration
    | Picturepark.SDK.V1 API ">
-    <meta name="generator" content="docfx 2.56.2.0">
+    <meta name="generator" content="docfx 2.56.6.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -61,11 +61,11 @@
       <div class="container body-content">
         
         <div id="search-results">
-          <div class="search-list"></div>
+          <div class="search-list">Search Results for <span></span></div>
           <div class="sr-items">
             <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <ul id="pagination"></ul>
+          <ul id="pagination" data-first="First" data-prev="Previous" data-next="Next" data-last="Last"></ul>
         </div>
       </div>
       <div role="main" class="container body-content hide-when-search">
@@ -91,6 +91,7 @@
     <div class="level1"><span class="xref">BusinessRuleConfiguration</span></div>
   </div>
   
+      <div class="level2"><a class="xref" href="Picturepark.SDK.V1.Contract.BusinessRuleConfigurationUpdateRequest.html">BusinessRuleConfigurationUpdateRequest</a></div>
   
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
@@ -174,7 +175,7 @@
   <h4 id="Picturepark_SDK_V1_Contract_BusinessRuleConfiguration_DisableRuleEngine" data-uid="Picturepark.SDK.V1.Contract.BusinessRuleConfiguration.DisableRuleEngine"><a href="#collapsible-Picturepark_SDK_V1_Contract_BusinessRuleConfiguration_DisableRuleEngine" class="expander" data-toggle="collapse">DisableRuleEngine</a></h4>
   
   <div id="collapsible-Picturepark_SDK_V1_Contract_BusinessRuleConfiguration_DisableRuleEngine" class="collapse in">
-  <div class="markdown level1 summary"><p>Disables the rule completely.</p>
+  <div class="markdown level1 summary"><p>Disables the rule engine completely.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -206,12 +207,86 @@
   </div>
   
   
+  <a id="Picturepark_SDK_V1_Contract_BusinessRuleConfiguration_Notifications_" data-uid="Picturepark.SDK.V1.Contract.BusinessRuleConfiguration.Notifications*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_Contract_BusinessRuleConfiguration_Notifications" data-uid="Picturepark.SDK.V1.Contract.BusinessRuleConfiguration.Notifications"><a href="#collapsible-Picturepark_SDK_V1_Contract_BusinessRuleConfiguration_Notifications" class="expander" data-toggle="collapse">Notifications</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_Contract_BusinessRuleConfiguration_Notifications" class="collapse in">
+  <div class="markdown level1 summary"><p>Notifications.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ICollection&lt;BusinessRuleNotification&gt; Notifications { get; set; }</code></pre>
+  </div>
+  
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Collections.Generic.ICollection</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.BusinessRuleNotification.html">BusinessRuleNotification</a>&gt;
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="Picturepark_SDK_V1_Contract_BusinessRuleConfiguration_NumberSequences_" data-uid="Picturepark.SDK.V1.Contract.BusinessRuleConfiguration.NumberSequences*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_Contract_BusinessRuleConfiguration_NumberSequences" data-uid="Picturepark.SDK.V1.Contract.BusinessRuleConfiguration.NumberSequences"><a href="#collapsible-Picturepark_SDK_V1_Contract_BusinessRuleConfiguration_NumberSequences" class="expander" data-toggle="collapse">NumberSequences</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_Contract_BusinessRuleConfiguration_NumberSequences" class="collapse in">
+  <div class="markdown level1 summary"><p>Numbers sequences.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ICollection&lt;BusinessRuleNumberSequence&gt; NumberSequences { get; set; }</code></pre>
+  </div>
+  
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Collections.Generic.ICollection</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.BusinessRuleNumberSequence.html">BusinessRuleNumberSequence</a>&gt;
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
   <a id="Picturepark_SDK_V1_Contract_BusinessRuleConfiguration_Rules_" data-uid="Picturepark.SDK.V1.Contract.BusinessRuleConfiguration.Rules*"></a>
   
   <h4 id="Picturepark_SDK_V1_Contract_BusinessRuleConfiguration_Rules" data-uid="Picturepark.SDK.V1.Contract.BusinessRuleConfiguration.Rules"><a href="#collapsible-Picturepark_SDK_V1_Contract_BusinessRuleConfiguration_Rules" class="expander" data-toggle="collapse">Rules</a></h4>
   
   <div id="collapsible-Picturepark_SDK_V1_Contract_BusinessRuleConfiguration_Rules" class="collapse in">
-  <div class="markdown level1 summary"><p>Rules</p>
+  <div class="markdown level1 summary"><p>Rules.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -229,6 +304,43 @@
     <tr>
       <td>
         <span class="xref">System.Collections.Generic.ICollection</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.BusinessRule.html">BusinessRule</a>&gt;
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="Picturepark_SDK_V1_Contract_BusinessRuleConfiguration_Schedules_" data-uid="Picturepark.SDK.V1.Contract.BusinessRuleConfiguration.Schedules*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_Contract_BusinessRuleConfiguration_Schedules" data-uid="Picturepark.SDK.V1.Contract.BusinessRuleConfiguration.Schedules"><a href="#collapsible-Picturepark_SDK_V1_Contract_BusinessRuleConfiguration_Schedules" class="expander" data-toggle="collapse">Schedules</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_Contract_BusinessRuleConfiguration_Schedules" class="collapse in">
+  <div class="markdown level1 summary"><p>Schedules.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ICollection&lt;BusinessRuleSchedule&gt; Schedules { get; set; }</code></pre>
+  </div>
+  
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Collections.Generic.ICollection</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.BusinessRuleSchedule.html">BusinessRuleSchedule</a>&gt;
         <p>
       </td>
     </tr>
