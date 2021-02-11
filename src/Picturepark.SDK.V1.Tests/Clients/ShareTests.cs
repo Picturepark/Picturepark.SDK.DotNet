@@ -178,12 +178,9 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var deleteBusinessProcess = await _client.Share.DeleteManyAsync(deleteManyRequest).ConfigureAwait(false);
             await _client.BusinessProcess.WaitForCompletionAsync(deleteBusinessProcess.Id).ConfigureAwait(false);
 
-            var details = await _client.BusinessProcess.GetDetailsAsync(deleteBusinessProcess.Id).ConfigureAwait(false);
-            var response = details.Details as BusinessProcessDetailsDataBatchResponse;
-
-            // Assert
-            response.Should().NotBeNull();
-            response.Response.Rows.Should().OnlyContain(i => i.Succeeded);
+            var summary = await _client.BusinessProcess.GetSummaryAsync(deleteBusinessProcess.Id).ConfigureAwait(false) as BusinessProcessSummaryBatchBased;
+            summary.Should().NotBeNull();
+            summary.SucceededItemCount.Should().Be(1);
 
             await Assert.ThrowsAsync<ShareNotFoundException>(async () =>
             {
@@ -348,7 +345,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             {
                 Contents = shareContentItems,
                 Description = "Description of Embed share",
-                ExpirationDate = new DateTime(2020, 12, 31),
+                ExpirationDate = DateTime.Now + TimeSpan.FromDays(7),
                 Name = "Embed share"
             };
 
@@ -381,7 +378,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             {
                 Contents = contents,
                 Description = "Description of Embed share",
-                ExpirationDate = new DateTime(2020, 12, 31),
+                ExpirationDate = DateTime.Now + TimeSpan.FromDays(7),
                 Name = "Embed share"
             }).ConfigureAwait(false);
 
@@ -406,7 +403,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             {
                 Contents = contents,
                 Description = "Description of Embed share",
-                ExpirationDate = new DateTime(2020, 12, 31),
+                ExpirationDate = DateTime.Now + TimeSpan.FromDays(7),
                 Name = "Embed share"
             }).ConfigureAwait(false);
 
@@ -469,7 +466,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             {
                 Contents = shareContentItems,
                 Description = "Description of Embed share",
-                ExpirationDate = new DateTime(2020, 12, 31),
+                ExpirationDate = DateTime.Now + TimeSpan.FromDays(7),
                 Name = "Embed share"
             };
 

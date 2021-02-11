@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Interface IContentBackupClient
    | Picturepark.SDK.V1 API ">
-    <meta name="generator" content="docfx 2.56.5.0">
+    <meta name="generator" content="docfx 2.56.6.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -227,6 +227,105 @@
       <td>
         <span class="pull-right"><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">System.String</span>&gt;</span>
         <span class="parametername">filePaths</span>
+        <p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
+        <span class="parametername">cancellationToken</span>
+        <p><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">System.Collections.Generic.ICollection</span>&lt;<a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.ContentBackupAcknowledgementResult.html">ContentBackupAcknowledgementResult</a>&gt;&gt;
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <h5 class="exceptions">Exceptions</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.ApiException.html">ApiException</a>
+        <p><p>A server side error occurred.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
+        <p><p>Entity not found</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
+        <p><p>Version conflict</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  </div>
+  
+  
+  <a id="Picturepark_SDK_V1_CloudManager_Contract_IContentBackupClient_AckBackupManyWithHashesAsync_" data-uid="Picturepark.SDK.V1.CloudManager.Contract.IContentBackupClient.AckBackupManyWithHashesAsync*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_CloudManager_Contract_IContentBackupClient_AckBackupManyWithHashesAsync_System_String_System_Collections_Generic_IEnumerable_Picturepark_SDK_V1_CloudManager_Contract_ContentBackupAcknowledgementRequest__System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.CloudManager.Contract.IContentBackupClient.AckBackupManyWithHashesAsync(System.String,System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.CloudManager.Contract.ContentBackupAcknowledgementRequest},System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_CloudManager_Contract_IContentBackupClient_AckBackupManyWithHashesAsync_System_String_System_Collections_Generic_IEnumerable_Picturepark_SDK_V1_CloudManager_Contract_ContentBackupAcknowledgementRequest__System_Threading_CancellationToken_" class="expander" data-toggle="collapse">AckBackupManyWithHashesAsync(String, IEnumerable&lt;ContentBackupAcknowledgementRequest&gt;, CancellationToken)</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_CloudManager_Contract_IContentBackupClient_AckBackupManyWithHashesAsync_System_String_System_Collections_Generic_IEnumerable_Picturepark_SDK_V1_CloudManager_Contract_ContentBackupAcknowledgementRequest__System_Threading_CancellationToken_" class="collapse in">
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;ICollection&lt;ContentBackupAcknowledgementResult&gt;&gt; AckBackupManyWithHashesAsync(string customerId, IEnumerable&lt;ContentBackupAcknowledgementRequest&gt; requests, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.String</span></span>
+        <span class="parametername">customerId</span>
+        <p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="Picturepark.SDK.V1.CloudManager.Contract.ContentBackupAcknowledgementRequest.html">ContentBackupAcknowledgementRequest</a>&gt;</span>
+        <span class="parametername">requests</span>
         <p>
       </td>
     </tr>

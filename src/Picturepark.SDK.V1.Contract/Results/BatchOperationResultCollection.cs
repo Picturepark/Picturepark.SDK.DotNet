@@ -11,10 +11,10 @@ namespace Picturepark.SDK.V1.Contract.Results
         private readonly Func<string[], Task<IEnumerable<T>>> _fetchEntities;
         private readonly BatchResponseRow[] _rows;
 
-        public BatchOperationResultCollection(BusinessProcessDetailsDataBatchResponse details, Func<string[], Task<IEnumerable<T>>> fetchEntities)
+        public BatchOperationResultCollection(BatchResponseRow[] rows, Func<string[], Task<IEnumerable<T>>> fetchEntities)
         {
             _fetchEntities = fetchEntities;
-            _rows = details.Response.Rows.Where(r => r.Succeeded).ToArray();
+            _rows = rows;
         }
 
         public IEnumerator<T> GetEnumerator()
