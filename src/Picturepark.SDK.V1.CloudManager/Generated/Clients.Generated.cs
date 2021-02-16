@@ -45,6 +45,7 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -101,6 +102,16 @@ namespace Picturepark.SDK.V1.CloudManager
                         {
                             string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
                             throw new ApiException("Unauthorized", (int)response_.StatusCode, responseText_, headers_, null);
+                        }
+                        else
+                        if (status_ == "403") 
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkForbiddenException>(response_, headers_).ConfigureAwait(false);
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkForbiddenException();
+                            responseObject_.Data.Add("HttpStatus", status_);
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == "404") 
@@ -287,6 +298,7 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -344,6 +356,16 @@ namespace Picturepark.SDK.V1.CloudManager
                         {
                             string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
                             throw new ApiException("Unauthorized", (int)response_.StatusCode, responseText_, headers_, null);
+                        }
+                        else
+                        if (status_ == "403") 
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkForbiddenException>(response_, headers_).ConfigureAwait(false);
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkForbiddenException();
+                            responseObject_.Data.Add("HttpStatus", status_);
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == "404") 
@@ -411,6 +433,7 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -468,6 +491,16 @@ namespace Picturepark.SDK.V1.CloudManager
                         {
                             string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
                             throw new ApiException("Unauthorized", (int)response_.StatusCode, responseText_, headers_, null);
+                        }
+                        else
+                        if (status_ == "403") 
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkForbiddenException>(response_, headers_).ConfigureAwait(false);
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkForbiddenException();
+                            responseObject_.Data.Add("HttpStatus", status_);
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == "404") 
@@ -535,6 +568,7 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -597,6 +631,16 @@ namespace Picturepark.SDK.V1.CloudManager
                         {
                             string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
                             throw new ApiException("Unauthorized", (int)response_.StatusCode, responseText_, headers_, null);
+                        }
+                        else
+                        if (status_ == "403") 
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkForbiddenException>(response_, headers_).ConfigureAwait(false);
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkForbiddenException();
+                            responseObject_.Data.Add("HttpStatus", status_);
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == "404") 
@@ -664,6 +708,7 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -721,6 +766,16 @@ namespace Picturepark.SDK.V1.CloudManager
                         {
                             string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
                             throw new ApiException("Unauthorized", (int)response_.StatusCode, responseText_, headers_, null);
+                        }
+                        else
+                        if (status_ == "403") 
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkForbiddenException>(response_, headers_).ConfigureAwait(false);
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkForbiddenException();
+                            responseObject_.Data.Add("HttpStatus", status_);
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == "404") 
@@ -788,6 +843,7 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -842,6 +898,16 @@ namespace Picturepark.SDK.V1.CloudManager
                         {
                             string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
                             throw new ApiException("Unauthorized", (int)response_.StatusCode, responseText_, headers_, null);
+                        }
+                        else
+                        if (status_ == "403") 
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkForbiddenException>(response_, headers_).ConfigureAwait(false);
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkForbiddenException();
+                            responseObject_.Data.Add("HttpStatus", status_);
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == "404") 
@@ -909,6 +975,7 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -968,6 +1035,16 @@ namespace Picturepark.SDK.V1.CloudManager
                             throw new ApiException("Unauthorized", (int)response_.StatusCode, responseText_, headers_, null);
                         }
                         else
+                        if (status_ == "403") 
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkForbiddenException>(response_, headers_).ConfigureAwait(false);
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkForbiddenException();
+                            responseObject_.Data.Add("HttpStatus", status_);
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
+                        }
+                        else
                         if (status_ == "404") 
                         {
                             var objectResponse_ = await ReadObjectResponseAsync<PictureparkNotFoundException>(response_, headers_).ConfigureAwait(false);
@@ -1033,6 +1110,7 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -1092,6 +1170,16 @@ namespace Picturepark.SDK.V1.CloudManager
                             throw new ApiException("Unauthorized", (int)response_.StatusCode, responseText_, headers_, null);
                         }
                         else
+                        if (status_ == "403") 
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkForbiddenException>(response_, headers_).ConfigureAwait(false);
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkForbiddenException();
+                            responseObject_.Data.Add("HttpStatus", status_);
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
+                        }
+                        else
                         if (status_ == "404") 
                         {
                             var objectResponse_ = await ReadObjectResponseAsync<PictureparkNotFoundException>(response_, headers_).ConfigureAwait(false);
@@ -1157,6 +1245,7 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -1214,6 +1303,16 @@ namespace Picturepark.SDK.V1.CloudManager
                         {
                             string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
                             throw new ApiException("Unauthorized", (int)response_.StatusCode, responseText_, headers_, null);
+                        }
+                        else
+                        if (status_ == "403") 
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkForbiddenException>(response_, headers_).ConfigureAwait(false);
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkForbiddenException();
+                            responseObject_.Data.Add("HttpStatus", status_);
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == "404") 
@@ -1281,6 +1380,7 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -1338,6 +1438,16 @@ namespace Picturepark.SDK.V1.CloudManager
                         {
                             string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
                             throw new ApiException("Unauthorized", (int)response_.StatusCode, responseText_, headers_, null);
+                        }
+                        else
+                        if (status_ == "403") 
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkForbiddenException>(response_, headers_).ConfigureAwait(false);
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkForbiddenException();
+                            responseObject_.Data.Add("HttpStatus", status_);
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == "404") 
@@ -1405,6 +1515,7 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -1462,6 +1573,16 @@ namespace Picturepark.SDK.V1.CloudManager
                         {
                             string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
                             throw new ApiException("Unauthorized", (int)response_.StatusCode, responseText_, headers_, null);
+                        }
+                        else
+                        if (status_ == "403") 
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkForbiddenException>(response_, headers_).ConfigureAwait(false);
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkForbiddenException();
+                            responseObject_.Data.Add("HttpStatus", status_);
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == "404") 
@@ -1529,6 +1650,7 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -1586,6 +1708,16 @@ namespace Picturepark.SDK.V1.CloudManager
                         {
                             string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
                             throw new ApiException("Unauthorized", (int)response_.StatusCode, responseText_, headers_, null);
+                        }
+                        else
+                        if (status_ == "403") 
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkForbiddenException>(response_, headers_).ConfigureAwait(false);
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkForbiddenException();
+                            responseObject_.Data.Add("HttpStatus", status_);
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == "404") 
@@ -1653,6 +1785,7 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -1710,6 +1843,16 @@ namespace Picturepark.SDK.V1.CloudManager
                         {
                             string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
                             throw new ApiException("Unauthorized", (int)response_.StatusCode, responseText_, headers_, null);
+                        }
+                        else
+                        if (status_ == "403") 
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkForbiddenException>(response_, headers_).ConfigureAwait(false);
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkForbiddenException();
+                            responseObject_.Data.Add("HttpStatus", status_);
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == "404") 
@@ -1777,6 +1920,7 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -1836,6 +1980,16 @@ namespace Picturepark.SDK.V1.CloudManager
                             throw new ApiException("Unauthorized", (int)response_.StatusCode, responseText_, headers_, null);
                         }
                         else
+                        if (status_ == "403") 
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkForbiddenException>(response_, headers_).ConfigureAwait(false);
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkForbiddenException();
+                            responseObject_.Data.Add("HttpStatus", status_);
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
+                        }
+                        else
                         if (status_ == "404") 
                         {
                             var objectResponse_ = await ReadObjectResponseAsync<PictureparkNotFoundException>(response_, headers_).ConfigureAwait(false);
@@ -1901,6 +2055,7 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -1960,6 +2115,16 @@ namespace Picturepark.SDK.V1.CloudManager
                             throw new ApiException("Unauthorized", (int)response_.StatusCode, responseText_, headers_, null);
                         }
                         else
+                        if (status_ == "403") 
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkForbiddenException>(response_, headers_).ConfigureAwait(false);
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkForbiddenException();
+                            responseObject_.Data.Add("HttpStatus", status_);
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
+                        }
+                        else
                         if (status_ == "404") 
                         {
                             var objectResponse_ = await ReadObjectResponseAsync<PictureparkNotFoundException>(response_, headers_).ConfigureAwait(false);
@@ -2025,6 +2190,7 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -2080,6 +2246,16 @@ namespace Picturepark.SDK.V1.CloudManager
                         {
                             string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
                             throw new ApiException("Unauthorized", (int)response_.StatusCode, responseText_, headers_, null);
+                        }
+                        else
+                        if (status_ == "403") 
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkForbiddenException>(response_, headers_).ConfigureAwait(false);
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkForbiddenException();
+                            responseObject_.Data.Add("HttpStatus", status_);
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == "404") 
@@ -2147,6 +2323,7 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -2204,6 +2381,16 @@ namespace Picturepark.SDK.V1.CloudManager
                         {
                             string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
                             throw new ApiException("Unauthorized", (int)response_.StatusCode, responseText_, headers_, null);
+                        }
+                        else
+                        if (status_ == "403") 
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkForbiddenException>(response_, headers_).ConfigureAwait(false);
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkForbiddenException();
+                            responseObject_.Data.Add("HttpStatus", status_);
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == "404") 
@@ -2271,6 +2458,7 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -2328,6 +2516,16 @@ namespace Picturepark.SDK.V1.CloudManager
                         {
                             string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
                             throw new ApiException("Unauthorized", (int)response_.StatusCode, responseText_, headers_, null);
+                        }
+                        else
+                        if (status_ == "403") 
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkForbiddenException>(response_, headers_).ConfigureAwait(false);
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkForbiddenException();
+                            responseObject_.Data.Add("HttpStatus", status_);
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == "404") 
@@ -2514,6 +2712,7 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -2571,6 +2770,16 @@ namespace Picturepark.SDK.V1.CloudManager
                         {
                             string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
                             throw new ApiException("Unauthorized", (int)response_.StatusCode, responseText_, headers_, null);
+                        }
+                        else
+                        if (status_ == "403") 
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkForbiddenException>(response_, headers_).ConfigureAwait(false);
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkForbiddenException();
+                            responseObject_.Data.Add("HttpStatus", status_);
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == "404") 
@@ -2638,6 +2847,7 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -2695,6 +2905,16 @@ namespace Picturepark.SDK.V1.CloudManager
                             throw new ApiException("Unauthorized", (int)response_.StatusCode, responseText_, headers_, null);
                         }
                         else
+                        if (status_ == "403") 
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkForbiddenException>(response_, headers_).ConfigureAwait(false);
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkForbiddenException();
+                            responseObject_.Data.Add("HttpStatus", status_);
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
+                        }
+                        else
                         if (status_ == "404") 
                         {
                             var objectResponse_ = await ReadObjectResponseAsync<PictureparkNotFoundException>(response_, headers_).ConfigureAwait(false);
@@ -2758,6 +2978,7 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -2815,6 +3036,16 @@ namespace Picturepark.SDK.V1.CloudManager
                             throw new ApiException("Unauthorized", (int)response_.StatusCode, responseText_, headers_, null);
                         }
                         else
+                        if (status_ == "403") 
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkForbiddenException>(response_, headers_).ConfigureAwait(false);
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkForbiddenException();
+                            responseObject_.Data.Add("HttpStatus", status_);
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
+                        }
+                        else
                         if (status_ == "404") 
                         {
                             var objectResponse_ = await ReadObjectResponseAsync<PictureparkNotFoundException>(response_, headers_).ConfigureAwait(false);
@@ -2878,6 +3109,7 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -2935,6 +3167,16 @@ namespace Picturepark.SDK.V1.CloudManager
                             throw new ApiException("Unauthorized", (int)response_.StatusCode, responseText_, headers_, null);
                         }
                         else
+                        if (status_ == "403") 
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkForbiddenException>(response_, headers_).ConfigureAwait(false);
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkForbiddenException();
+                            responseObject_.Data.Add("HttpStatus", status_);
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
+                        }
+                        else
                         if (status_ == "404") 
                         {
                             var objectResponse_ = await ReadObjectResponseAsync<PictureparkNotFoundException>(response_, headers_).ConfigureAwait(false);
@@ -2998,6 +3240,7 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -3055,6 +3298,16 @@ namespace Picturepark.SDK.V1.CloudManager
                             throw new ApiException("Unauthorized", (int)response_.StatusCode, responseText_, headers_, null);
                         }
                         else
+                        if (status_ == "403") 
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkForbiddenException>(response_, headers_).ConfigureAwait(false);
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkForbiddenException();
+                            responseObject_.Data.Add("HttpStatus", status_);
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
+                        }
+                        else
                         if (status_ == "404") 
                         {
                             var objectResponse_ = await ReadObjectResponseAsync<PictureparkNotFoundException>(response_, headers_).ConfigureAwait(false);
@@ -3118,6 +3371,7 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -3174,6 +3428,16 @@ namespace Picturepark.SDK.V1.CloudManager
                             throw new ApiException("Unauthorized", (int)response_.StatusCode, responseText_, headers_, null);
                         }
                         else
+                        if (status_ == "403") 
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkForbiddenException>(response_, headers_).ConfigureAwait(false);
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkForbiddenException();
+                            responseObject_.Data.Add("HttpStatus", status_);
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
+                        }
+                        else
                         if (status_ == "404") 
                         {
                             var objectResponse_ = await ReadObjectResponseAsync<PictureparkNotFoundException>(response_, headers_).ConfigureAwait(false);
@@ -3237,6 +3501,7 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -3293,6 +3558,16 @@ namespace Picturepark.SDK.V1.CloudManager
                             throw new ApiException("Unauthorized", (int)response_.StatusCode, responseText_, headers_, null);
                         }
                         else
+                        if (status_ == "403") 
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkForbiddenException>(response_, headers_).ConfigureAwait(false);
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkForbiddenException();
+                            responseObject_.Data.Add("HttpStatus", status_);
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
+                        }
+                        else
                         if (status_ == "404") 
                         {
                             var objectResponse_ = await ReadObjectResponseAsync<PictureparkNotFoundException>(response_, headers_).ConfigureAwait(false);
@@ -3356,6 +3631,7 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -3411,6 +3687,16 @@ namespace Picturepark.SDK.V1.CloudManager
                         {
                             string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
                             throw new ApiException("Unauthorized", (int)response_.StatusCode, responseText_, headers_, null);
+                        }
+                        else
+                        if (status_ == "403") 
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkForbiddenException>(response_, headers_).ConfigureAwait(false);
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkForbiddenException();
+                            responseObject_.Data.Add("HttpStatus", status_);
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == "404") 
@@ -3478,6 +3764,7 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -3535,6 +3822,16 @@ namespace Picturepark.SDK.V1.CloudManager
                         {
                             string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
                             throw new ApiException("Unauthorized", (int)response_.StatusCode, responseText_, headers_, null);
+                        }
+                        else
+                        if (status_ == "403") 
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkForbiddenException>(response_, headers_).ConfigureAwait(false);
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkForbiddenException();
+                            responseObject_.Data.Add("HttpStatus", status_);
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == "404") 
@@ -3602,6 +3899,7 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -3662,6 +3960,16 @@ namespace Picturepark.SDK.V1.CloudManager
                             throw new ApiException("Unauthorized", (int)response_.StatusCode, responseText_, headers_, null);
                         }
                         else
+                        if (status_ == "403") 
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkForbiddenException>(response_, headers_).ConfigureAwait(false);
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkForbiddenException();
+                            responseObject_.Data.Add("HttpStatus", status_);
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
+                        }
+                        else
                         if (status_ == "404") 
                         {
                             var objectResponse_ = await ReadObjectResponseAsync<PictureparkNotFoundException>(response_, headers_).ConfigureAwait(false);
@@ -3727,6 +4035,7 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -3787,6 +4096,16 @@ namespace Picturepark.SDK.V1.CloudManager
                             throw new ApiException("Unauthorized", (int)response_.StatusCode, responseText_, headers_, null);
                         }
                         else
+                        if (status_ == "403") 
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkForbiddenException>(response_, headers_).ConfigureAwait(false);
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkForbiddenException();
+                            responseObject_.Data.Add("HttpStatus", status_);
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
+                        }
+                        else
                         if (status_ == "404") 
                         {
                             var objectResponse_ = await ReadObjectResponseAsync<PictureparkNotFoundException>(response_, headers_).ConfigureAwait(false);
@@ -3852,6 +4171,7 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -3906,6 +4226,16 @@ namespace Picturepark.SDK.V1.CloudManager
                         {
                             string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
                             throw new ApiException("Unauthorized", (int)response_.StatusCode, responseText_, headers_, null);
+                        }
+                        else
+                        if (status_ == "403") 
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkForbiddenException>(response_, headers_).ConfigureAwait(false);
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkForbiddenException();
+                            responseObject_.Data.Add("HttpStatus", status_);
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == "404") 
@@ -4092,6 +4422,7 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -4147,6 +4478,16 @@ namespace Picturepark.SDK.V1.CloudManager
                         {
                             string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
                             throw new ApiException("Unauthorized", (int)response_.StatusCode, responseText_, headers_, null);
+                        }
+                        else
+                        if (status_ == "403") 
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkForbiddenException>(response_, headers_).ConfigureAwait(false);
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkForbiddenException();
+                            responseObject_.Data.Add("HttpStatus", status_);
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == "404") 
@@ -4214,6 +4555,7 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -4273,6 +4615,16 @@ namespace Picturepark.SDK.V1.CloudManager
                             throw new ApiException("Unauthorized", (int)response_.StatusCode, responseText_, headers_, null);
                         }
                         else
+                        if (status_ == "403") 
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkForbiddenException>(response_, headers_).ConfigureAwait(false);
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkForbiddenException();
+                            responseObject_.Data.Add("HttpStatus", status_);
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
+                        }
+                        else
                         if (status_ == "404") 
                         {
                             var objectResponse_ = await ReadObjectResponseAsync<PictureparkNotFoundException>(response_, headers_).ConfigureAwait(false);
@@ -4338,6 +4690,7 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -4397,6 +4750,16 @@ namespace Picturepark.SDK.V1.CloudManager
                             throw new ApiException("Unauthorized", (int)response_.StatusCode, responseText_, headers_, null);
                         }
                         else
+                        if (status_ == "403") 
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkForbiddenException>(response_, headers_).ConfigureAwait(false);
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkForbiddenException();
+                            responseObject_.Data.Add("HttpStatus", status_);
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
+                        }
+                        else
                         if (status_ == "404") 
                         {
                             var objectResponse_ = await ReadObjectResponseAsync<PictureparkNotFoundException>(response_, headers_).ConfigureAwait(false);
@@ -4462,6 +4825,7 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -4516,6 +4880,16 @@ namespace Picturepark.SDK.V1.CloudManager
                         {
                             string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
                             throw new ApiException("Unauthorized", (int)response_.StatusCode, responseText_, headers_, null);
+                        }
+                        else
+                        if (status_ == "403") 
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkForbiddenException>(response_, headers_).ConfigureAwait(false);
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkForbiddenException();
+                            responseObject_.Data.Add("HttpStatus", status_);
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == "404") 
@@ -4583,6 +4957,7 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -4638,6 +5013,16 @@ namespace Picturepark.SDK.V1.CloudManager
                         {
                             string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
                             throw new ApiException("Unauthorized", (int)response_.StatusCode, responseText_, headers_, null);
+                        }
+                        else
+                        if (status_ == "403") 
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkForbiddenException>(response_, headers_).ConfigureAwait(false);
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkForbiddenException();
+                            responseObject_.Data.Add("HttpStatus", status_);
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == "404") 
@@ -4705,6 +5090,7 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -4758,6 +5144,16 @@ namespace Picturepark.SDK.V1.CloudManager
                         {
                             string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
                             throw new ApiException("Unauthorized", (int)response_.StatusCode, responseText_, headers_, null);
+                        }
+                        else
+                        if (status_ == "403") 
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkForbiddenException>(response_, headers_).ConfigureAwait(false);
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkForbiddenException();
+                            responseObject_.Data.Add("HttpStatus", status_);
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == "404") 
@@ -4823,6 +5219,7 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -4882,6 +5279,16 @@ namespace Picturepark.SDK.V1.CloudManager
                             throw new ApiException("Unauthorized", (int)response_.StatusCode, responseText_, headers_, null);
                         }
                         else
+                        if (status_ == "403") 
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkForbiddenException>(response_, headers_).ConfigureAwait(false);
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkForbiddenException();
+                            responseObject_.Data.Add("HttpStatus", status_);
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
+                        }
+                        else
                         if (status_ == "404") 
                         {
                             var objectResponse_ = await ReadObjectResponseAsync<PictureparkNotFoundException>(response_, headers_).ConfigureAwait(false);
@@ -4947,6 +5354,7 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -5002,6 +5410,16 @@ namespace Picturepark.SDK.V1.CloudManager
                         {
                             string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
                             throw new ApiException("Unauthorized", (int)response_.StatusCode, responseText_, headers_, null);
+                        }
+                        else
+                        if (status_ == "403") 
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkForbiddenException>(response_, headers_).ConfigureAwait(false);
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkForbiddenException();
+                            responseObject_.Data.Add("HttpStatus", status_);
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == "404") 
@@ -5069,6 +5487,7 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -5125,6 +5544,16 @@ namespace Picturepark.SDK.V1.CloudManager
                             throw new ApiException("Unauthorized", (int)response_.StatusCode, responseText_, headers_, null);
                         }
                         else
+                        if (status_ == "403") 
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkForbiddenException>(response_, headers_).ConfigureAwait(false);
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkForbiddenException();
+                            responseObject_.Data.Add("HttpStatus", status_);
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
+                        }
+                        else
                         if (status_ == "404") 
                         {
                             var objectResponse_ = await ReadObjectResponseAsync<PictureparkNotFoundException>(response_, headers_).ConfigureAwait(false);
@@ -5188,6 +5617,7 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -5244,6 +5674,16 @@ namespace Picturepark.SDK.V1.CloudManager
                             throw new ApiException("Unauthorized", (int)response_.StatusCode, responseText_, headers_, null);
                         }
                         else
+                        if (status_ == "403") 
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkForbiddenException>(response_, headers_).ConfigureAwait(false);
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkForbiddenException();
+                            responseObject_.Data.Add("HttpStatus", status_);
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
+                        }
+                        else
                         if (status_ == "404") 
                         {
                             var objectResponse_ = await ReadObjectResponseAsync<PictureparkNotFoundException>(response_, headers_).ConfigureAwait(false);
@@ -5307,6 +5747,7 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -5365,6 +5806,16 @@ namespace Picturepark.SDK.V1.CloudManager
                             throw new ApiException("Unauthorized", (int)response_.StatusCode, responseText_, headers_, null);
                         }
                         else
+                        if (status_ == "403") 
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkForbiddenException>(response_, headers_).ConfigureAwait(false);
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkForbiddenException();
+                            responseObject_.Data.Add("HttpStatus", status_);
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
+                        }
+                        else
                         if (status_ == "404") 
                         {
                             var objectResponse_ = await ReadObjectResponseAsync<PictureparkNotFoundException>(response_, headers_).ConfigureAwait(false);
@@ -5428,6 +5879,7 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -5486,6 +5938,16 @@ namespace Picturepark.SDK.V1.CloudManager
                         {
                             string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
                             throw new ApiException("Unauthorized", (int)response_.StatusCode, responseText_, headers_, null);
+                        }
+                        else
+                        if (status_ == "403") 
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkForbiddenException>(response_, headers_).ConfigureAwait(false);
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkForbiddenException();
+                            responseObject_.Data.Add("HttpStatus", status_);
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == "404") 
@@ -5553,6 +6015,7 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -5608,6 +6071,16 @@ namespace Picturepark.SDK.V1.CloudManager
                         {
                             string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
                             throw new ApiException("Unauthorized", (int)response_.StatusCode, responseText_, headers_, null);
+                        }
+                        else
+                        if (status_ == "403") 
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkForbiddenException>(response_, headers_).ConfigureAwait(false);
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkForbiddenException();
+                            responseObject_.Data.Add("HttpStatus", status_);
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == "404") 
@@ -5675,6 +6148,7 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -5740,6 +6214,16 @@ namespace Picturepark.SDK.V1.CloudManager
                             throw new ApiException("Unauthorized", (int)response_.StatusCode, responseText_, headers_, null);
                         }
                         else
+                        if (status_ == "403") 
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkForbiddenException>(response_, headers_).ConfigureAwait(false);
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkForbiddenException();
+                            responseObject_.Data.Add("HttpStatus", status_);
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
+                        }
+                        else
                         if (status_ == "404") 
                         {
                             var objectResponse_ = await ReadObjectResponseAsync<PictureparkNotFoundException>(response_, headers_).ConfigureAwait(false);
@@ -5805,6 +6289,7 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -5870,6 +6355,16 @@ namespace Picturepark.SDK.V1.CloudManager
                             throw new ApiException("Unauthorized", (int)response_.StatusCode, responseText_, headers_, null);
                         }
                         else
+                        if (status_ == "403") 
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkForbiddenException>(response_, headers_).ConfigureAwait(false);
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkForbiddenException();
+                            responseObject_.Data.Add("HttpStatus", status_);
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
+                        }
+                        else
                         if (status_ == "404") 
                         {
                             var objectResponse_ = await ReadObjectResponseAsync<PictureparkNotFoundException>(response_, headers_).ConfigureAwait(false);
@@ -5935,6 +6430,7 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -5995,6 +6491,16 @@ namespace Picturepark.SDK.V1.CloudManager
                         {
                             string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
                             throw new ApiException("Unauthorized", (int)response_.StatusCode, responseText_, headers_, null);
+                        }
+                        else
+                        if (status_ == "403") 
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkForbiddenException>(response_, headers_).ConfigureAwait(false);
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkForbiddenException();
+                            responseObject_.Data.Add("HttpStatus", status_);
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == "404") 
@@ -6062,6 +6568,7 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -6125,6 +6632,16 @@ namespace Picturepark.SDK.V1.CloudManager
                         {
                             string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
                             throw new ApiException("Unauthorized", (int)response_.StatusCode, responseText_, headers_, null);
+                        }
+                        else
+                        if (status_ == "403") 
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkForbiddenException>(response_, headers_).ConfigureAwait(false);
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkForbiddenException();
+                            responseObject_.Data.Add("HttpStatus", status_);
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == "404") 
@@ -6311,6 +6828,7 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -6368,6 +6886,16 @@ namespace Picturepark.SDK.V1.CloudManager
                         {
                             string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
                             throw new ApiException("Unauthorized", (int)response_.StatusCode, responseText_, headers_, null);
+                        }
+                        else
+                        if (status_ == "403") 
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkForbiddenException>(response_, headers_).ConfigureAwait(false);
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkForbiddenException();
+                            responseObject_.Data.Add("HttpStatus", status_);
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == "404") 
@@ -6435,6 +6963,7 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -6489,6 +7018,16 @@ namespace Picturepark.SDK.V1.CloudManager
                         {
                             string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
                             throw new ApiException("Unauthorized", (int)response_.StatusCode, responseText_, headers_, null);
+                        }
+                        else
+                        if (status_ == "403") 
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkForbiddenException>(response_, headers_).ConfigureAwait(false);
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkForbiddenException();
+                            responseObject_.Data.Add("HttpStatus", status_);
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == "404") 
@@ -6673,6 +7212,7 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -6728,6 +7268,16 @@ namespace Picturepark.SDK.V1.CloudManager
                         {
                             string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
                             throw new ApiException("Unauthorized", (int)response_.StatusCode, responseText_, headers_, null);
+                        }
+                        else
+                        if (status_ == "403") 
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkForbiddenException>(response_, headers_).ConfigureAwait(false);
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkForbiddenException();
+                            responseObject_.Data.Add("HttpStatus", status_);
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == "404") 
@@ -6795,6 +7345,7 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -6849,6 +7400,16 @@ namespace Picturepark.SDK.V1.CloudManager
                         {
                             string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
                             throw new ApiException("Unauthorized", (int)response_.StatusCode, responseText_, headers_, null);
+                        }
+                        else
+                        if (status_ == "403") 
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkForbiddenException>(response_, headers_).ConfigureAwait(false);
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkForbiddenException();
+                            responseObject_.Data.Add("HttpStatus", status_);
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == "404") 
@@ -7035,6 +7596,7 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -7091,6 +7653,16 @@ namespace Picturepark.SDK.V1.CloudManager
                             throw new ApiException("Unauthorized", (int)response_.StatusCode, responseText_, headers_, null);
                         }
                         else
+                        if (status_ == "403") 
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkForbiddenException>(response_, headers_).ConfigureAwait(false);
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkForbiddenException();
+                            responseObject_.Data.Add("HttpStatus", status_);
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
+                        }
+                        else
                         if (status_ == "404") 
                         {
                             var objectResponse_ = await ReadObjectResponseAsync<PictureparkNotFoundException>(response_, headers_).ConfigureAwait(false);
@@ -7154,6 +7726,7 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -7210,6 +7783,16 @@ namespace Picturepark.SDK.V1.CloudManager
                             throw new ApiException("Unauthorized", (int)response_.StatusCode, responseText_, headers_, null);
                         }
                         else
+                        if (status_ == "403") 
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkForbiddenException>(response_, headers_).ConfigureAwait(false);
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkForbiddenException();
+                            responseObject_.Data.Add("HttpStatus", status_);
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
+                        }
+                        else
                         if (status_ == "404") 
                         {
                             var objectResponse_ = await ReadObjectResponseAsync<PictureparkNotFoundException>(response_, headers_).ConfigureAwait(false);
@@ -7273,6 +7856,7 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -7328,6 +7912,16 @@ namespace Picturepark.SDK.V1.CloudManager
                         {
                             string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
                             throw new ApiException("Unauthorized", (int)response_.StatusCode, responseText_, headers_, null);
+                        }
+                        else
+                        if (status_ == "403") 
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkForbiddenException>(response_, headers_).ConfigureAwait(false);
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkForbiddenException();
+                            responseObject_.Data.Add("HttpStatus", status_);
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == "404") 
@@ -7395,6 +7989,7 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -7459,6 +8054,16 @@ namespace Picturepark.SDK.V1.CloudManager
                         {
                             string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
                             throw new ApiException("Unauthorized", (int)response_.StatusCode, responseText_, headers_, null);
+                        }
+                        else
+                        if (status_ == "403") 
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkForbiddenException>(response_, headers_).ConfigureAwait(false);
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkForbiddenException();
+                            responseObject_.Data.Add("HttpStatus", status_);
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == "404") 
@@ -7526,6 +8131,7 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -7583,6 +8189,16 @@ namespace Picturepark.SDK.V1.CloudManager
                         {
                             string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
                             throw new ApiException("Unauthorized", (int)response_.StatusCode, responseText_, headers_, null);
+                        }
+                        else
+                        if (status_ == "403") 
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkForbiddenException>(response_, headers_).ConfigureAwait(false);
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkForbiddenException();
+                            responseObject_.Data.Add("HttpStatus", status_);
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == "404") 
@@ -7769,6 +8385,7 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -7824,6 +8441,16 @@ namespace Picturepark.SDK.V1.CloudManager
                         {
                             string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
                             throw new ApiException("Unauthorized", (int)response_.StatusCode, responseText_, headers_, null);
+                        }
+                        else
+                        if (status_ == "403") 
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkForbiddenException>(response_, headers_).ConfigureAwait(false);
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkForbiddenException();
+                            responseObject_.Data.Add("HttpStatus", status_);
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == "404") 
@@ -7891,6 +8518,7 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -7947,6 +8575,16 @@ namespace Picturepark.SDK.V1.CloudManager
                         {
                             string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
                             throw new ApiException("Unauthorized", (int)response_.StatusCode, responseText_, headers_, null);
+                        }
+                        else
+                        if (status_ == "403") 
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkForbiddenException>(response_, headers_).ConfigureAwait(false);
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkForbiddenException();
+                            responseObject_.Data.Add("HttpStatus", status_);
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == "404") 
@@ -8014,6 +8652,7 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -8068,6 +8707,16 @@ namespace Picturepark.SDK.V1.CloudManager
                         {
                             string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
                             throw new ApiException("Unauthorized", (int)response_.StatusCode, responseText_, headers_, null);
+                        }
+                        else
+                        if (status_ == "403") 
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkForbiddenException>(response_, headers_).ConfigureAwait(false);
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkForbiddenException();
+                            responseObject_.Data.Add("HttpStatus", status_);
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == "404") 
@@ -8135,6 +8784,7 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -8190,6 +8840,16 @@ namespace Picturepark.SDK.V1.CloudManager
                         {
                             string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
                             throw new ApiException("Unauthorized", (int)response_.StatusCode, responseText_, headers_, null);
+                        }
+                        else
+                        if (status_ == "403") 
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkForbiddenException>(response_, headers_).ConfigureAwait(false);
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkForbiddenException();
+                            responseObject_.Data.Add("HttpStatus", status_);
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == "404") 
@@ -8374,6 +9034,7 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -8439,6 +9100,16 @@ namespace Picturepark.SDK.V1.CloudManager
                             throw new ApiException("Unauthorized", (int)response_.StatusCode, responseText_, headers_, null);
                         }
                         else
+                        if (status_ == "403") 
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkForbiddenException>(response_, headers_).ConfigureAwait(false);
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkForbiddenException();
+                            responseObject_.Data.Add("HttpStatus", status_);
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
+                        }
+                        else
                         if (status_ == "404") 
                         {
                             var objectResponse_ = await ReadObjectResponseAsync<PictureparkNotFoundException>(response_, headers_).ConfigureAwait(false);
@@ -8504,6 +9175,7 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -8569,6 +9241,16 @@ namespace Picturepark.SDK.V1.CloudManager
                             throw new ApiException("Unauthorized", (int)response_.StatusCode, responseText_, headers_, null);
                         }
                         else
+                        if (status_ == "403") 
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkForbiddenException>(response_, headers_).ConfigureAwait(false);
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkForbiddenException();
+                            responseObject_.Data.Add("HttpStatus", status_);
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
+                        }
+                        else
                         if (status_ == "404") 
                         {
                             var objectResponse_ = await ReadObjectResponseAsync<PictureparkNotFoundException>(response_, headers_).ConfigureAwait(false);
@@ -8634,6 +9316,7 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -8699,6 +9382,16 @@ namespace Picturepark.SDK.V1.CloudManager
                             throw new ApiException("Unauthorized", (int)response_.StatusCode, responseText_, headers_, null);
                         }
                         else
+                        if (status_ == "403") 
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkForbiddenException>(response_, headers_).ConfigureAwait(false);
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkForbiddenException();
+                            responseObject_.Data.Add("HttpStatus", status_);
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
+                        }
+                        else
                         if (status_ == "404") 
                         {
                             var objectResponse_ = await ReadObjectResponseAsync<PictureparkNotFoundException>(response_, headers_).ConfigureAwait(false);
@@ -8764,6 +9457,7 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -8827,6 +9521,16 @@ namespace Picturepark.SDK.V1.CloudManager
                         {
                             string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
                             throw new ApiException("Unauthorized", (int)response_.StatusCode, responseText_, headers_, null);
+                        }
+                        else
+                        if (status_ == "403") 
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkForbiddenException>(response_, headers_).ConfigureAwait(false);
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkForbiddenException();
+                            responseObject_.Data.Add("HttpStatus", status_);
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == "404") 
@@ -8894,6 +9598,7 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -8955,6 +9660,16 @@ namespace Picturepark.SDK.V1.CloudManager
                         {
                             string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
                             throw new ApiException("Unauthorized", (int)response_.StatusCode, responseText_, headers_, null);
+                        }
+                        else
+                        if (status_ == "403") 
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkForbiddenException>(response_, headers_).ConfigureAwait(false);
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkForbiddenException();
+                            responseObject_.Data.Add("HttpStatus", status_);
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == "404") 
@@ -9141,6 +9856,7 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -9194,6 +9910,16 @@ namespace Picturepark.SDK.V1.CloudManager
                         {
                             string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
                             throw new ApiException("Unauthorized", (int)response_.StatusCode, responseText_, headers_, null);
+                        }
+                        else
+                        if (status_ == "403") 
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkForbiddenException>(response_, headers_).ConfigureAwait(false);
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkForbiddenException();
+                            responseObject_.Data.Add("HttpStatus", status_);
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == "404") 
@@ -9259,6 +9985,7 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -9312,6 +10039,16 @@ namespace Picturepark.SDK.V1.CloudManager
                         {
                             string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
                             throw new ApiException("Unauthorized", (int)response_.StatusCode, responseText_, headers_, null);
+                        }
+                        else
+                        if (status_ == "403") 
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkForbiddenException>(response_, headers_).ConfigureAwait(false);
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkForbiddenException();
+                            responseObject_.Data.Add("HttpStatus", status_);
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == "404") 
@@ -9496,6 +10233,7 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -9553,6 +10291,16 @@ namespace Picturepark.SDK.V1.CloudManager
                         {
                             string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
                             throw new ApiException("Unauthorized", (int)response_.StatusCode, responseText_, headers_, null);
+                        }
+                        else
+                        if (status_ == "403") 
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkForbiddenException>(response_, headers_).ConfigureAwait(false);
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkForbiddenException();
+                            responseObject_.Data.Add("HttpStatus", status_);
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == "404") 
@@ -9620,6 +10368,7 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -9673,6 +10422,16 @@ namespace Picturepark.SDK.V1.CloudManager
                         {
                             string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
                             throw new ApiException("Unauthorized", (int)response_.StatusCode, responseText_, headers_, null);
+                        }
+                        else
+                        if (status_ == "403") 
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkForbiddenException>(response_, headers_).ConfigureAwait(false);
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkForbiddenException();
+                            responseObject_.Data.Add("HttpStatus", status_);
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == "404") 
@@ -9857,6 +10616,7 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -9911,6 +10671,16 @@ namespace Picturepark.SDK.V1.CloudManager
                             throw new ApiException("Unauthorized", (int)response_.StatusCode, responseText_, headers_, null);
                         }
                         else
+                        if (status_ == "403") 
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkForbiddenException>(response_, headers_).ConfigureAwait(false);
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkForbiddenException();
+                            responseObject_.Data.Add("HttpStatus", status_);
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
+                        }
+                        else
                         if (status_ == "404") 
                         {
                             var objectResponse_ = await ReadObjectResponseAsync<PictureparkNotFoundException>(response_, headers_).ConfigureAwait(false);
@@ -9974,6 +10744,7 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -10028,6 +10799,16 @@ namespace Picturepark.SDK.V1.CloudManager
                             throw new ApiException("Unauthorized", (int)response_.StatusCode, responseText_, headers_, null);
                         }
                         else
+                        if (status_ == "403") 
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkForbiddenException>(response_, headers_).ConfigureAwait(false);
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkForbiddenException();
+                            responseObject_.Data.Add("HttpStatus", status_);
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
+                        }
+                        else
                         if (status_ == "404") 
                         {
                             var objectResponse_ = await ReadObjectResponseAsync<PictureparkNotFoundException>(response_, headers_).ConfigureAwait(false);
@@ -10091,6 +10872,7 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -10151,6 +10933,16 @@ namespace Picturepark.SDK.V1.CloudManager
                             throw new ApiException("Unauthorized", (int)response_.StatusCode, responseText_, headers_, null);
                         }
                         else
+                        if (status_ == "403") 
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkForbiddenException>(response_, headers_).ConfigureAwait(false);
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkForbiddenException();
+                            responseObject_.Data.Add("HttpStatus", status_);
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
+                        }
+                        else
                         if (status_ == "404") 
                         {
                             var objectResponse_ = await ReadObjectResponseAsync<PictureparkNotFoundException>(response_, headers_).ConfigureAwait(false);
@@ -10214,6 +11006,7 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -10274,6 +11067,16 @@ namespace Picturepark.SDK.V1.CloudManager
                             throw new ApiException("Unauthorized", (int)response_.StatusCode, responseText_, headers_, null);
                         }
                         else
+                        if (status_ == "403") 
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkForbiddenException>(response_, headers_).ConfigureAwait(false);
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkForbiddenException();
+                            responseObject_.Data.Add("HttpStatus", status_);
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
+                        }
+                        else
                         if (status_ == "404") 
                         {
                             var objectResponse_ = await ReadObjectResponseAsync<PictureparkNotFoundException>(response_, headers_).ConfigureAwait(false);
@@ -10337,6 +11140,7 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -10394,6 +11198,16 @@ namespace Picturepark.SDK.V1.CloudManager
                             throw new ApiException("Unauthorized", (int)response_.StatusCode, responseText_, headers_, null);
                         }
                         else
+                        if (status_ == "403") 
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkForbiddenException>(response_, headers_).ConfigureAwait(false);
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkForbiddenException();
+                            responseObject_.Data.Add("HttpStatus", status_);
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
+                        }
+                        else
                         if (status_ == "404") 
                         {
                             var objectResponse_ = await ReadObjectResponseAsync<PictureparkNotFoundException>(response_, headers_).ConfigureAwait(false);
@@ -10457,6 +11271,7 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -10521,6 +11336,16 @@ namespace Picturepark.SDK.V1.CloudManager
                             throw new ApiException("Unauthorized", (int)response_.StatusCode, responseText_, headers_, null);
                         }
                         else
+                        if (status_ == "403") 
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkForbiddenException>(response_, headers_).ConfigureAwait(false);
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkForbiddenException();
+                            responseObject_.Data.Add("HttpStatus", status_);
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
+                        }
+                        else
                         if (status_ == "404") 
                         {
                             var objectResponse_ = await ReadObjectResponseAsync<PictureparkNotFoundException>(response_, headers_).ConfigureAwait(false);
@@ -10584,6 +11409,7 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -10638,6 +11464,16 @@ namespace Picturepark.SDK.V1.CloudManager
                             throw new ApiException("Unauthorized", (int)response_.StatusCode, responseText_, headers_, null);
                         }
                         else
+                        if (status_ == "403") 
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkForbiddenException>(response_, headers_).ConfigureAwait(false);
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkForbiddenException();
+                            responseObject_.Data.Add("HttpStatus", status_);
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
+                        }
+                        else
                         if (status_ == "404") 
                         {
                             var objectResponse_ = await ReadObjectResponseAsync<PictureparkNotFoundException>(response_, headers_).ConfigureAwait(false);
@@ -10701,6 +11537,7 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -10755,6 +11592,16 @@ namespace Picturepark.SDK.V1.CloudManager
                         {
                             string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
                             throw new ApiException("Unauthorized", (int)response_.StatusCode, responseText_, headers_, null);
+                        }
+                        else
+                        if (status_ == "403") 
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkForbiddenException>(response_, headers_).ConfigureAwait(false);
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkForbiddenException();
+                            responseObject_.Data.Add("HttpStatus", status_);
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == "404") 
@@ -10822,6 +11669,7 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -10877,6 +11725,16 @@ namespace Picturepark.SDK.V1.CloudManager
                             throw new ApiException("Unauthorized", (int)response_.StatusCode, responseText_, headers_, null);
                         }
                         else
+                        if (status_ == "403") 
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkForbiddenException>(response_, headers_).ConfigureAwait(false);
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkForbiddenException();
+                            responseObject_.Data.Add("HttpStatus", status_);
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
+                        }
+                        else
                         if (status_ == "404") 
                         {
                             var objectResponse_ = await ReadObjectResponseAsync<PictureparkNotFoundException>(response_, headers_).ConfigureAwait(false);
@@ -10940,6 +11798,7 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -10995,6 +11854,16 @@ namespace Picturepark.SDK.V1.CloudManager
                             throw new ApiException("Unauthorized", (int)response_.StatusCode, responseText_, headers_, null);
                         }
                         else
+                        if (status_ == "403") 
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkForbiddenException>(response_, headers_).ConfigureAwait(false);
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkForbiddenException();
+                            responseObject_.Data.Add("HttpStatus", status_);
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
+                        }
+                        else
                         if (status_ == "404") 
                         {
                             var objectResponse_ = await ReadObjectResponseAsync<PictureparkNotFoundException>(response_, headers_).ConfigureAwait(false);
@@ -11058,6 +11927,7 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -11111,6 +11981,16 @@ namespace Picturepark.SDK.V1.CloudManager
                         {
                             string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
                             throw new ApiException("Unauthorized", (int)response_.StatusCode, responseText_, headers_, null);
+                        }
+                        else
+                        if (status_ == "403") 
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkForbiddenException>(response_, headers_).ConfigureAwait(false);
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkForbiddenException();
+                            responseObject_.Data.Add("HttpStatus", status_);
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == "404") 
@@ -11295,6 +12175,7 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -11349,6 +12230,16 @@ namespace Picturepark.SDK.V1.CloudManager
                         {
                             string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
                             throw new ApiException("Unauthorized", (int)response_.StatusCode, responseText_, headers_, null);
+                        }
+                        else
+                        if (status_ == "403") 
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkForbiddenException>(response_, headers_).ConfigureAwait(false);
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkForbiddenException();
+                            responseObject_.Data.Add("HttpStatus", status_);
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == "404") 
@@ -11416,6 +12307,7 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -11470,6 +12362,16 @@ namespace Picturepark.SDK.V1.CloudManager
                         {
                             string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
                             throw new ApiException("Unauthorized", (int)response_.StatusCode, responseText_, headers_, null);
+                        }
+                        else
+                        if (status_ == "403") 
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkForbiddenException>(response_, headers_).ConfigureAwait(false);
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkForbiddenException();
+                            responseObject_.Data.Add("HttpStatus", status_);
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == "404") 
@@ -11537,6 +12439,7 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -11594,6 +12497,16 @@ namespace Picturepark.SDK.V1.CloudManager
                             throw new ApiException("Unauthorized", (int)response_.StatusCode, responseText_, headers_, null);
                         }
                         else
+                        if (status_ == "403") 
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkForbiddenException>(response_, headers_).ConfigureAwait(false);
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkForbiddenException();
+                            responseObject_.Data.Add("HttpStatus", status_);
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
+                        }
+                        else
                         if (status_ == "404") 
                         {
                             var objectResponse_ = await ReadObjectResponseAsync<PictureparkNotFoundException>(response_, headers_).ConfigureAwait(false);
@@ -11657,6 +12570,7 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -11714,6 +12628,16 @@ namespace Picturepark.SDK.V1.CloudManager
                             throw new ApiException("Unauthorized", (int)response_.StatusCode, responseText_, headers_, null);
                         }
                         else
+                        if (status_ == "403") 
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkForbiddenException>(response_, headers_).ConfigureAwait(false);
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkForbiddenException();
+                            responseObject_.Data.Add("HttpStatus", status_);
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
+                        }
+                        else
                         if (status_ == "404") 
                         {
                             var objectResponse_ = await ReadObjectResponseAsync<PictureparkNotFoundException>(response_, headers_).ConfigureAwait(false);
@@ -11777,6 +12701,7 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -11834,6 +12759,16 @@ namespace Picturepark.SDK.V1.CloudManager
                         {
                             string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
                             throw new ApiException("Unauthorized", (int)response_.StatusCode, responseText_, headers_, null);
+                        }
+                        else
+                        if (status_ == "403") 
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkForbiddenException>(response_, headers_).ConfigureAwait(false);
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkForbiddenException();
+                            responseObject_.Data.Add("HttpStatus", status_);
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == "404") 
@@ -11901,6 +12836,7 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -11956,6 +12892,16 @@ namespace Picturepark.SDK.V1.CloudManager
                         {
                             string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
                             throw new ApiException("Unauthorized", (int)response_.StatusCode, responseText_, headers_, null);
+                        }
+                        else
+                        if (status_ == "403") 
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkForbiddenException>(response_, headers_).ConfigureAwait(false);
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkForbiddenException();
+                            responseObject_.Data.Add("HttpStatus", status_);
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == "404") 
@@ -12023,6 +12969,7 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -12077,6 +13024,16 @@ namespace Picturepark.SDK.V1.CloudManager
                         {
                             string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
                             throw new ApiException("Unauthorized", (int)response_.StatusCode, responseText_, headers_, null);
+                        }
+                        else
+                        if (status_ == "403") 
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkForbiddenException>(response_, headers_).ConfigureAwait(false);
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkForbiddenException();
+                            responseObject_.Data.Add("HttpStatus", status_);
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == "404") 
@@ -12144,6 +13101,7 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -12199,6 +13157,16 @@ namespace Picturepark.SDK.V1.CloudManager
                         {
                             string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
                             throw new ApiException("Unauthorized", (int)response_.StatusCode, responseText_, headers_, null);
+                        }
+                        else
+                        if (status_ == "403") 
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkForbiddenException>(response_, headers_).ConfigureAwait(false);
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkForbiddenException();
+                            responseObject_.Data.Add("HttpStatus", status_);
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == "404") 
@@ -12266,6 +13234,7 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -12323,6 +13292,16 @@ namespace Picturepark.SDK.V1.CloudManager
                             throw new ApiException("Unauthorized", (int)response_.StatusCode, responseText_, headers_, null);
                         }
                         else
+                        if (status_ == "403") 
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkForbiddenException>(response_, headers_).ConfigureAwait(false);
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkForbiddenException();
+                            responseObject_.Data.Add("HttpStatus", status_);
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
+                        }
+                        else
                         if (status_ == "404") 
                         {
                             var objectResponse_ = await ReadObjectResponseAsync<PictureparkNotFoundException>(response_, headers_).ConfigureAwait(false);
@@ -12386,6 +13365,7 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -12443,6 +13423,16 @@ namespace Picturepark.SDK.V1.CloudManager
                             throw new ApiException("Unauthorized", (int)response_.StatusCode, responseText_, headers_, null);
                         }
                         else
+                        if (status_ == "403") 
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkForbiddenException>(response_, headers_).ConfigureAwait(false);
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkForbiddenException();
+                            responseObject_.Data.Add("HttpStatus", status_);
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
+                        }
+                        else
                         if (status_ == "404") 
                         {
                             var objectResponse_ = await ReadObjectResponseAsync<PictureparkNotFoundException>(response_, headers_).ConfigureAwait(false);
@@ -12506,6 +13496,7 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -12563,6 +13554,16 @@ namespace Picturepark.SDK.V1.CloudManager
                         {
                             string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
                             throw new ApiException("Unauthorized", (int)response_.StatusCode, responseText_, headers_, null);
+                        }
+                        else
+                        if (status_ == "403") 
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkForbiddenException>(response_, headers_).ConfigureAwait(false);
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkForbiddenException();
+                            responseObject_.Data.Add("HttpStatus", status_);
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == "404") 
@@ -12749,6 +13750,7 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -12805,6 +13807,16 @@ namespace Picturepark.SDK.V1.CloudManager
                         {
                             string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
                             throw new ApiException("Unauthorized", (int)response_.StatusCode, responseText_, headers_, null);
+                        }
+                        else
+                        if (status_ == "403") 
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkForbiddenException>(response_, headers_).ConfigureAwait(false);
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkForbiddenException();
+                            responseObject_.Data.Add("HttpStatus", status_);
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == "404") 
@@ -12872,6 +13884,7 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -12930,6 +13943,16 @@ namespace Picturepark.SDK.V1.CloudManager
                         {
                             string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
                             throw new ApiException("Unauthorized", (int)response_.StatusCode, responseText_, headers_, null);
+                        }
+                        else
+                        if (status_ == "403") 
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkForbiddenException>(response_, headers_).ConfigureAwait(false);
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkForbiddenException();
+                            responseObject_.Data.Add("HttpStatus", status_);
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
                         }
                         else
                         if (status_ == "404") 
