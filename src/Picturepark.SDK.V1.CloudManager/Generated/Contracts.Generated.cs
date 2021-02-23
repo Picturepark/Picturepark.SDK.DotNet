@@ -1071,6 +1071,8 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [JsonInheritanceAttribute("UserRoleAssignedException", typeof(UserRoleAssignedException))]
     [JsonInheritanceAttribute("UnableToDeleteUserRoleException", typeof(UnableToDeleteUserRoleException))]
     [JsonInheritanceAttribute("UserNotFoundException", typeof(UserNotFoundException))]
+    [JsonInheritanceAttribute("UserNotDeactivatedException", typeof(UserNotDeactivatedException))]
+    [JsonInheritanceAttribute("UserWithOwnerTokensArchiveException", typeof(UserWithOwnerTokensArchiveException))]
     [JsonInheritanceAttribute("UserInactiveOrDeletedException", typeof(UserInactiveOrDeletedException))]
     [JsonInheritanceAttribute("InactiveOrDeletedUserRefusedAccessException", typeof(InactiveOrDeletedUserRefusedAccessException))]
     [JsonInheritanceAttribute("TermsOfServiceNotNewestException", typeof(TermsOfServiceNotNewestException))]
@@ -1548,6 +1550,44 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         public static UserNotFoundException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<UserNotFoundException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class UserNotDeactivatedException : PictureparkBusinessException
+    {
+        [Newtonsoft.Json.JsonProperty("notDeactivatedUserId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string NotDeactivatedUserId { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static UserNotDeactivatedException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<UserNotDeactivatedException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class UserWithOwnerTokensArchiveException : PictureparkBusinessException
+    {
+        [Newtonsoft.Json.JsonProperty("notArchivedUserId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string NotArchivedUserId { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static UserWithOwnerTokensArchiveException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<UserWithOwnerTokensArchiveException>(data);
         }
     
     }
