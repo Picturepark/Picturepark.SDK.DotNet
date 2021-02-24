@@ -7745,7 +7745,7 @@
       "UserNotDeactivatedException": {
         "allOf": [
           {
-            "$ref": "#/components/schemas/PictureparkBusinessException"
+            "$ref": "#/components/schemas/PictureparkValidationException"
           },
           {
             "type": "object",
@@ -7762,7 +7762,7 @@
       "UserWithOwnerTokensArchiveException": {
         "allOf": [
           {
-            "$ref": "#/components/schemas/PictureparkBusinessException"
+            "$ref": "#/components/schemas/PictureparkValidationException"
           },
           {
             "type": "object",

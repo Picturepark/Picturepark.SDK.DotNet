@@ -3236,7 +3236,7 @@ namespace Picturepark.SDK.V1.Contract
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     [Newtonsoft.Json.JsonObjectAttribute]
-    public partial class UserNotDeactivatedException : PictureparkBusinessException
+    public partial class UserNotDeactivatedException : PictureparkValidationException
     {
         [Newtonsoft.Json.JsonProperty("notDeactivatedUserId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string NotDeactivatedUserId { get; set; }
@@ -3255,7 +3255,7 @@ namespace Picturepark.SDK.V1.Contract
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     [Newtonsoft.Json.JsonObjectAttribute]
-    public partial class UserWithOwnerTokensArchiveException : PictureparkBusinessException
+    public partial class UserWithOwnerTokensArchiveException : PictureparkValidationException
     {
         [Newtonsoft.Json.JsonProperty("notArchivedUserId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string NotArchivedUserId { get; set; }
