@@ -250,3 +250,6 @@ project.lock.json
 
 appsettings.json
 appsettings.development.json
+
+# Rider
+.idea
