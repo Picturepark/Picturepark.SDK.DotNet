@@ -1,13 +1,2 @@
-# Default ignored files
-/shelf/
-/workspace.xml
-# Rider ignored files
-/modules.xml
-/projectSettingsUpdater.xml
-/.idea.Picturepark.SDK.DotNet.iml
-/contentModel.xml
-# Datasource local storage ignored files
-/../../../../../../../:\Dev\Picturepark.SDK.DotNet\src\.idea\.idea.Picturepark.SDK.DotNet\.idea/dataSources/
-/dataSources.local.xml
-# Editor-based HTTP Client requests
-/httpRequests/
+# Ignore all rider files
+*.*

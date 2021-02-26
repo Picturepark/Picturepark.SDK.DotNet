@@ -2480,6 +2480,18 @@ namespace Picturepark.SDK.V1.Contract
         System.Threading.Tasks.Task DeleteAsync(string id, UserDeleteRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>Archive user</summary>
+        /// <param name="id">User ID</param>
+        /// <returns>OK</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        System.Threading.Tasks.Task ArchiveAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Restore user</summary>
         /// <param name="id">User ID to action on.</param>
         /// <returns>OK</returns>
@@ -2955,6 +2967,8 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("UserRoleAssignedException", typeof(UserRoleAssignedException))]
     [JsonInheritanceAttribute("UnableToDeleteUserRoleException", typeof(UnableToDeleteUserRoleException))]
     [JsonInheritanceAttribute("UserNotFoundException", typeof(UserNotFoundException))]
+    [JsonInheritanceAttribute("UserNotDeactivatedException", typeof(UserNotDeactivatedException))]
+    [JsonInheritanceAttribute("UserWithOwnerTokensArchiveException", typeof(UserWithOwnerTokensArchiveException))]
     [JsonInheritanceAttribute("UserInactiveOrDeletedException", typeof(UserInactiveOrDeletedException))]
     [JsonInheritanceAttribute("InactiveOrDeletedUserRefusedAccessException", typeof(InactiveOrDeletedUserRefusedAccessException))]
     [JsonInheritanceAttribute("TermsOfServiceNotNewestException", typeof(TermsOfServiceNotNewestException))]
@@ -3432,6 +3446,44 @@ namespace Picturepark.SDK.V1.Contract
         public static UserNotFoundException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<UserNotFoundException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class UserNotDeactivatedException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("notDeactivatedUserId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string NotDeactivatedUserId { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static UserNotDeactivatedException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<UserNotDeactivatedException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class UserWithOwnerTokensArchiveException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("notArchivedUserId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string NotArchivedUserId { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static UserWithOwnerTokensArchiveException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<UserWithOwnerTokensArchiveException>(data);
         }
     
     }
