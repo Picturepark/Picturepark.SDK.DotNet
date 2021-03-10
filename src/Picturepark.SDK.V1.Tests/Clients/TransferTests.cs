@@ -310,7 +310,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var uploadOptions = new UploadOptions
             {
                 ConcurrentUploads = 4,
-                ChunkSize = 1024 * 1024,
                 SuccessDelegate = Console.WriteLine,
                 ErrorDelegate = args => Console.WriteLine(args.Exception)
             };
@@ -415,7 +414,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var uploadOptions = new UploadOptions
             {
                 ConcurrentUploads = 4,
-                ChunkSize = 1024 * 1024,
                 SuccessDelegate = Console.WriteLine,
                 ErrorDelegate = args => Console.WriteLine(args.Exception)
             };
@@ -471,37 +469,42 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var file = Path.GetTempFileName();
             File.WriteAllBytes(file, Enumerable.Repeat((byte)42, 1024 * 1024).ToArray()); // 1MiB
 
-            var files = Enumerable.Range(0, 20).Select(x => new FileLocations(file)).ToList();
-
             var weTriggeredCancellation = false;
 
-            var exception = await Assert.ThrowsAnyAsync<AggregateException>(
+            var transfer = await _client.Transfer.CreateAsync(
+                new CreateTransferRequest
+                {
+                    TransferType = TransferType.FileUpload,
+                    Name = nameof(ShouldReportChunkSizeRangeErrorQuickly),
+                    Files = new List<TransferUploadFile>
+                    {
+                        new TransferUploadFile { RequestId = "file", FileName = Path.GetFileName(file) }
+                    }
+                }).ConfigureAwait(false);
+
+            await _client.BusinessProcess.WaitForStatesAsync(transfer.BusinessProcessId, new[] { TransferState.Created.ToString() }, TimeSpan.FromMinutes(2))
+                .ConfigureAwait(false);
+
+            await Assert.ThrowsAnyAsync<ChunkSizeOutOfRangeException>(
                 async () =>
                 {
                     using (var cts = new CancellationTokenSource(TimeSpan.FromMinutes(1)))
                     using (cts.Token.Register(() => weTriggeredCancellation = true))
                     {
-                        await _client.Transfer.UploadFilesAsync(
-                            nameof(ShouldReportChunkSizeRangeErrorQuickly),
-                            files,
-                            new UploadOptions
-                            {
-                                ChunkSize = 1024, // this is out of range, needs to be between 1 and 100 MiB and given in Bytes
-                                ConcurrentUploads = 10,
-                                WaitForTransferCompletion = false
-                            },
-                            TimeSpan.FromMinutes(2),
-                            cts.Token
-                        ).ConfigureAwait(false);
+                        using (var fs = File.OpenRead(file))
+                        {
+                            var buffer = new byte[1024];
+                            await fs.ReadAsync(buffer, 0, 1024, cts.Token).ConfigureAwait(false);
+
+                            using (var ms = new MemoryStream(buffer))
+                                await _client.Transfer.UploadFileAsync(1, 1024, 1024 * 1024, 1024, transfer.Id, "file", ms, cts.Token).ConfigureAwait(false);
+                        }
                     }
                 }).ConfigureAwait(false);
 
             File.Delete(file);
 
             weTriggeredCancellation.Should().BeFalse();
-            exception.InnerExceptions.Should().NotBeNullOrEmpty();
-            exception.InnerExceptions.Should().OnlyContain(ex => ex is ChunkSizeOutOfRangeException);
-            exception.InnerExceptions.Should().HaveCount(files.Count);
         }
 
         [Fact]

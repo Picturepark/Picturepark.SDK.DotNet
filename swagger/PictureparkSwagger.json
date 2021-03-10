@@ -19909,7 +19909,7 @@
           "Transfer"
         ],
         "summary": "Upload file",
-        "description": "Uploads the specified chunk data.\n            \nUse `Content-Type: application/octet-stream` for uploading chunked data.\nThe chunk data should be contained in the body of your request.\n            \nTo upload a file, split it into chunks of reasonable size (accepted range is 1MB-100MB). The last chunk may be smaller than 1MB.\nIf there's only a single chunk",
+        "description": "Uploads the specified chunk data.\n            \nUse `Content-Type: application/octet-stream` for uploading chunked data.\nThe chunk data should be contained in the body of your request.\n            \nTo upload a file, it is recommended to use a single chunk that has the same size as the file. This is only possible if you're using\nthe octet-stream upload method. If you choose to use formdata upload or multiple chunks per file, the file must be chunked into\n1MB-100MB chunks. The last chunk may be smaller than 1MB.",
         "operationId": "Transfer_UploadFile",
         "parameters": [
           {

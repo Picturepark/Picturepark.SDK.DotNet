@@ -96,7 +96,6 @@ namespace Picturepark.SDK.V1
             // while limiting the chunks would be sufficient to enforce the concurrentUploads setting,
             // we should also not flood the system by prematurely enqueueing tasks for files
             using (var fileLimiter = new SemaphoreSlim(uploadOptions.ConcurrentUploads))
-            using (var chunkLimiter = new SemaphoreSlim(uploadOptions.ConcurrentUploads))
             {
                 var tasks = new List<Task>();
                 var exceptions = new List<Exception>();
@@ -121,7 +120,7 @@ namespace Picturepark.SDK.V1
 
                         try
                         {
-                            await UploadFileAsync(chunkLimiter, transfer.Id, ourFile.Identifier, ourFile, uploadOptions.ChunkSize, cancellationToken).ConfigureAwait(false);
+                            await UploadFileAsync(transfer.Id, ourFile.Identifier, ourFile, cancellationToken).ConfigureAwait(false);
                             Interlocked.CompareExchange(ref atLeastOneFailed, 0, 1);
                         }
                         catch (Exception ex)
@@ -260,111 +259,12 @@ namespace Picturepark.SDK.V1
                 .ConfigureAwait(false);
         }
 
-        private async Task UploadFileAsync(SemaphoreSlim chunkLimiter, string transferId, string identifier, FileLocations fileLocation, int chunkSize, CancellationToken cancellationToken = default)
+        private async Task UploadFileAsync(string transferId, string identifier, FileLocations fileLocation, CancellationToken cancellationToken = default)
         {
             var fileSize = new FileInfo(fileLocation.AbsoluteSourcePath).Length;
-            var chunksForFileSize = (long)Math.Ceiling((decimal)fileSize / chunkSize);
-            var totalChunks = Math.Max(1, chunksForFileSize);
-
-            var uploadTasks = new List<Task>();
-
-            using (var perFileCts = new CancellationTokenSource())
-            using (cancellationToken.Register(perFileCts.Cancel))
-            {
-                var perFileCt = perFileCts.Token;
-
-                for (var chunkNumber = 1; chunkNumber <= totalChunks; chunkNumber++)
-                {
-                    var ourChunkNumber = chunkNumber;
-                    var acquiredSemaphore = await WaitSemaphoreAsync(chunkLimiter, perFileCt).ConfigureAwait(false);
-
-                    // don't enqueue any additional tasks for this file
-                    if (!acquiredSemaphore)
-                        break;
-
-                    uploadTasks.Add(Task.Run(async () =>
-                    {
-                        try
-                        {
-                            await UploadChunkAsync(transferId, identifier, fileLocation, chunkSize, ourChunkNumber, totalChunks, perFileCt).ConfigureAwait(false);
-                        }
-                        catch (OperationCanceledException) when (!cancellationToken.IsCancellationRequested && perFileCt.IsCancellationRequested)
-                        {
-                            // we already have the real exception, no need to also record all the cancellations we triggered ourselves
-                        }
-                        catch
-                        {
-                            perFileCts.Cancel();
-                            throw;
-                        }
-                        finally
-                        {
-                            chunkLimiter.Release();
-                        }
-                    }));
-                }
-
-                await Task.WhenAll(uploadTasks).ConfigureAwait(false);
-            }
-        }
-
-        private async Task UploadChunkAsync(
-            string transferId,
-            string identifier,
-            FileLocations fileLocation,
-            int chunkSize,
-            int number,
-            long totalChunks,
-            CancellationToken ct)
-        {
-            var sourceFileName = Path.GetFileName(fileLocation.AbsoluteSourcePath);
 
             using (var fileStream = File.OpenRead(fileLocation.AbsoluteSourcePath))
-            {
-                var fileSize = fileStream.Length;
-                var position = (number - 1) * (long)chunkSize;
-
-                // last chunk may have a different size.
-                // not using long because
-                // - fileStream.Read's count argument is int
-                // - position for the last chunk is already close to the end of the file
-                if (number == totalChunks)
-                    chunkSize = (int)(fileSize - position);
-
-                var buffer = new byte[chunkSize];
-                fileStream.Position = position;
-
-                await fileStream.ReadAsync(buffer, 0, chunkSize, ct).ConfigureAwait(false);
-
-                using (var memoryStream = new MemoryStream(buffer))
-                {
-                    await UploadFileAsync(
-                        number,
-                        chunkSize,
-                        fileSize,
-                        totalChunks,
-                        transferId,
-                        identifier,
-                        new FileParameter(memoryStream, sourceFileName),
-                        ct).ConfigureAwait(false);
-                }
-            }
-        }
-
-        private async Task<bool> WaitSemaphoreAsync(SemaphoreSlim semaphore, CancellationToken ct)
-        {
-            if (ct.IsCancellationRequested)
-                return false;
-
-            try
-            {
-                await semaphore.WaitAsync(ct).ConfigureAwait(false);
-                return true;
-            }
-            catch (OperationCanceledException)
-            {
-                return false;
-            }
+                await UploadFileAsync(1, fileSize, fileSize, 1, transferId, identifier, fileStream, cancellationToken).ConfigureAwait(false);
         }
 
         private async Task<IEnumerable<FileLocations>> FilterFilesByBlacklist(IEnumerable<FileLocations> files, Action<(FileLocations, Exception)> errorDelegate)
