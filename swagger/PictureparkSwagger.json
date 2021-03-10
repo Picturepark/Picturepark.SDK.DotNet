@@ -19909,7 +19909,7 @@
           "Transfer"
         ],
         "summary": "Upload file",
-        "description": "Uploads the specified chunk data.\n            \nUse `Content-Type: application/octet-stream` for uploading chunked data.\nThe chunk data should be contained in the body of your request.\n            \nTo upload a file, split it into chunks of reasonable size (accepted range is 1MB-100MB). The last chunk may be smaller than 1MB.",
+        "description": "Uploads the specified chunk data.\n            \nUse `Content-Type: application/octet-stream` for uploading chunked data.\nThe chunk data should be contained in the body of your request.\n            \nTo upload a file, split it into chunks of reasonable size (accepted range is 1MB-100MB). The last chunk may be smaller than 1MB.\nIf there's only a single chunk",
         "operationId": "Transfer_UploadFile",
         "parameters": [
           {
@@ -27105,6 +27105,56 @@
           {
             "type": "object",
             "additionalProperties": false
+          }
+        ]
+      },
+      "MaximumNumberOfChunksExceededException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "transferId": {
+                "type": "string",
+                "nullable": true
+              },
+              "numberOfChunks": {
+                "type": "integer",
+                "format": "int64"
+              },
+              "maximumNumberOfChunks": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          }
+        ]
+      },
+      "MaximumFileSizeExceededException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "transferId": {
+                "type": "string",
+                "nullable": true
+              },
+              "declaredFileSize": {
+                "type": "integer",
+                "format": "int64"
+              },
+              "maximumFileSize": {
+                "type": "integer",
+                "format": "int64"
+              }
+            }
           }
         ]
       },
