@@ -9,6 +9,7 @@ namespace Picturepark.SDK.V1.Contract
         public int ConcurrentUploads { get; set; } = 4;
 
         /// <summary>Gets or sets the chunk size in bytes (default: 1 MB).</summary>
+        [Obsolete("SDK helper methods use streaming uploads. In order to use chunked uploads, please see ITransferClient.UploadFileAsync")]
         public int ChunkSize { get; set; } = 1024 * 1024;
 
         /// <summary>Gets or sets a value indicating whether to wait for the completion of the transfer.</summary>

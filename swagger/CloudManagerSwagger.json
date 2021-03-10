@@ -11366,6 +11366,56 @@
           }
         ]
       },
+      "MaximumNumberOfChunksExceededException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "transferId": {
+                "type": "string",
+                "nullable": true
+              },
+              "numberOfChunks": {
+                "type": "integer",
+                "format": "int64"
+              },
+              "maximumNumberOfChunks": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          }
+        ]
+      },
+      "MaximumFileSizeExceededException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "transferId": {
+                "type": "string",
+                "nullable": true
+              },
+              "declaredFileSize": {
+                "type": "integer",
+                "format": "int64"
+              },
+              "maximumFileSize": {
+                "type": "integer",
+                "format": "int64"
+              }
+            }
+          }
+        ]
+      },
       "MissingDependenciesException": {
         "allOf": [
           {
