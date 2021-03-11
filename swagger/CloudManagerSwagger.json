@@ -16483,6 +16483,7 @@
           "documentHistoryRetentionTime",
           "liveStreamRetentionTime",
           "editCollectionRetentionTime",
+          "notificationEventCollectionRetentionTime",
           "replacedOriginalsRetentionTime",
           "snapshotEnabled",
           "snapshotFullbackupScheduleTime",
@@ -16670,6 +16671,10 @@
             "format": "time-span"
           },
           "editCollectionRetentionTime": {
+            "type": "string",
+            "format": "time-span"
+          },
+          "notificationEventCollectionRetentionTime": {
             "type": "string",
             "format": "time-span"
           },
@@ -18114,6 +18119,7 @@
           "incompleteTransferRetentionTime",
           "replacedOriginalsRetentionTime",
           "editCollectionRetentionTime",
+          "notificationEventCollectionRetentionTime",
           "contentBackupState",
           "apiCallsPerMinute",
           "enableSupportUserRegistrationEmailNotification",
@@ -18415,6 +18421,10 @@
             "type": "string",
             "format": "time-span"
           },
+          "notificationEventCollectionRetentionTime": {
+            "type": "string",
+            "format": "time-span"
+          },
           "deactivationMessage": {
             "nullable": true,
             "oneOf": [
@@ -18547,6 +18557,7 @@
           "successfulTransferRetentionTime",
           "incompleteTransferRetentionTime",
           "editCollectionRetentionTime",
+          "notificationEventCollectionRetentionTime",
           "replacedOriginalsRetentionTime",
           "useSsl",
           "enableQueryDetails",
@@ -18615,6 +18626,10 @@
             "format": "time-span"
           },
           "editCollectionRetentionTime": {
+            "type": "string",
+            "format": "time-span"
+          },
+          "notificationEventCollectionRetentionTime": {
             "type": "string",
             "format": "time-span"
           },
