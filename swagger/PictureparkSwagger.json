@@ -7252,6 +7252,334 @@
         ]
       }
     },
+    "/v1/Contents/{id}/versions": {
+      "post": {
+        "tags": [
+          "Content"
+        ],
+        "summary": "Get historic versions",
+        "operationId": "Content_GetVersions",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Content ID.",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 1
+          }
+        ],
+        "requestBody": {
+          "x-name": "request",
+          "description": "Request allowing for paging",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/HistoricVersionSearchRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 2
+        },
+        "responses": {
+          "200": {
+            "description": "Historic versions",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HistoricVersionSearchResult"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "content_read"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/Contents/{id}/versions/{versionId}/file": {
+      "get": {
+        "tags": [
+          "Content"
+        ],
+        "summary": "Get historic version download link",
+        "operationId": "Content_GetVersionDownloadLink",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Content ID.",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 1
+          },
+          {
+            "name": "versionId",
+            "in": "path",
+            "required": true,
+            "description": "Version ID.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 2
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Download token to be used with download/{token} endpoint",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "content_read"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/Contents/{id}/versions/{versionId}": {
+      "delete": {
+        "tags": [
+          "Content"
+        ],
+        "summary": "Delete historic version",
+        "operationId": "Content_DeleteVersion",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Content ID.",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 1
+          },
+          {
+            "name": "versionId",
+            "in": "path",
+            "required": true,
+            "description": "Version ID.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "x-position": 2
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "content_write"
+            ]
+          }
+        ]
+      }
+    },
     "/v1/DisplayValues/status": {
       "get": {
         "tags": [
@@ -26684,7 +27012,8 @@
           "EditMetadata",
           "EditContent",
           "ManagePermissions",
-          "Delete"
+          "Delete",
+          "ManageHistoricVersions"
         ],
         "enum": [
           "View",
@@ -26692,7 +27021,8 @@
           "EditMetadata",
           "EditContent",
           "ManagePermissions",
-          "Delete"
+          "Delete",
+          "ManageHistoricVersions"
         ]
       },
       "ListItemPermissionException": {
@@ -29379,6 +29709,48 @@
             }
           }
         }
+      },
+      "ContentHistoricVersionNotFoundException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkNotFoundException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "contentId": {
+                "type": "string",
+                "nullable": true
+              },
+              "version": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          }
+        ]
+      },
+      "UnableToDeleteLatestXmpWritebackGeneratedContentHistoricVersionException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "contentId": {
+                "type": "string",
+                "nullable": true
+              },
+              "version": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          }
+        ]
       },
       "BusinessProcessEngineRequestException": {
         "allOf": [
@@ -36366,6 +36738,12 @@
                 "$ref": "#/components/schemas/Activity"
               }
             ]
+          },
+          "historicVersionCount": {
+            "type": "integer",
+            "description": "The number of historized versions of the content. Null if not requested, user has no ManageHistoricVersions right on the content or versioning is disabled.",
+            "format": "int32",
+            "nullable": true
           }
         }
       },
@@ -36753,7 +37131,8 @@
           "OuterDisplayValueThumbnail",
           "OuterDisplayValueList",
           "OuterDisplayValueDetail",
-          "OuterDisplayValueName"
+          "OuterDisplayValueName",
+          "HistoricVersionCount"
         ],
         "enum": [
           "Content",
@@ -36769,7 +37148,8 @@
           "OuterDisplayValueThumbnail",
           "OuterDisplayValueList",
           "OuterDisplayValueDetail",
-          "OuterDisplayValueName"
+          "OuterDisplayValueName",
+          "HistoricVersionCount"
         ]
       },
       "ThumbnailSize": {
@@ -38449,6 +38829,141 @@
           }
         ]
       },
+      "HistoricVersionSearchResult": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BaseResultOfHistoricVersion"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "queryDebugInformation": {
+                "type": "array",
+                "description": "Additional information regarding the query execution and reason of the matched documents. Multiple items are returned if multiple queries were performed.",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/QueryDebugInformation"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "BaseResultOfHistoricVersion": {
+        "type": "object",
+        "description": "Base class for search results",
+        "additionalProperties": false,
+        "required": [
+          "results",
+          "totalResults",
+          "elapsedMilliseconds"
+        ],
+        "properties": {
+          "totalResults": {
+            "type": "integer",
+            "description": "The total number of matching documents.",
+            "format": "int64"
+          },
+          "results": {
+            "type": "array",
+            "description": "The matched documents.",
+            "items": {
+              "$ref": "#/components/schemas/HistoricVersion"
+            }
+          },
+          "elapsedMilliseconds": {
+            "type": "integer",
+            "description": "The search execution time in milliseconds.",
+            "format": "int64"
+          },
+          "pageToken": {
+            "type": "string",
+            "description": "An optional token to access the next page of results for those endpoints that support backend scrolling logic.",
+            "nullable": true
+          }
+        }
+      },
+      "HistoricVersion": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "versionNumber",
+          "replaced",
+          "createdByXmpWriteback"
+        ],
+        "properties": {
+          "versionNumber": {
+            "type": "integer",
+            "description": "Sequential version number.",
+            "format": "int32"
+          },
+          "contentId": {
+            "type": "string",
+            "description": "Content ID.",
+            "nullable": true
+          },
+          "replaced": {
+            "type": "string",
+            "description": "The datetime when this version was replaced.",
+            "format": "date-time"
+          },
+          "user": {
+            "description": "User who replaced this version.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/User"
+              }
+            ]
+          },
+          "fileName": {
+            "type": "string",
+            "description": "File name for this version.",
+            "nullable": true
+          },
+          "createdByXmpWriteback": {
+            "type": "boolean",
+            "description": "True if this version was created by XMP writeback (as the version without the mutation)."
+          },
+          "originalOutputId": {
+            "type": "string",
+            "description": "ID of the original output associated with this version.",
+            "nullable": true
+          }
+        }
+      },
+      "HistoricVersionSearchRequest": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "excludeXmpWritebackGenerated",
+          "limit",
+          "debugMode"
+        ],
+        "properties": {
+          "excludeXmpWritebackGenerated": {
+            "type": "boolean",
+            "description": "Will exclude the historic versions that were created by XMP writeback"
+          },
+          "limit": {
+            "type": "integer",
+            "description": "Limits the document count of the result set. Defaults to 30.",
+            "format": "int32",
+            "default": 30
+          },
+          "pageToken": {
+            "type": "string",
+            "description": "The token used to retrieve the next page of results. It must be null on first request and only filled with the returned pageToken to request next page of results.",
+            "nullable": true
+          },
+          "debugMode": {
+            "type": "boolean",
+            "description": "Enable debug mode: additional debug information regarding the query execution and reason of the matched documents are returned in the BusinessProcessSearchResult.\nWarning! It severely affects performance.",
+            "default": false
+          }
+        }
+      },
       "DisplayValueStatus": {
         "type": "object",
         "additionalProperties": false,
@@ -38869,7 +39384,8 @@
           "boostValues",
           "modificationDate",
           "baseUrl",
-          "logosUrl"
+          "logosUrl",
+          "licenseInformation"
         ],
         "properties": {
           "customerId": {
@@ -38953,6 +39469,14 @@
             "type": "string",
             "description": "Base bath to access logos of customer (including trailing slash), available images: name, full, small, background",
             "minLength": 1
+          },
+          "licenseInformation": {
+            "description": "License options and states",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/LicenseInfo"
+              }
+            ]
           }
         }
       },
@@ -39099,6 +39623,38 @@
             "nullable": true
           }
         }
+      },
+      "LicenseInfo": {
+        "type": "object",
+        "description": "Customer license information",
+        "additionalProperties": false,
+        "required": [
+          "historicVersioningState"
+        ],
+        "properties": {
+          "historicVersioningState": {
+            "description": "State of content historic versioning",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/HistoricVersioningState"
+              }
+            ]
+          }
+        }
+      },
+      "HistoricVersioningState": {
+        "type": "string",
+        "description": "",
+        "x-enumNames": [
+          "Disabled",
+          "Suspended",
+          "Enabled"
+        ],
+        "enum": [
+          "Disabled",
+          "Suspended",
+          "Enabled"
+        ]
       },
       "SystemStatus": {
         "type": "object",

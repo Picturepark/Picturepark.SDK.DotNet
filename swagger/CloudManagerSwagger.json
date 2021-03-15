@@ -10942,7 +10942,8 @@
           "EditMetadata",
           "EditContent",
           "ManagePermissions",
-          "Delete"
+          "Delete",
+          "ManageHistoricVersions"
         ],
         "enum": [
           "View",
@@ -10950,7 +10951,8 @@
           "EditMetadata",
           "EditContent",
           "ManagePermissions",
-          "Delete"
+          "Delete",
+          "ManageHistoricVersions"
         ]
       },
       "ListItemPermissionException": {
@@ -13638,6 +13640,48 @@
           }
         }
       },
+      "ContentHistoricVersionNotFoundException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkNotFoundException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "contentId": {
+                "type": "string",
+                "nullable": true
+              },
+              "version": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          }
+        ]
+      },
+      "UnableToDeleteLatestXmpWritebackGeneratedContentHistoricVersionException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "contentId": {
+                "type": "string",
+                "nullable": true
+              },
+              "version": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          }
+        ]
+      },
       "BusinessProcessEngineRequestException": {
         "allOf": [
           {
@@ -15738,7 +15782,8 @@
         "additionalProperties": false,
         "required": [
           "backupOption",
-          "subscription"
+          "subscription",
+          "historicVersioningState"
         ],
         "properties": {
           "backupOption": {
@@ -15754,6 +15799,14 @@
             "oneOf": [
               {
                 "$ref": "#/components/schemas/LicenseSubscription"
+              }
+            ]
+          },
+          "historicVersioningState": {
+            "description": "State of content historic versioning",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/HistoricVersioningState"
               }
             ]
           }
@@ -15783,6 +15836,20 @@
           "Standard",
           "Premium",
           "Enterprise"
+        ]
+      },
+      "HistoricVersioningState": {
+        "type": "string",
+        "description": "",
+        "x-enumNames": [
+          "Disabled",
+          "Suspended",
+          "Enabled"
+        ],
+        "enum": [
+          "Disabled",
+          "Suspended",
+          "Enabled"
         ]
       },
       "CustomerImportRequest": {
