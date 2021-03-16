@@ -11,6 +11,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using Picturepark.SDK.V1.Tests.Helpers;
 using Xunit;
@@ -1562,6 +1563,46 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
         [Fact]
         [Trait("Stack", "Contents")]
+        public async Task ShouldGetHistoricVersions()
+        {
+            string contentId = await _fixture.GetRandomContentIdAsync("fileMetadata.fileExtension:.jpg -0030_JabLtzJl8bc", 20).ConfigureAwait(false);
+
+            // Create transfer
+            var filePaths = new FileLocations[]
+            {
+                Path.Combine(_fixture.ExampleFilesBasePath, "0030_JabLtzJl8bc.jpg")
+            };
+            string transferName = nameof(ShouldUpdateFile) + "-" + new Random().Next(1000, 9999);
+            var createTransferResult = await _client.Transfer.CreateAndWaitForCompletionAsync(transferName, filePaths).ConfigureAwait(false);
+
+            // Upload file
+            var uploadOptions = new UploadOptions
+            {
+                SuccessDelegate = Console.WriteLine,
+                ErrorDelegate = args => Console.WriteLine(args.Exception)
+            };
+
+            await _client.Transfer.UploadFilesAsync(createTransferResult.Transfer, filePaths, uploadOptions).ConfigureAwait(false);
+
+            // Search filetransfers to get id
+            var request = new FileTransferSearchRequest() { Limit = 20, SearchString = "*", Filter = new TermFilter { Field = "transferId", Term = createTransferResult.Transfer.Id } };
+            FileTransferSearchResult result = await _client.Transfer.SearchFilesAsync(request).ConfigureAwait(false);
+
+            Assert.Equal(1, result.TotalResults);
+
+            var updateRequest = new ContentFileUpdateRequest
+            {
+                FileTransferId = result.Results.First().Id
+            };
+
+            var businessProcess = await _client.Content.UpdateFileAsync(contentId, updateRequest).ConfigureAwait(false);
+            var waitResult = await _client.BusinessProcess.WaitForCompletionAsync(businessProcess.Id).ConfigureAwait(false);
+
+            Assert.True(waitResult.LifeCycleHit == BusinessProcessLifeCycle.Succeeded);
+        }
+
+        [Fact]
+        [Trait("Stack", "Contents")]
         public async Task ShouldUpdatePermissions()
         {
             // Arrange
@@ -1751,6 +1792,130 @@ namespace Picturepark.SDK.V1.Tests.Clients
             new DirectoryInfo(targetFolder).EnumerateFiles("*").Should().HaveCountGreaterOrEqualTo(numberOfUploads);
         }
 
+        [Fact]
+        [Trait("Stack", "Contents")]
+        public async Task ShouldListHistoricVersions()
+        {
+            var versioningState = (await _client.Info.GetInfoAsync().ConfigureAwait(false)).LicenseInformation
+                .HistoricVersioningState;
+            var contentId = (await UploadAndImportContents().ConfigureAwait(false)).Single();
+            await UploadAndReplaceContent(contentId).ConfigureAwait(false);
+
+            var versions = await _client.Content.GetVersionsAsync(contentId, new HistoricVersionSearchRequest()).ConfigureAwait(false);
+
+            if (versioningState == HistoricVersioningState.Enabled)
+            {
+                // If historic versioning is enabled on the customer, the original version is preserved when the content is replaced.
+                var version = versions.Results.Should().ContainSingle().Which;
+                version.Replaced.Should().BeWithin(TimeSpan.FromMinutes(2));
+                version.ContentId.Should().Be(contentId);
+                version.VersionNumber.Should().Be(1);
+                version.CreatedByXmpWriteback.Should().BeFalse();
+            }
+            else
+            {
+                // If historic versioning is disabled or suspended, the original version is not preserved when the content is replaced.
+                versions.Results.Should().BeEmpty();
+            }
+        }
+
+        [Fact]
+        [Trait("Stack", "Contents")]
+        public async Task ShouldGetDownloadLinkForHistoricVersions()
+        {
+            var versioningState = (await _client.Info.GetInfoAsync().ConfigureAwait(false)).LicenseInformation
+                .HistoricVersioningState;
+            var contentId = (await UploadAndImportContents().ConfigureAwait(false)).Single();
+            await UploadAndReplaceContent(contentId).ConfigureAwait(false);
+
+            if (versioningState == HistoricVersioningState.Enabled)
+            {
+                // If historic versioning is enabled on the customer, the original version is preserved when the content is replaced.
+                // Versions are numbered in sequence from 1.
+                var downloadToken = await _client.Content.GetVersionDownloadLinkAsync(contentId, 1).ConfigureAwait(false);
+                var downloadLink = await _client.Content.GetDownloadLinkAsync(downloadToken).ConfigureAwait(false);
+
+                using (var httpClient = new HttpClient())
+                using (var response = await httpClient.GetAsync(downloadLink.DownloadUrl).ConfigureAwait(false))
+                {
+                    response.EnsureSuccessStatusCode();
+
+                    var fileName = response.Content.Headers.ContentDisposition.FileName.Replace("\"", string.Empty);
+                    Assert.EndsWith(".jpg", fileName);
+
+                    var filePath = Path.Combine(_fixture.TempDirectory, fileName);
+
+                    using (var stream = await response.Content.ReadAsStreamAsync().ConfigureAwait(false))
+                    using (var fileStream = File.Create(filePath))
+                    {
+                        await stream.CopyToAsync(fileStream).ConfigureAwait(false);
+
+                        // Assert
+                        Assert.True(stream.Length > 10);
+                    }
+                }
+            }
+            else
+            {
+                // If historic versioning is disabled, the original version is not preserved when the content is replaced,
+                // therefore download link cannot be generated.
+                Func<Task> createVersion = () => _client.Content.GetVersionDownloadLinkAsync(contentId, 1);
+                await createVersion.Should().ThrowAsync<ContentHistoricVersionNotFoundException>().ConfigureAwait(false);
+            }
+        }
+
+        [Fact]
+        [Trait("Stack", "Contents")]
+        public async Task ShouldDeleteHistoricVersion()
+        {
+            var versioningState = (await _client.Info.GetInfoAsync().ConfigureAwait(false)).LicenseInformation
+                .HistoricVersioningState;
+            var contentId = (await UploadAndImportContents().ConfigureAwait(false)).Single();
+            await UploadAndReplaceContent(contentId).ConfigureAwait(false);
+
+            if (versioningState == HistoricVersioningState.Enabled)
+            {
+                // If historic versioning is enabled on the customer, the original version is preserved when the content is replaced.
+                var versions = await _client.Content.GetVersionsAsync(contentId, new HistoricVersionSearchRequest()).ConfigureAwait(false);
+                versions.Results.Should().HaveCount(1);
+
+                // Versions are numbered in sequence from 1.
+                await _client.Content.DeleteVersionAsync(contentId, 1).ConfigureAwait(false);
+
+                versions = await _client.Content.GetVersionsAsync(contentId, new HistoricVersionSearchRequest()).ConfigureAwait(false);
+                versions.Results.Should().BeEmpty();
+            }
+            else
+            {
+                // If historic versioning is disabled, the original version is not preserved when the content is replaced.
+                Func<Task> deleteVersion = () => _client.Content.DeleteVersionAsync(contentId, 1);
+                await deleteVersion.Should().ThrowAsync<ContentHistoricVersionNotFoundException>().ConfigureAwait(false);
+            }
+        }
+
+        [Fact]
+        [Trait("Stack", "Contents")]
+        public async Task ShouldResolveHistoricVersionCount()
+        {
+            var versioningState = (await _client.Info.GetInfoAsync().ConfigureAwait(false)).LicenseInformation
+                .HistoricVersioningState;
+            var contentId = (await UploadAndImportContents().ConfigureAwait(false)).Single();
+            await UploadAndReplaceContent(contentId).ConfigureAwait(false);
+
+            var content = await _client.Content.GetAsync(contentId, new[] { ContentResolveBehavior.HistoricVersionCount }).ConfigureAwait(false);
+
+            if (versioningState == HistoricVersioningState.Enabled)
+            {
+                // If historic versioning is enabled on the customer, the original version is preserved when the content is replaced.
+                content.HistoricVersionCount.Should().Be(1);
+            }
+            else
+            {
+                // If historic versioning is disabled or suspended, the original version is not preserved when the content is replaced.
+                content.HistoricVersionCount.Should().Be(0);
+            }
+        }
+
         private static async Task AssertFileResponseOkAndNonEmpty(FileResponse response, string expectedContentType = null)
         {
             using (var stream = new MemoryStream())
@@ -1870,6 +2035,72 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var createdSchemas = resultDetails.SucceededItems;
 
             return (createdSchemas.First(s => s.Types.Contains(SchemaType.Content)), createdSchemas.First(s => s.Types.Contains(SchemaType.Layer)));
+        }
+
+        private async Task<Transfer> UploadContents(int count = 1, [CallerMemberName] string testName = null)
+        {
+            var transferName = testName + "-" + new Random().Next(1000, 9999);
+            var filesInDirectory = Directory.GetFiles(_fixture.ExampleFilesBasePath, "*.jpg").ToList();
+
+            var numberOfFilesInDirectory = filesInDirectory.Count;
+            var numberOfUploadFiles = Math.Min(count, numberOfFilesInDirectory);
+
+            var randomNumber = new Random().Next(0, numberOfFilesInDirectory - numberOfUploadFiles);
+            var importFilePaths = filesInDirectory
+                .Skip(randomNumber)
+                .Take(numberOfUploadFiles)
+                .Select(fn => new FileLocations(fn, $"{Path.GetFileNameWithoutExtension(fn)}_1{Path.GetExtension(fn)}"))
+                .ToList();
+
+            // Act
+            var uploadOptions = new UploadOptions
+            {
+                ConcurrentUploads = 4,
+                SuccessDelegate = Console.WriteLine,
+                ErrorDelegate = args => Console.WriteLine(args.Exception)
+            };
+            var createTransferResult = await _client.Transfer.UploadFilesAsync(transferName, importFilePaths, uploadOptions).ConfigureAwait(false);
+            return createTransferResult.Transfer;
+        }
+
+        private async Task<IReadOnlyList<string>> UploadAndImportContents(int count = 1, [CallerMemberName] string testName = null)
+        {
+            var timeout = TimeSpan.FromMinutes(2);
+            var transfer = await UploadContents(count, testName).ConfigureAwait(false);
+
+            var importRequest = new ImportTransferRequest
+            {
+                ContentPermissionSetIds = new List<string>(),
+                Metadata = null,
+                LayerSchemaIds = new List<string>()
+            };
+
+            await _client.Transfer.ImportAndWaitForCompletionAsync(transfer, importRequest, timeout).ConfigureAwait(false);
+
+            // Assert
+            var result = await _client.Transfer.SearchFilesByTransferIdAsync(transfer.Id).ConfigureAwait(false);
+            return result.Select(r => r.ContentId).ToArray();
+        }
+
+        private async Task UploadAndReplaceContent(string contentId, [CallerMemberName] string testName = null)
+        {
+            var transfer = await UploadContents(1, testName).ConfigureAwait(false);
+
+            // Search filetransfers to get id
+            var request = new FileTransferSearchRequest { Filter = new TermFilter { Field = "transferId", Term = transfer.Id } };
+            var result = await _client.Transfer.SearchFilesAsync(request).ConfigureAwait(false);
+
+            Assert.Equal(1, result.TotalResults);
+
+            var updateRequest = new ContentFileUpdateRequest
+            {
+                FileTransferId = result.Results.First().Id
+            };
+
+            var businessProcess = await _client.Content.UpdateFileAsync(contentId, updateRequest).ConfigureAwait(false);
+            var waitResult = await _client.BusinessProcess.WaitForCompletionAsync(businessProcess.Id).ConfigureAwait(false);
+
+            Assert.True(waitResult.LifeCycleHit == BusinessProcessLifeCycle.Succeeded);
         }
     }
 }
