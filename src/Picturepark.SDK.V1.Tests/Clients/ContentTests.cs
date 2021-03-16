@@ -1832,8 +1832,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             {
                 // If historic versioning is enabled on the customer, the original version is preserved when the content is replaced.
                 // Versions are numbered in sequence from 1.
-                var downloadToken = await _client.Content.GetVersionDownloadLinkAsync(contentId, 1).ConfigureAwait(false);
-                var downloadLink = await _client.Content.GetDownloadLinkAsync(downloadToken).ConfigureAwait(false);
+                var downloadLink = await _client.Content.GetVersionDownloadLinkAsync(contentId, 1).ConfigureAwait(false);
 
                 using (var httpClient = new HttpClient())
                 using (var response = await httpClient.GetAsync(downloadLink.DownloadUrl).ConfigureAwait(false))
