@@ -7371,7 +7371,7 @@
           "Content"
         ],
         "summary": "Get historic version download link",
-        "operationId": "Content_GetVersionDownloadLink",
+        "operationId": "Content_CreateVersionDownloadLink",
         "parameters": [
           {
             "name": "id",
@@ -37159,13 +37159,15 @@
           "Small",
           "Medium",
           "Large",
-          "Preview"
+          "Preview",
+          "ExtraLarge"
         ],
         "enum": [
           "Small",
           "Medium",
           "Large",
-          "Preview"
+          "Preview",
+          "ExtraLarge"
         ]
       },
       "ContentCreateRequest": {

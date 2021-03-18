@@ -1563,46 +1563,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
         [Fact]
         [Trait("Stack", "Contents")]
-        public async Task ShouldGetHistoricVersions()
-        {
-            string contentId = await _fixture.GetRandomContentIdAsync("fileMetadata.fileExtension:.jpg -0030_JabLtzJl8bc", 20).ConfigureAwait(false);
-
-            // Create transfer
-            var filePaths = new FileLocations[]
-            {
-                Path.Combine(_fixture.ExampleFilesBasePath, "0030_JabLtzJl8bc.jpg")
-            };
-            string transferName = nameof(ShouldUpdateFile) + "-" + new Random().Next(1000, 9999);
-            var createTransferResult = await _client.Transfer.CreateAndWaitForCompletionAsync(transferName, filePaths).ConfigureAwait(false);
-
-            // Upload file
-            var uploadOptions = new UploadOptions
-            {
-                SuccessDelegate = Console.WriteLine,
-                ErrorDelegate = args => Console.WriteLine(args.Exception)
-            };
-
-            await _client.Transfer.UploadFilesAsync(createTransferResult.Transfer, filePaths, uploadOptions).ConfigureAwait(false);
-
-            // Search filetransfers to get id
-            var request = new FileTransferSearchRequest() { Limit = 20, SearchString = "*", Filter = new TermFilter { Field = "transferId", Term = createTransferResult.Transfer.Id } };
-            FileTransferSearchResult result = await _client.Transfer.SearchFilesAsync(request).ConfigureAwait(false);
-
-            Assert.Equal(1, result.TotalResults);
-
-            var updateRequest = new ContentFileUpdateRequest
-            {
-                FileTransferId = result.Results.First().Id
-            };
-
-            var businessProcess = await _client.Content.UpdateFileAsync(contentId, updateRequest).ConfigureAwait(false);
-            var waitResult = await _client.BusinessProcess.WaitForCompletionAsync(businessProcess.Id).ConfigureAwait(false);
-
-            Assert.True(waitResult.LifeCycleHit == BusinessProcessLifeCycle.Succeeded);
-        }
-
-        [Fact]
-        [Trait("Stack", "Contents")]
         public async Task ShouldUpdatePermissions()
         {
             // Arrange
@@ -1911,7 +1871,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             else
             {
                 // If historic versioning is disabled or suspended, the original version is not preserved when the content is replaced.
-                content.HistoricVersionCount.Should().Be(0);
+                content.HistoricVersionCount.Should().BeNull();
             }
         }
 
