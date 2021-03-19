@@ -781,6 +781,45 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<ObjectAggregationResult> AggregateAsync(ContentAggregationRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>Get historic versions</summary>
+        /// <param name="id">Content ID.</param>
+        /// <param name="request">Request allowing for paging</param>
+        /// <returns>Historic versions</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        System.Threading.Tasks.Task<HistoricVersionSearchResult> GetVersionsAsync(string id, HistoricVersionSearchRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>Get historic version download link</summary>
+        /// <param name="id">Content ID.</param>
+        /// <param name="versionId">Version ID.</param>
+        /// <returns>Download token to be used with download/{token} endpoint</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        System.Threading.Tasks.Task<string> CreateVersionDownloadLinkAsync(string id, int versionId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>Delete historic version</summary>
+        /// <param name="id">Content ID.</param>
+        /// <param name="versionId">Version ID.</param>
+        /// <returns>OK</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        System.Threading.Tasks.Task DeleteVersionAsync(string id, int versionId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "13.2.2.0 (NJsonSchema v10.1.4.0 (Newtonsoft.Json v11.0.0.0))")]
@@ -3181,6 +3220,8 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("ContentFileReplaceTypeMismatchException", typeof(ContentFileReplaceTypeMismatchException))]
     [JsonInheritanceAttribute("ContentBackupFailedException", typeof(ContentBackupFailedException))]
     [JsonInheritanceAttribute("ContentLayerSameRootException", typeof(ContentLayerSameRootException))]
+    [JsonInheritanceAttribute("ContentHistoricVersionNotFoundException", typeof(ContentHistoricVersionNotFoundException))]
+    [JsonInheritanceAttribute("UnableToDeleteLatestXmpWritebackGeneratedContentHistoricVersionException", typeof(UnableToDeleteLatestXmpWritebackGeneratedContentHistoricVersionException))]
     [JsonInheritanceAttribute("BusinessProcessEngineRequestException", typeof(BusinessProcessEngineRequestException))]
     [JsonInheritanceAttribute("BusinessProcessNotFoundException", typeof(BusinessProcessNotFoundException))]
     [JsonInheritanceAttribute("BusinessProcessDefinitionNotFoundException", typeof(BusinessProcessDefinitionNotFoundException))]
@@ -5927,6 +5968,9 @@ namespace Picturepark.SDK.V1.Contract
     
         [System.Runtime.Serialization.EnumMember(Value = @"Delete")]
         Delete = 5,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"ManageHistoricVersions")]
+        ManageHistoricVersions = 6,
     
     }
     
@@ -8715,6 +8759,50 @@ namespace Picturepark.SDK.V1.Contract
         public static LayerIdsByRootSchema FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<LayerIdsByRootSchema>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class ContentHistoricVersionNotFoundException : PictureparkNotFoundException
+    {
+        [Newtonsoft.Json.JsonProperty("contentId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ContentId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("version", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int Version { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static ContentHistoricVersionNotFoundException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentHistoricVersionNotFoundException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class UnableToDeleteLatestXmpWritebackGeneratedContentHistoricVersionException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("contentId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ContentId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("version", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int Version { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static UnableToDeleteLatestXmpWritebackGeneratedContentHistoricVersionException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<UnableToDeleteLatestXmpWritebackGeneratedContentHistoricVersionException>(data);
         }
     
     }
@@ -15595,6 +15683,10 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("activity", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public Activity Activity { get; set; }
     
+        /// <summary>The number of historized versions of the content. Null if not requested, user has no ManageHistoricVersions right on the content or versioning is disabled.</summary>
+        [Newtonsoft.Json.JsonProperty("historicVersionCount", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int? HistoricVersionCount { get; set; }
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -16016,6 +16108,9 @@ namespace Picturepark.SDK.V1.Contract
         [System.Runtime.Serialization.EnumMember(Value = @"OuterDisplayValueName")]
         OuterDisplayValueName = 13,
     
+        [System.Runtime.Serialization.EnumMember(Value = @"HistoricVersionCount")]
+        HistoricVersionCount = 14,
+    
     }
     
     /// <summary>Values that represent thumbnail sizes.</summary>
@@ -16033,6 +16128,9 @@ namespace Picturepark.SDK.V1.Contract
     
         [System.Runtime.Serialization.EnumMember(Value = @"Preview")]
         Preview = 3,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"ExtraLarge")]
+        ExtraLarge = 4,
     
     }
     
@@ -17646,6 +17744,134 @@ namespace Picturepark.SDK.V1.Contract
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class HistoricVersionSearchResult : BaseResultOfHistoricVersion
+    {
+        /// <summary>Additional information regarding the query execution and reason of the matched documents. Multiple items are returned if multiple queries were performed.</summary>
+        [Newtonsoft.Json.JsonProperty("queryDebugInformation", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<QueryDebugInformation> QueryDebugInformation { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static HistoricVersionSearchResult FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<HistoricVersionSearchResult>(data);
+        }
+    
+    }
+    
+    /// <summary>Base class for search results</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class BaseResultOfHistoricVersion 
+    {
+        /// <summary>The total number of matching documents.</summary>
+        [Newtonsoft.Json.JsonProperty("totalResults", Required = Newtonsoft.Json.Required.Always)]
+        public long TotalResults { get; set; }
+    
+        /// <summary>The matched documents.</summary>
+        [Newtonsoft.Json.JsonProperty("results", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.Collections.Generic.ICollection<HistoricVersion> Results { get; set; } = new System.Collections.Generic.List<HistoricVersion>();
+    
+        /// <summary>The search execution time in milliseconds.</summary>
+        [Newtonsoft.Json.JsonProperty("elapsedMilliseconds", Required = Newtonsoft.Json.Required.Always)]
+        public long ElapsedMilliseconds { get; set; }
+    
+        /// <summary>An optional token to access the next page of results for those endpoints that support backend scrolling logic.</summary>
+        [Newtonsoft.Json.JsonProperty("pageToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string PageToken { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static BaseResultOfHistoricVersion FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BaseResultOfHistoricVersion>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class HistoricVersion 
+    {
+        /// <summary>Sequential version number.</summary>
+        [Newtonsoft.Json.JsonProperty("versionNumber", Required = Newtonsoft.Json.Required.Always)]
+        public int VersionNumber { get; set; }
+    
+        /// <summary>Content ID.</summary>
+        [Newtonsoft.Json.JsonProperty("contentId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ContentId { get; set; }
+    
+        /// <summary>The datetime when this version was replaced.</summary>
+        [Newtonsoft.Json.JsonProperty("replaced", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public System.DateTime Replaced { get; set; }
+    
+        /// <summary>User who replaced this version.</summary>
+        [Newtonsoft.Json.JsonProperty("user", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public User User { get; set; }
+    
+        /// <summary>File name for this version.</summary>
+        [Newtonsoft.Json.JsonProperty("fileName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string FileName { get; set; }
+    
+        /// <summary>True if this version was created by XMP writeback (as the version without the mutation).</summary>
+        [Newtonsoft.Json.JsonProperty("createdByXmpWriteback", Required = Newtonsoft.Json.Required.Always)]
+        public bool CreatedByXmpWriteback { get; set; }
+    
+        /// <summary>ID of the original output associated with this version.</summary>
+        [Newtonsoft.Json.JsonProperty("originalOutputId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string OriginalOutputId { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static HistoricVersion FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<HistoricVersion>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class HistoricVersionSearchRequest 
+    {
+        /// <summary>Will exclude the historic versions that were created by XMP writeback</summary>
+        [Newtonsoft.Json.JsonProperty("excludeXmpWritebackGenerated", Required = Newtonsoft.Json.Required.Always)]
+        public bool ExcludeXmpWritebackGenerated { get; set; }
+    
+        /// <summary>Limits the document count of the result set. Defaults to 30.</summary>
+        [Newtonsoft.Json.JsonProperty("limit", Required = Newtonsoft.Json.Required.Always)]
+        public int Limit { get; set; } = 30;
+    
+        /// <summary>The token used to retrieve the next page of results. It must be null on first request and only filled with the returned pageToken to request next page of results.</summary>
+        [Newtonsoft.Json.JsonProperty("pageToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string PageToken { get; set; }
+    
+        /// <summary>Enable debug mode: additional debug information regarding the query execution and reason of the matched documents are returned in the BusinessProcessSearchResult.
+        /// Warning! It severely affects performance.</summary>
+        [Newtonsoft.Json.JsonProperty("debugMode", Required = Newtonsoft.Json.Required.Always)]
+        public bool DebugMode { get; set; } = false;
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static HistoricVersionSearchRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<HistoricVersionSearchRequest>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class DisplayValueStatus 
     {
         /// <summary>The schema ids (of type Content or Layer) for which the re-rendering of the display values is needed.</summary>
@@ -18138,6 +18364,11 @@ namespace Picturepark.SDK.V1.Contract
         [System.ComponentModel.DataAnnotations.Required]
         public string LogosUrl { get; set; }
     
+        /// <summary>License options and states</summary>
+        [Newtonsoft.Json.JsonProperty("licenseInformation", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public LicenseInfo LicenseInformation { get; set; } = new LicenseInfo();
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -18286,6 +18517,42 @@ namespace Picturepark.SDK.V1.Contract
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<CustomerApp>(data);
         }
+    
+    }
+    
+    /// <summary>Customer license information</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class LicenseInfo 
+    {
+        /// <summary>State of content historic versioning</summary>
+        [Newtonsoft.Json.JsonProperty("historicVersioningState", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public HistoricVersioningState HistoricVersioningState { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static LicenseInfo FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<LicenseInfo>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public enum HistoricVersioningState
+    {
+        [System.Runtime.Serialization.EnumMember(Value = @"Disabled")]
+        Disabled = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Suspended")]
+        Suspended = 1,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Enabled")]
+        Enabled = 2,
     
     }
     

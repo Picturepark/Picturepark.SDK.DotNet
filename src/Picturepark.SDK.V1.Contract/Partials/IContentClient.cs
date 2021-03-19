@@ -138,10 +138,20 @@ namespace Picturepark.SDK.V1.Contract
 
         /// <summary>
         /// Creates a download link and awaits potential dynamic output format rendering
-        /// </summary><param name="request">Content download link request</param>
+        /// </summary>
+        /// <param name="request">Content download link request</param>
         /// <param name="timeout">Timeout for operation</param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>Download link</returns>
         Task<DownloadLink> CreateAndAwaitDownloadLinkAsync(ContentDownloadLinkCreateRequest request, TimeSpan? timeout = null, CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Creates a download link for a specific content historic version
+        /// </summary>
+        /// <param name="contentId">Content ID</param>
+        /// <param name="version">Version number</param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>Download link</returns>
+        Task<DownloadLink> GetVersionDownloadLinkAsync(string contentId, int version, CancellationToken cancellationToken = default);
     }
 }
