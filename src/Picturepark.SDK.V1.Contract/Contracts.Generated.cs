@@ -15683,7 +15683,12 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("activity", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public Activity Activity { get; set; }
     
-        /// <summary>The number of historized versions of the content. Null if not requested, user has no ManageHistoricVersions right on the content or versioning is disabled.</summary>
+        /// <summary>The number of historized versions of the content. Contains null if
+        /// (i) not requested by using HistoricVersionCount resolve behavior,
+        /// (ii) user lacks ManageHistoricVersions right on the content,
+        /// (iii) user lacks ManageContent user right,
+        /// (iv) historic versioning is disabled or
+        /// (v) content is a virtual item (ContentType is Virtual).</summary>
         [Newtonsoft.Json.JsonProperty("historicVersionCount", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int? HistoricVersionCount { get; set; }
     

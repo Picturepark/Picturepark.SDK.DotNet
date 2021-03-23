@@ -36741,7 +36741,7 @@
           },
           "historicVersionCount": {
             "type": "integer",
-            "description": "The number of historized versions of the content. Null if not requested, user has no ManageHistoricVersions right on the content or versioning is disabled.",
+            "description": "The number of historized versions of the content. Contains null if\n(i) not requested by using HistoricVersionCount resolve behavior,\n(ii) user lacks ManageHistoricVersions right on the content,\n(iii) user lacks ManageContent user right,\n(iv) historic versioning is disabled or\n(v) content is a virtual item (ContentType is Virtual).",
             "format": "int32",
             "nullable": true
           }
