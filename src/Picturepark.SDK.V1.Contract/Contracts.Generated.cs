@@ -27028,9 +27028,9 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("reviewed", Required = Newtonsoft.Json.Required.Always)]
         public bool Reviewed { get; set; }
     
-        /// <summary>If true, no email will be sent to inform the user that he was reviewed.</summary>
-        [Newtonsoft.Json.JsonProperty("skipEmail", Required = Newtonsoft.Json.Required.Always)]
-        public bool SkipEmail { get; set; }
+        /// <summary>If true, no email will be sent to inform the user that they were reviewed.</summary>
+        [Newtonsoft.Json.JsonProperty("suppressEmail", Required = Newtonsoft.Json.Required.Always)]
+        public bool SuppressEmail { get; set; }
     
         public string ToJson() 
         {
@@ -27054,8 +27054,8 @@ namespace Picturepark.SDK.V1.Contract
         public bool Reviewed { get; set; }
     
         /// <summary>If true, no email will be sent to inform the users that they were reviewed.</summary>
-        [Newtonsoft.Json.JsonProperty("skipEmail", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool SkipEmail { get; set; }
+        [Newtonsoft.Json.JsonProperty("suppressEmail", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool SuppressEmail { get; set; }
     
         public string ToJson() 
         {
