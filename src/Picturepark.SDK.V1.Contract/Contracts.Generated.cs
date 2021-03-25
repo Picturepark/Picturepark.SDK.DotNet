@@ -27028,6 +27028,10 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("reviewed", Required = Newtonsoft.Json.Required.Always)]
         public bool Reviewed { get; set; }
     
+        /// <summary>If true, no email will be sent to inform the user that they were reviewed.</summary>
+        [Newtonsoft.Json.JsonProperty("suppressEmail", Required = Newtonsoft.Json.Required.Always)]
+        public bool SuppressEmail { get; set; }
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -27048,6 +27052,10 @@ namespace Picturepark.SDK.V1.Contract
         /// If _true_ is specified, user will be transitioned into _reviewed_ state. _False_ will put the user back into _to be reviewed_ state.</summary>
         [Newtonsoft.Json.JsonProperty("reviewed", Required = Newtonsoft.Json.Required.Always)]
         public bool Reviewed { get; set; }
+    
+        /// <summary>If true, no email will be sent to inform the users that they were reviewed.</summary>
+        [Newtonsoft.Json.JsonProperty("suppressEmail", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool SuppressEmail { get; set; }
     
         public string ToJson() 
         {

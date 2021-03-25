@@ -48476,12 +48476,17 @@
         "description": "Holds additional information for user review.",
         "additionalProperties": false,
         "required": [
-          "reviewed"
+          "reviewed",
+          "suppressEmail"
         ],
         "properties": {
           "reviewed": {
             "type": "boolean",
             "description": "Indicates the requested review state of the user.\nIf _true_ is specified, user will be transitioned into _reviewed_ state. _False_ will put the user back into _to be reviewed_ state."
+          },
+          "suppressEmail": {
+            "type": "boolean",
+            "description": "If true, no email will be sent to inform the user that they were reviewed."
           }
         }
       },
@@ -48501,6 +48506,10 @@
               "reviewed": {
                 "type": "boolean",
                 "description": "Indicates the requested review state of the user.\nIf _true_ is specified, user will be transitioned into _reviewed_ state. _False_ will put the user back into _to be reviewed_ state."
+              },
+              "suppressEmail": {
+                "type": "boolean",
+                "description": "If true, no email will be sent to inform the users that they were reviewed."
               }
             }
           }
