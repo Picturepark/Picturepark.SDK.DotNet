@@ -40781,6 +40781,7 @@
         "type": "object",
         "additionalProperties": false,
         "required": [
+          "id",
           "titleCode",
           "messageCode",
           "state",
@@ -40789,7 +40790,7 @@
         "properties": {
           "id": {
             "type": "string",
-            "nullable": true
+            "minLength": 1
           },
           "recipientUserId": {
             "type": "string",
@@ -41272,6 +41273,9 @@
           {
             "type": "object",
             "additionalProperties": false,
+            "required": [
+              "transferId"
+            ],
             "properties": {
               "fileProgress": {
                 "type": "integer",
@@ -41295,7 +41299,7 @@
               },
               "transferId": {
                 "type": "string",
-                "nullable": true
+                "minLength": 1
               }
             }
           }
@@ -41310,10 +41314,14 @@
             "type": "object",
             "x-abstract": true,
             "additionalProperties": false,
+            "required": [
+              "businessProcessId",
+              "supportsCancellation"
+            ],
             "properties": {
               "businessProcessId": {
                 "type": "string",
-                "nullable": true
+                "minLength": 1
               },
               "businessProcessLifeCycle": {
                 "$ref": "#/components/schemas/BusinessProcessLifeCycle"
@@ -41333,6 +41341,9 @@
           {
             "type": "object",
             "additionalProperties": false,
+            "required": [
+              "shareId"
+            ],
             "properties": {
               "token": {
                 "type": "string",
@@ -41340,7 +41351,7 @@
               },
               "shareId": {
                 "type": "string",
-                "nullable": true
+                "minLength": 1
               }
             }
           }
@@ -41354,6 +41365,9 @@
           {
             "type": "object",
             "additionalProperties": false,
+            "required": [
+              "transferId"
+            ],
             "properties": {
               "schemaCount": {
                 "type": "integer",
@@ -41377,7 +41391,7 @@
               },
               "transferId": {
                 "type": "string",
-                "nullable": true
+                "minLength": 1
               },
               "importedSchemaCount": {
                 "type": "integer",
@@ -41415,10 +41429,13 @@
           {
             "type": "object",
             "additionalProperties": false,
+            "required": [
+              "indexId"
+            ],
             "properties": {
               "indexId": {
                 "type": "string",
-                "nullable": true
+                "minLength": 1
               },
               "expected": {
                 "type": "integer",
@@ -41440,6 +41457,9 @@
           {
             "type": "object",
             "additionalProperties": false,
+            "required": [
+              "userId"
+            ],
             "properties": {
               "displayName": {
                 "type": "string",
@@ -41447,7 +41467,7 @@
               },
               "userId": {
                 "type": "string",
-                "nullable": true
+                "minLength": 1
               }
             }
           }
@@ -41569,6 +41589,9 @@
           {
             "type": "object",
             "additionalProperties": false,
+            "required": [
+              "notificationId"
+            ],
             "properties": {
               "title": {
                 "nullable": true,
@@ -41592,7 +41615,7 @@
               },
               "notificationId": {
                 "type": "string",
-                "nullable": true
+                "minLength": 1
               }
             }
           }
