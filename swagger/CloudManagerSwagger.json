@@ -6008,6 +6008,119 @@
         }
       }
     },
+    "/Maintenance/customer/{id}/statistics/events": {
+      "post": {
+        "tags": [
+          "Maintenance"
+        ],
+        "operationId": "Maintenance_AddStatisticsEvents",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 1
+          },
+          {
+            "name": "timeout",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "time-span",
+              "nullable": true
+            },
+            "x-position": 3
+          }
+        ],
+        "requestBody": {
+          "x-name": "request",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddContentEventsRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 2
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BusinessProcess"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/MessageQueue/initialize": {
       "post": {
         "tags": [
@@ -10783,7 +10896,10 @@
           "ManageOutputFormats",
           "ManageBusinessProcesses",
           "ManageIdentityProviders",
-          "ManageXmpMappings"
+          "ManageXmpMappings",
+          "ReadStatistics",
+          "WriteStatistics",
+          "ExportStatistics"
         ],
         "enum": [
           "ManageContent",
@@ -10807,7 +10923,10 @@
           "ManageOutputFormats",
           "ManageBusinessProcesses",
           "ManageIdentityProviders",
-          "ManageXmpMappings"
+          "ManageXmpMappings",
+          "ReadStatistics",
+          "WriteStatistics",
+          "ExportStatistics"
         ]
       },
       "PermissionSetNotFoundException": {
@@ -15266,6 +15385,51 @@
           }
         ]
       },
+      "StatisticsExportNotEnabledException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/StatisticsFeatureNotEnabledException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "StatisticsFeatureNotEnabledException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "x-abstract": true,
+            "additionalProperties": false
+          }
+        ]
+      },
+      "StatisticsReadNotEnabledException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/StatisticsFeatureNotEnabledException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "StatisticsWriteNotEnabledException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/StatisticsFeatureNotEnabledException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
       "ProblemDetails": {
         "type": "object",
         "additionalProperties": false,
@@ -15809,6 +15973,15 @@
                 "$ref": "#/components/schemas/HistoricVersioningState"
               }
             ]
+          },
+          "contentStatistics": {
+            "description": "State of statistics features for Content",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/StatisticsLicenseState"
+              }
+            ]
           }
         }
       },
@@ -15851,6 +16024,34 @@
           "Suspended",
           "Enabled"
         ]
+      },
+      "StatisticsLicenseState": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "collection",
+          "read",
+          "write",
+          "export"
+        ],
+        "properties": {
+          "collection": {
+            "type": "boolean",
+            "description": "Defines whether the respective statistics are gathered periodically"
+          },
+          "read": {
+            "type": "boolean",
+            "description": "Allows or prevents access to read endpoints"
+          },
+          "write": {
+            "type": "boolean",
+            "description": "Allows or prevents access to write endpoints"
+          },
+          "export": {
+            "type": "boolean",
+            "description": "Allows or prevents export of the respective statistics"
+          }
+        }
       },
       "CustomerImportRequest": {
         "type": "object",
@@ -20495,6 +20696,98 @@
           }
         }
       },
+      "AddContentEventsRequest": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "events": {
+            "type": "array",
+            "description": "Data to be added to statistics",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/AddContentEventsRequestItem"
+            }
+          }
+        }
+      },
+      "AddContentEventsRequestItem": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "timestamp"
+        ],
+        "properties": {
+          "timestamp": {
+            "type": "string",
+            "description": "Specifies at which time the events happened. The information will be automatically aggregated according to internal temporal resolution of statistics.",
+            "format": "date-time"
+          },
+          "contentId": {
+            "type": "string",
+            "description": "Specifies content for which the events happened",
+            "nullable": true
+          },
+          "apiClientId": {
+            "type": "string",
+            "description": "Optionally specify the used ApiClient. Defaults to the API Client sending this request.",
+            "nullable": true
+          },
+          "statistics": {
+            "description": "Data to be added to statistics",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ContentStatisticsDataEditable"
+              }
+            ]
+          },
+          "externalEventTraceId": {
+            "type": "string",
+            "description": "Optionally specify an additional id under which the supplied data should be tracked. This\nId is only used internally and cannot be retrieved through API or export.",
+            "nullable": true
+          }
+        }
+      },
+      "ContentStatisticsDataEditable": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "downloads": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ContentDownloadsEditable"
+              }
+            ]
+          }
+        }
+      },
+      "ContentDownloadsEditable": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "total",
+          "share",
+          "embed"
+        ],
+        "properties": {
+          "total": {
+            "type": "integer",
+            "description": "Total downloads of content (regardless of formats, single download of multiple formats is counted once)",
+            "format": "int32"
+          },
+          "share": {
+            "type": "integer",
+            "description": "Downloads of content through basic Share",
+            "format": "int32"
+          },
+          "embed": {
+            "type": "integer",
+            "description": "Downloads of content through embed",
+            "format": "int32"
+          }
+        }
+      },
       "ServiceProvider": {
         "type": "object",
         "additionalProperties": false,
@@ -20831,6 +21124,7 @@
             "ReindexEvent": "#/components/schemas/ReindexEvent",
             "ContentDetailViewEvent": "#/components/schemas/ContentDetailViewEvent",
             "ContentDownloadEvent": "#/components/schemas/ContentDownloadEvent",
+            "ContentShareEvent": "#/components/schemas/ContentShareEvent",
             "SessionRenewalEvent": "#/components/schemas/SessionRenewalEvent",
             "SharePageViewEvent": "#/components/schemas/SharePageViewEvent",
             "ApiStatisticsEvent": "#/components/schemas/ApiStatisticsEvent",
@@ -21033,6 +21327,45 @@
         "enum": [
           "Attachment",
           "Inline"
+        ]
+      },
+      "ContentShareEvent": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ApplicationEvent"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "shareId": {
+                "type": "string",
+                "nullable": true
+              },
+              "shareType": {
+                "$ref": "#/components/schemas/ShareType"
+              },
+              "addedContentIds": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "ShareType": {
+        "type": "string",
+        "description": "",
+        "x-enumNames": [
+          "Basic",
+          "Embed"
+        ],
+        "enum": [
+          "Basic",
+          "Embed"
         ]
       },
       "SessionRenewalEvent": {
