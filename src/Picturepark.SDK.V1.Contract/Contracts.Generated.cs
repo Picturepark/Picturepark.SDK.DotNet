@@ -2036,6 +2036,47 @@ namespace Picturepark.SDK.V1.Contract
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "13.2.2.0 (NJsonSchema v10.1.4.0 (Newtonsoft.Json v11.0.0.0))")]
+    public partial interface IStatisticClient
+    {
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>Export content statistics statistic</summary>
+        /// <param name="request">Request</param>
+        /// <returns>Business process</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        System.Threading.Tasks.Task<BusinessProcess> ExportContentStatisticsAsync(ExportContentStatisticsRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>Resolve an actual Url to download exported file from referenceId found on completed BusinessProcess.</summary>
+        /// <param name="referenceId">Reference id</param>
+        /// <returns>Download link information</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        System.Threading.Tasks.Task<DownloadLink> ResolveDownloadLinkAsync(string referenceId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>Add content events statistic</summary>
+        /// <param name="request">Request</param>
+        /// <returns>Business process</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        System.Threading.Tasks.Task<BusinessProcess> AddContentEventsAsync(AddContentEventsRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NSwag", "13.2.2.0 (NJsonSchema v10.1.4.0 (Newtonsoft.Json v11.0.0.0))")]
     public partial interface ITemplateClient
     {
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
@@ -3316,6 +3357,9 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("XmpMappingFieldInUseException", typeof(XmpMappingFieldInUseException))]
     [JsonInheritanceAttribute("XmpMappingConfigurationInvalidException", typeof(XmpMappingConfigurationInvalidException))]
     [JsonInheritanceAttribute("ActivityMappingInvalidException", typeof(ActivityMappingInvalidException))]
+    [JsonInheritanceAttribute("StatisticsExportNotEnabledException", typeof(StatisticsExportNotEnabledException))]
+    [JsonInheritanceAttribute("StatisticsReadNotEnabledException", typeof(StatisticsReadNotEnabledException))]
+    [JsonInheritanceAttribute("StatisticsWriteNotEnabledException", typeof(StatisticsWriteNotEnabledException))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     [Newtonsoft.Json.JsonObjectAttribute]
     public partial class PictureparkException : System.Exception
@@ -5821,6 +5865,15 @@ namespace Picturepark.SDK.V1.Contract
     
         [System.Runtime.Serialization.EnumMember(Value = @"ManageXmpMappings")]
         ManageXmpMappings = 21,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"ReadStatistics")]
+        ReadStatistics = 22,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"WriteStatistics")]
+        WriteStatistics = 23,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"ExportStatistics")]
+        ExportStatistics = 24,
     
     }
     
@@ -10626,6 +10679,70 @@ namespace Picturepark.SDK.V1.Contract
         public static ActivityMappingInvalidException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<ActivityMappingInvalidException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class StatisticsExportNotEnabledException : StatisticsFeatureNotEnabledException
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static StatisticsExportNotEnabledException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<StatisticsExportNotEnabledException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public abstract partial class StatisticsFeatureNotEnabledException : PictureparkValidationException
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static StatisticsFeatureNotEnabledException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<StatisticsFeatureNotEnabledException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class StatisticsReadNotEnabledException : StatisticsFeatureNotEnabledException
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static StatisticsReadNotEnabledException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<StatisticsReadNotEnabledException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class StatisticsWriteNotEnabledException : StatisticsFeatureNotEnabledException
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static StatisticsWriteNotEnabledException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<StatisticsWriteNotEnabledException>(data);
         }
     
     }
@@ -18535,6 +18652,11 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public HistoricVersioningState HistoricVersioningState { get; set; }
     
+        /// <summary>State of statistics features for Content</summary>
+        [Newtonsoft.Json.JsonProperty("contentStatistics", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public StatisticsLicenseState ContentStatistics { get; set; } = new StatisticsLicenseState();
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -18558,6 +18680,37 @@ namespace Picturepark.SDK.V1.Contract
     
         [System.Runtime.Serialization.EnumMember(Value = @"Enabled")]
         Enabled = 2,
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class StatisticsLicenseState 
+    {
+        /// <summary>Defines whether the respective statistics are gathered periodically</summary>
+        [Newtonsoft.Json.JsonProperty("collection", Required = Newtonsoft.Json.Required.Always)]
+        public bool Collection { get; set; }
+    
+        /// <summary>Allows or prevents access to read endpoints</summary>
+        [Newtonsoft.Json.JsonProperty("read", Required = Newtonsoft.Json.Required.Always)]
+        public bool Read { get; set; }
+    
+        /// <summary>Allows or prevents access to write endpoints</summary>
+        [Newtonsoft.Json.JsonProperty("write", Required = Newtonsoft.Json.Required.Always)]
+        public bool Write { get; set; }
+    
+        /// <summary>Allows or prevents export of the respective statistics</summary>
+        [Newtonsoft.Json.JsonProperty("export", Required = Newtonsoft.Json.Required.Always)]
+        public bool Export { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static StatisticsLicenseState FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<StatisticsLicenseState>(data);
+        }
     
     }
     
@@ -19963,17 +20116,32 @@ namespace Picturepark.SDK.V1.Contract
         [System.Runtime.Serialization.EnumMember(Value = @"BusinessRuleTitle")]
         BusinessRuleTitle = 92,
     
+        [System.Runtime.Serialization.EnumMember(Value = @"StatisticsExportDraft")]
+        StatisticsExportDraft = 93,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"StatisticsExportInProgress")]
+        StatisticsExportInProgress = 94,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"StatisticsExportCompleted")]
+        StatisticsExportCompleted = 95,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"StatisticsExportFailed")]
+        StatisticsExportFailed = 96,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"StatisticsExportCancelled")]
+        StatisticsExportCancelled = 97,
+    
         [System.Runtime.Serialization.EnumMember(Value = @"UserEmailConflictSolved")]
-        UserEmailConflictSolved = 93,
+        UserEmailConflictSolved = 98,
     
         [System.Runtime.Serialization.EnumMember(Value = @"UserEmailConflictSolvedSubject")]
-        UserEmailConflictSolvedSubject = 94,
+        UserEmailConflictSolvedSubject = 99,
     
         [System.Runtime.Serialization.EnumMember(Value = @"SupportUserDeactivation")]
-        SupportUserDeactivation = 95,
+        SupportUserDeactivation = 100,
     
         [System.Runtime.Serialization.EnumMember(Value = @"ImportFailedTitle")]
-        ImportFailedTitle = 96,
+        ImportFailedTitle = 101,
     
     }
     
@@ -20267,6 +20435,21 @@ namespace Picturepark.SDK.V1.Contract
     
         [System.Runtime.Serialization.EnumMember(Value = @"BusinessRuleMessage")]
         BusinessRuleMessage = 95,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"StatisticsExportDraft")]
+        StatisticsExportDraft = 96,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"StatisticsExportInProgress")]
+        StatisticsExportInProgress = 97,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"StatisticsExportCompleted")]
+        StatisticsExportCompleted = 98,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"StatisticsExportFailed")]
+        StatisticsExportFailed = 99,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"StatisticsExportCancelled")]
+        StatisticsExportCancelled = 100,
     
     }
     
@@ -25615,6 +25798,146 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class ExportContentStatisticsRequest 
+    {
+        /// <summary>Allows filtering of retrieved statistical data</summary>
+        [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public ContentFilterRequest Filter { get; set; }
+    
+        /// <summary>Optional begin of time range for which statistical data should be exported</summary>
+        [Newtonsoft.Json.JsonProperty("after", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.DateTime? After { get; set; }
+    
+        /// <summary>Optional end of time range for which statistical data should be exported</summary>
+        [Newtonsoft.Json.JsonProperty("before", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.DateTime? Before { get; set; }
+    
+        /// <summary>Whether exported information should be separated by api client</summary>
+        [Newtonsoft.Json.JsonProperty("aggregateApiClients", Required = Newtonsoft.Json.Required.Always)]
+        public bool AggregateApiClients { get; set; }
+    
+        /// <summary>Desired temporal resolution of exported data. Must not be lower than 1 hour</summary>
+        [Newtonsoft.Json.JsonProperty("interval", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.TimeSpan? Interval { get; set; }
+    
+        /// <summary>Whether notifications should be published for progress and completion</summary>
+        [Newtonsoft.Json.JsonProperty("notifyProgress", Required = Newtonsoft.Json.Required.Always)]
+        public bool NotifyProgress { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static ExportContentStatisticsRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ExportContentStatisticsRequest>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class AddContentEventsRequest 
+    {
+        /// <summary>Data to be added to statistics</summary>
+        [Newtonsoft.Json.JsonProperty("events", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<AddContentEventsRequestItem> Events { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static AddContentEventsRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<AddContentEventsRequest>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class AddContentEventsRequestItem 
+    {
+        /// <summary>Specifies at which time the events happened. The information will be automatically aggregated according to internal temporal resolution of statistics.</summary>
+        [Newtonsoft.Json.JsonProperty("timestamp", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public System.DateTime Timestamp { get; set; }
+    
+        /// <summary>Specifies content for which the events happened</summary>
+        [Newtonsoft.Json.JsonProperty("contentId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ContentId { get; set; }
+    
+        /// <summary>Optionally specify the used ApiClient. Defaults to the API Client sending this request.</summary>
+        [Newtonsoft.Json.JsonProperty("apiClientId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ApiClientId { get; set; }
+    
+        /// <summary>Data to be added to statistics</summary>
+        [Newtonsoft.Json.JsonProperty("statistics", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public ContentStatisticsDataEditable Statistics { get; set; }
+    
+        /// <summary>Optionally specify an additional id under which the supplied data should be tracked. This
+        /// Id is only used internally and cannot be retrieved through API or export.</summary>
+        [Newtonsoft.Json.JsonProperty("externalEventTraceId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ExternalEventTraceId { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static AddContentEventsRequestItem FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<AddContentEventsRequestItem>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class ContentStatisticsDataEditable 
+    {
+        [Newtonsoft.Json.JsonProperty("downloads", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public ContentDownloadsEditable Downloads { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static ContentStatisticsDataEditable FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentStatisticsDataEditable>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class ContentDownloadsEditable 
+    {
+        /// <summary>Total downloads of content (regardless of formats, single download of multiple formats is counted once)</summary>
+        [Newtonsoft.Json.JsonProperty("total", Required = Newtonsoft.Json.Required.Always)]
+        public int Total { get; set; }
+    
+        /// <summary>Downloads of content through basic Share</summary>
+        [Newtonsoft.Json.JsonProperty("share", Required = Newtonsoft.Json.Required.Always)]
+        public int Share { get; set; }
+    
+        /// <summary>Downloads of content through embed</summary>
+        [Newtonsoft.Json.JsonProperty("embed", Required = Newtonsoft.Json.Required.Always)]
+        public int Embed { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static ContentDownloadsEditable FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentDownloadsEditable>(data);
+        }
+    
+    }
+    
     /// <summary>Template</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class Template : TemplateCreateRequest
@@ -28077,6 +28400,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("ReindexEvent", typeof(ReindexEvent))]
     [JsonInheritanceAttribute("ContentDetailViewEvent", typeof(ContentDetailViewEvent))]
     [JsonInheritanceAttribute("ContentDownloadEvent", typeof(ContentDownloadEvent))]
+    [JsonInheritanceAttribute("ContentShareEvent", typeof(ContentShareEvent))]
     [JsonInheritanceAttribute("SessionRenewalEvent", typeof(SessionRenewalEvent))]
     [JsonInheritanceAttribute("SharePageViewEvent", typeof(SharePageViewEvent))]
     [JsonInheritanceAttribute("ApiStatisticsEvent", typeof(ApiStatisticsEvent))]
@@ -28262,6 +28586,31 @@ namespace Picturepark.SDK.V1.Contract
     
         [System.Runtime.Serialization.EnumMember(Value = @"Inline")]
         Inline = 1,
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class ContentShareEvent : ApplicationEvent
+    {
+        [Newtonsoft.Json.JsonProperty("shareId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ShareId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("shareType", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public ShareType ShareType { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("addedContentIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> AddedContentIds { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static ContentShareEvent FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentShareEvent>(data);
+        }
     
     }
     

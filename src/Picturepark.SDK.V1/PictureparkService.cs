@@ -76,6 +76,8 @@ namespace Picturepark.SDK.V1
 
         public ITemplateClient Template { get; private set; }
 
+        public IStatisticClient Statistics { get; private set; }
+
         public void Dispose()
         {
             if (_httpClient != null)
@@ -113,6 +115,7 @@ namespace Picturepark.SDK.V1
             XmpMapping = new XmpMappingClient(settings, httpClient);
             Notification = new NotificationClient(settings, httpClient);
             Template = new TemplateClient(settings, httpClient);
+            Statistics = new StatisticClient(settings, httpClient);
         }
     }
 }
