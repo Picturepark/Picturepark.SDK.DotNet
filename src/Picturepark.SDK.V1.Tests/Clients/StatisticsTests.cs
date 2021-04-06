@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
+using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using FluentAssertions;
 using Picturepark.SDK.V1.Contract;
@@ -11,26 +12,58 @@ using Xunit;
 namespace Picturepark.SDK.V1.Tests.Clients
 {
     [Trait("Stack", "Statistics")]
-    public class StatisticsTests : IClassFixture<ClientFixture>
+    public class StatisticsTests : IClassFixture<ClientFixture>, IAsyncLifetime
     {
         private readonly ClientFixture _fixture;
+        private string _schemaId;
 
         public StatisticsTests(ClientFixture fixture)
         {
             _fixture = fixture;
         }
 
+        public async Task InitializeAsync()
+        {
+            _schemaId = nameof(StatisticsTests) + Guid.NewGuid().ToString("N");
+
+            await _fixture.Client.Schema.CreateAsync(new SchemaDetail
+            {
+                Id = _schemaId,
+                Types = new List<SchemaType> { SchemaType.Content },
+                Names = new TranslatedStringDictionary
+                {
+                    [_fixture.CustomerInfo.LanguageConfiguration.DefaultLanguage] = _schemaId
+                },
+                ViewForAll = true,
+                Fields = new List<FieldBase>
+                {
+                    new FieldString
+                    {
+                        Id = "testName",
+                        Names = new TranslatedStringDictionary
+                        {
+                            [_fixture.CustomerInfo.LanguageConfiguration.DefaultLanguage] = "testName"
+                        }
+                    }
+                }
+            }).ConfigureAwait(false);
+        }
+
+        public async Task DisposeAsync()
+        {
+            await Task.Delay(0).ConfigureAwait(false);
+        }
+
         [Fact]
         public async Task ShouldWriteAndExportStatistics()
         {
-            var contentSearchResult = await _fixture.GetRandomContentsAsync(string.Empty, limit: 20).ConfigureAwait(false);
-            var contentIds = contentSearchResult.Results.Select(c => c.Id).ToArray();
+            var contentIds = await CreateContents(20).ConfigureAwait(false);
 
             var fullCurrentHour = new DateTime(DateTime.UtcNow.Ticks / TimeSpan.TicksPerHour * TimeSpan.TicksPerHour, DateTimeKind.Utc);
 
             var hoursToFill = 3;
-            var beginningOfEvents = fullCurrentHour - TimeSpan.FromHours(new Random().Next(48, 240));
-            var endOfEvents = beginningOfEvents + TimeSpan.FromHours(hoursToFill);
+            var beginningOfEvents = fullCurrentHour - TimeSpan.FromHours(hoursToFill);
+            var endOfEvents = fullCurrentHour;
 
             var downloadsPerContentPerMinute = 20;
 
@@ -81,7 +114,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var csvContent = await Download(downloadLink).ConfigureAwait(false);
             var csvRecords = csvContent.Split(new[] { "\r\n" }, StringSplitOptions.None);
 
-            csvRecords.Should().HaveCount(1 + (contentIds.Length * hoursToFill));
+            csvRecords.Should().HaveCount(1 + (contentIds.Count * hoursToFill));
 
             var totalDownloadsFieldIndex = exportRequest.AggregateApiClients ? 2 : 3;
 
@@ -96,7 +129,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
                 timeStamp.ToUniversalTime().Should().BeOnOrAfter(beginningOfEvents).And.BeBefore(endOfEvents);
                 contentId.Should().BeOneOf(contentIds);
-                totalDownloadsForHour.Should().BeGreaterOrEqualTo(60 * downloadsPerContentPerMinute);
+                totalDownloadsForHour.Should().Be(60 * downloadsPerContentPerMinute);
             }
         }
 
@@ -123,6 +156,19 @@ namespace Picturepark.SDK.V1.Tests.Clients
         {
             var result = await _fixture.Client.BusinessProcess.WaitForCompletionAsync(businessProcess.Id).ConfigureAwait(false);
             result.LifeCycleHit.Should().Be(BusinessProcessLifeCycle.Succeeded);
+        }
+
+        private async Task<IReadOnlyCollection<string>> CreateContents(int numContents, [CallerMemberName] string testName = null)
+        {
+            var createRequests = Enumerable.Range(0, numContents).Select(i => new ContentCreateRequest
+            {
+                ContentSchemaId = _schemaId,
+                Content = new { testName }
+            });
+
+            var result = await _fixture.Client.Content.CreateManyAsync(new ContentCreateManyRequest { Items = createRequests.ToList() }).ConfigureAwait(false);
+            var detail = await result.FetchDetail().ConfigureAwait(false);
+            return detail.SucceededIds;
         }
     }
 }
