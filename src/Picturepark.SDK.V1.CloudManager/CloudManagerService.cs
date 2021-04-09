@@ -2,6 +2,7 @@
 using Picturepark.SDK.V1.Contract;
 using System.Net.Http;
 using Picturepark.SDK.V1.CloudManager.Contract;
+using IOutputFormatClient = Picturepark.SDK.V1.CloudManager.Contract.IOutputFormatClient;
 using IServiceProviderClient = Picturepark.SDK.V1.CloudManager.Contract.IServiceProviderClient;
 
 namespace Picturepark.SDK.V1.CloudManager
@@ -49,6 +50,8 @@ namespace Picturepark.SDK.V1.CloudManager
 
         public IGlobalConfigurationClient GlobalConfiguration { get; private set; }
 
+        public IOutputFormatClient OutputFormat { get; private set; }
+
         public void Dispose()
         {
             if (_httpClient != null)
@@ -71,6 +74,7 @@ namespace Picturepark.SDK.V1.CloudManager
             ContentBackup = new ContentBackupClient(settings, httpClient);
             Maintenance = new MaintenanceClient(settings, httpClient);
             GlobalConfiguration = new GlobalConfigurationClient(settings, httpClient);
+            OutputFormat = new OutputFormatClient(settings, httpClient);
         }
     }
 }
