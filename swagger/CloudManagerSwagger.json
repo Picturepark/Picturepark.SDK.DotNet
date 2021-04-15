@@ -17106,7 +17106,8 @@
         "additionalProperties": false,
         "required": [
           "filePath",
-          "sha1Hash"
+          "sha1Hash",
+          "allowNotRequested"
         ],
         "properties": {
           "filePath": {
@@ -17116,6 +17117,10 @@
           "sha1Hash": {
             "type": "string",
             "minLength": 1
+          },
+          "allowNotRequested": {
+            "type": "boolean",
+            "description": "If false (default), only files which were previously copied to backup location\ncan be acknowledged. True allows acknowledging outputs which were backed up\nusing other mechanisms than ContentBackup."
           }
         }
       },

@@ -10326,6 +10326,12 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [System.ComponentModel.DataAnnotations.Required]
         public string Sha1Hash { get; set; }
     
+        /// <summary>If false (default), only files which were previously copied to backup location
+        /// can be acknowledged. True allows acknowledging outputs which were backed up
+        /// using other mechanisms than ContentBackup.</summary>
+        [Newtonsoft.Json.JsonProperty("allowNotRequested", Required = Newtonsoft.Json.Required.Always)]
+        public bool AllowNotRequested { get; set; }
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
