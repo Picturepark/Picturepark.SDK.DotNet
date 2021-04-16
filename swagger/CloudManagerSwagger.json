@@ -17408,6 +17408,10 @@
                 "$ref": "#/components/schemas/LicenseInformation"
               }
             ]
+          },
+          "idsAccentColor": {
+            "type": "string",
+            "nullable": true
           }
         }
       },
@@ -19163,6 +19167,10 @@
                 "$ref": "#/components/schemas/ActivityMapping"
               }
             ]
+          },
+          "idsAccentColor": {
+            "type": "string",
+            "nullable": true
           }
         }
       },
@@ -19417,6 +19425,10 @@
                 "$ref": "#/components/schemas/ActivityMapping"
               }
             ]
+          },
+          "idsAccentColor": {
+            "type": "string",
+            "nullable": true
           }
         }
       },
