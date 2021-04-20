@@ -3119,8 +3119,11 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     [Newtonsoft.Json.JsonObjectAttribute]
-    public partial class InvalidValueFormatException : PictureparkValidationException
+    public partial class InvalidValueFormatException : InvalidArgumentException
     {
+        [Newtonsoft.Json.JsonProperty("expectedFormat", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ExpectedFormat { get; set; }
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -8953,6 +8956,9 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [Newtonsoft.Json.JsonObjectAttribute]
     public abstract partial class StatisticsFeatureNotEnabledException : PictureparkValidationException
     {
+        [Newtonsoft.Json.JsonProperty("scope", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Scope { get; set; }
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);

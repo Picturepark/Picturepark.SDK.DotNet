@@ -26376,11 +26376,17 @@
       "InvalidValueFormatException": {
         "allOf": [
           {
-            "$ref": "#/components/schemas/PictureparkValidationException"
+            "$ref": "#/components/schemas/InvalidArgumentException"
           },
           {
             "type": "object",
-            "additionalProperties": false
+            "additionalProperties": false,
+            "properties": {
+              "expectedFormat": {
+                "type": "string",
+                "nullable": true
+              }
+            }
           }
         ]
       },
@@ -31739,7 +31745,13 @@
           {
             "type": "object",
             "x-abstract": true,
-            "additionalProperties": false
+            "additionalProperties": false,
+            "properties": {
+              "scope": {
+                "type": "string",
+                "nullable": true
+              }
+            }
           }
         ]
       },
@@ -47531,6 +47543,7 @@
         "additionalProperties": false,
         "required": [
           "aggregateApiClients",
+          "includeContentNames",
           "notifyProgress"
         ],
         "properties": {
@@ -47558,6 +47571,10 @@
           "aggregateApiClients": {
             "type": "boolean",
             "description": "Whether exported information should be separated by api client"
+          },
+          "includeContentNames": {
+            "type": "boolean",
+            "description": "Enrich export with Name display value of Content"
           },
           "interval": {
             "type": "string",

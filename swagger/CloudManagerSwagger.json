@@ -10433,11 +10433,17 @@
       "InvalidValueFormatException": {
         "allOf": [
           {
-            "$ref": "#/components/schemas/PictureparkValidationException"
+            "$ref": "#/components/schemas/InvalidArgumentException"
           },
           {
             "type": "object",
-            "additionalProperties": false
+            "additionalProperties": false,
+            "properties": {
+              "expectedFormat": {
+                "type": "string",
+                "nullable": true
+              }
+            }
           }
         ]
       },
@@ -15795,7 +15801,13 @@
           {
             "type": "object",
             "x-abstract": true,
-            "additionalProperties": false
+            "additionalProperties": false,
+            "properties": {
+              "scope": {
+                "type": "string",
+                "nullable": true
+              }
+            }
           }
         ]
       },
