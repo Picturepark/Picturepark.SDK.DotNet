@@ -119,11 +119,14 @@ namespace Picturepark.SDK.V1.Tests.Clients
             csvRecords.Should().HaveCount(1 + (contentIds.Count * hoursToFill) + 1);
 
             var totalDownloadsFieldIndex = exportRequest.AggregateApiClients ? 3 : 4;
+            var validRows = 0;
 
             // skip the header
-            foreach (var csvRecord in csvRecords.Skip(1).Take(contentIds.Count))
+            foreach (var csvRecord in csvRecords.Skip(1))
             {
-                var fields = csvRecord.Split(';');
+                var fields = csvRecord.Split(new[] { ';' }, StringSplitOptions.RemoveEmptyEntries);
+                if (fields.Length < totalDownloadsFieldIndex) // ignore empty line at the end
+                    continue;
 
                 var timeStamp = DateTime.Parse(fields[0]);
                 var contentId = fields[1];
@@ -134,7 +137,11 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 contentId.Should().BeOneOf(contentIds);
                 contentName.Should().NotBeEmpty();
                 totalDownloadsForHour.Should().Be(60 * downloadsPerContentPerMinute);
+
+                validRows++;
             }
+
+            validRows.Should().Be(contentIds.Count * hoursToFill);
         }
 
         private static async Task<string> Download(DownloadLink downloadLink)
