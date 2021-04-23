@@ -4952,8 +4952,11 @@ namespace Picturepark.SDK.V1.Contract
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     [Newtonsoft.Json.JsonObjectAttribute]
-    public partial class InvalidValueFormatException : PictureparkValidationException
+    public partial class InvalidValueFormatException : InvalidArgumentException
     {
+        [Newtonsoft.Json.JsonProperty("expectedFormat", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ExpectedFormat { get; set; }
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -10786,6 +10789,9 @@ namespace Picturepark.SDK.V1.Contract
     [Newtonsoft.Json.JsonObjectAttribute]
     public abstract partial class StatisticsFeatureNotEnabledException : PictureparkValidationException
     {
+        [Newtonsoft.Json.JsonProperty("scope", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Scope { get; set; }
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -25899,6 +25905,10 @@ namespace Picturepark.SDK.V1.Contract
         /// <summary>Whether exported information should be separated by api client</summary>
         [Newtonsoft.Json.JsonProperty("aggregateApiClients", Required = Newtonsoft.Json.Required.Always)]
         public bool AggregateApiClients { get; set; }
+    
+        /// <summary>Enrich export with Name display value of Content</summary>
+        [Newtonsoft.Json.JsonProperty("includeContentNames", Required = Newtonsoft.Json.Required.Always)]
+        public bool IncludeContentNames { get; set; }
     
         /// <summary>Desired temporal resolution of exported data. Must not be lower than 1 hour</summary>
         [Newtonsoft.Json.JsonProperty("interval", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]

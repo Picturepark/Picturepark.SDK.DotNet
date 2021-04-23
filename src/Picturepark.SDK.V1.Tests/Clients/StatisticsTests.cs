@@ -102,7 +102,8 @@ namespace Picturepark.SDK.V1.Tests.Clients
                         Filters = contentIds.Select(FilterForContentId).ToList()
                     }
                 },
-                AggregateApiClients = false
+                AggregateApiClients = false,
+                IncludeContentNames = true
             };
             var exportProcess = await _fixture.Client.Statistics.ExportContentStatisticsAsync(exportRequest).ConfigureAwait(false);
 
@@ -114,23 +115,33 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var csvContent = await Download(downloadLink).ConfigureAwait(false);
             var csvRecords = csvContent.Split(new[] { "\r\n" }, StringSplitOptions.None);
 
-            csvRecords.Should().HaveCount(1 + (contentIds.Count * hoursToFill));
+            // Header, 60 contents, blank new line at the end
+            csvRecords.Should().HaveCount(1 + (contentIds.Count * hoursToFill) + 1);
 
-            var totalDownloadsFieldIndex = exportRequest.AggregateApiClients ? 2 : 3;
+            var totalDownloadsFieldIndex = exportRequest.AggregateApiClients ? 3 : 4;
+            var validRows = 0;
 
             // skip the header
             foreach (var csvRecord in csvRecords.Skip(1))
             {
-                var fields = csvRecord.Split(';');
+                var fields = csvRecord.Split(new[] { ';' }, StringSplitOptions.RemoveEmptyEntries);
+                if (fields.Length < totalDownloadsFieldIndex) // ignore empty line at the end
+                    continue;
 
                 var timeStamp = DateTime.Parse(fields[0]);
                 var contentId = fields[1];
+                var contentName = fields[2];
                 var totalDownloadsForHour = int.Parse(fields[totalDownloadsFieldIndex]);
 
                 timeStamp.ToUniversalTime().Should().BeOnOrAfter(beginningOfEvents).And.BeBefore(endOfEvents);
                 contentId.Should().BeOneOf(contentIds);
+                contentName.Should().NotBeEmpty();
                 totalDownloadsForHour.Should().Be(60 * downloadsPerContentPerMinute);
+
+                validRows++;
             }
+
+            validRows.Should().Be(contentIds.Count * hoursToFill);
         }
 
         private static async Task<string> Download(DownloadLink downloadLink)
