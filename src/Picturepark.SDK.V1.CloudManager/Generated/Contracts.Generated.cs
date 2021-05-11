@@ -4004,53 +4004,50 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [System.Runtime.Serialization.EnumMember(Value = @"ManageSearchIndexes")]
         ManageSearchIndexes = 8,
     
-        [System.Runtime.Serialization.EnumMember(Value = @"ManageCollections")]
-        ManageCollections = 9,
-    
         [System.Runtime.Serialization.EnumMember(Value = @"ManageListItems")]
-        ManageListItems = 10,
+        ManageListItems = 9,
     
         [System.Runtime.Serialization.EnumMember(Value = @"ManageServiceProviders")]
-        ManageServiceProviders = 11,
+        ManageServiceProviders = 10,
     
         [System.Runtime.Serialization.EnumMember(Value = @"ManageEmbeds")]
-        ManageEmbeds = 12,
+        ManageEmbeds = 11,
     
         [System.Runtime.Serialization.EnumMember(Value = @"ManageTemplates")]
-        ManageTemplates = 13,
+        ManageTemplates = 12,
     
         [System.Runtime.Serialization.EnumMember(Value = @"ManageTermsOfService")]
-        ManageTermsOfService = 14,
+        ManageTermsOfService = 13,
     
         [System.Runtime.Serialization.EnumMember(Value = @"ManageLiveStream")]
-        ManageLiveStream = 15,
+        ManageLiveStream = 14,
     
         [System.Runtime.Serialization.EnumMember(Value = @"ManageDocumentHistory")]
-        ManageDocumentHistory = 16,
+        ManageDocumentHistory = 15,
     
         [System.Runtime.Serialization.EnumMember(Value = @"ManageAllShares")]
-        ManageAllShares = 17,
+        ManageAllShares = 16,
     
         [System.Runtime.Serialization.EnumMember(Value = @"ManageOutputFormats")]
-        ManageOutputFormats = 18,
+        ManageOutputFormats = 17,
     
         [System.Runtime.Serialization.EnumMember(Value = @"ManageBusinessProcesses")]
-        ManageBusinessProcesses = 19,
+        ManageBusinessProcesses = 18,
     
         [System.Runtime.Serialization.EnumMember(Value = @"ManageIdentityProviders")]
-        ManageIdentityProviders = 20,
+        ManageIdentityProviders = 19,
     
         [System.Runtime.Serialization.EnumMember(Value = @"ManageXmpMappings")]
-        ManageXmpMappings = 21,
+        ManageXmpMappings = 20,
     
         [System.Runtime.Serialization.EnumMember(Value = @"ReadStatistics")]
-        ReadStatistics = 22,
+        ReadStatistics = 21,
     
         [System.Runtime.Serialization.EnumMember(Value = @"WriteStatistics")]
-        WriteStatistics = 23,
+        WriteStatistics = 22,
     
         [System.Runtime.Serialization.EnumMember(Value = @"ExportStatistics")]
-        ExportStatistics = 24,
+        ExportStatistics = 23,
     
     }
     
