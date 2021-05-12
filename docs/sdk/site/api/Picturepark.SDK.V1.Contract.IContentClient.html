@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Interface IContentClient
    | Picturepark.SDK.V1 API ">
-    <meta name="generator" content="docfx 2.56.6.0">
+    <meta name="generator" content="docfx 2.57.2.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -173,6 +173,13 @@
     </tr>
     <tr>
       <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkForbiddenException.html">PictureparkForbiddenException</a>
+        <p><p>Forbidden</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
         <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
         <p><p>Entity not found</p>
 </p>
@@ -263,6 +270,13 @@
       <td>
         <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
         <p><p>Validation exception</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkForbiddenException.html">PictureparkForbiddenException</a>
+        <p><p>Forbidden</p>
 </p>
       </td>
     </tr>
@@ -686,6 +700,13 @@ By default the method waits for the search documents creation. Passing false, th
     </tr>
     <tr>
       <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkForbiddenException.html">PictureparkForbiddenException</a>
+        <p><p>Forbidden</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
         <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
         <p><p>Entity not found</p>
 </p>
@@ -776,6 +797,13 @@ By default the method waits for the search documents creation. Passing false, th
       <td>
         <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
         <p><p>Validation exception</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkForbiddenException.html">PictureparkForbiddenException</a>
+        <p><p>Forbidden</p>
 </p>
       </td>
     </tr>
@@ -917,6 +945,116 @@ By default the method waits for the search documents creation. Passing false, th
   </div>
   
   
+  <a id="Picturepark_SDK_V1_Contract_IContentClient_CreateVersionDownloadLinkAsync_" data-uid="Picturepark.SDK.V1.Contract.IContentClient.CreateVersionDownloadLinkAsync*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_Contract_IContentClient_CreateVersionDownloadLinkAsync_System_String_System_Int32_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.Contract.IContentClient.CreateVersionDownloadLinkAsync(System.String,System.Int32,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_Contract_IContentClient_CreateVersionDownloadLinkAsync_System_String_System_Int32_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">CreateVersionDownloadLinkAsync(String, Int32, CancellationToken)</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_Contract_IContentClient_CreateVersionDownloadLinkAsync_System_String_System_Int32_System_Threading_CancellationToken_" class="collapse in">
+  <div class="markdown level1 summary"><p>Get historic version download link</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;string&gt; CreateVersionDownloadLinkAsync(string id, int versionId, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.String</span></span>
+        <span class="parametername">id</span>
+        <p><p>Content ID.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Int32</span></span>
+        <span class="parametername">versionId</span>
+        <p><p>Version ID.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
+        <span class="parametername">cancellationToken</span>
+        <p><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">System.String</span>&gt;
+        <p><p>Download token to be used with download/{token} endpoint</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <h5 class="exceptions">Exceptions</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
+        <p><p>A server side error occurred.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkForbiddenException.html">PictureparkForbiddenException</a>
+        <p><p>Forbidden</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
+        <p><p>Entity not found</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
+        <p><p>Version conflict</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  </div>
+  
+  
   <a id="Picturepark_SDK_V1_Contract_IContentClient_DeleteAsync_" data-uid="Picturepark.SDK.V1.Contract.IContentClient.DeleteAsync*"></a>
   
   <h4 id="Picturepark_SDK_V1_Contract_IContentClient_DeleteAsync_System_String_System_Nullable_System_Boolean__System_Nullable_System_TimeSpan__System_Nullable_System_Boolean__System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.Contract.IContentClient.DeleteAsync(System.String,System.Nullable{System.Boolean},System.Nullable{System.TimeSpan},System.Nullable{System.Boolean},System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_Contract_IContentClient_DeleteAsync_System_String_System_Nullable_System_Boolean__System_Nullable_System_TimeSpan__System_Nullable_System_Boolean__System_Threading_CancellationToken_" class="expander" data-toggle="collapse">DeleteAsync(String, Nullable&lt;Boolean&gt;, Nullable&lt;TimeSpan&gt;, Nullable&lt;Boolean&gt;, CancellationToken)</a></h4>
@@ -1009,6 +1147,13 @@ By default the method waits for the search documents creation. Passing false, th
       <td>
         <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
         <p><p>Validation exception</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkForbiddenException.html">PictureparkForbiddenException</a>
+        <p><p>Forbidden</p>
 </p>
       </td>
     </tr>
@@ -1109,6 +1254,13 @@ By default the method waits for the search documents creation. Passing false, th
     </tr>
     <tr>
       <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkForbiddenException.html">PictureparkForbiddenException</a>
+        <p><p>Forbidden</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
         <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
         <p><p>Entity not found</p>
 </p>
@@ -1199,6 +1351,123 @@ By default the method waits for the search documents creation. Passing false, th
       <td>
         <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
         <p><p>Validation exception</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkForbiddenException.html">PictureparkForbiddenException</a>
+        <p><p>Forbidden</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
+        <p><p>Entity not found</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
+        <p><p>Version conflict</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  </div>
+  
+  
+  <a id="Picturepark_SDK_V1_Contract_IContentClient_DeleteVersionAsync_" data-uid="Picturepark.SDK.V1.Contract.IContentClient.DeleteVersionAsync*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_Contract_IContentClient_DeleteVersionAsync_System_String_System_Int32_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.Contract.IContentClient.DeleteVersionAsync(System.String,System.Int32,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_Contract_IContentClient_DeleteVersionAsync_System_String_System_Int32_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">DeleteVersionAsync(String, Int32, CancellationToken)</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_Contract_IContentClient_DeleteVersionAsync_System_String_System_Int32_System_Threading_CancellationToken_" class="collapse in">
+  <div class="markdown level1 summary"><p>Delete historic version</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task DeleteVersionAsync(string id, int versionId, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.String</span></span>
+        <span class="parametername">id</span>
+        <p><p>Content ID.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Int32</span></span>
+        <span class="parametername">versionId</span>
+        <p><p>Version ID.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
+        <span class="parametername">cancellationToken</span>
+        <p><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Threading.Tasks.Task</span>
+        <p><p>OK</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <h5 class="exceptions">Exceptions</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
+        <p><p>A server side error occurred.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkForbiddenException.html">PictureparkForbiddenException</a>
+        <p><p>Forbidden</p>
 </p>
       </td>
     </tr>
@@ -1325,6 +1594,13 @@ By default the method waits for the search documents creation. Passing false, th
       <td>
         <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
         <p><p>Validation exception</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkForbiddenException.html">PictureparkForbiddenException</a>
+        <p><p>Forbidden</p>
 </p>
       </td>
     </tr>
@@ -1569,6 +1845,13 @@ By default the method waits for the search documents creation. Passing false, th
     </tr>
     <tr>
       <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkForbiddenException.html">PictureparkForbiddenException</a>
+        <p><p>Forbidden</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
         <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
         <p><p>Entity not found</p>
 </p>
@@ -1672,6 +1955,13 @@ By default the method waits for the search documents creation. Passing false, th
     </tr>
     <tr>
       <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkForbiddenException.html">PictureparkForbiddenException</a>
+        <p><p>Forbidden</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
         <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
         <p><p>Entity not found</p>
 </p>
@@ -1762,6 +2052,13 @@ By default the method waits for the search documents creation. Passing false, th
       <td>
         <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
         <p><p>Validation exception</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkForbiddenException.html">PictureparkForbiddenException</a>
+        <p><p>Forbidden</p>
 </p>
       </td>
     </tr>
@@ -1870,6 +2167,13 @@ By default the method waits for the search documents creation. Passing false, th
     </tr>
     <tr>
       <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkForbiddenException.html">PictureparkForbiddenException</a>
+        <p><p>Forbidden</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
         <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
         <p><p>Entity not found</p>
 </p>
@@ -1965,6 +2269,13 @@ By default the method waits for the search documents creation. Passing false, th
     </tr>
     <tr>
       <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkForbiddenException.html">PictureparkForbiddenException</a>
+        <p><p>Forbidden</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
         <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
         <p><p>Entity not found</p>
 </p>
@@ -2055,6 +2366,13 @@ By default the method waits for the search documents creation. Passing false, th
       <td>
         <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
         <p><p>Validation exception</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkForbiddenException.html">PictureparkForbiddenException</a>
+        <p><p>Forbidden</p>
 </p>
       </td>
     </tr>
@@ -2163,6 +2481,13 @@ By default the method waits for the search documents creation. Passing false, th
     </tr>
     <tr>
       <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkForbiddenException.html">PictureparkForbiddenException</a>
+        <p><p>Forbidden</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
         <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
         <p><p>Entity not found</p>
 </p>
@@ -2253,6 +2578,188 @@ By default the method waits for the search documents creation. Passing false, th
       <td>
         <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
         <p><p>Validation exception</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkForbiddenException.html">PictureparkForbiddenException</a>
+        <p><p>Forbidden</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
+        <p><p>Entity not found</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
+        <p><p>Version conflict</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  </div>
+  
+  
+  <a id="Picturepark_SDK_V1_Contract_IContentClient_GetVersionDownloadLinkAsync_" data-uid="Picturepark.SDK.V1.Contract.IContentClient.GetVersionDownloadLinkAsync*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_Contract_IContentClient_GetVersionDownloadLinkAsync_System_String_System_Int32_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.Contract.IContentClient.GetVersionDownloadLinkAsync(System.String,System.Int32,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_Contract_IContentClient_GetVersionDownloadLinkAsync_System_String_System_Int32_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">GetVersionDownloadLinkAsync(String, Int32, CancellationToken)</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_Contract_IContentClient_GetVersionDownloadLinkAsync_System_String_System_Int32_System_Threading_CancellationToken_" class="collapse in">
+  <div class="markdown level1 summary"><p>Creates a download link for a specific content historic version</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;DownloadLink&gt; GetVersionDownloadLinkAsync(string contentId, int version, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.String</span></span>
+        <span class="parametername">contentId</span>
+        <p><p>Content ID</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Int32</span></span>
+        <span class="parametername">version</span>
+        <p><p>Version number</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
+        <span class="parametername">cancellationToken</span>
+        <p><p>The cancellation token.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.DownloadLink.html">DownloadLink</a>&gt;
+        <p><p>Download link</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="Picturepark_SDK_V1_Contract_IContentClient_GetVersionsAsync_" data-uid="Picturepark.SDK.V1.Contract.IContentClient.GetVersionsAsync*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_Contract_IContentClient_GetVersionsAsync_System_String_Picturepark_SDK_V1_Contract_HistoricVersionSearchRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.Contract.IContentClient.GetVersionsAsync(System.String,Picturepark.SDK.V1.Contract.HistoricVersionSearchRequest,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_Contract_IContentClient_GetVersionsAsync_System_String_Picturepark_SDK_V1_Contract_HistoricVersionSearchRequest_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">GetVersionsAsync(String, HistoricVersionSearchRequest, CancellationToken)</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_Contract_IContentClient_GetVersionsAsync_System_String_Picturepark_SDK_V1_Contract_HistoricVersionSearchRequest_System_Threading_CancellationToken_" class="collapse in">
+  <div class="markdown level1 summary"><p>Get historic versions</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;HistoricVersionSearchResult&gt; GetVersionsAsync(string id, HistoricVersionSearchRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.String</span></span>
+        <span class="parametername">id</span>
+        <p><p>Content ID.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.HistoricVersionSearchRequest.html">HistoricVersionSearchRequest</a></span>
+        <span class="parametername">request</span>
+        <p><p>Request allowing for paging</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
+        <span class="parametername">cancellationToken</span>
+        <p><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.HistoricVersionSearchResult.html">HistoricVersionSearchResult</a>&gt;
+        <p><p>Historic versions</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <h5 class="exceptions">Exceptions</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
+        <p><p>A server side error occurred.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkForbiddenException.html">PictureparkForbiddenException</a>
+        <p><p>Forbidden</p>
 </p>
       </td>
     </tr>
@@ -2379,6 +2886,13 @@ By default the method waits for the search documents creation. Passing false, th
     </tr>
     <tr>
       <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkForbiddenException.html">PictureparkForbiddenException</a>
+        <p><p>Forbidden</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
         <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
         <p><p>Entity not found</p>
 </p>
@@ -2474,6 +2988,13 @@ By default the method waits for the search documents creation. Passing false, th
     </tr>
     <tr>
       <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkForbiddenException.html">PictureparkForbiddenException</a>
+        <p><p>Forbidden</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
         <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
         <p><p>Entity not found</p>
 </p>
@@ -2564,6 +3085,13 @@ By default the method waits for the search documents creation. Passing false, th
       <td>
         <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
         <p><p>Validation exception</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkForbiddenException.html">PictureparkForbiddenException</a>
+        <p><p>Forbidden</p>
 </p>
       </td>
     </tr>
@@ -2685,6 +3213,13 @@ By default the method waits for the search documents creation. Passing false, th
       <td>
         <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
         <p><p>Validation exception</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkForbiddenException.html">PictureparkForbiddenException</a>
+        <p><p>Forbidden</p>
 </p>
       </td>
     </tr>
@@ -2905,6 +3440,13 @@ By default the method waits for the search documents creation. Passing false, th
     </tr>
     <tr>
       <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkForbiddenException.html">PictureparkForbiddenException</a>
+        <p><p>Forbidden</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
         <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
         <p><p>Entity not found</p>
 </p>
@@ -3037,6 +3579,13 @@ By default the method waits for the search documents creation. Passing false, th
       <td>
         <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
         <p><p>Validation exception</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkForbiddenException.html">PictureparkForbiddenException</a>
+        <p><p>Forbidden</p>
 </p>
       </td>
     </tr>
@@ -3285,6 +3834,13 @@ By default the method waits for the search documents creation. Passing false, th
       <td>
         <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
         <p><p>Validation exception</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkForbiddenException.html">PictureparkForbiddenException</a>
+        <p><p>Forbidden</p>
 </p>
       </td>
     </tr>
