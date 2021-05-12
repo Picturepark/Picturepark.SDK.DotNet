@@ -12,8 +12,6 @@ Find-Package -Name docfx.console -Source nuget.org-v2-temp | Save-Package -Path 
 Move-Item *.nupkg docfx.zip
 Expand-Archive docfx.zip -DestinationPath temp
 
-Remove-Item -Force -Recurse docfx -ErrorAction SilentlyContinue
-
 ./temp/tools/docfx.exe ../docs/sdk/docfx.json
 
 Remove-Item -Force -Recurse temp
