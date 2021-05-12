@@ -23,6 +23,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>BusinessProcess</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -34,6 +35,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>BusinessProcess</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -46,6 +48,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>BusinessProcess</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -57,6 +60,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="request">The business process notification update request.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -67,6 +71,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="id">The business process id.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -78,6 +83,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>BusinessProcessDetails</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -92,6 +98,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>BusinessProcessSummaryBaseViewItem</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -106,6 +113,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>BusinessProcessBatchViewItem</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -120,6 +128,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>BusinessProcessBatchViewItem</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -131,6 +140,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>BusinessProcessSearchResult</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -146,6 +156,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>BusinessRuleConfiguration</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -157,6 +168,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Business process</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -168,6 +180,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Holds results of trace log search.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -180,6 +193,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>BusinessProcess of the metadata operation triggered by the schedule.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -195,6 +209,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>List of channel</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -206,6 +221,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Created channel</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -217,6 +233,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Requested channel</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -229,6 +246,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Updated channel</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -240,6 +258,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>OK</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -250,6 +269,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>The list of fields</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -260,6 +280,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>The list of fields</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -270,6 +291,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>The list of fields</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -286,6 +308,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Detail of a content permission set</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -298,6 +321,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Detail of a content permission set</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -308,6 +332,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="id">Content permission set ID.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -319,6 +344,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Detail of a content permission set</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -330,6 +356,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Array of Detail of a content permission set</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -341,6 +368,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="request">Request to transfer the ownership of a permission set.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -352,6 +380,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Array of Permission set rights</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -363,6 +392,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Response to a bulk operation</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -374,6 +404,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Response to a bulk operation</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -385,6 +416,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Response to a bulk operation</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -395,6 +427,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="request">Request to transfer the ownership of multiple permission sets.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -406,6 +439,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Array of Rights that the current user has on a permission set</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -417,6 +451,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Result of a permission set search operation</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -434,6 +469,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Content detail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -450,6 +486,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Ok</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -464,6 +501,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="range">The range of bytes to download (http range header): bytes={from}-{to} (e.g. bytes=0-100000).</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -477,6 +515,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="height">Optional height in pixels to resize image.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -494,6 +533,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>The content details</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -506,6 +546,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>List of Content detail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -524,6 +565,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Content detail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -541,6 +583,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Content detail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -557,6 +600,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Ok</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -573,6 +617,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Ok</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -585,6 +630,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Business process</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -597,6 +643,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>ContentReferencesResult</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -608,6 +655,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Array of Result of output resolution.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -619,6 +667,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Download link</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -630,6 +679,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Download link information</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -641,6 +691,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Business process</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -652,6 +703,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Business process</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -663,6 +715,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Business process</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -674,6 +727,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Content references result</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -685,6 +739,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Array of Result of output resolution.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -696,6 +751,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Result for content search operation</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -707,6 +763,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Object aggregation result</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -718,10 +775,50 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Object aggregation result</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<ObjectAggregationResult> AggregateAsync(ContentAggregationRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>Get historic versions</summary>
+        /// <param name="id">Content ID.</param>
+        /// <param name="request">Request allowing for paging</param>
+        /// <returns>Historic versions</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        System.Threading.Tasks.Task<HistoricVersionSearchResult> GetVersionsAsync(string id, HistoricVersionSearchRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>Get historic version download link</summary>
+        /// <param name="id">Content ID.</param>
+        /// <param name="versionId">Version ID.</param>
+        /// <returns>Download token to be used with download/{token} endpoint</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        System.Threading.Tasks.Task<string> CreateVersionDownloadLinkAsync(string id, int versionId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>Delete historic version</summary>
+        /// <param name="id">Content ID.</param>
+        /// <param name="versionId">Version ID.</param>
+        /// <returns>OK</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        System.Threading.Tasks.Task DeleteVersionAsync(string id, int versionId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
     }
     
@@ -733,6 +830,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>VersionInfo</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -743,6 +841,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>VersionInfo</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -760,6 +859,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Document history item</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -773,6 +873,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Document history item</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -786,6 +887,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Document history difference.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -800,6 +902,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Document history difference</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -811,6 +914,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Document history search result.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -826,6 +930,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Array of identity providers</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -836,6 +941,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Array of identity provider basic information</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -847,6 +953,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Represents an identity provider defined in IdentityServer and its Picturepark configuration</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -859,6 +966,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Represents an identity provider defined in IdentityServer and its Picturepark configuration</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -869,6 +977,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Names of user attributes</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -914,6 +1023,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>List item detail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -930,6 +1040,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Ok</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -946,6 +1057,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Ok</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -958,6 +1070,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>List item references</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -975,6 +1088,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>List item detail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -987,6 +1101,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>List of list item details</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -998,6 +1113,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Business process</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -1009,6 +1125,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Business process</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -1020,6 +1137,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Business process</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -1031,6 +1149,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>A list of references per list item.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -1042,6 +1161,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>List item search result</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -1053,6 +1173,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Object aggregation result</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -1069,6 +1190,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Resulting live stream events</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -1084,6 +1206,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>The overall status of the contents and list items in comparison to the actual schemas' structure</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -1094,6 +1217,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Business process</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -1110,6 +1234,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Notification</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -1121,6 +1246,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Notification</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -1132,6 +1258,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Notification search result</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -1143,6 +1270,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Aggregation result</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -1152,6 +1280,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <summary>Mark all notifications as read</summary>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -1162,6 +1291,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Email notification settings</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -1173,6 +1303,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Email notification settings</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -1183,6 +1314,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Array of Notification that is available for email settings.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -1203,6 +1335,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Business process</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -1214,6 +1347,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Business process</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -1226,6 +1360,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Business process</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -1237,6 +1372,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Business process</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -1248,6 +1384,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Rendered file</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -1259,6 +1396,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Array of Represents an output format.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="RequestSizeLimitExceededException">List of IDs exceeded maximum size</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -1270,6 +1408,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Represents an output format.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -1286,6 +1425,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Output detail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -1297,6 +1437,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Output result set</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -1308,6 +1449,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Business process tracking the resetting</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -1323,6 +1465,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>User profile</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -1334,6 +1477,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Updated user profile</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -1344,6 +1488,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>OK</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -1360,6 +1505,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Detail of a schema permission set</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -1372,6 +1518,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Detail of a schema permission set</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -1382,6 +1529,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="id">Schema permission set ID.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -1393,6 +1541,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Detail of a schema permission set</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -1404,6 +1553,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Array of Detail of a schema permission set</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -1415,6 +1565,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="request">Request to transfer the ownership of a permission set.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -1426,6 +1577,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Array of Permission set rights</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -1437,6 +1589,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Response to a bulk operation</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -1448,6 +1601,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Response to a bulk operation</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -1459,6 +1613,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Response to a bulk operation</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -1469,6 +1624,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="request">Request to transfer the ownership of multiple permission sets.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -1480,6 +1636,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Array of Rights that the current user has on a permission set</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -1491,6 +1648,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Result of a permission set search operation</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -1507,6 +1665,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Schema detail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -1521,6 +1680,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Schema update result, containing the updated schema</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -1534,6 +1694,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Schema delete result</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -1546,6 +1707,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Field Exists response</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -1557,6 +1719,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Referenced schema details</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -1571,6 +1734,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>OK</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -1584,6 +1748,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Schema create result, containing the created schema</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -1595,6 +1760,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>List of schema details</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -1606,6 +1772,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Referenced schema details</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -1617,6 +1784,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Business process</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -1628,6 +1796,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Schema search result</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -1639,6 +1808,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>The list of fields</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -1650,6 +1820,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>The list of fields</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -1661,6 +1832,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>The list of fields</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -1672,6 +1844,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>The list of fields</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -1688,6 +1861,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Transfer</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -1707,6 +1881,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>ShareDetail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -1721,6 +1896,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>ShareContentDetailResult</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -1734,6 +1910,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="range">The range of bytes to download (http range header): bytes={from}-{to} (e.g. bytes=0-100000)</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -1749,6 +1926,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="range">The range of bytes to download (http range header): bytes={from}-{to} (e.g. bytes=0-100000)</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -1762,6 +1940,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Share detail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -1774,6 +1953,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>BusinessProcess</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -1787,6 +1967,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>ShareContentDetailResult</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -1798,6 +1979,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>BusinessProcess</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -1809,6 +1991,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>BusinessProcess</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -1820,6 +2003,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>BusinessProcess</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -1831,6 +2015,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Share aggregation result</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -1842,10 +2027,52 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Share search result</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<ShareSearchResult> SearchAsync(ShareSearchRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NSwag", "13.2.2.0 (NJsonSchema v10.1.4.0 (Newtonsoft.Json v11.0.0.0))")]
+    public partial interface IStatisticClient
+    {
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>Export content statistics statistic</summary>
+        /// <param name="request">Request</param>
+        /// <returns>Business process</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        System.Threading.Tasks.Task<BusinessProcess> ExportContentStatisticsAsync(ExportContentStatisticsRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>Resolve an actual Url to download exported file from referenceId found on completed BusinessProcess.</summary>
+        /// <param name="referenceId">Reference id</param>
+        /// <returns>Download link information</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        System.Threading.Tasks.Task<DownloadLink> ResolveDownloadLinkAsync(string referenceId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>Add content events statistic</summary>
+        /// <param name="request">Request</param>
+        /// <returns>Business process</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        System.Threading.Tasks.Task<BusinessProcess> AddContentEventsAsync(AddContentEventsRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
     }
     
@@ -1858,6 +2085,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Template</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -1870,6 +2098,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Template</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -1880,6 +2109,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="id">ID of template</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -1891,6 +2121,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Template</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -1901,6 +2132,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>All templates</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -1917,6 +2149,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Transfer</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -1928,6 +2161,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>TransferDetail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -1939,6 +2173,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>OK</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -1951,6 +2186,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Transfer</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -1963,6 +2199,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Transfer</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -1974,6 +2211,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>OK</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -1985,6 +2223,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>TransferSearchResult</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -1996,6 +2235,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>FileTransferDetail</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -2007,6 +2247,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>FileTransferSearchResult</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -2017,6 +2258,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="request">The file transfer delete request</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -2027,6 +2269,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Blacklist</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -2044,6 +2287,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>OK</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -2060,6 +2304,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Result of the user role search</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -2071,6 +2316,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Array of Represents a user role, which associates users with user rights.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="RequestSizeLimitExceededException">List of IDs exceeded maximum size</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -2082,6 +2328,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Represents a user role, which associates users with user rights.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -2093,6 +2340,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Response to a bulk operation</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -2104,6 +2352,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Response to a bulk operation</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -2115,6 +2364,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Response to a bulk operation</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -2126,6 +2376,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Represents a user role, which associates users with user rights.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -2138,6 +2389,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Represents a user role, which associates users with user rights.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -2148,6 +2400,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="id">User role ID.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -2164,6 +2417,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Requested user details</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -2176,6 +2430,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>User details after the update of the user</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -2188,6 +2443,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>OK</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -2199,6 +2455,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Business process</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -2211,6 +2468,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>OK</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -2222,6 +2480,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Business process</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -2233,6 +2492,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>OK</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -2244,6 +2504,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Business process</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -2255,6 +2516,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>OK</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -2266,6 +2528,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Business process</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -2277,6 +2540,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Business process</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -2289,10 +2553,23 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>OK</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task DeleteAsync(string id, UserDeleteRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>Archive user</summary>
+        /// <param name="id">User ID</param>
+        /// <returns>OK</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        System.Threading.Tasks.Task ArchiveAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Restore user</summary>
@@ -2300,6 +2577,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>OK</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -2311,6 +2589,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>OK</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -2322,6 +2601,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>User details of the user referenced by the owner token</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -2333,6 +2613,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Newly created user</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -2344,6 +2625,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Details of all the users who were found</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -2355,6 +2637,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Result of the user search</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -2366,6 +2649,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Aggregation based on the request</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -2377,6 +2661,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Business process</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -2392,6 +2677,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>XmpMappingTargets containing both XMP fields and metadata fields that are available for mapping.</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -2403,6 +2689,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Holds results of search for XMP mappings</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -2414,6 +2701,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>XMP mapping entry</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -2426,6 +2714,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Business process</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -2437,6 +2726,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Business process</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -2448,6 +2738,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Business process</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -2459,6 +2750,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Array of XMP mapping entry</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="RequestSizeLimitExceededException">List of IDs exceeded maximum size</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -2470,6 +2762,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Business process</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -2481,6 +2774,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Business process</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -2492,6 +2786,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <returns>Business process</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -2743,15 +3038,17 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("MaximumTransferSizeException", typeof(MaximumTransferSizeException))]
     [JsonInheritanceAttribute("EnvironmentNotAvailableException", typeof(EnvironmentNotAvailableException))]
     [JsonInheritanceAttribute("CustomerNotAvailableException", typeof(CustomerNotAvailableException))]
+    [JsonInheritanceAttribute("PictureparkForbiddenException", typeof(PictureparkForbiddenException))]
     [JsonInheritanceAttribute("PictureparkNotFoundException", typeof(PictureparkNotFoundException))]
     [JsonInheritanceAttribute("PictureparkConflictException", typeof(PictureparkConflictException))]
     [JsonInheritanceAttribute("RequestSizeLimitExceededException", typeof(RequestSizeLimitExceededException))]
     [JsonInheritanceAttribute("PictureparkTimeoutException", typeof(PictureparkTimeoutException))]
-    [JsonInheritanceAttribute("PictureparkForbiddenException", typeof(PictureparkForbiddenException))]
     [JsonInheritanceAttribute("UserEmailAlreadyExistsException", typeof(UserEmailAlreadyExistsException))]
     [JsonInheritanceAttribute("UserRoleAssignedException", typeof(UserRoleAssignedException))]
     [JsonInheritanceAttribute("UnableToDeleteUserRoleException", typeof(UnableToDeleteUserRoleException))]
     [JsonInheritanceAttribute("UserNotFoundException", typeof(UserNotFoundException))]
+    [JsonInheritanceAttribute("UserNotDeactivatedException", typeof(UserNotDeactivatedException))]
+    [JsonInheritanceAttribute("UserWithOwnerTokensArchiveException", typeof(UserWithOwnerTokensArchiveException))]
     [JsonInheritanceAttribute("UserInactiveOrDeletedException", typeof(UserInactiveOrDeletedException))]
     [JsonInheritanceAttribute("InactiveOrDeletedUserRefusedAccessException", typeof(InactiveOrDeletedUserRefusedAccessException))]
     [JsonInheritanceAttribute("TermsOfServiceNotNewestException", typeof(TermsOfServiceNotNewestException))]
@@ -2868,6 +3165,9 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("WrongChunkSizeException", typeof(WrongChunkSizeException))]
     [JsonInheritanceAttribute("ChunkSizeOutOfRangeException", typeof(ChunkSizeOutOfRangeException))]
     [JsonInheritanceAttribute("FileIdDuplicatedException", typeof(FileIdDuplicatedException))]
+    [JsonInheritanceAttribute("UploadFailedException", typeof(UploadFailedException))]
+    [JsonInheritanceAttribute("MaximumNumberOfChunksExceededException", typeof(MaximumNumberOfChunksExceededException))]
+    [JsonInheritanceAttribute("MaximumFileSizeExceededException", typeof(MaximumFileSizeExceededException))]
     [JsonInheritanceAttribute("MissingDependenciesException", typeof(MissingDependenciesException))]
     [JsonInheritanceAttribute("RelationSelfReferencingException", typeof(RelationSelfReferencingException))]
     [JsonInheritanceAttribute("InvalidChangeCommandFieldTypeInvalidException", typeof(InvalidChangeCommandFieldTypeInvalidException))]
@@ -2961,6 +3261,8 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("ContentFileReplaceTypeMismatchException", typeof(ContentFileReplaceTypeMismatchException))]
     [JsonInheritanceAttribute("ContentBackupFailedException", typeof(ContentBackupFailedException))]
     [JsonInheritanceAttribute("ContentLayerSameRootException", typeof(ContentLayerSameRootException))]
+    [JsonInheritanceAttribute("ContentHistoricVersionNotFoundException", typeof(ContentHistoricVersionNotFoundException))]
+    [JsonInheritanceAttribute("UnableToDeleteLatestXmpWritebackGeneratedContentHistoricVersionException", typeof(UnableToDeleteLatestXmpWritebackGeneratedContentHistoricVersionException))]
     [JsonInheritanceAttribute("BusinessProcessEngineRequestException", typeof(BusinessProcessEngineRequestException))]
     [JsonInheritanceAttribute("BusinessProcessNotFoundException", typeof(BusinessProcessNotFoundException))]
     [JsonInheritanceAttribute("BusinessProcessDefinitionNotFoundException", typeof(BusinessProcessDefinitionNotFoundException))]
@@ -3038,6 +3340,10 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("OutputFormatRetentionTimeOutOfRangeException", typeof(OutputFormatRetentionTimeOutOfRangeException))]
     [JsonInheritanceAttribute("NotSupportedFileExtensionForFormatException", typeof(NotSupportedFileExtensionForFormatException))]
     [JsonInheritanceAttribute("OutputFormatXmpWritebackNotSupportedException", typeof(OutputFormatXmpWritebackNotSupportedException))]
+    [JsonInheritanceAttribute("OutputFormatsInUseException", typeof(OutputFormatsInUseException))]
+    [JsonInheritanceAttribute("OutputFormatOperationInProgressException", typeof(OutputFormatOperationInProgressException))]
+    [JsonInheritanceAttribute("StaticOutputFormatModificationNotSupportedException", typeof(StaticOutputFormatModificationNotSupportedException))]
+    [JsonInheritanceAttribute("OriginalOutputFormatModificationNotSupportedException", typeof(OriginalOutputFormatModificationNotSupportedException))]
     [JsonInheritanceAttribute("CollectionSizeLimitExceededException", typeof(CollectionSizeLimitExceededException))]
     [JsonInheritanceAttribute("CollectionModificationNotAllowedException", typeof(CollectionModificationNotAllowedException))]
     [JsonInheritanceAttribute("CollectionNotFoundException", typeof(CollectionNotFoundException))]
@@ -3055,6 +3361,9 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("XmpMappingFieldInUseException", typeof(XmpMappingFieldInUseException))]
     [JsonInheritanceAttribute("XmpMappingConfigurationInvalidException", typeof(XmpMappingConfigurationInvalidException))]
     [JsonInheritanceAttribute("ActivityMappingInvalidException", typeof(ActivityMappingInvalidException))]
+    [JsonInheritanceAttribute("StatisticsExportNotEnabledException", typeof(StatisticsExportNotEnabledException))]
+    [JsonInheritanceAttribute("StatisticsReadNotEnabledException", typeof(StatisticsReadNotEnabledException))]
+    [JsonInheritanceAttribute("StatisticsWriteNotEnabledException", typeof(StatisticsWriteNotEnabledException))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     [Newtonsoft.Json.JsonObjectAttribute]
     public partial class PictureparkException : System.Exception
@@ -3228,6 +3537,44 @@ namespace Picturepark.SDK.V1.Contract
         public static UserNotFoundException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<UserNotFoundException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class UserNotDeactivatedException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("notDeactivatedUserId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string NotDeactivatedUserId { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static UserNotDeactivatedException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<UserNotDeactivatedException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class UserWithOwnerTokensArchiveException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("notArchivedUserId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string NotArchivedUserId { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static UserWithOwnerTokensArchiveException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<UserWithOwnerTokensArchiveException>(data);
         }
     
     }
@@ -4170,6 +4517,9 @@ namespace Picturepark.SDK.V1.Contract
     [Newtonsoft.Json.JsonObjectAttribute]
     public partial class DuplicateOutputFormatIdException : PictureparkValidationException
     {
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -4602,8 +4952,11 @@ namespace Picturepark.SDK.V1.Contract
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     [Newtonsoft.Json.JsonObjectAttribute]
-    public partial class InvalidValueFormatException : PictureparkValidationException
+    public partial class InvalidValueFormatException : InvalidArgumentException
     {
+        [Newtonsoft.Json.JsonProperty("expectedFormat", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ExpectedFormat { get; set; }
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -5523,6 +5876,15 @@ namespace Picturepark.SDK.V1.Contract
         [System.Runtime.Serialization.EnumMember(Value = @"ManageXmpMappings")]
         ManageXmpMappings = 21,
     
+        [System.Runtime.Serialization.EnumMember(Value = @"ReadStatistics")]
+        ReadStatistics = 22,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"WriteStatistics")]
+        WriteStatistics = 23,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"ExportStatistics")]
+        ExportStatistics = 24,
+    
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
@@ -5669,6 +6031,9 @@ namespace Picturepark.SDK.V1.Contract
     
         [System.Runtime.Serialization.EnumMember(Value = @"Delete")]
         Delete = 5,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"ManageHistoricVersions")]
+        ManageHistoricVersions = 6,
     
     }
     
@@ -6109,6 +6474,72 @@ namespace Picturepark.SDK.V1.Contract
         public static FileIdDuplicatedException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<FileIdDuplicatedException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class UploadFailedException : PictureparkBusinessException
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static UploadFailedException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<UploadFailedException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class MaximumNumberOfChunksExceededException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("transferId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string TransferId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("numberOfChunks", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public long NumberOfChunks { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("maximumNumberOfChunks", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int MaximumNumberOfChunks { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static MaximumNumberOfChunksExceededException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<MaximumNumberOfChunksExceededException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class MaximumFileSizeExceededException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("transferId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string TransferId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("declaredFileSize", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public long DeclaredFileSize { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("maximumFileSize", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public long MaximumFileSize { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static MaximumFileSizeExceededException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<MaximumFileSizeExceededException>(data);
         }
     
     }
@@ -8397,6 +8828,50 @@ namespace Picturepark.SDK.V1.Contract
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class ContentHistoricVersionNotFoundException : PictureparkNotFoundException
+    {
+        [Newtonsoft.Json.JsonProperty("contentId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ContentId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("version", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int Version { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static ContentHistoricVersionNotFoundException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentHistoricVersionNotFoundException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class UnableToDeleteLatestXmpWritebackGeneratedContentHistoricVersionException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("contentId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ContentId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("version", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int Version { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static UnableToDeleteLatestXmpWritebackGeneratedContentHistoricVersionException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<UnableToDeleteLatestXmpWritebackGeneratedContentHistoricVersionException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
     public partial class BusinessProcessEngineRequestException : PictureparkBusinessException
     {
         [Newtonsoft.Json.JsonProperty("businessProcessId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -9888,6 +10363,82 @@ namespace Picturepark.SDK.V1.Contract
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class OutputFormatsInUseException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("outputFormatIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> OutputFormatIds { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("dependentOutputFormatIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> DependentOutputFormatIds { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static OutputFormatsInUseException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<OutputFormatsInUseException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class OutputFormatOperationInProgressException : PictureparkBusinessException
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static OutputFormatOperationInProgressException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<OutputFormatOperationInProgressException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class StaticOutputFormatModificationNotSupportedException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("outputFormatId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string OutputFormatId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("property", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Property { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static StaticOutputFormatModificationNotSupportedException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<StaticOutputFormatModificationNotSupportedException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class OriginalOutputFormatModificationNotSupportedException : PictureparkValidationException
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static OriginalOutputFormatModificationNotSupportedException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<OriginalOutputFormatModificationNotSupportedException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
     public partial class CollectionSizeLimitExceededException : PictureparkValidationException
     {
         [Newtonsoft.Json.JsonProperty("collectionId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -10214,6 +10765,73 @@ namespace Picturepark.SDK.V1.Contract
         public static ActivityMappingInvalidException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<ActivityMappingInvalidException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class StatisticsExportNotEnabledException : StatisticsFeatureNotEnabledException
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static StatisticsExportNotEnabledException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<StatisticsExportNotEnabledException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public abstract partial class StatisticsFeatureNotEnabledException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("scope", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Scope { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static StatisticsFeatureNotEnabledException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<StatisticsFeatureNotEnabledException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class StatisticsReadNotEnabledException : StatisticsFeatureNotEnabledException
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static StatisticsReadNotEnabledException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<StatisticsReadNotEnabledException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class StatisticsWriteNotEnabledException : StatisticsFeatureNotEnabledException
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static StatisticsWriteNotEnabledException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<StatisticsWriteNotEnabledException>(data);
         }
     
     }
@@ -15271,6 +15889,15 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("activity", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public Activity Activity { get; set; }
     
+        /// <summary>The number of historized versions of the content. Contains null if
+        /// (i) not requested by using HistoricVersionCount resolve behavior,
+        /// (ii) user lacks ManageHistoricVersions right on the content,
+        /// (iii) user lacks ManageContent user right,
+        /// (iv) historic versioning is disabled or
+        /// (v) content is a virtual item (ContentType is Virtual).</summary>
+        [Newtonsoft.Json.JsonProperty("historicVersionCount", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int? HistoricVersionCount { get; set; }
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -15692,6 +16319,9 @@ namespace Picturepark.SDK.V1.Contract
         [System.Runtime.Serialization.EnumMember(Value = @"OuterDisplayValueName")]
         OuterDisplayValueName = 13,
     
+        [System.Runtime.Serialization.EnumMember(Value = @"HistoricVersionCount")]
+        HistoricVersionCount = 14,
+    
     }
     
     /// <summary>Values that represent thumbnail sizes.</summary>
@@ -15709,6 +16339,9 @@ namespace Picturepark.SDK.V1.Contract
     
         [System.Runtime.Serialization.EnumMember(Value = @"Preview")]
         Preview = 3,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"ExtraLarge")]
+        ExtraLarge = 4,
     
     }
     
@@ -17322,6 +17955,134 @@ namespace Picturepark.SDK.V1.Contract
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class HistoricVersionSearchResult : BaseResultOfHistoricVersion
+    {
+        /// <summary>Additional information regarding the query execution and reason of the matched documents. Multiple items are returned if multiple queries were performed.</summary>
+        [Newtonsoft.Json.JsonProperty("queryDebugInformation", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<QueryDebugInformation> QueryDebugInformation { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static HistoricVersionSearchResult FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<HistoricVersionSearchResult>(data);
+        }
+    
+    }
+    
+    /// <summary>Base class for search results</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class BaseResultOfHistoricVersion 
+    {
+        /// <summary>The total number of matching documents.</summary>
+        [Newtonsoft.Json.JsonProperty("totalResults", Required = Newtonsoft.Json.Required.Always)]
+        public long TotalResults { get; set; }
+    
+        /// <summary>The matched documents.</summary>
+        [Newtonsoft.Json.JsonProperty("results", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.Collections.Generic.ICollection<HistoricVersion> Results { get; set; } = new System.Collections.Generic.List<HistoricVersion>();
+    
+        /// <summary>The search execution time in milliseconds.</summary>
+        [Newtonsoft.Json.JsonProperty("elapsedMilliseconds", Required = Newtonsoft.Json.Required.Always)]
+        public long ElapsedMilliseconds { get; set; }
+    
+        /// <summary>An optional token to access the next page of results for those endpoints that support backend scrolling logic.</summary>
+        [Newtonsoft.Json.JsonProperty("pageToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string PageToken { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static BaseResultOfHistoricVersion FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BaseResultOfHistoricVersion>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class HistoricVersion 
+    {
+        /// <summary>Sequential version number.</summary>
+        [Newtonsoft.Json.JsonProperty("versionNumber", Required = Newtonsoft.Json.Required.Always)]
+        public int VersionNumber { get; set; }
+    
+        /// <summary>Content ID.</summary>
+        [Newtonsoft.Json.JsonProperty("contentId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ContentId { get; set; }
+    
+        /// <summary>The datetime when this version was replaced.</summary>
+        [Newtonsoft.Json.JsonProperty("replaced", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public System.DateTime Replaced { get; set; }
+    
+        /// <summary>User who replaced this version.</summary>
+        [Newtonsoft.Json.JsonProperty("user", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public User User { get; set; }
+    
+        /// <summary>File name for this version.</summary>
+        [Newtonsoft.Json.JsonProperty("fileName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string FileName { get; set; }
+    
+        /// <summary>True if this version was created by XMP writeback (as the version without the mutation).</summary>
+        [Newtonsoft.Json.JsonProperty("createdByXmpWriteback", Required = Newtonsoft.Json.Required.Always)]
+        public bool CreatedByXmpWriteback { get; set; }
+    
+        /// <summary>ID of the original output associated with this version.</summary>
+        [Newtonsoft.Json.JsonProperty("originalOutputId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string OriginalOutputId { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static HistoricVersion FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<HistoricVersion>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class HistoricVersionSearchRequest 
+    {
+        /// <summary>Will exclude the historic versions that were created by XMP writeback</summary>
+        [Newtonsoft.Json.JsonProperty("excludeXmpWritebackGenerated", Required = Newtonsoft.Json.Required.Always)]
+        public bool ExcludeXmpWritebackGenerated { get; set; }
+    
+        /// <summary>Limits the document count of the result set. Defaults to 30.</summary>
+        [Newtonsoft.Json.JsonProperty("limit", Required = Newtonsoft.Json.Required.Always)]
+        public int Limit { get; set; } = 30;
+    
+        /// <summary>The token used to retrieve the next page of results. It must be null on first request and only filled with the returned pageToken to request next page of results.</summary>
+        [Newtonsoft.Json.JsonProperty("pageToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string PageToken { get; set; }
+    
+        /// <summary>Enable debug mode: additional debug information regarding the query execution and reason of the matched documents are returned in the BusinessProcessSearchResult.
+        /// Warning! It severely affects performance.</summary>
+        [Newtonsoft.Json.JsonProperty("debugMode", Required = Newtonsoft.Json.Required.Always)]
+        public bool DebugMode { get; set; } = false;
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static HistoricVersionSearchRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<HistoricVersionSearchRequest>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class DisplayValueStatus 
     {
         /// <summary>The schema ids (of type Content or Layer) for which the re-rendering of the display values is needed.</summary>
@@ -17814,6 +18575,11 @@ namespace Picturepark.SDK.V1.Contract
         [System.ComponentModel.DataAnnotations.Required]
         public string LogosUrl { get; set; }
     
+        /// <summary>License options and states</summary>
+        [Newtonsoft.Json.JsonProperty("licenseInformation", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public LicenseInfo LicenseInformation { get; set; } = new LicenseInfo();
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -17961,6 +18727,78 @@ namespace Picturepark.SDK.V1.Contract
         public static CustomerApp FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<CustomerApp>(data);
+        }
+    
+    }
+    
+    /// <summary>Customer license information</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class LicenseInfo 
+    {
+        /// <summary>State of content historic versioning</summary>
+        [Newtonsoft.Json.JsonProperty("historicVersioningState", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public HistoricVersioningState HistoricVersioningState { get; set; }
+    
+        /// <summary>State of statistics features for Content</summary>
+        [Newtonsoft.Json.JsonProperty("contentStatistics", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public StatisticsLicenseState ContentStatistics { get; set; } = new StatisticsLicenseState();
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static LicenseInfo FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<LicenseInfo>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public enum HistoricVersioningState
+    {
+        [System.Runtime.Serialization.EnumMember(Value = @"Disabled")]
+        Disabled = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Suspended")]
+        Suspended = 1,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Enabled")]
+        Enabled = 2,
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class StatisticsLicenseState 
+    {
+        /// <summary>Defines whether the respective statistics are gathered periodically</summary>
+        [Newtonsoft.Json.JsonProperty("collection", Required = Newtonsoft.Json.Required.Always)]
+        public bool Collection { get; set; }
+    
+        /// <summary>Allows or prevents access to read endpoints</summary>
+        [Newtonsoft.Json.JsonProperty("read", Required = Newtonsoft.Json.Required.Always)]
+        public bool Read { get; set; }
+    
+        /// <summary>Allows or prevents access to write endpoints</summary>
+        [Newtonsoft.Json.JsonProperty("write", Required = Newtonsoft.Json.Required.Always)]
+        public bool Write { get; set; }
+    
+        /// <summary>Allows or prevents export of the respective statistics</summary>
+        [Newtonsoft.Json.JsonProperty("export", Required = Newtonsoft.Json.Required.Always)]
+        public bool Export { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static StatisticsLicenseState FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<StatisticsLicenseState>(data);
         }
     
     }
@@ -19034,7 +19872,8 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class Notification 
     {
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
         public string Id { get; set; }
     
         [Newtonsoft.Json.JsonProperty("recipientUserId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -19366,17 +20205,32 @@ namespace Picturepark.SDK.V1.Contract
         [System.Runtime.Serialization.EnumMember(Value = @"BusinessRuleTitle")]
         BusinessRuleTitle = 92,
     
+        [System.Runtime.Serialization.EnumMember(Value = @"StatisticsExportDraft")]
+        StatisticsExportDraft = 93,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"StatisticsExportInProgress")]
+        StatisticsExportInProgress = 94,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"StatisticsExportCompleted")]
+        StatisticsExportCompleted = 95,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"StatisticsExportFailed")]
+        StatisticsExportFailed = 96,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"StatisticsExportCancelled")]
+        StatisticsExportCancelled = 97,
+    
         [System.Runtime.Serialization.EnumMember(Value = @"UserEmailConflictSolved")]
-        UserEmailConflictSolved = 93,
+        UserEmailConflictSolved = 98,
     
         [System.Runtime.Serialization.EnumMember(Value = @"UserEmailConflictSolvedSubject")]
-        UserEmailConflictSolvedSubject = 94,
+        UserEmailConflictSolvedSubject = 99,
     
         [System.Runtime.Serialization.EnumMember(Value = @"SupportUserDeactivation")]
-        SupportUserDeactivation = 95,
+        SupportUserDeactivation = 100,
     
         [System.Runtime.Serialization.EnumMember(Value = @"ImportFailedTitle")]
-        ImportFailedTitle = 96,
+        ImportFailedTitle = 101,
     
     }
     
@@ -19671,6 +20525,21 @@ namespace Picturepark.SDK.V1.Contract
         [System.Runtime.Serialization.EnumMember(Value = @"BusinessRuleMessage")]
         BusinessRuleMessage = 95,
     
+        [System.Runtime.Serialization.EnumMember(Value = @"StatisticsExportDraft")]
+        StatisticsExportDraft = 96,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"StatisticsExportInProgress")]
+        StatisticsExportInProgress = 97,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"StatisticsExportCompleted")]
+        StatisticsExportCompleted = 98,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"StatisticsExportFailed")]
+        StatisticsExportFailed = 99,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"StatisticsExportCancelled")]
+        StatisticsExportCancelled = 100,
+    
     }
     
     [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
@@ -19717,7 +20586,8 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Name { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("transferId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("transferId", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
         public string TransferId { get; set; }
     
         public string ToJson() 
@@ -19735,12 +20605,16 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     public abstract partial class NotificationDetailBusinessProcessBase : NotificationDetailBase
     {
-        [Newtonsoft.Json.JsonProperty("businessProcessId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("businessProcessId", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
         public string BusinessProcessId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("businessProcessLifeCycle", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public BusinessProcessLifeCycle BusinessProcessLifeCycle { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("supportsCancellation", Required = Newtonsoft.Json.Required.Always)]
+        public bool SupportsCancellation { get; set; }
     
         public string ToJson() 
         {
@@ -19760,7 +20634,8 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("token", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Token { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("shareId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("shareId", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
         public string ShareId { get; set; }
     
         public string ToJson() 
@@ -19793,7 +20668,8 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Name { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("transferId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("transferId", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
         public string TransferId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("importedSchemaCount", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -19829,7 +20705,8 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class NotificationDetailIndexReindexProgress : NotificationDetailBusinessProcessBase
     {
-        [Newtonsoft.Json.JsonProperty("indexId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("indexId", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
         public string IndexId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("expected", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -19856,7 +20733,8 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("displayName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string DisplayName { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("userId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("userId", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
         public string UserId { get; set; }
     
         public string ToJson() 
@@ -19979,7 +20857,8 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("collectionId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string CollectionId { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("notificationId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("notificationId", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
         public string NotificationId { get; set; }
     
         public string ToJson() 
@@ -25008,6 +25887,150 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class ExportContentStatisticsRequest 
+    {
+        /// <summary>Allows filtering of retrieved statistical data</summary>
+        [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public ContentFilterRequest Filter { get; set; }
+    
+        /// <summary>Optional begin of time range for which statistical data should be exported</summary>
+        [Newtonsoft.Json.JsonProperty("after", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.DateTime? After { get; set; }
+    
+        /// <summary>Optional end of time range for which statistical data should be exported</summary>
+        [Newtonsoft.Json.JsonProperty("before", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.DateTime? Before { get; set; }
+    
+        /// <summary>Whether exported information should be separated by api client</summary>
+        [Newtonsoft.Json.JsonProperty("aggregateApiClients", Required = Newtonsoft.Json.Required.Always)]
+        public bool AggregateApiClients { get; set; }
+    
+        /// <summary>Enrich export with Name display value of Content</summary>
+        [Newtonsoft.Json.JsonProperty("includeContentNames", Required = Newtonsoft.Json.Required.Always)]
+        public bool IncludeContentNames { get; set; }
+    
+        /// <summary>Desired temporal resolution of exported data. Must not be lower than 1 hour</summary>
+        [Newtonsoft.Json.JsonProperty("interval", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.TimeSpan? Interval { get; set; }
+    
+        /// <summary>Whether notifications should be published for progress and completion</summary>
+        [Newtonsoft.Json.JsonProperty("notifyProgress", Required = Newtonsoft.Json.Required.Always)]
+        public bool NotifyProgress { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static ExportContentStatisticsRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ExportContentStatisticsRequest>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class AddContentEventsRequest 
+    {
+        /// <summary>Data to be added to statistics</summary>
+        [Newtonsoft.Json.JsonProperty("events", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<AddContentEventsRequestItem> Events { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static AddContentEventsRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<AddContentEventsRequest>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class AddContentEventsRequestItem 
+    {
+        /// <summary>Specifies at which time the events happened. The information will be automatically aggregated according to internal temporal resolution of statistics.</summary>
+        [Newtonsoft.Json.JsonProperty("timestamp", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public System.DateTime Timestamp { get; set; }
+    
+        /// <summary>Specifies content for which the events happened</summary>
+        [Newtonsoft.Json.JsonProperty("contentId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ContentId { get; set; }
+    
+        /// <summary>Optionally specify the used ApiClient. Defaults to the API Client sending this request.</summary>
+        [Newtonsoft.Json.JsonProperty("apiClientId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ApiClientId { get; set; }
+    
+        /// <summary>Data to be added to statistics</summary>
+        [Newtonsoft.Json.JsonProperty("statistics", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public ContentStatisticsDataEditable Statistics { get; set; }
+    
+        /// <summary>Optionally specify an additional id under which the supplied data should be tracked. This
+        /// Id is only used internally and cannot be retrieved through API or export.</summary>
+        [Newtonsoft.Json.JsonProperty("externalEventTraceId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ExternalEventTraceId { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static AddContentEventsRequestItem FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<AddContentEventsRequestItem>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class ContentStatisticsDataEditable 
+    {
+        [Newtonsoft.Json.JsonProperty("downloads", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public ContentDownloadsEditable Downloads { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static ContentStatisticsDataEditable FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentStatisticsDataEditable>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class ContentDownloadsEditable 
+    {
+        /// <summary>Total downloads of content (regardless of formats, single download of multiple formats is counted once)</summary>
+        [Newtonsoft.Json.JsonProperty("total", Required = Newtonsoft.Json.Required.Always)]
+        public int Total { get; set; }
+    
+        /// <summary>Downloads of content through basic Share</summary>
+        [Newtonsoft.Json.JsonProperty("share", Required = Newtonsoft.Json.Required.Always)]
+        public int Share { get; set; }
+    
+        /// <summary>Downloads of content through embed</summary>
+        [Newtonsoft.Json.JsonProperty("embed", Required = Newtonsoft.Json.Required.Always)]
+        public int Embed { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static ContentDownloadsEditable FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentDownloadsEditable>(data);
+        }
+    
+    }
+    
     /// <summary>Template</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class Template : TemplateCreateRequest
@@ -26429,6 +27452,10 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("reviewed", Required = Newtonsoft.Json.Required.Always)]
         public bool Reviewed { get; set; }
     
+        /// <summary>If true, no email will be sent to inform the user that they were reviewed.</summary>
+        [Newtonsoft.Json.JsonProperty("suppressEmail", Required = Newtonsoft.Json.Required.Always)]
+        public bool SuppressEmail { get; set; }
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -26449,6 +27476,10 @@ namespace Picturepark.SDK.V1.Contract
         /// If _true_ is specified, user will be transitioned into _reviewed_ state. _False_ will put the user back into _to be reviewed_ state.</summary>
         [Newtonsoft.Json.JsonProperty("reviewed", Required = Newtonsoft.Json.Required.Always)]
         public bool Reviewed { get; set; }
+    
+        /// <summary>If true, no email will be sent to inform the users that they were reviewed.</summary>
+        [Newtonsoft.Json.JsonProperty("suppressEmail", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool SuppressEmail { get; set; }
     
         public string ToJson() 
         {
@@ -27462,6 +28493,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("ReindexEvent", typeof(ReindexEvent))]
     [JsonInheritanceAttribute("ContentDetailViewEvent", typeof(ContentDetailViewEvent))]
     [JsonInheritanceAttribute("ContentDownloadEvent", typeof(ContentDownloadEvent))]
+    [JsonInheritanceAttribute("ContentShareEvent", typeof(ContentShareEvent))]
     [JsonInheritanceAttribute("SessionRenewalEvent", typeof(SessionRenewalEvent))]
     [JsonInheritanceAttribute("SharePageViewEvent", typeof(SharePageViewEvent))]
     [JsonInheritanceAttribute("ApiStatisticsEvent", typeof(ApiStatisticsEvent))]
@@ -27647,6 +28679,31 @@ namespace Picturepark.SDK.V1.Contract
     
         [System.Runtime.Serialization.EnumMember(Value = @"Inline")]
         Inline = 1,
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class ContentShareEvent : ApplicationEvent
+    {
+        [Newtonsoft.Json.JsonProperty("shareId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ShareId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("shareType", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public ShareType ShareType { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("addedContentIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> AddedContentIds { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static ContentShareEvent FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentShareEvent>(data);
+        }
     
     }
     

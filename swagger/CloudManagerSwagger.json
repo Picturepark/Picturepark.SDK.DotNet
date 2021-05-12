@@ -57,6 +57,16 @@
           "401": {
             "description": "Unauthorized"
           },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
           "404": {
             "description": "Entity not found",
             "content": {
@@ -138,6 +148,16 @@
           "401": {
             "description": "Unauthorized"
           },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
           "404": {
             "description": "Entity not found",
             "content": {
@@ -218,6 +238,16 @@
           },
           "401": {
             "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
           },
           "404": {
             "description": "Entity not found",
@@ -312,6 +342,16 @@
           "401": {
             "description": "Unauthorized"
           },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
           "404": {
             "description": "Entity not found",
             "content": {
@@ -393,6 +433,16 @@
           "401": {
             "description": "Unauthorized"
           },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
           "404": {
             "description": "Entity not found",
             "content": {
@@ -461,6 +511,16 @@
           },
           "401": {
             "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
           },
           "404": {
             "description": "Entity not found",
@@ -543,6 +603,16 @@
           "401": {
             "description": "Unauthorized"
           },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
           "404": {
             "description": "Entity not found",
             "content": {
@@ -623,6 +693,16 @@
           },
           "401": {
             "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
           },
           "404": {
             "description": "Entity not found",
@@ -705,6 +785,16 @@
           "401": {
             "description": "Unauthorized"
           },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
           "404": {
             "description": "Entity not found",
             "content": {
@@ -785,6 +875,16 @@
           },
           "401": {
             "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
           },
           "404": {
             "description": "Entity not found",
@@ -867,6 +967,16 @@
           "401": {
             "description": "Unauthorized"
           },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
           "404": {
             "description": "Entity not found",
             "content": {
@@ -947,6 +1057,16 @@
           },
           "401": {
             "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
           },
           "404": {
             "description": "Entity not found",
@@ -1029,6 +1149,16 @@
           "401": {
             "description": "Unauthorized"
           },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
           "404": {
             "description": "Entity not found",
             "content": {
@@ -1109,6 +1239,16 @@
           },
           "401": {
             "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
           },
           "404": {
             "description": "Entity not found",
@@ -1191,6 +1331,16 @@
           "401": {
             "description": "Unauthorized"
           },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
           "404": {
             "description": "Entity not found",
             "content": {
@@ -1259,6 +1409,16 @@
           },
           "401": {
             "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
           },
           "404": {
             "description": "Entity not found",
@@ -1341,6 +1501,16 @@
           "401": {
             "description": "Unauthorized"
           },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
           "404": {
             "description": "Entity not found",
             "content": {
@@ -1421,6 +1591,16 @@
           },
           "401": {
             "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
           },
           "404": {
             "description": "Entity not found",
@@ -1503,6 +1683,16 @@
           "401": {
             "description": "Unauthorized"
           },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
           "404": {
             "description": "Entity not found",
             "content": {
@@ -1576,6 +1766,16 @@
           },
           "401": {
             "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
           },
           "404": {
             "description": "Entity not found",
@@ -1651,6 +1851,16 @@
           "401": {
             "description": "Unauthorized"
           },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
           "404": {
             "description": "Entity not found",
             "content": {
@@ -1724,6 +1934,16 @@
           },
           "401": {
             "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
           },
           "404": {
             "description": "Entity not found",
@@ -1799,6 +2019,16 @@
           "401": {
             "description": "Unauthorized"
           },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
           "404": {
             "description": "Entity not found",
             "content": {
@@ -1873,6 +2103,16 @@
           "401": {
             "description": "Unauthorized"
           },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
           "404": {
             "description": "Entity not found",
             "content": {
@@ -1946,6 +2186,16 @@
           },
           "401": {
             "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
           },
           "404": {
             "description": "Entity not found",
@@ -2027,6 +2277,16 @@
           },
           "401": {
             "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
           },
           "404": {
             "description": "Entity not found",
@@ -2118,6 +2378,16 @@
           },
           "401": {
             "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
           },
           "404": {
             "description": "Entity not found",
@@ -2218,6 +2488,16 @@
           "401": {
             "description": "Unauthorized"
           },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
           "404": {
             "description": "Entity not found",
             "content": {
@@ -2317,6 +2597,16 @@
           "401": {
             "description": "Unauthorized"
           },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
           "404": {
             "description": "Entity not found",
             "content": {
@@ -2387,6 +2677,16 @@
           "401": {
             "description": "Unauthorized"
           },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
           "404": {
             "description": "Entity not found",
             "content": {
@@ -2455,6 +2755,16 @@
           },
           "401": {
             "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
           },
           "404": {
             "description": "Entity not found",
@@ -2537,6 +2847,16 @@
           "401": {
             "description": "Unauthorized"
           },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
           "404": {
             "description": "Entity not found",
             "content": {
@@ -2616,6 +2936,16 @@
           "401": {
             "description": "Unauthorized"
           },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
           "404": {
             "description": "Entity not found",
             "content": {
@@ -2682,6 +3012,16 @@
           },
           "401": {
             "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
           },
           "404": {
             "description": "Entity not found",
@@ -2764,6 +3104,16 @@
           "401": {
             "description": "Unauthorized"
           },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
           "404": {
             "description": "Entity not found",
             "content": {
@@ -2835,6 +3185,16 @@
           },
           "401": {
             "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
           },
           "404": {
             "description": "Entity not found",
@@ -2916,6 +3276,16 @@
           },
           "401": {
             "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
           },
           "404": {
             "description": "Entity not found",
@@ -3001,6 +3371,16 @@
           "401": {
             "description": "Unauthorized"
           },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
           "404": {
             "description": "Entity not found",
             "content": {
@@ -3074,6 +3454,16 @@
           },
           "401": {
             "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
           },
           "404": {
             "description": "Entity not found",
@@ -3149,94 +3539,15 @@
           "401": {
             "description": "Unauthorized"
           },
-          "404": {
-            "description": "Entity not found",
+          "403": {
+            "description": "Forbidden",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
                 }
               }
             }
-          },
-          "405": {
-            "description": "Method not allowed"
-          },
-          "409": {
-            "description": "Version conflict",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkConflictException"
-                }
-              }
-            }
-          },
-          "429": {
-            "description": "Too many requests"
-          },
-          "500": {
-            "description": "Internal server error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkException"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/Customer/{id}/outputFormats": {
-      "post": {
-        "tags": [
-          "Customer"
-        ],
-        "operationId": "Customer_AddOutputFormats",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 1
-          }
-        ],
-        "requestBody": {
-          "x-name": "outputFormats",
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "array",
-                "items": {
-                  "$ref": "#/components/schemas/OutputFormat"
-                }
-              }
-            }
-          },
-          "required": true,
-          "x-position": 2
-        },
-        "responses": {
-          "200": {
-            "description": ""
-          },
-          "400": {
-            "description": "Validation exception",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkValidationException"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized"
           },
           "404": {
             "description": "Entity not found",
@@ -3331,6 +3642,16 @@
           "401": {
             "description": "Unauthorized"
           },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
           "404": {
             "description": "Entity not found",
             "content": {
@@ -3414,6 +3735,16 @@
           },
           "401": {
             "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
           },
           "404": {
             "description": "Entity not found",
@@ -3518,6 +3849,16 @@
           "401": {
             "description": "Unauthorized"
           },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
           "404": {
             "description": "Entity not found",
             "content": {
@@ -3621,6 +3962,16 @@
           "401": {
             "description": "Unauthorized"
           },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
           "404": {
             "description": "Entity not found",
             "content": {
@@ -3712,6 +4063,16 @@
           },
           "401": {
             "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
           },
           "404": {
             "description": "Entity not found",
@@ -3816,6 +4177,16 @@
           "401": {
             "description": "Unauthorized"
           },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
           "404": {
             "description": "Entity not found",
             "content": {
@@ -3896,6 +4267,16 @@
           },
           "401": {
             "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
           },
           "404": {
             "description": "Entity not found",
@@ -3981,6 +4362,16 @@
           "401": {
             "description": "Unauthorized"
           },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
           "404": {
             "description": "Entity not found",
             "content": {
@@ -4050,6 +4441,16 @@
           "401": {
             "description": "Unauthorized"
           },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
           "404": {
             "description": "Entity not found",
             "content": {
@@ -4118,6 +4519,16 @@
           },
           "401": {
             "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
           },
           "404": {
             "description": "Entity not found",
@@ -4193,6 +4604,16 @@
           "401": {
             "description": "Unauthorized"
           },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
           "404": {
             "description": "Entity not found",
             "content": {
@@ -4266,6 +4687,16 @@
           },
           "401": {
             "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
           },
           "404": {
             "description": "Entity not found",
@@ -4347,6 +4778,16 @@
           },
           "401": {
             "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
           },
           "404": {
             "description": "Entity not found",
@@ -4453,6 +4894,16 @@
           "401": {
             "description": "Unauthorized"
           },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
           "404": {
             "description": "Entity not found",
             "content": {
@@ -4534,6 +4985,16 @@
           "401": {
             "description": "Unauthorized"
           },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
           "404": {
             "description": "Entity not found",
             "content": {
@@ -4602,6 +5063,16 @@
           },
           "401": {
             "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
           },
           "404": {
             "description": "Entity not found",
@@ -4673,6 +5144,16 @@
           "401": {
             "description": "Unauthorized"
           },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
           "404": {
             "description": "Entity not found",
             "content": {
@@ -4741,6 +5222,16 @@
           },
           "401": {
             "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
           },
           "404": {
             "description": "Entity not found",
@@ -4815,6 +5306,16 @@
           },
           "401": {
             "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
           },
           "404": {
             "description": "Entity not found",
@@ -4919,6 +5420,16 @@
           "401": {
             "description": "Unauthorized"
           },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
           "404": {
             "description": "Entity not found",
             "content": {
@@ -5021,6 +5532,16 @@
           },
           "401": {
             "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
           },
           "404": {
             "description": "Entity not found",
@@ -5125,6 +5646,129 @@
           "401": {
             "description": "Unauthorized"
           },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Maintenance/customer/{id}/outputs/recreateXmpUntouchedOriginals": {
+      "post": {
+        "tags": [
+          "Maintenance"
+        ],
+        "operationId": "Maintenance_RecreateXmpUntouchedOriginals",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 1
+          },
+          {
+            "name": "timeout",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "time-span",
+              "nullable": true
+            },
+            "x-position": 3
+          }
+        ],
+        "requestBody": {
+          "x-name": "request",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RecreateXmpUntouchedOriginalsRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 2
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RecreateXmpUntouchedOriginalsResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
           "404": {
             "description": "Entity not found",
             "content": {
@@ -5216,6 +5860,129 @@
           "401": {
             "description": "Unauthorized"
           },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Maintenance/customer/{id}/statistics/events": {
+      "post": {
+        "tags": [
+          "Maintenance"
+        ],
+        "operationId": "Maintenance_AddStatisticsEvents",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 1
+          },
+          {
+            "name": "timeout",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "time-span",
+              "nullable": true
+            },
+            "x-position": 3
+          }
+        ],
+        "requestBody": {
+          "x-name": "request",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddContentEventsRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 2
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BusinessProcess"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
           "404": {
             "description": "Entity not found",
             "content": {
@@ -5278,6 +6045,16 @@
           "401": {
             "description": "Unauthorized"
           },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
           "404": {
             "description": "Entity not found",
             "content": {
@@ -5339,6 +6116,430 @@
           },
           "401": {
             "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/OutputFormat/customer/{customerId}/outputformats/{id}": {
+      "get": {
+        "tags": [
+          "OutputFormat"
+        ],
+        "operationId": "OutputFormat_Get",
+        "parameters": [
+          {
+            "name": "customerId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 1
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 2
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OutputFormatDetail"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "OutputFormat"
+        ],
+        "operationId": "OutputFormat_Update",
+        "parameters": [
+          {
+            "name": "customerId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 1
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 2
+          }
+        ],
+        "requestBody": {
+          "x-name": "format",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OutputFormatEditable"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 3
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BusinessProcess"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "OutputFormat"
+        ],
+        "operationId": "OutputFormat_Delete",
+        "parameters": [
+          {
+            "name": "customerId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 1
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 2
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BusinessProcess"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/OutputFormat/customer/{customerId}/outputformats": {
+      "post": {
+        "tags": [
+          "OutputFormat"
+        ],
+        "operationId": "OutputFormat_Create",
+        "parameters": [
+          {
+            "name": "customerId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 1
+          }
+        ],
+        "requestBody": {
+          "x-name": "format",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OutputFormat"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 2
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BusinessProcess"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
           },
           "404": {
             "description": "Entity not found",
@@ -5421,6 +6622,16 @@
           "401": {
             "description": "Unauthorized"
           },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
           "404": {
             "description": "Entity not found",
             "content": {
@@ -5495,6 +6706,16 @@
           "401": {
             "description": "Unauthorized"
           },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
           "404": {
             "description": "Entity not found",
             "content": {
@@ -5557,6 +6778,16 @@
           "401": {
             "description": "Unauthorized"
           },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
           "404": {
             "description": "Entity not found",
             "content": {
@@ -5618,6 +6849,16 @@
           },
           "401": {
             "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
           },
           "404": {
             "description": "Entity not found",
@@ -5702,6 +6943,16 @@
           "401": {
             "description": "Unauthorized"
           },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
           "404": {
             "description": "Entity not found",
             "content": {
@@ -5785,6 +7036,16 @@
           "401": {
             "description": "Unauthorized"
           },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
           "404": {
             "description": "Entity not found",
             "content": {
@@ -5858,6 +7119,16 @@
           },
           "401": {
             "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
           },
           "404": {
             "description": "Entity not found",
@@ -5940,6 +7211,16 @@
           "401": {
             "description": "Unauthorized"
           },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
           "404": {
             "description": "Entity not found",
             "content": {
@@ -6001,6 +7282,16 @@
           },
           "401": {
             "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
           },
           "404": {
             "description": "Entity not found",
@@ -6074,6 +7365,16 @@
           "401": {
             "description": "Unauthorized"
           },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
           "404": {
             "description": "Entity not found",
             "content": {
@@ -6135,6 +7436,16 @@
           },
           "401": {
             "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
           },
           "404": {
             "description": "Entity not found",
@@ -6198,6 +7509,16 @@
           "401": {
             "description": "Unauthorized"
           },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
           "404": {
             "description": "Entity not found",
             "content": {
@@ -6259,6 +7580,16 @@
           },
           "401": {
             "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
           },
           "404": {
             "description": "Entity not found",
@@ -6329,6 +7660,16 @@
           "401": {
             "description": "Unauthorized"
           },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
           "404": {
             "description": "Entity not found",
             "content": {
@@ -6397,6 +7738,16 @@
           },
           "401": {
             "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
           },
           "404": {
             "description": "Entity not found",
@@ -6472,6 +7823,16 @@
           "401": {
             "description": "Unauthorized"
           },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
           "404": {
             "description": "Entity not found",
             "content": {
@@ -6545,6 +7906,16 @@
           },
           "401": {
             "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
           },
           "404": {
             "description": "Entity not found",
@@ -6627,6 +7998,16 @@
           "401": {
             "description": "Unauthorized"
           },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
           "404": {
             "description": "Entity not found",
             "content": {
@@ -6708,6 +8089,16 @@
           "401": {
             "description": "Unauthorized"
           },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
           "404": {
             "description": "Entity not found",
             "content": {
@@ -6779,6 +8170,16 @@
           },
           "401": {
             "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
           },
           "404": {
             "description": "Entity not found",
@@ -6861,6 +8262,16 @@
           "401": {
             "description": "Unauthorized"
           },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
           "404": {
             "description": "Entity not found",
             "content": {
@@ -6938,6 +8349,16 @@
           "401": {
             "description": "Unauthorized"
           },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
           "404": {
             "description": "Entity not found",
             "content": {
@@ -7014,6 +8435,16 @@
           },
           "401": {
             "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
           },
           "404": {
             "description": "Entity not found",
@@ -7101,6 +8532,16 @@
           },
           "401": {
             "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
           },
           "404": {
             "description": "Entity not found",
@@ -7192,6 +8633,16 @@
           },
           "401": {
             "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
           },
           "404": {
             "description": "Entity not found",
@@ -7285,6 +8736,16 @@
           },
           "401": {
             "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
           },
           "404": {
             "description": "Entity not found",
@@ -7735,6 +9196,40 @@
             "additionalProperties": false,
             "properties": {
               "missingUserId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "UserNotDeactivatedException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "notDeactivatedUserId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "UserWithOwnerTokensArchiveException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "notArchivedUserId": {
                 "type": "string",
                 "nullable": true
               }
@@ -8566,7 +10061,13 @@
           },
           {
             "type": "object",
-            "additionalProperties": false
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string",
+                "nullable": true
+              }
+            }
           }
         ]
       },
@@ -8932,11 +10433,17 @@
       "InvalidValueFormatException": {
         "allOf": [
           {
-            "$ref": "#/components/schemas/PictureparkValidationException"
+            "$ref": "#/components/schemas/InvalidArgumentException"
           },
           {
             "type": "object",
-            "additionalProperties": false
+            "additionalProperties": false,
+            "properties": {
+              "expectedFormat": {
+                "type": "string",
+                "nullable": true
+              }
+            }
           }
         ]
       },
@@ -9716,7 +11223,10 @@
           "ManageOutputFormats",
           "ManageBusinessProcesses",
           "ManageIdentityProviders",
-          "ManageXmpMappings"
+          "ManageXmpMappings",
+          "ReadStatistics",
+          "WriteStatistics",
+          "ExportStatistics"
         ],
         "enum": [
           "ManageContent",
@@ -9740,7 +11250,10 @@
           "ManageOutputFormats",
           "ManageBusinessProcesses",
           "ManageIdentityProviders",
-          "ManageXmpMappings"
+          "ManageXmpMappings",
+          "ReadStatistics",
+          "WriteStatistics",
+          "ExportStatistics"
         ]
       },
       "PermissionSetNotFoundException": {
@@ -9875,7 +11388,8 @@
           "EditMetadata",
           "EditContent",
           "ManagePermissions",
-          "Delete"
+          "Delete",
+          "ManageHistoricVersions"
         ],
         "enum": [
           "View",
@@ -9883,7 +11397,8 @@
           "EditMetadata",
           "EditContent",
           "ManagePermissions",
-          "Delete"
+          "Delete",
+          "ManageHistoricVersions"
         ]
       },
       "ListItemPermissionException": {
@@ -10283,6 +11798,67 @@
               "fileId": {
                 "type": "string",
                 "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "UploadFailedException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkBusinessException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "MaximumNumberOfChunksExceededException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "transferId": {
+                "type": "string",
+                "nullable": true
+              },
+              "numberOfChunks": {
+                "type": "integer",
+                "format": "int64"
+              },
+              "maximumNumberOfChunks": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          }
+        ]
+      },
+      "MaximumFileSizeExceededException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "transferId": {
+                "type": "string",
+                "nullable": true
+              },
+              "declaredFileSize": {
+                "type": "integer",
+                "format": "int64"
+              },
+              "maximumFileSize": {
+                "type": "integer",
+                "format": "int64"
               }
             }
           }
@@ -12510,6 +14086,48 @@
           }
         }
       },
+      "ContentHistoricVersionNotFoundException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkNotFoundException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "contentId": {
+                "type": "string",
+                "nullable": true
+              },
+              "version": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          }
+        ]
+      },
+      "UnableToDeleteLatestXmpWritebackGeneratedContentHistoricVersionException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "contentId": {
+                "type": "string",
+                "nullable": true
+              },
+              "version": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          }
+        ]
+      },
       "BusinessProcessEngineRequestException": {
         "allOf": [
           {
@@ -13786,6 +15404,76 @@
           }
         ]
       },
+      "OutputFormatsInUseException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "outputFormatIds": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "type": "string"
+                }
+              },
+              "dependentOutputFormatIds": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "OutputFormatOperationInProgressException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkBusinessException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "StaticOutputFormatModificationNotSupportedException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "outputFormatId": {
+                "type": "string",
+                "nullable": true
+              },
+              "property": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "OriginalOutputFormatModificationNotSupportedException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
       "CollectionSizeLimitExceededException": {
         "allOf": [
           {
@@ -14091,6 +15779,57 @@
                 "nullable": true
               }
             }
+          }
+        ]
+      },
+      "StatisticsExportNotEnabledException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/StatisticsFeatureNotEnabledException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "StatisticsFeatureNotEnabledException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "x-abstract": true,
+            "additionalProperties": false,
+            "properties": {
+              "scope": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "StatisticsReadNotEnabledException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/StatisticsFeatureNotEnabledException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "StatisticsWriteNotEnabledException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/StatisticsFeatureNotEnabledException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
           }
         ]
       },
@@ -14610,7 +16349,8 @@
         "additionalProperties": false,
         "required": [
           "backupOption",
-          "subscription"
+          "subscription",
+          "historicVersioningState"
         ],
         "properties": {
           "backupOption": {
@@ -14626,6 +16366,23 @@
             "oneOf": [
               {
                 "$ref": "#/components/schemas/LicenseSubscription"
+              }
+            ]
+          },
+          "historicVersioningState": {
+            "description": "State of content historic versioning",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/HistoricVersioningState"
+              }
+            ]
+          },
+          "contentStatistics": {
+            "description": "State of statistics features for Content",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/StatisticsLicenseState"
               }
             ]
           }
@@ -14656,6 +16413,48 @@
           "Premium",
           "Enterprise"
         ]
+      },
+      "HistoricVersioningState": {
+        "type": "string",
+        "description": "",
+        "x-enumNames": [
+          "Disabled",
+          "Suspended",
+          "Enabled"
+        ],
+        "enum": [
+          "Disabled",
+          "Suspended",
+          "Enabled"
+        ]
+      },
+      "StatisticsLicenseState": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "collection",
+          "read",
+          "write",
+          "export"
+        ],
+        "properties": {
+          "collection": {
+            "type": "boolean",
+            "description": "Defines whether the respective statistics are gathered periodically"
+          },
+          "read": {
+            "type": "boolean",
+            "description": "Allows or prevents access to read endpoints"
+          },
+          "write": {
+            "type": "boolean",
+            "description": "Allows or prevents access to write endpoints"
+          },
+          "export": {
+            "type": "boolean",
+            "description": "Allows or prevents export of the respective statistics"
+          }
+        }
       },
       "CustomerImportRequest": {
         "type": "object",
@@ -15319,7 +17118,8 @@
         "additionalProperties": false,
         "required": [
           "filePath",
-          "sha1Hash"
+          "sha1Hash",
+          "allowNotRequested"
         ],
         "properties": {
           "filePath": {
@@ -15329,6 +17129,10 @@
           "sha1Hash": {
             "type": "string",
             "minLength": 1
+          },
+          "allowNotRequested": {
+            "type": "boolean",
+            "description": "If false (default), only files which were previously copied to backup location\ncan be acknowledged. True allows acknowledging outputs which were backed up\nusing other mechanisms than ContentBackup."
           }
         }
       },
@@ -15355,6 +17159,7 @@
           "documentHistoryRetentionTime",
           "liveStreamRetentionTime",
           "editCollectionRetentionTime",
+          "notificationEventCollectionRetentionTime",
           "replacedOriginalsRetentionTime",
           "snapshotEnabled",
           "snapshotFullbackupScheduleTime",
@@ -15545,6 +17350,10 @@
             "type": "string",
             "format": "time-span"
           },
+          "notificationEventCollectionRetentionTime": {
+            "type": "string",
+            "format": "time-span"
+          },
           "replacedOriginalsRetentionTime": {
             "type": "string",
             "format": "time-span"
@@ -15611,6 +17420,10 @@
                 "$ref": "#/components/schemas/LicenseInformation"
               }
             ]
+          },
+          "idsAccentColor": {
+            "type": "string",
+            "nullable": true
           }
         }
       },
@@ -16986,6 +18799,7 @@
           "incompleteTransferRetentionTime",
           "replacedOriginalsRetentionTime",
           "editCollectionRetentionTime",
+          "notificationEventCollectionRetentionTime",
           "contentBackupState",
           "apiCallsPerMinute",
           "enableSupportUserRegistrationEmailNotification",
@@ -17287,6 +19101,10 @@
             "type": "string",
             "format": "time-span"
           },
+          "notificationEventCollectionRetentionTime": {
+            "type": "string",
+            "format": "time-span"
+          },
           "deactivationMessage": {
             "nullable": true,
             "oneOf": [
@@ -17361,6 +19179,10 @@
                 "$ref": "#/components/schemas/ActivityMapping"
               }
             ]
+          },
+          "idsAccentColor": {
+            "type": "string",
+            "nullable": true
           }
         }
       },
@@ -17419,6 +19241,7 @@
           "successfulTransferRetentionTime",
           "incompleteTransferRetentionTime",
           "editCollectionRetentionTime",
+          "notificationEventCollectionRetentionTime",
           "replacedOriginalsRetentionTime",
           "useSsl",
           "enableQueryDetails",
@@ -17487,6 +19310,10 @@
             "format": "time-span"
           },
           "editCollectionRetentionTime": {
+            "type": "string",
+            "format": "time-span"
+          },
+          "notificationEventCollectionRetentionTime": {
             "type": "string",
             "format": "time-span"
           },
@@ -17610,6 +19437,10 @@
                 "$ref": "#/components/schemas/ActivityMapping"
               }
             ]
+          },
+          "idsAccentColor": {
+            "type": "string",
+            "nullable": true
           }
         }
       },
@@ -19241,6 +21072,204 @@
           }
         }
       },
+      "RecreateXmpUntouchedOriginalsResponse": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "checkedContents",
+          "createdOriginals"
+        ],
+        "properties": {
+          "resumeToken": {
+            "type": "string",
+            "description": "Null if operation finished, otherwise token which allows restart of operation",
+            "nullable": true
+          },
+          "checkedContents": {
+            "type": "integer",
+            "description": "Indicated the number of contents that were checked for missing Originals",
+            "format": "int32"
+          },
+          "createdOriginals": {
+            "type": "integer",
+            "description": "Indicates the number of Originals (can be &gt; 1 per Content) which were created",
+            "format": "int32"
+          }
+        }
+      },
+      "RecreateXmpUntouchedOriginalsRequest": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "contentIds": {
+            "type": "array",
+            "description": "Optional list of Content IDs you want to filter on.",
+            "nullable": true,
+            "items": {
+              "type": "string"
+            }
+          },
+          "resumeToken": {
+            "type": "string",
+            "description": "Token returned from previous call",
+            "nullable": true
+          }
+        }
+      },
+      "AddContentEventsRequest": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "events": {
+            "type": "array",
+            "description": "Data to be added to statistics",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/AddContentEventsRequestItem"
+            }
+          }
+        }
+      },
+      "AddContentEventsRequestItem": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "timestamp"
+        ],
+        "properties": {
+          "timestamp": {
+            "type": "string",
+            "description": "Specifies at which time the events happened. The information will be automatically aggregated according to internal temporal resolution of statistics.",
+            "format": "date-time"
+          },
+          "contentId": {
+            "type": "string",
+            "description": "Specifies content for which the events happened",
+            "nullable": true
+          },
+          "apiClientId": {
+            "type": "string",
+            "description": "Optionally specify the used ApiClient. Defaults to the API Client sending this request.",
+            "nullable": true
+          },
+          "statistics": {
+            "description": "Data to be added to statistics",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ContentStatisticsDataEditable"
+              }
+            ]
+          },
+          "externalEventTraceId": {
+            "type": "string",
+            "description": "Optionally specify an additional id under which the supplied data should be tracked. This\nId is only used internally and cannot be retrieved through API or export.",
+            "nullable": true
+          }
+        }
+      },
+      "ContentStatisticsDataEditable": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "downloads": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ContentDownloadsEditable"
+              }
+            ]
+          }
+        }
+      },
+      "ContentDownloadsEditable": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "total",
+          "share",
+          "embed"
+        ],
+        "properties": {
+          "total": {
+            "type": "integer",
+            "description": "Total downloads of content (regardless of formats, single download of multiple formats is counted once)",
+            "format": "int32"
+          },
+          "share": {
+            "type": "integer",
+            "description": "Downloads of content through basic Share",
+            "format": "int32"
+          },
+          "embed": {
+            "type": "integer",
+            "description": "Downloads of content through embed",
+            "format": "int32"
+          }
+        }
+      },
+      "OutputFormatDetail": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/OutputFormat"
+          },
+          {
+            "type": "object",
+            "description": "Represents an output format.",
+            "additionalProperties": false,
+            "properties": {
+              "audit": {
+                "description": "Audit information.",
+                "nullable": true,
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/UserAuditDetail"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "UserAuditDetail": {
+        "type": "object",
+        "description": "Audit information",
+        "additionalProperties": false,
+        "required": [
+          "creationDate",
+          "modificationDate"
+        ],
+        "properties": {
+          "creationDate": {
+            "type": "string",
+            "description": "The date on which the document was created.",
+            "format": "date-time"
+          },
+          "modificationDate": {
+            "type": "string",
+            "description": "The last date on which the document was modified.",
+            "format": "date-time"
+          },
+          "createdByUser": {
+            "description": "ID of the user who created the document.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/User"
+              }
+            ]
+          },
+          "modifiedByUser": {
+            "description": "ID of the last user who modified the document.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/User"
+              }
+            ]
+          }
+        }
+      },
       "ServiceProvider": {
         "type": "object",
         "additionalProperties": false,
@@ -19577,6 +21606,7 @@
             "ReindexEvent": "#/components/schemas/ReindexEvent",
             "ContentDetailViewEvent": "#/components/schemas/ContentDetailViewEvent",
             "ContentDownloadEvent": "#/components/schemas/ContentDownloadEvent",
+            "ContentShareEvent": "#/components/schemas/ContentShareEvent",
             "SessionRenewalEvent": "#/components/schemas/SessionRenewalEvent",
             "SharePageViewEvent": "#/components/schemas/SharePageViewEvent",
             "ApiStatisticsEvent": "#/components/schemas/ApiStatisticsEvent",
@@ -19779,6 +21809,45 @@
         "enum": [
           "Attachment",
           "Inline"
+        ]
+      },
+      "ContentShareEvent": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ApplicationEvent"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "shareId": {
+                "type": "string",
+                "nullable": true
+              },
+              "shareType": {
+                "$ref": "#/components/schemas/ShareType"
+              },
+              "addedContentIds": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "ShareType": {
+        "type": "string",
+        "description": "",
+        "x-enumNames": [
+          "Basic",
+          "Embed"
+        ],
+        "enum": [
+          "Basic",
+          "Embed"
         ]
       },
       "SessionRenewalEvent": {

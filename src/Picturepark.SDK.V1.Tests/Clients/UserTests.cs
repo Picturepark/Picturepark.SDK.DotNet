@@ -212,7 +212,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
         }
 
         [Fact]
-
         [Trait("Stack", "Users")]
         public async Task ShouldAggregateByRoles()
         {
@@ -299,6 +298,21 @@ namespace Picturepark.SDK.V1.Tests.Clients
             aggregationResult.AggregationResultItems.Should()
                 .ContainSingle(aggResultItem => aggResultItem.Name == roleTwoName)
                 .Which.Count.Should().Be(2);
+        }
+
+        [Fact]
+        [Trait("Stack", "Users")]
+        public async Task ShouldArchiveSingleUser()
+        {
+            // Arrange
+            var user = await CreateUser().ConfigureAwait(false);
+            await _client.User.DeleteAsync(user.Id, new UserDeleteRequest()).ConfigureAwait(false);
+
+            // Act
+            await _client.User.ArchiveAsync(user.Id).ConfigureAwait(false);
+
+            // Assert
+            await Assert.ThrowsAsync<UserNotFoundException>(() => _client.User.GetAsync(user.Id)).ConfigureAwait(false);
         }
 
         private async Task LockUnlockCall(IEnumerable<string> ids, bool @lock)

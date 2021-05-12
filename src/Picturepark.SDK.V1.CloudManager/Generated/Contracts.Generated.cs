@@ -20,6 +20,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -33,6 +34,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -41,6 +43,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -49,6 +52,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -57,6 +61,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -65,6 +70,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -73,6 +79,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -81,6 +88,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -89,6 +97,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -97,6 +106,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -105,6 +115,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -113,6 +124,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -121,6 +133,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -129,6 +142,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -137,6 +151,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -145,6 +160,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -153,6 +169,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -161,6 +178,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -174,6 +192,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -182,6 +201,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -190,6 +210,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -198,6 +219,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -206,6 +228,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -214,6 +237,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -222,6 +246,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -230,6 +255,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -238,6 +264,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -246,6 +273,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -254,6 +282,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -262,6 +291,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -275,6 +305,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -283,6 +314,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -291,6 +323,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -299,6 +332,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -307,6 +341,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -315,6 +350,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -323,6 +359,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -331,6 +368,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -339,6 +377,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -347,6 +386,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -355,14 +395,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
-        /// <exception cref="PictureparkConflictException">Version conflict</exception>
-        /// <exception cref="PictureparkException">Internal server error</exception>
-        System.Threading.Tasks.Task AddOutputFormatsAsync(string id, System.Collections.Generic.IEnumerable<OutputFormat> outputFormats, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-    
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -371,6 +404,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -379,6 +413,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -387,6 +422,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -395,6 +431,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -403,6 +440,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -416,6 +454,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -424,6 +463,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -437,6 +477,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -445,6 +486,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -458,6 +500,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -466,6 +509,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -474,6 +518,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -482,6 +527,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -490,6 +536,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -503,6 +550,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -511,6 +559,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -519,6 +568,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -527,6 +577,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -540,6 +591,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -548,6 +600,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -556,6 +609,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -564,10 +618,29 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        System.Threading.Tasks.Task<RecreateXmpUntouchedOriginalsResponse> RecreateXmpUntouchedOriginalsAsync(string id, RecreateXmpUntouchedOriginalsRequest request, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<BusinessProcess> UpdateOutdatedMetadataAsync(string id, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        System.Threading.Tasks.Task<BusinessProcess> AddStatisticsEventsAsync(string id, AddContentEventsRequest request, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
     }
     
@@ -577,6 +650,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -585,10 +659,52 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task ResetAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NSwag", "13.2.2.0 (NJsonSchema v10.1.4.0 (Newtonsoft.Json v11.0.0.0))")]
+    public partial interface IOutputFormatClient
+    {
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        System.Threading.Tasks.Task<OutputFormatDetail> GetAsync(string customerId, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        System.Threading.Tasks.Task<BusinessProcess> UpdateAsync(string customerId, string id, OutputFormatEditable format, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        System.Threading.Tasks.Task<BusinessProcess> DeleteAsync(string customerId, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        System.Threading.Tasks.Task<BusinessProcess> CreateAsync(string customerId, OutputFormat format, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
     }
     
@@ -598,6 +714,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -606,6 +723,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -619,6 +737,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -627,6 +746,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -635,6 +755,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -643,6 +764,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -651,6 +773,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -659,6 +782,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -667,6 +791,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -675,6 +800,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -683,6 +809,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -691,6 +818,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -699,6 +827,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -712,6 +841,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -720,6 +850,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -728,6 +859,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -736,6 +868,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -744,6 +877,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -752,6 +886,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -760,6 +895,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -768,6 +904,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -776,6 +913,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -784,6 +922,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -792,6 +931,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -805,6 +945,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -813,6 +954,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
@@ -1063,14 +1205,16 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [JsonInheritanceAttribute("MaximumTransferSizeException", typeof(MaximumTransferSizeException))]
     [JsonInheritanceAttribute("EnvironmentNotAvailableException", typeof(EnvironmentNotAvailableException))]
     [JsonInheritanceAttribute("CustomerNotAvailableException", typeof(CustomerNotAvailableException))]
+    [JsonInheritanceAttribute("PictureparkForbiddenException", typeof(PictureparkForbiddenException))]
     [JsonInheritanceAttribute("PictureparkNotFoundException", typeof(PictureparkNotFoundException))]
     [JsonInheritanceAttribute("PictureparkConflictException", typeof(PictureparkConflictException))]
     [JsonInheritanceAttribute("PictureparkTimeoutException", typeof(PictureparkTimeoutException))]
-    [JsonInheritanceAttribute("PictureparkForbiddenException", typeof(PictureparkForbiddenException))]
     [JsonInheritanceAttribute("UserEmailAlreadyExistsException", typeof(UserEmailAlreadyExistsException))]
     [JsonInheritanceAttribute("UserRoleAssignedException", typeof(UserRoleAssignedException))]
     [JsonInheritanceAttribute("UnableToDeleteUserRoleException", typeof(UnableToDeleteUserRoleException))]
     [JsonInheritanceAttribute("UserNotFoundException", typeof(UserNotFoundException))]
+    [JsonInheritanceAttribute("UserNotDeactivatedException", typeof(UserNotDeactivatedException))]
+    [JsonInheritanceAttribute("UserWithOwnerTokensArchiveException", typeof(UserWithOwnerTokensArchiveException))]
     [JsonInheritanceAttribute("UserInactiveOrDeletedException", typeof(UserInactiveOrDeletedException))]
     [JsonInheritanceAttribute("InactiveOrDeletedUserRefusedAccessException", typeof(InactiveOrDeletedUserRefusedAccessException))]
     [JsonInheritanceAttribute("TermsOfServiceNotNewestException", typeof(TermsOfServiceNotNewestException))]
@@ -1188,6 +1332,9 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [JsonInheritanceAttribute("WrongChunkSizeException", typeof(WrongChunkSizeException))]
     [JsonInheritanceAttribute("ChunkSizeOutOfRangeException", typeof(ChunkSizeOutOfRangeException))]
     [JsonInheritanceAttribute("FileIdDuplicatedException", typeof(FileIdDuplicatedException))]
+    [JsonInheritanceAttribute("UploadFailedException", typeof(UploadFailedException))]
+    [JsonInheritanceAttribute("MaximumNumberOfChunksExceededException", typeof(MaximumNumberOfChunksExceededException))]
+    [JsonInheritanceAttribute("MaximumFileSizeExceededException", typeof(MaximumFileSizeExceededException))]
     [JsonInheritanceAttribute("MissingDependenciesException", typeof(MissingDependenciesException))]
     [JsonInheritanceAttribute("RelationSelfReferencingException", typeof(RelationSelfReferencingException))]
     [JsonInheritanceAttribute("InvalidChangeCommandFieldTypeInvalidException", typeof(InvalidChangeCommandFieldTypeInvalidException))]
@@ -1281,6 +1428,8 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [JsonInheritanceAttribute("ContentFileReplaceTypeMismatchException", typeof(ContentFileReplaceTypeMismatchException))]
     [JsonInheritanceAttribute("ContentBackupFailedException", typeof(ContentBackupFailedException))]
     [JsonInheritanceAttribute("ContentLayerSameRootException", typeof(ContentLayerSameRootException))]
+    [JsonInheritanceAttribute("ContentHistoricVersionNotFoundException", typeof(ContentHistoricVersionNotFoundException))]
+    [JsonInheritanceAttribute("UnableToDeleteLatestXmpWritebackGeneratedContentHistoricVersionException", typeof(UnableToDeleteLatestXmpWritebackGeneratedContentHistoricVersionException))]
     [JsonInheritanceAttribute("BusinessProcessEngineRequestException", typeof(BusinessProcessEngineRequestException))]
     [JsonInheritanceAttribute("BusinessProcessNotFoundException", typeof(BusinessProcessNotFoundException))]
     [JsonInheritanceAttribute("BusinessProcessDefinitionNotFoundException", typeof(BusinessProcessDefinitionNotFoundException))]
@@ -1358,6 +1507,10 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [JsonInheritanceAttribute("OutputFormatRetentionTimeOutOfRangeException", typeof(OutputFormatRetentionTimeOutOfRangeException))]
     [JsonInheritanceAttribute("NotSupportedFileExtensionForFormatException", typeof(NotSupportedFileExtensionForFormatException))]
     [JsonInheritanceAttribute("OutputFormatXmpWritebackNotSupportedException", typeof(OutputFormatXmpWritebackNotSupportedException))]
+    [JsonInheritanceAttribute("OutputFormatsInUseException", typeof(OutputFormatsInUseException))]
+    [JsonInheritanceAttribute("OutputFormatOperationInProgressException", typeof(OutputFormatOperationInProgressException))]
+    [JsonInheritanceAttribute("StaticOutputFormatModificationNotSupportedException", typeof(StaticOutputFormatModificationNotSupportedException))]
+    [JsonInheritanceAttribute("OriginalOutputFormatModificationNotSupportedException", typeof(OriginalOutputFormatModificationNotSupportedException))]
     [JsonInheritanceAttribute("CollectionSizeLimitExceededException", typeof(CollectionSizeLimitExceededException))]
     [JsonInheritanceAttribute("CollectionModificationNotAllowedException", typeof(CollectionModificationNotAllowedException))]
     [JsonInheritanceAttribute("CollectionNotFoundException", typeof(CollectionNotFoundException))]
@@ -1375,6 +1528,9 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [JsonInheritanceAttribute("XmpMappingFieldInUseException", typeof(XmpMappingFieldInUseException))]
     [JsonInheritanceAttribute("XmpMappingConfigurationInvalidException", typeof(XmpMappingConfigurationInvalidException))]
     [JsonInheritanceAttribute("ActivityMappingInvalidException", typeof(ActivityMappingInvalidException))]
+    [JsonInheritanceAttribute("StatisticsExportNotEnabledException", typeof(StatisticsExportNotEnabledException))]
+    [JsonInheritanceAttribute("StatisticsReadNotEnabledException", typeof(StatisticsReadNotEnabledException))]
+    [JsonInheritanceAttribute("StatisticsWriteNotEnabledException", typeof(StatisticsWriteNotEnabledException))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     [Newtonsoft.Json.JsonObjectAttribute]
     public partial class PictureparkException : System.Exception
@@ -1548,6 +1704,44 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         public static UserNotFoundException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<UserNotFoundException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class UserNotDeactivatedException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("notDeactivatedUserId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string NotDeactivatedUserId { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static UserNotDeactivatedException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<UserNotDeactivatedException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class UserWithOwnerTokensArchiveException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("notArchivedUserId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string NotArchivedUserId { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static UserWithOwnerTokensArchiveException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<UserWithOwnerTokensArchiveException>(data);
         }
     
     }
@@ -2490,6 +2684,9 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [Newtonsoft.Json.JsonObjectAttribute]
     public partial class DuplicateOutputFormatIdException : PictureparkValidationException
     {
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -2922,8 +3119,11 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     [Newtonsoft.Json.JsonObjectAttribute]
-    public partial class InvalidValueFormatException : PictureparkValidationException
+    public partial class InvalidValueFormatException : InvalidArgumentException
     {
+        [Newtonsoft.Json.JsonProperty("expectedFormat", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ExpectedFormat { get; set; }
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -3843,6 +4043,15 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [System.Runtime.Serialization.EnumMember(Value = @"ManageXmpMappings")]
         ManageXmpMappings = 21,
     
+        [System.Runtime.Serialization.EnumMember(Value = @"ReadStatistics")]
+        ReadStatistics = 22,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"WriteStatistics")]
+        WriteStatistics = 23,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"ExportStatistics")]
+        ExportStatistics = 24,
+    
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
@@ -3989,6 +4198,9 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
         [System.Runtime.Serialization.EnumMember(Value = @"Delete")]
         Delete = 5,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"ManageHistoricVersions")]
+        ManageHistoricVersions = 6,
     
     }
     
@@ -4429,6 +4641,72 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         public static FileIdDuplicatedException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<FileIdDuplicatedException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class UploadFailedException : PictureparkBusinessException
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static UploadFailedException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<UploadFailedException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class MaximumNumberOfChunksExceededException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("transferId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string TransferId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("numberOfChunks", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public long NumberOfChunks { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("maximumNumberOfChunks", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int MaximumNumberOfChunks { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static MaximumNumberOfChunksExceededException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<MaximumNumberOfChunksExceededException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class MaximumFileSizeExceededException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("transferId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string TransferId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("declaredFileSize", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public long DeclaredFileSize { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("maximumFileSize", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public long MaximumFileSize { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static MaximumFileSizeExceededException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<MaximumFileSizeExceededException>(data);
         }
     
     }
@@ -6717,6 +6995,50 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class ContentHistoricVersionNotFoundException : PictureparkNotFoundException
+    {
+        [Newtonsoft.Json.JsonProperty("contentId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ContentId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("version", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int Version { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static ContentHistoricVersionNotFoundException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentHistoricVersionNotFoundException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class UnableToDeleteLatestXmpWritebackGeneratedContentHistoricVersionException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("contentId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ContentId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("version", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int Version { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static UnableToDeleteLatestXmpWritebackGeneratedContentHistoricVersionException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<UnableToDeleteLatestXmpWritebackGeneratedContentHistoricVersionException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
     public partial class BusinessProcessEngineRequestException : PictureparkBusinessException
     {
         [Newtonsoft.Json.JsonProperty("businessProcessId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -8208,6 +8530,82 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class OutputFormatsInUseException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("outputFormatIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> OutputFormatIds { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("dependentOutputFormatIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> DependentOutputFormatIds { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static OutputFormatsInUseException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<OutputFormatsInUseException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class OutputFormatOperationInProgressException : PictureparkBusinessException
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static OutputFormatOperationInProgressException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<OutputFormatOperationInProgressException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class StaticOutputFormatModificationNotSupportedException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("outputFormatId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string OutputFormatId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("property", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Property { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static StaticOutputFormatModificationNotSupportedException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<StaticOutputFormatModificationNotSupportedException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class OriginalOutputFormatModificationNotSupportedException : PictureparkValidationException
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static OriginalOutputFormatModificationNotSupportedException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<OriginalOutputFormatModificationNotSupportedException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
     public partial class CollectionSizeLimitExceededException : PictureparkValidationException
     {
         [Newtonsoft.Json.JsonProperty("collectionId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -8534,6 +8932,73 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         public static ActivityMappingInvalidException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<ActivityMappingInvalidException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class StatisticsExportNotEnabledException : StatisticsFeatureNotEnabledException
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static StatisticsExportNotEnabledException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<StatisticsExportNotEnabledException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public abstract partial class StatisticsFeatureNotEnabledException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("scope", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Scope { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static StatisticsFeatureNotEnabledException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<StatisticsFeatureNotEnabledException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class StatisticsReadNotEnabledException : StatisticsFeatureNotEnabledException
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static StatisticsReadNotEnabledException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<StatisticsReadNotEnabledException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class StatisticsWriteNotEnabledException : StatisticsFeatureNotEnabledException
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static StatisticsWriteNotEnabledException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<StatisticsWriteNotEnabledException>(data);
         }
     
     }
@@ -9076,6 +9541,16 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public LicenseSubscription Subscription { get; set; }
     
+        /// <summary>State of content historic versioning</summary>
+        [Newtonsoft.Json.JsonProperty("historicVersioningState", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public HistoricVersioningState HistoricVersioningState { get; set; }
+    
+        /// <summary>State of statistics features for Content</summary>
+        [Newtonsoft.Json.JsonProperty("contentStatistics", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public StatisticsLicenseState ContentStatistics { get; set; }
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -9112,6 +9587,51 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
         [System.Runtime.Serialization.EnumMember(Value = @"Enterprise")]
         Enterprise = 2,
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public enum HistoricVersioningState
+    {
+        [System.Runtime.Serialization.EnumMember(Value = @"Disabled")]
+        Disabled = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Suspended")]
+        Suspended = 1,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Enabled")]
+        Enabled = 2,
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class StatisticsLicenseState 
+    {
+        /// <summary>Defines whether the respective statistics are gathered periodically</summary>
+        [Newtonsoft.Json.JsonProperty("collection", Required = Newtonsoft.Json.Required.Always)]
+        public bool Collection { get; set; }
+    
+        /// <summary>Allows or prevents access to read endpoints</summary>
+        [Newtonsoft.Json.JsonProperty("read", Required = Newtonsoft.Json.Required.Always)]
+        public bool Read { get; set; }
+    
+        /// <summary>Allows or prevents access to write endpoints</summary>
+        [Newtonsoft.Json.JsonProperty("write", Required = Newtonsoft.Json.Required.Always)]
+        public bool Write { get; set; }
+    
+        /// <summary>Allows or prevents export of the respective statistics</summary>
+        [Newtonsoft.Json.JsonProperty("export", Required = Newtonsoft.Json.Required.Always)]
+        public bool Export { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static StatisticsLicenseState FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<StatisticsLicenseState>(data);
+        }
     
     }
     
@@ -9812,6 +10332,12 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [System.ComponentModel.DataAnnotations.Required]
         public string Sha1Hash { get; set; }
     
+        /// <summary>If false (default), only files which were previously copied to backup location
+        /// can be acknowledged. True allows acknowledging outputs which were backed up
+        /// using other mechanisms than ContentBackup.</summary>
+        [Newtonsoft.Json.JsonProperty("allowNotRequested", Required = Newtonsoft.Json.Required.Always)]
+        public bool AllowNotRequested { get; set; }
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -9952,6 +10478,10 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.TimeSpan EditCollectionRetentionTime { get; set; }
     
+        [Newtonsoft.Json.JsonProperty("notificationEventCollectionRetentionTime", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public System.TimeSpan NotificationEventCollectionRetentionTime { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("replacedOriginalsRetentionTime", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.TimeSpan ReplacedOriginalsRetentionTime { get; set; }
@@ -10001,6 +10531,9 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
         [Newtonsoft.Json.JsonProperty("licenseInformation", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public LicenseInformation LicenseInformation { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("idsAccentColor", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string IdsAccentColor { get; set; }
     
         public string ToJson() 
         {
@@ -11552,6 +12085,10 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.TimeSpan EditCollectionRetentionTime { get; set; }
     
+        [Newtonsoft.Json.JsonProperty("notificationEventCollectionRetentionTime", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public System.TimeSpan NotificationEventCollectionRetentionTime { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("deactivationMessage", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public TranslatedStringDictionary DeactivationMessage { get; set; }
     
@@ -11598,6 +12135,9 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
         [Newtonsoft.Json.JsonProperty("activityMapping", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public ActivityMapping ActivityMapping { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("idsAccentColor", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string IdsAccentColor { get; set; }
     
         public string ToJson() 
         {
@@ -11718,6 +12258,10 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.TimeSpan EditCollectionRetentionTime { get; set; }
     
+        [Newtonsoft.Json.JsonProperty("notificationEventCollectionRetentionTime", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public System.TimeSpan NotificationEventCollectionRetentionTime { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("replacedOriginalsRetentionTime", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.TimeSpan ReplacedOriginalsRetentionTime { get; set; }
@@ -11793,6 +12337,9 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
         [Newtonsoft.Json.JsonProperty("activityMapping", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public ActivityMapping ActivityMapping { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("idsAccentColor", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string IdsAccentColor { get; set; }
     
         public string ToJson() 
         {
@@ -13417,6 +13964,211 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class RecreateXmpUntouchedOriginalsResponse 
+    {
+        /// <summary>Null if operation finished, otherwise token which allows restart of operation</summary>
+        [Newtonsoft.Json.JsonProperty("resumeToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ResumeToken { get; set; }
+    
+        /// <summary>Indicated the number of contents that were checked for missing Originals</summary>
+        [Newtonsoft.Json.JsonProperty("checkedContents", Required = Newtonsoft.Json.Required.Always)]
+        public int CheckedContents { get; set; }
+    
+        /// <summary>Indicates the number of Originals (can be &amp;gt; 1 per Content) which were created</summary>
+        [Newtonsoft.Json.JsonProperty("createdOriginals", Required = Newtonsoft.Json.Required.Always)]
+        public int CreatedOriginals { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static RecreateXmpUntouchedOriginalsResponse FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<RecreateXmpUntouchedOriginalsResponse>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class RecreateXmpUntouchedOriginalsRequest 
+    {
+        /// <summary>Optional list of Content IDs you want to filter on.</summary>
+        [Newtonsoft.Json.JsonProperty("contentIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> ContentIds { get; set; }
+    
+        /// <summary>Token returned from previous call</summary>
+        [Newtonsoft.Json.JsonProperty("resumeToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ResumeToken { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static RecreateXmpUntouchedOriginalsRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<RecreateXmpUntouchedOriginalsRequest>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class AddContentEventsRequest 
+    {
+        /// <summary>Data to be added to statistics</summary>
+        [Newtonsoft.Json.JsonProperty("events", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<AddContentEventsRequestItem> Events { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static AddContentEventsRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<AddContentEventsRequest>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class AddContentEventsRequestItem 
+    {
+        /// <summary>Specifies at which time the events happened. The information will be automatically aggregated according to internal temporal resolution of statistics.</summary>
+        [Newtonsoft.Json.JsonProperty("timestamp", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public System.DateTime Timestamp { get; set; }
+    
+        /// <summary>Specifies content for which the events happened</summary>
+        [Newtonsoft.Json.JsonProperty("contentId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ContentId { get; set; }
+    
+        /// <summary>Optionally specify the used ApiClient. Defaults to the API Client sending this request.</summary>
+        [Newtonsoft.Json.JsonProperty("apiClientId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ApiClientId { get; set; }
+    
+        /// <summary>Data to be added to statistics</summary>
+        [Newtonsoft.Json.JsonProperty("statistics", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public ContentStatisticsDataEditable Statistics { get; set; }
+    
+        /// <summary>Optionally specify an additional id under which the supplied data should be tracked. This
+        /// Id is only used internally and cannot be retrieved through API or export.</summary>
+        [Newtonsoft.Json.JsonProperty("externalEventTraceId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ExternalEventTraceId { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static AddContentEventsRequestItem FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<AddContentEventsRequestItem>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class ContentStatisticsDataEditable 
+    {
+        [Newtonsoft.Json.JsonProperty("downloads", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public ContentDownloadsEditable Downloads { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static ContentStatisticsDataEditable FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentStatisticsDataEditable>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class ContentDownloadsEditable 
+    {
+        /// <summary>Total downloads of content (regardless of formats, single download of multiple formats is counted once)</summary>
+        [Newtonsoft.Json.JsonProperty("total", Required = Newtonsoft.Json.Required.Always)]
+        public int Total { get; set; }
+    
+        /// <summary>Downloads of content through basic Share</summary>
+        [Newtonsoft.Json.JsonProperty("share", Required = Newtonsoft.Json.Required.Always)]
+        public int Share { get; set; }
+    
+        /// <summary>Downloads of content through embed</summary>
+        [Newtonsoft.Json.JsonProperty("embed", Required = Newtonsoft.Json.Required.Always)]
+        public int Embed { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static ContentDownloadsEditable FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentDownloadsEditable>(data);
+        }
+    
+    }
+    
+    /// <summary>Represents an output format.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class OutputFormatDetail : OutputFormat
+    {
+        /// <summary>Audit information.</summary>
+        [Newtonsoft.Json.JsonProperty("audit", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public UserAuditDetail Audit { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static OutputFormatDetail FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<OutputFormatDetail>(data);
+        }
+    
+    }
+    
+    /// <summary>Audit information</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class UserAuditDetail 
+    {
+        /// <summary>The date on which the document was created.</summary>
+        [Newtonsoft.Json.JsonProperty("creationDate", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public System.DateTime CreationDate { get; set; }
+    
+        /// <summary>The last date on which the document was modified.</summary>
+        [Newtonsoft.Json.JsonProperty("modificationDate", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public System.DateTime ModificationDate { get; set; }
+    
+        /// <summary>ID of the user who created the document.</summary>
+        [Newtonsoft.Json.JsonProperty("createdByUser", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public User CreatedByUser { get; set; }
+    
+        /// <summary>ID of the last user who modified the document.</summary>
+        [Newtonsoft.Json.JsonProperty("modifiedByUser", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public User ModifiedByUser { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static UserAuditDetail FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<UserAuditDetail>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class ServiceProvider 
     {
         [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -13813,6 +14565,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [JsonInheritanceAttribute("ReindexEvent", typeof(ReindexEvent))]
     [JsonInheritanceAttribute("ContentDetailViewEvent", typeof(ContentDetailViewEvent))]
     [JsonInheritanceAttribute("ContentDownloadEvent", typeof(ContentDownloadEvent))]
+    [JsonInheritanceAttribute("ContentShareEvent", typeof(ContentShareEvent))]
     [JsonInheritanceAttribute("SessionRenewalEvent", typeof(SessionRenewalEvent))]
     [JsonInheritanceAttribute("SharePageViewEvent", typeof(SharePageViewEvent))]
     [JsonInheritanceAttribute("ApiStatisticsEvent", typeof(ApiStatisticsEvent))]
@@ -14029,6 +14782,42 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
         [System.Runtime.Serialization.EnumMember(Value = @"Inline")]
         Inline = 1,
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class ContentShareEvent : ApplicationEvent
+    {
+        [Newtonsoft.Json.JsonProperty("shareId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ShareId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("shareType", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public ShareType ShareType { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("addedContentIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> AddedContentIds { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static ContentShareEvent FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentShareEvent>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public enum ShareType
+    {
+        [System.Runtime.Serialization.EnumMember(Value = @"Basic")]
+        Basic = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Embed")]
+        Embed = 1,
     
     }
     

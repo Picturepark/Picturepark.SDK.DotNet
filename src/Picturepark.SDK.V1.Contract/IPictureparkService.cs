@@ -55,5 +55,7 @@ namespace Picturepark.SDK.V1.Contract
         INotificationClient Notification { get; }
 
         ITemplateClient Template { get; }
+
+        IStatisticClient Statistics { get; }
     }
 }

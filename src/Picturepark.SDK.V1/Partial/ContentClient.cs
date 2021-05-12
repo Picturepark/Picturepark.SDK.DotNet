@@ -186,5 +186,12 @@ namespace Picturepark.SDK.V1
 
             return await GetDownloadLinkAsync(bp.ReferenceId, cancellationToken).ConfigureAwait(false);
         }
+
+        /// <inheritdoc />
+        public async Task<DownloadLink> GetVersionDownloadLinkAsync(string contentId, int version, CancellationToken cancellationToken)
+        {
+            var token = await CreateVersionDownloadLinkAsync(contentId, version, cancellationToken).ConfigureAwait(false);
+            return await GetDownloadLinkAsync(token, cancellationToken).ConfigureAwait(false);
+        }
     }
 }
