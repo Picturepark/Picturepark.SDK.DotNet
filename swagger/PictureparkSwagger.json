@@ -42287,7 +42287,7 @@
       "NotificationDetailListItemMetadataBatchEdit": {
         "allOf": [
           {
-            "$ref": "#/components/schemas/NotificationDetailProgressBase"
+            "$ref": "#/components/schemas/NotificationDetailProgressWithRelatedItemsBase"
           },
           {
             "type": "object",
