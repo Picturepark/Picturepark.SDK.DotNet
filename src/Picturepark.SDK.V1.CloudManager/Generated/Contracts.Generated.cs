@@ -184,6 +184,15 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<SnapshotRepository> Search2Async(SnapshotRepositorySearchByNameRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        System.Threading.Tasks.Task<GlobalSnapshotRepositoryStateResult> GetGlobalRepositoryStateAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "13.2.2.0 (NJsonSchema v10.1.4.0 (Newtonsoft.Json v11.0.0.0))")]
@@ -10152,6 +10161,30 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         public static SnapshotRepositorySearchByNameRequest FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<SnapshotRepositorySearchByNameRequest>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class GlobalSnapshotRepositoryStateResult 
+    {
+        /// <summary>Indicates if a Snapshot operation is currently in progress</summary>
+        [Newtonsoft.Json.JsonProperty("backupInProgress", Required = Newtonsoft.Json.Required.Always)]
+        public bool BackupInProgress { get; set; }
+    
+        /// <summary>If no snapshot in progress, this version should be re-checked after
+        /// performing read operations on Snapshot-Repositories.</summary>
+        [Newtonsoft.Json.JsonProperty("backupVersion", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string BackupVersion { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static GlobalSnapshotRepositoryStateResult FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<GlobalSnapshotRepositoryStateResult>(data);
         }
     
     }
