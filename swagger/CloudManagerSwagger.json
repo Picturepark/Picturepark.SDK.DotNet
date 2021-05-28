@@ -21720,14 +21720,12 @@
             "SessionRenewalEvent": "#/components/schemas/SessionRenewalEvent",
             "SharePageViewEvent": "#/components/schemas/SharePageViewEvent",
             "ApiStatisticsEvent": "#/components/schemas/ApiStatisticsEvent",
-            "BusinessProcessEvent": "#/components/schemas/BusinessProcessEvent",
             "OutputRenderedEvent": "#/components/schemas/OutputRenderedEvent",
             "ConfigurationChangeEvent": "#/components/schemas/ConfigurationChangeEvent",
             "CustomerChangeEvent": "#/components/schemas/CustomerChangeEvent",
             "SearchReindexCompletedEvent": "#/components/schemas/SearchReindexCompletedEvent",
             "BusinessRuleFiredEvent": "#/components/schemas/BusinessRuleFiredEvent",
-            "BusinessProcessCancellationRequestedEvent": "#/components/schemas/BusinessProcessCancellationRequestedEvent",
-            "XmpWritebackCompletedEvent": "#/components/schemas/XmpWritebackCompletedEvent"
+            "BusinessProcessCancellationRequestedEvent": "#/components/schemas/BusinessProcessCancellationRequestedEvent"
           }
         },
         "additionalProperties": false,
@@ -22014,35 +22012,6 @@
           }
         ]
       },
-      "BusinessProcessEvent": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/ApplicationEvent"
-          },
-          {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "businessProcessId": {
-                "type": "string",
-                "nullable": true
-              },
-              "lifeCycle": {
-                "nullable": true,
-                "oneOf": [
-                  {
-                    "$ref": "#/components/schemas/BusinessProcessLifeCycle"
-                  }
-                ]
-              },
-              "state": {
-                "type": "string",
-                "nullable": true
-              }
-            }
-          }
-        ]
-      },
       "OutputRenderedEvent": {
         "allOf": [
           {
@@ -22211,23 +22180,6 @@
             "additionalProperties": false,
             "properties": {
               "businessProcessId": {
-                "type": "string",
-                "nullable": true
-              }
-            }
-          }
-        ]
-      },
-      "XmpWritebackCompletedEvent": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/ApplicationEvent"
-          },
-          {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "outputDocId": {
                 "type": "string",
                 "nullable": true
               }
