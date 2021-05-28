@@ -28724,14 +28724,12 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("SessionRenewalEvent", typeof(SessionRenewalEvent))]
     [JsonInheritanceAttribute("SharePageViewEvent", typeof(SharePageViewEvent))]
     [JsonInheritanceAttribute("ApiStatisticsEvent", typeof(ApiStatisticsEvent))]
-    [JsonInheritanceAttribute("BusinessProcessEvent", typeof(BusinessProcessEvent))]
     [JsonInheritanceAttribute("OutputRenderedEvent", typeof(OutputRenderedEvent))]
     [JsonInheritanceAttribute("ConfigurationChangeEvent", typeof(ConfigurationChangeEvent))]
     [JsonInheritanceAttribute("CustomerChangeEvent", typeof(CustomerChangeEvent))]
     [JsonInheritanceAttribute("SearchReindexCompletedEvent", typeof(SearchReindexCompletedEvent))]
     [JsonInheritanceAttribute("BusinessRuleFiredEvent", typeof(BusinessRuleFiredEvent))]
     [JsonInheritanceAttribute("BusinessProcessCancellationRequestedEvent", typeof(BusinessProcessCancellationRequestedEvent))]
-    [JsonInheritanceAttribute("XmpWritebackCompletedEvent", typeof(XmpWritebackCompletedEvent))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class ApplicationEvent 
     {
@@ -28990,31 +28988,6 @@ namespace Picturepark.SDK.V1.Contract
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
-    public partial class BusinessProcessEvent : ApplicationEvent
-    {
-        [Newtonsoft.Json.JsonProperty("businessProcessId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string BusinessProcessId { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("lifeCycle", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public BusinessProcessLifeCycle? LifeCycle { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("state", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string State { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-    
-        public static BusinessProcessEvent FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessProcessEvent>(data);
-        }
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class OutputRenderedEvent : ApplicationEvent
     {
         [Newtonsoft.Json.JsonProperty("outputId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -29171,24 +29144,6 @@ namespace Picturepark.SDK.V1.Contract
         public static BusinessProcessCancellationRequestedEvent FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessProcessCancellationRequestedEvent>(data);
-        }
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
-    public partial class XmpWritebackCompletedEvent : ApplicationEvent
-    {
-        [Newtonsoft.Json.JsonProperty("outputDocId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string OutputDocId { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-    
-        public static XmpWritebackCompletedEvent FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<XmpWritebackCompletedEvent>(data);
         }
     
     }
