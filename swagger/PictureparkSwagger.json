@@ -45088,7 +45088,6 @@
           "id",
           "index",
           "simpleSearch",
-          "sortable",
           "boost"
         ],
         "properties": {
@@ -45104,10 +45103,6 @@
           "simpleSearch": {
             "type": "boolean",
             "description": "Field is stored for simple search."
-          },
-          "sortable": {
-            "type": "boolean",
-            "description": "Field is stored for sorting."
           },
           "boost": {
             "type": "number",
