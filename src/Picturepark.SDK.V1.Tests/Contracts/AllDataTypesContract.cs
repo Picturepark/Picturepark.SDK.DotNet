@@ -46,8 +46,10 @@ namespace Picturepark.SDK.V1.Tests.Contracts
 
         ////public List<int> IntegerArrayField { get; set; }
 
+        [PictureparkSchemaIndexing("{ 'includeNameDisplayValueInFilters': true, fields: [ { 'id': 'nameField', 'index': true, 'simpleSearch': true, 'boost': 1 } ] }")]
         public SimpleReferenceObject SingleTagboxField { get; set; }
 
+        [PictureparkSchemaIndexing("{ 'includeNameDisplayValueInFilters': true, fields: [ { 'id': 'nameField', 'index': true, 'simpleSearch': true, 'boost': 1 } ] }")]
         public List<SimpleReferenceObject> MultiTagboxField { get; set; }
 
         public SimpleObject SingleFieldsetField { get; set; }

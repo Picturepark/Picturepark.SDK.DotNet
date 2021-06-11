@@ -23753,10 +23753,6 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("simpleSearch", Required = Newtonsoft.Json.Required.Always)]
         public bool SimpleSearch { get; set; }
     
-        /// <summary>Field is stored for sorting.</summary>
-        [Newtonsoft.Json.JsonProperty("sortable", Required = Newtonsoft.Json.Required.Always)]
-        public bool Sortable { get; set; }
-    
         /// <summary>Value to prioritize search results. Set to 1 by default. Ignored if SimpleSearch not set to true.</summary>
         [Newtonsoft.Json.JsonProperty("boost", Required = Newtonsoft.Json.Required.Always)]
         public double Boost { get; set; } = 1D;
