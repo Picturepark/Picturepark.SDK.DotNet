@@ -18645,12 +18645,128 @@
         ]
       }
     },
+    "/v1/Statistics/contents/{contentId}": {
+      "get": {
+        "tags": [
+          "Statistics"
+        ],
+        "summary": "Retrieve single content statistics",
+        "operationId": "Statistic_GetSingleContentStatistics",
+        "parameters": [
+          {
+            "name": "contentId",
+            "in": "path",
+            "required": true,
+            "description": "Id of Content",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 1
+          },
+          {
+            "name": "timeFrames",
+            "in": "query",
+            "style": "form",
+            "explode": true,
+            "description": "Optionally aggregate data for given time frames",
+            "schema": {
+              "type": "array",
+              "nullable": true,
+              "items": {
+                "type": "string",
+                "format": "time-span"
+              }
+            },
+            "x-position": 2
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": null,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContentStatisticsAggregated"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "statistics_read"
+            ]
+          }
+        ]
+      }
+    },
     "/v1/Statistics/contents/export": {
       "post": {
         "tags": [
           "Statistics"
         ],
-        "summary": "Export content statistics statistic",
+        "summary": "Export content statistics",
         "description": "Trigger export of statistical data for contents for further processing. The operation is executed asynchronously and is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.",
         "operationId": "Statistic_ExportContentStatistics",
         "requestBody": {
@@ -18751,7 +18867,8 @@
         "tags": [
           "Statistics"
         ],
-        "summary": "Resolve an actual Url to download exported file from referenceId found on completed BusinessProcess.",
+        "summary": "Resolve download link",
+        "description": "Resolve an actual Url to download exported file from referenceId found on completed BusinessProcess.",
         "operationId": "Statistic_ResolveDownloadLink",
         "parameters": [
           {
@@ -18851,8 +18968,8 @@
         "tags": [
           "Statistics"
         ],
-        "summary": "Add content events statistic",
-        "description": "Supply additional events from external sources The operation is executed asynchronously and is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.",
+        "summary": "Add content events",
+        "description": "Supply additional events from external sources. The operation is executed asynchronously and is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.",
         "operationId": "Statistic_AddContentEvents",
         "requestBody": {
           "x-name": "request",
@@ -40823,6 +40940,7 @@
         "additionalProperties": false,
         "required": [
           "id",
+          "contentSchemaId",
           "lifeCycle"
         ],
         "properties": {
@@ -40843,7 +40961,7 @@
           "contentSchemaId": {
             "type": "string",
             "description": "The id of the schema with schema type list.",
-            "nullable": true
+            "minLength": 1
           },
           "displayValues": {
             "description": "Contains language specific display values, rendered according to the list schema's display pattern configuration.",
@@ -47720,6 +47838,127 @@
           }
         ]
       },
+      "ContentStatisticsAggregated": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "overall",
+          "timeFrames"
+        ],
+        "properties": {
+          "overall": {
+            "description": "Contains aggregated data for the complete lifetime of the Content",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ContentStatisticsData"
+              }
+            ]
+          },
+          "timeFrames": {
+            "type": "array",
+            "description": "Contains aggregated data according to requested time frames",
+            "items": {
+              "$ref": "#/components/schemas/ContentStatisticsAggregatedTimeFrameBucket"
+            }
+          }
+        }
+      },
+      "ContentStatisticsData": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "sharings"
+        ],
+        "properties": {
+          "downloads": {
+            "description": "Statistical data for downloads of a Content",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ContentDownloads"
+              }
+            ]
+          },
+          "sharings": {
+            "description": "Statistical data of share-related activities for a Content",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ContentSharings"
+              }
+            ]
+          }
+        }
+      },
+      "ContentDownloads": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "total",
+          "share",
+          "embed"
+        ],
+        "properties": {
+          "total": {
+            "type": "integer",
+            "description": "Total downloads of content (regardless of formats, single download of multiple formats is counted once)",
+            "format": "int32"
+          },
+          "share": {
+            "type": "integer",
+            "description": "Downloads of content through basic Share",
+            "format": "int32"
+          },
+          "embed": {
+            "type": "integer",
+            "description": "Downloads of content through embed",
+            "format": "int32"
+          }
+        }
+      },
+      "ContentSharings": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "shareAdd",
+          "embedAdd"
+        ],
+        "properties": {
+          "shareAdd": {
+            "type": "integer",
+            "description": "Times this Content was added to a Share (does not decrease when removed from Share)",
+            "format": "int32"
+          },
+          "embedAdd": {
+            "type": "integer",
+            "description": "Times this Content was added to an Embed (does not decrease when removed from Embed)",
+            "format": "int32"
+          }
+        }
+      },
+      "ContentStatisticsAggregatedTimeFrameBucket": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "timeFrame",
+          "data"
+        ],
+        "properties": {
+          "timeFrame": {
+            "type": "string",
+            "description": "The timeframe for which statistical data in this bucket was aggregated",
+            "format": "time-span",
+            "minLength": 1
+          },
+          "data": {
+            "description": "Aggregated data for timeframe",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ContentStatisticsData"
+              }
+            ]
+          }
+        }
+      },
       "ExportContentStatisticsRequest": {
         "type": "object",
         "additionalProperties": false,
@@ -47773,11 +48012,13 @@
       "AddContentEventsRequest": {
         "type": "object",
         "additionalProperties": false,
+        "required": [
+          "events"
+        ],
         "properties": {
           "events": {
             "type": "array",
             "description": "Data to be added to statistics",
-            "nullable": true,
             "items": {
               "$ref": "#/components/schemas/AddContentEventsRequestItem"
             }
@@ -47788,18 +48029,21 @@
         "type": "object",
         "additionalProperties": false,
         "required": [
-          "timestamp"
+          "timestamp",
+          "contentId",
+          "statistics"
         ],
         "properties": {
           "timestamp": {
             "type": "string",
             "description": "Specifies at which time the events happened. The information will be automatically aggregated according to internal temporal resolution of statistics.",
-            "format": "date-time"
+            "format": "date-time",
+            "minLength": 1
           },
           "contentId": {
             "type": "string",
             "description": "Specifies content for which the events happened",
-            "nullable": true
+            "minLength": 1
           },
           "apiClientId": {
             "type": "string",
@@ -47808,7 +48052,6 @@
           },
           "statistics": {
             "description": "Data to be added to statistics",
-            "nullable": true,
             "oneOf": [
               {
                 "$ref": "#/components/schemas/ContentStatisticsDataEditable"
@@ -47827,6 +48070,7 @@
         "additionalProperties": false,
         "properties": {
           "downloads": {
+            "description": "Statistical data for downloads of a Content",
             "nullable": true,
             "oneOf": [
               {

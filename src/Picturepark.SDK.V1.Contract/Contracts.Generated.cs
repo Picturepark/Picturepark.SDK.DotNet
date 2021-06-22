@@ -2039,7 +2039,19 @@ namespace Picturepark.SDK.V1.Contract
     public partial interface IStatisticClient
     {
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <summary>Export content statistics statistic</summary>
+        /// <summary>Retrieve single content statistics</summary>
+        /// <param name="contentId">Id of Content</param>
+        /// <param name="timeFrames">Optionally aggregate data for given time frames</param>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        System.Threading.Tasks.Task<ContentStatisticsAggregated> GetSingleContentStatisticsAsync(string contentId, System.Collections.Generic.IEnumerable<System.TimeSpan> timeFrames = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>Export content statistics</summary>
         /// <param name="request">Request</param>
         /// <returns>Business process</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
@@ -2051,7 +2063,7 @@ namespace Picturepark.SDK.V1.Contract
         System.Threading.Tasks.Task<BusinessProcess> ExportContentStatisticsAsync(ExportContentStatisticsRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <summary>Resolve an actual Url to download exported file from referenceId found on completed BusinessProcess.</summary>
+        /// <summary>Resolve download link</summary>
         /// <param name="referenceId">Reference id</param>
         /// <returns>Download link information</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
@@ -2063,7 +2075,7 @@ namespace Picturepark.SDK.V1.Contract
         System.Threading.Tasks.Task<DownloadLink> ResolveDownloadLinkAsync(string referenceId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <summary>Add content events statistic</summary>
+        /// <summary>Add content events</summary>
         /// <param name="request">Request</param>
         /// <returns>Business process</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
@@ -19515,7 +19527,8 @@ namespace Picturepark.SDK.V1.Contract
         public string Id { get; set; }
     
         /// <summary>The id of the schema with schema type list.</summary>
-        [Newtonsoft.Json.JsonProperty("contentSchemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("contentSchemaId", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
         public string ContentSchemaId { get; set; }
     
         /// <summary>Contains language specific display values, rendered according to the list schema's display pattern configuration.</summary>
@@ -26111,6 +26124,130 @@ namespace Picturepark.SDK.V1.Contract
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class ContentStatisticsAggregated 
+    {
+        /// <summary>Contains aggregated data for the complete lifetime of the Content</summary>
+        [Newtonsoft.Json.JsonProperty("overall", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public ContentStatisticsData Overall { get; set; } = new ContentStatisticsData();
+    
+        /// <summary>Contains aggregated data according to requested time frames</summary>
+        [Newtonsoft.Json.JsonProperty("timeFrames", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.Collections.Generic.ICollection<ContentStatisticsAggregatedTimeFrameBucket> TimeFrames { get; set; } = new System.Collections.Generic.List<ContentStatisticsAggregatedTimeFrameBucket>();
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static ContentStatisticsAggregated FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentStatisticsAggregated>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class ContentStatisticsData 
+    {
+        /// <summary>Statistical data for downloads of a Content</summary>
+        [Newtonsoft.Json.JsonProperty("downloads", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public ContentDownloads Downloads { get; set; }
+    
+        /// <summary>Statistical data of share-related activities for a Content</summary>
+        [Newtonsoft.Json.JsonProperty("sharings", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public ContentSharings Sharings { get; set; } = new ContentSharings();
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static ContentStatisticsData FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentStatisticsData>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class ContentDownloads 
+    {
+        /// <summary>Total downloads of content (regardless of formats, single download of multiple formats is counted once)</summary>
+        [Newtonsoft.Json.JsonProperty("total", Required = Newtonsoft.Json.Required.Always)]
+        public int Total { get; set; }
+    
+        /// <summary>Downloads of content through basic Share</summary>
+        [Newtonsoft.Json.JsonProperty("share", Required = Newtonsoft.Json.Required.Always)]
+        public int Share { get; set; }
+    
+        /// <summary>Downloads of content through embed</summary>
+        [Newtonsoft.Json.JsonProperty("embed", Required = Newtonsoft.Json.Required.Always)]
+        public int Embed { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static ContentDownloads FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentDownloads>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class ContentSharings 
+    {
+        /// <summary>Times this Content was added to a Share (does not decrease when removed from Share)</summary>
+        [Newtonsoft.Json.JsonProperty("shareAdd", Required = Newtonsoft.Json.Required.Always)]
+        public int ShareAdd { get; set; }
+    
+        /// <summary>Times this Content was added to an Embed (does not decrease when removed from Embed)</summary>
+        [Newtonsoft.Json.JsonProperty("embedAdd", Required = Newtonsoft.Json.Required.Always)]
+        public int EmbedAdd { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static ContentSharings FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentSharings>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class ContentStatisticsAggregatedTimeFrameBucket 
+    {
+        /// <summary>The timeframe for which statistical data in this bucket was aggregated</summary>
+        [Newtonsoft.Json.JsonProperty("timeFrame", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.TimeSpan TimeFrame { get; set; }
+    
+        /// <summary>Aggregated data for timeframe</summary>
+        [Newtonsoft.Json.JsonProperty("data", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public ContentStatisticsData Data { get; set; } = new ContentStatisticsData();
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static ContentStatisticsAggregatedTimeFrameBucket FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentStatisticsAggregatedTimeFrameBucket>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class ExportContentStatisticsRequest 
     {
         /// <summary>Allows filtering of retrieved statistical data</summary>
@@ -26157,8 +26294,9 @@ namespace Picturepark.SDK.V1.Contract
     public partial class AddContentEventsRequest 
     {
         /// <summary>Data to be added to statistics</summary>
-        [Newtonsoft.Json.JsonProperty("events", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<AddContentEventsRequestItem> Events { get; set; }
+        [Newtonsoft.Json.JsonProperty("events", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.Collections.Generic.ICollection<AddContentEventsRequestItem> Events { get; set; } = new System.Collections.Generic.List<AddContentEventsRequestItem>();
     
         public string ToJson() 
         {
@@ -26177,11 +26315,12 @@ namespace Picturepark.SDK.V1.Contract
     {
         /// <summary>Specifies at which time the events happened. The information will be automatically aggregated according to internal temporal resolution of statistics.</summary>
         [Newtonsoft.Json.JsonProperty("timestamp", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [System.ComponentModel.DataAnnotations.Required]
         public System.DateTime Timestamp { get; set; }
     
         /// <summary>Specifies content for which the events happened</summary>
-        [Newtonsoft.Json.JsonProperty("contentId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("contentId", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
         public string ContentId { get; set; }
     
         /// <summary>Optionally specify the used ApiClient. Defaults to the API Client sending this request.</summary>
@@ -26189,8 +26328,9 @@ namespace Picturepark.SDK.V1.Contract
         public string ApiClientId { get; set; }
     
         /// <summary>Data to be added to statistics</summary>
-        [Newtonsoft.Json.JsonProperty("statistics", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public ContentStatisticsDataEditable Statistics { get; set; }
+        [Newtonsoft.Json.JsonProperty("statistics", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public ContentStatisticsDataEditable Statistics { get; set; } = new ContentStatisticsDataEditable();
     
         /// <summary>Optionally specify an additional id under which the supplied data should be tracked. This
         /// Id is only used internally and cannot be retrieved through API or export.</summary>
@@ -26212,6 +26352,7 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class ContentStatisticsDataEditable 
     {
+        /// <summary>Statistical data for downloads of a Content</summary>
         [Newtonsoft.Json.JsonProperty("downloads", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public ContentDownloadsEditable Downloads { get; set; }
     
