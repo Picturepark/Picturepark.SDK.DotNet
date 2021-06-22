@@ -55,6 +55,30 @@ namespace Picturepark.SDK.V1.Tests.Clients
         }
 
         [Fact]
+        public async Task ShouldGetSingleStatistics()
+        {
+            // Arrange
+            var contentId = await CreateContent().ConfigureAwait(false);
+            var eventTime = DateTime.UtcNow - TimeSpan.FromHours(3);
+
+            var writtenDownloads = await WriteSingleContentEvent(eventTime, contentId).ConfigureAwait(false);
+
+            // Act
+            var timeFrameToAggregateSeparately = TimeSpan.FromHours(2);
+            var singleContentStatistics = await _fixture.Client.Statistics.GetSingleContentStatisticsAsync(
+                contentId,
+                new[] { timeFrameToAggregateSeparately }).ConfigureAwait(false);
+
+            // Assert
+            singleContentStatistics.Overall.Downloads.Total.Should().Be(writtenDownloads.Total);
+
+            var separateTimeFrame = singleContentStatistics.TimeFrames.Should()
+                .ContainSingle(bucket => bucket.TimeFrame == timeFrameToAggregateSeparately).Which;
+
+            separateTimeFrame.Data.Downloads.Total.Should().Be(0, $"event happened more than {timeFrameToAggregateSeparately} ago");
+        }
+
+        [Fact]
         public async Task ShouldWriteAndExportStatistics()
         {
             var contentIds = await CreateContents(20).ConfigureAwait(false);
@@ -163,6 +187,33 @@ namespace Picturepark.SDK.V1.Tests.Clients
         private static FilterBase FilterForContentId(string contentId) =>
             FilterBase.FromExpression<Content>(c => c.Id, contentId);
 
+        private async Task<ContentDownloadsEditable> WriteSingleContentEvent(DateTime eventTime, string contentId)
+        {
+            var writtenDownloads = new ContentDownloadsEditable
+            {
+                Total = 5,
+                Share = 2,
+                Embed = 1
+            };
+
+            var contentEvent = new AddContentEventsRequestItem
+            {
+                Timestamp = eventTime,
+                ContentId = contentId,
+                Statistics = new ContentStatisticsDataEditable
+                {
+                    Downloads = writtenDownloads
+                }
+            };
+
+            var writeRequest = new AddContentEventsRequest { Events = new[] { contentEvent } };
+
+            var writeProcess = await _fixture.Client.Statistics.AddContentEventsAsync(writeRequest).ConfigureAwait(false);
+            await AwaitProcessAndEnsureSuccess(writeProcess).ConfigureAwait(false);
+
+            return writtenDownloads;
+        }
+
         private async Task AwaitProcessAndEnsureSuccess(BusinessProcess businessProcess)
         {
             var result = await _fixture.Client.BusinessProcess.WaitForCompletionAsync(businessProcess.Id).ConfigureAwait(false);
@@ -180,6 +231,12 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var result = await _fixture.Client.Content.CreateManyAsync(new ContentCreateManyRequest { Items = createRequests.ToList() }).ConfigureAwait(false);
             var detail = await result.FetchDetail().ConfigureAwait(false);
             return detail.SucceededIds;
+        }
+
+        private async Task<string> CreateContent([CallerMemberName] string testName = null)
+        {
+            var created = await CreateContents(1, testName).ConfigureAwait(false);
+            return created.Single();
         }
     }
 }
