@@ -21229,11 +21229,13 @@
       "AddContentEventsRequest": {
         "type": "object",
         "additionalProperties": false,
+        "required": [
+          "events"
+        ],
         "properties": {
           "events": {
             "type": "array",
             "description": "Data to be added to statistics",
-            "nullable": true,
             "items": {
               "$ref": "#/components/schemas/AddContentEventsRequestItem"
             }
@@ -21244,18 +21246,21 @@
         "type": "object",
         "additionalProperties": false,
         "required": [
-          "timestamp"
+          "timestamp",
+          "contentId",
+          "statistics"
         ],
         "properties": {
           "timestamp": {
             "type": "string",
             "description": "Specifies at which time the events happened. The information will be automatically aggregated according to internal temporal resolution of statistics.",
-            "format": "date-time"
+            "format": "date-time",
+            "minLength": 1
           },
           "contentId": {
             "type": "string",
             "description": "Specifies content for which the events happened",
-            "nullable": true
+            "minLength": 1
           },
           "apiClientId": {
             "type": "string",
@@ -21264,7 +21269,6 @@
           },
           "statistics": {
             "description": "Data to be added to statistics",
-            "nullable": true,
             "oneOf": [
               {
                 "$ref": "#/components/schemas/ContentStatisticsDataEditable"
@@ -21283,6 +21287,7 @@
         "additionalProperties": false,
         "properties": {
           "downloads": {
+            "description": "Statistical data for downloads of a Content",
             "nullable": true,
             "oneOf": [
               {

@@ -14059,8 +14059,9 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     public partial class AddContentEventsRequest 
     {
         /// <summary>Data to be added to statistics</summary>
-        [Newtonsoft.Json.JsonProperty("events", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<AddContentEventsRequestItem> Events { get; set; }
+        [Newtonsoft.Json.JsonProperty("events", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.Collections.Generic.ICollection<AddContentEventsRequestItem> Events { get; set; } = new System.Collections.Generic.List<AddContentEventsRequestItem>();
     
         public string ToJson() 
         {
@@ -14079,11 +14080,12 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     {
         /// <summary>Specifies at which time the events happened. The information will be automatically aggregated according to internal temporal resolution of statistics.</summary>
         [Newtonsoft.Json.JsonProperty("timestamp", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [System.ComponentModel.DataAnnotations.Required]
         public System.DateTime Timestamp { get; set; }
     
         /// <summary>Specifies content for which the events happened</summary>
-        [Newtonsoft.Json.JsonProperty("contentId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("contentId", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
         public string ContentId { get; set; }
     
         /// <summary>Optionally specify the used ApiClient. Defaults to the API Client sending this request.</summary>
@@ -14091,8 +14093,9 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         public string ApiClientId { get; set; }
     
         /// <summary>Data to be added to statistics</summary>
-        [Newtonsoft.Json.JsonProperty("statistics", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public ContentStatisticsDataEditable Statistics { get; set; }
+        [Newtonsoft.Json.JsonProperty("statistics", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public ContentStatisticsDataEditable Statistics { get; set; } = new ContentStatisticsDataEditable();
     
         /// <summary>Optionally specify an additional id under which the supplied data should be tracked. This
         /// Id is only used internally and cannot be retrieved through API or export.</summary>
@@ -14114,6 +14117,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class ContentStatisticsDataEditable 
     {
+        /// <summary>Statistical data for downloads of a Content</summary>
         [Newtonsoft.Json.JsonProperty("downloads", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public ContentDownloadsEditable Downloads { get; set; }
     
