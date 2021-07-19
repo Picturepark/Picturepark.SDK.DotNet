@@ -50056,14 +50056,11 @@
             "type": "object",
             "description": "Request to update identity provider assignment of users.",
             "additionalProperties": false,
-            "required": [
-              "identityProviderId"
-            ],
             "properties": {
               "identityProviderId": {
                 "type": "string",
                 "description": "Identity provider to assign to users.",
-                "minLength": 1
+                "nullable": true
               }
             }
           }

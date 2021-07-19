@@ -28274,8 +28274,7 @@ namespace Picturepark.SDK.V1.Contract
     public partial class UserUpdateIdentityProviderManyRequest : UserManyRequestBase
     {
         /// <summary>Identity provider to assign to users.</summary>
-        [Newtonsoft.Json.JsonProperty("identityProviderId", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
+        [Newtonsoft.Json.JsonProperty("identityProviderId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string IdentityProviderId { get; set; }
     
         public string ToJson() 
