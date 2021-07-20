@@ -3104,6 +3104,8 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("OutputBackupHashMismatchException", typeof(OutputBackupHashMismatchException))]
     [JsonInheritanceAttribute("DownloadLinkExpiredException", typeof(DownloadLinkExpiredException))]
     [JsonInheritanceAttribute("RenderingNotAwaitedException", typeof(RenderingNotAwaitedException))]
+    [JsonInheritanceAttribute("DuplicateContentDownloadRequestException", typeof(DuplicateContentDownloadRequestException))]
+    [JsonInheritanceAttribute("InvalidContentDownloadRequestException", typeof(InvalidContentDownloadRequestException))]
     [JsonInheritanceAttribute("LeaseNotAcquiredException", typeof(LeaseNotAcquiredException))]
     [JsonInheritanceAttribute("OperationInProgressException", typeof(OperationInProgressException))]
     [JsonInheritanceAttribute("OwnerTokenNotFoundException", typeof(OwnerTokenNotFoundException))]
@@ -4632,6 +4634,44 @@ namespace Picturepark.SDK.V1.Contract
         public static RenderingNotAwaitedException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<RenderingNotAwaitedException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class DuplicateContentDownloadRequestException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("contentId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ContentId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("outputFormatId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string OutputFormatId { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static DuplicateContentDownloadRequestException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<DuplicateContentDownloadRequestException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class InvalidContentDownloadRequestException : PictureparkValidationException
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static InvalidContentDownloadRequestException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<InvalidContentDownloadRequestException>(data);
         }
     
     }
