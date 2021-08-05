@@ -508,6 +508,19 @@ namespace Picturepark.SDK.V1.Contract
         System.Threading.Tasks.Task<FileResponse> DownloadAsync(string contentId, string outputFormatId, int? width = null, int? height = null, string range = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>Edit output</summary>
+        /// <param name="contentId">The content ID.</param>
+        /// <param name="outputFormatId">The output format ID.</param>
+        /// <param name="conversionPreset">The conversion preset.</param>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        System.Threading.Tasks.Task<FileResponse> EditOutputAsync(string contentId, string outputFormatId, string conversionPreset, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Download thumbnail</summary>
         /// <param name="id">The content ID.</param>
         /// <param name="size">Thumbnail size. Either small, medium or large.</param>
@@ -1933,6 +1946,19 @@ namespace Picturepark.SDK.V1.Contract
         System.Threading.Tasks.Task<FileResponse> DownloadSingleContentAsync(string token, string contentId, string outputFormatId, int? width = null, int? height = null, string range = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>Download shared outputs</summary>
+        /// <param name="token">Share token</param>
+        /// <param name="conversionPreset">Image editing specification</param>
+        /// <param name="range">The range of bytes to download (http range header): bytes={from}-{to} (e.g. bytes=0-100000)</param>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        System.Threading.Tasks.Task<FileResponse> DownloadWithConversionPresetAsync(string token, string conversionPreset, string range = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Get</summary>
         /// <param name="id">Share Id (not token, use [GetShareJson](#operation/Share_GetShareJson) to get share by token)</param>
         /// <param name="resolveBehaviors">List of enums that control which parts of the share are resolved and returned.</param>
@@ -3092,6 +3118,8 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("TokenGenerationException", typeof(TokenGenerationException))]
     [JsonInheritanceAttribute("ShareExpiredException", typeof(ShareExpiredException))]
     [JsonInheritanceAttribute("ShareSizeLimitExceededException", typeof(ShareSizeLimitExceededException))]
+    [JsonInheritanceAttribute("DuplicateSharedOutputException", typeof(DuplicateSharedOutputException))]
+    [JsonInheritanceAttribute("DuplicateEmbedConversionPresetException", typeof(DuplicateEmbedConversionPresetException))]
     [JsonInheritanceAttribute("OutputIdNotFoundException", typeof(OutputIdNotFoundException))]
     [JsonInheritanceAttribute("OutputNotFoundException", typeof(OutputNotFoundException))]
     [JsonInheritanceAttribute("UnableToCreateOrModifyStaticOutputFormatException", typeof(UnableToCreateOrModifyStaticOutputFormatException))]
@@ -4412,6 +4440,50 @@ namespace Picturepark.SDK.V1.Contract
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class DuplicateSharedOutputException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("contentId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ContentId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("outputFormatId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string OutputFormatId { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static DuplicateSharedOutputException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<DuplicateSharedOutputException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class DuplicateEmbedConversionPresetException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("contentId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ContentId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("outputFormatId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string OutputFormatId { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static DuplicateEmbedConversionPresetException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<DuplicateEmbedConversionPresetException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
     public partial class OutputIdNotFoundException : PictureparkNotFoundException
     {
         [Newtonsoft.Json.JsonProperty("outputId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -4431,7 +4503,7 @@ namespace Picturepark.SDK.V1.Contract
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     [Newtonsoft.Json.JsonObjectAttribute]
-    public partial class OutputNotFoundException : PictureparkBusinessException
+    public partial class OutputNotFoundException : PictureparkNotFoundException
     {
         [Newtonsoft.Json.JsonProperty("contentId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ContentId { get; set; }
@@ -21814,8 +21886,11 @@ namespace Picturepark.SDK.V1.Contract
     [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
     [JsonInheritanceAttribute("AlphaHandlingAction", typeof(AlphaHandlingAction))]
     [JsonInheritanceAttribute("CropAction", typeof(CropAction))]
+    [JsonInheritanceAttribute("GravityBasedCropAction", typeof(GravityBasedCropAction))]
+    [JsonInheritanceAttribute("RelativeCropAction", typeof(RelativeCropAction))]
     [JsonInheritanceAttribute("UnsharpenMaskAction", typeof(UnsharpenMaskAction))]
     [JsonInheritanceAttribute("WatermarkAction", typeof(WatermarkAction))]
+    [JsonInheritanceAttribute("RotateAction", typeof(RotateAction))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     public abstract partial class ImageActionBase 
     {
@@ -21873,7 +21948,7 @@ namespace Picturepark.SDK.V1.Contract
     
     /// <summary>An ImageAction that allows cropping an image.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
-    public partial class CropAction : ImageActionBase
+    public partial class CropAction : CropActionBase
     {
         /// <summary>X-Coordinate of top left point of the cropping rectangle.</summary>
         [Newtonsoft.Json.JsonProperty("x", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -21883,6 +21958,22 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("y", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int Y { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static CropAction FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<CropAction>(data);
+        }
+    
+    }
+    
+    /// <summary>Base parameters for cropping actions.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public abstract partial class CropActionBase : ImageActionBase
+    {
         /// <summary>Width of the cropping rectangle.</summary>
         [Newtonsoft.Json.JsonProperty("width", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int Width { get; set; }
@@ -21896,9 +21987,83 @@ namespace Picturepark.SDK.V1.Contract
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
         }
     
-        public static CropAction FromJson(string data)
+        public static CropActionBase FromJson(string data)
         {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<CropAction>(data);
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<CropActionBase>(data);
+        }
+    
+    }
+    
+    /// <summary>An ImageAction that allows cropping an image, weighing the cropping rectangle on a gravity.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class GravityBasedCropAction : CropActionBase
+    {
+        /// <summary>Gravity of the cropping rectangle.</summary>
+        [Newtonsoft.Json.JsonProperty("gravity", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public CropGravity Gravity { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static GravityBasedCropAction FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<GravityBasedCropAction>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public enum CropGravity
+    {
+        [System.Runtime.Serialization.EnumMember(Value = @"NorthWest")]
+        NorthWest = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"North")]
+        North = 1,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"NorthEast")]
+        NorthEast = 2,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"East")]
+        East = 3,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"SouthEast")]
+        SouthEast = 4,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"South")]
+        South = 5,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"SouthWest")]
+        SouthWest = 6,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"West")]
+        West = 7,
+    
+    }
+    
+    /// <summary>An ImageAction that allows cropping an image, positioning the cropping rectangle relative to the width/height of the image.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class RelativeCropAction : CropActionBase
+    {
+        /// <summary>Relative position of origin point from the left of the image. 0.5 designates the center of the image.</summary>
+        [Newtonsoft.Json.JsonProperty("x", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public double X { get; set; }
+    
+        /// <summary>Relative position of origin point from the top of the image. 0.5 designates the center of the image.</summary>
+        [Newtonsoft.Json.JsonProperty("y", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public double Y { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static RelativeCropAction FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<RelativeCropAction>(data);
         }
     
     }
@@ -21976,6 +22141,42 @@ namespace Picturepark.SDK.V1.Contract
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<WatermarkAction>(data);
         }
+    
+    }
+    
+    /// <summary>An ImageAction that allows rotating an image.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class RotateAction : ImageActionBase
+    {
+        /// <summary>Degrees to rotate the image in.</summary>
+        [Newtonsoft.Json.JsonProperty("degrees", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int Degrees { get; set; }
+    
+        /// <summary>Direction the rotation should be applied in.</summary>
+        [Newtonsoft.Json.JsonProperty("direction", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public RotateDirection Direction { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static RotateAction FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<RotateAction>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public enum RotateDirection
+    {
+        [System.Runtime.Serialization.EnumMember(Value = @"Clockwise")]
+        Clockwise = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"CounterClockwise")]
+        CounterClockwise = 1,
     
     }
     
@@ -25238,7 +25439,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <summary>List of all contents in share including outputs.</summary>
         [Newtonsoft.Json.JsonProperty("contents", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
-        public System.Collections.Generic.ICollection<ShareContent> Contents { get; set; } = new System.Collections.Generic.List<ShareContent>();
+        public System.Collections.Generic.ICollection<ShareContentBase> Contents { get; set; } = new System.Collections.Generic.List<ShareContentBase>();
     
         /// <summary>List of shared layers.</summary>
         [Newtonsoft.Json.JsonProperty("layerSchemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -25460,8 +25661,11 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
+    [JsonInheritanceAttribute("ShareContent", typeof(ShareContent))]
+    [JsonInheritanceAttribute("EmbedContent", typeof(EmbedContent))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
-    public partial class ShareContent 
+    public abstract partial class ShareContentBase 
     {
         /// <summary>Content ID to share.</summary>
         [Newtonsoft.Json.JsonProperty("contentId", Required = Newtonsoft.Json.Required.Always)]
@@ -25477,9 +25681,75 @@ namespace Picturepark.SDK.V1.Contract
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
         }
     
+        public static ShareContentBase FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ShareContentBase>(data);
+        }
+    
+    }
+    
+    /// <summary>Shared content</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class ShareContent : ShareContentBase
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
         public static ShareContent FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<ShareContent>(data);
+        }
+    
+    }
+    
+    /// <summary>Embedded content</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class EmbedContent : ShareContentBase
+    {
+        /// <summary>Conversion presets: Each output format of the shared content can be optionally converted/edited
+        /// when delivering.</summary>
+        [Newtonsoft.Json.JsonProperty("conversionPresets", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<ConversionPreset> ConversionPresets { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static EmbedContent FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<EmbedContent>(data);
+        }
+    
+    }
+    
+    /// <summary>Preset for converting an output.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class ConversionPreset 
+    {
+        /// <summary>OutputFormatId of output to be converted.</summary>
+        [Newtonsoft.Json.JsonProperty("outputFormatId", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public string OutputFormatId { get; set; }
+    
+        /// <summary>Conversion to apply to the output.</summary>
+        [Newtonsoft.Json.JsonProperty("conversion", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Conversion { get; set; }
+    
+        /// <summary>Indicates if the conversion is locked and therefore cannot be changed by the caller of the embed URI.</summary>
+        [Newtonsoft.Json.JsonProperty("locked", Required = Newtonsoft.Json.Required.Always)]
+        public bool Locked { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static ConversionPreset FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ConversionPreset>(data);
         }
     
     }
@@ -25738,7 +26008,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <summary>List of contents including outputs. Existing items needs to be sent again, otherwise they will be removed.</summary>
         [Newtonsoft.Json.JsonProperty("contents", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
-        public System.Collections.Generic.ICollection<ShareContent> Contents { get; set; } = new System.Collections.Generic.List<ShareContent>();
+        public System.Collections.Generic.ICollection<ShareContentBase> Contents { get; set; } = new System.Collections.Generic.List<ShareContentBase>();
     
         /// <summary>List of content layers to share.</summary>
         [Newtonsoft.Json.JsonProperty("layerSchemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -25817,7 +26087,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <summary>List of contents including outputs to share.</summary>
         [Newtonsoft.Json.JsonProperty("contents", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
-        public System.Collections.Generic.ICollection<ShareContent> Contents { get; set; } = new System.Collections.Generic.List<ShareContent>();
+        public System.Collections.Generic.ICollection<ShareContentBase> Contents { get; set; } = new System.Collections.Generic.List<ShareContentBase>();
     
         /// <summary>List of content layers to share.</summary>
         [Newtonsoft.Json.JsonProperty("layerSchemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]

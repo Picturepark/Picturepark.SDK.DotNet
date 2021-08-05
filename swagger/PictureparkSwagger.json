@@ -4331,6 +4331,144 @@
         ]
       }
     },
+    "/v1/Contents/downloads/{contentId}/{outputFormatId}/{conversionPreset}": {
+      "get": {
+        "tags": [
+          "Content"
+        ],
+        "summary": "Edit output",
+        "description": "Edits a single content in a specific output format.",
+        "operationId": "Content_EditOutput",
+        "parameters": [
+          {
+            "name": "contentId",
+            "in": "path",
+            "required": true,
+            "description": "The content ID.",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 1
+          },
+          {
+            "name": "outputFormatId",
+            "in": "path",
+            "required": true,
+            "description": "The output format ID.",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 2
+          },
+          {
+            "name": "conversionPreset",
+            "in": "path",
+            "required": true,
+            "description": "The conversion preset.",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 3
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": null,
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          },
+          "206": {
+            "description": null,
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          },
+          "412": {
+            "description": null
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "content_read"
+            ]
+          }
+        ]
+      }
+    },
     "/v1/Contents/thumbnails/{id}/{size}": {
       "get": {
         "tags": [
@@ -17782,6 +17920,135 @@
         }
       }
     },
+    "/v1/Shares/d/{token}/{conversionPreset}": {
+      "get": {
+        "tags": [
+          "Share"
+        ],
+        "summary": "Download shared outputs",
+        "operationId": "Share_DownloadWithConversionPreset",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "path",
+            "required": true,
+            "description": "Share token",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 1
+          },
+          {
+            "name": "conversionPreset",
+            "in": "path",
+            "required": true,
+            "description": "Image editing specification",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 2
+          },
+          {
+            "name": "range",
+            "in": "header",
+            "description": "The range of bytes to download (http range header): bytes={from}-{to} (e.g. bytes=0-100000)",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 3
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": null,
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          },
+          "206": {
+            "description": null,
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          },
+          "412": {
+            "description": null
+          }
+        }
+      }
+    },
     "/v1/Shares/{id}": {
       "get": {
         "tags": [
@@ -26010,6 +26277,48 @@
           }
         ]
       },
+      "DuplicateSharedOutputException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "contentId": {
+                "type": "string",
+                "nullable": true
+              },
+              "outputFormatId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "DuplicateEmbedConversionPresetException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "contentId": {
+                "type": "string",
+                "nullable": true
+              },
+              "outputFormatId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
       "OutputIdNotFoundException": {
         "allOf": [
           {
@@ -26030,7 +26339,7 @@
       "OutputNotFoundException": {
         "allOf": [
           {
-            "$ref": "#/components/schemas/PictureparkBusinessException"
+            "$ref": "#/components/schemas/PictureparkNotFoundException"
           },
           {
             "type": "object",
@@ -43094,9 +43403,13 @@
           "propertyName": "kind",
           "mapping": {
             "AlphaHandlingAction": "#/components/schemas/AlphaHandlingAction",
+            "CropActionBase": "#/components/schemas/CropActionBase",
             "CropAction": "#/components/schemas/CropAction",
+            "GravityBasedCropAction": "#/components/schemas/GravityBasedCropAction",
+            "RelativeCropAction": "#/components/schemas/RelativeCropAction",
             "UnsharpenMaskAction": "#/components/schemas/UnsharpenMaskAction",
-            "WatermarkAction": "#/components/schemas/WatermarkAction"
+            "WatermarkAction": "#/components/schemas/WatermarkAction",
+            "RotateAction": "#/components/schemas/RotateAction"
           }
         },
         "x-abstract": true,
@@ -43154,7 +43467,7 @@
       "CropAction": {
         "allOf": [
           {
-            "$ref": "#/components/schemas/ImageActionBase"
+            "$ref": "#/components/schemas/CropActionBase"
           },
           {
             "type": "object",
@@ -43170,7 +43483,22 @@
                 "type": "integer",
                 "description": "Y-Coordinate of top left point of the cropping rectangle.",
                 "format": "int32"
-              },
+              }
+            }
+          }
+        ]
+      },
+      "CropActionBase": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ImageActionBase"
+          },
+          {
+            "type": "object",
+            "description": "Base parameters for cropping actions.",
+            "x-abstract": true,
+            "additionalProperties": false,
+            "properties": {
               "width": {
                 "type": "integer",
                 "description": "Width of the cropping rectangle.",
@@ -43180,6 +43508,76 @@
                 "type": "integer",
                 "description": "Height of the cropping rectangle.",
                 "format": "int32"
+              }
+            }
+          }
+        ]
+      },
+      "GravityBasedCropAction": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/CropActionBase"
+          },
+          {
+            "type": "object",
+            "description": "An ImageAction that allows cropping an image, weighing the cropping rectangle on a gravity.",
+            "additionalProperties": false,
+            "properties": {
+              "gravity": {
+                "description": "Gravity of the cropping rectangle.",
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/CropGravity"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "CropGravity": {
+        "type": "string",
+        "description": "",
+        "x-enumNames": [
+          "NorthWest",
+          "North",
+          "NorthEast",
+          "East",
+          "SouthEast",
+          "South",
+          "SouthWest",
+          "West"
+        ],
+        "enum": [
+          "NorthWest",
+          "North",
+          "NorthEast",
+          "East",
+          "SouthEast",
+          "South",
+          "SouthWest",
+          "West"
+        ]
+      },
+      "RelativeCropAction": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/CropActionBase"
+          },
+          {
+            "type": "object",
+            "description": "An ImageAction that allows cropping an image, positioning the cropping rectangle relative to the width/height of the image.",
+            "additionalProperties": false,
+            "properties": {
+              "x": {
+                "type": "number",
+                "description": "Relative position of origin point from the left of the image. 0.5 designates the center of the image.",
+                "format": "float"
+              },
+              "y": {
+                "type": "number",
+                "description": "Relative position of origin point from the top of the image. 0.5 designates the center of the image.",
+                "format": "float"
               }
             }
           }
@@ -43270,6 +43668,45 @@
               }
             }
           }
+        ]
+      },
+      "RotateAction": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ImageActionBase"
+          },
+          {
+            "type": "object",
+            "description": "An ImageAction that allows rotating an image.",
+            "additionalProperties": false,
+            "properties": {
+              "degrees": {
+                "type": "integer",
+                "description": "Degrees to rotate the image in.",
+                "format": "int32"
+              },
+              "direction": {
+                "description": "Direction the rotation should be applied in.",
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/RotateDirection"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "RotateDirection": {
+        "type": "string",
+        "description": "",
+        "x-enumNames": [
+          "Clockwise",
+          "CounterClockwise"
+        ],
+        "enum": [
+          "Clockwise",
+          "CounterClockwise"
         ]
       },
       "OriginalFormat": {
@@ -46879,7 +47316,7 @@
             "type": "array",
             "description": "List of all contents in share including outputs.",
             "items": {
-              "$ref": "#/components/schemas/ShareContent"
+              "$ref": "#/components/schemas/ShareContentBase"
             }
           },
           "layerSchemaIds": {
@@ -47125,11 +47562,20 @@
           }
         ]
       },
-      "ShareContent": {
+      "ShareContentBase": {
         "type": "object",
+        "discriminator": {
+          "propertyName": "kind",
+          "mapping": {
+            "ShareContent": "#/components/schemas/ShareContent",
+            "EmbedContent": "#/components/schemas/EmbedContent"
+          }
+        },
+        "x-abstract": true,
         "additionalProperties": false,
         "required": [
-          "contentId"
+          "contentId",
+          "kind"
         ],
         "properties": {
           "contentId": {
@@ -47144,6 +47590,68 @@
             "items": {
               "type": "string"
             }
+          },
+          "kind": {
+            "type": "string"
+          }
+        }
+      },
+      "ShareContent": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ShareContentBase"
+          },
+          {
+            "type": "object",
+            "description": "Shared content",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "EmbedContent": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ShareContentBase"
+          },
+          {
+            "type": "object",
+            "description": "Embedded content",
+            "additionalProperties": false,
+            "properties": {
+              "conversionPresets": {
+                "type": "array",
+                "description": "Conversion presets: Each output format of the shared content can be optionally converted/edited\nwhen delivering.",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/ConversionPreset"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "ConversionPreset": {
+        "type": "object",
+        "description": "Preset for converting an output.",
+        "additionalProperties": false,
+        "required": [
+          "outputFormatId",
+          "locked"
+        ],
+        "properties": {
+          "outputFormatId": {
+            "type": "string",
+            "description": "OutputFormatId of output to be converted.",
+            "minLength": 1
+          },
+          "conversion": {
+            "type": "string",
+            "description": "Conversion to apply to the output.",
+            "nullable": true
+          },
+          "locked": {
+            "type": "boolean",
+            "description": "Indicates if the conversion is locked and therefore cannot be changed by the caller of the embed URI."
           }
         }
       },
@@ -47421,7 +47929,7 @@
             "type": "array",
             "description": "List of contents including outputs. Existing items needs to be sent again, otherwise they will be removed.",
             "items": {
-              "$ref": "#/components/schemas/ShareContent"
+              "$ref": "#/components/schemas/ShareContentBase"
             }
           },
           "layerSchemaIds": {
@@ -47508,7 +48016,7 @@
             "type": "array",
             "description": "List of contents including outputs to share.",
             "items": {
-              "$ref": "#/components/schemas/ShareContent"
+              "$ref": "#/components/schemas/ShareContentBase"
             }
           },
           "layerSchemaIds": {
