@@ -842,6 +842,15 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task InvalidateAllCachesAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        System.Threading.Tasks.Task RecycleElasticClientsAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "13.2.2.0 (NJsonSchema v10.1.4.0 (Newtonsoft.Json v11.0.0.0))")]
@@ -1255,6 +1264,8 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [JsonInheritanceAttribute("TokenGenerationException", typeof(TokenGenerationException))]
     [JsonInheritanceAttribute("ShareExpiredException", typeof(ShareExpiredException))]
     [JsonInheritanceAttribute("ShareSizeLimitExceededException", typeof(ShareSizeLimitExceededException))]
+    [JsonInheritanceAttribute("DuplicateSharedOutputException", typeof(DuplicateSharedOutputException))]
+    [JsonInheritanceAttribute("DuplicateEmbedConversionPresetException", typeof(DuplicateEmbedConversionPresetException))]
     [JsonInheritanceAttribute("OutputIdNotFoundException", typeof(OutputIdNotFoundException))]
     [JsonInheritanceAttribute("OutputNotFoundException", typeof(OutputNotFoundException))]
     [JsonInheritanceAttribute("UnableToCreateOrModifyStaticOutputFormatException", typeof(UnableToCreateOrModifyStaticOutputFormatException))]
@@ -2576,6 +2587,50 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class DuplicateSharedOutputException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("contentId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ContentId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("outputFormatId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string OutputFormatId { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static DuplicateSharedOutputException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<DuplicateSharedOutputException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class DuplicateEmbedConversionPresetException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("contentId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ContentId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("outputFormatId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string OutputFormatId { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static DuplicateEmbedConversionPresetException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<DuplicateEmbedConversionPresetException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
     public partial class OutputIdNotFoundException : PictureparkNotFoundException
     {
         [Newtonsoft.Json.JsonProperty("outputId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -2595,7 +2650,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     [Newtonsoft.Json.JsonObjectAttribute]
-    public partial class OutputNotFoundException : PictureparkBusinessException
+    public partial class OutputNotFoundException : PictureparkNotFoundException
     {
         [Newtonsoft.Json.JsonProperty("contentId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ContentId { get; set; }
@@ -11244,8 +11299,11 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
     [JsonInheritanceAttribute("AlphaHandlingAction", typeof(AlphaHandlingAction))]
     [JsonInheritanceAttribute("CropAction", typeof(CropAction))]
+    [JsonInheritanceAttribute("GravityBasedCropAction", typeof(GravityBasedCropAction))]
+    [JsonInheritanceAttribute("RelativeCropAction", typeof(RelativeCropAction))]
     [JsonInheritanceAttribute("UnsharpenMaskAction", typeof(UnsharpenMaskAction))]
     [JsonInheritanceAttribute("WatermarkAction", typeof(WatermarkAction))]
+    [JsonInheritanceAttribute("RotateAction", typeof(RotateAction))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     public abstract partial class ImageActionBase 
     {
@@ -11303,7 +11361,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
     /// <summary>An ImageAction that allows cropping an image.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
-    public partial class CropAction : ImageActionBase
+    public partial class CropAction : CropActionBase
     {
         /// <summary>X-Coordinate of top left point of the cropping rectangle.</summary>
         [Newtonsoft.Json.JsonProperty("x", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -11313,6 +11371,22 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [Newtonsoft.Json.JsonProperty("y", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int Y { get; set; }
     
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static CropAction FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<CropAction>(data);
+        }
+    
+    }
+    
+    /// <summary>Base parameters for cropping actions.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public abstract partial class CropActionBase : ImageActionBase
+    {
         /// <summary>Width of the cropping rectangle.</summary>
         [Newtonsoft.Json.JsonProperty("width", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int Width { get; set; }
@@ -11326,9 +11400,83 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
         }
     
-        public static CropAction FromJson(string data)
+        public static CropActionBase FromJson(string data)
         {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<CropAction>(data);
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<CropActionBase>(data);
+        }
+    
+    }
+    
+    /// <summary>An ImageAction that allows cropping an image, weighing the cropping rectangle on a gravity.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class GravityBasedCropAction : CropActionBase
+    {
+        /// <summary>Gravity of the cropping rectangle.</summary>
+        [Newtonsoft.Json.JsonProperty("gravity", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public CropGravity Gravity { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static GravityBasedCropAction FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<GravityBasedCropAction>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public enum CropGravity
+    {
+        [System.Runtime.Serialization.EnumMember(Value = @"NorthWest")]
+        NorthWest = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"North")]
+        North = 1,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"NorthEast")]
+        NorthEast = 2,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"East")]
+        East = 3,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"SouthEast")]
+        SouthEast = 4,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"South")]
+        South = 5,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"SouthWest")]
+        SouthWest = 6,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"West")]
+        West = 7,
+    
+    }
+    
+    /// <summary>An ImageAction that allows cropping an image, positioning the cropping rectangle relative to the width/height of the image.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class RelativeCropAction : CropActionBase
+    {
+        /// <summary>Relative position of origin point from the left of the image. 0.5 designates the center of the image.</summary>
+        [Newtonsoft.Json.JsonProperty("x", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public double X { get; set; }
+    
+        /// <summary>Relative position of origin point from the top of the image. 0.5 designates the center of the image.</summary>
+        [Newtonsoft.Json.JsonProperty("y", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public double Y { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static RelativeCropAction FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<RelativeCropAction>(data);
         }
     
     }
@@ -11406,6 +11554,42 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<WatermarkAction>(data);
         }
+    
+    }
+    
+    /// <summary>An ImageAction that allows rotating an image.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class RotateAction : ImageActionBase
+    {
+        /// <summary>Degrees to rotate the image in.</summary>
+        [Newtonsoft.Json.JsonProperty("degrees", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int Degrees { get; set; }
+    
+        /// <summary>Direction the rotation should be applied in.</summary>
+        [Newtonsoft.Json.JsonProperty("direction", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public RotateDirection Direction { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static RotateAction FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<RotateAction>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public enum RotateDirection
+    {
+        [System.Runtime.Serialization.EnumMember(Value = @"Clockwise")]
+        Clockwise = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"CounterClockwise")]
+        CounterClockwise = 1,
     
     }
     

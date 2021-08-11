@@ -1088,7 +1088,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             }).ConfigureAwait(false);
         }
 
-        [Fact(Skip = "PP9-11893: Backend bug causing dimensions not always to be exactly as specified in the request makes this test randomly fail.")]
+        [Fact]
         [Trait("Stack", "Contents")]
         public async Task ShouldDownloadSingleResized()
         {
@@ -1127,6 +1127,24 @@ namespace Picturepark.SDK.V1.Tests.Clients
                     0.98f * sourceAspectRatio,
                     1.02f * sourceAspectRatio,
                     "should keep aspect ratio");
+            }
+        }
+
+        [Fact]
+        [Trait("Stack", "Contents")]
+        public async Task ShouldEditContent()
+        {
+            // Arrange
+            var contentId = await _fixture.GetRandomContentIdAsync("fileMetadata.fileExtension:.jpg", 20).ConfigureAwait(false);
+            contentId.Should().NotBeNullOrEmpty();
+
+            // Act
+            using (var response = await _client.Content.EditOutputAsync(contentId, "Preview", "resize-to:200x200").ConfigureAwait(false))
+            {
+                // Assert
+                var bitmap = new Bitmap(response.Stream);
+                bitmap.Width.Should().Be(200);
+                bitmap.Height.Should().Be(200);
             }
         }
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Threading.Tasks;
 using Picturepark.SDK.V1.Contract;
@@ -218,7 +219,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             // Arrange
             var outputFormatIds = new List<string> { "Original" };
 
-            var shareContentItems = new List<ShareContent>
+            var shareContentItems = new List<ShareContentBase>
             {
                 new ShareContent { ContentId = "NonExistingId1", OutputFormatIds = outputFormatIds },
                 new ShareContent { ContentId = "NonExistingId2", OutputFormatIds = outputFormatIds }
@@ -275,7 +276,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             // Share content twice
             contents.Add(contents.First());
 
-            await Assert.ThrowsAsync<InvalidArgumentException>(async () =>
+            await Assert.ThrowsAsync<DuplicateSharedOutputException>(async () =>
             {
                 await CreateShareAndReturnId(new ShareEmbedCreateRequest
                 {
@@ -339,7 +340,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                     contentIds.Add(contentId);
             }
 
-            var shareContentItems = contentIds.Select(x => new ShareContent() { ContentId = x, OutputFormatIds = outputFormatIds }).ToList();
+            var shareContentItems = contentIds.Select(x => new ShareContent() { ContentId = x, OutputFormatIds = outputFormatIds }).ToList<ShareContentBase>();
 
             var request = new ShareEmbedCreateRequest
             {
@@ -419,6 +420,58 @@ namespace Picturepark.SDK.V1.Tests.Clients
             }
         }
 
+        [Theory]
+        [Trait("Stack", "Shares")]
+        [InlineData("", 400, 400)]
+        [InlineData("resize-to:200x150", 200, 150)]
+        public async Task ShouldUsePresetToEditOutput(string preset, int expectedWidth, int expectedHeight)
+        {
+            var randomContents = await _fixture.GetRandomContentsAsync(".jpg", 1).ConfigureAwait(false);
+            var contentId = randomContents.Results.Single().Id;
+
+            var shareId = await CreateShareAndReturnId(
+                new ShareEmbedCreateRequest
+                {
+                    Contents = new List<ShareContentBase>
+                    {
+                        new EmbedContent
+                        {
+                            ContentId = contentId,
+                            OutputFormatIds = new[] { "Preview" },
+                            ConversionPresets = new List<ConversionPreset>
+                            {
+                                new ConversionPreset
+                                {
+                                    OutputFormatId = "Preview",
+                                    Conversion = "resize-to:400x400",
+                                    Locked = string.IsNullOrEmpty(preset)
+                                }
+                            }
+                        }
+                    },
+                    OutputAccess = OutputAccess.None,
+                    Description = "Description of Embed share",
+                    ExpirationDate = DateTime.Now + TimeSpan.FromDays(7),
+                    Name = "Embed share with conversion"
+                }).ConfigureAwait(false);
+
+            var embedDetail = await _client.Share.GetAsync(shareId).ConfigureAwait(false);
+            var token = embedDetail.ContentSelections.Single().Outputs.OfType<ShareOutputEmbed>().Single(o => !o.DynamicRendering).Token;
+
+            // Act
+            using (var result = await _client.Share
+                .DownloadWithConversionPresetAsync(token, preset)
+                .ConfigureAwait(false))
+            {
+                var tempFile = Path.GetTempFileName();
+                await result.Stream.WriteToFileAsync(tempFile).ConfigureAwait(false);
+
+                var bitmap = new Bitmap(tempFile);
+                bitmap.Width.Should().Be(expectedWidth);
+                bitmap.Height.Should().Be(expectedHeight);
+            }
+        }
+
         [Fact]
         [Trait("Stack", "Shares")]
         public async Task ShouldGetShareOutputByContentIdAndSize()
@@ -457,7 +510,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             // Arrange get share
             var contentId = contentIds.First();
             var outputFormatIds = new List<string> { "Original", "Preview" };
-            var shareContentItems = new List<ShareContent>
+            var shareContentItems = new List<ShareContentBase>
             {
                 new ShareContent { ContentId = contentId, OutputFormatIds = outputFormatIds },
             };
@@ -584,7 +637,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             sharePreview.ContentSelections.Single().Outputs.Should().NotContain(o => o.OutputFormatId == formatIdOriginal);
         }
 
-        private async Task<(string outputFormatIdOriginal, string outputFormatIdPreview, ICollection<ShareContent> shareContent)> PrepareDynamicOutputFormatTest([CallerMemberName] string testName = null)
+        private async Task<(string outputFormatIdOriginal, string outputFormatIdPreview, ICollection<ShareContentBase> shareContent)> PrepareDynamicOutputFormatTest([CallerMemberName] string testName = null)
         {
             var formats = new[] { "Original", "Preview" }.Select(sourceFormat =>
             {
@@ -619,7 +672,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             );
         }
 
-        private async Task<List<ShareContent>> GetRandomShareContent(int count = 2)
+        private async Task<List<ShareContentBase>> GetRandomShareContent(int count = 2)
         {
             var outputFormatIds = new List<string> { "Original" };
 
@@ -629,12 +682,12 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 {
                     ContentId = i.Id,
                     OutputFormatIds = outputFormatIds
-                }).ToList();
+                }).ToList<ShareContentBase>();
 
             return shareContentItems;
         }
 
-        private async Task<List<ShareContent>> GetRandomShareContent(string searchstring, int count = 2)
+        private async Task<List<ShareContentBase>> GetRandomShareContent(string searchstring, int count = 2)
         {
             var outputFormatIds = new List<string> { "Original", "Preview" };
 
@@ -644,7 +697,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 {
                     ContentId = i.Id,
                     OutputFormatIds = outputFormatIds
-                }).ToList();
+                }).ToList<ShareContentBase>();
 
             return shareContentItems;
         }
@@ -661,7 +714,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                         {
                             ContentId = c.Id,
                             OutputFormatIds = new[] { "Original" }
-                        }).ToList(),
+                        }).ToList<ShareContentBase>(),
                     Name = $"{Guid.NewGuid():N}"
                 }).ConfigureAwait(false);
         }
