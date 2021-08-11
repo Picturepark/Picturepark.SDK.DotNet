@@ -276,7 +276,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             // Share content twice
             contents.Add(contents.First());
 
-            await Assert.ThrowsAsync<InvalidArgumentException>(async () =>
+            await Assert.ThrowsAsync<DuplicateSharedOutputException>(async () =>
             {
                 await CreateShareAndReturnId(new ShareEmbedCreateRequest
                 {
