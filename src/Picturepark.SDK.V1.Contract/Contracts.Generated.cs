@@ -637,6 +637,31 @@ namespace Picturepark.SDK.V1.Contract
         System.Threading.Tasks.Task TransferOwnershipAsync(string id, ContentOwnershipTransferRequest request, System.TimeSpan? timeout = null, bool? waitSearchDocCreation = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>Check if given changes of ContentSchemaId are possible without incurring data loss (due to assigned Layers and LayerSchemaIds)</summary>
+        /// <param name="request">Changes to check</param>
+        /// <returns>Result indicating if data loss would occur for given requests</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        System.Threading.Tasks.Task<CheckContentSchemaIdChangeResult> CheckContentSchemaChangeAsync(CheckContentSchemaIdChangeRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>Check if a file update is possible without incurring data loss</summary>
+        /// <param name="id">The ID of the content to replace.</param>
+        /// <param name="request">Content file update request</param>
+        /// <returns>Information about data loss, if any</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        System.Threading.Tasks.Task<CheckContentSchemaIdChangeResult> CheckUpdateFileAsync(string id, ContentFileUpdateCheckRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Update content file</summary>
         /// <param name="id">The ID of the content to replace.</param>
         /// <param name="request">Content file update request</param>
@@ -3079,6 +3104,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("PictureparkForbiddenException", typeof(PictureparkForbiddenException))]
     [JsonInheritanceAttribute("PictureparkNotFoundException", typeof(PictureparkNotFoundException))]
     [JsonInheritanceAttribute("PictureparkConflictException", typeof(PictureparkConflictException))]
+    [JsonInheritanceAttribute("ContentSchemaChangeException", typeof(ContentSchemaChangeException))]
     [JsonInheritanceAttribute("RequestSizeLimitExceededException", typeof(RequestSizeLimitExceededException))]
     [JsonInheritanceAttribute("PictureparkTimeoutException", typeof(PictureparkTimeoutException))]
     [JsonInheritanceAttribute("UserEmailAlreadyExistsException", typeof(UserEmailAlreadyExistsException))]
@@ -8987,6 +9013,34 @@ namespace Picturepark.SDK.V1.Contract
         public static UnableToDeleteLatestXmpWritebackGeneratedContentHistoricVersionException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<UnableToDeleteLatestXmpWritebackGeneratedContentHistoricVersionException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class ContentSchemaChangeException : PictureparkValidationException
+    {
+        /// <summary>Content for which a change to RequestedContentSchemaId would cause data loss</summary>
+        [Newtonsoft.Json.JsonProperty("contentId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ContentId { get; set; }
+    
+        /// <summary>ContentSchemaId to which the Content would have been changed</summary>
+        [Newtonsoft.Json.JsonProperty("requestedContentSchemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string RequestedContentSchemaId { get; set; }
+    
+        /// <summary>Layers assigned to this Content which are not allowed for contents of type RequestedContentSchemaId</summary>
+        [Newtonsoft.Json.JsonProperty("incompatibleLayerAssignments", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> IncompatibleLayerAssignments { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static ContentSchemaChangeException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentSchemaChangeException>(data);
         }
     
     }
@@ -16631,14 +16685,150 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    /// <summary>Request to update a content file</summary>
+    /// <summary>Result for CheckContentSchemaIdChangeRequest</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
-    public partial class ContentFileUpdateRequest 
+    public partial class CheckContentSchemaIdChangeResult 
+    {
+        /// <summary>List of operations which incur loss of data if carried out</summary>
+        [Newtonsoft.Json.JsonProperty("problematicChanges", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<ContentSchemaChangeException> ProblematicChanges { get; set; }
+    
+        /// <summary>List of errors preventing validation of ContentSchema change</summary>
+        [Newtonsoft.Json.JsonProperty("errors", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<CheckContentSchemaIdChangeResultErrorItem> Errors { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static CheckContentSchemaIdChangeResult FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<CheckContentSchemaIdChangeResult>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class CheckContentSchemaIdChangeResultErrorItem 
+    {
+        /// <summary>Request for which this error occured</summary>
+        [Newtonsoft.Json.JsonProperty("request", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public CheckContentSchemaIdChangeRequestItem Request { get; set; }
+    
+        /// <summary>Error which occured when trying to check ContentSchema change (e.g. ContentNotFoundException or ContentPermissionException)</summary>
+        [Newtonsoft.Json.JsonProperty("exception", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public PictureparkException Exception { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static CheckContentSchemaIdChangeResultErrorItem FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<CheckContentSchemaIdChangeResultErrorItem>(data);
+        }
+    
+    }
+    
+    /// <summary>Change of ContentSchemaId to check</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class CheckContentSchemaIdChangeRequestItem 
+    {
+        /// <summary>Content for which to check a ContentSchemaId change</summary>
+        [Newtonsoft.Json.JsonProperty("contentId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ContentId { get; set; }
+    
+        /// <summary>ContentSchemaId to change to</summary>
+        [Newtonsoft.Json.JsonProperty("newContentSchemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string NewContentSchemaId { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static CheckContentSchemaIdChangeRequestItem FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<CheckContentSchemaIdChangeRequestItem>(data);
+        }
+    
+    }
+    
+    /// <summary>Request to check if given changes to ContentSchemaId are possible without data loss
+    /// due to restrictions (LayerSchemaIds) on assigned metadata</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class CheckContentSchemaIdChangeRequest 
+    {
+        /// <summary>Operations which should be checked</summary>
+        [Newtonsoft.Json.JsonProperty("requests", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<CheckContentSchemaIdChangeRequestItem> Requests { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static CheckContentSchemaIdChangeRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<CheckContentSchemaIdChangeRequest>(data);
+        }
+    
+    }
+    
+    /// <summary>Request to check if update of a content file incurs data loss</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class ContentFileUpdateCheckRequest : ContentFileUpdateRequestBase
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static ContentFileUpdateCheckRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentFileUpdateCheckRequest>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public abstract partial class ContentFileUpdateRequestBase 
     {
         /// <summary>ID of the file transfer to use to replace the content file.</summary>
         [Newtonsoft.Json.JsonProperty("fileTransferId", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
         public string FileTransferId { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static ContentFileUpdateRequestBase FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentFileUpdateRequestBase>(data);
+        }
+    
+    }
+    
+    /// <summary>Request to update a content file</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class ContentFileUpdateRequest : ContentFileUpdateRequestBase
+    {
+        /// <summary>Whether ContentType is allowed to change. This is needed if the newly uploaded file is of a different type (e.g. ".jpg" is replaced by ".svg")</summary>
+        [Newtonsoft.Json.JsonProperty("allowContentTypeChange", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool AllowContentTypeChange { get; set; }
+    
+        /// <summary>When enabled, content file update will take place regardless of any layers that are not compatible with updated ContentSchemaId.
+        /// For better safety, consider using AcceptableLayerUnassignments instead.</summary>
+        [Newtonsoft.Json.JsonProperty("allowAnyLayerUnassignment", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool AllowAnyLayerUnassignment { get; set; }
+    
+        /// <summary>Allow removal of given Layers from Content if needed. Ignored when AllowAnyLayerUnassignment is enabled.</summary>
+        [Newtonsoft.Json.JsonProperty("acceptableLayerUnassignments", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> AcceptableLayerUnassignments { get; set; }
     
         public string ToJson() 
         {

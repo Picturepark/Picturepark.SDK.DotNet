@@ -14351,6 +14351,37 @@
           }
         ]
       },
+      "ContentSchemaChangeException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "contentId": {
+                "type": "string",
+                "description": "Content for which a change to RequestedContentSchemaId would cause data loss",
+                "nullable": true
+              },
+              "requestedContentSchemaId": {
+                "type": "string",
+                "description": "ContentSchemaId to which the Content would have been changed",
+                "nullable": true
+              },
+              "incompatibleLayerAssignments": {
+                "type": "array",
+                "description": "Layers assigned to this Content which are not allowed for contents of type RequestedContentSchemaId",
+                "nullable": true,
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ]
+      },
       "BusinessProcessEngineRequestException": {
         "allOf": [
           {

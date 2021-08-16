@@ -5440,6 +5440,219 @@
         ]
       }
     },
+    "/v1/Contents/checkContentSchemaChange": {
+      "post": {
+        "tags": [
+          "Content"
+        ],
+        "summary": "Check if given changes of ContentSchemaId are possible without incurring data loss (due to assigned Layers and LayerSchemaIds)",
+        "operationId": "Content_CheckContentSchemaChange",
+        "requestBody": {
+          "x-name": "request",
+          "description": "Changes to check",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CheckContentSchemaIdChangeRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "Result indicating if data loss would occur for given requests",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CheckContentSchemaIdChangeResult"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "content_read"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/Contents/{id}/file/check": {
+      "post": {
+        "tags": [
+          "Content"
+        ],
+        "summary": "Check if a file update is possible without incurring data loss",
+        "operationId": "Content_CheckUpdateFile",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "The ID of the content to replace.",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 1
+          }
+        ],
+        "requestBody": {
+          "x-name": "request",
+          "description": "Content file update request",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ContentFileUpdateCheckRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 2
+        },
+        "responses": {
+          "200": {
+            "description": "Information about data loss, if any",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CheckContentSchemaIdChangeResult"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "content_read"
+            ]
+          }
+        ]
+      }
+    },
     "/v1/Contents/{id}/file": {
       "put": {
         "tags": [
@@ -30528,6 +30741,37 @@
           }
         ]
       },
+      "ContentSchemaChangeException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "contentId": {
+                "type": "string",
+                "description": "Content for which a change to RequestedContentSchemaId would cause data loss",
+                "nullable": true
+              },
+              "requestedContentSchemaId": {
+                "type": "string",
+                "description": "ContentSchemaId to which the Content would have been changed",
+                "nullable": true
+              },
+              "incompatibleLayerAssignments": {
+                "type": "array",
+                "description": "Layers assigned to this Content which are not allowed for contents of type RequestedContentSchemaId",
+                "nullable": true,
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ]
+      },
       "BusinessProcessEngineRequestException": {
         "allOf": [
           {
@@ -38214,9 +38458,100 @@
           }
         }
       },
-      "ContentFileUpdateRequest": {
+      "CheckContentSchemaIdChangeResult": {
         "type": "object",
-        "description": "Request to update a content file",
+        "description": "Result for CheckContentSchemaIdChangeRequest",
+        "additionalProperties": false,
+        "properties": {
+          "problematicChanges": {
+            "type": "array",
+            "description": "List of operations which incur loss of data if carried out",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/ContentSchemaChangeException"
+            }
+          },
+          "errors": {
+            "type": "array",
+            "description": "List of errors preventing validation of ContentSchema change",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/CheckContentSchemaIdChangeResultErrorItem"
+            }
+          }
+        }
+      },
+      "CheckContentSchemaIdChangeResultErrorItem": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "request": {
+            "description": "Request for which this error occured",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/CheckContentSchemaIdChangeRequestItem"
+              }
+            ]
+          },
+          "exception": {
+            "description": "Error which occured when trying to check ContentSchema change (e.g. ContentNotFoundException or ContentPermissionException)",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/PictureparkException"
+              }
+            ]
+          }
+        }
+      },
+      "CheckContentSchemaIdChangeRequestItem": {
+        "type": "object",
+        "description": "Change of ContentSchemaId to check",
+        "additionalProperties": false,
+        "properties": {
+          "contentId": {
+            "type": "string",
+            "description": "Content for which to check a ContentSchemaId change",
+            "nullable": true
+          },
+          "newContentSchemaId": {
+            "type": "string",
+            "description": "ContentSchemaId to change to",
+            "nullable": true
+          }
+        }
+      },
+      "CheckContentSchemaIdChangeRequest": {
+        "type": "object",
+        "description": "Request to check if given changes to ContentSchemaId are possible without data loss\ndue to restrictions (LayerSchemaIds) on assigned metadata",
+        "additionalProperties": false,
+        "properties": {
+          "requests": {
+            "type": "array",
+            "description": "Operations which should be checked",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/CheckContentSchemaIdChangeRequestItem"
+            }
+          }
+        }
+      },
+      "ContentFileUpdateCheckRequest": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ContentFileUpdateRequestBase"
+          },
+          {
+            "type": "object",
+            "description": "Request to check if update of a content file incurs data loss",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "ContentFileUpdateRequestBase": {
+        "type": "object",
+        "x-abstract": true,
         "additionalProperties": false,
         "required": [
           "fileTransferId"
@@ -38228,6 +38563,36 @@
             "minLength": 1
           }
         }
+      },
+      "ContentFileUpdateRequest": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ContentFileUpdateRequestBase"
+          },
+          {
+            "type": "object",
+            "description": "Request to update a content file",
+            "additionalProperties": false,
+            "properties": {
+              "allowContentTypeChange": {
+                "type": "boolean",
+                "description": "Whether ContentType is allowed to change. This is needed if the newly uploaded file is of a different type (e.g. \".jpg\" is replaced by \".svg\")"
+              },
+              "allowAnyLayerUnassignment": {
+                "type": "boolean",
+                "description": "When enabled, content file update will take place regardless of any layers that are not compatible with updated ContentSchemaId.\nFor better safety, consider using AcceptableLayerUnassignments instead."
+              },
+              "acceptableLayerUnassignments": {
+                "type": "array",
+                "description": "Allow removal of given Layers from Content if needed. Ignored when AllowAnyLayerUnassignment is enabled.",
+                "nullable": true,
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ]
       },
       "ContentReferencesResult": {
         "type": "object",
