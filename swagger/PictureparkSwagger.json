@@ -42518,6 +42518,7 @@
             ],
             "properties": {
               "title": {
+                "description": "Title of the notification",
                 "nullable": true,
                 "oneOf": [
                   {
@@ -42526,6 +42527,7 @@
                 ]
               },
               "message": {
+                "description": "Message of the notification",
                 "nullable": true,
                 "oneOf": [
                   {
@@ -42535,10 +42537,12 @@
               },
               "collectionId": {
                 "type": "string",
+                "description": "Id of collection, if created",
                 "nullable": true
               },
               "notificationId": {
                 "type": "string",
+                "description": "Id of BusinessRule notification configuration",
                 "minLength": 1
               }
             }
