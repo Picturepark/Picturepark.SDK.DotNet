@@ -41854,9 +41854,9 @@
             "NotificationDetailTagging": "#/components/schemas/NotificationDetailTagging",
             "NotificationDetailBatchRendering": "#/components/schemas/NotificationDetailBatchRendering",
             "NotificationDetailStatisticsExport": "#/components/schemas/NotificationDetailStatisticsExport",
+            "NotificationDetailProgressWithRelatedItemsBase": "#/components/schemas/NotificationDetailProgressWithRelatedItemsBase",
             "NotificationDetailMetadataItemCreateRelatedItems": "#/components/schemas/NotificationDetailMetadataItemCreateRelatedItems",
             "NotificationDetailMetadataItemCreateRelatedItemsBySchema": "#/components/schemas/NotificationDetailMetadataItemCreateRelatedItemsBySchema",
-            "NotificationDetailProgressWithRelatedItemsBase": "#/components/schemas/NotificationDetailProgressWithRelatedItemsBase",
             "NotificationDetailMetadataItemUpdateOutdated": "#/components/schemas/NotificationDetailMetadataItemUpdateOutdated",
             "NotificationDetailContentBatchEditBase": "#/components/schemas/NotificationDetailContentBatchEditBase",
             "NotificationDetailContentMetadataBatchEdit": "#/components/schemas/NotificationDetailContentMetadataBatchEdit",
@@ -42270,28 +42270,6 @@
       "NotificationDetailMetadataItemCreateRelatedItems": {
         "allOf": [
           {
-            "$ref": "#/components/schemas/NotificationDetailProgressBase"
-          },
-          {
-            "type": "object",
-            "additionalProperties": false
-          }
-        ]
-      },
-      "NotificationDetailMetadataItemCreateRelatedItemsBySchema": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/NotificationDetailProgressBase"
-          },
-          {
-            "type": "object",
-            "additionalProperties": false
-          }
-        ]
-      },
-      "NotificationDetailMetadataItemUpdateOutdated": {
-        "allOf": [
-          {
             "$ref": "#/components/schemas/NotificationDetailProgressWithRelatedItemsBase"
           },
           {
@@ -42319,6 +42297,28 @@
                 "format": "int64"
               }
             }
+          }
+        ]
+      },
+      "NotificationDetailMetadataItemCreateRelatedItemsBySchema": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/NotificationDetailProgressWithRelatedItemsBase"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "NotificationDetailMetadataItemUpdateOutdated": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/NotificationDetailProgressWithRelatedItemsBase"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
           }
         ]
       },
