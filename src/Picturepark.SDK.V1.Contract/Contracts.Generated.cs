@@ -21225,7 +21225,7 @@ namespace Picturepark.SDK.V1.Contract
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
-    public partial class NotificationDetailMetadataItemCreateRelatedItems : NotificationDetailProgressBase
+    public partial class NotificationDetailMetadataItemCreateRelatedItems : NotificationDetailProgressWithRelatedItemsBase
     {
         public string ToJson() 
         {
@@ -21240,7 +21240,28 @@ namespace Picturepark.SDK.V1.Contract
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
-    public partial class NotificationDetailMetadataItemCreateRelatedItemsBySchema : NotificationDetailProgressBase
+    public abstract partial class NotificationDetailProgressWithRelatedItemsBase : NotificationDetailProgressBase
+    {
+        [Newtonsoft.Json.JsonProperty("relatedItemCount", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public long RelatedItemCount { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("relatedItemProgress", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public long RelatedItemProgress { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static NotificationDetailProgressWithRelatedItemsBase FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<NotificationDetailProgressWithRelatedItemsBase>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class NotificationDetailMetadataItemCreateRelatedItemsBySchema : NotificationDetailProgressWithRelatedItemsBase
     {
         public string ToJson() 
         {
@@ -21265,27 +21286,6 @@ namespace Picturepark.SDK.V1.Contract
         public static NotificationDetailMetadataItemUpdateOutdated FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<NotificationDetailMetadataItemUpdateOutdated>(data);
-        }
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
-    public abstract partial class NotificationDetailProgressWithRelatedItemsBase : NotificationDetailProgressBase
-    {
-        [Newtonsoft.Json.JsonProperty("relatedItemCount", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public long RelatedItemCount { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("relatedItemProgress", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public long RelatedItemProgress { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-    
-        public static NotificationDetailProgressWithRelatedItemsBase FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<NotificationDetailProgressWithRelatedItemsBase>(data);
         }
     
     }
