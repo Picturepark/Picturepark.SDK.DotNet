@@ -6032,6 +6032,9 @@ namespace Picturepark.SDK.V1.Contract
         [System.Runtime.Serialization.EnumMember(Value = @"ExportStatistics")]
         ExportStatistics = 23,
     
+        [System.Runtime.Serialization.EnumMember(Value = @"EditImages")]
+        EditImages = 24,
+    
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
