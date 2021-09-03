@@ -27840,7 +27840,8 @@
           "ManageXmpMappings",
           "ReadStatistics",
           "WriteStatistics",
-          "ExportStatistics"
+          "ExportStatistics",
+          "EditImages"
         ],
         "enum": [
           "ManageContent",
@@ -27866,7 +27867,8 @@
           "ManageXmpMappings",
           "ReadStatistics",
           "WriteStatistics",
-          "ExportStatistics"
+          "ExportStatistics",
+          "EditImages"
         ]
       },
       "PermissionSetNotFoundException": {
