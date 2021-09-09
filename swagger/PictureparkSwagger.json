@@ -50406,6 +50406,9 @@
             "type": "object",
             "description": "Represents the updateable fields of the user.",
             "additionalProperties": false,
+            "required": [
+              "languageCode"
+            ],
             "properties": {
               "userRoles": {
                 "type": "array",
@@ -50423,7 +50426,7 @@
               "languageCode": {
                 "type": "string",
                 "description": "Preferred language, e.g. for correspondence.",
-                "nullable": true
+                "minLength": 1
               },
               "address": {
                 "description": "User's address.",
@@ -50627,7 +50630,8 @@
         "description": "Holds information needed for user creation.",
         "additionalProperties": false,
         "required": [
-          "emailAddress"
+          "emailAddress",
+          "languageCode"
         ],
         "properties": {
           "firstName": {
@@ -50648,7 +50652,7 @@
           "languageCode": {
             "type": "string",
             "description": "Preferred language, e.g. for correspondence.",
-            "nullable": true
+            "minLength": 1
           },
           "userRoleIds": {
             "type": "array",

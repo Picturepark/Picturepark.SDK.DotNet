@@ -28250,7 +28250,8 @@ namespace Picturepark.SDK.V1.Contract
         public string Comment { get; set; }
     
         /// <summary>Preferred language, e.g. for correspondence.</summary>
-        [Newtonsoft.Json.JsonProperty("languageCode", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("languageCode", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
         public string LanguageCode { get; set; }
     
         /// <summary>User's address.</summary>
@@ -28500,7 +28501,8 @@ namespace Picturepark.SDK.V1.Contract
         public string EmailAddress { get; set; }
     
         /// <summary>Preferred language, e.g. for correspondence.</summary>
-        [Newtonsoft.Json.JsonProperty("languageCode", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("languageCode", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
         public string LanguageCode { get; set; }
     
         /// <summary>IDs of user roles the user is assigned to.</summary>
