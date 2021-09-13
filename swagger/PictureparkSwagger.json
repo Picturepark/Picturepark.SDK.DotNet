@@ -7108,7 +7108,7 @@
         "operationId": "Content_RepairContentsByFilter",
         "requestBody": {
           "x-name": "request",
-          "description": "Output resolve many request.",
+          "description": "Content repair request.",
           "content": {
             "application/json": {
               "schema": {
@@ -7209,7 +7209,7 @@
         "operationId": "Content_RepairContentsBatch",
         "requestBody": {
           "x-name": "request",
-          "description": "Output resolve many request.",
+          "description": "Content repair request.",
           "content": {
             "application/json": {
               "schema": {

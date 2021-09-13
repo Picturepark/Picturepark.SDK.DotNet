@@ -785,7 +785,7 @@ namespace Picturepark.SDK.V1.Contract
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Repair contents by filter</summary>
-        /// <param name="request">Output resolve many request.</param>
+        /// <param name="request">Content repair request.</param>
         /// <returns>Business process</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
@@ -797,7 +797,7 @@ namespace Picturepark.SDK.V1.Contract
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Repair contents</summary>
-        /// <param name="request">Output resolve many request.</param>
+        /// <param name="request">Content repair request.</param>
         /// <returns>Business process</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
