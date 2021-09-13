@@ -9260,13 +9260,7 @@
           },
           {
             "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "reference": {
-                "type": "string",
-                "nullable": true
-              }
-            }
+            "additionalProperties": false
           }
         ]
       },
@@ -10202,6 +10196,17 @@
                 "nullable": true
               }
             }
+          }
+        ]
+      },
+      "UnmodifiedOriginalOutputNotFoundException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/OutputNotFoundException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
           }
         ]
       },
@@ -14403,6 +14408,31 @@
                 "items": {
                   "type": "string"
                 }
+              }
+            }
+          }
+        ]
+      },
+      "ConcurrentFileReplacementDuringRepairException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkConflictException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "contentId": {
+                "type": "string",
+                "nullable": true
+              },
+              "expectedOriginalFileVersion": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "actualOriginalFileVersion": {
+                "type": "integer",
+                "format": "int32"
               }
             }
           }
@@ -22061,7 +22091,8 @@
             "CustomerChangeEvent": "#/components/schemas/CustomerChangeEvent",
             "SearchReindexCompletedEvent": "#/components/schemas/SearchReindexCompletedEvent",
             "BusinessRuleFiredEvent": "#/components/schemas/BusinessRuleFiredEvent",
-            "BusinessProcessCancellationRequestedEvent": "#/components/schemas/BusinessProcessCancellationRequestedEvent"
+            "BusinessProcessCancellationRequestedEvent": "#/components/schemas/BusinessProcessCancellationRequestedEvent",
+            "DataExtractionRepairEvent": "#/components/schemas/DataExtractionRepairEvent"
           }
         },
         "additionalProperties": false,
@@ -22518,6 +22549,36 @@
               "businessProcessId": {
                 "type": "string",
                 "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "DataExtractionRepairEvent": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ApplicationEvent"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "contentRepairRequestId": {
+                "type": "string"
+              },
+              "contentId": {
+                "type": "string"
+              },
+              "error": {
+                "nullable": true,
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/ErrorResponse"
+                  }
+                ]
+              },
+              "hadChanges": {
+                "type": "boolean"
               }
             }
           }
