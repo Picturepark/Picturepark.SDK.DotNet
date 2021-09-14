@@ -784,6 +784,30 @@ namespace Picturepark.SDK.V1.Contract
         System.Threading.Tasks.Task<System.Collections.Generic.ICollection<OutputResolveResult>> GetOutputsManyAsync(OutputResolveManyRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>Repair contents by filter</summary>
+        /// <param name="request">Content repair request.</param>
+        /// <returns>Business process</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        System.Threading.Tasks.Task<BusinessProcess> RepairContentsByFilterAsync(ContentRepairByFilterRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>Repair contents</summary>
+        /// <param name="request">Content repair request.</param>
+        /// <returns>Business process</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        System.Threading.Tasks.Task<BusinessProcess> RepairContentsBatchAsync(ContentRepairBatchRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Search contents</summary>
         /// <param name="request">Content search request.</param>
         /// <returns>Result for content search operation</returns>
@@ -3149,6 +3173,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("DuplicateEmbedConversionPresetException", typeof(DuplicateEmbedConversionPresetException))]
     [JsonInheritanceAttribute("OutputIdNotFoundException", typeof(OutputIdNotFoundException))]
     [JsonInheritanceAttribute("OutputNotFoundException", typeof(OutputNotFoundException))]
+    [JsonInheritanceAttribute("UnmodifiedOriginalOutputNotFoundException", typeof(UnmodifiedOriginalOutputNotFoundException))]
     [JsonInheritanceAttribute("UnableToCreateOrModifyStaticOutputFormatException", typeof(UnableToCreateOrModifyStaticOutputFormatException))]
     [JsonInheritanceAttribute("NotSupportedFileMappingException", typeof(NotSupportedFileMappingException))]
     [JsonInheritanceAttribute("NotSupportedFileMappingForDynamicFormatException", typeof(NotSupportedFileMappingForDynamicFormatException))]
@@ -3332,6 +3357,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("ContentLayerSameRootException", typeof(ContentLayerSameRootException))]
     [JsonInheritanceAttribute("ContentHistoricVersionNotFoundException", typeof(ContentHistoricVersionNotFoundException))]
     [JsonInheritanceAttribute("UnableToDeleteLatestXmpWritebackGeneratedContentHistoricVersionException", typeof(UnableToDeleteLatestXmpWritebackGeneratedContentHistoricVersionException))]
+    [JsonInheritanceAttribute("ConcurrentFileReplacementDuringRepairException", typeof(ConcurrentFileReplacementDuringRepairException))]
     [JsonInheritanceAttribute("BusinessProcessEngineRequestException", typeof(BusinessProcessEngineRequestException))]
     [JsonInheritanceAttribute("BusinessProcessNotFoundException", typeof(BusinessProcessNotFoundException))]
     [JsonInheritanceAttribute("BusinessProcessDefinitionNotFoundException", typeof(BusinessProcessDefinitionNotFoundException))]
@@ -3490,9 +3516,6 @@ namespace Picturepark.SDK.V1.Contract
     [Newtonsoft.Json.JsonObjectAttribute]
     public partial class PictureparkConflictException : PictureparkBusinessException
     {
-        [Newtonsoft.Json.JsonProperty("reference", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Reference { get; set; }
-    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -4568,6 +4591,22 @@ namespace Picturepark.SDK.V1.Contract
         public static OutputNotFoundException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<OutputNotFoundException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class UnmodifiedOriginalOutputNotFoundException : OutputNotFoundException
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static UnmodifiedOriginalOutputNotFoundException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<UnmodifiedOriginalOutputNotFoundException>(data);
         }
     
     }
@@ -9067,6 +9106,31 @@ namespace Picturepark.SDK.V1.Contract
         public static ContentSchemaChangeException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentSchemaChangeException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class ConcurrentFileReplacementDuringRepairException : PictureparkConflictException
+    {
+        [Newtonsoft.Json.JsonProperty("contentId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ContentId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("expectedOriginalFileVersion", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int ExpectedOriginalFileVersion { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("actualOriginalFileVersion", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int ActualOriginalFileVersion { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static ConcurrentFileReplacementDuringRepairException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ConcurrentFileReplacementDuringRepairException>(data);
         }
     
     }
@@ -17655,6 +17719,118 @@ namespace Picturepark.SDK.V1.Contract
         public static OutputResolveManyRequest FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<OutputResolveManyRequest>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class ContentRepairByFilterRequest : ContentRepairRequestBase
+    {
+        /// <summary>Filter used to enumerate Contents to repair</summary>
+        [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public ContentFilterRequest Filter { get; set; } = new ContentFilterRequest();
+    
+        /// <summary>Settings for specific contents (overwrites DefaultSettings)</summary>
+        [Newtonsoft.Json.JsonProperty("repairSettingOverrides", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<ContentRepairRequestItem> RepairSettingOverrides { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static ContentRepairByFilterRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentRepairByFilterRequest>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class ContentRepairRequestItem 
+    {
+        /// <summary>Content to repair</summary>
+        [Newtonsoft.Json.JsonProperty("contentId", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public string ContentId { get; set; }
+    
+        /// <summary>Options for this repair</summary>
+        [Newtonsoft.Json.JsonProperty("settings", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public ContentRepairSettings Settings { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static ContentRepairRequestItem FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentRepairRequestItem>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class ContentRepairSettings 
+    {
+        /// <summary>List of layers that can be unassigned (due to change of ContentSchemaId and LayerSchemaIds)</summary>
+        [Newtonsoft.Json.JsonProperty("acceptableLayerUnassignments", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> AcceptableLayerUnassignments { get; set; }
+    
+        /// <summary>Whether to enforce XmpWriteback for Outputs of Content (ignored if repair was not performed)</summary>
+        [Newtonsoft.Json.JsonProperty("forceInvalidateXmpWriteback", Required = Newtonsoft.Json.Required.Always)]
+        public bool ForceInvalidateXmpWriteback { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static ContentRepairSettings FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentRepairSettings>(data);
+        }
+    
+    }
+    
+    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
+    [JsonInheritanceAttribute("ContentRepairByFilterRequest", typeof(ContentRepairByFilterRequest))]
+    [JsonInheritanceAttribute("ContentRepairBatchRequest", typeof(ContentRepairBatchRequest))]
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public abstract partial class ContentRepairRequestBase 
+    {
+        /// <summary>Settings to use if no specific settings for a requested Content were specified</summary>
+        [Newtonsoft.Json.JsonProperty("defaultSettings", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public ContentRepairSettings DefaultSettings { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static ContentRepairRequestBase FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentRepairRequestBase>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class ContentRepairBatchRequest : ContentRepairRequestBase
+    {
+        /// <summary>List of contents and options for repair</summary>
+        [Newtonsoft.Json.JsonProperty("items", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<ContentRepairRequestItem> Items { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static ContentRepairBatchRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentRepairBatchRequest>(data);
         }
     
     }
@@ -28250,7 +28426,8 @@ namespace Picturepark.SDK.V1.Contract
         public string Comment { get; set; }
     
         /// <summary>Preferred language, e.g. for correspondence.</summary>
-        [Newtonsoft.Json.JsonProperty("languageCode", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("languageCode", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
         public string LanguageCode { get; set; }
     
         /// <summary>User's address.</summary>
@@ -28500,7 +28677,8 @@ namespace Picturepark.SDK.V1.Contract
         public string EmailAddress { get; set; }
     
         /// <summary>Preferred language, e.g. for correspondence.</summary>
-        [Newtonsoft.Json.JsonProperty("languageCode", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("languageCode", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
         public string LanguageCode { get; set; }
     
         /// <summary>IDs of user roles the user is assigned to.</summary>
@@ -29396,6 +29574,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("SearchReindexCompletedEvent", typeof(SearchReindexCompletedEvent))]
     [JsonInheritanceAttribute("BusinessRuleFiredEvent", typeof(BusinessRuleFiredEvent))]
     [JsonInheritanceAttribute("BusinessProcessCancellationRequestedEvent", typeof(BusinessProcessCancellationRequestedEvent))]
+    [JsonInheritanceAttribute("DataExtractionRepairEvent", typeof(DataExtractionRepairEvent))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class ApplicationEvent 
     {
@@ -29810,6 +29989,33 @@ namespace Picturepark.SDK.V1.Contract
         public static BusinessProcessCancellationRequestedEvent FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessProcessCancellationRequestedEvent>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class DataExtractionRepairEvent : ApplicationEvent
+    {
+        [Newtonsoft.Json.JsonProperty("contentRepairRequestId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ContentRepairRequestId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("contentId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ContentId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("error", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public ErrorResponse Error { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("hadChanges", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool HadChanges { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static DataExtractionRepairEvent FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<DataExtractionRepairEvent>(data);
         }
     
     }
