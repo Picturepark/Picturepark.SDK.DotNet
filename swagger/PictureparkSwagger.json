@@ -43056,7 +43056,13 @@
           },
           {
             "type": "object",
-            "additionalProperties": false
+            "additionalProperties": false,
+            "properties": {
+              "collectionId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
           }
         ]
       },
