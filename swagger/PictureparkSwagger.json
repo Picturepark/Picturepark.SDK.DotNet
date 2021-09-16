@@ -4180,7 +4180,7 @@
           "Content"
         ],
         "summary": "Download content",
-        "description": "Download a single content in a specific output format. To resize images on download specify target width &amp; height. To download only a portion of the file, specify the range parameter.",
+        "description": "Download a single content in a specific output format. To resize images on download specify target width &amp; height. To download only a portion of the file, specify the range parameter.\nTo use conversion presets on download, e.g. to crop or rotate, please see [EditOutput](#operation/Content_EditOutput).",
         "operationId": "Content_Download",
         "parameters": [
           {
