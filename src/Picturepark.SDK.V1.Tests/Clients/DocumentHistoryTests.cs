@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Xunit;
 using Picturepark.SDK.V1.Tests.Fixtures;
 using System;
+using FluentAssertions;
 
 namespace Picturepark.SDK.V1.Tests.Clients
 {
@@ -33,7 +34,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var result = await _client.DocumentHistory.SearchAsync(request).ConfigureAwait(false);
 
             // Assert
-            Assert.True(result.Results.Any());
+            result.Results.Should().OnlyHaveUniqueItems(d => $"{d.DocumentType}_{d.DocumentId}_{d.DocumentVersion}");
         }
 
         [Fact]

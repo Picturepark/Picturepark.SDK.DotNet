@@ -40772,29 +40772,17 @@
         }
       },
       "DocumentHistorySearchResult": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/BaseResultOfDocumentHistory"
-          },
-          {
-            "type": "object",
-            "additionalProperties": false
-          }
-        ]
-      },
-      "BaseResultOfDocumentHistory": {
         "type": "object",
-        "description": "Base class for search results",
         "additionalProperties": false,
         "required": [
           "results",
-          "totalResults",
+          "maxResults",
           "elapsedMilliseconds"
         ],
         "properties": {
-          "totalResults": {
+          "maxResults": {
             "type": "integer",
-            "description": "The total number of matching documents.",
+            "description": "The upper bound of the total number of matching documents.",
             "format": "int64"
           },
           "results": {
