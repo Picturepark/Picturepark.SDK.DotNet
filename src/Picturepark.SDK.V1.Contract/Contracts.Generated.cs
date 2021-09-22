@@ -26409,7 +26409,7 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    /// <summary>Request specifying which part of shared content should be downloaded</summary>
+    /// <summary>Request specifying which part of a share should be downloaded</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class ShareDownloadRequest 
     {

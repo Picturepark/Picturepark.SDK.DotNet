@@ -48851,7 +48851,7 @@
       },
       "ShareDownloadRequest": {
         "type": "object",
-        "description": "Request specifying which part of shared content should be downloaded",
+        "description": "Request specifying which part of a share should be downloaded",
         "additionalProperties": false,
         "required": [
           "items"
