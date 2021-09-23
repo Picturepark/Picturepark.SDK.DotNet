@@ -23741,6 +23741,7 @@ namespace Picturepark.SDK.V1
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Gets all schemas referenced by the schema specified in</summary>
         /// <param name="id">The schema ID.</param>
+        /// <param name="sourceSchema">If true, the returned schemas contain also the source schema for which the referenced schemas were requested. If false, the source schema is not returned (default behavior).</param>
         /// <returns>Referenced schema details</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
@@ -23748,11 +23749,16 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<SchemaDetail>> GetReferencedAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<SchemaDetail>> GetReferencedAsync(string id, bool? sourceSchema = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/Schemas/{id}/referenced");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/Schemas/{id}/referenced?");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
+            if (sourceSchema != null) 
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("sourceSchema") + "=").Append(System.Uri.EscapeDataString(ConvertToString(sourceSchema, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            urlBuilder_.Length--;
     
             var client_ = _httpClient;
             try
@@ -24581,6 +24587,7 @@ namespace Picturepark.SDK.V1
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Gets all schemas referenced by the schemas specified in</summary>
         /// <param name="ids">The schema IDs.</param>
+        /// <param name="sourceSchemas">If true, the returned schemas contain also the source schemas for which the referenced schemas were requested. If false, the source schema is not returned (default behavior).</param>
         /// <returns>Referenced schema details</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
@@ -24588,13 +24595,17 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<SchemaDetail>> GetManyReferencedAsync(System.Collections.Generic.IEnumerable<string> ids = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<SchemaDetail>> GetManyReferencedAsync(System.Collections.Generic.IEnumerable<string> ids = null, bool? sourceSchemas = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/Schemas/many/referenced?");
             if (ids != null) 
             {
                 foreach (var item_ in ids) { urlBuilder_.Append(System.Uri.EscapeDataString("ids") + "=").Append(System.Uri.EscapeDataString(ConvertToString(item_, System.Globalization.CultureInfo.InvariantCulture))).Append("&"); }
+            }
+            if (sourceSchemas != null) 
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("sourceSchemas") + "=").Append(System.Uri.EscapeDataString(ConvertToString(sourceSchemas, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
             }
             urlBuilder_.Length--;
     

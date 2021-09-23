@@ -1778,6 +1778,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Gets all schemas referenced by the schema specified in</summary>
         /// <param name="id">The schema ID.</param>
+        /// <param name="sourceSchema">If true, the returned schemas contain also the source schema for which the referenced schemas were requested. If false, the source schema is not returned (default behavior).</param>
         /// <returns>Referenced schema details</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
@@ -1785,7 +1786,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<SchemaDetail>> GetReferencedAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<SchemaDetail>> GetReferencedAsync(string id, bool? sourceSchema = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Transfer ownership</summary>
@@ -1831,6 +1832,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Gets all schemas referenced by the schemas specified in</summary>
         /// <param name="ids">The schema IDs.</param>
+        /// <param name="sourceSchemas">If true, the returned schemas contain also the source schemas for which the referenced schemas were requested. If false, the source schema is not returned (default behavior).</param>
         /// <returns>Referenced schema details</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
@@ -1838,7 +1840,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<SchemaDetail>> GetManyReferencedAsync(System.Collections.Generic.IEnumerable<string> ids = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<SchemaDetail>> GetManyReferencedAsync(System.Collections.Generic.IEnumerable<string> ids = null, bool? sourceSchemas = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Transfer ownership of multiple schemas</summary>
@@ -18278,6 +18280,10 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public LifeCycle LifeCycle { get; set; }
     
+        /// <summary>List of content rights the user has on this content. Values are returned only if related resolve behavior is requested in the search request.</summary>
+        [Newtonsoft.Json.JsonProperty("contentRights", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public System.Collections.Generic.ICollection<ContentRight> ContentRights { get; set; }
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -18328,6 +18334,10 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("aggregators", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<AggregatorBase> Aggregators { get; set; }
     
+        /// <summary>List of enums that allow additional resolutions on top of the standard Content result</summary>
+        [Newtonsoft.Json.JsonProperty("resolveBehaviors", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public System.Collections.Generic.ICollection<ContentSearchResolveBehavior> ResolveBehaviors { get; set; }
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -18337,6 +18347,15 @@ namespace Picturepark.SDK.V1.Contract
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentSearchRequest>(data);
         }
+    
+    }
+    
+    /// <summary>Enum that allow additional resolutions on top of the standard Content result</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public enum ContentSearchResolveBehavior
+    {
+        [System.Runtime.Serialization.EnumMember(Value = @"Permissions")]
+        Permissions = 0,
     
     }
     
