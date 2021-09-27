@@ -34,7 +34,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var result = await _client.DocumentHistory.SearchAsync(request).ConfigureAwait(false);
 
             // Assert
-            result.Results.Should().OnlyHaveUniqueItems(d => $"{d.DocumentType}_{d.DocumentId}_{d.DocumentVersion}");
+            result.Results.Should().NotBeEmpty().And.OnlyHaveUniqueItems(d => $"{d.DocumentType}_{d.DocumentId}_{d.DocumentVersion}");
         }
 
         [Fact]
