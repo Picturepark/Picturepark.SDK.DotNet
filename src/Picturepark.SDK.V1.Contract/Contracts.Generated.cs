@@ -18782,27 +18782,11 @@ namespace Picturepark.SDK.V1.Contract
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
-    public partial class DocumentHistorySearchResult : BaseResultOfDocumentHistory
+    public partial class DocumentHistorySearchResult 
     {
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-    
-        public static DocumentHistorySearchResult FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<DocumentHistorySearchResult>(data);
-        }
-    
-    }
-    
-    /// <summary>Base class for search results</summary>
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
-    public partial class BaseResultOfDocumentHistory 
-    {
-        /// <summary>The total number of matching documents.</summary>
-        [Newtonsoft.Json.JsonProperty("totalResults", Required = Newtonsoft.Json.Required.Always)]
-        public long TotalResults { get; set; }
+        /// <summary>The upper bound of the total number of matching documents.</summary>
+        [Newtonsoft.Json.JsonProperty("maxResults", Required = Newtonsoft.Json.Required.Always)]
+        public long MaxResults { get; set; }
     
         /// <summary>The matched documents.</summary>
         [Newtonsoft.Json.JsonProperty("results", Required = Newtonsoft.Json.Required.Always)]
@@ -18822,9 +18806,9 @@ namespace Picturepark.SDK.V1.Contract
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
         }
     
-        public static BaseResultOfDocumentHistory FromJson(string data)
+        public static DocumentHistorySearchResult FromJson(string data)
         {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<BaseResultOfDocumentHistory>(data);
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<DocumentHistorySearchResult>(data);
         }
     
     }
