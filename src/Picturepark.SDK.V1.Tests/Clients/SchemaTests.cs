@@ -451,6 +451,24 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
         [Fact]
         [Trait("Stack", "Schema")]
+        public async Task ShouldGetReferencedSchemasWithSourceOne()
+        {
+            // Arrange
+            var schemas = await _client.Schema.GenerateSchemasAsync(typeof(Employee)).ConfigureAwait(false);
+            var result = await _fixture.RandomizeSchemaIdsAndCreateMany(schemas).ConfigureAwait(false);
+            var employeeSchemaId = result.Single(x => x.Id.StartsWith("Employee")).Id;
+
+            // act
+            var referencedSchemas = await _client.Schema.GetReferencedAsync(employeeSchemaId, true).ConfigureAwait(false);
+
+            // assert
+            referencedSchemas.Should().HaveCount(2);
+            referencedSchemas.Should().ContainSingle(s => s.Id.StartsWith("Department"));
+            referencedSchemas.Should().ContainSingle(s => s.Id.StartsWith("Employee"));
+        }
+
+        [Fact]
+        [Trait("Stack", "Schema")]
         public async Task ShouldNotGetAnyOtherReferencedSchemasForCyclicDependency()
         {
             // Arrange

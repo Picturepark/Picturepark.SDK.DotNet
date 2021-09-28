@@ -16326,6 +16326,16 @@
               "nullable": true
             },
             "x-position": 1
+          },
+          {
+            "name": "sourceSchema",
+            "in": "query",
+            "description": "If true, the returned schemas contain also the source schema for which the referenced schemas were requested. If false, the source schema is not returned (default behavior).",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            },
+            "x-position": 2
           }
         ],
         "responses": {
@@ -16971,6 +16981,16 @@
               }
             },
             "x-position": 1
+          },
+          {
+            "name": "sourceSchemas",
+            "in": "query",
+            "description": "If true, the returned schemas contain also the source schemas for which the referenced schemas were requested. If false, the source schema is not returned (default behavior).",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            },
+            "x-position": 2
           }
         ],
         "responses": {
@@ -40452,6 +40472,14 @@
                 "$ref": "#/components/schemas/LifeCycle"
               }
             ]
+          },
+          "contentRights": {
+            "type": "array",
+            "description": "List of content rights the user has on this content. Values are returned only if related resolve behavior is requested in the search request.",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/ContentRight"
+            }
           }
         }
       },
@@ -40520,9 +40548,27 @@
                 "items": {
                   "$ref": "#/components/schemas/AggregatorBase"
                 }
+              },
+              "resolveBehaviors": {
+                "type": "array",
+                "description": "List of enums that allow additional resolutions on top of the standard Content result",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/ContentSearchResolveBehavior"
+                }
               }
             }
           }
+        ]
+      },
+      "ContentSearchResolveBehavior": {
+        "type": "string",
+        "description": "Enum that allow additional resolutions on top of the standard Content result",
+        "x-enumNames": [
+          "Permissions"
+        ],
+        "enum": [
+          "Permissions"
         ]
       },
       "ContentAggregationOnChannelRequest": {

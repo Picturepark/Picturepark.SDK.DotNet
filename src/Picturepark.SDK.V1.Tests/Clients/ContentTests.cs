@@ -1284,6 +1284,23 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
         [Fact]
         [Trait("Stack", "Contents")]
+        public async Task ShouldSearchAndResolveContentRights()
+        {
+            // Arrange
+            var channelId = "rootChannel";
+            var filter = new TermFilter { Field = "contentSchemaId", Term = "ImageMetadata" };
+            var request = new ContentSearchRequest { ChannelId = channelId, Filter = filter, ResolveBehaviors = new[] { ContentSearchResolveBehavior.Permissions } };
+
+            // Act
+            ContentSearchResult result = await _client.Content.SearchAsync(request).ConfigureAwait(false);
+
+            // Assert
+            result.Results.Count.Should().BeGreaterThan(0);
+            result.Results.Should().OnlyContain(c => c.ContentRights != null);
+        }
+
+        [Fact]
+        [Trait("Stack", "Contents")]
         public async Task ShouldDeleteAndRestoreContent()
         {
             // Arrange
