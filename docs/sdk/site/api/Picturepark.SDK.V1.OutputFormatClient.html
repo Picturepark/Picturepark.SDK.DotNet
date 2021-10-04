@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class OutputFormatClient
    | Picturepark.SDK.V1 API ">
-    <meta name="generator" content="docfx 2.57.2.0">
+    <meta name="generator" content="docfx 2.58.4.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -323,7 +323,7 @@
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;OutputFormatOperationResult&gt; CreateAsync(OutputFormat request, TimeSpan? timeout = default(TimeSpan? ), CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public async Task&lt;OutputFormatOperationResult&gt; CreateAsync(OutputFormat request, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -428,7 +428,7 @@
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected Task&lt;BusinessProcess&gt; CreateCoreAsync(OutputFormat request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">protected async Task&lt;BusinessProcess&gt; CreateCoreAsync(OutputFormat request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -530,7 +530,7 @@
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;OutputFormatBatchOperationResult&gt; CreateManyAsync(OutputFormatCreateManyRequest request, TimeSpan? timeout = default(TimeSpan? ), CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public async Task&lt;OutputFormatBatchOperationResult&gt; CreateManyAsync(OutputFormatCreateManyRequest request, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -635,7 +635,7 @@
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected Task&lt;BusinessProcess&gt; CreateManyCoreAsync(OutputFormatCreateManyRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">protected async Task&lt;BusinessProcess&gt; CreateManyCoreAsync(OutputFormatCreateManyRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -737,7 +737,7 @@
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;OutputFormatDeleteResult&gt; DeleteAsync(string id, TimeSpan? timeout = default(TimeSpan? ), CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public async Task&lt;OutputFormatDeleteResult&gt; DeleteAsync(string id, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -842,7 +842,7 @@
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected Task&lt;BusinessProcess&gt; DeleteCoreAsync(string id, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">protected async Task&lt;BusinessProcess&gt; DeleteCoreAsync(string id, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -944,7 +944,7 @@
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;OutputFormatBatchOperationResult&gt; DeleteManyAsync(OutputFormatDeleteManyRequest request, TimeSpan? timeout = default(TimeSpan? ), CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public async Task&lt;OutputFormatBatchOperationResult&gt; DeleteManyAsync(OutputFormatDeleteManyRequest request, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -1049,7 +1049,7 @@
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected Task&lt;BusinessProcess&gt; DeleteManyCoreAsync(OutputFormatDeleteManyRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">protected async Task&lt;BusinessProcess&gt; DeleteManyCoreAsync(OutputFormatDeleteManyRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -1150,7 +1150,7 @@
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;ICollection&lt;OutputFormatDetail&gt;&gt; GetAllAsync(CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public async Task&lt;ICollection&lt;OutputFormatDetail&gt;&gt; GetAllAsync(CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -1199,7 +1199,7 @@
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;OutputFormatDetail&gt; GetAsync(string id, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public async Task&lt;OutputFormatDetail&gt; GetAsync(string id, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -1303,7 +1303,7 @@
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;ICollection&lt;OutputFormatDetail&gt;&gt; GetManyAsync(IEnumerable&lt;string&gt; ids = null, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public async Task&lt;ICollection&lt;OutputFormatDetail&gt;&gt; GetManyAsync(IEnumerable&lt;string&gt; ids = null, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -1406,7 +1406,7 @@
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected virtual Task&lt;OutputFormatClient.ObjectResponseResult&lt;T&gt;&gt; ReadObjectResponseAsync&lt;T&gt;(Http.HttpResponseMessage response, IReadOnlyDictionary&lt;string, IEnumerable&lt;string&gt;&gt; headers)</code></pre>
+    <pre><code class="lang-csharp hljs">protected virtual async Task&lt;OutputFormatClient.ObjectResponseResult&lt;T&gt;&gt; ReadObjectResponseAsync&lt;T&gt;(Http.HttpResponseMessage response, IReadOnlyDictionary&lt;string, IEnumerable&lt;string&gt;&gt; headers)</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -1469,7 +1469,7 @@
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;FileResponse&gt; RenderFormatPreviewAsync(OutputFormatRenderPreviewRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public async Task&lt;FileResponse&gt; RenderFormatPreviewAsync(OutputFormatRenderPreviewRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -1573,7 +1573,7 @@
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;BusinessProcess&gt; SetDownloadFileNamePatternsAsync(string id, IDictionary&lt;string, string&gt; patterns, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public async Task&lt;BusinessProcess&gt; SetDownloadFileNamePatternsAsync(string id, IDictionary&lt;string, string&gt; patterns, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -1688,7 +1688,7 @@ Set parameter to null to clear any already set patterns.</p>
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;BusinessProcess&gt; SetDownloadFileNamePatternsManyAsync(OutputFormatDownloadFileNamePatternUpdateManyRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public async Task&lt;BusinessProcess&gt; SetDownloadFileNamePatternsManyAsync(OutputFormatDownloadFileNamePatternUpdateManyRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -1792,7 +1792,7 @@ Set parameter to null to clear any already set patterns.</p>
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;BusinessProcess&gt; SetXmpWritebackState2Async(OutputFormatSetXmpWritebackStateManyRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public async Task&lt;BusinessProcess&gt; SetXmpWritebackState2Async(OutputFormatSetXmpWritebackStateManyRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -1896,7 +1896,7 @@ Set parameter to null to clear any already set patterns.</p>
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;BusinessProcess&gt; SetXmpWritebackStateAsync(string id, OutputFormatSetXmpWritebackStateRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public async Task&lt;BusinessProcess&gt; SetXmpWritebackStateAsync(string id, OutputFormatSetXmpWritebackStateRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -2008,7 +2008,7 @@ Set parameter to null to clear any already set patterns.</p>
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;OutputFormatOperationResult&gt; UpdateAsync(string id, OutputFormatEditable request, TimeSpan? timeout = default(TimeSpan? ), CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public async Task&lt;OutputFormatOperationResult&gt; UpdateAsync(string id, OutputFormatEditable request, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -2121,7 +2121,7 @@ Set parameter to null to clear any already set patterns.</p>
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected Task&lt;BusinessProcess&gt; UpdateCoreAsync(string id, OutputFormatEditable request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">protected async Task&lt;BusinessProcess&gt; UpdateCoreAsync(string id, OutputFormatEditable request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -2231,7 +2231,7 @@ Set parameter to null to clear any already set patterns.</p>
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;OutputFormatBatchOperationResult&gt; UpdateManyAsync(OutputFormatUpdateManyRequest request, TimeSpan? timeout = default(TimeSpan? ), CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public async Task&lt;OutputFormatBatchOperationResult&gt; UpdateManyAsync(OutputFormatUpdateManyRequest request, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -2336,7 +2336,7 @@ Set parameter to null to clear any already set patterns.</p>
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected Task&lt;BusinessProcess&gt; UpdateManyCoreAsync(OutputFormatUpdateManyRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">protected async Task&lt;BusinessProcess&gt; UpdateManyCoreAsync(OutputFormatUpdateManyRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -2437,7 +2437,7 @@ Set parameter to null to clear any already set patterns.</p>
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;OutputFormatOperationResult&gt; WaitForBusinessProcessAndReturnResult(Func&lt;Task&lt;BusinessProcess&gt;&gt; call, string id, TimeSpan? timeout = default(TimeSpan? ), CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public async Task&lt;OutputFormatOperationResult&gt; WaitForBusinessProcessAndReturnResult(Func&lt;Task&lt;BusinessProcess&gt;&gt; call, string id, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -2504,7 +2504,7 @@ Set parameter to null to clear any already set patterns.</p>
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;OutputFormatBatchOperationResult&gt; WaitForBusinessProcessAndReturnResultMany(Func&lt;Task&lt;BusinessProcess&gt;&gt; call, TimeSpan? timeout = default(TimeSpan? ), CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public async Task&lt;OutputFormatBatchOperationResult&gt; WaitForBusinessProcessAndReturnResultMany(Func&lt;Task&lt;BusinessProcess&gt;&gt; call, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>

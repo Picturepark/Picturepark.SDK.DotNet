@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class CloudBackupClient
    | Picturepark.SDK.V1 API ">
-    <meta name="generator" content="docfx 2.57.2.0">
+    <meta name="generator" content="docfx 2.58.4.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -268,7 +268,7 @@
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;SnapshotRepository&gt; ArchiveAsync(SnapshotRepositoryArchiveRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public async Task&lt;SnapshotRepository&gt; ArchiveAsync(SnapshotRepositoryArchiveRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -367,7 +367,7 @@
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;SnapshotRepositoryCleanupResult&gt; CleanupAsync(CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public async Task&lt;SnapshotRepositoryCleanupResult&gt; CleanupAsync(CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -459,7 +459,7 @@
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;Customer&gt; CloneAsync(SnapshotCustomerCloneRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public async Task&lt;Customer&gt; CloneAsync(SnapshotCustomerCloneRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -558,7 +558,7 @@
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;SnapshotCustomerCloneRequest&gt; CloneRequestAsync(CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public async Task&lt;SnapshotCustomerCloneRequest&gt; CloneRequestAsync(CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -650,7 +650,7 @@
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;SnapshotRepository&gt; CreateRepository2Async(SnapshotRepositoryEnvironmentCreateRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public async Task&lt;SnapshotRepository&gt; CreateRepository2Async(SnapshotRepositoryEnvironmentCreateRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -749,7 +749,7 @@
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;SnapshotRepository&gt; CreateRepositoryAsync(SnapshotRepositoryCustomerCreateRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public async Task&lt;SnapshotRepository&gt; CreateRepositoryAsync(SnapshotRepositoryCustomerCreateRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -848,7 +848,7 @@
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;SnapshotEnqueueResult&gt; CreateSnapshot2Async(SnapshotEnvironmentCreateRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public async Task&lt;SnapshotEnqueueResult&gt; CreateSnapshot2Async(SnapshotEnvironmentCreateRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -947,7 +947,7 @@
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;SnapshotEnqueueResult&gt; CreateSnapshotAsync(SnapshotCustomerCreateRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public async Task&lt;SnapshotEnqueueResult&gt; CreateSnapshotAsync(SnapshotCustomerCreateRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -1046,7 +1046,7 @@
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;CustomerExportResult&gt; ExportAsync(CustomerExportRequest request, TimeSpan? timeout = default(TimeSpan? ), CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public async Task&lt;CustomerExportResult&gt; ExportAsync(CustomerExportRequest request, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -1142,6 +1142,98 @@
   </div>
   
   
+  <a id="Picturepark_SDK_V1_CloudManager_CloudBackupClient_GetGlobalRepositoryStateAsync_" data-uid="Picturepark.SDK.V1.CloudManager.CloudBackupClient.GetGlobalRepositoryStateAsync*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_CloudManager_CloudBackupClient_GetGlobalRepositoryStateAsync_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.CloudManager.CloudBackupClient.GetGlobalRepositoryStateAsync(System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_CloudManager_CloudBackupClient_GetGlobalRepositoryStateAsync_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">GetGlobalRepositoryStateAsync(CancellationToken)</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_CloudManager_CloudBackupClient_GetGlobalRepositoryStateAsync_System_Threading_CancellationToken_" class="collapse in">
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public async Task&lt;GlobalSnapshotRepositoryStateResult&gt; GetGlobalRepositoryStateAsync(CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
+        <span class="parametername">cancellationToken</span>
+        <p><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">GlobalSnapshotRepositoryStateResult</span>&gt;
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <h5 class="exceptions">Exceptions</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
+        <p><p>A server side error occurred.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkForbiddenException.html">PictureparkForbiddenException</a>
+        <p><p>Forbidden</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
+        <p><p>Entity not found</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
+        <p><p>Version conflict</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  </div>
+  
+  
   <a id="Picturepark_SDK_V1_CloudManager_CloudBackupClient_ImportAsync_" data-uid="Picturepark.SDK.V1.CloudManager.CloudBackupClient.ImportAsync*"></a>
   
   <h4 id="Picturepark_SDK_V1_CloudManager_CloudBackupClient_ImportAsync_CustomerImportRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.CloudManager.CloudBackupClient.ImportAsync(CustomerImportRequest,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_CloudManager_CloudBackupClient_ImportAsync_CustomerImportRequest_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">ImportAsync(CustomerImportRequest, CancellationToken)</a></h4>
@@ -1152,7 +1244,7 @@
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;Customer&gt; ImportAsync(CustomerImportRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public async Task&lt;Customer&gt; ImportAsync(CustomerImportRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -1251,7 +1343,7 @@
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected virtual Task&lt;CloudBackupClient.ObjectResponseResult&lt;T&gt;&gt; ReadObjectResponseAsync&lt;T&gt;(Http.HttpResponseMessage response, IReadOnlyDictionary&lt;string, IEnumerable&lt;string&gt;&gt; headers)</code></pre>
+    <pre><code class="lang-csharp hljs">protected virtual async Task&lt;CloudBackupClient.ObjectResponseResult&lt;T&gt;&gt; ReadObjectResponseAsync&lt;T&gt;(Http.HttpResponseMessage response, IReadOnlyDictionary&lt;string, IEnumerable&lt;string&gt;&gt; headers)</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -1313,7 +1405,7 @@
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;SnapshotRestore&gt; Restore2Async(SnapshotEnvironmentRestoreRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public async Task&lt;SnapshotRestore&gt; Restore2Async(SnapshotEnvironmentRestoreRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -1412,7 +1504,7 @@
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;SnapshotRestore&gt; RestoreAsync(SnapshotCustomerRestoreRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public async Task&lt;SnapshotRestore&gt; RestoreAsync(SnapshotCustomerRestoreRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -1511,7 +1603,7 @@
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;SnapshotRepository&gt; Search2Async(SnapshotRepositorySearchByNameRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public async Task&lt;SnapshotRepository&gt; Search2Async(SnapshotRepositorySearchByNameRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -1610,7 +1702,7 @@
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;SnapshotEnvironmentSearchResult&gt; SearchAsync(SnapshotEnvironmentSearchRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public async Task&lt;SnapshotEnvironmentSearchResult&gt; SearchAsync(SnapshotEnvironmentSearchRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -1709,7 +1801,7 @@
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;SnapshotRepositorySearchResult&gt; SearchEnvironmentRepositoriesAsync(SnapshotRepositoryEnvironmentSearchRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public async Task&lt;SnapshotRepositorySearchResult&gt; SearchEnvironmentRepositoriesAsync(SnapshotRepositoryEnvironmentSearchRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -1808,7 +1900,7 @@
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;SnapshotRepositorySearchResult&gt; SearchRepositoriesAsync(SnapshotRepositoryCustomerSearchRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public async Task&lt;SnapshotRepositorySearchResult&gt; SearchRepositoriesAsync(SnapshotRepositoryCustomerSearchRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -1907,7 +1999,7 @@
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;SnapshotCustomerSearchResult&gt; SearchSnapshotsAsync(SnapshotCustomerSearchRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public async Task&lt;SnapshotCustomerSearchResult&gt; SearchSnapshotsAsync(SnapshotCustomerSearchRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>

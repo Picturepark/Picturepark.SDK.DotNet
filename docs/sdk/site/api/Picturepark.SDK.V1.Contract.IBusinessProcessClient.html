@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Interface IBusinessProcessClient
    | Picturepark.SDK.V1 API ">
-    <meta name="generator" content="docfx 2.57.2.0">
+    <meta name="generator" content="docfx 2.58.4.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -1184,7 +1184,7 @@ If business process produces a batch based response, page over successful and fa
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task&lt;BusinessProcessWaitForLifeCycleResult&gt; WaitForCompletionAsync(string processId, TimeSpan? timeout = default(TimeSpan? ), bool waitForContinuationCompletion = true, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">Task&lt;BusinessProcessWaitForLifeCycleResult&gt; WaitForCompletionAsync(string processId, TimeSpan? timeout = null, bool waitForContinuationCompletion = true, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -1274,7 +1274,7 @@ If business process produces a batch based response, page over successful and fa
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task&lt;BusinessProcessWaitForLifeCycleResult&gt; WaitForLifeCyclesAsync(string processId, IEnumerable&lt;BusinessProcessLifeCycle&gt; lifeCycleIds, TimeSpan? timeout = default(TimeSpan? ), CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">Task&lt;BusinessProcessWaitForLifeCycleResult&gt; WaitForLifeCyclesAsync(string processId, IEnumerable&lt;BusinessProcessLifeCycle&gt; lifeCycleIds, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -1364,7 +1364,7 @@ If business process produces a batch based response, page over successful and fa
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task&lt;BusinessProcessWaitForStateResult&gt; WaitForStatesAsync(string processId, IEnumerable&lt;string&gt; states, TimeSpan? timeout = default(TimeSpan? ), CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">Task&lt;BusinessProcessWaitForStateResult&gt; WaitForStatesAsync(string processId, IEnumerable&lt;string&gt; states, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
