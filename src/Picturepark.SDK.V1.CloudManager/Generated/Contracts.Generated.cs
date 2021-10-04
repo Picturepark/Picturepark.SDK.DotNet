@@ -184,6 +184,15 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<SnapshotRepository> Search2Async(SnapshotRepositorySearchByNameRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        System.Threading.Tasks.Task<GlobalSnapshotRepositoryStateResult> GetGlobalRepositoryStateAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "13.2.2.0 (NJsonSchema v10.1.4.0 (Newtonsoft.Json v11.0.0.0))")]
@@ -832,6 +841,15 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task InvalidateAllCachesAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        System.Threading.Tasks.Task RecycleElasticClientsAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
     }
     
@@ -4004,53 +4022,50 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [System.Runtime.Serialization.EnumMember(Value = @"ManageSearchIndexes")]
         ManageSearchIndexes = 8,
     
-        [System.Runtime.Serialization.EnumMember(Value = @"ManageCollections")]
-        ManageCollections = 9,
-    
         [System.Runtime.Serialization.EnumMember(Value = @"ManageListItems")]
-        ManageListItems = 10,
+        ManageListItems = 9,
     
         [System.Runtime.Serialization.EnumMember(Value = @"ManageServiceProviders")]
-        ManageServiceProviders = 11,
+        ManageServiceProviders = 10,
     
         [System.Runtime.Serialization.EnumMember(Value = @"ManageEmbeds")]
-        ManageEmbeds = 12,
+        ManageEmbeds = 11,
     
         [System.Runtime.Serialization.EnumMember(Value = @"ManageTemplates")]
-        ManageTemplates = 13,
+        ManageTemplates = 12,
     
         [System.Runtime.Serialization.EnumMember(Value = @"ManageTermsOfService")]
-        ManageTermsOfService = 14,
+        ManageTermsOfService = 13,
     
         [System.Runtime.Serialization.EnumMember(Value = @"ManageLiveStream")]
-        ManageLiveStream = 15,
+        ManageLiveStream = 14,
     
         [System.Runtime.Serialization.EnumMember(Value = @"ManageDocumentHistory")]
-        ManageDocumentHistory = 16,
+        ManageDocumentHistory = 15,
     
         [System.Runtime.Serialization.EnumMember(Value = @"ManageAllShares")]
-        ManageAllShares = 17,
+        ManageAllShares = 16,
     
         [System.Runtime.Serialization.EnumMember(Value = @"ManageOutputFormats")]
-        ManageOutputFormats = 18,
+        ManageOutputFormats = 17,
     
         [System.Runtime.Serialization.EnumMember(Value = @"ManageBusinessProcesses")]
-        ManageBusinessProcesses = 19,
+        ManageBusinessProcesses = 18,
     
         [System.Runtime.Serialization.EnumMember(Value = @"ManageIdentityProviders")]
-        ManageIdentityProviders = 20,
+        ManageIdentityProviders = 19,
     
         [System.Runtime.Serialization.EnumMember(Value = @"ManageXmpMappings")]
-        ManageXmpMappings = 21,
+        ManageXmpMappings = 20,
     
         [System.Runtime.Serialization.EnumMember(Value = @"ReadStatistics")]
-        ReadStatistics = 22,
+        ReadStatistics = 21,
     
         [System.Runtime.Serialization.EnumMember(Value = @"WriteStatistics")]
-        WriteStatistics = 23,
+        WriteStatistics = 22,
     
         [System.Runtime.Serialization.EnumMember(Value = @"ExportStatistics")]
-        ExportStatistics = 24,
+        ExportStatistics = 23,
     
     }
     
@@ -10160,6 +10175,30 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class GlobalSnapshotRepositoryStateResult 
+    {
+        /// <summary>Indicates if a Snapshot operation is currently in progress</summary>
+        [Newtonsoft.Json.JsonProperty("backupInProgress", Required = Newtonsoft.Json.Required.Always)]
+        public bool BackupInProgress { get; set; }
+    
+        /// <summary>If no snapshot in progress, this version should be re-checked after
+        /// performing read operations on Snapshot-Repositories.</summary>
+        [Newtonsoft.Json.JsonProperty("backupVersion", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string BackupVersion { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static GlobalSnapshotRepositoryStateResult FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<GlobalSnapshotRepositoryStateResult>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class ContentBackupSearchResult 
     {
         [Newtonsoft.Json.JsonProperty("totalResults", Required = Newtonsoft.Json.Required.Always)]
@@ -10473,6 +10512,10 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [Newtonsoft.Json.JsonProperty("liveStreamRetentionTime", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.TimeSpan LiveStreamRetentionTime { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("importCollectionRetentionTime", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public System.TimeSpan ImportCollectionRetentionTime { get; set; }
     
         [Newtonsoft.Json.JsonProperty("editCollectionRetentionTime", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
@@ -12081,6 +12124,10 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.TimeSpan ReplacedOriginalsRetentionTime { get; set; }
     
+        [Newtonsoft.Json.JsonProperty("importCollectionRetentionTime", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public System.TimeSpan ImportCollectionRetentionTime { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("editCollectionRetentionTime", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.TimeSpan EditCollectionRetentionTime { get; set; }
@@ -12253,6 +12300,10 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [Newtonsoft.Json.JsonProperty("incompleteTransferRetentionTime", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.TimeSpan IncompleteTransferRetentionTime { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("importCollectionRetentionTime", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public System.TimeSpan ImportCollectionRetentionTime { get; set; }
     
         [Newtonsoft.Json.JsonProperty("editCollectionRetentionTime", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
@@ -14017,8 +14068,9 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     public partial class AddContentEventsRequest 
     {
         /// <summary>Data to be added to statistics</summary>
-        [Newtonsoft.Json.JsonProperty("events", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<AddContentEventsRequestItem> Events { get; set; }
+        [Newtonsoft.Json.JsonProperty("events", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.Collections.Generic.ICollection<AddContentEventsRequestItem> Events { get; set; } = new System.Collections.Generic.List<AddContentEventsRequestItem>();
     
         public string ToJson() 
         {
@@ -14037,11 +14089,12 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     {
         /// <summary>Specifies at which time the events happened. The information will be automatically aggregated according to internal temporal resolution of statistics.</summary>
         [Newtonsoft.Json.JsonProperty("timestamp", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [System.ComponentModel.DataAnnotations.Required]
         public System.DateTime Timestamp { get; set; }
     
         /// <summary>Specifies content for which the events happened</summary>
-        [Newtonsoft.Json.JsonProperty("contentId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("contentId", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
         public string ContentId { get; set; }
     
         /// <summary>Optionally specify the used ApiClient. Defaults to the API Client sending this request.</summary>
@@ -14049,8 +14102,9 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         public string ApiClientId { get; set; }
     
         /// <summary>Data to be added to statistics</summary>
-        [Newtonsoft.Json.JsonProperty("statistics", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public ContentStatisticsDataEditable Statistics { get; set; }
+        [Newtonsoft.Json.JsonProperty("statistics", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public ContentStatisticsDataEditable Statistics { get; set; } = new ContentStatisticsDataEditable();
     
         /// <summary>Optionally specify an additional id under which the supplied data should be tracked. This
         /// Id is only used internally and cannot be retrieved through API or export.</summary>
@@ -14072,6 +14126,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class ContentStatisticsDataEditable 
     {
+        /// <summary>Statistical data for downloads of a Content</summary>
         [Newtonsoft.Json.JsonProperty("downloads", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public ContentDownloadsEditable Downloads { get; set; }
     
@@ -14569,14 +14624,12 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [JsonInheritanceAttribute("SessionRenewalEvent", typeof(SessionRenewalEvent))]
     [JsonInheritanceAttribute("SharePageViewEvent", typeof(SharePageViewEvent))]
     [JsonInheritanceAttribute("ApiStatisticsEvent", typeof(ApiStatisticsEvent))]
-    [JsonInheritanceAttribute("BusinessProcessEvent", typeof(BusinessProcessEvent))]
     [JsonInheritanceAttribute("OutputRenderedEvent", typeof(OutputRenderedEvent))]
     [JsonInheritanceAttribute("ConfigurationChangeEvent", typeof(ConfigurationChangeEvent))]
     [JsonInheritanceAttribute("CustomerChangeEvent", typeof(CustomerChangeEvent))]
     [JsonInheritanceAttribute("SearchReindexCompletedEvent", typeof(SearchReindexCompletedEvent))]
     [JsonInheritanceAttribute("BusinessRuleFiredEvent", typeof(BusinessRuleFiredEvent))]
     [JsonInheritanceAttribute("BusinessProcessCancellationRequestedEvent", typeof(BusinessProcessCancellationRequestedEvent))]
-    [JsonInheritanceAttribute("XmpWritebackCompletedEvent", typeof(XmpWritebackCompletedEvent))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class ApplicationEvent 
     {
@@ -14877,31 +14930,6 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
-    public partial class BusinessProcessEvent : ApplicationEvent
-    {
-        [Newtonsoft.Json.JsonProperty("businessProcessId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string BusinessProcessId { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("lifeCycle", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public BusinessProcessLifeCycle? LifeCycle { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("state", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string State { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-    
-        public static BusinessProcessEvent FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessProcessEvent>(data);
-        }
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class OutputRenderedEvent : ApplicationEvent
     {
         [Newtonsoft.Json.JsonProperty("outputId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -15081,24 +15109,6 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         public static BusinessProcessCancellationRequestedEvent FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessProcessCancellationRequestedEvent>(data);
-        }
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.4.0 (Newtonsoft.Json v11.0.0.0)")]
-    public partial class XmpWritebackCompletedEvent : ApplicationEvent
-    {
-        [Newtonsoft.Json.JsonProperty("outputDocId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string OutputDocId { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-    
-        public static XmpWritebackCompletedEvent FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<XmpWritebackCompletedEvent>(data);
         }
     
     }

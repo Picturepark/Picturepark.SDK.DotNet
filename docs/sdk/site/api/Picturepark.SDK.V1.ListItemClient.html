@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class ListItemClient
    | Picturepark.SDK.V1 API ">
-    <meta name="generator" content="docfx 2.57.2.0">
+    <meta name="generator" content="docfx 2.58.4.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -360,7 +360,7 @@
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;ObjectAggregationResult&gt; AggregateAsync(ListItemAggregationRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public async Task&lt;ObjectAggregationResult&gt; AggregateAsync(ListItemAggregationRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -464,7 +464,7 @@
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;ListItemBatchOperationResult&gt; BatchUpdateFieldsByFilterAsync(ListItemFieldsBatchUpdateFilterRequest updateRequest, TimeSpan? timeout = default(TimeSpan? ), bool waitSearchDocCreation = true, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public async Task&lt;ListItemBatchOperationResult&gt; BatchUpdateFieldsByFilterAsync(ListItemFieldsBatchUpdateFilterRequest updateRequest, TimeSpan? timeout = null, bool waitSearchDocCreation = true, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -578,7 +578,7 @@ By default the method waits for the search documents creation. Passing false, th
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected Task&lt;BusinessProcess&gt; BatchUpdateFieldsByFilterCoreAsync(ListItemFieldsBatchUpdateFilterRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">protected async Task&lt;BusinessProcess&gt; BatchUpdateFieldsByFilterCoreAsync(ListItemFieldsBatchUpdateFilterRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -680,7 +680,7 @@ By default the method waits for the search documents creation. Passing false, th
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;ListItemBatchOperationResult&gt; BatchUpdateFieldsByIdsAsync(ListItemFieldsBatchUpdateRequest updateRequest, TimeSpan? timeout = default(TimeSpan? ), bool waitSearchDocCreation = true, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public async Task&lt;ListItemBatchOperationResult&gt; BatchUpdateFieldsByIdsAsync(ListItemFieldsBatchUpdateRequest updateRequest, TimeSpan? timeout = null, bool waitSearchDocCreation = true, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -794,7 +794,7 @@ By default the method waits for the search documents creation. Passing false, th
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected Task&lt;BusinessProcess&gt; BatchUpdateFieldsByIdsCoreAsync(ListItemFieldsBatchUpdateRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">protected async Task&lt;BusinessProcess&gt; BatchUpdateFieldsByIdsCoreAsync(ListItemFieldsBatchUpdateRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -896,7 +896,7 @@ By default the method waits for the search documents creation. Passing false, th
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;ListItemDetail&gt; CreateAsync(ListItemCreateRequest request, IEnumerable&lt;ListItemResolveBehavior&gt; resolveBehaviors = null, bool? allowMissingDependencies = default(bool? ), TimeSpan? timeout = default(TimeSpan? ), bool? waitSearchDocCreation = default(bool? ), CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public async Task&lt;ListItemDetail&gt; CreateAsync(ListItemCreateRequest request, IEnumerable&lt;ListItemResolveBehavior&gt; resolveBehaviors = null, bool? allowMissingDependencies = null, TimeSpan? timeout = null, bool? waitSearchDocCreation = null, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -1034,7 +1034,7 @@ By default the method waits for the search documents creation. Passing false, th
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;ListItemBatchOperationWithRequestIdResult&gt; CreateFromObjectAsync(object content, bool allowMissingDependencies = false, TimeSpan? timeout = default(TimeSpan? ), bool waitSearchDocCreation = true, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public async Task&lt;ListItemBatchOperationWithRequestIdResult&gt; CreateFromObjectAsync(object content, bool allowMissingDependencies = false, TimeSpan? timeout = null, bool waitSearchDocCreation = true, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -1128,7 +1128,7 @@ By default the method waits for the search document creation. Passing false, the
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;ListItemBatchOperationWithRequestIdResult&gt; CreateManyAsync(ListItemCreateManyRequest createManyRequest, TimeSpan? timeout = default(TimeSpan? ), bool waitSearchDocCreation = true, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public async Task&lt;ListItemBatchOperationWithRequestIdResult&gt; CreateManyAsync(ListItemCreateManyRequest createManyRequest, TimeSpan? timeout = null, bool waitSearchDocCreation = true, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -1221,7 +1221,7 @@ By default the method waits for the search documents creation. Passing false, th
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected Task&lt;BusinessProcess&gt; CreateManyCoreAsync(ListItemCreateManyRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">protected async Task&lt;BusinessProcess&gt; CreateManyCoreAsync(ListItemCreateManyRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -1323,7 +1323,7 @@ By default the method waits for the search documents creation. Passing false, th
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task DeleteAsync(string id, bool? forceReferenceRemoval = default(bool? ), TimeSpan? timeout = default(TimeSpan? ), bool? waitSearchDocCreation = default(bool? ), CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public async Task DeleteAsync(string id, bool? forceReferenceRemoval = null, TimeSpan? timeout = null, bool? waitSearchDocCreation = null, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -1453,7 +1453,7 @@ By default the method waits for the search documents creation. Passing false, th
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;BusinessProcess&gt; DeleteManyAsync(ListItemDeleteManyRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public async Task&lt;BusinessProcess&gt; DeleteManyAsync(ListItemDeleteManyRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -1557,7 +1557,7 @@ By default the method waits for the search documents creation. Passing false, th
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;BusinessProcess&gt; DeleteManyByFilterAsync(ListItemDeleteManyFilterRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public async Task&lt;BusinessProcess&gt; DeleteManyByFilterAsync(ListItemDeleteManyFilterRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -1661,7 +1661,7 @@ By default the method waits for the search documents creation. Passing false, th
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;T&gt; GetAndConvertToAsync&lt;T&gt;(string listItemId, string schemaId, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public async Task&lt;T&gt; GetAndConvertToAsync&lt;T&gt;(string listItemId, string schemaId, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -1748,7 +1748,7 @@ By default the method waits for the search documents creation. Passing false, th
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;ListItemDetail&gt; GetAsync(string id, IEnumerable&lt;ListItemResolveBehavior&gt; resolveBehaviors = null, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public async Task&lt;ListItemDetail&gt; GetAsync(string id, IEnumerable&lt;ListItemResolveBehavior&gt; resolveBehaviors = null, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -1860,7 +1860,7 @@ By default the method waits for the search documents creation. Passing false, th
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;ICollection&lt;T&gt;&gt; GetManyAndConvertToAsync&lt;T&gt;(IEnumerable&lt;string&gt; listItemIds, string schemaId, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public async Task&lt;ICollection&lt;T&gt;&gt; GetManyAndConvertToAsync&lt;T&gt;(IEnumerable&lt;string&gt; listItemIds, string schemaId, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -1947,7 +1947,7 @@ By default the method waits for the search documents creation. Passing false, th
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;ICollection&lt;ListItemDetail&gt;&gt; GetManyAsync(IEnumerable&lt;string&gt; ids = null, IEnumerable&lt;ListItemResolveBehavior&gt; resolveBehaviors = null, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public async Task&lt;ICollection&lt;ListItemDetail&gt;&gt; GetManyAsync(IEnumerable&lt;string&gt; ids = null, IEnumerable&lt;ListItemResolveBehavior&gt; resolveBehaviors = null, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -2059,7 +2059,7 @@ By default the method waits for the search documents creation. Passing false, th
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;ListItemReferencesResult&gt; GetReferencesAsync(string id, ListItemReferencesRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public async Task&lt;ListItemReferencesResult&gt; GetReferencesAsync(string id, ListItemReferencesRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -2171,7 +2171,7 @@ By default the method waits for the search documents creation. Passing false, th
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;ListItemReferencesResult&gt; GetReferencesManyAsync(ListItemManyReferencesRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public async Task&lt;ListItemReferencesResult&gt; GetReferencesManyAsync(ListItemManyReferencesRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -2274,7 +2274,7 @@ By default the method waits for the search documents creation. Passing false, th
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;ListItemReferencesResult&gt; GetReferencesToListItemAsync(string id, ListItemReferencesRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public async Task&lt;ListItemReferencesResult&gt; GetReferencesToListItemAsync(string id, ListItemReferencesRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -2336,7 +2336,7 @@ By default the method waits for the search documents creation. Passing false, th
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;ListItemReferencesResult&gt; GetReferencesToListItemsAsync(ListItemManyReferencesRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public async Task&lt;ListItemReferencesResult&gt; GetReferencesToListItemsAsync(ListItemManyReferencesRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -2391,7 +2391,7 @@ By default the method waits for the search documents creation. Passing false, th
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected virtual Task&lt;ListItemClient.ObjectResponseResult&lt;T&gt;&gt; ReadObjectResponseAsync&lt;T&gt;(Http.HttpResponseMessage response, IReadOnlyDictionary&lt;string, IEnumerable&lt;string&gt;&gt; headers)</code></pre>
+    <pre><code class="lang-csharp hljs">protected virtual async Task&lt;ListItemClient.ObjectResponseResult&lt;T&gt;&gt; ReadObjectResponseAsync&lt;T&gt;(Http.HttpResponseMessage response, IReadOnlyDictionary&lt;string, IEnumerable&lt;string&gt;&gt; headers)</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -2454,7 +2454,7 @@ By default the method waits for the search documents creation. Passing false, th
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task RestoreAsync(string id, bool? allowMissingDependencies = default(bool? ), TimeSpan? timeout = default(TimeSpan? ), bool? waitSearchDocCreation = default(bool? ), CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public async Task RestoreAsync(string id, bool? allowMissingDependencies = null, TimeSpan? timeout = null, bool? waitSearchDocCreation = null, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -2584,7 +2584,7 @@ By default the method waits for the search documents creation. Passing false, th
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;BusinessProcess&gt; RestoreManyAsync(ListItemRestoreManyRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public async Task&lt;BusinessProcess&gt; RestoreManyAsync(ListItemRestoreManyRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -2688,7 +2688,7 @@ By default the method waits for the search documents creation. Passing false, th
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;ListItemSearchResult&gt; SearchAsync(ListItemSearchRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public async Task&lt;ListItemSearchResult&gt; SearchAsync(ListItemSearchRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -2792,7 +2792,7 @@ By default the method waits for the search documents creation. Passing false, th
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;ListItemDetail&gt; UpdateAsync(string listItemId, ListItemUpdateRequest updateRequest, IEnumerable&lt;ListItemResolveBehavior&gt; resolveBehaviors = null, bool allowMissingDependencies = false, TimeSpan? timeout = default(TimeSpan? ), bool waitSearchDocCreation = true, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public async Task&lt;ListItemDetail&gt; UpdateAsync(string listItemId, ListItemUpdateRequest updateRequest, IEnumerable&lt;ListItemResolveBehavior&gt; resolveBehaviors = null, bool allowMissingDependencies = false, TimeSpan? timeout = null, bool waitSearchDocCreation = true, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -2892,7 +2892,7 @@ By default the method waits for the search document creation. Passing false, the
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;ListItemDetail&gt; UpdateAsync(string listItemId, object content, UpdateOption updateOption = UpdateOption.Merge, IEnumerable&lt;ListItemResolveBehavior&gt; resolveBehaviors = null, bool allowMissingDependencies = false, TimeSpan? timeout = default(TimeSpan? ), bool waitSearchDocCreation = true, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public async Task&lt;ListItemDetail&gt; UpdateAsync(string listItemId, object content, UpdateOption updateOption = UpdateOption.Merge, IEnumerable&lt;ListItemResolveBehavior&gt; resolveBehaviors = null, bool allowMissingDependencies = false, TimeSpan? timeout = null, bool waitSearchDocCreation = true, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -3000,7 +3000,7 @@ By default the method waits for the search document creation. Passing false, the
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected Task&lt;ListItemDetail&gt; UpdateCoreAsync(string id, ListItemUpdateRequest request, IEnumerable&lt;ListItemResolveBehavior&gt; resolveBehaviors = null, bool? allowMissingDependencies = default(bool? ), TimeSpan? timeout = default(TimeSpan? ), bool? waitSearchDocCreation = default(bool? ), CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">protected async Task&lt;ListItemDetail&gt; UpdateCoreAsync(string id, ListItemUpdateRequest request, IEnumerable&lt;ListItemResolveBehavior&gt; resolveBehaviors = null, bool? allowMissingDependencies = null, TimeSpan? timeout = null, bool? waitSearchDocCreation = null, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -3144,7 +3144,7 @@ By default the method waits for the search document creation. Passing false, the
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;ListItemBatchOperationResult&gt; UpdateManyAsync(ListItemUpdateManyRequest listItemUpdateManyRequest, TimeSpan? timeout = default(TimeSpan? ), bool waitSearchDocCreation = true, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public async Task&lt;ListItemBatchOperationResult&gt; UpdateManyAsync(ListItemUpdateManyRequest listItemUpdateManyRequest, TimeSpan? timeout = null, bool waitSearchDocCreation = true, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -3258,7 +3258,7 @@ By default the method waits for the search documents creation. Passing false, th
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected Task&lt;BusinessProcess&gt; UpdateManyCoreAsync(ListItemUpdateManyRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">protected async Task&lt;BusinessProcess&gt; UpdateManyCoreAsync(ListItemUpdateManyRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -3360,7 +3360,7 @@ By default the method waits for the search documents creation. Passing false, th
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;ListItemBatchOperationResult&gt; WaitForBusinessProcessAndReturnResult(string businessProcessId, TimeSpan? timeout = default(TimeSpan? ), bool waitSearchDocCreation = true, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public async Task&lt;ListItemBatchOperationResult&gt; WaitForBusinessProcessAndReturnResult(string businessProcessId, TimeSpan? timeout = null, bool waitSearchDocCreation = true, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -3435,7 +3435,7 @@ By default the method waits for the search documents creation. Passing false, th
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Task&lt;ListItemBatchOperationWithRequestIdResult&gt; WaitForBusinessProcessAndReturnResultWithRequestId(string businessProcessId, TimeSpan? timeout = default(TimeSpan? ), bool waitSearchDocCreation = true, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public async Task&lt;ListItemBatchOperationWithRequestIdResult&gt; WaitForBusinessProcessAndReturnResultWithRequestId(string businessProcessId, TimeSpan? timeout = null, bool waitSearchDocCreation = true, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
