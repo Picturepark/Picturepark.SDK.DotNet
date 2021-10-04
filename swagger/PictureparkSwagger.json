@@ -4321,7 +4321,7 @@
             }
           },
           "200": {
-            "description": "Http response message",
+            "description": null,
             "content": {
               "application/octet-stream": {
                 "schema": {
@@ -4332,7 +4332,7 @@
             }
           },
           "206": {
-            "description": "Http response message",
+            "description": null,
             "content": {
               "application/octet-stream": {
                 "schema": {
@@ -4459,7 +4459,7 @@
             }
           },
           "200": {
-            "description": "Http response message",
+            "description": null,
             "content": {
               "application/octet-stream": {
                 "schema": {
@@ -4470,7 +4470,7 @@
             }
           },
           "206": {
-            "description": "Http response message",
+            "description": null,
             "content": {
               "application/octet-stream": {
                 "schema": {
@@ -4607,7 +4607,7 @@
             }
           },
           "200": {
-            "description": "Http response message",
+            "description": null,
             "content": {
               "application/octet-stream": {
                 "schema": {
@@ -7752,7 +7752,7 @@
             }
           },
           "200": {
-            "description": "Content search result",
+            "description": "Result for content search operation",
             "content": {
               "application/json": {
                 "schema": {
@@ -9701,7 +9701,7 @@
             }
           },
           "200": {
-            "description": "Json schema view item: almost a 1:1 representation of the Newtonsoft json schema.",
+            "description": null,
             "content": {
               "application/json": {
                 "schema": {}
@@ -13187,7 +13187,7 @@
             }
           },
           "206": {
-            "description": "Rendered file",
+            "description": null,
             "content": {
               "application/octet-stream": {
                 "schema": {
@@ -18278,7 +18278,7 @@
             }
           },
           "400": {
-            "description": "Validation exception",
+            "description": null,
             "content": {
               "application/json": {
                 "schema": {
@@ -18796,7 +18796,7 @@
             }
           },
           "200": {
-            "description": "HttpResponseMessage",
+            "description": null,
             "content": {
               "application/octet-stream": {
                 "schema": {
@@ -18807,7 +18807,7 @@
             }
           },
           "206": {
-            "description": "HttpResponseMessage",
+            "description": null,
             "content": {
               "application/octet-stream": {
                 "schema": {
@@ -19063,7 +19063,7 @@
             }
           },
           "200": {
-            "description": "HttpResponseMessage",
+            "description": null,
             "content": {
               "application/octet-stream": {
                 "schema": {
@@ -19074,7 +19074,7 @@
             }
           },
           "206": {
-            "description": "HttpResponseMessage",
+            "description": null,
             "content": {
               "application/octet-stream": {
                 "schema": {
@@ -19192,7 +19192,7 @@
             }
           },
           "200": {
-            "description": "HttpResponseMessage",
+            "description": null,
             "content": {
               "application/octet-stream": {
                 "schema": {
@@ -19203,7 +19203,7 @@
             }
           },
           "206": {
-            "description": "HttpResponseMessage",
+            "description": null,
             "content": {
               "application/octet-stream": {
                 "schema": {
@@ -19697,7 +19697,7 @@
             }
           },
           "403": {
-            "description": "Forbidden",
+            "description": null,
             "content": {
               "application/json": {
                 "schema": {

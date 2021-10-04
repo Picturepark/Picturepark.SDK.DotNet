@@ -501,7 +501,6 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="width">Optional width in pixels to resize image.</param>
         /// <param name="height">Optional height in pixels to resize image.</param>
         /// <param name="range">The range of bytes to download (http range header): bytes={from}-{to} (e.g. bytes=0-100000).</param>
-        /// <returns>Http response message</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
@@ -515,7 +514,6 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="contentId">The content ID.</param>
         /// <param name="outputFormatId">The output format ID.</param>
         /// <param name="conversionPreset">The conversion preset.</param>
-        /// <returns>Http response message</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
@@ -530,7 +528,6 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="size">Thumbnail size. Either small, medium or large.</param>
         /// <param name="width">Optional width in pixels to resize image.</param>
         /// <param name="height">Optional height in pixels to resize image.</param>
-        /// <returns>Http response message</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
@@ -820,7 +817,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Search contents</summary>
         /// <param name="request">Content search request.</param>
-        /// <returns>Content search result</returns>
+        /// <returns>Result for content search operation</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
@@ -2009,7 +2006,6 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="width">Optional width in pixels to resize image</param>
         /// <param name="height">Optional height in pixels to resize image</param>
         /// <param name="range">The range of bytes to download (http range header): bytes={from}-{to} (e.g. bytes=0-100000)</param>
-        /// <returns>HttpResponseMessage</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
@@ -2039,7 +2035,6 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="width">Optional width in pixels to resize image</param>
         /// <param name="height">Optional height in pixels to resize image</param>
         /// <param name="range">The range of bytes to download (http range header): bytes={from}-{to} (e.g. bytes=0-100000)</param>
-        /// <returns>HttpResponseMessage</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
@@ -2053,7 +2048,6 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="token">Share token</param>
         /// <param name="conversionPreset">Image editing specification</param>
         /// <param name="range">The range of bytes to download (http range header): bytes={from}-{to} (e.g. bytes=0-100000)</param>
-        /// <returns>HttpResponseMessage</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
