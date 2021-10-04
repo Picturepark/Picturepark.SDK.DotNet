@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Interface ITransferClient
    | Picturepark.SDK.V1 API ">
-    <meta name="generator" content="docfx 2.57.2.0">
+    <meta name="generator" content="docfx 2.58.4.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -311,7 +311,7 @@ Task CancelTransferAsync(string id, CancellationToken cancellationToken = defaul
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task&lt;CreateTransferResult&gt; CreateAndWaitForCompletionAsync(CreateTransferRequest request, TimeSpan? timeout = default(TimeSpan? ), CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">Task&lt;CreateTransferResult&gt; CreateAndWaitForCompletionAsync(CreateTransferRequest request, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -376,7 +376,7 @@ Task CancelTransferAsync(string id, CancellationToken cancellationToken = defaul
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task&lt;CreateTransferResult&gt; CreateAndWaitForCompletionAsync(string transferName, IEnumerable&lt;FileLocations&gt; files, TimeSpan? timeout = default(TimeSpan? ), CancellationToken cancellationToken = default(CancellationToken), UploadOptions uploadOptions = null)</code></pre>
+    <pre><code class="lang-csharp hljs">Task&lt;CreateTransferResult&gt; CreateAndWaitForCompletionAsync(string transferName, IEnumerable&lt;FileLocations&gt; files, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken), UploadOptions uploadOptions = null)</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -1060,7 +1060,7 @@ Task CancelTransferAsync(string id, CancellationToken cancellationToken = defaul
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task ImportAndWaitForCompletionAsync(Transfer transfer, ImportTransferRequest createRequest, TimeSpan? timeout = default(TimeSpan? ), CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">Task ImportAndWaitForCompletionAsync(Transfer transfer, ImportTransferRequest createRequest, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -1661,7 +1661,7 @@ Task&lt;Transfer&gt; ImportTransferAsync(string id, ImportTransferRequest reques
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task&lt;IReadOnlyCollection&lt;FileTransfer&gt;&gt; SearchFilesByTransferIdAsync(string transferId, int? limit = default(int? ))</code></pre>
+    <pre><code class="lang-csharp hljs">Task&lt;IReadOnlyCollection&lt;FileTransfer&gt;&gt; SearchFilesByTransferIdAsync(string transferId, int? limit = null)</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -2156,7 +2156,7 @@ Task UploadFileAsync(long chunkNumber, long currentChunkSize, long totalSize, lo
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task UploadFilesAsync(Transfer transfer, IEnumerable&lt;FileLocations&gt; files, UploadOptions uploadOptions, TimeSpan? timeout = default(TimeSpan? ), CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">Task UploadFilesAsync(Transfer transfer, IEnumerable&lt;FileLocations&gt; files, UploadOptions uploadOptions, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -2237,7 +2237,7 @@ Task UploadFileAsync(long chunkNumber, long currentChunkSize, long totalSize, lo
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task&lt;CreateTransferResult&gt; UploadFilesAsync(string transferName, IEnumerable&lt;FileLocations&gt; files, UploadOptions uploadOptions, TimeSpan? timeout = default(TimeSpan? ), CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">Task&lt;CreateTransferResult&gt; UploadFilesAsync(string transferName, IEnumerable&lt;FileLocations&gt; files, UploadOptions uploadOptions, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>

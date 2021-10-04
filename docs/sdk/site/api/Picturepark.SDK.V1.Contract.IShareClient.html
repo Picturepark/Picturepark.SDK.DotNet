@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Interface IShareClient
    | Picturepark.SDK.V1 API ">
-    <meta name="generator" content="docfx 2.57.2.0">
+    <meta name="generator" content="docfx 2.58.4.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -419,7 +419,7 @@
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task&lt;FileResponse&gt; DownloadAsync(string token, int? width = default(int? ), int? height = default(int? ), string range = null, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">Task&lt;FileResponse&gt; DownloadAsync(string token, int? width = null, int? height = null, string range = null, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -544,7 +544,7 @@
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task&lt;FileResponse&gt; DownloadSingleContentAsync(string token, string contentId, string outputFormatId, int? width = default(int? ), int? height = default(int? ), string range = null, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">Task&lt;FileResponse&gt; DownloadSingleContentAsync(string token, string contentId, string outputFormatId, int? width = null, int? height = null, string range = null, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -685,7 +685,7 @@
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task&lt;FileResponse&gt; DownloadWithContentIdAsync(string token, string contentId, int? width = default(int? ), int? height = default(int? ), string range = null, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">Task&lt;FileResponse&gt; DownloadWithContentIdAsync(string token, string contentId, int? width = null, int? height = null, string range = null, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -811,7 +811,7 @@
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task&lt;FileResponse&gt; DownloadWithOutputFormatIdAsync(string token, string contentId, string outputFormatId, int? width = default(int? ), int? height = default(int? ), string range = null, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">Task&lt;FileResponse&gt; DownloadWithOutputFormatIdAsync(string token, string contentId, string outputFormatId, int? width = null, int? height = null, string range = null, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -945,7 +945,7 @@
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task&lt;ShareDetail&gt; GetAsync(string id, IEnumerable&lt;ShareResolveBehavior&gt; resolveBehaviors = null, int? contentResolveLimit = default(int? ), CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">Task&lt;ShareDetail&gt; GetAsync(string id, IEnumerable&lt;ShareResolveBehavior&gt; resolveBehaviors = null, int? contentResolveLimit = null, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -1063,7 +1063,7 @@
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task&lt;ShareContentDetailResult&gt; GetContentsInShareAsync(string id, int? limit = default(int? ), string pageToken = null, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">Task&lt;ShareContentDetailResult&gt; GetContentsInShareAsync(string id, int? limit = null, string pageToken = null, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -1181,7 +1181,7 @@
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task&lt;ShareContentDetailResult&gt; GetShareContentsAsync(string token, string lang = null, int? limit = default(int? ), string pageToken = null, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">Task&lt;ShareContentDetailResult&gt; GetShareContentsAsync(string token, string lang = null, int? limit = null, string pageToken = null, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -1307,7 +1307,7 @@
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">Task&lt;ShareDetail&gt; GetShareJsonAsync(string token, string lang = null, IEnumerable&lt;ShareResolveBehavior&gt; resolveBehaviors = null, int? contentResolveLimit = default(int? ), CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">Task&lt;ShareDetail&gt; GetShareJsonAsync(string token, string lang = null, IEnumerable&lt;ShareResolveBehavior&gt; resolveBehaviors = null, int? contentResolveLimit = null, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
