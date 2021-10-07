@@ -219,7 +219,7 @@ namespace Picturepark.SDK.V1
                 TransferType = TransferType.FileUpload,
                 Files = filteredFileNames.Select(f => new TransferUploadFile
                 {
-                    Identifier = f.Identifier,
+                    RequestId = f.Identifier,
                     FileName = f.UploadAs
                 }).ToList()
             };

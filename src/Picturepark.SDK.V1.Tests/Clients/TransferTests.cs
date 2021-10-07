@@ -157,6 +157,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             Assert.NotNull(result.Transfer);
         }
 
+#pragma warning disable 618
         [Fact]
         [Trait("Stack", "Transfers")]
         public async Task ShouldSupportRequestIdAndLegacyIdentifier()
@@ -195,6 +196,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             fileTransfers.Should().OnlyContain(fileTransfer => urlsAndIds.Any(urlAndId =>
                 fileTransfer.RequestId == fileTransfer.Identifier && fileTransfer.RequestId == urlAndId.id));
         }
+#pragma warning restore 618
 
         [Fact]
         [Trait("Stack", "Transfers")]
