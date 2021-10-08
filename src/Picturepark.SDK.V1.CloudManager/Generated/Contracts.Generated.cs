@@ -464,8 +464,9 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<CustomerServiceProvider> CreateAsync(CustomerServiceProviderCreateRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
@@ -473,8 +474,9 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task DeleteAsync(string alias, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
@@ -1542,10 +1544,12 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [JsonInheritanceAttribute("OutputFormatRetentionTimeOutOfRangeException", typeof(OutputFormatRetentionTimeOutOfRangeException))]
     [JsonInheritanceAttribute("NotSupportedFileExtensionForFormatException", typeof(NotSupportedFileExtensionForFormatException))]
     [JsonInheritanceAttribute("OutputFormatXmpWritebackNotSupportedException", typeof(OutputFormatXmpWritebackNotSupportedException))]
+    [JsonInheritanceAttribute("OutputFormatXmpWritebackDerivedFromCopyFormatNotSupportedException", typeof(OutputFormatXmpWritebackDerivedFromCopyFormatNotSupportedException))]
     [JsonInheritanceAttribute("OutputFormatsInUseException", typeof(OutputFormatsInUseException))]
     [JsonInheritanceAttribute("OutputFormatOperationInProgressException", typeof(OutputFormatOperationInProgressException))]
     [JsonInheritanceAttribute("StaticOutputFormatModificationNotSupportedException", typeof(StaticOutputFormatModificationNotSupportedException))]
     [JsonInheritanceAttribute("OriginalOutputFormatModificationNotSupportedException", typeof(OriginalOutputFormatModificationNotSupportedException))]
+    [JsonInheritanceAttribute("OutputFormatSourceNotValidForRenderingCategoryException", typeof(OutputFormatSourceNotValidForRenderingCategoryException))]
     [JsonInheritanceAttribute("CollectionSizeLimitExceededException", typeof(CollectionSizeLimitExceededException))]
     [JsonInheritanceAttribute("CollectionModificationNotAllowedException", typeof(CollectionModificationNotAllowedException))]
     [JsonInheritanceAttribute("CollectionNotFoundException", typeof(CollectionNotFoundException))]
@@ -3850,6 +3854,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         public string Value { get; set; }
     
         [Newtonsoft.Json.JsonProperty("expectedFormat", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [System.Obsolete]
         public string ExpectedFormat { get; set; }
     
         public string ToJson() 
@@ -8735,6 +8740,25 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
     [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class OutputFormatXmpWritebackDerivedFromCopyFormatNotSupportedException : OutputFormatXmpWritebackNotSupportedException
+    {
+        [Newtonsoft.Json.JsonProperty("derivingCopyFormatIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> DerivingCopyFormatIds { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static OutputFormatXmpWritebackDerivedFromCopyFormatNotSupportedException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<OutputFormatXmpWritebackDerivedFromCopyFormatNotSupportedException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
     public partial class OutputFormatsInUseException : PictureparkValidationException
     {
         [Newtonsoft.Json.JsonProperty("outputFormatIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -8805,6 +8829,32 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         public static OriginalOutputFormatModificationNotSupportedException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<OriginalOutputFormatModificationNotSupportedException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class OutputFormatSourceNotValidForRenderingCategoryException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("outputFormatId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string OutputFormatId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("sourceFormatId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string SourceFormatId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("renderingCategory", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public RenderingCategory RenderingCategory { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static OutputFormatSourceNotValidForRenderingCategoryException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<OutputFormatSourceNotValidForRenderingCategoryException>(data);
         }
     
     }
@@ -9228,6 +9278,15 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
         [Newtonsoft.Json.JsonProperty("extensions", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.IDictionary<string, object> Extensions { get; set; }
+    
+        private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
+    
+        [Newtonsoft.Json.JsonExtensionData]
+        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
+        {
+            get { return _additionalProperties; }
+            set { _additionalProperties = value; }
+        }
     
         public string ToJson() 
         {
@@ -11164,6 +11223,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
     [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
     [JsonInheritanceAttribute("OriginalFormat", typeof(OriginalFormat))]
+    [JsonInheritanceAttribute("CopyFormat", typeof(CopyFormat))]
     [JsonInheritanceAttribute("JpegFormat", typeof(JpegFormat))]
     [JsonInheritanceAttribute("PngFormat", typeof(PngFormat))]
     [JsonInheritanceAttribute("TiffFormat", typeof(TiffFormat))]
@@ -11192,9 +11252,60 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
     }
     
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public abstract partial class FormatWithFixedExtensionBase : FormatBase
+    {
+        /// <summary>The filename extension of the file produced by this Format.</summary>
+        [Newtonsoft.Json.JsonProperty("extension", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Extension { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static FormatWithFixedExtensionBase FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<FormatWithFixedExtensionBase>(data);
+        }
+    
+    }
+    
+    /// <summary>Special format that represents the original.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class OriginalFormat : FormatBase
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static OriginalFormat FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<OriginalFormat>(data);
+        }
+    
+    }
+    
+    /// <summary>A format that, when rendered, simply copies the source file. Primarily intended for use with XmpWriteback.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class CopyFormat : FormatBase
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static CopyFormat FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<CopyFormat>(data);
+        }
+    
+    }
+    
     /// <summary>Base class for ImageFormats such as JPEG, PNG, TIFF, ...</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
-    public abstract partial class ImageFormatBase : FormatBase
+    public abstract partial class ImageFormatBase : FormatWithFixedExtensionBase
     {
         /// <summary>Color profile to use. Colorspace is derived from the chosen profile.</summary>
         [Newtonsoft.Json.JsonProperty("colorProfile", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -11697,25 +11808,6 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
     }
     
-    /// <summary>Special format that represents the original.</summary>
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
-    public partial class OriginalFormat : FormatBase
-    {
-        [Newtonsoft.Json.JsonProperty("extension", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Extension { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-    
-        public static OriginalFormat FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<OriginalFormat>(data);
-        }
-    
-    }
-    
     /// <summary>Renders a JPEG image.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class JpegFormat : ImageFormatBase
@@ -11727,9 +11819,6 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <summary>Whether to use chroma subsampling or not.</summary>
         [Newtonsoft.Json.JsonProperty("chromaSubsamplingEnabled", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool ChromaSubsamplingEnabled { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("extension", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Extension { get; set; }
     
         public string ToJson() 
         {
@@ -11747,9 +11836,6 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class PngFormat : ImageFormatBase
     {
-        [Newtonsoft.Json.JsonProperty("extension", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Extension { get; set; }
-    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -11778,9 +11864,6 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <summary>Preserve (including size affecting changes) unspecified extraChannels.</summary>
         [Newtonsoft.Json.JsonProperty("includeUnspecifiedTiffExtraChannels", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool IncludeUnspecifiedTiffExtraChannels { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("extension", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Extension { get; set; }
     
         public string ToJson() 
         {
@@ -11814,7 +11897,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
     /// <summary>Base class for rendering video.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
-    public abstract partial class VideoFormatBase : FormatBase
+    public abstract partial class VideoFormatBase : FormatWithFixedExtensionBase
     {
         public string ToJson() 
         {
@@ -11845,9 +11928,6 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public Preset Preset { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("extension", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Extension { get; set; }
-    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -11862,7 +11942,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
     /// <summary>Base class for rendering audio.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
-    public abstract partial class AudioFormatBase : FormatBase
+    public abstract partial class AudioFormatBase : FormatWithFixedExtensionBase
     {
         public string ToJson() 
         {
@@ -11922,9 +12002,6 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [Newtonsoft.Json.JsonProperty("quality", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int Quality { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("extension", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Extension { get; set; }
-    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -11940,9 +12017,6 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class VideoStillFormat : VideoFormatBase
     {
-        [Newtonsoft.Json.JsonProperty("extension", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Extension { get; set; }
-    
         /// <summary>Specifies the position from which to produce the image.</summary>
         [Newtonsoft.Json.JsonProperty("positionInSeconds", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int PositionInSeconds { get; set; }
@@ -11963,9 +12037,6 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class AacAudioFormat : AudioFormatBase
     {
-        [Newtonsoft.Json.JsonProperty("extension", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Extension { get; set; }
-    
         /// <summary>Gets or sets the encoding profile.</summary>
         [Newtonsoft.Json.JsonProperty("profile", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
@@ -12032,9 +12103,6 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class AudioStillFormat : AudioFormatBase
     {
-        [Newtonsoft.Json.JsonProperty("extension", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Extension { get; set; }
-    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -12051,9 +12119,6 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class Mp3AudioFormat : AudioFormatBase
     {
-        [Newtonsoft.Json.JsonProperty("extension", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Extension { get; set; }
-    
         /// <summary>Gets or sets the encoding bitrate. This setting and Quality are mutually exclusive.</summary>
         [Newtonsoft.Json.JsonProperty("bitrate", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int? Bitrate { get; set; }
@@ -12077,7 +12142,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
     /// <summary>Base class for rendering documents.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
-    public abstract partial class DocumentFormatBase : FormatBase
+    public abstract partial class DocumentFormatBase : FormatWithFixedExtensionBase
     {
         public string ToJson() 
         {
@@ -12095,9 +12160,6 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class DocumentStillFormat : DocumentFormatBase
     {
-        [Newtonsoft.Json.JsonProperty("extension", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Extension { get; set; }
-    
         /// <summary>Allows resizing of the image.</summary>
         [Newtonsoft.Json.JsonProperty("resizeAction", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public ResizeAction ResizeAction { get; set; }
@@ -12129,9 +12191,6 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [Newtonsoft.Json.JsonProperty("reduceFileSize", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool ReduceFileSize { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("extension", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Extension { get; set; }
-    
         /// <summary>Whether to extract document full text from this output.</summary>
         [Newtonsoft.Json.JsonProperty("extractFullText", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool ExtractFullText { get; set; }
@@ -12150,7 +12209,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
     /// <summary>Base class for rendering vector graphics.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
-    public abstract partial class VectorFormatBase : FormatBase
+    public abstract partial class VectorFormatBase : FormatWithFixedExtensionBase
     {
         public string ToJson() 
         {
@@ -12168,9 +12227,6 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class SvgFormat : VectorFormatBase
     {
-        [Newtonsoft.Json.JsonProperty("extension", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Extension { get; set; }
-    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -12187,9 +12243,6 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class VectorStillFormat : VectorFormatBase
     {
-        [Newtonsoft.Json.JsonProperty("extension", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Extension { get; set; }
-    
         /// <summary>Specifies output dimensions for raster operation</summary>
         [Newtonsoft.Json.JsonProperty("resizeAction", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public ResizeAction ResizeAction { get; set; }
