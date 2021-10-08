@@ -4357,6 +4357,16 @@
               }
             }
           },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
           "405": {
             "description": "Method not allowed"
           },
@@ -4382,40 +4392,6 @@
                 }
               }
             }
-          },
-          "404": {
-            "description": "Internal server error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkException"
-                }
-              }
-            },
-            "x-expectedSchemas": [
-              {
-                "description": "Entity not found",
-                "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkNotFoundException"
-                    }
-                  ]
-                }
-              },
-              {
-                "description": "Internal server error",
-                "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkException"
-                    }
-                  ]
-                }
-              }
-            ]
           }
         }
       }
@@ -4475,6 +4451,16 @@
               }
             }
           },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
           "405": {
             "description": "Method not allowed"
           },
@@ -4500,40 +4486,6 @@
                 }
               }
             }
-          },
-          "404": {
-            "description": "Internal server error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkException"
-                }
-              }
-            },
-            "x-expectedSchemas": [
-              {
-                "description": "Entity not found",
-                "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkNotFoundException"
-                    }
-                  ]
-                }
-              },
-              {
-                "description": "Internal server error",
-                "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkException"
-                    }
-                  ]
-                }
-              }
-            ]
           }
         }
       }

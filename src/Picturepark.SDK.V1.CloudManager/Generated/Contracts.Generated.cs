@@ -464,9 +464,8 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkConflictException">Version conflict</exception>
-        /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<CustomerServiceProvider> CreateAsync(CustomerServiceProviderCreateRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
@@ -474,9 +473,8 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkConflictException">Version conflict</exception>
-        /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task DeleteAsync(string alias, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
