@@ -6928,7 +6928,7 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkException">Entity not found</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public async System.Threading.Tasks.Task<CustomerServiceProvider> CreateAsync(CustomerServiceProviderCreateRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -7002,8 +7002,8 @@ namespace Picturepark.SDK.V1.CloudManager
                         else
                         if (status_ == "404") 
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkException>(response_, headers_).ConfigureAwait(false);
-                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkException();
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkNotFoundException>(response_, headers_).ConfigureAwait(false);
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkNotFoundException();
                             responseObject_.Data.Add("HttpStatus", status_);
                             responseObject_.Data.Add("HttpHeaders", headers_);
                             responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
@@ -7066,7 +7066,7 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkException">Entity not found</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         public async System.Threading.Tasks.Task DeleteAsync(string alias, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
@@ -7134,8 +7134,8 @@ namespace Picturepark.SDK.V1.CloudManager
                         else
                         if (status_ == "404") 
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkException>(response_, headers_).ConfigureAwait(false);
-                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkException();
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkNotFoundException>(response_, headers_).ConfigureAwait(false);
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkNotFoundException();
                             responseObject_.Data.Add("HttpStatus", status_);
                             responseObject_.Data.Add("HttpHeaders", headers_);
                             responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
