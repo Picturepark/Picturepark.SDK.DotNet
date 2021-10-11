@@ -27810,7 +27810,7 @@
           }
         ]
       },
-      "OutputFormatResizingNotSupportedException": {
+      "OutputEditingNotSupportedException": {
         "allOf": [
           {
             "$ref": "#/components/schemas/PictureparkValidationException"
@@ -32429,10 +32429,12 @@
         "type": "string",
         "description": "",
         "x-enumNames": [
-          "Content"
+          "Content",
+          "ListItem"
         ],
         "enum": [
-          "Content"
+          "Content",
+          "ListItem"
         ]
       },
       "BusinessRuleActionsMissingException": {

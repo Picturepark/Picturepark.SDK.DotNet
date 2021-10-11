@@ -3243,7 +3243,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("NotSupportedFileMappingForDynamicFormatException", typeof(NotSupportedFileMappingForDynamicFormatException))]
     [JsonInheritanceAttribute("NotSupportedFileExtensionException", typeof(NotSupportedFileExtensionException))]
     [JsonInheritanceAttribute("DuplicateOutputFormatIdException", typeof(DuplicateOutputFormatIdException))]
-    [JsonInheritanceAttribute("OutputFormatResizingNotSupportedException", typeof(OutputFormatResizingNotSupportedException))]
+    [JsonInheritanceAttribute("OutputEditingNotSupportedException", typeof(OutputEditingNotSupportedException))]
     [JsonInheritanceAttribute("OutputBackupNotRequestedException", typeof(OutputBackupNotRequestedException))]
     [JsonInheritanceAttribute("OutputBackupHashMismatchException", typeof(OutputBackupHashMismatchException))]
     [JsonInheritanceAttribute("DownloadLinkExpiredException", typeof(DownloadLinkExpiredException))]
@@ -4765,7 +4765,7 @@ namespace Picturepark.SDK.V1.Contract
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
     [Newtonsoft.Json.JsonObjectAttribute]
-    public partial class OutputFormatResizingNotSupportedException : PictureparkValidationException
+    public partial class OutputEditingNotSupportedException : PictureparkValidationException
     {
         [Newtonsoft.Json.JsonProperty("contentId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ContentId { get; set; }
@@ -4778,9 +4778,9 @@ namespace Picturepark.SDK.V1.Contract
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
         }
     
-        public static OutputFormatResizingNotSupportedException FromJson(string data)
+        public static OutputEditingNotSupportedException FromJson(string data)
         {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<OutputFormatResizingNotSupportedException>(data);
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<OutputEditingNotSupportedException>(data);
         }
     
     }
@@ -9730,6 +9730,9 @@ namespace Picturepark.SDK.V1.Contract
     {
         [System.Runtime.Serialization.EnumMember(Value = @"Content")]
         Content = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"ListItem")]
+        ListItem = 1,
     
     }
     
