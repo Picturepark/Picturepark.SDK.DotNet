@@ -17481,9 +17481,9 @@
             "x-position": 1
           },
           {
-            "name": "sourceSchemas",
+            "name": "sourceSchema",
             "in": "query",
-            "description": "If true, the returned schemas contain also the source schemas for which the referenced schemas were requested. If false, the source schema is not returned (default behavior).",
+            "description": "If true, the returned schemas contain also the source schemas for which the referenced schemas were requested. If false, the source schemas are not returned (default behavior).",
             "schema": {
               "type": "boolean",
               "default": false
@@ -27810,7 +27810,7 @@
           }
         ]
       },
-      "OutputFormatResizingNotSupportedException": {
+      "OutputEditingNotSupportedException": {
         "allOf": [
           {
             "$ref": "#/components/schemas/PictureparkValidationException"
@@ -32429,10 +32429,12 @@
         "type": "string",
         "description": "",
         "x-enumNames": [
-          "Content"
+          "Content",
+          "ListItem"
         ],
         "enum": [
-          "Content"
+          "Content",
+          "ListItem"
         ]
       },
       "BusinessRuleActionsMissingException": {
