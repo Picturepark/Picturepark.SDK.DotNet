@@ -3250,6 +3250,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("RenderingNotAwaitedException", typeof(RenderingNotAwaitedException))]
     [JsonInheritanceAttribute("DuplicateContentDownloadRequestException", typeof(DuplicateContentDownloadRequestException))]
     [JsonInheritanceAttribute("InvalidContentDownloadRequestException", typeof(InvalidContentDownloadRequestException))]
+    [JsonInheritanceAttribute("DownloadNotFoundException", typeof(DownloadNotFoundException))]
     [JsonInheritanceAttribute("LeaseNotAcquiredException", typeof(LeaseNotAcquiredException))]
     [JsonInheritanceAttribute("OperationInProgressException", typeof(OperationInProgressException))]
     [JsonInheritanceAttribute("OwnerTokenNotFoundException", typeof(OwnerTokenNotFoundException))]
@@ -4889,6 +4890,25 @@ namespace Picturepark.SDK.V1.Contract
         public static InvalidContentDownloadRequestException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<InvalidContentDownloadRequestException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class DownloadNotFoundException : PictureparkNotFoundException
+    {
+        [Newtonsoft.Json.JsonProperty("token", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Token { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static DownloadNotFoundException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<DownloadNotFoundException>(data);
         }
     
     }
