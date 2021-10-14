@@ -27917,6 +27917,23 @@
           }
         ]
       },
+      "DownloadNotFoundException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkNotFoundException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "token": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
       "LeaseNotAcquiredException": {
         "allOf": [
           {
