@@ -10508,6 +10508,23 @@
           }
         ]
       },
+      "EmbedMultiDownloadException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "token": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
       "LeaseNotAcquiredException": {
         "allOf": [
           {
