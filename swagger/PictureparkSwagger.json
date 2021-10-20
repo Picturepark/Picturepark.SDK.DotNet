@@ -18613,10 +18613,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/OutputResolveResult"
-                  }
+                  "$ref": "#/components/schemas/ShareOutputsResult"
                 }
               }
             }
@@ -49151,12 +49148,12 @@
         "properties": {
           "contentSchemaId": {
             "type": "string",
-            "description": "The id of the schema with schema type content.",
+            "description": "The ID of the schema with schema type content.",
             "minLength": 1
           },
           "layerSchemaIds": {
             "type": "array",
-            "description": "An optional id list of schemas with type layer.",
+            "description": "An optional ID list of schemas with type layer.",
             "nullable": true,
             "items": {
               "type": "string"
@@ -49619,6 +49616,53 @@
           "pageToken": {
             "type": "string",
             "description": "An optional token to access the next page of results for those endpoints that support backend scrolling logic.",
+            "nullable": true
+          }
+        }
+      },
+      "ShareOutputsResult": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "outputs": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/OutputResolveResult"
+            }
+          },
+          "contentInfos": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/ShareContentInfo"
+            }
+          }
+        }
+      },
+      "ShareContentInfo": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "contentType"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Content ID.",
+            "nullable": true
+          },
+          "contentType": {
+            "description": "The type of content",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ContentType"
+              }
+            ]
+          },
+          "contentSchemaId": {
+            "type": "string",
+            "description": "The ID of the schema with schema type content.",
             "nullable": true
           }
         }
