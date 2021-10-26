@@ -28843,6 +28843,124 @@
           }
         ]
       },
+      "AggregationNameInvalidException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "aggregationName": {
+                "type": "string",
+                "nullable": true
+              },
+              "aggregationPrefix": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "AggregationNameMissingException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "AggregationSizeInvalidException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "description": "Size of the aggregation is invalid.",
+            "additionalProperties": false,
+            "properties": {
+              "aggregationName": {
+                "type": "string",
+                "description": "The name identifying the aggregation.",
+                "nullable": true
+              },
+              "aggregationSize": {
+                "type": "integer",
+                "description": "The invalid size of the aggregation: size must be equal or greater than 1.",
+                "format": "int32"
+              }
+            }
+          }
+        ]
+      },
+      "AggregationFilterNotSupportedException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "aggregationName": {
+                "type": "string",
+                "nullable": true
+              },
+              "notSupportedFilterType": {
+                "type": "string",
+                "nullable": true
+              },
+              "supportedFilterTypes": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "AggregationFieldMissingException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "aggregationName": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "AggregationPathMissingException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "aggregationName": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
       "DocumentVersionConflictException": {
         "allOf": [
           {
@@ -29897,124 +30015,6 @@
                 "nullable": true
               },
               "expectedTargetDocType": {
-                "type": "string",
-                "nullable": true
-              }
-            }
-          }
-        ]
-      },
-      "AggregationNameInvalidException": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/PictureparkValidationException"
-          },
-          {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "aggregationName": {
-                "type": "string",
-                "nullable": true
-              },
-              "aggregationPrefix": {
-                "type": "string",
-                "nullable": true
-              }
-            }
-          }
-        ]
-      },
-      "AggregationNameMissingException": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/PictureparkValidationException"
-          },
-          {
-            "type": "object",
-            "additionalProperties": false
-          }
-        ]
-      },
-      "AggregationSizeInvalidException": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/PictureparkValidationException"
-          },
-          {
-            "type": "object",
-            "description": "Size of the aggregation is invalid.",
-            "additionalProperties": false,
-            "properties": {
-              "aggregationName": {
-                "type": "string",
-                "description": "The name identifying the aggregation.",
-                "nullable": true
-              },
-              "aggregationSize": {
-                "type": "integer",
-                "description": "The invalid size of the aggregation: size must be equal or greater than 1.",
-                "format": "int32"
-              }
-            }
-          }
-        ]
-      },
-      "AggregationFilterNotSupportedException": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/PictureparkValidationException"
-          },
-          {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "aggregationName": {
-                "type": "string",
-                "nullable": true
-              },
-              "notSupportedFilterType": {
-                "type": "string",
-                "nullable": true
-              },
-              "supportedFilterTypes": {
-                "type": "array",
-                "nullable": true,
-                "items": {
-                  "type": "string"
-                }
-              }
-            }
-          }
-        ]
-      },
-      "AggregationFieldMissingException": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/PictureparkValidationException"
-          },
-          {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "aggregationName": {
-                "type": "string",
-                "nullable": true
-              }
-            }
-          }
-        ]
-      },
-      "AggregationPathMissingException": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/PictureparkValidationException"
-          },
-          {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "aggregationName": {
                 "type": "string",
                 "nullable": true
               }
