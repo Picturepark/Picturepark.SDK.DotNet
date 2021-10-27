@@ -12807,6 +12807,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("ContentPermissionSetUnassignedCondition", typeof(ContentPermissionSetUnassignedCondition))]
     [JsonInheritanceAttribute("FieldValueChangedCondition", typeof(FieldValueChangedCondition))]
     [JsonInheritanceAttribute("MatchRegexCondition", typeof(MatchRegexCondition))]
+    [JsonInheritanceAttribute("StringContainsCondition", typeof(StringContainsCondition))]
     [JsonInheritanceAttribute("TagboxItemAssignedCondition", typeof(TagboxItemAssignedCondition))]
     [JsonInheritanceAttribute("TagboxItemUnassignedCondition", typeof(TagboxItemUnassignedCondition))]
     [JsonInheritanceAttribute("ContentSchemaCondition", typeof(ContentSchemaCondition))]
@@ -13019,6 +13020,39 @@ namespace Picturepark.SDK.V1.Contract
         public static MatchRegexCondition FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<MatchRegexCondition>(data);
+        }
+    
+    }
+    
+    /// <summary>Matches when a field matching the field path string (JSON Path) changes and matches the given regular expression.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class StringContainsCondition : BusinessRuleCondition
+    {
+        /// <summary>JSON path to the field</summary>
+        [Newtonsoft.Json.JsonProperty("fieldPath", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string FieldPath { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("valuesToMatch", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> ValuesToMatch { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("valueToStore", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ValueToStore { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("caseInsensitive", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool CaseInsensitive { get; set; }
+    
+        /// <summary>Optional variable name to store the matched regex groups in</summary>
+        [Newtonsoft.Json.JsonProperty("storeIn", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string StoreIn { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static StringContainsCondition FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<StringContainsCondition>(data);
         }
     
     }
