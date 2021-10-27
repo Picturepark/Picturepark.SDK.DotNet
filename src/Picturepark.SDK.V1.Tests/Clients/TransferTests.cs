@@ -348,8 +348,10 @@ namespace Picturepark.SDK.V1.Tests.Clients
             await SetupSchema(typeof(PersonShot)).ConfigureAwait(false);
             string personId = await CreatePerson().ConfigureAwait(false);
 
-            var contentSearchResult = await RandomHelper.GetRandomContentsAsync(_client, string.Empty, 1, new[] { ContentType.Bitmap }).ConfigureAwait(false);
-            var urls = await GetContentsDownloadUrls(contentSearchResult).ConfigureAwait(false);
+            var urls = new[]
+            {
+                "https://en.wikipedia.org/static/images/project-logos/enwiki-1.5x.png"
+            };
 
             var createTransferResult = await CreateWebTransferAsync(urls).ConfigureAwait(false);
             var files = await _client.Transfer.SearchFilesByTransferIdAsync(createTransferResult.Transfer.Id, 1).ConfigureAwait(false);
