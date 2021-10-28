@@ -1532,6 +1532,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [JsonInheritanceAttribute("BusinessRuleScheduleInvalidCronExpressionException", typeof(BusinessRuleScheduleInvalidCronExpressionException))]
     [JsonInheritanceAttribute("BusinessRuleScheduleFilterMissingException", typeof(BusinessRuleScheduleFilterMissingException))]
     [JsonInheritanceAttribute("BusinessRuleScheduleRulesMissingException", typeof(BusinessRuleScheduleRulesMissingException))]
+    [JsonInheritanceAttribute("BusinessRuleStringContainsConditionValuesToMatchMissingException", typeof(BusinessRuleStringContainsConditionValuesToMatchMissingException))]
     [JsonInheritanceAttribute("NamedCacheConfigurationException", typeof(NamedCacheConfigurationException))]
     [JsonInheritanceAttribute("NamedCacheNameMissingException", typeof(NamedCacheNameMissingException))]
     [JsonInheritanceAttribute("NamedCacheNameDuplicationException", typeof(NamedCacheNameDuplicationException))]
@@ -8562,6 +8563,22 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         public static BusinessRuleScheduleRulesMissingException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessRuleScheduleRulesMissingException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class BusinessRuleStringContainsConditionValuesToMatchMissingException : PictureparkValidationException
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static BusinessRuleStringContainsConditionValuesToMatchMissingException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessRuleStringContainsConditionValuesToMatchMissingException>(data);
         }
     
     }

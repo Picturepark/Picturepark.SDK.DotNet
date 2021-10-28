@@ -3480,6 +3480,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("BusinessRuleScheduleInvalidCronExpressionException", typeof(BusinessRuleScheduleInvalidCronExpressionException))]
     [JsonInheritanceAttribute("BusinessRuleScheduleFilterMissingException", typeof(BusinessRuleScheduleFilterMissingException))]
     [JsonInheritanceAttribute("BusinessRuleScheduleRulesMissingException", typeof(BusinessRuleScheduleRulesMissingException))]
+    [JsonInheritanceAttribute("BusinessRuleStringContainsConditionValuesToMatchMissingException", typeof(BusinessRuleStringContainsConditionValuesToMatchMissingException))]
     [JsonInheritanceAttribute("NamedCacheConfigurationException", typeof(NamedCacheConfigurationException))]
     [JsonInheritanceAttribute("NamedCacheNameMissingException", typeof(NamedCacheNameMissingException))]
     [JsonInheritanceAttribute("NamedCacheNameDuplicationException", typeof(NamedCacheNameDuplicationException))]
@@ -10516,6 +10517,22 @@ namespace Picturepark.SDK.V1.Contract
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
     [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class BusinessRuleStringContainsConditionValuesToMatchMissingException : PictureparkValidationException
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static BusinessRuleStringContainsConditionValuesToMatchMissingException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessRuleStringContainsConditionValuesToMatchMissingException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
     public partial class NamedCacheConfigurationException : PictureparkValidationException
     {
         [Newtonsoft.Json.JsonProperty("innerExceptions", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -13032,16 +13049,19 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("fieldPath", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string FieldPath { get; set; }
     
+        /// <summary>A list of string value that will checked if at least one of them is contained in the string value identified by the FieldPath. Each value can be a variable containing a string.</summary>
         [Newtonsoft.Json.JsonProperty("valuesToMatch", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> ValuesToMatch { get; set; }
     
+        /// <summary>Optional value to be stored in the variable identified by StoreIn. It can be simple value or a complex object.</summary>
         [Newtonsoft.Json.JsonProperty("valueToStore", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string ValueToStore { get; set; }
+        public object ValueToStore { get; set; }
     
+        /// <summary>Decide if the StringContains condition should be processed case insensitive.</summary>
         [Newtonsoft.Json.JsonProperty("caseInsensitive", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool CaseInsensitive { get; set; }
     
-        /// <summary>Optional variable name to store the matched regex groups in</summary>
+        /// <summary>Optional variable name to store the ValueToStore in</summary>
         [Newtonsoft.Json.JsonProperty("storeIn", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string StoreIn { get; set; }
     

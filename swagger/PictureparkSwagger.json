@@ -33084,6 +33084,17 @@
           }
         ]
       },
+      "BusinessRuleStringContainsConditionValuesToMatchMissingException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
       "NamedCacheConfigurationException": {
         "allOf": [
           {
@@ -35637,21 +35648,23 @@
               },
               "valuesToMatch": {
                 "type": "array",
+                "description": "A list of string value that will checked if at least one of them is contained in the string value identified by the FieldPath. Each value can be a variable containing a string.",
                 "nullable": true,
                 "items": {
                   "type": "string"
                 }
               },
               "valueToStore": {
-                "type": "string",
+                "description": "Optional value to be stored in the variable identified by StoreIn. It can be simple value or a complex object.",
                 "nullable": true
               },
               "caseInsensitive": {
-                "type": "boolean"
+                "type": "boolean",
+                "description": "Decide if the StringContains condition should be processed case insensitive."
               },
               "storeIn": {
                 "type": "string",
-                "description": "Optional variable name to store the matched regex groups in",
+                "description": "Optional variable name to store the ValueToStore in",
                 "nullable": true
               }
             }
