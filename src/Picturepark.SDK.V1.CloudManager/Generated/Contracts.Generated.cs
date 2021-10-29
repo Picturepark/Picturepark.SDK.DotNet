@@ -11256,13 +11256,17 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [Newtonsoft.Json.JsonProperty("downloadFileNamePatterns", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public TranslatedStringDictionary DownloadFileNamePatterns { get; set; }
     
-        /// <summary>Indicates if outputs derived from original output format should be accessible also for users not having AccessOriginal permission on the content.</summary>
+        /// <summary>Indicates if outputs of this or derived formats should be accessible also for users not having AccessOriginal permission on the content.</summary>
         [Newtonsoft.Json.JsonProperty("viewForAll", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool ViewForAll { get; set; }
     
         /// <summary>Indicates if metadata should be written into XMP header of outputs where applicable and configured.</summary>
         [Newtonsoft.Json.JsonProperty("enableXmpWriteback", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool EnableXmpWriteback { get; set; }
+    
+        /// <summary>Defines additional settings for XmpWriteback</summary>
+        [Newtonsoft.Json.JsonProperty("xmpWritebackOptions", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public XmpWritebackOptions XmpWritebackOptions { get; set; }
     
         public string ToJson() 
         {
@@ -11273,6 +11277,40 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<OutputFormatEditable>(data);
         }
+    
+    }
+    
+    /// <summary>Defines additional settings for XmpWriteback</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class XmpWritebackOptions 
+    {
+        /// <summary>Defines how data from XmpMappings interacts with unaltered Xmp data contained in originally uploaded file</summary>
+        [Newtonsoft.Json.JsonProperty("mergeMode", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public XmpWritebackMergeMode MergeMode { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static XmpWritebackOptions FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<XmpWritebackOptions>(data);
+        }
+    
+    }
+    
+    /// <summary>Defines how data from XmpMappings interacts with unaltered Xmp data</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public enum XmpWritebackMergeMode
+    {
+        [System.Runtime.Serialization.EnumMember(Value = @"MappingOnly")]
+        MappingOnly = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"MergeWithOriginal")]
+        MergeWithOriginal = 1,
     
     }
     
