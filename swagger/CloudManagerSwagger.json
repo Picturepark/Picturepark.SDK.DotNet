@@ -18309,53 +18309,14 @@
               },
               "viewForAll": {
                 "type": "boolean",
-                "description": "Indicates if outputs of this or derived formats should be accessible also for users not having AccessOriginal permission on the content."
+                "description": "Indicates if outputs derived from original output format should be accessible also for users not having AccessOriginal permission on the content."
               },
               "enableXmpWriteback": {
                 "type": "boolean",
                 "description": "Indicates if metadata should be written into XMP header of outputs where applicable and configured."
-              },
-              "xmpWritebackOptions": {
-                "description": "Defines additional settings for XmpWriteback",
-                "nullable": true,
-                "oneOf": [
-                  {
-                    "$ref": "#/components/schemas/XmpWritebackOptions"
-                  }
-                ]
               }
             }
           }
-        ]
-      },
-      "XmpWritebackOptions": {
-        "type": "object",
-        "description": "Defines additional settings for XmpWriteback",
-        "additionalProperties": false,
-        "required": [
-          "mergeMode"
-        ],
-        "properties": {
-          "mergeMode": {
-            "description": "Defines how data from XmpMappings interacts with unaltered Xmp data contained in originally uploaded file",
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/XmpWritebackMergeMode"
-              }
-            ]
-          }
-        }
-      },
-      "XmpWritebackMergeMode": {
-        "type": "string",
-        "description": "Defines how data from XmpMappings interacts with unaltered Xmp data",
-        "x-enumNames": [
-          "MappingOnly",
-          "MergeWithOriginal"
-        ],
-        "enum": [
-          "MappingOnly",
-          "MergeWithOriginal"
         ]
       },
       "OutputFormatRenderingSpecification": {

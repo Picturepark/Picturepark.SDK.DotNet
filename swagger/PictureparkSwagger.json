@@ -35638,17 +35638,17 @@
           },
           {
             "type": "object",
-            "description": "Matches when a field matching the field path string (JSON Path) changes and matches the given regular expression.",
+            "description": "Matches when a field matching the field path string (JSON Path) changes and matches one of the specified values in ValuesToMatch",
             "additionalProperties": false,
             "properties": {
               "fieldPath": {
                 "type": "string",
-                "description": "JSON path to the field",
+                "description": "JSON path to the field.",
                 "nullable": true
               },
               "valuesToMatch": {
                 "type": "array",
-                "description": "A list of string value that will checked if at least one of them is contained in the string value identified by the FieldPath. Each value can be a variable containing a string.",
+                "description": "A list of string value that will checked if at least one of them is contained in the string value identified by the FieldPath.",
                 "nullable": true,
                 "items": {
                   "type": "string"
@@ -44913,51 +44913,17 @@
         }
       },
       "OutputFormatSetXmpWritebackStateRequest": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/XmpWritebackOptions"
-          },
-          {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "enabled": {
-                "type": "boolean",
-                "description": "Indicates if XMP writeback shall be enabled for the format."
-              }
-            }
-          }
-        ]
-      },
-      "XmpWritebackOptions": {
         "type": "object",
-        "description": "Defines additional settings for XmpWriteback",
         "additionalProperties": false,
         "required": [
-          "mergeMode"
+          "enabled"
         ],
         "properties": {
-          "mergeMode": {
-            "description": "Defines how data from XmpMappings interacts with unaltered Xmp data contained in originally uploaded file",
-            "oneOf": [
-              {
-                "$ref": "#/components/schemas/XmpWritebackMergeMode"
-              }
-            ]
+          "enabled": {
+            "type": "boolean",
+            "description": "Indicates if XMP writeback shall be enabled for the format."
           }
         }
-      },
-      "XmpWritebackMergeMode": {
-        "type": "string",
-        "description": "Defines how data from XmpMappings interacts with unaltered Xmp data",
-        "x-enumNames": [
-          "MappingOnly",
-          "MergeWithOriginal"
-        ],
-        "enum": [
-          "MappingOnly",
-          "MergeWithOriginal"
-        ]
       },
       "OutputFormatSetXmpWritebackStateManyRequest": {
         "type": "object",
@@ -46204,20 +46170,11 @@
               },
               "viewForAll": {
                 "type": "boolean",
-                "description": "Indicates if outputs of this or derived formats should be accessible also for users not having AccessOriginal permission on the content."
+                "description": "Indicates if outputs derived from original output format should be accessible also for users not having AccessOriginal permission on the content."
               },
               "enableXmpWriteback": {
                 "type": "boolean",
                 "description": "Indicates if metadata should be written into XMP header of outputs where applicable and configured."
-              },
-              "xmpWritebackOptions": {
-                "description": "Defines additional settings for XmpWriteback",
-                "nullable": true,
-                "oneOf": [
-                  {
-                    "$ref": "#/components/schemas/XmpWritebackOptions"
-                  }
-                ]
               }
             }
           }
