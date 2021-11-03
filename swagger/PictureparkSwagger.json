@@ -33084,6 +33084,17 @@
           }
         ]
       },
+      "BusinessRuleStringContainsConditionValuesToMatchMissingException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
       "NamedCacheConfigurationException": {
         "allOf": [
           {
@@ -35412,6 +35423,7 @@
             "ContentPermissionSetUnassignedCondition": "#/components/schemas/ContentPermissionSetUnassignedCondition",
             "FieldValueChangedCondition": "#/components/schemas/FieldValueChangedCondition",
             "MatchRegexCondition": "#/components/schemas/MatchRegexCondition",
+            "StringContainsCondition": "#/components/schemas/StringContainsCondition",
             "TagboxItemAssignedCondition": "#/components/schemas/TagboxItemAssignedCondition",
             "TagboxItemUnassignedCondition": "#/components/schemas/TagboxItemUnassignedCondition",
             "ContentSchemaCondition": "#/components/schemas/ContentSchemaCondition",
@@ -35613,6 +35625,46 @@
               "storeIn": {
                 "type": "string",
                 "description": "Optional variable name to store the matched regex groups in",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "StringContainsCondition": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BusinessRuleCondition"
+          },
+          {
+            "type": "object",
+            "description": "Matches when a field matching the field path string (JSON Path) changes and matches one of the specified values in ValuesToMatch",
+            "additionalProperties": false,
+            "properties": {
+              "fieldPath": {
+                "type": "string",
+                "description": "JSON path to the field.",
+                "nullable": true
+              },
+              "valuesToMatch": {
+                "type": "array",
+                "description": "A list of string value that will checked if at least one of them is contained in the string value identified by the FieldPath.",
+                "nullable": true,
+                "items": {
+                  "type": "string"
+                }
+              },
+              "valueToStore": {
+                "description": "Optional value to be stored in the variable identified by StoreIn. It can be simple value or a complex object.",
+                "nullable": true
+              },
+              "caseSensitive": {
+                "type": "boolean",
+                "description": "Decide if the StringContains condition should be processed case sensitive."
+              },
+              "storeIn": {
+                "type": "string",
+                "description": "Optional variable name to store the ValueToStore in",
                 "nullable": true
               }
             }
