@@ -33095,6 +33095,23 @@
           }
         ]
       },
+      "BusinessRuleDateMathTransformationTimeSpanInvalidException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "timeSpan": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
       "NamedCacheConfigurationException": {
         "allOf": [
           {
@@ -35922,7 +35939,25 @@
           {
             "type": "object",
             "description": "Matches whenever the assigned layers of a content changed.",
-            "additionalProperties": false
+            "additionalProperties": false,
+            "properties": {
+              "addedLayerIds": {
+                "type": "array",
+                "description": "Optional list of layer schema ids that must be added during the current content update operation in order for the condition to match.",
+                "nullable": true,
+                "items": {
+                  "type": "string"
+                }
+              },
+              "removedLayerIds": {
+                "type": "array",
+                "description": "Optional list of layer schema ids that must be removed during the current content update operation in order for the condition to match.",
+                "nullable": true,
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
           }
         ]
       },
@@ -36031,7 +36066,8 @@
             "LookupCacheTransformation": "#/components/schemas/LookupCacheTransformation",
             "NGramTransformation": "#/components/schemas/NGramTransformation",
             "ProjectionTransformation": "#/components/schemas/ProjectionTransformation",
-            "SplitTransformation": "#/components/schemas/SplitTransformation"
+            "SplitTransformation": "#/components/schemas/SplitTransformation",
+            "DateMathTransformation": "#/components/schemas/DateMathTransformation"
           }
         },
         "description": "Business rule transformation",
@@ -36200,6 +36236,25 @@
               "trim": {
                 "type": "boolean",
                 "description": "Trims each entry for punctuation and white space."
+              }
+            }
+          }
+        ]
+      },
+      "DateMathTransformation": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BusinessRuleTransformation"
+          },
+          {
+            "type": "object",
+            "description": "Add / remove a time span to a date time",
+            "additionalProperties": false,
+            "properties": {
+              "timeSpan": {
+                "type": "string",
+                "description": "String representation of a time span.",
+                "nullable": true
               }
             }
           }
