@@ -15672,6 +15672,23 @@
           }
         ]
       },
+      "BusinessRuleDateMathTransformationTimeSpanInvalidException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "timeSpan": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
       "NamedCacheConfigurationException": {
         "allOf": [
           {
