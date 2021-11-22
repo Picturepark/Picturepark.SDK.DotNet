@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class ContentClient
    | Picturepark.SDK.V1 API ">
-    <meta name="generator" content="docfx 2.58.4.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -952,6 +952,222 @@ By default the method waits for the search documents creation. Passing false, th
   </div>
   
   
+  <a id="Picturepark_SDK_V1_ContentClient_CheckContentSchemaChangeAsync_" data-uid="Picturepark.SDK.V1.ContentClient.CheckContentSchemaChangeAsync*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_ContentClient_CheckContentSchemaChangeAsync_Picturepark_SDK_V1_Contract_CheckContentSchemaIdChangeRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.ContentClient.CheckContentSchemaChangeAsync(Picturepark.SDK.V1.Contract.CheckContentSchemaIdChangeRequest,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_ContentClient_CheckContentSchemaChangeAsync_Picturepark_SDK_V1_Contract_CheckContentSchemaIdChangeRequest_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">CheckContentSchemaChangeAsync(CheckContentSchemaIdChangeRequest, CancellationToken)</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_ContentClient_CheckContentSchemaChangeAsync_Picturepark_SDK_V1_Contract_CheckContentSchemaIdChangeRequest_System_Threading_CancellationToken_" class="collapse in">
+  <div class="markdown level1 summary"><p>Check if given changes of ContentSchemaId are possible without incurring data loss (due to assigned Layers and LayerSchemaIds)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public async Task&lt;CheckContentSchemaIdChangeResult&gt; CheckContentSchemaChangeAsync(CheckContentSchemaIdChangeRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.CheckContentSchemaIdChangeRequest.html">CheckContentSchemaIdChangeRequest</a></span>
+        <span class="parametername">request</span>
+        <p><p>Changes to check</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
+        <span class="parametername">cancellationToken</span>
+        <p><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.CheckContentSchemaIdChangeResult.html">CheckContentSchemaIdChangeResult</a>&gt;
+        <p><p>Result indicating if data loss would occur for given requests</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="Picturepark.SDK.V1.Contract.IContentClient.html#Picturepark_SDK_V1_Contract_IContentClient_CheckContentSchemaChangeAsync_Picturepark_SDK_V1_Contract_CheckContentSchemaIdChangeRequest_System_Threading_CancellationToken_">IContentClient.CheckContentSchemaChangeAsync(CheckContentSchemaIdChangeRequest, CancellationToken)</a></div>
+  
+  
+  
+  <h5 class="exceptions">Exceptions</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
+        <p><p>A server side error occurred.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkForbiddenException.html">PictureparkForbiddenException</a>
+        <p><p>Forbidden</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
+        <p><p>Entity not found</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
+        <p><p>Version conflict</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  </div>
+  
+  
+  <a id="Picturepark_SDK_V1_ContentClient_CheckUpdateFileAsync_" data-uid="Picturepark.SDK.V1.ContentClient.CheckUpdateFileAsync*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_ContentClient_CheckUpdateFileAsync_System_String_Picturepark_SDK_V1_Contract_ContentFileUpdateCheckRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.ContentClient.CheckUpdateFileAsync(System.String,Picturepark.SDK.V1.Contract.ContentFileUpdateCheckRequest,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_ContentClient_CheckUpdateFileAsync_System_String_Picturepark_SDK_V1_Contract_ContentFileUpdateCheckRequest_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">CheckUpdateFileAsync(String, ContentFileUpdateCheckRequest, CancellationToken)</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_ContentClient_CheckUpdateFileAsync_System_String_Picturepark_SDK_V1_Contract_ContentFileUpdateCheckRequest_System_Threading_CancellationToken_" class="collapse in">
+  <div class="markdown level1 summary"><p>Check if a file update is possible without incurring data loss</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public async Task&lt;CheckContentSchemaIdChangeResult&gt; CheckUpdateFileAsync(string id, ContentFileUpdateCheckRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.String</span></span>
+        <span class="parametername">id</span>
+        <p><p>The ID of the content to replace.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.ContentFileUpdateCheckRequest.html">ContentFileUpdateCheckRequest</a></span>
+        <span class="parametername">request</span>
+        <p><p>Content file update request</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
+        <span class="parametername">cancellationToken</span>
+        <p><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.CheckContentSchemaIdChangeResult.html">CheckContentSchemaIdChangeResult</a>&gt;
+        <p><p>Information about data loss, if any</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="Picturepark.SDK.V1.Contract.IContentClient.html#Picturepark_SDK_V1_Contract_IContentClient_CheckUpdateFileAsync_System_String_Picturepark_SDK_V1_Contract_ContentFileUpdateCheckRequest_System_Threading_CancellationToken_">IContentClient.CheckUpdateFileAsync(String, ContentFileUpdateCheckRequest, CancellationToken)</a></div>
+  
+  
+  
+  <h5 class="exceptions">Exceptions</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
+        <p><p>A server side error occurred.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkForbiddenException.html">PictureparkForbiddenException</a>
+        <p><p>Forbidden</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
+        <p><p>Entity not found</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
+        <p><p>Version conflict</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  </div>
+  
+  
   <a id="Picturepark_SDK_V1_ContentClient_CreateAndAwaitDownloadLinkAsync_" data-uid="Picturepark.SDK.V1.ContentClient.CreateAndAwaitDownloadLinkAsync*"></a>
   
   <h4 id="Picturepark_SDK_V1_ContentClient_CreateAndAwaitDownloadLinkAsync_Picturepark_SDK_V1_Contract_ContentDownloadLinkCreateRequest_System_Nullable_System_TimeSpan__System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.ContentClient.CreateAndAwaitDownloadLinkAsync(Picturepark.SDK.V1.Contract.ContentDownloadLinkCreateRequest,System.Nullable{System.TimeSpan},System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_ContentClient_CreateAndAwaitDownloadLinkAsync_Picturepark_SDK_V1_Contract_ContentDownloadLinkCreateRequest_System_Nullable_System_TimeSpan__System_Threading_CancellationToken_" class="expander" data-toggle="collapse">CreateAndAwaitDownloadLinkAsync(ContentDownloadLinkCreateRequest, Nullable&lt;TimeSpan&gt;, CancellationToken)</a></h4>
@@ -1119,13 +1335,6 @@ By default the method waits for the search documents creation. Passing false, th
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
         <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkForbiddenException.html">PictureparkForbiddenException</a>
         <p><p>Forbidden</p>
 </p>
@@ -1149,6 +1358,20 @@ By default the method waits for the search documents creation. Passing false, th
       <td>
         <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
         <p><p>Internal server error</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.BusinessProcessLifeCycleNotHitException.html">BusinessProcessLifeCycleNotHitException</a>
+        <p><p>The specified wait timeout exceeded</p>
 </p>
       </td>
     </tr>
@@ -2424,6 +2647,125 @@ By default the method waits for the search documents creation. Passing false, th
   </div>
   
   
+  <a id="Picturepark_SDK_V1_ContentClient_EditOutputAsync_" data-uid="Picturepark.SDK.V1.ContentClient.EditOutputAsync*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_ContentClient_EditOutputAsync_System_String_System_String_System_String_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.ContentClient.EditOutputAsync(System.String,System.String,System.String,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_ContentClient_EditOutputAsync_System_String_System_String_System_String_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">EditOutputAsync(String, String, String, CancellationToken)</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_ContentClient_EditOutputAsync_System_String_System_String_System_String_System_Threading_CancellationToken_" class="collapse in">
+  <div class="markdown level1 summary"><p>Edit output</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public async Task&lt;FileResponse&gt; EditOutputAsync(string contentId, string outputFormatId, string conversionPreset, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.String</span></span>
+        <span class="parametername">contentId</span>
+        <p><p>The content ID.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.String</span></span>
+        <span class="parametername">outputFormatId</span>
+        <p><p>The output format ID.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.String</span></span>
+        <span class="parametername">conversionPreset</span>
+        <p><p>The conversion preset.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
+        <span class="parametername">cancellationToken</span>
+        <p><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.FileResponse.html">FileResponse</a>&gt;
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="Picturepark.SDK.V1.Contract.IContentClient.html#Picturepark_SDK_V1_Contract_IContentClient_EditOutputAsync_System_String_System_String_System_String_System_Threading_CancellationToken_">IContentClient.EditOutputAsync(String, String, String, CancellationToken)</a></div>
+  
+  
+  
+  <h5 class="exceptions">Exceptions</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
+        <p><p>A server side error occurred.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkForbiddenException.html">PictureparkForbiddenException</a>
+        <p><p>Forbidden</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
+        <p><p>Entity not found</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
+        <p><p>Version conflict</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  </div>
+  
+  
   <a id="Picturepark_SDK_V1_ContentClient_GetAsync_" data-uid="Picturepark.SDK.V1.ContentClient.GetAsync*"></a>
   
   <h4 id="Picturepark_SDK_V1_ContentClient_GetAsync_System_String_System_Collections_Generic_IEnumerable_Picturepark_SDK_V1_Contract_ContentResolveBehavior__System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.ContentClient.GetAsync(System.String,System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.Contract.ContentResolveBehavior},System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_ContentClient_GetAsync_System_String_System_Collections_Generic_IEnumerable_Picturepark_SDK_V1_Contract_ContentResolveBehavior__System_Threading_CancellationToken_" class="expander" data-toggle="collapse">GetAsync(String, IEnumerable&lt;ContentResolveBehavior&gt;, CancellationToken)</a></h4>
@@ -2512,13 +2854,6 @@ By default the method waits for the search documents creation. Passing false, th
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
-        <p><p>Entity not found</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
         <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
         <p><p>Version conflict</p>
 </p>
@@ -2528,6 +2863,20 @@ By default the method waits for the search documents creation. Passing false, th
       <td>
         <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
         <p><p>Internal server error</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
+        <p><p>Entity not found</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.ContentNotFoundException.html">ContentNotFoundException</a>
+        <p><p>Content not found</p>
 </p>
       </td>
     </tr>
@@ -2714,22 +3063,8 @@ By default the method waits for the search documents creation. Passing false, th
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
         <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkForbiddenException.html">PictureparkForbiddenException</a>
         <p><p>Forbidden</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
-        <p><p>Entity not found</p>
 </p>
       </td>
     </tr>
@@ -2744,6 +3079,34 @@ By default the method waits for the search documents creation. Passing false, th
       <td>
         <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
         <p><p>Internal server error</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.RequestSizeLimitExceededException.html">RequestSizeLimitExceededException</a>
+        <p><p>List of IDs exceeded maximum size</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
+        <p><p>Entity not found</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.ContentNotFoundException.html">ContentNotFoundException</a>
+        <p><p>One or more contents not found</p>
 </p>
       </td>
     </tr>
@@ -3413,6 +3776,214 @@ By default the method waits for the search documents creation. Passing false, th
   
   
   
+  
+  </div>
+  
+  
+  <a id="Picturepark_SDK_V1_ContentClient_RepairContentsBatchAsync_" data-uid="Picturepark.SDK.V1.ContentClient.RepairContentsBatchAsync*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_ContentClient_RepairContentsBatchAsync_Picturepark_SDK_V1_Contract_ContentRepairBatchRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.ContentClient.RepairContentsBatchAsync(Picturepark.SDK.V1.Contract.ContentRepairBatchRequest,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_ContentClient_RepairContentsBatchAsync_Picturepark_SDK_V1_Contract_ContentRepairBatchRequest_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">RepairContentsBatchAsync(ContentRepairBatchRequest, CancellationToken)</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_ContentClient_RepairContentsBatchAsync_Picturepark_SDK_V1_Contract_ContentRepairBatchRequest_System_Threading_CancellationToken_" class="collapse in">
+  <div class="markdown level1 summary"><p>Repair contents</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public async Task&lt;BusinessProcess&gt; RepairContentsBatchAsync(ContentRepairBatchRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.ContentRepairBatchRequest.html">ContentRepairBatchRequest</a></span>
+        <span class="parametername">request</span>
+        <p><p>Content repair request.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
+        <span class="parametername">cancellationToken</span>
+        <p><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.BusinessProcess.html">BusinessProcess</a>&gt;
+        <p><p>Business process</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="Picturepark.SDK.V1.Contract.IContentClient.html#Picturepark_SDK_V1_Contract_IContentClient_RepairContentsBatchAsync_Picturepark_SDK_V1_Contract_ContentRepairBatchRequest_System_Threading_CancellationToken_">IContentClient.RepairContentsBatchAsync(ContentRepairBatchRequest, CancellationToken)</a></div>
+  
+  
+  
+  <h5 class="exceptions">Exceptions</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
+        <p><p>A server side error occurred.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkForbiddenException.html">PictureparkForbiddenException</a>
+        <p><p>Forbidden</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
+        <p><p>Entity not found</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
+        <p><p>Version conflict</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  </div>
+  
+  
+  <a id="Picturepark_SDK_V1_ContentClient_RepairContentsByFilterAsync_" data-uid="Picturepark.SDK.V1.ContentClient.RepairContentsByFilterAsync*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_ContentClient_RepairContentsByFilterAsync_Picturepark_SDK_V1_Contract_ContentRepairByFilterRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.ContentClient.RepairContentsByFilterAsync(Picturepark.SDK.V1.Contract.ContentRepairByFilterRequest,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_ContentClient_RepairContentsByFilterAsync_Picturepark_SDK_V1_Contract_ContentRepairByFilterRequest_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">RepairContentsByFilterAsync(ContentRepairByFilterRequest, CancellationToken)</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_ContentClient_RepairContentsByFilterAsync_Picturepark_SDK_V1_Contract_ContentRepairByFilterRequest_System_Threading_CancellationToken_" class="collapse in">
+  <div class="markdown level1 summary"><p>Repair contents by filter</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public async Task&lt;BusinessProcess&gt; RepairContentsByFilterAsync(ContentRepairByFilterRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.ContentRepairByFilterRequest.html">ContentRepairByFilterRequest</a></span>
+        <span class="parametername">request</span>
+        <p><p>Content repair request.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
+        <span class="parametername">cancellationToken</span>
+        <p><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.BusinessProcess.html">BusinessProcess</a>&gt;
+        <p><p>Business process</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="Picturepark.SDK.V1.Contract.IContentClient.html#Picturepark_SDK_V1_Contract_IContentClient_RepairContentsByFilterAsync_Picturepark_SDK_V1_Contract_ContentRepairByFilterRequest_System_Threading_CancellationToken_">IContentClient.RepairContentsByFilterAsync(ContentRepairByFilterRequest, CancellationToken)</a></div>
+  
+  
+  
+  <h5 class="exceptions">Exceptions</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
+        <p><p>A server side error occurred.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkForbiddenException.html">PictureparkForbiddenException</a>
+        <p><p>Forbidden</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
+        <p><p>Entity not found</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
+        <p><p>Version conflict</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
+</p>
+      </td>
+    </tr>
+  </table>
   
   </div>
   
@@ -4321,13 +4892,6 @@ By default the method waits for the search documents creation. Passing false, th
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
         <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkForbiddenException.html">PictureparkForbiddenException</a>
         <p><p>Forbidden</p>
 </p>
@@ -4351,6 +4915,20 @@ By default the method waits for the search documents creation. Passing false, th
       <td>
         <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
         <p><p>Internal server error</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.BusinessProcessLifeCycleNotHitException.html">BusinessProcessLifeCycleNotHitException</a>
+        <p><p>The specified wait timeout exceeded</p>
 </p>
       </td>
     </tr>
@@ -4558,13 +5136,6 @@ By default the method waits for the search documents creation. Passing false, th
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
-        <p><p>Entity not found</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
         <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
         <p><p>Version conflict</p>
 </p>
@@ -4574,6 +5145,20 @@ By default the method waits for the search documents creation. Passing false, th
       <td>
         <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
         <p><p>Internal server error</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
+        <p><p>Entity not found</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.ContentNotFoundException.html">ContentNotFoundException</a>
+        <p><p>One or more contents not found</p>
 </p>
       </td>
     </tr>
@@ -4682,13 +5267,6 @@ By default the method waits for the search documents creation. Passing false, th
     </tr>
     <tr>
       <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
         <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkForbiddenException.html">PictureparkForbiddenException</a>
         <p><p>Forbidden</p>
 </p>
@@ -4712,6 +5290,20 @@ By default the method waits for the search documents creation. Passing false, th
       <td>
         <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
         <p><p>Internal server error</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.BusinessProcessLifeCycleNotHitException.html">BusinessProcessLifeCycleNotHitException</a>
+        <p><p>The specified wait timeout exceeded</p>
 </p>
       </td>
     </tr>
