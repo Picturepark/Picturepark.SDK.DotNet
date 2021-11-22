@@ -9,6 +9,7 @@ using System.IO.Compression;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
+using Picturepark.SDK.V1.Tests.Helpers;
 using Xunit;
 
 namespace Picturepark.SDK.V1.Tests.Clients
@@ -203,10 +204,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var outputFormat = new OutputFormat
             {
                 Id = $"OF-test-{guid}",
-                Names = new TranslatedStringDictionary
-                    {
-                        { "en", $"OF_test_{guid}" }
-                    },
+                Names = new TranslatedStringDictionary { ["en"] = $"OF_test_{guid}" },
                 Dynamic = true,
                 Format = new JpegFormat
                 {
@@ -432,6 +430,57 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var fileInfo = new FileInfo(filePath);
             fileInfo.Exists.Should().BeTrue();
             fileInfo.Length.Should().BeGreaterThan(0);
+        }
+
+        [Fact]
+        [Trait("Stack", "OutputFormats")]
+        public async Task ShouldCreateCopyFormatAndCopySourceFile()
+        {
+            // Arrange
+            var (createTransferResult, fileId) = await TransferHelper.CreateSingleFileTransferAsync(
+                _client,
+                Path.Combine(_fixture.ExampleFilesBasePath, "sample006.pdf"),
+                new UploadOptions { WaitForTransferCompletion = true });
+
+            await _client.Transfer.ImportAndWaitForCompletionAsync(createTransferResult.Transfer, new ImportTransferRequest()).ConfigureAwait(false);
+
+            var uploadedFile = await _client.Transfer.GetFileAsync(fileId);
+            var contentId = uploadedFile.ContentId;
+
+            var formatId = $"{nameof(ShouldCreateCopyFormatAndCopySourceFile)}{Guid.NewGuid():N}";
+            var format = new OutputFormat
+            {
+                Id = formatId,
+                Names = new TranslatedStringDictionary { ["en"] = formatId },
+                Dynamic = true,
+                SourceOutputFormats = new SourceOutputFormats
+                {
+                    Document = "Original" // CopyFormat is allowed for all regular files, not only for Images
+                },
+                Format = new CopyFormat()
+            };
+
+            await _fixture.Client.OutputFormat.CreateAsync(format);
+
+            var outputsForContent = await _fixture.Client.Content.GetOutputsAsync(contentId);
+            var outputForFormat = outputsForContent.Should().ContainSingle(o => o.OutputFormatId == formatId).Which;
+
+            outputForFormat.DynamicRendering.Should().BeTrue("it is a dynamic format");
+            outputForFormat.FileSize.Should().Be(uploadedFile.FileMetadata.FileSizeInBytes);
+            outputForFormat.RenderingState.Should().Be(OutputRenderingState.Skipped, "newly created dynamic format, rendered lazily");
+
+            var fileName = nameof(ShouldCreateCopyFormatAndCopySourceFile) + new Random().Next(0, 999999) + "-" + contentId + ".pdf";
+            var filePath = Path.Combine(_fixture.TempDirectory, fileName);
+            File.Delete(filePath);
+
+            // Act
+            using (var response = await _client.Content.DownloadAsync(contentId, formatId).ConfigureAwait(false))
+                await response.Stream.WriteToFileAsync(filePath).ConfigureAwait(false);
+
+            // Assert
+            var fileInfo = new FileInfo(filePath);
+            fileInfo.Exists.Should().BeTrue();
+            fileInfo.Length.Should().Be(outputForFormat.FileSize);
         }
     }
 }

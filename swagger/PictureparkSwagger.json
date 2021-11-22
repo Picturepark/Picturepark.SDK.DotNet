@@ -1,5 +1,5 @@
 {
-  "x-generator": "NSwag v13.6.2.0 (NJsonSchema v10.1.23.0 (Newtonsoft.Json v12.0.0.0))",
+  "x-generator": "NSwag v13.13.2.0 (NJsonSchema v10.5.2.0 (Newtonsoft.Json v12.0.0.0))",
   "openapi": "3.0.0",
   "info": {
     "title": "Picturepark API V1",
@@ -222,7 +222,7 @@
           "BusinessProcess"
         ],
         "summary": "Change business process state",
-        "description": "Only available for business processes created through BusinessProcessCreateRequest). The operation is executed asynchronously and is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.",
+        "description": "Only available for business processes created through Create. The operation is executed asynchronously and is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.",
         "operationId": "BusinessProcess_ChangeState",
         "parameters": [
           {
@@ -336,7 +336,7 @@
           "BusinessProcess"
         ],
         "summary": "Update business process notification",
-        "description": "Only available for business processes created through BusinessProcessCreateRequest).",
+        "description": "Only available for business processes created through Create.",
         "operationId": "BusinessProcess_UpdateNotification",
         "parameters": [
           {
@@ -4005,16 +4005,6 @@
               }
             }
           },
-          "404": {
-            "description": "Entity not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkNotFoundException"
-                }
-              }
-            }
-          },
           "405": {
             "description": "Method not allowed"
           },
@@ -4040,6 +4030,40 @@
                 }
               }
             }
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            },
+            "x-expectedSchemas": [
+              {
+                "description": "Entity not found",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkNotFoundException"
+                    }
+                  ]
+                }
+              },
+              {
+                "description": "Content not found",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/ContentNotFoundException"
+                    }
+                  ]
+                }
+              }
+            ]
           }
         },
         "security": [
@@ -4180,7 +4204,7 @@
           "Content"
         ],
         "summary": "Download content",
-        "description": "Download a single content in a specific output format. To resize images on download specify target width &amp; height. To download only a portion of the file, specify the range parameter.",
+        "description": "Download a single content in a specific output format. To resize images on download specify target width &amp; height. To download only a portion of the file, specify the range parameter.\nTo use conversion presets on download, e.g. to crop or rotate, please see [EditOutput](#operation/Content_EditOutput).",
         "operationId": "Content_Download",
         "parameters": [
           {
@@ -4234,6 +4258,144 @@
               "nullable": true
             },
             "x-position": 5
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": null,
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          },
+          "206": {
+            "description": null,
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          },
+          "412": {
+            "description": null
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "content_read"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/Contents/downloads/{contentId}/{outputFormatId}/{conversionPreset}": {
+      "get": {
+        "tags": [
+          "Content"
+        ],
+        "summary": "Edit output",
+        "description": "Edits a single content in a specific output format.",
+        "operationId": "Content_EditOutput",
+        "parameters": [
+          {
+            "name": "contentId",
+            "in": "path",
+            "required": true,
+            "description": "The content ID.",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 1
+          },
+          {
+            "name": "outputFormatId",
+            "in": "path",
+            "required": true,
+            "description": "The output format ID.",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 2
+          },
+          {
+            "name": "conversionPreset",
+            "in": "path",
+            "required": true,
+            "description": "The conversion preset.",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 3
           }
         ],
         "responses": {
@@ -4548,16 +4710,6 @@
               }
             }
           },
-          "400": {
-            "description": "Validation exception",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkValidationException"
-                }
-              }
-            }
-          },
           "401": {
             "description": "Unauthorized"
           },
@@ -4606,6 +4758,40 @@
                 }
               }
             }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            },
+            "x-expectedSchemas": [
+              {
+                "description": "Validation exception",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkValidationException"
+                    }
+                  ]
+                }
+              },
+              {
+                "description": "The specified wait timeout exceeded",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/BusinessProcessLifeCycleNotHitException"
+                    }
+                  ]
+                }
+              }
+            ]
           }
         },
         "security": [
@@ -4670,16 +4856,6 @@
               }
             }
           },
-          "400": {
-            "description": "Validation exception",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkValidationException"
-                }
-              }
-            }
-          },
           "401": {
             "description": "Unauthorized"
           },
@@ -4689,16 +4865,6 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/PictureparkForbiddenException"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Entity not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkNotFoundException"
                 }
               }
             }
@@ -4728,6 +4894,74 @@
                 }
               }
             }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            },
+            "x-expectedSchemas": [
+              {
+                "description": "Validation exception",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkValidationException"
+                    }
+                  ]
+                }
+              },
+              {
+                "description": "List of IDs exceeded maximum size",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/RequestSizeLimitExceededException"
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            },
+            "x-expectedSchemas": [
+              {
+                "description": "Entity not found",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkNotFoundException"
+                    }
+                  ]
+                }
+              },
+              {
+                "description": "One or more contents not found",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/ContentNotFoundException"
+                    }
+                  ]
+                }
+              }
+            ]
           }
         },
         "security": [
@@ -4830,16 +5064,6 @@
               }
             }
           },
-          "400": {
-            "description": "Validation exception",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkValidationException"
-                }
-              }
-            }
-          },
           "401": {
             "description": "Unauthorized"
           },
@@ -4888,6 +5112,40 @@
                 }
               }
             }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            },
+            "x-expectedSchemas": [
+              {
+                "description": "Validation exception",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkValidationException"
+                    }
+                  ]
+                }
+              },
+              {
+                "description": "The specified wait timeout exceeded",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/BusinessProcessLifeCycleNotHitException"
+                    }
+                  ]
+                }
+              }
+            ]
           }
         },
         "security": [
@@ -4980,16 +5238,6 @@
               }
             }
           },
-          "400": {
-            "description": "Validation exception",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkValidationException"
-                }
-              }
-            }
-          },
           "401": {
             "description": "Unauthorized"
           },
@@ -5038,6 +5286,40 @@
                 }
               }
             }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            },
+            "x-expectedSchemas": [
+              {
+                "description": "Validation exception",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkValidationException"
+                    }
+                  ]
+                }
+              },
+              {
+                "description": "The specified wait timeout exceeded",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/BusinessProcessLifeCycleNotHitException"
+                    }
+                  ]
+                }
+              }
+            ]
           }
         },
         "security": [
@@ -5297,6 +5579,219 @@
           {
             "Bearer": [
               "content_write"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/Contents/checkContentSchemaChange": {
+      "post": {
+        "tags": [
+          "Content"
+        ],
+        "summary": "Check if given changes of ContentSchemaId are possible without incurring data loss (due to assigned Layers and LayerSchemaIds)",
+        "operationId": "Content_CheckContentSchemaChange",
+        "requestBody": {
+          "x-name": "request",
+          "description": "Changes to check",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CheckContentSchemaIdChangeRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "Result indicating if data loss would occur for given requests",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CheckContentSchemaIdChangeResult"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "content_read"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/Contents/{id}/file/check": {
+      "post": {
+        "tags": [
+          "Content"
+        ],
+        "summary": "Check if a file update is possible without incurring data loss",
+        "operationId": "Content_CheckUpdateFile",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "The ID of the content to replace.",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 1
+          }
+        ],
+        "requestBody": {
+          "x-name": "request",
+          "description": "Content file update request",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ContentFileUpdateCheckRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 2
+        },
+        "responses": {
+          "200": {
+            "description": "Information about data loss, if any",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CheckContentSchemaIdChangeResult"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "content_read"
             ]
           }
         ]
@@ -5991,16 +6486,6 @@
               }
             }
           },
-          "404": {
-            "description": "Entity not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkNotFoundException"
-                }
-              }
-            }
-          },
           "405": {
             "description": "Method not allowed"
           },
@@ -6026,6 +6511,40 @@
                 }
               }
             }
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            },
+            "x-expectedSchemas": [
+              {
+                "description": "Entity not found",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkNotFoundException"
+                    }
+                  ]
+                }
+              },
+              {
+                "description": "One or more contents not found",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/ContentNotFoundException"
+                    }
+                  ]
+                }
+              }
+            ]
           }
         },
         "security": [
@@ -6742,6 +7261,208 @@
           {
             "Bearer": [
               "content_read"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/Contents/many/repair/filter": {
+      "post": {
+        "tags": [
+          "Content"
+        ],
+        "summary": "Repair contents by filter",
+        "description": "A repair operation re-extracts Metadata from the originally uploaded file, applies it and triggers follow-up actions where needed (e.g. Rendering, XmpWriteback)\nThe operation is executed asynchronous and is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.",
+        "operationId": "Content_RepairContentsByFilter",
+        "requestBody": {
+          "x-name": "request",
+          "description": "Content repair request.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ContentRepairByFilterRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "Business process",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BusinessProcess"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "content_write"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/Contents/many/repair/batch": {
+      "post": {
+        "tags": [
+          "Content"
+        ],
+        "summary": "Repair contents",
+        "description": "A repair operation re-extracts Metadata from the originally uploaded file, applies it and triggers follow-up actions where needed (e.g. Rendering, XmpWriteback)\nThe operation is executed asynchronous and is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.",
+        "operationId": "Content_RepairContentsBatch",
+        "requestBody": {
+          "x-name": "request",
+          "description": "Content repair request.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ContentRepairBatchRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "Business process",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BusinessProcess"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "content_write"
             ]
           }
         ]
@@ -12282,7 +13003,7 @@
         "operationId": "OutputFormat_SetXmpWritebackState2",
         "requestBody": {
           "x-name": "request",
-          "description": "The request containing the state to be set for the output format.",
+          "description": "The request containing the state changes for each output format.",
           "content": {
             "application/json": {
               "schema": {
@@ -12528,16 +13249,6 @@
               }
             }
           },
-          "400": {
-            "description": "List of IDs exceeded maximum size",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RequestSizeLimitExceededException"
-                }
-              }
-            }
-          },
           "401": {
             "description": "Unauthorized"
           },
@@ -12586,6 +13297,40 @@
                 }
               }
             }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            },
+            "x-expectedSchemas": [
+              {
+                "description": "Validation exception",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkValidationException"
+                    }
+                  ]
+                }
+              },
+              {
+                "description": "List of IDs exceeded maximum size",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/RequestSizeLimitExceededException"
+                    }
+                  ]
+                }
+              }
+            ]
           }
         },
         "security": [
@@ -15262,16 +16007,6 @@
               }
             }
           },
-          "404": {
-            "description": "Entity not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkNotFoundException"
-                }
-              }
-            }
-          },
           "405": {
             "description": "Method not allowed"
           },
@@ -15297,6 +16032,40 @@
                 }
               }
             }
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            },
+            "x-expectedSchemas": [
+              {
+                "description": "Entity not found",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkNotFoundException"
+                    }
+                  ]
+                }
+              },
+              {
+                "description": "Requested schema could not be found",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/SchemaNotFoundException"
+                    }
+                  ]
+                }
+              }
+            ]
           }
         },
         "security": [
@@ -15362,16 +16131,6 @@
               }
             }
           },
-          "400": {
-            "description": "Validation exception",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkValidationException"
-                }
-              }
-            }
-          },
           "401": {
             "description": "Unauthorized"
           },
@@ -15381,16 +16140,6 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/PictureparkForbiddenException"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Entity not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkNotFoundException"
                 }
               }
             }
@@ -15420,6 +16169,85 @@
                 }
               }
             }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            },
+            "x-expectedSchemas": [
+              {
+                "description": "Validation exception",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkValidationException"
+                    }
+                  ]
+                }
+              },
+              {
+                "description": "Argument must not be null",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkArgumentNullException"
+                    }
+                  ]
+                }
+              },
+              {
+                "description": "The validation exception of schema update",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/SchemaValidationException"
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            },
+            "x-expectedSchemas": [
+              {
+                "description": "Entity not found",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkNotFoundException"
+                    }
+                  ]
+                }
+              },
+              {
+                "description": "Schema with this ID could not be found",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/SchemaNotFoundException"
+                    }
+                  ]
+                }
+              }
+            ]
           }
         },
         "security": [
@@ -15472,16 +16300,6 @@
               }
             }
           },
-          "400": {
-            "description": "Validation exception",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkValidationException"
-                }
-              }
-            }
-          },
           "401": {
             "description": "Unauthorized"
           },
@@ -15491,16 +16309,6 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/PictureparkForbiddenException"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Entity not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkNotFoundException"
                 }
               }
             }
@@ -15530,6 +16338,85 @@
                 }
               }
             }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            },
+            "x-expectedSchemas": [
+              {
+                "description": "Validation exception",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkValidationException"
+                    }
+                  ]
+                }
+              },
+              {
+                "description": "Argument must not be null",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkArgumentNullException"
+                    }
+                  ]
+                }
+              },
+              {
+                "description": "Schema is used in other entities and cannot be deleted",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/SchemaInUseException"
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            },
+            "x-expectedSchemas": [
+              {
+                "description": "Entity not found",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkNotFoundException"
+                    }
+                  ]
+                }
+              },
+              {
+                "description": "Schema with this ID could not be found",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/SchemaNotFoundException"
+                    }
+                  ]
+                }
+              }
+            ]
           }
         },
         "security": [
@@ -15759,7 +16646,7 @@
         "tags": [
           "Schema"
         ],
-        "summary": "Gets all schemas referenced by the schema specified in ",
+        "summary": "Gets all schemas referenced by the schema specified in id",
         "description": "Can fetch referencing schemas for 100 schemas at most.",
         "operationId": "Schema_GetReferenced",
         "parameters": [
@@ -15773,6 +16660,16 @@
               "nullable": true
             },
             "x-position": 1
+          },
+          {
+            "name": "sourceSchema",
+            "in": "query",
+            "description": "If true, the returned schemas contain also the source schema for which the referenced schemas were requested. If false, the source schema is not returned (default behavior).",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            },
+            "x-position": 2
           }
         ],
         "responses": {
@@ -15785,16 +16682,6 @@
                   "items": {
                     "$ref": "#/components/schemas/SchemaDetail"
                   }
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Validation exception",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkValidationException"
                 }
               }
             }
@@ -15847,6 +16734,40 @@
                 }
               }
             }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            },
+            "x-expectedSchemas": [
+              {
+                "description": "Validation exception",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkValidationException"
+                    }
+                  ]
+                }
+              },
+              {
+                "description": "List of IDs exceeded maximum size",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/RequestSizeLimitExceededException"
+                    }
+                  ]
+                }
+              }
+            ]
           }
         },
         "security": [
@@ -15864,7 +16785,7 @@
           "Schema"
         ],
         "summary": "Transfer ownership",
-        "description": "Transfer ownership of the schema specified in ",
+        "description": "Transfer ownership of the schema specified in id",
         "operationId": "Schema_TransferOwnership",
         "parameters": [
           {
@@ -16021,16 +16942,6 @@
               }
             }
           },
-          "400": {
-            "description": "Validation exception",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkValidationException"
-                }
-              }
-            }
-          },
           "401": {
             "description": "Unauthorized"
           },
@@ -16079,6 +16990,62 @@
                 }
               }
             }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            },
+            "x-expectedSchemas": [
+              {
+                "description": "Validation exception",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkValidationException"
+                    }
+                  ]
+                }
+              },
+              {
+                "description": "Schema with this name already exists",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/DuplicateSchemaException"
+                    }
+                  ]
+                }
+              },
+              {
+                "description": "Argument must not be null",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkArgumentNullException"
+                    }
+                  ]
+                }
+              },
+              {
+                "description": "The validation exception of schema creation",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/SchemaValidationException"
+                    }
+                  ]
+                }
+              }
+            ]
           }
         },
         "security": [
@@ -16127,16 +17094,6 @@
               }
             }
           },
-          "400": {
-            "description": "Validation exception",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkValidationException"
-                }
-              }
-            }
-          },
           "401": {
             "description": "Unauthorized"
           },
@@ -16185,6 +17142,40 @@
                 }
               }
             }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            },
+            "x-expectedSchemas": [
+              {
+                "description": "Validation exception",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkValidationException"
+                    }
+                  ]
+                }
+              },
+              {
+                "description": "List of IDs exceeded maximum size",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/RequestSizeLimitExceededException"
+                    }
+                  ]
+                }
+              }
+            ]
           }
         },
         "security": [
@@ -16228,16 +17219,6 @@
               }
             }
           },
-          "400": {
-            "description": "Validation exception",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkValidationException"
-                }
-              }
-            }
-          },
           "401": {
             "description": "Unauthorized"
           },
@@ -16286,6 +17267,62 @@
                 }
               }
             }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            },
+            "x-expectedSchemas": [
+              {
+                "description": "Validation exception",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkValidationException"
+                    }
+                  ]
+                }
+              },
+              {
+                "description": "One or more schemas in the request already exist",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/DuplicateSchemaException"
+                    }
+                  ]
+                }
+              },
+              {
+                "description": "Argument must not be null",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkArgumentNullException"
+                    }
+                  ]
+                }
+              },
+              {
+                "description": "One or more schemas failed to validate",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/SchemaValidationException"
+                    }
+                  ]
+                }
+              }
+            ]
           }
         },
         "security": [
@@ -16327,16 +17364,6 @@
               }
             }
           },
-          "400": {
-            "description": "Validation exception",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkValidationException"
-                }
-              }
-            }
-          },
           "401": {
             "description": "Unauthorized"
           },
@@ -16385,6 +17412,40 @@
                 }
               }
             }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            },
+            "x-expectedSchemas": [
+              {
+                "description": "Validation exception",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkValidationException"
+                    }
+                  ]
+                }
+              },
+              {
+                "description": "Argument must not be null",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkArgumentNullException"
+                    }
+                  ]
+                }
+              }
+            ]
           }
         },
         "security": [
@@ -16401,7 +17462,7 @@
         "tags": [
           "Schema"
         ],
-        "summary": "Gets all schemas referenced by the schemas specified in ",
+        "summary": "Gets all schemas referenced by the schemas specified in ids",
         "operationId": "Schema_GetManyReferenced",
         "parameters": [
           {
@@ -16418,6 +17479,16 @@
               }
             },
             "x-position": 1
+          },
+          {
+            "name": "sourceSchema",
+            "in": "query",
+            "description": "If true, the returned schemas contain also the source schemas for which the referenced schemas were requested. If false, the source schemas are not returned (default behavior).",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            },
+            "x-position": 2
           }
         ],
         "responses": {
@@ -17157,16 +18228,6 @@
               }
             }
           },
-          "400": {
-            "description": "Validation exception",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkValidationException"
-                }
-              }
-            }
-          },
           "401": {
             "description": "Unauthorized"
           },
@@ -17215,6 +18276,51 @@
                 }
               }
             }
+          },
+          "400": {
+            "description": null,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkBusinessException"
+                }
+              }
+            },
+            "x-expectedSchemas": [
+              {
+                "description": "Validation exception",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkValidationException"
+                    }
+                  ]
+                }
+              },
+              {
+                "description": "File transfer not found",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/FileTransferNotFoundException"
+                    }
+                  ]
+                }
+              },
+              {
+                "description": "Argument must not be null",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkArgumentNullException"
+                    }
+                  ]
+                }
+              }
+            ]
           }
         },
         "security": [
@@ -17248,6 +18354,7 @@
           },
           {
             "name": "lang",
+            "x-originalName": "languageCode",
             "in": "query",
             "description": "Language code",
             "schema": {
@@ -17377,6 +18484,7 @@
           },
           {
             "name": "lang",
+            "x-originalName": "languageCode",
             "in": "query",
             "description": "Language code",
             "schema": {
@@ -17413,6 +18521,99 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ShareContentDetailResult"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/Shares/json/{token}/outputs": {
+      "get": {
+        "tags": [
+          "Share"
+        ],
+        "summary": "Get shared outputs",
+        "operationId": "Share_GetOutputsInShare",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "path",
+            "required": true,
+            "description": "Share token",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of OutputResolveResult",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ShareOutputsResult"
                 }
               }
             }
@@ -17617,6 +18818,110 @@
             "description": null
           }
         }
+      },
+      "post": {
+        "tags": [
+          "Share"
+        ],
+        "summary": "Download selection of a share",
+        "operationId": "Share_CreateShareSelectionDownloadLink",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "path",
+            "required": true,
+            "description": "Share token",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 1
+          }
+        ],
+        "requestBody": {
+          "x-name": "request",
+          "description": "Share download request",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ShareDownloadRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 2
+        },
+        "responses": {
+          "200": {
+            "description": "DownloadLink",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DownloadLink"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          }
+        }
       }
     },
     "/v1/Shares/d/{token}/{contentId}/{outputFormatId}": {
@@ -17692,6 +18997,135 @@
               "nullable": true
             },
             "x-position": 6
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": null,
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          },
+          "206": {
+            "description": null,
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          },
+          "412": {
+            "description": null
+          }
+        }
+      }
+    },
+    "/v1/Shares/d/{token}/{conversionPreset}": {
+      "get": {
+        "tags": [
+          "Share"
+        ],
+        "summary": "Download shared outputs",
+        "operationId": "Share_DownloadWithConversionPreset",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "path",
+            "required": true,
+            "description": "Share token",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 1
+          },
+          {
+            "name": "conversionPreset",
+            "in": "path",
+            "required": true,
+            "description": "Image editing specification",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 2
+          },
+          {
+            "name": "range",
+            "in": "header",
+            "description": "The range of bytes to download (http range header): bytes={from}-{to} (e.g. bytes=0-100000)",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 3
           }
         ],
         "responses": {
@@ -17863,16 +19297,6 @@
               }
             }
           },
-          "404": {
-            "description": "Entity not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkNotFoundException"
-                }
-              }
-            }
-          },
           "405": {
             "description": "Method not allowed"
           },
@@ -17898,6 +19322,40 @@
                 }
               }
             }
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            },
+            "x-expectedSchemas": [
+              {
+                "description": "Entity not found",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkNotFoundException"
+                    }
+                  ]
+                }
+              },
+              {
+                "description": "Share could not be found",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/ShareNotFoundException"
+                    }
+                  ]
+                }
+              }
+            ]
           }
         },
         "security": [
@@ -17952,16 +19410,6 @@
               }
             }
           },
-          "400": {
-            "description": "Validation exception",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkValidationException"
-                }
-              }
-            }
-          },
           "401": {
             "description": "Unauthorized"
           },
@@ -18010,6 +19458,39 @@
                 }
               }
             }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            },
+            "x-expectedSchemas": [
+              {
+                "description": "Validation exception",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkValidationException"
+                    }
+                  ]
+                }
+              },
+              {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/BusinessProcessLifeCycleNotHitException"
+                    }
+                  ]
+                }
+              }
+            ]
           }
         },
         "security": [
@@ -18186,26 +19667,6 @@
           "401": {
             "description": "Unauthorized"
           },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkForbiddenException"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Entity not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkNotFoundException"
-                }
-              }
-            }
-          },
           "405": {
             "description": "Method not allowed"
           },
@@ -18231,6 +19692,74 @@
                 }
               }
             }
+          },
+          "403": {
+            "description": null,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkBusinessException"
+                }
+              }
+            },
+            "x-expectedSchemas": [
+              {
+                "description": "Forbidden",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkForbiddenException"
+                    }
+                  ]
+                }
+              },
+              {
+                "description": "No permission to share",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PermissionValidationException"
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            },
+            "x-expectedSchemas": [
+              {
+                "description": "Entity not found",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkNotFoundException"
+                    }
+                  ]
+                }
+              },
+              {
+                "description": "Content could not be found",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/ContentNotFoundException"
+                    }
+                  ]
+                }
+              }
+            ]
           }
         },
         "security": [
@@ -19586,16 +21115,6 @@
               }
             }
           },
-          "400": {
-            "description": "Validation exception",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkValidationException"
-                }
-              }
-            }
-          },
           "401": {
             "description": "Unauthorized"
           },
@@ -19644,6 +21163,39 @@
                 }
               }
             }
+          },
+          "400": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            },
+            "x-expectedSchemas": [
+              {
+                "description": "Validation exception",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkValidationException"
+                    }
+                  ]
+                }
+              },
+              {
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/MaximumTransferSizeException"
+                    }
+                  ]
+                }
+              }
+            ]
           }
         },
         "security": [
@@ -20661,6 +22213,7 @@
         "parameters": [
           {
             "name": "ChunkNumber",
+            "x-originalName": "upload",
             "in": "query",
             "required": true,
             "description": "Information about chunk.",
@@ -20672,6 +22225,7 @@
           },
           {
             "name": "CurrentChunkSize",
+            "x-originalName": "upload",
             "in": "query",
             "required": true,
             "description": "Information about chunk.",
@@ -20683,6 +22237,7 @@
           },
           {
             "name": "TotalSize",
+            "x-originalName": "upload",
             "in": "query",
             "required": true,
             "description": "Information about chunk.",
@@ -20694,6 +22249,7 @@
           },
           {
             "name": "TotalChunks",
+            "x-originalName": "upload",
             "in": "query",
             "required": true,
             "description": "Information about chunk.",
@@ -20732,7 +22288,8 @@
           "content": {
             "application/octet-stream": {
               "schema": {
-                "type": "file"
+                "type": "string",
+                "format": "binary"
               }
             }
           }
@@ -20949,16 +22506,6 @@
               }
             }
           },
-          "400": {
-            "description": "List of IDs exceeded maximum size",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RequestSizeLimitExceededException"
-                }
-              }
-            }
-          },
           "401": {
             "description": "Unauthorized"
           },
@@ -21007,6 +22554,40 @@
                 }
               }
             }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            },
+            "x-expectedSchemas": [
+              {
+                "description": "Validation exception",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkValidationException"
+                    }
+                  ]
+                }
+              },
+              {
+                "description": "List of IDs exceeded maximum size",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/RequestSizeLimitExceededException"
+                    }
+                  ]
+                }
+              }
+            ]
           }
         },
         "security": [
@@ -24473,16 +26054,6 @@
               }
             }
           },
-          "400": {
-            "description": "List of IDs exceeded maximum size",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RequestSizeLimitExceededException"
-                }
-              }
-            }
-          },
           "401": {
             "description": "Unauthorized"
           },
@@ -24531,6 +26102,40 @@
                 }
               }
             }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            },
+            "x-expectedSchemas": [
+              {
+                "description": "Validation exception",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkValidationException"
+                    }
+                  ]
+                }
+              },
+              {
+                "description": "List of IDs exceeded maximum size",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/RequestSizeLimitExceededException"
+                    }
+                  ]
+                }
+              }
+            ]
           }
         },
         "security": [
@@ -25169,13 +26774,7 @@
           },
           {
             "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "reference": {
-                "type": "string",
-                "nullable": true
-              }
-            }
+            "additionalProperties": false
           }
         ]
       },
@@ -25657,6 +27256,30 @@
           }
         ]
       },
+      "LanguageCodeNotExistingException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "languageCode": {
+                "type": "string",
+                "nullable": true
+              },
+              "existingLanguageCodes": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ]
+      },
       "RenderingException": {
         "allOf": [
           {
@@ -26010,6 +27633,48 @@
           }
         ]
       },
+      "DuplicateSharedOutputException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "contentId": {
+                "type": "string",
+                "nullable": true
+              },
+              "outputFormatId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "DuplicateEmbedConversionPresetException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "contentId": {
+                "type": "string",
+                "nullable": true
+              },
+              "outputFormatId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
       "OutputIdNotFoundException": {
         "allOf": [
           {
@@ -26030,7 +27695,7 @@
       "OutputNotFoundException": {
         "allOf": [
           {
-            "$ref": "#/components/schemas/PictureparkBusinessException"
+            "$ref": "#/components/schemas/PictureparkNotFoundException"
           },
           {
             "type": "object",
@@ -26045,6 +27710,17 @@
                 "nullable": true
               }
             }
+          }
+        ]
+      },
+      "UnmodifiedOriginalOutputNotFoundException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/OutputNotFoundException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
           }
         ]
       },
@@ -26131,7 +27807,7 @@
           }
         ]
       },
-      "OutputFormatResizingNotSupportedException": {
+      "OutputEditingNotSupportedException": {
         "allOf": [
           {
             "$ref": "#/components/schemas/PictureparkValidationException"
@@ -26203,6 +27879,72 @@
           {
             "type": "object",
             "additionalProperties": false
+          }
+        ]
+      },
+      "DuplicateContentDownloadRequestException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "contentId": {
+                "type": "string",
+                "nullable": true
+              },
+              "outputFormatId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "InvalidContentDownloadRequestException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "DownloadNotFoundException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkNotFoundException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "token": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "EmbedMultiDownloadException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "token": {
+                "type": "string",
+                "nullable": true
+              }
+            }
           }
         ]
       },
@@ -27101,6 +28843,124 @@
           }
         ]
       },
+      "AggregationNameInvalidException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "aggregationName": {
+                "type": "string",
+                "nullable": true
+              },
+              "aggregationPrefix": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "AggregationNameMissingException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "AggregationSizeInvalidException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "description": "Size of the aggregation is invalid.",
+            "additionalProperties": false,
+            "properties": {
+              "aggregationName": {
+                "type": "string",
+                "description": "The name identifying the aggregation.",
+                "nullable": true
+              },
+              "aggregationSize": {
+                "type": "integer",
+                "description": "The invalid size of the aggregation: size must be equal or greater than 1.",
+                "format": "int32"
+              }
+            }
+          }
+        ]
+      },
+      "AggregationFilterNotSupportedException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "aggregationName": {
+                "type": "string",
+                "nullable": true
+              },
+              "notSupportedFilterType": {
+                "type": "string",
+                "nullable": true
+              },
+              "supportedFilterTypes": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "AggregationFieldMissingException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "aggregationName": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "AggregationPathMissingException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "aggregationName": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
       "DocumentVersionConflictException": {
         "allOf": [
           {
@@ -27286,7 +29146,8 @@
           "ManageXmpMappings",
           "ReadStatistics",
           "WriteStatistics",
-          "ExportStatistics"
+          "ExportStatistics",
+          "EditImages"
         ],
         "enum": [
           "ManageContent",
@@ -27312,7 +29173,8 @@
           "ManageXmpMappings",
           "ReadStatistics",
           "WriteStatistics",
-          "ExportStatistics"
+          "ExportStatistics",
+          "EditImages"
         ]
       },
       "PermissionSetNotFoundException": {
@@ -28155,79 +30017,6 @@
               "expectedTargetDocType": {
                 "type": "string",
                 "nullable": true
-              }
-            }
-          }
-        ]
-      },
-      "AggregationNameInvalidException": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/PictureparkValidationException"
-          },
-          {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "aggregationName": {
-                "type": "string",
-                "nullable": true
-              },
-              "aggregationPrefix": {
-                "type": "string",
-                "nullable": true
-              }
-            }
-          }
-        ]
-      },
-      "AggregationSizeInvalidException": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/PictureparkValidationException"
-          },
-          {
-            "type": "object",
-            "description": "Size of the aggregation is invalid.",
-            "additionalProperties": false,
-            "properties": {
-              "aggregationName": {
-                "type": "string",
-                "description": "The name identifying the aggregation.",
-                "nullable": true
-              },
-              "aggregationSize": {
-                "type": "integer",
-                "description": "The invalid size of the aggregation: size must be equal or greater than 1.",
-                "format": "int32"
-              }
-            }
-          }
-        ]
-      },
-      "AggregationFilterNotSupportedException": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/PictureparkValidationException"
-          },
-          {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "aggregationName": {
-                "type": "string",
-                "nullable": true
-              },
-              "notSupportedFilterType": {
-                "type": "string",
-                "nullable": true
-              },
-              "supportedFilterTypes": {
-                "type": "array",
-                "nullable": true,
-                "items": {
-                  "type": "string"
-                }
               }
             }
           }
@@ -30187,6 +31976,62 @@
           }
         ]
       },
+      "ContentSchemaChangeException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "contentId": {
+                "type": "string",
+                "description": "Content for which a change to RequestedContentSchemaId would cause data loss",
+                "nullable": true
+              },
+              "requestedContentSchemaId": {
+                "type": "string",
+                "description": "ContentSchemaId to which the Content would have been changed",
+                "nullable": true
+              },
+              "incompatibleLayerAssignments": {
+                "type": "array",
+                "description": "Layers assigned to this Content which are not allowed for contents of type RequestedContentSchemaId",
+                "nullable": true,
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "ConcurrentFileReplacementDuringRepairException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkConflictException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "contentId": {
+                "type": "string",
+                "nullable": true
+              },
+              "expectedOriginalFileVersion": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "actualOriginalFileVersion": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          }
+        ]
+      },
       "BusinessProcessEngineRequestException": {
         "allOf": [
           {
@@ -30660,10 +32505,12 @@
         "type": "string",
         "description": "",
         "x-enumNames": [
-          "Content"
+          "Content",
+          "ListItem"
         ],
         "enum": [
-          "Content"
+          "Content",
+          "ListItem"
         ]
       },
       "BusinessRuleActionsMissingException": {
@@ -31463,6 +33310,26 @@
           }
         ]
       },
+      "OutputFormatXmpWritebackDerivedFromCopyFormatNotSupportedException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/OutputFormatXmpWritebackNotSupportedException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "derivingCopyFormatIds": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ]
+      },
       "OutputFormatsInUseException": {
         "allOf": [
           {
@@ -31530,6 +33397,30 @@
           {
             "type": "object",
             "additionalProperties": false
+          }
+        ]
+      },
+      "OutputFormatSourceNotValidForRenderingCategoryException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "outputFormatId": {
+                "type": "string",
+                "nullable": true
+              },
+              "sourceFormatId": {
+                "type": "string",
+                "nullable": true
+              },
+              "renderingCategory": {
+                "$ref": "#/components/schemas/RenderingCategory"
+              }
+            }
           }
         ]
       },
@@ -31894,7 +33785,9 @@
       },
       "ProblemDetails": {
         "type": "object",
-        "additionalProperties": false,
+        "additionalProperties": {
+          "nullable": true
+        },
         "properties": {
           "type": {
             "type": "string",
@@ -37873,9 +39766,100 @@
           }
         }
       },
-      "ContentFileUpdateRequest": {
+      "CheckContentSchemaIdChangeResult": {
         "type": "object",
-        "description": "Request to update a content file",
+        "description": "Result for CheckContentSchemaIdChangeRequest",
+        "additionalProperties": false,
+        "properties": {
+          "problematicChanges": {
+            "type": "array",
+            "description": "List of operations which incur loss of data if carried out",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/ContentSchemaChangeException"
+            }
+          },
+          "errors": {
+            "type": "array",
+            "description": "List of errors preventing validation of ContentSchema change",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/CheckContentSchemaIdChangeResultErrorItem"
+            }
+          }
+        }
+      },
+      "CheckContentSchemaIdChangeResultErrorItem": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "request": {
+            "description": "Request for which this error occured",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/CheckContentSchemaIdChangeRequestItem"
+              }
+            ]
+          },
+          "exception": {
+            "description": "Error which occured when trying to check ContentSchema change (e.g. ContentNotFoundException or ContentPermissionException)",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/PictureparkException"
+              }
+            ]
+          }
+        }
+      },
+      "CheckContentSchemaIdChangeRequestItem": {
+        "type": "object",
+        "description": "Change of ContentSchemaId to check",
+        "additionalProperties": false,
+        "properties": {
+          "contentId": {
+            "type": "string",
+            "description": "Content for which to check a ContentSchemaId change",
+            "nullable": true
+          },
+          "newContentSchemaId": {
+            "type": "string",
+            "description": "ContentSchemaId to change to",
+            "nullable": true
+          }
+        }
+      },
+      "CheckContentSchemaIdChangeRequest": {
+        "type": "object",
+        "description": "Request to check if given changes to ContentSchemaId are possible without data loss\ndue to restrictions (LayerSchemaIds) on assigned metadata",
+        "additionalProperties": false,
+        "properties": {
+          "requests": {
+            "type": "array",
+            "description": "Operations which should be checked",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/CheckContentSchemaIdChangeRequestItem"
+            }
+          }
+        }
+      },
+      "ContentFileUpdateCheckRequest": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ContentFileUpdateRequestBase"
+          },
+          {
+            "type": "object",
+            "description": "Request to check if update of a content file incurs data loss",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "ContentFileUpdateRequestBase": {
+        "type": "object",
+        "x-abstract": true,
         "additionalProperties": false,
         "required": [
           "fileTransferId"
@@ -37887,6 +39871,36 @@
             "minLength": 1
           }
         }
+      },
+      "ContentFileUpdateRequest": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ContentFileUpdateRequestBase"
+          },
+          {
+            "type": "object",
+            "description": "Request to update a content file",
+            "additionalProperties": false,
+            "properties": {
+              "allowContentTypeChange": {
+                "type": "boolean",
+                "description": "Whether ContentType is allowed to change. This is needed if the newly uploaded file is of a different type (e.g. \".jpg\" is replaced by \".svg\")"
+              },
+              "allowAnyLayerUnassignment": {
+                "type": "boolean",
+                "description": "When enabled, content file update will take place regardless of any layers that are not compatible with updated ContentSchemaId.\nFor better safety, consider using AcceptableLayerUnassignments instead."
+              },
+              "acceptableLayerUnassignments": {
+                "type": "array",
+                "description": "Allow removal of given Layers from Content if needed. Ignored when AllowAnyLayerUnassignment is enabled.",
+                "nullable": true,
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ]
       },
       "ContentReferencesResult": {
         "type": "object",
@@ -38661,6 +40675,132 @@
           }
         }
       },
+      "ContentRepairByFilterRequest": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ContentRepairRequestBase"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "filter"
+            ],
+            "properties": {
+              "filter": {
+                "description": "Filter used to enumerate Contents to repair",
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/ContentFilterRequest"
+                  }
+                ]
+              },
+              "repairSettingOverrides": {
+                "type": "array",
+                "description": "Settings for specific contents (overwrites DefaultSettings)",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/ContentRepairRequestItem"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "ContentRepairRequestItem": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "contentId"
+        ],
+        "properties": {
+          "contentId": {
+            "type": "string",
+            "description": "Content to repair",
+            "minLength": 1
+          },
+          "settings": {
+            "description": "Options for this repair",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ContentRepairSettings"
+              }
+            ]
+          }
+        }
+      },
+      "ContentRepairSettings": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "forceInvalidateXmpWriteback"
+        ],
+        "properties": {
+          "acceptableLayerUnassignments": {
+            "type": "array",
+            "description": "List of layers that can be unassigned (due to change of ContentSchemaId and LayerSchemaIds)",
+            "nullable": true,
+            "items": {
+              "type": "string"
+            }
+          },
+          "forceInvalidateXmpWriteback": {
+            "type": "boolean",
+            "description": "Whether to enforce XmpWriteback for Outputs of Content (ignored if repair was not performed)"
+          }
+        }
+      },
+      "ContentRepairRequestBase": {
+        "type": "object",
+        "discriminator": {
+          "propertyName": "kind",
+          "mapping": {
+            "ContentRepairBatchRequest": "#/components/schemas/ContentRepairBatchRequest",
+            "ContentRepairByFilterRequest": "#/components/schemas/ContentRepairByFilterRequest"
+          }
+        },
+        "x-abstract": true,
+        "additionalProperties": false,
+        "required": [
+          "kind"
+        ],
+        "properties": {
+          "defaultSettings": {
+            "description": "Settings to use if no specific settings for a requested Content were specified",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ContentRepairSettings"
+              }
+            ]
+          },
+          "kind": {
+            "type": "string"
+          }
+        }
+      },
+      "ContentRepairBatchRequest": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ContentRepairRequestBase"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "items": {
+                "type": "array",
+                "description": "List of contents and options for repair",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/ContentRepairRequestItem"
+                }
+              }
+            }
+          }
+        ]
+      },
       "ContentFieldsBatchUpdateRequest": {
         "allOf": [
           {
@@ -39162,6 +41302,14 @@
                 "$ref": "#/components/schemas/LifeCycle"
               }
             ]
+          },
+          "contentRights": {
+            "type": "array",
+            "description": "List of content rights the user has on this content. Values are returned only if related resolve behavior is requested in the search request.",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/ContentRight"
+            }
           }
         }
       },
@@ -39230,9 +41378,27 @@
                 "items": {
                   "$ref": "#/components/schemas/AggregatorBase"
                 }
+              },
+              "resolveBehaviors": {
+                "type": "array",
+                "description": "List of enums that allow additional resolutions on top of the standard Content result",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/ContentSearchResolveBehavior"
+                }
               }
             }
           }
+        ]
+      },
+      "ContentSearchResolveBehavior": {
+        "type": "string",
+        "description": "Enum that allow additional resolutions on top of the standard Content result",
+        "x-enumNames": [
+          "Permissions"
+        ],
+        "enum": [
+          "Permissions"
         ]
       },
       "ContentAggregationOnChannelRequest": {
@@ -39682,29 +41848,17 @@
         }
       },
       "DocumentHistorySearchResult": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/BaseResultOfDocumentHistory"
-          },
-          {
-            "type": "object",
-            "additionalProperties": false
-          }
-        ]
-      },
-      "BaseResultOfDocumentHistory": {
         "type": "object",
-        "description": "Base class for search results",
         "additionalProperties": false,
         "required": [
           "results",
-          "totalResults",
+          "maxResults",
           "elapsedMilliseconds"
         ],
         "properties": {
-          "totalResults": {
+          "maxResults": {
             "type": "integer",
-            "description": "The total number of matching documents.",
+            "description": "The upper bound of the total number of matching documents.",
             "format": "int64"
           },
           "results": {
@@ -41966,7 +44120,13 @@
           },
           {
             "type": "object",
-            "additionalProperties": false
+            "additionalProperties": false,
+            "properties": {
+              "collectionId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
           }
         ]
       },
@@ -42833,8 +44993,10 @@
         "discriminator": {
           "propertyName": "kind",
           "mapping": {
-            "ImageFormatBase": "#/components/schemas/ImageFormatBase",
+            "FormatWithFixedExtensionBase": "#/components/schemas/FormatWithFixedExtensionBase",
             "OriginalFormat": "#/components/schemas/OriginalFormat",
+            "CopyFormat": "#/components/schemas/CopyFormat",
+            "ImageFormatBase": "#/components/schemas/ImageFormatBase",
             "JpegFormat": "#/components/schemas/JpegFormat",
             "PngFormat": "#/components/schemas/PngFormat",
             "TiffFormat": "#/components/schemas/TiffFormat",
@@ -42865,10 +45027,53 @@
           }
         }
       },
-      "ImageFormatBase": {
+      "FormatWithFixedExtensionBase": {
         "allOf": [
           {
             "$ref": "#/components/schemas/FormatBase"
+          },
+          {
+            "type": "object",
+            "x-abstract": true,
+            "additionalProperties": false,
+            "properties": {
+              "extension": {
+                "type": "string",
+                "description": "The filename extension of the file produced by this Format.",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "OriginalFormat": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/FormatBase"
+          },
+          {
+            "type": "object",
+            "description": "Special format that represents the original.",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "CopyFormat": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/FormatBase"
+          },
+          {
+            "type": "object",
+            "description": "A format that, when rendered, simply copies the source file. Primarily intended for use with XmpWriteback.",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "ImageFormatBase": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/FormatWithFixedExtensionBase"
           },
           {
             "type": "object",
@@ -43066,9 +45271,13 @@
           "propertyName": "kind",
           "mapping": {
             "AlphaHandlingAction": "#/components/schemas/AlphaHandlingAction",
+            "CropActionBase": "#/components/schemas/CropActionBase",
             "CropAction": "#/components/schemas/CropAction",
+            "GravityBasedCropAction": "#/components/schemas/GravityBasedCropAction",
+            "RelativeCropAction": "#/components/schemas/RelativeCropAction",
             "UnsharpenMaskAction": "#/components/schemas/UnsharpenMaskAction",
-            "WatermarkAction": "#/components/schemas/WatermarkAction"
+            "WatermarkAction": "#/components/schemas/WatermarkAction",
+            "RotateAction": "#/components/schemas/RotateAction"
           }
         },
         "x-abstract": true,
@@ -43126,7 +45335,7 @@
       "CropAction": {
         "allOf": [
           {
-            "$ref": "#/components/schemas/ImageActionBase"
+            "$ref": "#/components/schemas/CropActionBase"
           },
           {
             "type": "object",
@@ -43142,7 +45351,22 @@
                 "type": "integer",
                 "description": "Y-Coordinate of top left point of the cropping rectangle.",
                 "format": "int32"
-              },
+              }
+            }
+          }
+        ]
+      },
+      "CropActionBase": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ImageActionBase"
+          },
+          {
+            "type": "object",
+            "description": "Base parameters for cropping actions.",
+            "x-abstract": true,
+            "additionalProperties": false,
+            "properties": {
               "width": {
                 "type": "integer",
                 "description": "Width of the cropping rectangle.",
@@ -43152,6 +45376,76 @@
                 "type": "integer",
                 "description": "Height of the cropping rectangle.",
                 "format": "int32"
+              }
+            }
+          }
+        ]
+      },
+      "GravityBasedCropAction": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/CropActionBase"
+          },
+          {
+            "type": "object",
+            "description": "An ImageAction that allows cropping an image, weighing the cropping rectangle on a gravity.",
+            "additionalProperties": false,
+            "properties": {
+              "gravity": {
+                "description": "Gravity of the cropping rectangle.",
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/CropGravity"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "CropGravity": {
+        "type": "string",
+        "description": "",
+        "x-enumNames": [
+          "NorthWest",
+          "North",
+          "NorthEast",
+          "East",
+          "SouthEast",
+          "South",
+          "SouthWest",
+          "West"
+        ],
+        "enum": [
+          "NorthWest",
+          "North",
+          "NorthEast",
+          "East",
+          "SouthEast",
+          "South",
+          "SouthWest",
+          "West"
+        ]
+      },
+      "RelativeCropAction": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/CropActionBase"
+          },
+          {
+            "type": "object",
+            "description": "An ImageAction that allows cropping an image, positioning the cropping rectangle relative to the width/height of the image.",
+            "additionalProperties": false,
+            "properties": {
+              "x": {
+                "type": "number",
+                "description": "Relative position of origin point from the left of the image. 0.5 designates the center of the image.",
+                "format": "float"
+              },
+              "y": {
+                "type": "number",
+                "description": "Relative position of origin point from the top of the image. 0.5 designates the center of the image.",
+                "format": "float"
               }
             }
           }
@@ -43244,22 +45538,43 @@
           }
         ]
       },
-      "OriginalFormat": {
+      "RotateAction": {
         "allOf": [
           {
-            "$ref": "#/components/schemas/FormatBase"
+            "$ref": "#/components/schemas/ImageActionBase"
           },
           {
             "type": "object",
-            "description": "Special format that represents the original.",
+            "description": "An ImageAction that allows rotating an image.",
             "additionalProperties": false,
             "properties": {
-              "extension": {
-                "type": "string",
-                "nullable": true
+              "degrees": {
+                "type": "integer",
+                "description": "Degrees to rotate the image in.",
+                "format": "int32"
+              },
+              "direction": {
+                "description": "Direction the rotation should be applied in.",
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/RotateDirection"
+                  }
+                ]
               }
             }
           }
+        ]
+      },
+      "RotateDirection": {
+        "type": "string",
+        "description": "",
+        "x-enumNames": [
+          "Clockwise",
+          "CounterClockwise"
+        ],
+        "enum": [
+          "Clockwise",
+          "CounterClockwise"
         ]
       },
       "JpegFormat": {
@@ -43280,10 +45595,6 @@
               "chromaSubsamplingEnabled": {
                 "type": "boolean",
                 "description": "Whether to use chroma subsampling or not."
-              },
-              "extension": {
-                "type": "string",
-                "nullable": true
               }
             }
           }
@@ -43297,13 +45608,7 @@
           {
             "type": "object",
             "description": "Renders a PNG image.",
-            "additionalProperties": false,
-            "properties": {
-              "extension": {
-                "type": "string",
-                "nullable": true
-              }
-            }
+            "additionalProperties": false
           }
         ]
       },
@@ -43332,10 +45637,6 @@
               "includeUnspecifiedTiffExtraChannels": {
                 "type": "boolean",
                 "description": "Preserve (including size affecting changes) unspecified extraChannels."
-              },
-              "extension": {
-                "type": "string",
-                "nullable": true
               }
             }
           }
@@ -43360,7 +45661,7 @@
       "VideoFormatBase": {
         "allOf": [
           {
-            "$ref": "#/components/schemas/FormatBase"
+            "$ref": "#/components/schemas/FormatWithFixedExtensionBase"
           },
           {
             "type": "object",
@@ -43405,10 +45706,6 @@
                     "$ref": "#/components/schemas/Preset"
                   }
                 ]
-              },
-              "extension": {
-                "type": "string",
-                "nullable": true
               }
             }
           }
@@ -43417,7 +45714,7 @@
       "AudioFormatBase": {
         "allOf": [
           {
-            "$ref": "#/components/schemas/FormatBase"
+            "$ref": "#/components/schemas/FormatWithFixedExtensionBase"
           },
           {
             "type": "object",
@@ -43479,10 +45776,6 @@
                 "type": "integer",
                 "description": "JPEG-quality to use for the sprite.",
                 "format": "int32"
-              },
-              "extension": {
-                "type": "string",
-                "nullable": true
               }
             }
           }
@@ -43497,10 +45790,6 @@
             "type": "object",
             "additionalProperties": false,
             "properties": {
-              "extension": {
-                "type": "string",
-                "nullable": true
-              },
               "positionInSeconds": {
                 "type": "integer",
                 "description": "Specifies the position from which to produce the image.",
@@ -43520,10 +45809,6 @@
             "description": "Specifies Aac encoding for the output and additional settings for the encoder.",
             "additionalProperties": false,
             "properties": {
-              "extension": {
-                "type": "string",
-                "nullable": true
-              },
               "profile": {
                 "description": "Gets or sets the encoding profile.",
                 "oneOf": [
@@ -43594,13 +45879,7 @@
           {
             "type": "object",
             "description": "Generates a waveform image from an Audio source.",
-            "additionalProperties": false,
-            "properties": {
-              "extension": {
-                "type": "string",
-                "nullable": true
-              }
-            }
+            "additionalProperties": false
           }
         ]
       },
@@ -43614,10 +45893,6 @@
             "description": "Renders an MP3 audio file.",
             "additionalProperties": false,
             "properties": {
-              "extension": {
-                "type": "string",
-                "nullable": true
-              },
               "bitrate": {
                 "type": "integer",
                 "description": "Gets or sets the encoding bitrate. This setting and Quality are mutually exclusive.",
@@ -43637,7 +45912,7 @@
       "DocumentFormatBase": {
         "allOf": [
           {
-            "$ref": "#/components/schemas/FormatBase"
+            "$ref": "#/components/schemas/FormatWithFixedExtensionBase"
           },
           {
             "type": "object",
@@ -43657,10 +45932,6 @@
             "description": "Render a document to a raster image",
             "additionalProperties": false,
             "properties": {
-              "extension": {
-                "type": "string",
-                "nullable": true
-              },
               "resizeAction": {
                 "description": "Allows resizing of the image.",
                 "nullable": true,
@@ -43696,10 +45967,6 @@
                 "type": "boolean",
                 "description": "Whether to apply measures to decrease output size or not."
               },
-              "extension": {
-                "type": "string",
-                "nullable": true
-              },
               "extractFullText": {
                 "type": "boolean",
                 "description": "Whether to extract document full text from this output."
@@ -43711,7 +45978,7 @@
       "VectorFormatBase": {
         "allOf": [
           {
-            "$ref": "#/components/schemas/FormatBase"
+            "$ref": "#/components/schemas/FormatWithFixedExtensionBase"
           },
           {
             "type": "object",
@@ -43729,13 +45996,7 @@
           {
             "type": "object",
             "description": "Render a PDF to SVG",
-            "additionalProperties": false,
-            "properties": {
-              "extension": {
-                "type": "string",
-                "nullable": true
-              }
-            }
+            "additionalProperties": false
           }
         ]
       },
@@ -43749,10 +46010,6 @@
             "description": "Render a vector graphic to a raster image",
             "additionalProperties": false,
             "properties": {
-              "extension": {
-                "type": "string",
-                "nullable": true
-              },
               "resizeAction": {
                 "description": "Specifies output dimensions for raster operation",
                 "nullable": true,
@@ -46851,7 +49108,7 @@
             "type": "array",
             "description": "List of all contents in share including outputs.",
             "items": {
-              "$ref": "#/components/schemas/ShareContent"
+              "$ref": "#/components/schemas/ShareContentBase"
             }
           },
           "layerSchemaIds": {
@@ -46953,12 +49210,12 @@
         "properties": {
           "contentSchemaId": {
             "type": "string",
-            "description": "The id of the schema with schema type content.",
+            "description": "The ID of the schema with schema type content.",
             "minLength": 1
           },
           "layerSchemaIds": {
             "type": "array",
-            "description": "An optional id list of schemas with type layer.",
+            "description": "An optional ID list of schemas with type layer.",
             "nullable": true,
             "items": {
               "type": "string"
@@ -47097,11 +49354,20 @@
           }
         ]
       },
-      "ShareContent": {
+      "ShareContentBase": {
         "type": "object",
+        "discriminator": {
+          "propertyName": "kind",
+          "mapping": {
+            "ShareContent": "#/components/schemas/ShareContent",
+            "EmbedContent": "#/components/schemas/EmbedContent"
+          }
+        },
+        "x-abstract": true,
         "additionalProperties": false,
         "required": [
-          "contentId"
+          "contentId",
+          "kind"
         ],
         "properties": {
           "contentId": {
@@ -47116,6 +49382,68 @@
             "items": {
               "type": "string"
             }
+          },
+          "kind": {
+            "type": "string"
+          }
+        }
+      },
+      "ShareContent": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ShareContentBase"
+          },
+          {
+            "type": "object",
+            "description": "Shared content",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "EmbedContent": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ShareContentBase"
+          },
+          {
+            "type": "object",
+            "description": "Embedded content",
+            "additionalProperties": false,
+            "properties": {
+              "conversionPresets": {
+                "type": "array",
+                "description": "Conversion presets: Each output format of the shared content can be optionally converted/edited\nwhen delivering.",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/ConversionPreset"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "ConversionPreset": {
+        "type": "object",
+        "description": "Preset for converting an output.",
+        "additionalProperties": false,
+        "required": [
+          "outputFormatId",
+          "locked"
+        ],
+        "properties": {
+          "outputFormatId": {
+            "type": "string",
+            "description": "OutputFormatId of output to be converted.",
+            "minLength": 1
+          },
+          "conversion": {
+            "type": "string",
+            "description": "Conversion to apply to the output.",
+            "nullable": true
+          },
+          "locked": {
+            "type": "boolean",
+            "description": "Indicates if the conversion is locked and therefore cannot be changed by the caller of the embed URI."
           }
         }
       },
@@ -47354,6 +49682,70 @@
           }
         }
       },
+      "ShareOutputsResult": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "outputs": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/OutputResolveResult"
+            }
+          },
+          "contentInfos": {
+            "type": "array",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/ShareContentInfo"
+            }
+          }
+        }
+      },
+      "ShareContentInfo": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "contentType"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Content ID.",
+            "nullable": true
+          },
+          "contentType": {
+            "description": "The type of content",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ContentType"
+              }
+            ]
+          },
+          "contentSchemaId": {
+            "type": "string",
+            "description": "The ID of the schema with schema type content.",
+            "nullable": true
+          }
+        }
+      },
+      "ShareDownloadRequest": {
+        "type": "object",
+        "description": "Request specifying which part of a share should be downloaded",
+        "additionalProperties": false,
+        "required": [
+          "items"
+        ],
+        "properties": {
+          "items": {
+            "type": "array",
+            "description": "Specifies which content / output format combinations should be downloaded.",
+            "items": {
+              "$ref": "#/components/schemas/ContentDownloadRequestItem"
+            }
+          }
+        }
+      },
       "ShareBaseUpdateRequest": {
         "type": "object",
         "discriminator": {
@@ -47393,7 +49785,7 @@
             "type": "array",
             "description": "List of contents including outputs. Existing items needs to be sent again, otherwise they will be removed.",
             "items": {
-              "$ref": "#/components/schemas/ShareContent"
+              "$ref": "#/components/schemas/ShareContentBase"
             }
           },
           "layerSchemaIds": {
@@ -47480,7 +49872,7 @@
             "type": "array",
             "description": "List of contents including outputs to share.",
             "items": {
-              "$ref": "#/components/schemas/ShareContent"
+              "$ref": "#/components/schemas/ShareContentBase"
             }
           },
           "layerSchemaIds": {
@@ -49475,6 +51867,9 @@
             "type": "object",
             "description": "Represents the updateable fields of the user.",
             "additionalProperties": false,
+            "required": [
+              "languageCode"
+            ],
             "properties": {
               "userRoles": {
                 "type": "array",
@@ -49492,7 +51887,7 @@
               "languageCode": {
                 "type": "string",
                 "description": "Preferred language, e.g. for correspondence.",
-                "nullable": true
+                "minLength": 1
               },
               "address": {
                 "description": "User's address.",
@@ -49696,7 +52091,8 @@
         "description": "Holds information needed for user creation.",
         "additionalProperties": false,
         "required": [
-          "emailAddress"
+          "emailAddress",
+          "languageCode"
         ],
         "properties": {
           "firstName": {
@@ -49717,7 +52113,7 @@
           "languageCode": {
             "type": "string",
             "description": "Preferred language, e.g. for correspondence.",
-            "nullable": true
+            "minLength": 1
           },
           "userRoleIds": {
             "type": "array",
@@ -50659,7 +53055,8 @@
             "CustomerChangeEvent": "#/components/schemas/CustomerChangeEvent",
             "SearchReindexCompletedEvent": "#/components/schemas/SearchReindexCompletedEvent",
             "BusinessRuleFiredEvent": "#/components/schemas/BusinessRuleFiredEvent",
-            "BusinessProcessCancellationRequestedEvent": "#/components/schemas/BusinessProcessCancellationRequestedEvent"
+            "BusinessProcessCancellationRequestedEvent": "#/components/schemas/BusinessProcessCancellationRequestedEvent",
+            "DataExtractionRepairEvent": "#/components/schemas/DataExtractionRepairEvent"
           }
         },
         "additionalProperties": false,
@@ -51064,6 +53461,36 @@
               "businessProcessId": {
                 "type": "string",
                 "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "DataExtractionRepairEvent": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ApplicationEvent"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "contentRepairRequestId": {
+                "type": "string"
+              },
+              "contentId": {
+                "type": "string"
+              },
+              "error": {
+                "nullable": true,
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/ErrorResponse"
+                  }
+                ]
+              },
+              "hadChanges": {
+                "type": "boolean"
               }
             }
           }

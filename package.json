@@ -6,6 +6,6 @@
     "build": "call \"build/01_BuildAndCreatePackages\" && npm run docs"
   },
   "devDependencies": {
-    "nswag": "13.2.2"
+    "nswag": "13.6.2"
   }
 }

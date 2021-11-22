@@ -1088,7 +1088,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             }).ConfigureAwait(false);
         }
 
-        [Fact(Skip = "PP9-11893: Backend bug causing dimensions not always to be exactly as specified in the request makes this test randomly fail.")]
+        [Fact]
         [Trait("Stack", "Contents")]
         public async Task ShouldDownloadSingleResized()
         {
@@ -1127,6 +1127,24 @@ namespace Picturepark.SDK.V1.Tests.Clients
                     0.98f * sourceAspectRatio,
                     1.02f * sourceAspectRatio,
                     "should keep aspect ratio");
+            }
+        }
+
+        [Fact]
+        [Trait("Stack", "Contents")]
+        public async Task ShouldEditContent()
+        {
+            // Arrange
+            var contentId = await _fixture.GetRandomContentIdAsync("fileMetadata.fileExtension:.jpg", 20).ConfigureAwait(false);
+            contentId.Should().NotBeNullOrEmpty();
+
+            // Act
+            using (var response = await _client.Content.EditOutputAsync(contentId, "Preview", "resize-to:200x200").ConfigureAwait(false))
+            {
+                // Assert
+                var bitmap = new Bitmap(response.Stream);
+                bitmap.Width.Should().Be(200);
+                bitmap.Height.Should().Be(200);
             }
         }
 
@@ -1262,6 +1280,23 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 result.Results.Should().NotBeEmpty();
             }
             while (++i < 3 && ((result.PageToken = result.PageToken) != null));
+        }
+
+        [Fact]
+        [Trait("Stack", "Contents")]
+        public async Task ShouldSearchAndResolveContentRights()
+        {
+            // Arrange
+            var channelId = "rootChannel";
+            var filter = new TermFilter { Field = "contentSchemaId", Term = "ImageMetadata" };
+            var request = new ContentSearchRequest { ChannelId = channelId, Filter = filter, ResolveBehaviors = new[] { ContentSearchResolveBehavior.Permissions } };
+
+            // Act
+            ContentSearchResult result = await _client.Content.SearchAsync(request).ConfigureAwait(false);
+
+            // Assert
+            result.Results.Count.Should().BeGreaterThan(0);
+            result.Results.Should().OnlyContain(c => c.ContentRights != null);
         }
 
         [Fact]
@@ -1525,7 +1560,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         [Trait("Stack", "Contents")]
         public async Task ShouldUpdateFile()
         {
-            string contentId = await _fixture.GetRandomContentIdAsync("fileMetadata.fileExtension:.jpg -0030_JabLtzJl8bc", 20).ConfigureAwait(false);
+            var contentId = await _fixture.GetRandomContentIdAsync("fileMetadata.fileExtension:.jpg -0030_JabLtzJl8bc", 20).ConfigureAwait(false);
 
             // Create transfer
             var filePaths = new FileLocations[]
@@ -1559,6 +1594,85 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var waitResult = await _client.BusinessProcess.WaitForCompletionAsync(businessProcess.Id).ConfigureAwait(false);
 
             Assert.True(waitResult.LifeCycleHit == BusinessProcessLifeCycle.Succeeded);
+        }
+
+        [Fact]
+        [Trait("Stack", "Contents")]
+        public async Task Should_replace_virtual_content_and_remove_layers_if_specified()
+        {
+            var namePrefix = $"{nameof(Should_replace_virtual_content_and_remove_layers_if_specified).Replace("_", string.Empty)}{Guid.NewGuid():N}";
+            var contentSchemaId = namePrefix + "Content";
+            var layerId = namePrefix + "Layer";
+
+            var schemas = await _client.Schema.CreateManyAsync(new SchemaCreateManyRequest
+            {
+                Schemas = new List<SchemaCreateRequest>
+                {
+                    new SchemaCreateRequest
+                    {
+                        Id = contentSchemaId,
+                        Names = new TranslatedStringDictionary { ["en"] = contentSchemaId },
+                        Descriptions = new TranslatedStringDictionary { ["en"] = contentSchemaId },
+                        Types = new[] { SchemaType.Content },
+                        ViewForAll = true
+                    },
+                    new SchemaCreateRequest
+                    {
+                        Id = layerId,
+                        Names = new TranslatedStringDictionary { ["en"] = layerId },
+                        Descriptions = new TranslatedStringDictionary { ["en"] = layerId },
+                        Types = new[] { SchemaType.Layer },
+                        ReferencedInContentSchemaIds = new[]
+                        {
+                            contentSchemaId,
+                            nameof(DocumentMetadata)
+                        }
+                    }
+                }
+            });
+
+            var createdSchemas = await schemas.FetchDetail();
+            createdSchemas.FailedItems.Should().BeEmpty();
+
+            var content = await _client.Content.CreateAsync(new ContentCreateRequest
+            {
+                ContentSchemaId = contentSchemaId,
+                LayerSchemaIds = new[] { layerId }
+            });
+
+            content.LayerSchemaIds.Should().ContainSingle().Which.Should().Be(layerId);
+
+            var uploadedImage = await UploadFileAndGetFileTransfer("*.jpg");
+
+            // check up-front if the replacement can be done or would cause layer removal
+            var replacementCheck = await _client.Content.CheckUpdateFileAsync(
+                content.Id,
+                new ContentFileUpdateCheckRequest { FileTransferId = uploadedImage.Id });
+
+            replacementCheck.Errors.Should().BeEmpty();
+            var problematicChange = replacementCheck.ProblematicChanges.Should().ContainSingle().Which;
+            problematicChange.IncompatibleLayerAssignments.Should().Contain(layerId, $"layer is not available for {nameof(ImageMetadata)}");
+
+            // try to use a document instead
+            var ex = await Record.ExceptionAsync(() => UploadAndReplaceContent(content.Id, "*.pdf"));
+            var typeMismatchException = ex.Should().BeOfType<ContentFileReplaceTypeMismatchException>().Which;
+            typeMismatchException.OriginalContentType.Should().Be(ContentType.Virtual);
+            typeMismatchException.NewContentType.Should().Be(ContentType.InterchangeDocument);
+
+            // we also need to opt-in to change ContentType
+            await UploadAndReplaceContent(content.Id, "*.pdf", requestModifier: request => request.AllowContentTypeChange = true);
+            content = await _client.Content.GetAsync(content.Id);
+            content.ContentType.Should().Be(ContentType.InterchangeDocument);
+
+            // we can opt-in to let the system remove the layer
+            await ReplaceContentFile(
+                content.Id,
+                new ContentFileUpdateRequest
+                {
+                    FileTransferId = uploadedImage.Id,
+                    AllowContentTypeChange = true,
+                    AcceptableLayerUnassignments = problematicChange.IncompatibleLayerAssignments
+                });
         }
 
         [Fact]
@@ -1996,10 +2110,10 @@ namespace Picturepark.SDK.V1.Tests.Clients
             return (createdSchemas.First(s => s.Types.Contains(SchemaType.Content)), createdSchemas.First(s => s.Types.Contains(SchemaType.Layer)));
         }
 
-        private async Task<Transfer> UploadContents(int count = 1, [CallerMemberName] string testName = null)
+        private async Task<Transfer> UploadContents(string searchPattern = "*.jpg", int count = 1, [CallerMemberName] string testName = null)
         {
             var transferName = testName + "-" + new Random().Next(1000, 9999);
-            var filesInDirectory = Directory.GetFiles(_fixture.ExampleFilesBasePath, "*.jpg").ToList();
+            var filesInDirectory = Directory.GetFiles(_fixture.ExampleFilesBasePath, searchPattern).ToList();
 
             var numberOfFilesInDirectory = filesInDirectory.Count;
             var numberOfUploadFiles = Math.Min(count, numberOfFilesInDirectory);
@@ -2025,7 +2139,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         private async Task<IReadOnlyList<string>> UploadAndImportContents(int count = 1, [CallerMemberName] string testName = null)
         {
             var timeout = TimeSpan.FromMinutes(2);
-            var transfer = await UploadContents(count, testName).ConfigureAwait(false);
+            var transfer = await UploadContents(count: count,  testName: testName).ConfigureAwait(false);
 
             var importRequest = new ImportTransferRequest
             {
@@ -2041,25 +2155,35 @@ namespace Picturepark.SDK.V1.Tests.Clients
             return result.Select(r => r.ContentId).ToArray();
         }
 
-        private async Task UploadAndReplaceContent(string contentId, [CallerMemberName] string testName = null)
+        private async Task UploadAndReplaceContent(string contentId, string searchPattern = "*.jpg", Action<ContentFileUpdateRequest> requestModifier = null, [CallerMemberName] string testName = null)
         {
-            var transfer = await UploadContents(1, testName).ConfigureAwait(false);
+            var fileTransfer = await UploadFileAndGetFileTransfer(searchPattern, testName);
+
+            var contentFileUpdateRequest = new ContentFileUpdateRequest { FileTransferId = fileTransfer.Id };
+            requestModifier?.Invoke(contentFileUpdateRequest);
+
+            var waitResult = await ReplaceContentFile(contentId, contentFileUpdateRequest);
+        }
+
+        private async Task<BusinessProcessWaitForLifeCycleResult> ReplaceContentFile(string contentId, ContentFileUpdateRequest updateRequest)
+        {
+            var businessProcess = await _client.Content.UpdateFileAsync(contentId, updateRequest).ConfigureAwait(false);
+            var waitResult = await _client.BusinessProcess.WaitForCompletionAsync(businessProcess.Id).ConfigureAwait(false);
+
+            waitResult.LifeCycleHit.Should().Be(BusinessProcessLifeCycle.Succeeded);
+            return waitResult;
+        }
+
+        private async Task<FileTransfer> UploadFileAndGetFileTransfer(string searchPattern = ".jpg", [CallerMemberName] string testName = null)
+        {
+            var transfer = await UploadContents(count: 1, searchPattern: searchPattern, testName: testName).ConfigureAwait(false);
 
             // Search filetransfers to get id
             var request = new FileTransferSearchRequest { Filter = new TermFilter { Field = "transferId", Term = transfer.Id } };
             var result = await _client.Transfer.SearchFilesAsync(request).ConfigureAwait(false);
 
-            Assert.Equal(1, result.TotalResults);
-
-            var updateRequest = new ContentFileUpdateRequest
-            {
-                FileTransferId = result.Results.First().Id
-            };
-
-            var businessProcess = await _client.Content.UpdateFileAsync(contentId, updateRequest).ConfigureAwait(false);
-            var waitResult = await _client.BusinessProcess.WaitForCompletionAsync(businessProcess.Id).ConfigureAwait(false);
-
-            Assert.True(waitResult.LifeCycleHit == BusinessProcessLifeCycle.Succeeded);
+            result.TotalResults.Should().Be(1);
+            return result.Results.Single();
         }
     }
 }
