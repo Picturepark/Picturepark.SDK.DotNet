@@ -3430,7 +3430,6 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("BusinessProcessSummaryNotFoundException", typeof(BusinessProcessSummaryNotFoundException))]
     [JsonInheritanceAttribute("SnapshotTimeoutException", typeof(SnapshotTimeoutException))]
     [JsonInheritanceAttribute("SnapshotFailedException", typeof(SnapshotFailedException))]
-    [JsonInheritanceAttribute("SnapshotSkippedException", typeof(SnapshotSkippedException))]
     [JsonInheritanceAttribute("AddMetadataLanguageTimeoutException", typeof(AddMetadataLanguageTimeoutException))]
     [JsonInheritanceAttribute("EnvironmentProcessAlreadyRunningException", typeof(EnvironmentProcessAlreadyRunningException))]
     [JsonInheritanceAttribute("EnvironmentProcessNotFoundException", typeof(EnvironmentProcessNotFoundException))]
@@ -9506,22 +9505,6 @@ namespace Picturepark.SDK.V1.Contract
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
     [Newtonsoft.Json.JsonObjectAttribute]
-    public partial class SnapshotSkippedException : PictureparkBusinessException
-    {
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-    
-        public static SnapshotSkippedException FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<SnapshotSkippedException>(data);
-        }
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
-    [Newtonsoft.Json.JsonObjectAttribute]
     public partial class AddMetadataLanguageTimeoutException : PictureparkTimeoutException
     {
         [Newtonsoft.Json.JsonProperty("environmentProcessId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -12865,6 +12848,14 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("traceRefId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string TraceRefId { get; set; }
     
+        /// <summary>Language specific condition names.</summary>
+        [Newtonsoft.Json.JsonProperty("names", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public TranslatedStringDictionary Names { get; set; }
+    
+        /// <summary>Language specific condition description.</summary>
+        [Newtonsoft.Json.JsonProperty("description", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public TranslatedStringDictionary Description { get; set; }
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -13451,6 +13442,14 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("traceRefId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string TraceRefId { get; set; }
     
+        /// <summary>Language specific transformation group names.</summary>
+        [Newtonsoft.Json.JsonProperty("names", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public TranslatedStringDictionary Names { get; set; }
+    
+        /// <summary>Language specific transformation group description.</summary>
+        [Newtonsoft.Json.JsonProperty("description", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public TranslatedStringDictionary Description { get; set; }
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -13479,6 +13478,14 @@ namespace Picturepark.SDK.V1.Contract
         /// <summary>Optional trace log reference ID set by the system when EnableTracing is set to true on the associated rule.</summary>
         [Newtonsoft.Json.JsonProperty("traceRefId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string TraceRefId { get; set; }
+    
+        /// <summary>Language specific transformation names.</summary>
+        [Newtonsoft.Json.JsonProperty("names", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public TranslatedStringDictionary Names { get; set; }
+    
+        /// <summary>Language specific transformation description.</summary>
+        [Newtonsoft.Json.JsonProperty("description", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public TranslatedStringDictionary Description { get; set; }
     
         public string ToJson() 
         {
@@ -13690,6 +13697,14 @@ namespace Picturepark.SDK.V1.Contract
         /// <summary>Optional trace log reference ID set by the system when EnableTracing is set to true on the associated rule.</summary>
         [Newtonsoft.Json.JsonProperty("traceRefId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string TraceRefId { get; set; }
+    
+        /// <summary>Language specific action names.</summary>
+        [Newtonsoft.Json.JsonProperty("names", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public TranslatedStringDictionary Names { get; set; }
+    
+        /// <summary>Language specific action description.</summary>
+        [Newtonsoft.Json.JsonProperty("description", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public TranslatedStringDictionary Description { get; set; }
     
         public string ToJson() 
         {
@@ -29992,6 +30007,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("SessionRenewalEvent", typeof(SessionRenewalEvent))]
     [JsonInheritanceAttribute("SharePageViewEvent", typeof(SharePageViewEvent))]
     [JsonInheritanceAttribute("ApiStatisticsEvent", typeof(ApiStatisticsEvent))]
+    [JsonInheritanceAttribute("TrafficStatisticsEvent", typeof(TrafficStatisticsEvent))]
     [JsonInheritanceAttribute("OutputRenderedEvent", typeof(OutputRenderedEvent))]
     [JsonInheritanceAttribute("ConfigurationChangeEvent", typeof(ConfigurationChangeEvent))]
     [JsonInheritanceAttribute("CustomerChangeEvent", typeof(CustomerChangeEvent))]
@@ -30252,6 +30268,30 @@ namespace Picturepark.SDK.V1.Contract
         public static ApiStatisticsEvent FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<ApiStatisticsEvent>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class TrafficStatisticsEvent : ApplicationEvent
+    {
+        [Newtonsoft.Json.JsonProperty("service", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Service { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("requestSize", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public long RequestSize { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("responseSize", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public long ResponseSize { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static TrafficStatisticsEvent FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<TrafficStatisticsEvent>(data);
         }
     
     }

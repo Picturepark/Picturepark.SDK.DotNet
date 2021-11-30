@@ -14803,17 +14803,6 @@
           }
         ]
       },
-      "SnapshotSkippedException": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/PictureparkBusinessException"
-          },
-          {
-            "type": "object",
-            "additionalProperties": false
-          }
-        ]
-      },
       "AddMetadataLanguageTimeoutException": {
         "allOf": [
           {
@@ -22341,6 +22330,7 @@
             "SessionRenewalEvent": "#/components/schemas/SessionRenewalEvent",
             "SharePageViewEvent": "#/components/schemas/SharePageViewEvent",
             "ApiStatisticsEvent": "#/components/schemas/ApiStatisticsEvent",
+            "TrafficStatisticsEvent": "#/components/schemas/TrafficStatisticsEvent",
             "OutputRenderedEvent": "#/components/schemas/OutputRenderedEvent",
             "ConfigurationChangeEvent": "#/components/schemas/ConfigurationChangeEvent",
             "CustomerChangeEvent": "#/components/schemas/CustomerChangeEvent",
@@ -22629,6 +22619,31 @@
                   "type": "integer",
                   "format": "int32"
                 }
+              }
+            }
+          }
+        ]
+      },
+      "TrafficStatisticsEvent": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ApplicationEvent"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "service": {
+                "type": "string",
+                "nullable": true
+              },
+              "requestSize": {
+                "type": "integer",
+                "format": "int64"
+              },
+              "responseSize": {
+                "type": "integer",
+                "format": "int64"
               }
             }
           }
