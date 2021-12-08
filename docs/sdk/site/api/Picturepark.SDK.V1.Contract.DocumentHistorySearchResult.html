@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class DocumentHistorySearchResult
    | Picturepark.SDK.V1 API ">
-    <meta name="generator" content="docfx 2.58.4.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -87,25 +87,12 @@
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><span class="xref">System.Object</span></div>
-    <div class="level1"><a class="xref" href="Picturepark.SDK.V1.Contract.BaseResultOfDocumentHistory.html">BaseResultOfDocumentHistory</a></div>
-    <div class="level2"><span class="xref">DocumentHistorySearchResult</span></div>
+    <div class="level1"><span class="xref">DocumentHistorySearchResult</span></div>
   </div>
   
   
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
-    <div>
-      <a class="xref" href="Picturepark.SDK.V1.Contract.BaseResultOfDocumentHistory.html#Picturepark_SDK_V1_Contract_BaseResultOfDocumentHistory_TotalResults">BaseResultOfDocumentHistory.TotalResults</a>
-    </div>
-    <div>
-      <a class="xref" href="Picturepark.SDK.V1.Contract.BaseResultOfDocumentHistory.html#Picturepark_SDK_V1_Contract_BaseResultOfDocumentHistory_Results">BaseResultOfDocumentHistory.Results</a>
-    </div>
-    <div>
-      <a class="xref" href="Picturepark.SDK.V1.Contract.BaseResultOfDocumentHistory.html#Picturepark_SDK_V1_Contract_BaseResultOfDocumentHistory_ElapsedMilliseconds">BaseResultOfDocumentHistory.ElapsedMilliseconds</a>
-    </div>
-    <div>
-      <a class="xref" href="Picturepark.SDK.V1.Contract.BaseResultOfDocumentHistory.html#Picturepark_SDK_V1_Contract_BaseResultOfDocumentHistory_PageToken">BaseResultOfDocumentHistory.PageToken</a>
-    </div>
     <div>
       <span class="xref">System.Object.ToString()</span>
     </div>
@@ -133,13 +120,163 @@
   
   <h5 id="Picturepark_SDK_V1_Contract_DocumentHistorySearchResult_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class DocumentHistorySearchResult : BaseResultOfDocumentHistory</code></pre>
+    <pre><code class="lang-csharp hljs">public class DocumentHistorySearchResult</code></pre>
   </div>
   
   
   
   
   
+  <h3 id="properties">Properties
+  </h3>
+  
+  
+  <a id="Picturepark_SDK_V1_Contract_DocumentHistorySearchResult_ElapsedMilliseconds_" data-uid="Picturepark.SDK.V1.Contract.DocumentHistorySearchResult.ElapsedMilliseconds*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_Contract_DocumentHistorySearchResult_ElapsedMilliseconds" data-uid="Picturepark.SDK.V1.Contract.DocumentHistorySearchResult.ElapsedMilliseconds"><a href="#collapsible-Picturepark_SDK_V1_Contract_DocumentHistorySearchResult_ElapsedMilliseconds" class="expander" data-toggle="collapse">ElapsedMilliseconds</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_Contract_DocumentHistorySearchResult_ElapsedMilliseconds" class="collapse in">
+  <div class="markdown level1 summary"><p>The search execution time in milliseconds.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public long ElapsedMilliseconds { get; set; }</code></pre>
+  </div>
+  
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Int64</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="Picturepark_SDK_V1_Contract_DocumentHistorySearchResult_MaxResults_" data-uid="Picturepark.SDK.V1.Contract.DocumentHistorySearchResult.MaxResults*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_Contract_DocumentHistorySearchResult_MaxResults" data-uid="Picturepark.SDK.V1.Contract.DocumentHistorySearchResult.MaxResults"><a href="#collapsible-Picturepark_SDK_V1_Contract_DocumentHistorySearchResult_MaxResults" class="expander" data-toggle="collapse">MaxResults</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_Contract_DocumentHistorySearchResult_MaxResults" class="collapse in">
+  <div class="markdown level1 summary"><p>The upper bound of the total number of matching documents.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public long MaxResults { get; set; }</code></pre>
+  </div>
+  
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Int64</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="Picturepark_SDK_V1_Contract_DocumentHistorySearchResult_PageToken_" data-uid="Picturepark.SDK.V1.Contract.DocumentHistorySearchResult.PageToken*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_Contract_DocumentHistorySearchResult_PageToken" data-uid="Picturepark.SDK.V1.Contract.DocumentHistorySearchResult.PageToken"><a href="#collapsible-Picturepark_SDK_V1_Contract_DocumentHistorySearchResult_PageToken" class="expander" data-toggle="collapse">PageToken</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_Contract_DocumentHistorySearchResult_PageToken" class="collapse in">
+  <div class="markdown level1 summary"><p>An optional token to access the next page of results for those endpoints that support backend scrolling logic.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string PageToken { get; set; }</code></pre>
+  </div>
+  
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.String</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="Picturepark_SDK_V1_Contract_DocumentHistorySearchResult_Results_" data-uid="Picturepark.SDK.V1.Contract.DocumentHistorySearchResult.Results*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_Contract_DocumentHistorySearchResult_Results" data-uid="Picturepark.SDK.V1.Contract.DocumentHistorySearchResult.Results"><a href="#collapsible-Picturepark_SDK_V1_Contract_DocumentHistorySearchResult_Results" class="expander" data-toggle="collapse">Results</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_Contract_DocumentHistorySearchResult_Results" class="collapse in">
+  <div class="markdown level1 summary"><p>The matched documents.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ICollection&lt;DocumentHistory&gt; Results { get; set; }</code></pre>
+  </div>
+  
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Collections.Generic.ICollection</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.DocumentHistory.html">DocumentHistory</a>&gt;
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
   <h3 id="methods">Methods
   </h3>
   

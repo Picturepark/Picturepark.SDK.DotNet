@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class ContentFileUpdateRequest
    | Picturepark.SDK.V1 API ">
-    <meta name="generator" content="docfx 2.58.4.0">
+    <meta name="generator" content="docfx 2.58.9.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -88,12 +88,16 @@
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><span class="xref">System.Object</span></div>
-    <div class="level1"><span class="xref">ContentFileUpdateRequest</span></div>
+    <div class="level1"><a class="xref" href="Picturepark.SDK.V1.Contract.ContentFileUpdateRequestBase.html">ContentFileUpdateRequestBase</a></div>
+    <div class="level2"><span class="xref">ContentFileUpdateRequest</span></div>
   </div>
   
   
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="Picturepark.SDK.V1.Contract.ContentFileUpdateRequestBase.html#Picturepark_SDK_V1_Contract_ContentFileUpdateRequestBase_FileTransferId">ContentFileUpdateRequestBase.FileTransferId</a>
+    </div>
     <div>
       <span class="xref">System.Object.ToString()</span>
     </div>
@@ -121,7 +125,7 @@
   
   <h5 id="Picturepark_SDK_V1_Contract_ContentFileUpdateRequest_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class ContentFileUpdateRequest</code></pre>
+    <pre><code class="lang-csharp hljs">public class ContentFileUpdateRequest : ContentFileUpdateRequestBase</code></pre>
   </div>
   
   
@@ -132,18 +136,18 @@
   </h3>
   
   
-  <a id="Picturepark_SDK_V1_Contract_ContentFileUpdateRequest_FileTransferId_" data-uid="Picturepark.SDK.V1.Contract.ContentFileUpdateRequest.FileTransferId*"></a>
+  <a id="Picturepark_SDK_V1_Contract_ContentFileUpdateRequest_AcceptableLayerUnassignments_" data-uid="Picturepark.SDK.V1.Contract.ContentFileUpdateRequest.AcceptableLayerUnassignments*"></a>
   
-  <h4 id="Picturepark_SDK_V1_Contract_ContentFileUpdateRequest_FileTransferId" data-uid="Picturepark.SDK.V1.Contract.ContentFileUpdateRequest.FileTransferId"><a href="#collapsible-Picturepark_SDK_V1_Contract_ContentFileUpdateRequest_FileTransferId" class="expander" data-toggle="collapse">FileTransferId</a></h4>
+  <h4 id="Picturepark_SDK_V1_Contract_ContentFileUpdateRequest_AcceptableLayerUnassignments" data-uid="Picturepark.SDK.V1.Contract.ContentFileUpdateRequest.AcceptableLayerUnassignments"><a href="#collapsible-Picturepark_SDK_V1_Contract_ContentFileUpdateRequest_AcceptableLayerUnassignments" class="expander" data-toggle="collapse">AcceptableLayerUnassignments</a></h4>
   
-  <div id="collapsible-Picturepark_SDK_V1_Contract_ContentFileUpdateRequest_FileTransferId" class="collapse in">
-  <div class="markdown level1 summary"><p>ID of the file transfer to use to replace the content file.</p>
+  <div id="collapsible-Picturepark_SDK_V1_Contract_ContentFileUpdateRequest_AcceptableLayerUnassignments" class="collapse in">
+  <div class="markdown level1 summary"><p>Allow removal of given Layers from Content if needed. Ignored when AllowAnyLayerUnassignment is enabled.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string FileTransferId { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public ICollection&lt;string&gt; AcceptableLayerUnassignments { get; set; }</code></pre>
   </div>
   
   
@@ -154,7 +158,82 @@
   <table>
     <tr>
       <td>
-        <span class="xref">System.String</span>
+        <span class="xref">System.Collections.Generic.ICollection</span>&lt;<span class="xref">System.String</span>&gt;
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="Picturepark_SDK_V1_Contract_ContentFileUpdateRequest_AllowAnyLayerUnassignment_" data-uid="Picturepark.SDK.V1.Contract.ContentFileUpdateRequest.AllowAnyLayerUnassignment*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_Contract_ContentFileUpdateRequest_AllowAnyLayerUnassignment" data-uid="Picturepark.SDK.V1.Contract.ContentFileUpdateRequest.AllowAnyLayerUnassignment"><a href="#collapsible-Picturepark_SDK_V1_Contract_ContentFileUpdateRequest_AllowAnyLayerUnassignment" class="expander" data-toggle="collapse">AllowAnyLayerUnassignment</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_Contract_ContentFileUpdateRequest_AllowAnyLayerUnassignment" class="collapse in">
+  <div class="markdown level1 summary"><p>When enabled, content file update will take place regardless of any layers that are not compatible with updated ContentSchemaId.
+For better safety, consider using AcceptableLayerUnassignments instead.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool AllowAnyLayerUnassignment { get; set; }</code></pre>
+  </div>
+  
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
+        <p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="Picturepark_SDK_V1_Contract_ContentFileUpdateRequest_AllowContentTypeChange_" data-uid="Picturepark.SDK.V1.Contract.ContentFileUpdateRequest.AllowContentTypeChange*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_Contract_ContentFileUpdateRequest_AllowContentTypeChange" data-uid="Picturepark.SDK.V1.Contract.ContentFileUpdateRequest.AllowContentTypeChange"><a href="#collapsible-Picturepark_SDK_V1_Contract_ContentFileUpdateRequest_AllowContentTypeChange" class="expander" data-toggle="collapse">AllowContentTypeChange</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_Contract_ContentFileUpdateRequest_AllowContentTypeChange" class="collapse in">
+  <div class="markdown level1 summary"><p>Whether ContentType is allowed to change. This is needed if the newly uploaded file is of a different type (e.g. &quot;.jpg&quot; is replaced by &quot;.svg&quot;)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool AllowContentTypeChange { get; set; }</code></pre>
+  </div>
+  
+  
+  
+  
+  
+  <h5 class="propertyValue">Property Value</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Boolean</span>
         <p>
       </td>
     </tr>
