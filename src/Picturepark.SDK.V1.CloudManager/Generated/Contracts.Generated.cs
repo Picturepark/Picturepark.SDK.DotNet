@@ -1481,7 +1481,6 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [JsonInheritanceAttribute("BusinessProcessSummaryNotFoundException", typeof(BusinessProcessSummaryNotFoundException))]
     [JsonInheritanceAttribute("SnapshotTimeoutException", typeof(SnapshotTimeoutException))]
     [JsonInheritanceAttribute("SnapshotFailedException", typeof(SnapshotFailedException))]
-    [JsonInheritanceAttribute("SnapshotSkippedException", typeof(SnapshotSkippedException))]
     [JsonInheritanceAttribute("AddMetadataLanguageTimeoutException", typeof(AddMetadataLanguageTimeoutException))]
     [JsonInheritanceAttribute("EnvironmentProcessAlreadyRunningException", typeof(EnvironmentProcessAlreadyRunningException))]
     [JsonInheritanceAttribute("EnvironmentProcessNotFoundException", typeof(EnvironmentProcessNotFoundException))]
@@ -7552,22 +7551,6 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         public static SnapshotFailedException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<SnapshotFailedException>(data);
-        }
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
-    [Newtonsoft.Json.JsonObjectAttribute]
-    public partial class SnapshotSkippedException : PictureparkBusinessException
-    {
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-    
-        public static SnapshotSkippedException FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<SnapshotSkippedException>(data);
         }
     
     }
@@ -15169,6 +15152,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [JsonInheritanceAttribute("SessionRenewalEvent", typeof(SessionRenewalEvent))]
     [JsonInheritanceAttribute("SharePageViewEvent", typeof(SharePageViewEvent))]
     [JsonInheritanceAttribute("ApiStatisticsEvent", typeof(ApiStatisticsEvent))]
+    [JsonInheritanceAttribute("TrafficStatisticsEvent", typeof(TrafficStatisticsEvent))]
     [JsonInheritanceAttribute("OutputRenderedEvent", typeof(OutputRenderedEvent))]
     [JsonInheritanceAttribute("ConfigurationChangeEvent", typeof(ConfigurationChangeEvent))]
     [JsonInheritanceAttribute("CustomerChangeEvent", typeof(CustomerChangeEvent))]
@@ -15471,6 +15455,30 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         public static ApiStatisticsEvent FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<ApiStatisticsEvent>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class TrafficStatisticsEvent : ApplicationEvent
+    {
+        [Newtonsoft.Json.JsonProperty("service", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Service { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("requestSize", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public long RequestSize { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("responseSize", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public long ResponseSize { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static TrafficStatisticsEvent FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<TrafficStatisticsEvent>(data);
         }
     
     }

@@ -32226,17 +32226,6 @@
           }
         ]
       },
-      "SnapshotSkippedException": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/PictureparkBusinessException"
-          },
-          {
-            "type": "object",
-            "additionalProperties": false
-          }
-        ]
-      },
       "AddMetadataLanguageTimeoutException": {
         "allOf": [
           {
@@ -35468,6 +35457,24 @@
             "description": "Optional trace log reference ID set by the system when EnableTracing is set to true on the associated rule.",
             "nullable": true
           },
+          "names": {
+            "description": "Language specific condition names.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/TranslatedStringDictionary"
+              }
+            ]
+          },
+          "description": {
+            "description": "Language specific condition description.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/TranslatedStringDictionary"
+              }
+            ]
+          },
           "kind": {
             "type": "string"
           }
@@ -36052,6 +36059,24 @@
             "type": "string",
             "description": "Optional trace log reference ID set by the system when EnableTracing is set to true on the associated rule.",
             "nullable": true
+          },
+          "names": {
+            "description": "Language specific transformation group names.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/TranslatedStringDictionary"
+              }
+            ]
+          },
+          "description": {
+            "description": "Language specific transformation group description.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/TranslatedStringDictionary"
+              }
+            ]
           }
         }
       },
@@ -36081,6 +36106,24 @@
             "type": "string",
             "description": "Optional trace log reference ID set by the system when EnableTracing is set to true on the associated rule.",
             "nullable": true
+          },
+          "names": {
+            "description": "Language specific transformation names.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/TranslatedStringDictionary"
+              }
+            ]
+          },
+          "description": {
+            "description": "Language specific transformation description.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/TranslatedStringDictionary"
+              }
+            ]
           },
           "kind": {
             "type": "string"
@@ -36290,6 +36333,24 @@
             "type": "string",
             "description": "Optional trace log reference ID set by the system when EnableTracing is set to true on the associated rule.",
             "nullable": true
+          },
+          "names": {
+            "description": "Language specific action names.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/TranslatedStringDictionary"
+              }
+            ]
+          },
+          "description": {
+            "description": "Language specific action description.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/TranslatedStringDictionary"
+              }
+            ]
           },
           "kind": {
             "type": "string"
@@ -53200,6 +53261,7 @@
             "SessionRenewalEvent": "#/components/schemas/SessionRenewalEvent",
             "SharePageViewEvent": "#/components/schemas/SharePageViewEvent",
             "ApiStatisticsEvent": "#/components/schemas/ApiStatisticsEvent",
+            "TrafficStatisticsEvent": "#/components/schemas/TrafficStatisticsEvent",
             "OutputRenderedEvent": "#/components/schemas/OutputRenderedEvent",
             "ConfigurationChangeEvent": "#/components/schemas/ConfigurationChangeEvent",
             "CustomerChangeEvent": "#/components/schemas/CustomerChangeEvent",
@@ -53456,6 +53518,31 @@
                   "type": "integer",
                   "format": "int32"
                 }
+              }
+            }
+          }
+        ]
+      },
+      "TrafficStatisticsEvent": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ApplicationEvent"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "service": {
+                "type": "string",
+                "nullable": true
+              },
+              "requestSize": {
+                "type": "integer",
+                "format": "int64"
+              },
+              "responseSize": {
+                "type": "integer",
+                "format": "int64"
               }
             }
           }
