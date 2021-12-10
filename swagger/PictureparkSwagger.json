@@ -33084,6 +33084,17 @@
           }
         ]
       },
+      "BusinessRuleUserInUserRolesConditionUserRoleIdsMissingException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
       "BusinessRuleDateMathTransformationTimeSpanInvalidException": {
         "allOf": [
           {
@@ -35430,6 +35441,7 @@
             "FieldValueChangedCondition": "#/components/schemas/FieldValueChangedCondition",
             "MatchRegexCondition": "#/components/schemas/MatchRegexCondition",
             "StringContainsCondition": "#/components/schemas/StringContainsCondition",
+            "UserInUserRolesCondition": "#/components/schemas/UserInUserRolesCondition",
             "TagboxItemAssignedCondition": "#/components/schemas/TagboxItemAssignedCondition",
             "TagboxItemUnassignedCondition": "#/components/schemas/TagboxItemUnassignedCondition",
             "ContentSchemaCondition": "#/components/schemas/ContentSchemaCondition",
@@ -35693,6 +35705,53 @@
               }
             }
           }
+        ]
+      },
+      "UserInUserRolesCondition": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BusinessRuleCondition"
+          },
+          {
+            "type": "object",
+            "description": "Matches when one or all the user roles specified in UserRoleIds are assigned to the user retrieved from the path UserIdPath",
+            "additionalProperties": false,
+            "properties": {
+              "userIdPath": {
+                "type": "string",
+                "description": "JSON path to the field containing the id of the user that needs to be checked.",
+                "nullable": true
+              },
+              "userRoleIds": {
+                "type": "array",
+                "description": "A static list of user role ids that will checked: depending on MatchMode all the user roles or only one of them must be assigned to the user.",
+                "nullable": true,
+                "items": {
+                  "type": "string"
+                }
+              },
+              "matchMode": {
+                "description": "Decide if all the user roles must be assigned to the user or only one of them.",
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/ConditionMatchMode"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "ConditionMatchMode": {
+        "type": "string",
+        "description": "",
+        "x-enumNames": [
+          "All",
+          "Any"
+        ],
+        "enum": [
+          "All",
+          "Any"
         ]
       },
       "TagboxItemAssignedCondition": {

@@ -3480,6 +3480,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("BusinessRuleScheduleFilterMissingException", typeof(BusinessRuleScheduleFilterMissingException))]
     [JsonInheritanceAttribute("BusinessRuleScheduleRulesMissingException", typeof(BusinessRuleScheduleRulesMissingException))]
     [JsonInheritanceAttribute("BusinessRuleStringContainsConditionValuesToMatchMissingException", typeof(BusinessRuleStringContainsConditionValuesToMatchMissingException))]
+    [JsonInheritanceAttribute("BusinessRuleUserInUserRolesConditionUserRoleIdsMissingException", typeof(BusinessRuleUserInUserRolesConditionUserRoleIdsMissingException))]
     [JsonInheritanceAttribute("BusinessRuleDateMathTransformationTimeSpanInvalidException", typeof(BusinessRuleDateMathTransformationTimeSpanInvalidException))]
     [JsonInheritanceAttribute("NamedCacheConfigurationException", typeof(NamedCacheConfigurationException))]
     [JsonInheritanceAttribute("NamedCacheNameMissingException", typeof(NamedCacheNameMissingException))]
@@ -10517,6 +10518,22 @@ namespace Picturepark.SDK.V1.Contract
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
     [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class BusinessRuleUserInUserRolesConditionUserRoleIdsMissingException : PictureparkValidationException
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static BusinessRuleUserInUserRolesConditionUserRoleIdsMissingException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessRuleUserInUserRolesConditionUserRoleIdsMissingException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
     public partial class BusinessRuleDateMathTransformationTimeSpanInvalidException : PictureparkValidationException
     {
         [Newtonsoft.Json.JsonProperty("timeSpan", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -12828,6 +12845,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("FieldValueChangedCondition", typeof(FieldValueChangedCondition))]
     [JsonInheritanceAttribute("MatchRegexCondition", typeof(MatchRegexCondition))]
     [JsonInheritanceAttribute("StringContainsCondition", typeof(StringContainsCondition))]
+    [JsonInheritanceAttribute("UserInUserRolesCondition", typeof(UserInUserRolesCondition))]
     [JsonInheritanceAttribute("TagboxItemAssignedCondition", typeof(TagboxItemAssignedCondition))]
     [JsonInheritanceAttribute("TagboxItemUnassignedCondition", typeof(TagboxItemUnassignedCondition))]
     [JsonInheritanceAttribute("ContentSchemaCondition", typeof(ContentSchemaCondition))]
@@ -13085,6 +13103,46 @@ namespace Picturepark.SDK.V1.Contract
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<StringContainsCondition>(data);
         }
+    
+    }
+    
+    /// <summary>Matches when one or all the user roles specified in UserRoleIds are assigned to the user retrieved from the path UserIdPath</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class UserInUserRolesCondition : BusinessRuleCondition
+    {
+        /// <summary>JSON path to the field containing the id of the user that needs to be checked.</summary>
+        [Newtonsoft.Json.JsonProperty("userIdPath", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string UserIdPath { get; set; }
+    
+        /// <summary>A static list of user role ids that will checked: depending on MatchMode all the user roles or only one of them must be assigned to the user.</summary>
+        [Newtonsoft.Json.JsonProperty("userRoleIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> UserRoleIds { get; set; }
+    
+        /// <summary>Decide if all the user roles must be assigned to the user or only one of them.</summary>
+        [Newtonsoft.Json.JsonProperty("matchMode", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public ConditionMatchMode MatchMode { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static UserInUserRolesCondition FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<UserInUserRolesCondition>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public enum ConditionMatchMode
+    {
+        [System.Runtime.Serialization.EnumMember(Value = @"All")]
+        All = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Any")]
+        Any = 1,
     
     }
     
