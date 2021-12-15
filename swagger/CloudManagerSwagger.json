@@ -12746,6 +12746,30 @@
           }
         ]
       },
+      "SchemasMetadataProtectionException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "schemaIds": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "type": "string"
+                }
+              },
+              "operation": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
       "SchemaFieldOverwriteTypeMismatchException": {
         "allOf": [
           {
@@ -22619,6 +22643,31 @@
                   "type": "integer",
                   "format": "int32"
                 }
+              }
+            }
+          }
+        ]
+      },
+      "TrafficStatisticsEvent": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ApplicationEvent"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "service": {
+                "type": "string",
+                "nullable": true
+              },
+              "requestSize": {
+                "type": "integer",
+                "format": "int64"
+              },
+              "responseSize": {
+                "type": "integer",
+                "format": "int64"
               }
             }
           }

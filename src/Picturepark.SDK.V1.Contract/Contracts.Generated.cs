@@ -3348,6 +3348,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("LayerAssignmentInvalidException", typeof(LayerAssignmentInvalidException))]
     [JsonInheritanceAttribute("OutdatedMetadataUpdateInProgressException", typeof(OutdatedMetadataUpdateInProgressException))]
     [JsonInheritanceAttribute("SortingSupportedOnlyOnTermsAndTermsRelationAggregatorsException", typeof(SortingSupportedOnlyOnTermsAndTermsRelationAggregatorsException))]
+    [JsonInheritanceAttribute("SchemasMetadataProtectionException", typeof(SchemasMetadataProtectionException))]
     [JsonInheritanceAttribute("SchemaFieldOverwriteTypeMismatchException", typeof(SchemaFieldOverwriteTypeMismatchException))]
     [JsonInheritanceAttribute("SchemaFieldOverwriteIdException", typeof(SchemaFieldOverwriteIdException))]
     [JsonInheritanceAttribute("SchemaFieldIdDuplicatedException", typeof(SchemaFieldIdDuplicatedException))]
@@ -7378,6 +7379,28 @@ namespace Picturepark.SDK.V1.Contract
         public static SortingSupportedOnlyOnTermsAndTermsRelationAggregatorsException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<SortingSupportedOnlyOnTermsAndTermsRelationAggregatorsException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class SchemasMetadataProtectionException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("schemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> SchemaIds { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("operation", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Operation { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static SchemasMetadataProtectionException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemasMetadataProtectionException>(data);
         }
     
     }
@@ -24302,6 +24325,10 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("searchFieldCount", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public SearchFieldCount SearchFieldCount { get; set; }
     
+        /// <summary>Metadata protection options.</summary>
+        [Newtonsoft.Json.JsonProperty("metadataProtection", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public MetadataProtection MetadataProtection { get; set; }
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -25486,6 +25513,34 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>Metadata protection options</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class MetadataProtection 
+    {
+        /// <summary>Prevent creation of items in ContentSchemas/Lists or assignments of Layers.</summary>
+        [Newtonsoft.Json.JsonProperty("preventCreate", Required = Newtonsoft.Json.Required.Always)]
+        public bool PreventCreate { get; set; }
+    
+        /// <summary>Prevent updating metadata associated with schema.</summary>
+        [Newtonsoft.Json.JsonProperty("preventUpdate", Required = Newtonsoft.Json.Required.Always)]
+        public bool PreventUpdate { get; set; }
+    
+        /// <summary>Prevent deletion of items in ContentSchemas/Lists or unassignments of Layers.</summary>
+        [Newtonsoft.Json.JsonProperty("preventDelete", Required = Newtonsoft.Json.Required.Always)]
+        public bool PreventDelete { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static MetadataProtection FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<MetadataProtection>(data);
+        }
+    
+    }
+    
     /// <summary>Exists response</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class SchemaExistsResponse 
@@ -25608,6 +25663,10 @@ namespace Picturepark.SDK.V1.Contract
         /// that reference the layer.</summary>
         [Newtonsoft.Json.JsonProperty("referencedInContentSchemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> ReferencedInContentSchemaIds { get; set; }
+    
+        /// <summary>Metadata protection options.</summary>
+        [Newtonsoft.Json.JsonProperty("metadataProtection", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public MetadataProtection MetadataProtection { get; set; }
     
         public string ToJson() 
         {
@@ -25741,6 +25800,10 @@ namespace Picturepark.SDK.V1.Contract
         /// that reference the layer.</summary>
         [Newtonsoft.Json.JsonProperty("referencedInContentSchemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> ReferencedInContentSchemaIds { get; set; }
+    
+        /// <summary>Metadata protection options.</summary>
+        [Newtonsoft.Json.JsonProperty("metadataProtection", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public MetadataProtection MetadataProtection { get; set; }
     
         public string ToJson() 
         {

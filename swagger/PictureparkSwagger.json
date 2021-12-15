@@ -30169,6 +30169,30 @@
           }
         ]
       },
+      "SchemasMetadataProtectionException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "schemaIds": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "type": "string"
+                }
+              },
+              "operation": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
       "SchemaFieldOverwriteTypeMismatchException": {
         "allOf": [
           {
@@ -47183,6 +47207,15 @@
                 "$ref": "#/components/schemas/SearchFieldCount"
               }
             ]
+          },
+          "metadataProtection": {
+            "description": "Metadata protection options.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/MetadataProtection"
+              }
+            ]
           }
         }
       },
@@ -48539,6 +48572,30 @@
           }
         }
       },
+      "MetadataProtection": {
+        "type": "object",
+        "description": "Metadata protection options",
+        "additionalProperties": false,
+        "required": [
+          "preventCreate",
+          "preventUpdate",
+          "preventDelete"
+        ],
+        "properties": {
+          "preventCreate": {
+            "type": "boolean",
+            "description": "Prevent creation of items in ContentSchemas/Lists or assignments of Layers."
+          },
+          "preventUpdate": {
+            "type": "boolean",
+            "description": "Prevent updating metadata associated with schema."
+          },
+          "preventDelete": {
+            "type": "boolean",
+            "description": "Prevent deletion of items in ContentSchemas/Lists or unassignments of Layers."
+          }
+        }
+      },
       "SchemaExistsResponse": {
         "type": "object",
         "description": "Exists response",
@@ -48686,6 +48743,15 @@
             "items": {
               "type": "string"
             }
+          },
+          "metadataProtection": {
+            "description": "Metadata protection options.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/MetadataProtection"
+              }
+            ]
           }
         }
       },
@@ -48833,6 +48899,15 @@
             "items": {
               "type": "string"
             }
+          },
+          "metadataProtection": {
+            "description": "Metadata protection options.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/MetadataProtection"
+              }
+            ]
           }
         }
       },
@@ -53518,6 +53593,31 @@
                   "type": "integer",
                   "format": "int32"
                 }
+              }
+            }
+          }
+        ]
+      },
+      "TrafficStatisticsEvent": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ApplicationEvent"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "service": {
+                "type": "string",
+                "nullable": true
+              },
+              "requestSize": {
+                "type": "integer",
+                "format": "int64"
+              },
+              "responseSize": {
+                "type": "integer",
+                "format": "int64"
               }
             }
           }

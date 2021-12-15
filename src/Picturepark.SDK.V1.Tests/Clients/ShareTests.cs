@@ -585,6 +585,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         }
 
         [Fact]
+        [Trait("Stack", "Shares")]
         public async Task ShouldRetrieveContentsBasedOnLimit()
         {
             // Arrange
@@ -599,6 +600,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         }
 
         [Fact]
+        [Trait("Stack", "Shares")]
         public async Task ShouldPageOverContentsInShare()
         {
             // Arrange
