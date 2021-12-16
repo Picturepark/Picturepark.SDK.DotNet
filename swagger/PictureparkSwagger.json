@@ -35744,7 +35744,7 @@
       },
       "ConditionMatchMode": {
         "type": "string",
-        "description": "",
+        "description": "How a list of values in the condition should be matched during the comparison.",
         "x-enumNames": [
           "All",
           "Any"

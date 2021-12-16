@@ -13135,6 +13135,7 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>How a list of values in the condition should be matched during the comparison.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public enum ConditionMatchMode
     {
