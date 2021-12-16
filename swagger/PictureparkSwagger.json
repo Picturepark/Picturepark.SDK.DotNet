@@ -31065,6 +31065,40 @@
           }
         ]
       },
+      "SchemaMetadataProtectionSettingsNotSupportedForStructsException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "schemaId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "SchemaMetadataProtectionSettingsChangeNotAllowedForXmpMappedLayersException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "schemaId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
       "SchemaNoLayerException": {
         "allOf": [
           {
@@ -53593,31 +53627,6 @@
                   "type": "integer",
                   "format": "int32"
                 }
-              }
-            }
-          }
-        ]
-      },
-      "TrafficStatisticsEvent": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/ApplicationEvent"
-          },
-          {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "service": {
-                "type": "string",
-                "nullable": true
-              },
-              "requestSize": {
-                "type": "integer",
-                "format": "int64"
-              },
-              "responseSize": {
-                "type": "integer",
-                "format": "int64"
               }
             }
           }
