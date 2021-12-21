@@ -30169,6 +30169,30 @@
           }
         ]
       },
+      "SchemasMetadataProtectionException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "schemaIds": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "type": "string"
+                }
+              },
+              "operation": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
       "SchemaFieldOverwriteTypeMismatchException": {
         "allOf": [
           {
@@ -31025,6 +31049,40 @@
         ]
       },
       "SchemaPermissionConfigurationException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "schemaId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "SchemaMetadataProtectionSettingsNotSupportedForStructsException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "schemaId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "SchemaMetadataProtectionSettingsChangeNotAllowedForXmpMappedLayersException": {
         "allOf": [
           {
             "$ref": "#/components/schemas/PictureparkValidationException"
@@ -33701,6 +33759,23 @@
           }
         ]
       },
+      "XmpMappingFieldToLayerWithMetadataProtectionForCreateOrUpdateNotSupportedException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "layerId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
       "XmpMappingFieldInUseException": {
         "allOf": [
           {
@@ -36260,9 +36335,32 @@
                 "type": "string",
                 "description": "Name of the cache to use.",
                 "nullable": true
+              },
+              "lookupReturnedItems": {
+                "description": "Choose what should be returned.\nFound: return the value of the found item in the lookup cache, null if not found.\nNotFound: return the input key value of the not found item, null if found.\nAll: return the value of the found item in the lookup cache or the input key value of the not found item.",
+                "default": "Found",
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/LookupItemsMatch"
+                  }
+                ]
               }
             }
           }
+        ]
+      },
+      "LookupItemsMatch": {
+        "type": "string",
+        "description": "How should happen the match on a lookup cache",
+        "x-enumNames": [
+          "Found",
+          "NotFound",
+          "All"
+        ],
+        "enum": [
+          "Found",
+          "NotFound",
+          "All"
         ]
       },
       "NGramTransformation": {
@@ -47242,6 +47340,15 @@
                 "$ref": "#/components/schemas/SearchFieldCount"
               }
             ]
+          },
+          "metadataProtection": {
+            "description": "Metadata protection options.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/MetadataProtection"
+              }
+            ]
           }
         }
       },
@@ -48598,6 +48705,30 @@
           }
         }
       },
+      "MetadataProtection": {
+        "type": "object",
+        "description": "Metadata protection options",
+        "additionalProperties": false,
+        "required": [
+          "preventCreate",
+          "preventUpdate",
+          "preventDelete"
+        ],
+        "properties": {
+          "preventCreate": {
+            "type": "boolean",
+            "description": "Prevent creation of items in ContentSchemas/Lists or assignments of Layers."
+          },
+          "preventUpdate": {
+            "type": "boolean",
+            "description": "Prevent updating metadata associated with schema."
+          },
+          "preventDelete": {
+            "type": "boolean",
+            "description": "Prevent deletion of items in ContentSchemas/Lists or unassignments of Layers."
+          }
+        }
+      },
       "SchemaExistsResponse": {
         "type": "object",
         "description": "Exists response",
@@ -48745,6 +48876,15 @@
             "items": {
               "type": "string"
             }
+          },
+          "metadataProtection": {
+            "description": "Metadata protection options.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/MetadataProtection"
+              }
+            ]
           }
         }
       },
@@ -48892,6 +49032,15 @@
             "items": {
               "type": "string"
             }
+          },
+          "metadataProtection": {
+            "description": "Metadata protection options.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/MetadataProtection"
+              }
+            ]
           }
         }
       },
@@ -53807,6 +53956,7 @@
         "required": [
           "kind",
           "retries",
+          "retriesPerformed",
           "priority",
           "deduplicate"
         ],
@@ -53816,6 +53966,10 @@
             "nullable": true
           },
           "retries": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "retriesPerformed": {
             "type": "integer",
             "format": "int32"
           },

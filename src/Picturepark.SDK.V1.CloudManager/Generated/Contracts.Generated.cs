@@ -1393,6 +1393,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [JsonInheritanceAttribute("LayerAssignmentInvalidException", typeof(LayerAssignmentInvalidException))]
     [JsonInheritanceAttribute("OutdatedMetadataUpdateInProgressException", typeof(OutdatedMetadataUpdateInProgressException))]
     [JsonInheritanceAttribute("SortingSupportedOnlyOnTermsAndTermsRelationAggregatorsException", typeof(SortingSupportedOnlyOnTermsAndTermsRelationAggregatorsException))]
+    [JsonInheritanceAttribute("SchemasMetadataProtectionException", typeof(SchemasMetadataProtectionException))]
     [JsonInheritanceAttribute("SchemaFieldOverwriteTypeMismatchException", typeof(SchemaFieldOverwriteTypeMismatchException))]
     [JsonInheritanceAttribute("SchemaFieldOverwriteIdException", typeof(SchemaFieldOverwriteIdException))]
     [JsonInheritanceAttribute("SchemaFieldIdDuplicatedException", typeof(SchemaFieldIdDuplicatedException))]
@@ -1431,6 +1432,8 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [JsonInheritanceAttribute("SchemaParentChangeException", typeof(SchemaParentChangeException))]
     [JsonInheritanceAttribute("SchemaMissingTypeException", typeof(SchemaMissingTypeException))]
     [JsonInheritanceAttribute("SchemaPermissionConfigurationException", typeof(SchemaPermissionConfigurationException))]
+    [JsonInheritanceAttribute("SchemaMetadataProtectionSettingsNotSupportedForStructsException", typeof(SchemaMetadataProtectionSettingsNotSupportedForStructsException))]
+    [JsonInheritanceAttribute("SchemaMetadataProtectionSettingsChangeNotAllowedForXmpMappedLayersException", typeof(SchemaMetadataProtectionSettingsChangeNotAllowedForXmpMappedLayersException))]
     [JsonInheritanceAttribute("SchemaNoLayerException", typeof(SchemaNoLayerException))]
     [JsonInheritanceAttribute("SchemaIdException", typeof(SchemaIdException))]
     [JsonInheritanceAttribute("SchemaInUseException", typeof(SchemaInUseException))]
@@ -1569,6 +1572,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [JsonInheritanceAttribute("XmpMappingFieldNotFoundException", typeof(XmpMappingFieldNotFoundException))]
     [JsonInheritanceAttribute("XmpMappingSchemaNotAvailableForFileContentSchemaException", typeof(XmpMappingSchemaNotAvailableForFileContentSchemaException))]
     [JsonInheritanceAttribute("XmpMappingFieldToLayerWithRequiredFieldsNotAllowedException", typeof(XmpMappingFieldToLayerWithRequiredFieldsNotAllowedException))]
+    [JsonInheritanceAttribute("XmpMappingFieldToLayerWithMetadataProtectionForCreateOrUpdateNotSupportedException", typeof(XmpMappingFieldToLayerWithMetadataProtectionForCreateOrUpdateNotSupportedException))]
     [JsonInheritanceAttribute("XmpMappingFieldInUseException", typeof(XmpMappingFieldInUseException))]
     [JsonInheritanceAttribute("XmpMappingConfigurationInvalidException", typeof(XmpMappingConfigurationInvalidException))]
     [JsonInheritanceAttribute("ActivityMappingInvalidException", typeof(ActivityMappingInvalidException))]
@@ -5437,6 +5441,28 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
     [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class SchemasMetadataProtectionException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("schemaIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> SchemaIds { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("operation", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Operation { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static SchemasMetadataProtectionException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemasMetadataProtectionException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
     public partial class SchemaFieldOverwriteTypeMismatchException : PictureparkValidationException
     {
         [Newtonsoft.Json.JsonProperty("schemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -6309,6 +6335,44 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         public static SchemaPermissionConfigurationException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaPermissionConfigurationException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class SchemaMetadataProtectionSettingsNotSupportedForStructsException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("schemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string SchemaId { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static SchemaMetadataProtectionSettingsNotSupportedForStructsException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaMetadataProtectionSettingsNotSupportedForStructsException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class SchemaMetadataProtectionSettingsChangeNotAllowedForXmpMappedLayersException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("schemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string SchemaId { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static SchemaMetadataProtectionSettingsChangeNotAllowedForXmpMappedLayersException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaMetadataProtectionSettingsChangeNotAllowedForXmpMappedLayersException>(data);
         }
     
     }
@@ -9259,6 +9323,25 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         public static XmpMappingFieldToLayerWithRequiredFieldsNotAllowedException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<XmpMappingFieldToLayerWithRequiredFieldsNotAllowedException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class XmpMappingFieldToLayerWithMetadataProtectionForCreateOrUpdateNotSupportedException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("layerId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string LayerId { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static XmpMappingFieldToLayerWithMetadataProtectionForCreateOrUpdateNotSupportedException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<XmpMappingFieldToLayerWithMetadataProtectionForCreateOrUpdateNotSupportedException>(data);
         }
     
     }
@@ -15723,6 +15806,9 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
         [Newtonsoft.Json.JsonProperty("retries", Required = Newtonsoft.Json.Required.Always)]
         public int Retries { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("retriesPerformed", Required = Newtonsoft.Json.Required.Always)]
+        public int RetriesPerformed { get; set; }
     
         [Newtonsoft.Json.JsonProperty("priority", Required = Newtonsoft.Json.Required.Always)]
         public int Priority { get; set; }
