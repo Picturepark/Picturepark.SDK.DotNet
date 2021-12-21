@@ -12746,6 +12746,30 @@
           }
         ]
       },
+      "SchemasMetadataProtectionException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "schemaIds": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "type": "string"
+                }
+              },
+              "operation": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
       "SchemaFieldOverwriteTypeMismatchException": {
         "allOf": [
           {
@@ -13602,6 +13626,40 @@
         ]
       },
       "SchemaPermissionConfigurationException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "schemaId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "SchemaMetadataProtectionSettingsNotSupportedForStructsException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "schemaId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "SchemaMetadataProtectionSettingsChangeNotAllowedForXmpMappedLayersException": {
         "allOf": [
           {
             "$ref": "#/components/schemas/PictureparkValidationException"
@@ -15661,6 +15719,17 @@
           }
         ]
       },
+      "BusinessRuleUserInUserRolesConditionUserRoleIdsMissingException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
       "BusinessRuleDateMathTransformationTimeSpanInvalidException": {
         "allOf": [
           {
@@ -16251,6 +16320,23 @@
         ]
       },
       "XmpMappingFieldToLayerWithRequiredFieldsNotAllowedException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "layerId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "XmpMappingFieldToLayerWithMetadataProtectionForCreateOrUpdateNotSupportedException": {
         "allOf": [
           {
             "$ref": "#/components/schemas/PictureparkValidationException"
@@ -22869,6 +22955,7 @@
         "required": [
           "kind",
           "retries",
+          "retriesPerformed",
           "priority",
           "deduplicate"
         ],
@@ -22878,6 +22965,10 @@
             "nullable": true
           },
           "retries": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "retriesPerformed": {
             "type": "integer",
             "format": "int32"
           },
