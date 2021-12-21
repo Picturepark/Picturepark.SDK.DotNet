@@ -36338,7 +36338,7 @@
               },
               "lookupReturnedItems": {
                 "description": "Choose what should be returned.\nFound: return the value of the found item in the lookup cache, null if not found.\nNotFound: return the input key value of the not found item, null if found.\nAll: return the value of the found item in the lookup cache or the input key value of the not found item.",
-                "default": "All",
+                "default": "Found",
                 "oneOf": [
                   {
                     "$ref": "#/components/schemas/LookupItemsMatch"

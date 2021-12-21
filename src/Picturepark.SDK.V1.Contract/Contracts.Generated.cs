@@ -13715,7 +13715,7 @@ namespace Picturepark.SDK.V1.Contract
         /// All: return the value of the found item in the lookup cache or the input key value of the not found item.</summary>
         [Newtonsoft.Json.JsonProperty("lookupReturnedItems", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public LookupItemsMatch LookupReturnedItems { get; set; } = Picturepark.SDK.V1.Contract.LookupItemsMatch.All;
+        public LookupItemsMatch LookupReturnedItems { get; set; } = Picturepark.SDK.V1.Contract.LookupItemsMatch.Found;
     
         public string ToJson() 
         {
