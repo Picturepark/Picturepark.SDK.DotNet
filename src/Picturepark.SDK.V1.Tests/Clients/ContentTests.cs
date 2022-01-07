@@ -1989,6 +1989,39 @@ namespace Picturepark.SDK.V1.Tests.Clients
             }
         }
 
+        [Fact]
+        [Trait("Stack", "Contents")]
+        public async Task ShouldRespectProtectionFlagOnSchema()
+        {
+            var contentSchema = await _client.Schema.CreateAsync(
+                new SchemaCreateRequest
+                {
+                    Id = $"ContentSchema{Guid.NewGuid():N}",
+                    Types = new List<SchemaType> { SchemaType.Content },
+                    ViewForAll = true,
+                    Names = new TranslatedStringDictionary
+                    {
+                        ["en"] = "Content schema"
+                    },
+                    MetadataProtection = new MetadataProtection
+                    {
+                        PreventCreate = false,
+                        PreventUpdate = false,
+                        PreventDelete = true
+                    }
+                }).ConfigureAwait(false);
+
+            var content = await _client.Content.CreateAsync(
+                new ContentCreateRequest
+                {
+                    ContentSchemaId = contentSchema.Schema.Id,
+                    Content = new object()
+                }).ConfigureAwait(false);
+
+            var ex = await Record.ExceptionAsync(() => _client.Content.DeleteAsync(content.Id)).ConfigureAwait(false);
+            ex.Should().BeOfType<SchemasMetadataProtectionException>();
+        }
+
         private static async Task AssertFileResponseOkAndNonEmpty(FileResponse response, string expectedContentType = null)
         {
             using (var stream = new MemoryStream())
