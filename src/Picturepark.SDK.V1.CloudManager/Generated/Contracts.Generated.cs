@@ -11104,6 +11104,12 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public abstract partial class TaggingConfigurationBase 
     {
+        [Newtonsoft.Json.JsonProperty("enableImageAnalytics", Required = Newtonsoft.Json.Required.Always)]
+        public bool EnableImageAnalytics { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("enableLegacyTaggingBehavior", Required = Newtonsoft.Json.Required.Always)]
+        public bool EnableLegacyTaggingBehavior { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("defaultTagOutputFormatId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string DefaultTagOutputFormatId { get; set; }
     
