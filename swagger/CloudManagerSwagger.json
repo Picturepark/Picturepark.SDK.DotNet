@@ -18138,9 +18138,17 @@
         "x-abstract": true,
         "additionalProperties": false,
         "required": [
-          "kind"
+          "kind",
+          "enableImageAnalytics",
+          "enableLegacyTaggingBehavior"
         ],
         "properties": {
+          "enableImageAnalytics": {
+            "type": "boolean"
+          },
+          "enableLegacyTaggingBehavior": {
+            "type": "boolean"
+          },
           "defaultTagOutputFormatId": {
             "type": "string",
             "nullable": true
