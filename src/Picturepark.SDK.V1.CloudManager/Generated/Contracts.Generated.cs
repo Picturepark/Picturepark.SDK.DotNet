@@ -1264,6 +1264,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [JsonInheritanceAttribute("LanguageCodeNotExistingException", typeof(LanguageCodeNotExistingException))]
     [JsonInheritanceAttribute("RenderingException", typeof(RenderingException))]
     [JsonInheritanceAttribute("FormatNotApplicableForRenderingException", typeof(FormatNotApplicableForRenderingException))]
+    [JsonInheritanceAttribute("FocalPointCropSizeMissingException", typeof(FocalPointCropSizeMissingException))]
     [JsonInheritanceAttribute("DocumentVersionNotFoundException", typeof(DocumentVersionNotFoundException))]
     [JsonInheritanceAttribute("DefaultChannelDeleteException", typeof(DefaultChannelDeleteException))]
     [JsonInheritanceAttribute("ChannelsNotFoundException", typeof(ChannelsNotFoundException))]
@@ -2279,6 +2280,22 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
         [System.Runtime.Serialization.EnumMember(Value = @"Vector")]
         Vector = 5,
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class FocalPointCropSizeMissingException : PictureparkValidationException
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static FocalPointCropSizeMissingException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<FocalPointCropSizeMissingException>(data);
+        }
     
     }
     
@@ -11775,6 +11792,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
     [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
     [JsonInheritanceAttribute("AlphaHandlingAction", typeof(AlphaHandlingAction))]
+    [JsonInheritanceAttribute("CropActionGeneric", typeof(CropActionGeneric))]
     [JsonInheritanceAttribute("CropAction", typeof(CropAction))]
     [JsonInheritanceAttribute("GravityBasedCropAction", typeof(GravityBasedCropAction))]
     [JsonInheritanceAttribute("RelativeCropAction", typeof(RelativeCropAction))]
@@ -11836,9 +11854,52 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
     }
     
-    /// <summary>An ImageAction that allows cropping an image.</summary>
+    /// <summary>Parameters for cropping actions.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
-    public partial class CropAction : CropActionBase
+    public partial class CropActionGeneric : ImageActionBase
+    {
+        /// <summary>Defines position of cropping rectangle.</summary>
+        [Newtonsoft.Json.JsonProperty("position", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public CropPositionBase Position { get; set; }
+    
+        /// <summary>Defines size of cropping rectangle.</summary>
+        [Newtonsoft.Json.JsonProperty("size", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public CropSizeBase Size { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static CropActionGeneric FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<CropActionGeneric>(data);
+        }
+    
+    }
+    
+    /// <summary>Defines position of cropping rectangle.</summary>
+    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
+    [JsonInheritanceAttribute("CropOriginAbsolute", typeof(CropOriginAbsolute))]
+    [JsonInheritanceAttribute("CropCenterRelative", typeof(CropCenterRelative))]
+    [JsonInheritanceAttribute("CropPositionGravity", typeof(CropPositionGravity))]
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public abstract partial class CropPositionBase 
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static CropPositionBase FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<CropPositionBase>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class CropOriginAbsolute : CropOriginBase
     {
         /// <summary>X-Coordinate of top left point of the cropping rectangle.</summary>
         [Newtonsoft.Json.JsonProperty("x", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -11853,40 +11914,55 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
         }
     
-        public static CropAction FromJson(string data)
+        public static CropOriginAbsolute FromJson(string data)
         {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<CropAction>(data);
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<CropOriginAbsolute>(data);
         }
     
     }
     
-    /// <summary>Base parameters for cropping actions.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
-    public abstract partial class CropActionBase : ImageActionBase
+    public abstract partial class CropOriginBase : CropPositionBase
     {
-        /// <summary>Width of the cropping rectangle.</summary>
-        [Newtonsoft.Json.JsonProperty("width", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int Width { get; set; }
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
     
-        /// <summary>Height of the cropping rectangle.</summary>
-        [Newtonsoft.Json.JsonProperty("height", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int Height { get; set; }
+        public static CropOriginBase FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<CropOriginBase>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class CropCenterRelative : CropPositionBase
+    {
+        /// <summary>Relative horizontal position of center for crop. 0.5 designates the center of the image.</summary>
+        [Newtonsoft.Json.JsonProperty("x", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [System.ComponentModel.DataAnnotations.Range(0.0D, 1.0D)]
+        public float X { get; set; }
+    
+        /// <summary>Relative vertical position of center for crop. 0.5 designates the center of the image.</summary>
+        [Newtonsoft.Json.JsonProperty("y", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [System.ComponentModel.DataAnnotations.Range(0.0D, 1.0D)]
+        public float Y { get; set; }
     
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
         }
     
-        public static CropActionBase FromJson(string data)
+        public static CropCenterRelative FromJson(string data)
         {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<CropActionBase>(data);
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<CropCenterRelative>(data);
         }
     
     }
     
-    /// <summary>An ImageAction that allows cropping an image, weighing the cropping rectangle on a gravity.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
-    public partial class GravityBasedCropAction : CropActionBase
+    public partial class CropPositionGravity : CropPositionBase
     {
         /// <summary>Gravity of the cropping rectangle.</summary>
         [Newtonsoft.Json.JsonProperty("gravity", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -11898,9 +11974,9 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
         }
     
-        public static GravityBasedCropAction FromJson(string data)
+        public static CropPositionGravity FromJson(string data)
         {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<GravityBasedCropAction>(data);
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<CropPositionGravity>(data);
         }
     
     }
@@ -11932,17 +12008,148 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [System.Runtime.Serialization.EnumMember(Value = @"West")]
         West = 7,
     
+        [System.Runtime.Serialization.EnumMember(Value = @"Center")]
+        Center = 8,
+    
+    }
+    
+    /// <summary>Defines size of cropping rectangle.</summary>
+    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
+    [JsonInheritanceAttribute("CropSizeAbsolute", typeof(CropSizeAbsolute))]
+    [JsonInheritanceAttribute("CropSizeRelative", typeof(CropSizeRelative))]
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public abstract partial class CropSizeBase 
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static CropSizeBase FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<CropSizeBase>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class CropSizeAbsolute : CropSizeBase
+    {
+        /// <summary>Width of the cropping rectangle.</summary>
+        [Newtonsoft.Json.JsonProperty("width", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int Width { get; set; }
+    
+        /// <summary>Height of the cropping rectangle.</summary>
+        [Newtonsoft.Json.JsonProperty("height", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int Height { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static CropSizeAbsolute FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<CropSizeAbsolute>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class CropSizeRelative : CropSizeBase
+    {
+        /// <summary>Width of the cropping rectangle in range [0, 1].</summary>
+        [Newtonsoft.Json.JsonProperty("width", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [System.ComponentModel.DataAnnotations.Range(0.0D, 1.0D)]
+        public float Width { get; set; }
+    
+        /// <summary>Height of the cropping rectangle in range [0, 1].</summary>
+        [Newtonsoft.Json.JsonProperty("height", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [System.ComponentModel.DataAnnotations.Range(0.0D, 1.0D)]
+        public float Height { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static CropSizeRelative FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<CropSizeRelative>(data);
+        }
+    
+    }
+    
+    /// <summary>An ImageAction that allows cropping an image.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class CropAction : CropActionAbsoluteSizeBase
+    {
+        [Newtonsoft.Json.JsonProperty("x", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int X { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("y", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int Y { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static CropAction FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<CropAction>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public abstract partial class CropActionAbsoluteSizeBase : CropActionGeneric
+    {
+        [Newtonsoft.Json.JsonProperty("height", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int Height { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("width", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int Width { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static CropActionAbsoluteSizeBase FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<CropActionAbsoluteSizeBase>(data);
+        }
+    
+    }
+    
+    /// <summary>An ImageAction that allows cropping an image, weighing the cropping rectangle on a gravity.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class GravityBasedCropAction : CropActionAbsoluteSizeBase
+    {
+        [Newtonsoft.Json.JsonProperty("gravity", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public CropGravity Gravity { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static GravityBasedCropAction FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<GravityBasedCropAction>(data);
+        }
+    
     }
     
     /// <summary>An ImageAction that allows cropping an image, positioning the cropping rectangle relative to the width/height of the image.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
-    public partial class RelativeCropAction : CropActionBase
+    public partial class RelativeCropAction : CropActionAbsoluteSizeBase
     {
-        /// <summary>Relative position of origin point from the left of the image. 0.5 designates the center of the image.</summary>
         [Newtonsoft.Json.JsonProperty("x", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public float X { get; set; }
     
-        /// <summary>Relative position of origin point from the top of the image. 0.5 designates the center of the image.</summary>
         [Newtonsoft.Json.JsonProperty("y", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public float Y { get; set; }
     
