@@ -27386,7 +27386,17 @@
           },
           {
             "type": "object",
-            "additionalProperties": false
+            "additionalProperties": false,
+            "properties": {
+              "contentId": {
+                "type": "string",
+                "nullable": true
+              },
+              "focalPointId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
           }
         ]
       },
@@ -45788,7 +45798,6 @@
         "discriminator": {
           "propertyName": "kind",
           "mapping": {
-            "CropOriginBase": "#/components/schemas/CropOriginBase",
             "CropOriginAbsolute": "#/components/schemas/CropOriginAbsolute",
             "CropCenterRelative": "#/components/schemas/CropCenterRelative",
             "CropPositionGravity": "#/components/schemas/CropPositionGravity"
@@ -45809,7 +45818,7 @@
       "CropOriginAbsolute": {
         "allOf": [
           {
-            "$ref": "#/components/schemas/CropOriginBase"
+            "$ref": "#/components/schemas/CropPositionBase"
           },
           {
             "type": "object",
@@ -45826,18 +45835,6 @@
                 "format": "int32"
               }
             }
-          }
-        ]
-      },
-      "CropOriginBase": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/CropPositionBase"
-          },
-          {
-            "type": "object",
-            "x-abstract": true,
-            "additionalProperties": false
           }
         ]
       },

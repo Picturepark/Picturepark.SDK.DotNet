@@ -4237,6 +4237,12 @@ namespace Picturepark.SDK.V1.Contract
     [Newtonsoft.Json.JsonObjectAttribute]
     public partial class FocalPointCropSizeMissingException : PictureparkValidationException
     {
+        [Newtonsoft.Json.JsonProperty("contentId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ContentId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("focalPointId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string FocalPointId { get; set; }
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -22992,7 +22998,7 @@ namespace Picturepark.SDK.V1.Contract
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
-    public partial class CropOriginAbsolute : CropOriginBase
+    public partial class CropOriginAbsolute : CropPositionBase
     {
         /// <summary>X-Coordinate of top left point of the cropping rectangle.</summary>
         [Newtonsoft.Json.JsonProperty("x", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -23010,21 +23016,6 @@ namespace Picturepark.SDK.V1.Contract
         public static CropOriginAbsolute FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<CropOriginAbsolute>(data);
-        }
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
-    public abstract partial class CropOriginBase : CropPositionBase
-    {
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-    
-        public static CropOriginBase FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<CropOriginBase>(data);
         }
     
     }
