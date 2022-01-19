@@ -26780,6 +26780,12 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("dynamicRendering", Required = Newtonsoft.Json.Required.Always)]
         public bool DynamicRendering { get; set; }
     
+        /// <summary>The rendering state of the output file.</summary>
+        [Newtonsoft.Json.JsonProperty("renderingState", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public OutputRenderingState RenderingState { get; set; }
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);

@@ -49957,6 +49957,7 @@
           "contentId",
           "outputFormatId",
           "dynamicRendering",
+          "renderingState",
           "kind"
         ],
         "properties": {
@@ -49992,6 +49993,14 @@
           "dynamicRendering": {
             "type": "boolean",
             "description": "Whether this Output belongs to a dynamic OutputFormat"
+          },
+          "renderingState": {
+            "description": "The rendering state of the output file.",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/OutputRenderingState"
+              }
+            ]
           },
           "kind": {
             "type": "string"
