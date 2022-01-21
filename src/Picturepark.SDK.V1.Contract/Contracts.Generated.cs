@@ -19591,6 +19591,11 @@ namespace Picturepark.SDK.V1.Contract
         [System.ComponentModel.DataAnnotations.Required]
         public LicenseInfo LicenseInformation { get; set; } = new LicenseInfo();
     
+        /// <summary>Customer settings</summary>
+        [Newtonsoft.Json.JsonProperty("settings", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public CustomerInfoSettings Settings { get; set; } = new CustomerInfoSettings();
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -19810,6 +19815,31 @@ namespace Picturepark.SDK.V1.Contract
         public static StatisticsLicenseState FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<StatisticsLicenseState>(data);
+        }
+    
+    }
+    
+    /// <summary>Customer configuration information</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class CustomerInfoSettings 
+    {
+        /// <summary>Default expiration time span as number of milliseconds that will be applied as default by the UI when creating a new Share</summary>
+        [Newtonsoft.Json.JsonProperty("uiDefaultShareExpirationTime", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public long? UiDefaultShareExpirationTime { get; set; }
+    
+        /// <summary>Prefix to be used for the zip file created when downloading multiple contents</summary>
+        [Newtonsoft.Json.JsonProperty("downloadPrefixName", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public string DownloadPrefixName { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static CustomerInfoSettings FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<CustomerInfoSettings>(data);
         }
     
     }
