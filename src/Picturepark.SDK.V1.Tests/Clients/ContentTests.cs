@@ -18,6 +18,7 @@ using Xunit;
 
 namespace Picturepark.SDK.V1.Tests.Clients
 {
+    [Trait("Stack", "Contents")]
     public class ContentTests : IClassFixture<ContentFixture>
     {
         private readonly ClientFixture _fixture;
@@ -30,7 +31,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
         }
 
         [Fact]
-        [Trait("Stack", "Contents")]
         public async Task ShouldTransferOwnership()
         {
             // Arrange
@@ -59,7 +59,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
         }
 
         [Fact]
-        [Trait("Stack", "Contents")]
         public async Task ShouldGetMany()
         {
             // Arrange
@@ -86,7 +85,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
         }
 
         [Fact]
-        [Trait("Stack", "Contents")]
         public async Task ShouldTransferOwnershipMany()
         {
             // Arrange
@@ -130,7 +128,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
         }
 
         [Fact]
-        [Trait("Stack", "Contents")]
         public async Task ShouldAggregateWithAggregators()
         {
             var request = new ContentAggregationRequest
@@ -161,7 +158,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
         }
 
         [Fact]
-        [Trait("Stack", "Contents")]
         public async Task ShouldSearchAndAggregateAllTogether()
         {
             var request = new ContentSearchRequest
@@ -198,7 +194,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
         }
 
         [Fact]
-        [Trait("Stack", "Contents")]
         public async Task ShouldAggregateByChannel()
         {
             // Arrange
@@ -221,7 +216,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
         }
 
         [Fact]
-        [Trait("Stack", "Contents")]
         public async Task ShouldAggregateOnChannelWithTermsAggregator()
         {
             // Arrange
@@ -248,7 +242,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
         }
 
         [Fact]
-        [Trait("Stack", "Contents")]
         public async Task ShouldSortAggregationResults()
         {
             // Arrange
@@ -369,7 +362,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
         }
 
         [Fact]
-        [Trait("Stack", "Contents")]
         public async Task ShouldSearchAndAggregateOnChannelWithTermsAggregator()
         {
             // Arrange
@@ -395,7 +387,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
         }
 
         [Fact]
-        [Trait("Stack", "Contents")]
         public async Task ShouldCreateDownloadLinkForSingleFile()
         {
             // Arrange
@@ -476,7 +467,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
         }
 
         [Fact]
-        [Trait("Stack", "Contents")]
         public async Task ShouldCreateContent()
         {
             // Arrange
@@ -497,7 +487,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
         }
 
         [Fact]
-        [Trait("Stack", "Contents")]
         public async Task ShouldCreateContents()
         {
             // Arrange
@@ -528,7 +517,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
         }
 
         [Fact]
-        [Trait("Stack", "Contents")]
         public async Task ShouldAllowMultiTagboxExtraction()
         {
             // Arrange
@@ -564,7 +552,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
         }
 
         [Fact]
-        [Trait("Stack", "Contents")]
         public async Task ShouldDownloadMultiple()
         {
             int maxNumberOfDownloadFiles = 3;
@@ -586,7 +573,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
         }
 
         [Fact]
-        [Trait("Stack", "Contents")]
         public async Task ShouldDownloadSingle()
         {
             string contentId = await _fixture.GetRandomContentIdAsync("fileMetadata.fileExtension:.jpg", 20).ConfigureAwait(false);
@@ -617,7 +603,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
          InlineData(ThumbnailSize.Medium),
          InlineData(ThumbnailSize.Large),
          InlineData(ThumbnailSize.Preview)]
-        [Trait("Stack", "Contents")]
         public async Task ShouldDownloadThumbnail(ThumbnailSize size)
         {
             // Arrange
@@ -636,7 +621,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
          InlineData(ThumbnailSize.Medium),
          InlineData(ThumbnailSize.Large),
          InlineData(ThumbnailSize.Preview)]
-        [Trait("Stack", "Contents")]
         public async Task ShouldDownloadFileFormatIconIfOutputForThumbnailNotRendered(ThumbnailSize size)
         {
             // Arrange
@@ -660,7 +644,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
         }
 
         [Fact]
-        [Trait("Stack", "Contents")]
         public async Task ShouldUpdateMetadata()
         {
             // Arrange
@@ -688,7 +671,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
         }
 
         [Fact]
-        [Trait("Stack", "Contents")]
         public async Task ShouldUpdateMetadataMany()
         {
             // Arrange
@@ -721,7 +703,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
         }
 
         [Fact]
-        [Trait("Stack", "Contents")]
         public async Task ShouldSetLayerAndResolveDisplayValues()
         {
             // Arrange
@@ -737,7 +718,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
         }
 
         [Fact]
-        [Trait("Stack", "Contents")]
         public async Task ShouldMergeLayersOnMetadataUpdate()
         {
             // Arrange
@@ -766,7 +746,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
         }
 
         [Fact]
-        [Trait("Stack", "Contents")]
         public async Task ShouldReplaceLayersOnMetadataUpdate()
         {
             // Arrange
@@ -798,7 +777,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
         }
 
         [Fact]
-        [Trait("Stack", "Contents")]
         public async Task ShouldReplaceContentOnMetadataUpdate()
         {
             // Arrange
@@ -818,7 +796,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
         }
 
         [Fact]
-        [Trait("Stack", "Contents")]
         public async Task ShouldMergeFieldsOnMetadataUpdate()
         {
             // Arrange
@@ -842,7 +819,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
         }
 
         [Fact]
-        [Trait("Stack", "Contents")]
         public async Task ShouldReplaceFieldsOnMetadataUpdate()
         {
             // Arrange
@@ -871,7 +847,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
         }
 
         [Fact]
-        [Trait("Stack", "Contents")]
         public async Task ShouldCreateContentWithTriggerFieldInLayerAndTriggerItOnMetadataUpdate()
         {
             // Arrange
@@ -911,7 +886,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
         }
 
         [Fact]
-        [Trait("Stack", "Contents")]
         public async Task ShouldSimpleSearchOnInnerTriggeredOnFieldOfTriggerFieldOfLayer()
         {
             // Arrange
@@ -962,7 +936,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
         }
 
         [Fact]
-        [Trait("Stack", "Contents")]
         public async Task ShouldFilterOnInnerTriggeredByFieldOfTriggerFieldOfLayer()
         {
             // Arrange
@@ -1014,7 +987,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
         }
 
         [Fact]
-        [Trait("Stack", "Contents")]
         public async Task ShouldBatchUpdateFieldsByFilter()
         {
             // Arrange
@@ -1047,7 +1019,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
         }
 
         [Fact]
-        [Trait("Stack", "Contents")]
         public async Task ShouldBatchUpdateFieldsByIds()
         {
             // Arrange
@@ -1078,7 +1049,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
         }
 
         [Fact]
-        [Trait("Stack", "Contents")]
         public async Task ShouldThrowExceptionWhenContentNotFound()
         {
             var contentId = "foobar.baz";
@@ -1089,7 +1059,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
         }
 
         [Fact]
-        [Trait("Stack", "Contents")]
         public async Task ShouldDownloadSingleResized()
         {
             // Arrange
@@ -1131,7 +1100,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
         }
 
         [Fact]
-        [Trait("Stack", "Contents")]
         public async Task ShouldEditContent()
         {
             // Arrange
@@ -1149,7 +1117,83 @@ namespace Picturepark.SDK.V1.Tests.Clients
         }
 
         [Fact]
-        [Trait("Stack", "Contents")]
+        public async Task ShouldEditAndCropToFocalPoint()
+        {
+            // Arrange
+            var contentIds = await UploadAndImportContents(searchPattern: "0396_1ZvuywK5v6s.jpg");
+            var contentId = contentIds.Single();
+
+            var contentDetail = await _client.Content.GetAsync(contentId, new[] { ContentResolveBehavior.Content });
+            var imageMetadata = (ImageMetadata)contentDetail.GetFileMetadata();
+
+            // Focal points are given with relative coordinates so that they can be leveraged with multiple output formats
+            var topLeft = new PointF(x: 0.3f, y: 0.2f);
+            var bottomRight = new PointF(x: 0.4f, y: 0.4f);
+
+            // assign a focal point manually. this could also be done using a tagging service
+            var imageAnalyticsLayerId = "ImageAnalytics";
+            var focalPointIdentifier = "testPoint";
+
+            await _client.Content.UpdateMetadataAsync(
+                contentId,
+                new ContentMetadataUpdateRequest()
+                {
+                    LayerSchemaIds = new List<string> { imageAnalyticsLayerId },
+                    Metadata = new Dictionary<string, object>()
+                    {
+                        [imageAnalyticsLayerId.ToLowerCamelCase()] = new Dictionary<string, object>()
+                        {
+                            ["focalPoints"] = new List<object>
+                            {
+                                new
+                                {
+                                    identifier = focalPointIdentifier,
+                                    confidenceLevel = 0.75,
+                                    source = new
+                                    {
+                                        _refId = "d61e3e2376fe439d866bb71839dc832c" // "User defined"
+                                    },
+
+                                    // of type FocalPointCoordinate
+                                    position = new List<object>
+                                    {
+                                        new { x = topLeft.X, y = topLeft.Y },
+                                        new { x = bottomRight.X, y = topLeft.Y },
+                                        new { x = bottomRight.X, y = bottomRight.Y },
+                                        new { x = topLeft.X, y = bottomRight.Y }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+
+            var fileName = nameof(ShouldEditAndCropToFocalPoint) + new Random().Next(0, 999999) + "-" + imageMetadata.FileName;
+            var filePath = Path.Combine(_fixture.TempDirectory, fileName);
+
+            // crop to our focal point and automatically derive size of cropping rectangle
+            var conversionPreset = $"crop:auto,fp:{focalPointIdentifier}";
+
+            // usually it is advisable to use Preview or another smaller outputFormat in favor of Original
+            using (var downloadedImage = await _client.Content.EditOutputAsync(contentId, "Original", conversionPreset))
+            {
+                await downloadedImage.Stream.WriteToFileAsync(filePath).ConfigureAwait(false);
+            }
+
+            // Assert
+            File.Exists(filePath).Should().BeTrue();
+
+            var expectedHeight = (bottomRight.Y - topLeft.Y) * imageMetadata.Height;
+            var expectedWidth = (bottomRight.X - topLeft.X) * imageMetadata.Width;
+
+            using (var bitmap = new Bitmap(filePath))
+            {
+                bitmap.Height.Should().BeInRange((int)(0.98f * expectedHeight), (int)(1.02f * expectedHeight));
+                bitmap.Width.Should().BeInRange((int)(0.98f * expectedWidth), (int)(1.02f * expectedWidth));
+            }
+        }
+
+        [Fact]
         public async Task ShouldGet()
         {
             var contentId = await _fixture.GetRandomContentIdAsync("fileMetadata.fileExtension:.jpg", 20).ConfigureAwait(false);
@@ -1172,7 +1216,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
         }
 
         [Fact]
-        [Trait("Stack", "Contents")]
         public async Task ShouldGetDocumentMetadata()
         {
             var contentId = await _fixture.GetRandomContentIdAsync("fileMetadata.fileExtension:.jpg", 20).ConfigureAwait(false);
@@ -1189,7 +1232,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
         }
 
         [Fact]
-        [Trait("Stack", "Contents")]
         public async Task ShouldGetVectorMetadata()
         {
             // sample001.ai
@@ -1203,7 +1245,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
         }
 
         [Fact]
-        [Trait("Stack", "Contents")]
         public async Task ShouldGetWithResolvedObjects()
         {
             var contentDetail = await CreateContentReferencingSimpleField(ContentResolveBehavior.Content, ContentResolveBehavior.LinkedListItems);
@@ -1213,7 +1254,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
         }
 
         [Fact]
-        [Trait("Stack", "Contents")]
         public async Task ShouldGetWithoutResolvedObjects()
         {
             var contentDetail = await CreateContentReferencingSimpleField(ContentResolveBehavior.Content);
@@ -1223,7 +1263,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
         }
 
         [Fact]
-        [Trait("Stack", "Contents")]
         public async Task ShouldSearch()
         {
             // Arrange
@@ -1254,7 +1293,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
         }
 
         [Fact]
-        [Trait("Stack", "Contents")]
         public async Task ShouldSearchByChannelAndScrollThroughResults()
         {
             string channelId = "rootChannel";
@@ -1283,7 +1321,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
         }
 
         [Fact]
-        [Trait("Stack", "Contents")]
         public async Task ShouldSearchAndResolveContentRights()
         {
             // Arrange
@@ -1300,7 +1337,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
         }
 
         [Fact]
-        [Trait("Stack", "Contents")]
         public async Task ShouldDeleteAndRestoreContent()
         {
             // Arrange
@@ -1325,7 +1361,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
         }
 
         [Fact]
-        [Trait("Stack", "Contents")]
         public async Task ShouldDeleteAndRestoreContentMany()
         {
             // Arrange
@@ -1370,7 +1405,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
         }
 
         [Fact]
-        [Trait("Stack", "Contents")]
         public async Task ShouldCreateUpdateDeleteAndRestoreContentWithoutWaitingSearchDocs()
         {
             // Act
@@ -1404,7 +1438,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
         }
 
         [Fact]
-        [Trait("Stack", "Contents")]
         public async Task ShouldCreateUpdateDeleteAndRestoreContentManyWithoutWaitingSearchDocs()
         {
             // Act
@@ -1469,7 +1502,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
         }
 
         [Fact]
-        [Trait("Stack", "Contents")]
         public async Task ShouldBatchUpdateWithoutWithoutWaitingSearchDocs()
         {
             // Arrange
@@ -1521,7 +1553,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
         }
 
         [Fact]
-        [Trait("Stack", "Contents")]
         public async Task ShouldDeleteContentManyByFilter()
         {
             // Arrange
@@ -1557,7 +1588,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
         }
 
         [Fact]
-        [Trait("Stack", "Contents")]
         public async Task ShouldUpdateFile()
         {
             var contentId = await _fixture.GetRandomContentIdAsync("fileMetadata.fileExtension:.jpg -0030_JabLtzJl8bc", 20).ConfigureAwait(false);
@@ -1597,7 +1627,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
         }
 
         [Fact]
-        [Trait("Stack", "Contents")]
         public async Task Should_replace_virtual_content_and_remove_layers_if_specified()
         {
             var namePrefix = $"{nameof(Should_replace_virtual_content_and_remove_layers_if_specified).Replace("_", string.Empty)}{Guid.NewGuid():N}";
@@ -1676,7 +1705,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
         }
 
         [Fact]
-        [Trait("Stack", "Contents")]
         public async Task ShouldUpdatePermissions()
         {
             // Arrange
@@ -1709,7 +1737,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
         }
 
         [Fact]
-        [Trait("Stack", "Contents")]
         public async Task ShouldUpdatePermissionsMany()
         {
             // Arrange
@@ -1745,7 +1772,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
         }
 
         [Fact]
-        [Trait("Stack", "Contents")]
         public async Task ShouldUseDisplayLanguageToResolveDisplayPatterns()
         {
             // Arrange
@@ -1803,7 +1829,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
         }
 
         [Fact]
-        [Trait("Stack", "Contents")]
         public async Task ShouldFetchResultFromCreateMany()
         {
             // Arrange
@@ -1832,7 +1857,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
         }
 
         [Fact]
-        [Trait("Stack", "Contents")]
         public async Task ShouldHandleDuplicateFilenameWhenDownloading()
         {
             // Arrange
@@ -1867,7 +1891,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
         }
 
         [Fact]
-        [Trait("Stack", "Contents")]
         public async Task ShouldListHistoricVersions()
         {
             var versioningState = (await _client.Info.GetInfoAsync().ConfigureAwait(false)).LicenseInformation
@@ -1894,7 +1917,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
         }
 
         [Fact]
-        [Trait("Stack", "Contents")]
         public async Task ShouldGetDownloadLinkForHistoricVersions()
         {
             var versioningState = (await _client.Info.GetInfoAsync().ConfigureAwait(false)).LicenseInformation
@@ -1938,7 +1960,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
         }
 
         [Fact]
-        [Trait("Stack", "Contents")]
         public async Task ShouldDeleteHistoricVersion()
         {
             var versioningState = (await _client.Info.GetInfoAsync().ConfigureAwait(false)).LicenseInformation
@@ -1967,7 +1988,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
         }
 
         [Fact]
-        [Trait("Stack", "Contents")]
         public async Task ShouldResolveHistoricVersionCount()
         {
             var versioningState = (await _client.Info.GetInfoAsync().ConfigureAwait(false)).LicenseInformation
@@ -1990,7 +2010,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
         }
 
         [Fact]
-        [Trait("Stack", "Contents")]
         public async Task ShouldRespectProtectionFlagOnSchema()
         {
             var contentSchema = await _client.Schema.CreateAsync(
@@ -2169,10 +2188,10 @@ namespace Picturepark.SDK.V1.Tests.Clients
             return createTransferResult.Transfer;
         }
 
-        private async Task<IReadOnlyList<string>> UploadAndImportContents(int count = 1, [CallerMemberName] string testName = null)
+        private async Task<IReadOnlyList<string>> UploadAndImportContents(int count = 1, string searchPattern = "*.jpg", [CallerMemberName] string testName = null)
         {
             var timeout = TimeSpan.FromMinutes(2);
-            var transfer = await UploadContents(count: count,  testName: testName).ConfigureAwait(false);
+            var transfer = await UploadContents(count: count, searchPattern: searchPattern, testName: testName).ConfigureAwait(false);
 
             var importRequest = new ImportTransferRequest
             {
