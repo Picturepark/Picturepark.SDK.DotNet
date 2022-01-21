@@ -40134,11 +40134,13 @@
         "type": "object",
         "description": "Request to update the permissions of a content",
         "additionalProperties": false,
+        "required": [
+          "contentPermissionSetIds"
+        ],
         "properties": {
           "contentPermissionSetIds": {
             "type": "array",
             "description": "A list of content permission set IDs which control content permissions that will be updated on the content.\nThese permissions control content accessibility for the users that do not own the content.",
-            "nullable": true,
             "items": {
               "type": "string"
             }
@@ -49957,6 +49959,7 @@
           "contentId",
           "outputFormatId",
           "dynamicRendering",
+          "renderingState",
           "kind"
         ],
         "properties": {
@@ -49992,6 +49995,14 @@
           "dynamicRendering": {
             "type": "boolean",
             "description": "Whether this Output belongs to a dynamic OutputFormat"
+          },
+          "renderingState": {
+            "description": "The rendering state of the output file.",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/OutputRenderingState"
+              }
+            ]
           },
           "kind": {
             "type": "string"

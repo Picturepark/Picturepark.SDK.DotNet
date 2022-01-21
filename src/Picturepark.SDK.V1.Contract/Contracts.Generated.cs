@@ -17259,8 +17259,9 @@ namespace Picturepark.SDK.V1.Contract
     {
         /// <summary>A list of content permission set IDs which control content permissions that will be updated on the content.
         /// These permissions control content accessibility for the users that do not own the content.</summary>
-        [Newtonsoft.Json.JsonProperty("contentPermissionSetIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> ContentPermissionSetIds { get; set; }
+        [Newtonsoft.Json.JsonProperty("contentPermissionSetIds", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.Collections.Generic.ICollection<string> ContentPermissionSetIds { get; set; } = new System.Collections.Generic.List<string>();
     
         public string ToJson() 
         {
@@ -26779,6 +26780,12 @@ namespace Picturepark.SDK.V1.Contract
         /// <summary>Whether this Output belongs to a dynamic OutputFormat</summary>
         [Newtonsoft.Json.JsonProperty("dynamicRendering", Required = Newtonsoft.Json.Required.Always)]
         public bool DynamicRendering { get; set; }
+    
+        /// <summary>The rendering state of the output file.</summary>
+        [Newtonsoft.Json.JsonProperty("renderingState", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public OutputRenderingState RenderingState { get; set; }
     
         public string ToJson() 
         {
