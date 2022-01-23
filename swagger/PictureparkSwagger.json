@@ -33955,6 +33955,23 @@
           }
         ]
       },
+      "ShareExpirationInvalidException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "shareExpirationTimeSpan": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
       "ProblemDetails": {
         "type": "object",
         "additionalProperties": {
@@ -42812,7 +42829,7 @@
       },
       "CustomerInfoSettings": {
         "type": "object",
-        "description": "Customer configuration information",
+        "description": "Customer settings within customer information",
         "additionalProperties": false,
         "required": [
           "downloadPrefixName"
