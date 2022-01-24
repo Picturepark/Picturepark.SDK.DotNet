@@ -16676,23 +16676,6 @@
           }
         ]
       },
-      "ShareExpirationInvalidException": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/PictureparkValidationException"
-          },
-          {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "shareExpirationTimeSpan": {
-                "type": "string",
-                "nullable": true
-              }
-            }
-          }
-        ]
-      },
       "ProblemDetails": {
         "type": "object",
         "additionalProperties": {
@@ -22057,7 +22040,8 @@
         "properties": {
           "uiDefaultShareExpirationTime": {
             "type": "string",
-            "description": "Default expiration time as time span string that will be applied as default by the UI when creating a new Share",
+            "description": "Default expiration time as time span that will be applied as default by the UI when creating a new Share",
+            "format": "time-span",
             "nullable": true
           },
           "downloadPrefixName": {

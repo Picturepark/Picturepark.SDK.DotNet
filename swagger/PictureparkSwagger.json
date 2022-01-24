@@ -33955,23 +33955,6 @@
           }
         ]
       },
-      "ShareExpirationInvalidException": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/PictureparkValidationException"
-          },
-          {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "shareExpirationTimeSpan": {
-                "type": "string",
-                "nullable": true
-              }
-            }
-          }
-        ]
-      },
       "ProblemDetails": {
         "type": "object",
         "additionalProperties": {
