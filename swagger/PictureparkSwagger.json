@@ -42493,7 +42493,8 @@
           "modificationDate",
           "baseUrl",
           "logosUrl",
-          "licenseInformation"
+          "licenseInformation",
+          "settings"
         ],
         "properties": {
           "customerId": {
@@ -42583,6 +42584,14 @@
             "oneOf": [
               {
                 "$ref": "#/components/schemas/LicenseInfo"
+              }
+            ]
+          },
+          "settings": {
+            "description": "Customer settings",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/CustomerInfoSettings"
               }
             ]
           }
@@ -42798,6 +42807,27 @@
           "export": {
             "type": "boolean",
             "description": "Allows or prevents export of the respective statistics"
+          }
+        }
+      },
+      "CustomerInfoSettings": {
+        "type": "object",
+        "description": "Customer settings within customer information",
+        "additionalProperties": false,
+        "required": [
+          "downloadPrefixName"
+        ],
+        "properties": {
+          "uiDefaultShareExpirationTime": {
+            "type": "integer",
+            "description": "Default expiration time span as number of milliseconds that will be applied as default by the UI when creating a new Share",
+            "format": "int64",
+            "nullable": true
+          },
+          "downloadPrefixName": {
+            "type": "string",
+            "description": "Prefix to be used for the zip file created when downloading multiple contents",
+            "minLength": 1
           }
         }
       },
