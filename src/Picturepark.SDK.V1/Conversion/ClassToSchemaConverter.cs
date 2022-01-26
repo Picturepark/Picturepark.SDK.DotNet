@@ -579,6 +579,10 @@ namespace Picturepark.SDK.V1.Conversion
                 var listItemCreateTemplateAttribute = property.PictureparkAttributes.OfType<PictureparkListItemCreateTemplateAttribute>().SingleOrDefault();
                 var tagboxAttributes = property.PictureparkAttributes.OfType<PictureparkTagboxAttribute>().SingleOrDefault();
                 var contentRelationAttributes = property.PictureparkAttributes.OfType<PictureparkContentRelationAttribute>().ToList();
+                var relationUiSettingsAttribute = property.PictureparkAttributes.OfType<PictureparkRelationUiSettingsAttribute>().SingleOrDefault();
+                var relationUiSettings = relationUiSettingsAttribute != null ?
+                    new RelationUiSettings { View = relationUiSettingsAttribute.View, MaxListRows = relationUiSettingsAttribute.MaxListRows, MaxThumbRows = relationUiSettingsAttribute.MaxThumbRows } :
+                    null;
 
                 var relationTypes = new List<RelationType>();
                 if (contentRelationAttributes.Any())
@@ -601,7 +605,8 @@ namespace Picturepark.SDK.V1.Conversion
                             Index = true,
                             RelationTypes = relationTypes,
                             SchemaId = property.TypeName,
-                            SchemaIndexingInfo = schemaIndexingAttribute?.SchemaIndexingInfo
+                            SchemaIndexingInfo = schemaIndexingAttribute?.SchemaIndexingInfo,
+                            UiSettings = relationUiSettings
                         };
                     }
                     else if (property.IsReference)
@@ -637,7 +642,8 @@ namespace Picturepark.SDK.V1.Conversion
                             SimpleSearch = true,
                             RelationTypes = relationTypes,
                             SchemaId = property.TypeName,
-                            SchemaIndexingInfo = schemaIndexingAttribute?.SchemaIndexingInfo
+                            SchemaIndexingInfo = schemaIndexingAttribute?.SchemaIndexingInfo,
+                            UiSettings = relationUiSettings
                         };
                     }
                     else if (property.TypeName == "GeoPoint")
