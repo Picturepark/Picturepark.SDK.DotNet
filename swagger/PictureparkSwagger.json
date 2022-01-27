@@ -48743,6 +48743,15 @@
                 "items": {
                   "$ref": "#/components/schemas/RelationType"
                 }
+              },
+              "uiSettings": {
+                "description": "Settings for displaying purposes in the UI",
+                "nullable": true,
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/RelationUiSettings"
+                  }
+                ]
               }
             }
           }
@@ -48786,6 +48795,51 @@
             ]
           }
         }
+      },
+      "RelationUiSettings": {
+        "type": "object",
+        "description": "Ui settings for the single and multi relationship fields",
+        "additionalProperties": false,
+        "required": [
+          "view"
+        ],
+        "properties": {
+          "maxListRows": {
+            "type": "integer",
+            "description": "Maximum number of rows to be displayed in the List view.",
+            "format": "int32",
+            "nullable": true
+          },
+          "maxThumbRows": {
+            "type": "integer",
+            "description": "Maximum number of rows to be displayed in the Thumbnail views.",
+            "format": "int32",
+            "nullable": true
+          },
+          "view": {
+            "description": "The view to be used when rendering the field.",
+            "default": "List",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/RelationView"
+              }
+            ]
+          }
+        }
+      },
+      "RelationView": {
+        "type": "string",
+        "description": "The view for the single and multi relationship field",
+        "x-enumNames": [
+          "List",
+          "ThumbSmall",
+          "ThumbMedium"
+        ],
+        "enum": [
+          "List",
+          "ThumbSmall",
+          "ThumbMedium"
+        ]
       },
       "FieldMultiRelation": {
         "allOf": [
@@ -48833,6 +48887,15 @@
                 "description": "The minimum number of items that must be stored.",
                 "format": "int32",
                 "nullable": true
+              },
+              "uiSettings": {
+                "description": "Settings for displaying purposes in the UI",
+                "nullable": true,
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/RelationUiSettings"
+                  }
+                ]
               }
             }
           }

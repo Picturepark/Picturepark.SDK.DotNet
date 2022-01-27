@@ -75,10 +75,27 @@ namespace Picturepark.SDK.V1.Tests.Conversion
             Assert.Equal(11, indexingInfo.Fields.First().Boost);
         }
 
+        [Fact]
+        [Trait("Stack", "Schema")]
+        public async Task ShouldConvertRelationUiSettings()
+        {
+            // Act
+            var allTypes = await _client.Schema.GenerateSchemasAsync(typeof(ClassWithSimpleRelationAndSchemaIndexingInfoProvider)).ConfigureAwait(false);
+
+            // Assert
+            var type = allTypes.Single(t => t.Id == nameof(ClassWithSimpleRelationAndSchemaIndexingInfoProvider));
+            var field = (FieldSingleRelation)type.Fields.Single(f => f.Id == "relationField");
+            field.UiSettings.Should().NotBeNull();
+            field.UiSettings.View.Should().Be(RelationView.ThumbMedium);
+            field.UiSettings.MaxListRows.Should().Be(6);
+            field.UiSettings.MaxThumbRows.Should().Be(3);
+        }
+
         [PictureparkSchema(SchemaType.Content)]
         public class ClassWithSimpleRelationAndSchemaIndexingInfoProvider
         {
             [PictureparkContentRelation("RelationName", "{ 'kind': 'TermFilter', 'field': 'contentType', term: 'Bitmap' }")]
+            [PictureparkRelationUiSettings(RelationView.ThumbMedium, maxListRows: 6, maxThumbRows: 3)]
             [PictureparkSchemaIndexing(typeof(RelationFieldSchemaIndexingInfoProvider))]
             public SimpleRelation RelationField { get; set; }
 
