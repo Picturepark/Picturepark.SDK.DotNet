@@ -15960,6 +15960,17 @@
           }
         ]
       },
+      "BusinessRuleTransferOwnershipTransferUserIdMissingException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
       "NamedCacheConfigurationException": {
         "allOf": [
           {

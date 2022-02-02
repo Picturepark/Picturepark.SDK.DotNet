@@ -33239,6 +33239,17 @@
           }
         ]
       },
+      "BusinessRuleTransferOwnershipTransferUserIdMissingException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
       "NamedCacheConfigurationException": {
         "allOf": [
           {
@@ -36545,7 +36556,8 @@
             "AssignTagboxItemsInLayerAction": "#/components/schemas/AssignTagboxItemsInLayerAction",
             "EnqueueTaggingAction": "#/components/schemas/EnqueueTaggingAction",
             "ProduceNotificationAction": "#/components/schemas/ProduceNotificationAction",
-            "GetNumberFromNumberSequenceAction": "#/components/schemas/GetNumberFromNumberSequenceAction"
+            "GetNumberFromNumberSequenceAction": "#/components/schemas/GetNumberFromNumberSequenceAction",
+            "EnqueueTransferOwnershipAction": "#/components/schemas/EnqueueTransferOwnershipAction"
           }
         },
         "description": "Action to be performed by a business rule",
@@ -37059,6 +37071,25 @@
               "storeIn": {
                 "type": "string",
                 "description": "Variable name to store number in.",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "EnqueueTransferOwnershipAction": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BusinessRuleAction"
+          },
+          {
+            "type": "object",
+            "description": "Enqueue content for transfer ownership",
+            "additionalProperties": false,
+            "properties": {
+              "transferUserId": {
+                "type": "string",
+                "description": "Id of the user to whom the ownership should be transferred.",
                 "nullable": true
               }
             }

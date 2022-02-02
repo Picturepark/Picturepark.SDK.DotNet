@@ -3488,6 +3488,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("BusinessRuleStringContainsConditionValuesToMatchMissingException", typeof(BusinessRuleStringContainsConditionValuesToMatchMissingException))]
     [JsonInheritanceAttribute("BusinessRuleUserInUserRolesConditionUserRoleIdsMissingException", typeof(BusinessRuleUserInUserRolesConditionUserRoleIdsMissingException))]
     [JsonInheritanceAttribute("BusinessRuleDateMathTransformationTimeSpanInvalidException", typeof(BusinessRuleDateMathTransformationTimeSpanInvalidException))]
+    [JsonInheritanceAttribute("BusinessRuleTransferOwnershipTransferUserIdMissingException", typeof(BusinessRuleTransferOwnershipTransferUserIdMissingException))]
     [JsonInheritanceAttribute("NamedCacheConfigurationException", typeof(NamedCacheConfigurationException))]
     [JsonInheritanceAttribute("NamedCacheNameMissingException", typeof(NamedCacheNameMissingException))]
     [JsonInheritanceAttribute("NamedCacheNameDuplicationException", typeof(NamedCacheNameDuplicationException))]
@@ -10642,6 +10643,22 @@ namespace Picturepark.SDK.V1.Contract
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
     [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class BusinessRuleTransferOwnershipTransferUserIdMissingException : PictureparkValidationException
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static BusinessRuleTransferOwnershipTransferUserIdMissingException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessRuleTransferOwnershipTransferUserIdMissingException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
     public partial class NamedCacheConfigurationException : PictureparkValidationException
     {
         [Newtonsoft.Json.JsonProperty("innerExceptions", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -13881,6 +13898,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("EnqueueTaggingAction", typeof(EnqueueTaggingAction))]
     [JsonInheritanceAttribute("ProduceNotificationAction", typeof(ProduceNotificationAction))]
     [JsonInheritanceAttribute("GetNumberFromNumberSequenceAction", typeof(GetNumberFromNumberSequenceAction))]
+    [JsonInheritanceAttribute("EnqueueTransferOwnershipAction", typeof(EnqueueTransferOwnershipAction))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public abstract partial class BusinessRuleAction 
     {
@@ -14384,6 +14402,26 @@ namespace Picturepark.SDK.V1.Contract
         public static GetNumberFromNumberSequenceAction FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<GetNumberFromNumberSequenceAction>(data);
+        }
+    
+    }
+    
+    /// <summary>Enqueue content for transfer ownership</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class EnqueueTransferOwnershipAction : BusinessRuleAction
+    {
+        /// <summary>Id of the user to whom the ownership should be transferred.</summary>
+        [Newtonsoft.Json.JsonProperty("transferUserId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string TransferUserId { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static EnqueueTransferOwnershipAction FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<EnqueueTransferOwnershipAction>(data);
         }
     
     }
