@@ -25694,6 +25694,10 @@ namespace Picturepark.SDK.V1.Contract
         [System.ComponentModel.DataAnnotations.Required]
         public System.Collections.Generic.ICollection<RelationType> RelationTypes { get; set; } = new System.Collections.Generic.List<RelationType>();
     
+        /// <summary>Settings for displaying purposes in the UI</summary>
+        [Newtonsoft.Json.JsonProperty("uiSettings", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public RelationUiSettings UiSettings { get; set; }
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -25740,6 +25744,51 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>Ui settings for the single and multi relationship fields</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class RelationUiSettings 
+    {
+        /// <summary>Maximum number of rows to be displayed in the List view.</summary>
+        [Newtonsoft.Json.JsonProperty("maxListRows", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int? MaxListRows { get; set; }
+    
+        /// <summary>Maximum number of rows to be displayed in the Thumbnail views.</summary>
+        [Newtonsoft.Json.JsonProperty("maxThumbRows", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int? MaxThumbRows { get; set; }
+    
+        /// <summary>The view to be used when rendering the field.</summary>
+        [Newtonsoft.Json.JsonProperty("view", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public RelationView View { get; set; } = Picturepark.SDK.V1.Contract.RelationView.List;
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static RelationUiSettings FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<RelationUiSettings>(data);
+        }
+    
+    }
+    
+    /// <summary>The view for the single and multi relationship field</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public enum RelationView
+    {
+        [System.Runtime.Serialization.EnumMember(Value = @"List")]
+        List = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"ThumbSmall")]
+        ThumbSmall = 1,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"ThumbMedium")]
+        ThumbMedium = 2,
+    
+    }
+    
     /// <summary>The field used to store multiple relations</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class FieldMultiRelation : FieldBase
@@ -25765,6 +25814,10 @@ namespace Picturepark.SDK.V1.Contract
         /// <summary>The minimum number of items that must be stored.</summary>
         [Newtonsoft.Json.JsonProperty("minimumItems", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int? MinimumItems { get; set; }
+    
+        /// <summary>Settings for displaying purposes in the UI</summary>
+        [Newtonsoft.Json.JsonProperty("uiSettings", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public RelationUiSettings UiSettings { get; set; }
     
         public string ToJson() 
         {

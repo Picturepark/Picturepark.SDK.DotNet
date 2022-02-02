@@ -30,21 +30,11 @@ namespace Picturepark.SDK.V1.Tests.Contracts
         [PictureparkDateTime]
         public DateTime? DateTimeField { get; set; }
 
-        //// public List<DateTime> DateTimeArrayField { get; set; }
-
         public decimal? DecimalField { get; set; }
-
-        // Correct?
-        ////public Dictionary<string, string> DictionaryField { get; set; }
-
-        // Correct?
-        ////public List<Dictionary<string, string>> DictionaryArrayField { get; set; }
 
         public GeoPoint GeoPointField { get; set; }
 
         public int? IntegerField { get; set; }
-
-        ////public List<int> IntegerArrayField { get; set; }
 
         [PictureparkSchemaIndexing("{ 'includeNameDisplayValueInFilters': true, fields: [ { 'id': 'nameField', 'index': true, 'simpleSearch': true, 'boost': 1 } ] }")]
         public SimpleReferenceObject SingleTagboxField { get; set; }
@@ -60,12 +50,11 @@ namespace Picturepark.SDK.V1.Tests.Contracts
 
         public TranslatedStringDictionary TranslatedStringField { get; set; }
 
-        ////public List<string> StringArrayField { get; set; }
-
         [PictureparkContentRelation(
             "RelationName",
             "{ 'kind': 'TermFilter', 'field': 'contentType', term: 'Bitmap' }"
         )]
+        [PictureparkRelationUiSettings(RelationView.ThumbSmall, maxListRows: 6, maxThumbRows: 3)]
         public SimpleRelation RelationField { get; set; }
 
         [PictureparkContentRelation(
