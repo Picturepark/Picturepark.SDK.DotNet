@@ -51595,9 +51595,6 @@
         "type": "object",
         "description": "Request to search for templates",
         "additionalProperties": false,
-        "required": [
-          "templateType"
-        ],
         "properties": {
           "languageCode": {
             "type": "string",
@@ -51606,6 +51603,7 @@
           },
           "templateType": {
             "description": "Type of the template.",
+            "nullable": true,
             "oneOf": [
               {
                 "$ref": "#/components/schemas/TemplateType"

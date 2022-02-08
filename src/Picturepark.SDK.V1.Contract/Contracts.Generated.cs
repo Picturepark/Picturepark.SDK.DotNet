@@ -28277,10 +28277,9 @@ namespace Picturepark.SDK.V1.Contract
         public string LanguageCode { get; set; }
     
         /// <summary>Type of the template.</summary>
-        [Newtonsoft.Json.JsonProperty("templateType", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [Newtonsoft.Json.JsonProperty("templateType", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public TemplateType TemplateType { get; set; }
+        public TemplateType? TemplateType { get; set; }
     
         public string ToJson() 
         {
