@@ -30003,7 +30003,7 @@ namespace Picturepark.SDK.V1
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Search templates</summary>
-        /// <param name="searchRequest">The template search request. The template type is required.</param>
+        /// <param name="searchRequest">The template search request.</param>
         /// <returns>Template search result</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>

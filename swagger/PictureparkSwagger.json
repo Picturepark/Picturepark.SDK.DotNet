@@ -21141,7 +21141,7 @@
         "operationId": "Template_Search",
         "requestBody": {
           "x-name": "searchRequest",
-          "description": "The template search request. The template type is required.",
+          "description": "The template search request.",
           "content": {
             "application/json": {
               "schema": {
@@ -42627,7 +42627,7 @@
           "logosUrl",
           "licenseInformation",
           "settings",
-          "hasDashboardOverview"
+          "hasDashboard"
         ],
         "properties": {
           "customerId": {
@@ -42728,7 +42728,7 @@
               }
             ]
           },
-          "hasDashboardOverview": {
+          "hasDashboard": {
             "type": "boolean",
             "description": "True if a dashboard overview template is available."
           }
