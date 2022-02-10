@@ -1405,6 +1405,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [JsonInheritanceAttribute("InvalidChangeCommandFieldTypeInvalidException", typeof(InvalidChangeCommandFieldTypeInvalidException))]
     [JsonInheritanceAttribute("InvalidChangeCommandFieldNotFoundException", typeof(InvalidChangeCommandFieldNotFoundException))]
     [JsonInheritanceAttribute("InvalidChangeCommandSchemaChangeInvalidException", typeof(InvalidChangeCommandSchemaChangeInvalidException))]
+    [JsonInheritanceAttribute("InvalidContentSchemaForMetadataValuesSchemaRemoveCommandException", typeof(InvalidContentSchemaForMetadataValuesSchemaRemoveCommandException))]
     [JsonInheritanceAttribute("InvalidMetadataException", typeof(InvalidMetadataException))]
     [JsonInheritanceAttribute("RelationNotFoundException", typeof(RelationNotFoundException))]
     [JsonInheritanceAttribute("RelationTypeNotFoundException", typeof(RelationTypeNotFoundException))]
@@ -5202,6 +5203,25 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         public static InvalidChangeCommandSchemaChangeInvalidException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<InvalidChangeCommandSchemaChangeInvalidException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class InvalidContentSchemaForMetadataValuesSchemaRemoveCommandException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("schemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string SchemaId { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static InvalidContentSchemaForMetadataValuesSchemaRemoveCommandException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<InvalidContentSchemaForMetadataValuesSchemaRemoveCommandException>(data);
         }
     
     }
