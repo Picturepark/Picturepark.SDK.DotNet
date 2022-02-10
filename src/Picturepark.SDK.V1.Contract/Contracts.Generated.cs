@@ -2279,6 +2279,18 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Template>> GetAllAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>Search templates</summary>
+        /// <param name="searchRequest">The template search request.</param>
+        /// <returns>Template search result</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        System.Threading.Tasks.Task<TemplateSearchResult> SearchAsync(TemplateSearchRequest searchRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "13.6.2.0 (NJsonSchema v10.1.23.0 (Newtonsoft.Json v11.0.0.0))")]
@@ -19658,6 +19670,10 @@ namespace Picturepark.SDK.V1.Contract
         [System.ComponentModel.DataAnnotations.Required]
         public CustomerInfoSettings Settings { get; set; } = new CustomerInfoSettings();
     
+        /// <summary>True if a dashboard overview template is available.</summary>
+        [Newtonsoft.Json.JsonProperty("hasDashboard", Required = Newtonsoft.Json.Required.Always)]
+        public bool HasDashboard { get; set; }
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -28170,6 +28186,9 @@ namespace Picturepark.SDK.V1.Contract
         [System.Runtime.Serialization.EnumMember(Value = @"NotificationMailItem")]
         NotificationMailItem = 11,
     
+        [System.Runtime.Serialization.EnumMember(Value = @"DashboardPage")]
+        DashboardPage = 12,
+    
     }
     
     /// <summary>Request to update a template</summary>
@@ -28220,6 +28239,56 @@ namespace Picturepark.SDK.V1.Contract
         public static TemplateValue FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<TemplateValue>(data);
+        }
+    
+    }
+    
+    /// <summary>Result for template search operation</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class TemplateSearchResult 
+    {
+        /// <summary>The total number of matching documents.</summary>
+        [Newtonsoft.Json.JsonProperty("totalResults", Required = Newtonsoft.Json.Required.Always)]
+        public long TotalResults { get; set; }
+    
+        /// <summary>The matched documents.</summary>
+        [Newtonsoft.Json.JsonProperty("results", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.Collections.Generic.ICollection<Template> Results { get; set; } = new System.Collections.Generic.List<Template>();
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static TemplateSearchResult FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<TemplateSearchResult>(data);
+        }
+    
+    }
+    
+    /// <summary>Request to search for templates</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class TemplateSearchRequest 
+    {
+        /// <summary>Language code of the template.</summary>
+        [Newtonsoft.Json.JsonProperty("languageCode", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string LanguageCode { get; set; }
+    
+        /// <summary>Type of the template.</summary>
+        [Newtonsoft.Json.JsonProperty("templateType", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public TemplateType? TemplateType { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static TemplateSearchRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<TemplateSearchRequest>(data);
         }
     
     }
