@@ -105,6 +105,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                     {
                         EnableTracing = true,
                         Id = ruleId,
+                        Names = new TranslatedStringDictionary { { "en", $"{ruleId}_name" } },
                         Condition = new ContentSchemaCondition { SchemaId = contentSchemaId },
                         Actions = new List<BusinessRuleAction> { new ProduceMessageAction() },
                         IsEnabled = true,

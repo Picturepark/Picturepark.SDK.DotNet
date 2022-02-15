@@ -4129,16 +4129,6 @@
           "200": {
             "description": "Ok"
           },
-          "400": {
-            "description": "Validation exception",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkValidationException"
-                }
-              }
-            }
-          },
           "401": {
             "description": "Unauthorized"
           },
@@ -4187,6 +4177,40 @@
                 }
               }
             }
+          },
+          "400": {
+            "description": null,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkBusinessException"
+                }
+              }
+            },
+            "x-expectedSchemas": [
+              {
+                "description": "Validation exception",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkValidationException"
+                    }
+                  ]
+                }
+              },
+              {
+                "description": "Validation prevents deletion of item",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/ReferencesUpdateException"
+                    }
+                  ]
+                }
+              }
+            ]
           }
         },
         "security": [
@@ -10046,16 +10070,6 @@
           "200": {
             "description": "Ok"
           },
-          "400": {
-            "description": "Validation exception",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkValidationException"
-                }
-              }
-            }
-          },
           "401": {
             "description": "Unauthorized"
           },
@@ -10104,6 +10118,40 @@
                 }
               }
             }
+          },
+          "400": {
+            "description": null,
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkBusinessException"
+                }
+              }
+            },
+            "x-expectedSchemas": [
+              {
+                "description": "Validation exception",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkValidationException"
+                    }
+                  ]
+                }
+              },
+              {
+                "description": "Validation prevents deletion of item",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/ReferencesUpdateException"
+                    }
+                  ]
+                }
+              }
+            ]
           }
         },
         "security": [
@@ -27331,6 +27379,27 @@
           "Vector"
         ]
       },
+      "FocalPointCropSizeMissingException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "contentId": {
+                "type": "string",
+                "nullable": true
+              },
+              "focalPointId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
       "ServiceProviderDeleteException": {
         "allOf": [
           {
@@ -29902,6 +29971,23 @@
           }
         ]
       },
+      "InvalidContentSchemaForMetadataValuesSchemaRemoveCommandException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "schemaId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
       "InvalidMetadataException": {
         "allOf": [
           {
@@ -30162,6 +30248,30 @@
             "additionalProperties": false,
             "properties": {
               "aggregationName": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "SchemasMetadataProtectionException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "schemaIds": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "type": "string"
+                }
+              },
+              "operation": {
                 "type": "string",
                 "nullable": true
               }
@@ -31025,6 +31135,40 @@
         ]
       },
       "SchemaPermissionConfigurationException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "schemaId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "SchemaMetadataProtectionSettingsNotSupportedForStructsException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "schemaId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "SchemaMetadataProtectionSettingsChangeNotAllowedForXmpMappedLayersException": {
         "allOf": [
           {
             "$ref": "#/components/schemas/PictureparkValidationException"
@@ -32226,17 +32370,6 @@
           }
         ]
       },
-      "SnapshotSkippedException": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/PictureparkBusinessException"
-          },
-          {
-            "type": "object",
-            "additionalProperties": false
-          }
-        ]
-      },
       "AddMetadataLanguageTimeoutException": {
         "allOf": [
           {
@@ -33084,6 +33217,45 @@
           }
         ]
       },
+      "BusinessRuleStringContainsConditionValuesToMatchMissingException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "BusinessRuleUserInUserRolesConditionUserRoleIdsMissingException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "BusinessRuleDateMathTransformationTimeSpanInvalidException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "timeSpan": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
       "NamedCacheConfigurationException": {
         "allOf": [
           {
@@ -33657,6 +33829,23 @@
         ]
       },
       "XmpMappingFieldToLayerWithRequiredFieldsNotAllowedException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "layerId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "XmpMappingFieldToLayerWithMetadataProtectionForCreateOrUpdateNotSupportedException": {
         "allOf": [
           {
             "$ref": "#/components/schemas/PictureparkValidationException"
@@ -35412,6 +35601,8 @@
             "ContentPermissionSetUnassignedCondition": "#/components/schemas/ContentPermissionSetUnassignedCondition",
             "FieldValueChangedCondition": "#/components/schemas/FieldValueChangedCondition",
             "MatchRegexCondition": "#/components/schemas/MatchRegexCondition",
+            "StringContainsCondition": "#/components/schemas/StringContainsCondition",
+            "UserInUserRolesCondition": "#/components/schemas/UserInUserRolesCondition",
             "TagboxItemAssignedCondition": "#/components/schemas/TagboxItemAssignedCondition",
             "TagboxItemUnassignedCondition": "#/components/schemas/TagboxItemUnassignedCondition",
             "ContentSchemaCondition": "#/components/schemas/ContentSchemaCondition",
@@ -35438,6 +35629,24 @@
             "type": "string",
             "description": "Optional trace log reference ID set by the system when EnableTracing is set to true on the associated rule.",
             "nullable": true
+          },
+          "names": {
+            "description": "Language specific condition names.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/TranslatedStringDictionary"
+              }
+            ]
+          },
+          "description": {
+            "description": "Language specific condition description.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/TranslatedStringDictionary"
+              }
+            ]
           },
           "kind": {
             "type": "string"
@@ -35617,6 +35826,93 @@
               }
             }
           }
+        ]
+      },
+      "StringContainsCondition": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BusinessRuleCondition"
+          },
+          {
+            "type": "object",
+            "description": "Matches when a field matching the field path string (JSON Path) changes and matches one of the specified values in ValuesToMatch",
+            "additionalProperties": false,
+            "properties": {
+              "fieldPath": {
+                "type": "string",
+                "description": "JSON path to the field.",
+                "nullable": true
+              },
+              "valuesToMatch": {
+                "type": "array",
+                "description": "A list of string value that will checked if at least one of them is contained in the string value identified by the FieldPath.",
+                "nullable": true,
+                "items": {
+                  "type": "string"
+                }
+              },
+              "valueToStore": {
+                "description": "Optional value to be stored in the variable identified by StoreIn. It can be simple value or a complex object.",
+                "nullable": true
+              },
+              "caseSensitive": {
+                "type": "boolean",
+                "description": "Decide if the StringContains condition should be processed case sensitive."
+              },
+              "storeIn": {
+                "type": "string",
+                "description": "Optional variable name to store the ValueToStore in",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "UserInUserRolesCondition": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BusinessRuleCondition"
+          },
+          {
+            "type": "object",
+            "description": "Matches when one or all the user roles specified in UserRoleIds are assigned to the user retrieved from the path UserIdPath",
+            "additionalProperties": false,
+            "properties": {
+              "userIdPath": {
+                "type": "string",
+                "description": "JSON path to the field containing the id of the user that needs to be checked.",
+                "nullable": true
+              },
+              "userRoleIds": {
+                "type": "array",
+                "description": "A static list of user role ids that will checked: depending on MatchMode all the user roles or only one of them must be assigned to the user.",
+                "nullable": true,
+                "items": {
+                  "type": "string"
+                }
+              },
+              "matchMode": {
+                "description": "Decide if all the user roles must be assigned to the user or only one of them.",
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/ConditionMatchMode"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "ConditionMatchMode": {
+        "type": "string",
+        "description": "How a list of values in the condition should be matched during the comparison.",
+        "x-enumNames": [
+          "All",
+          "Any"
+        ],
+        "enum": [
+          "All",
+          "Any"
         ]
       },
       "TagboxItemAssignedCondition": {
@@ -35870,7 +36166,25 @@
           {
             "type": "object",
             "description": "Matches whenever the assigned layers of a content changed.",
-            "additionalProperties": false
+            "additionalProperties": false,
+            "properties": {
+              "addedLayerIds": {
+                "type": "array",
+                "description": "Optional list of layer schema ids that must be added during the current content update operation in order for the condition to match.",
+                "nullable": true,
+                "items": {
+                  "type": "string"
+                }
+              },
+              "removedLayerIds": {
+                "type": "array",
+                "description": "Optional list of layer schema ids that must be removed during the current content update operation in order for the condition to match.",
+                "nullable": true,
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
           }
         ]
       },
@@ -35965,6 +36279,24 @@
             "type": "string",
             "description": "Optional trace log reference ID set by the system when EnableTracing is set to true on the associated rule.",
             "nullable": true
+          },
+          "names": {
+            "description": "Language specific transformation group names.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/TranslatedStringDictionary"
+              }
+            ]
+          },
+          "description": {
+            "description": "Language specific transformation group description.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/TranslatedStringDictionary"
+              }
+            ]
           }
         }
       },
@@ -35979,7 +36311,8 @@
             "LookupCacheTransformation": "#/components/schemas/LookupCacheTransformation",
             "NGramTransformation": "#/components/schemas/NGramTransformation",
             "ProjectionTransformation": "#/components/schemas/ProjectionTransformation",
-            "SplitTransformation": "#/components/schemas/SplitTransformation"
+            "SplitTransformation": "#/components/schemas/SplitTransformation",
+            "DateMathTransformation": "#/components/schemas/DateMathTransformation"
           }
         },
         "description": "Business rule transformation",
@@ -35993,6 +36326,24 @@
             "type": "string",
             "description": "Optional trace log reference ID set by the system when EnableTracing is set to true on the associated rule.",
             "nullable": true
+          },
+          "names": {
+            "description": "Language specific transformation names.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/TranslatedStringDictionary"
+              }
+            ]
+          },
+          "description": {
+            "description": "Language specific transformation description.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/TranslatedStringDictionary"
+              }
+            ]
           },
           "kind": {
             "type": "string"
@@ -36070,9 +36421,32 @@
                 "type": "string",
                 "description": "Name of the cache to use.",
                 "nullable": true
+              },
+              "lookupReturnedItems": {
+                "description": "Choose what should be returned.\nFound: return the value of the found item in the lookup cache, null if not found.\nNotFound: return the input key value of the not found item, null if found.\nAll: return the value of the found item in the lookup cache or the input key value of the not found item.",
+                "default": "Found",
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/LookupItemsMatch"
+                  }
+                ]
               }
             }
           }
+        ]
+      },
+      "LookupItemsMatch": {
+        "type": "string",
+        "description": "How should happen the match on a lookup cache",
+        "x-enumNames": [
+          "Found",
+          "NotFound",
+          "All"
+        ],
+        "enum": [
+          "Found",
+          "NotFound",
+          "All"
         ]
       },
       "NGramTransformation": {
@@ -36153,6 +36527,25 @@
           }
         ]
       },
+      "DateMathTransformation": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BusinessRuleTransformation"
+          },
+          {
+            "type": "object",
+            "description": "Add / remove a time span to a date time",
+            "additionalProperties": false,
+            "properties": {
+              "timeSpan": {
+                "type": "string",
+                "description": "String representation of a time span.",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
       "BusinessRuleAction": {
         "type": "object",
         "discriminator": {
@@ -36183,6 +36576,24 @@
             "type": "string",
             "description": "Optional trace log reference ID set by the system when EnableTracing is set to true on the associated rule.",
             "nullable": true
+          },
+          "names": {
+            "description": "Language specific action names.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/TranslatedStringDictionary"
+              }
+            ]
+          },
+          "description": {
+            "description": "Language specific action description.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/TranslatedStringDictionary"
+              }
+            ]
           },
           "kind": {
             "type": "string"
@@ -39740,11 +40151,13 @@
         "type": "object",
         "description": "Request to update the permissions of a content",
         "additionalProperties": false,
+        "required": [
+          "contentPermissionSetIds"
+        ],
         "properties": {
           "contentPermissionSetIds": {
             "type": "array",
             "description": "A list of content permission set IDs which control content permissions that will be updated on the content.\nThese permissions control content accessibility for the users that do not own the content.",
-            "nullable": true,
             "items": {
               "type": "string"
             }
@@ -42097,7 +42510,8 @@
           "modificationDate",
           "baseUrl",
           "logosUrl",
-          "licenseInformation"
+          "licenseInformation",
+          "settings"
         ],
         "properties": {
           "customerId": {
@@ -42187,6 +42601,14 @@
             "oneOf": [
               {
                 "$ref": "#/components/schemas/LicenseInfo"
+              }
+            ]
+          },
+          "settings": {
+            "description": "Customer settings",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/CustomerInfoSettings"
               }
             ]
           }
@@ -42402,6 +42824,27 @@
           "export": {
             "type": "boolean",
             "description": "Allows or prevents export of the respective statistics"
+          }
+        }
+      },
+      "CustomerInfoSettings": {
+        "type": "object",
+        "description": "Customer settings within customer information",
+        "additionalProperties": false,
+        "required": [
+          "downloadPrefixName"
+        ],
+        "properties": {
+          "uiDefaultShareExpirationTime": {
+            "type": "integer",
+            "description": "Default expiration time span as number of milliseconds that will be applied as default by the UI when creating a new Share",
+            "format": "int64",
+            "nullable": true
+          },
+          "downloadPrefixName": {
+            "type": "string",
+            "description": "Prefix to be used for the zip file created when downloading multiple contents",
+            "minLength": 1
           }
         }
       },
@@ -44861,17 +45304,51 @@
         }
       },
       "OutputFormatSetXmpWritebackStateRequest": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/XmpWritebackOptions"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "enabled": {
+                "type": "boolean",
+                "description": "Indicates if XMP writeback shall be enabled for the format."
+              }
+            }
+          }
+        ]
+      },
+      "XmpWritebackOptions": {
         "type": "object",
+        "description": "Defines additional settings for XmpWriteback",
         "additionalProperties": false,
         "required": [
-          "enabled"
+          "mergeMode"
         ],
         "properties": {
-          "enabled": {
-            "type": "boolean",
-            "description": "Indicates if XMP writeback shall be enabled for the format."
+          "mergeMode": {
+            "description": "Defines how data from XmpMappings interacts with unaltered Xmp data contained in originally uploaded file",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/XmpWritebackMergeMode"
+              }
+            ]
           }
         }
+      },
+      "XmpWritebackMergeMode": {
+        "type": "string",
+        "description": "Defines how data from XmpMappings interacts with unaltered Xmp data",
+        "x-enumNames": [
+          "MappingOnly",
+          "MergeWithOriginal"
+        ],
+        "enum": [
+          "MappingOnly",
+          "MergeWithOriginal"
+        ]
       },
       "OutputFormatSetXmpWritebackStateManyRequest": {
         "type": "object",
@@ -45271,7 +45748,8 @@
           "propertyName": "kind",
           "mapping": {
             "AlphaHandlingAction": "#/components/schemas/AlphaHandlingAction",
-            "CropActionBase": "#/components/schemas/CropActionBase",
+            "CropActionGeneric": "#/components/schemas/CropActionGeneric",
+            "CropActionAbsoluteSizeBase": "#/components/schemas/CropActionAbsoluteSizeBase",
             "CropAction": "#/components/schemas/CropAction",
             "GravityBasedCropAction": "#/components/schemas/GravityBasedCropAction",
             "RelativeCropAction": "#/components/schemas/RelativeCropAction",
@@ -45332,14 +45810,67 @@
           "ReplaceInvertedAlpha"
         ]
       },
-      "CropAction": {
+      "CropActionGeneric": {
         "allOf": [
           {
-            "$ref": "#/components/schemas/CropActionBase"
+            "$ref": "#/components/schemas/ImageActionBase"
           },
           {
             "type": "object",
-            "description": "An ImageAction that allows cropping an image.",
+            "description": "Parameters for cropping actions.",
+            "additionalProperties": false,
+            "properties": {
+              "position": {
+                "description": "Defines position of cropping rectangle.",
+                "nullable": true,
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/CropPositionBase"
+                  }
+                ]
+              },
+              "size": {
+                "description": "Defines size of cropping rectangle.",
+                "nullable": true,
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/CropSizeBase"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "CropPositionBase": {
+        "type": "object",
+        "discriminator": {
+          "propertyName": "kind",
+          "mapping": {
+            "CropOriginAbsolute": "#/components/schemas/CropOriginAbsolute",
+            "CropCenterRelative": "#/components/schemas/CropCenterRelative",
+            "CropPositionGravity": "#/components/schemas/CropPositionGravity"
+          }
+        },
+        "description": "Defines position of cropping rectangle.",
+        "x-abstract": true,
+        "additionalProperties": false,
+        "required": [
+          "kind"
+        ],
+        "properties": {
+          "kind": {
+            "type": "string"
+          }
+        }
+      },
+      "CropOriginAbsolute": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/CropPositionBase"
+          },
+          {
+            "type": "object",
             "additionalProperties": false,
             "properties": {
               "x": {
@@ -45356,39 +45887,40 @@
           }
         ]
       },
-      "CropActionBase": {
+      "CropCenterRelative": {
         "allOf": [
           {
-            "$ref": "#/components/schemas/ImageActionBase"
+            "$ref": "#/components/schemas/CropPositionBase"
           },
           {
             "type": "object",
-            "description": "Base parameters for cropping actions.",
-            "x-abstract": true,
             "additionalProperties": false,
             "properties": {
-              "width": {
-                "type": "integer",
-                "description": "Width of the cropping rectangle.",
-                "format": "int32"
+              "x": {
+                "type": "number",
+                "description": "Relative horizontal position of center for crop. 0.5 designates the center of the image.",
+                "format": "float",
+                "maximum": 1.0,
+                "minimum": 0.0
               },
-              "height": {
-                "type": "integer",
-                "description": "Height of the cropping rectangle.",
-                "format": "int32"
+              "y": {
+                "type": "number",
+                "description": "Relative vertical position of center for crop. 0.5 designates the center of the image.",
+                "format": "float",
+                "maximum": 1.0,
+                "minimum": 0.0
               }
             }
           }
         ]
       },
-      "GravityBasedCropAction": {
+      "CropPositionGravity": {
         "allOf": [
           {
-            "$ref": "#/components/schemas/CropActionBase"
+            "$ref": "#/components/schemas/CropPositionBase"
           },
           {
             "type": "object",
-            "description": "An ImageAction that allows cropping an image, weighing the cropping rectangle on a gravity.",
             "additionalProperties": false,
             "properties": {
               "gravity": {
@@ -45414,7 +45946,8 @@
           "SouthEast",
           "South",
           "SouthWest",
-          "West"
+          "West",
+          "Center"
         ],
         "enum": [
           "NorthWest",
@@ -45424,13 +45957,146 @@
           "SouthEast",
           "South",
           "SouthWest",
-          "West"
+          "West",
+          "Center"
+        ]
+      },
+      "CropSizeBase": {
+        "type": "object",
+        "discriminator": {
+          "propertyName": "kind",
+          "mapping": {
+            "CropSizeAbsolute": "#/components/schemas/CropSizeAbsolute",
+            "CropSizeRelative": "#/components/schemas/CropSizeRelative"
+          }
+        },
+        "description": "Defines size of cropping rectangle.",
+        "x-abstract": true,
+        "additionalProperties": false,
+        "required": [
+          "kind"
+        ],
+        "properties": {
+          "kind": {
+            "type": "string"
+          }
+        }
+      },
+      "CropSizeAbsolute": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/CropSizeBase"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "width": {
+                "type": "integer",
+                "description": "Width of the cropping rectangle.",
+                "format": "int32"
+              },
+              "height": {
+                "type": "integer",
+                "description": "Height of the cropping rectangle.",
+                "format": "int32"
+              }
+            }
+          }
+        ]
+      },
+      "CropSizeRelative": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/CropSizeBase"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "width": {
+                "type": "number",
+                "description": "Width of the cropping rectangle in range [0, 1].",
+                "format": "float",
+                "maximum": 1.0,
+                "minimum": 0.0
+              },
+              "height": {
+                "type": "number",
+                "description": "Height of the cropping rectangle in range [0, 1].",
+                "format": "float",
+                "maximum": 1.0,
+                "minimum": 0.0
+              }
+            }
+          }
+        ]
+      },
+      "CropAction": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/CropActionAbsoluteSizeBase"
+          },
+          {
+            "type": "object",
+            "description": "An ImageAction that allows cropping an image.",
+            "additionalProperties": false,
+            "properties": {
+              "x": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "y": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          }
+        ]
+      },
+      "CropActionAbsoluteSizeBase": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/CropActionGeneric"
+          },
+          {
+            "type": "object",
+            "x-abstract": true,
+            "additionalProperties": false,
+            "properties": {
+              "height": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "width": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          }
+        ]
+      },
+      "GravityBasedCropAction": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/CropActionAbsoluteSizeBase"
+          },
+          {
+            "type": "object",
+            "description": "An ImageAction that allows cropping an image, weighing the cropping rectangle on a gravity.",
+            "additionalProperties": false,
+            "properties": {
+              "gravity": {
+                "$ref": "#/components/schemas/CropGravity"
+              }
+            }
+          }
         ]
       },
       "RelativeCropAction": {
         "allOf": [
           {
-            "$ref": "#/components/schemas/CropActionBase"
+            "$ref": "#/components/schemas/CropActionAbsoluteSizeBase"
           },
           {
             "type": "object",
@@ -45439,12 +46105,10 @@
             "properties": {
               "x": {
                 "type": "number",
-                "description": "Relative position of origin point from the left of the image. 0.5 designates the center of the image.",
                 "format": "float"
               },
               "y": {
                 "type": "number",
-                "description": "Relative position of origin point from the top of the image. 0.5 designates the center of the image.",
                 "format": "float"
               }
             }
@@ -46118,11 +46782,20 @@
               },
               "viewForAll": {
                 "type": "boolean",
-                "description": "Indicates if outputs derived from original output format should be accessible also for users not having AccessOriginal permission on the content."
+                "description": "Indicates if outputs of this or derived formats should be accessible also for users not having AccessOriginal permission on the content."
               },
               "enableXmpWriteback": {
                 "type": "boolean",
                 "description": "Indicates if metadata should be written into XMP header of outputs where applicable and configured."
+              },
+              "xmpWritebackOptions": {
+                "description": "Defines additional settings for XmpWriteback",
+                "nullable": true,
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/XmpWritebackOptions"
+                  }
+                ]
               }
             }
           }
@@ -46970,6 +47643,15 @@
             "oneOf": [
               {
                 "$ref": "#/components/schemas/SearchFieldCount"
+              }
+            ]
+          },
+          "metadataProtection": {
+            "description": "Metadata protection options.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/MetadataProtection"
               }
             ]
           }
@@ -48328,6 +49010,30 @@
           }
         }
       },
+      "MetadataProtection": {
+        "type": "object",
+        "description": "Metadata protection options",
+        "additionalProperties": false,
+        "required": [
+          "preventCreate",
+          "preventUpdate",
+          "preventDelete"
+        ],
+        "properties": {
+          "preventCreate": {
+            "type": "boolean",
+            "description": "Prevent creation of items in ContentSchemas/Lists or assignments of Layers."
+          },
+          "preventUpdate": {
+            "type": "boolean",
+            "description": "Prevent updating metadata associated with schema."
+          },
+          "preventDelete": {
+            "type": "boolean",
+            "description": "Prevent deletion of items in ContentSchemas/Lists or unassignments of Layers."
+          }
+        }
+      },
       "SchemaExistsResponse": {
         "type": "object",
         "description": "Exists response",
@@ -48475,6 +49181,15 @@
             "items": {
               "type": "string"
             }
+          },
+          "metadataProtection": {
+            "description": "Metadata protection options.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/MetadataProtection"
+              }
+            ]
           }
         }
       },
@@ -48622,6 +49337,15 @@
             "items": {
               "type": "string"
             }
+          },
+          "metadataProtection": {
+            "description": "Metadata protection options.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/MetadataProtection"
+              }
+            ]
           }
         }
       },
@@ -49282,6 +50006,7 @@
           "contentId",
           "outputFormatId",
           "dynamicRendering",
+          "renderingState",
           "kind"
         ],
         "properties": {
@@ -49317,6 +50042,14 @@
           "dynamicRendering": {
             "type": "boolean",
             "description": "Whether this Output belongs to a dynamic OutputFormat"
+          },
+          "renderingState": {
+            "description": "The rendering state of the output file.",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/OutputRenderingState"
+              }
+            ]
           },
           "kind": {
             "type": "string"
@@ -53050,6 +53783,7 @@
             "SessionRenewalEvent": "#/components/schemas/SessionRenewalEvent",
             "SharePageViewEvent": "#/components/schemas/SharePageViewEvent",
             "ApiStatisticsEvent": "#/components/schemas/ApiStatisticsEvent",
+            "TrafficStatisticsEvent": "#/components/schemas/TrafficStatisticsEvent",
             "OutputRenderedEvent": "#/components/schemas/OutputRenderedEvent",
             "ConfigurationChangeEvent": "#/components/schemas/ConfigurationChangeEvent",
             "CustomerChangeEvent": "#/components/schemas/CustomerChangeEvent",
@@ -53311,6 +54045,31 @@
           }
         ]
       },
+      "TrafficStatisticsEvent": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ApplicationEvent"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "service": {
+                "type": "string",
+                "nullable": true
+              },
+              "requestSize": {
+                "type": "integer",
+                "format": "int64"
+              },
+              "responseSize": {
+                "type": "integer",
+                "format": "int64"
+              }
+            }
+          }
+        ]
+      },
       "OutputRenderedEvent": {
         "allOf": [
           {
@@ -53511,6 +54270,7 @@
         "required": [
           "kind",
           "retries",
+          "retriesPerformed",
           "priority",
           "deduplicate"
         ],
@@ -53520,6 +54280,10 @@
             "nullable": true
           },
           "retries": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "retriesPerformed": {
             "type": "integer",
             "format": "int32"
           },

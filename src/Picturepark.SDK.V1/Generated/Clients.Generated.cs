@@ -5977,11 +5977,12 @@ namespace Picturepark.SDK.V1
         ///             By default the endpoint waits for the search document creation. Passing false, the endpoint will return when the main entity has been created and the creation of the search document has been enqueued but not yet performed.</param>
         /// <returns>Ok</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="ReferencesUpdateException">Validation prevents deletion of item</exception>
         public async System.Threading.Tasks.Task DeleteAsync(string id, bool? forceReferenceRemoval = null, System.TimeSpan? timeout = null, bool? waitSearchDocCreation = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
@@ -6029,16 +6030,6 @@ namespace Picturepark.SDK.V1
                         if (status_ == "200") 
                         {
                             return;
-                        }
-                        else
-                        if (status_ == "400") 
-                        {
-                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkValidationException>(response_, headers_).ConfigureAwait(false);
-                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkValidationException();
-                            responseObject_.Data.Add("HttpStatus", status_);
-                            responseObject_.Data.Add("HttpHeaders", headers_);
-                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
-                            throw responseObject_;
                         }
                         else
                         if (status_ == "401") 
@@ -6093,6 +6084,16 @@ namespace Picturepark.SDK.V1
                         {
                             var objectResponse_ = await ReadObjectResponseAsync<PictureparkException>(response_, headers_).ConfigureAwait(false);
                             var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkException();
+                            responseObject_.Data.Add("HttpStatus", status_);
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
+                        }
+                        else
+                        if (status_ == "400") 
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkBusinessException>(response_, headers_).ConfigureAwait(false);
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkBusinessException();
                             responseObject_.Data.Add("HttpStatus", status_);
                             responseObject_.Data.Add("HttpHeaders", headers_);
                             responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
@@ -14239,11 +14240,12 @@ namespace Picturepark.SDK.V1
         ///             By default the endpoint waits for the search document creation. Passing false, the endpoint will return when the main entity has been created and the creation of the search document has been enqueued but not yet performed.</param>
         /// <returns>Ok</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="ReferencesUpdateException">Validation prevents deletion of item</exception>
         public async System.Threading.Tasks.Task DeleteAsync(string id, bool? forceReferenceRemoval = null, System.TimeSpan? timeout = null, bool? waitSearchDocCreation = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
@@ -14291,16 +14293,6 @@ namespace Picturepark.SDK.V1
                         if (status_ == "200") 
                         {
                             return;
-                        }
-                        else
-                        if (status_ == "400") 
-                        {
-                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkValidationException>(response_, headers_).ConfigureAwait(false);
-                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkValidationException();
-                            responseObject_.Data.Add("HttpStatus", status_);
-                            responseObject_.Data.Add("HttpHeaders", headers_);
-                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
-                            throw responseObject_;
                         }
                         else
                         if (status_ == "401") 
@@ -14355,6 +14347,16 @@ namespace Picturepark.SDK.V1
                         {
                             var objectResponse_ = await ReadObjectResponseAsync<PictureparkException>(response_, headers_).ConfigureAwait(false);
                             var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkException();
+                            responseObject_.Data.Add("HttpStatus", status_);
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
+                        }
+                        else
+                        if (status_ == "400") 
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkBusinessException>(response_, headers_).ConfigureAwait(false);
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkBusinessException();
                             responseObject_.Data.Add("HttpStatus", status_);
                             responseObject_.Data.Add("HttpHeaders", headers_);
                             responseObject_.Data.Add("HttpResponse", objectResponse_.Text);

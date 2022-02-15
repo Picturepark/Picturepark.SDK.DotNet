@@ -4490,6 +4490,198 @@
         }
       }
     },
+    "/CustomerSettings/customer/{customerId}/customerSettings": {
+      "get": {
+        "tags": [
+          "CustomerSettings"
+        ],
+        "operationId": "CustomerSetting_Get",
+        "parameters": [
+          {
+            "name": "customerId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustomerSettings"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "CustomerSettings"
+        ],
+        "operationId": "CustomerSetting_Update",
+        "parameters": [
+          {
+            "name": "customerId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 1
+          }
+        ],
+        "requestBody": {
+          "x-name": "updateRequest",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CustomerSettingsUpdateRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 2
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustomerSettings"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/service/environment": {
       "post": {
         "tags": [
@@ -9908,6 +10100,27 @@
           "Vector"
         ]
       },
+      "FocalPointCropSizeMissingException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "contentId": {
+                "type": "string",
+                "nullable": true
+              },
+              "focalPointId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
       "ServiceProviderDeleteException": {
         "allOf": [
           {
@@ -12479,6 +12692,23 @@
           }
         ]
       },
+      "InvalidContentSchemaForMetadataValuesSchemaRemoveCommandException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "schemaId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
       "InvalidMetadataException": {
         "allOf": [
           {
@@ -12739,6 +12969,30 @@
             "additionalProperties": false,
             "properties": {
               "aggregationName": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "SchemasMetadataProtectionException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "schemaIds": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "type": "string"
+                }
+              },
+              "operation": {
                 "type": "string",
                 "nullable": true
               }
@@ -13602,6 +13856,40 @@
         ]
       },
       "SchemaPermissionConfigurationException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "schemaId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "SchemaMetadataProtectionSettingsNotSupportedForStructsException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "schemaId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "SchemaMetadataProtectionSettingsChangeNotAllowedForXmpMappedLayersException": {
         "allOf": [
           {
             "$ref": "#/components/schemas/PictureparkValidationException"
@@ -14803,17 +15091,6 @@
           }
         ]
       },
-      "SnapshotSkippedException": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/PictureparkBusinessException"
-          },
-          {
-            "type": "object",
-            "additionalProperties": false
-          }
-        ]
-      },
       "AddMetadataLanguageTimeoutException": {
         "allOf": [
           {
@@ -15661,6 +15938,45 @@
           }
         ]
       },
+      "BusinessRuleStringContainsConditionValuesToMatchMissingException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "BusinessRuleUserInUserRolesConditionUserRoleIdsMissingException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "BusinessRuleDateMathTransformationTimeSpanInvalidException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "timeSpan": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
       "NamedCacheConfigurationException": {
         "allOf": [
           {
@@ -16234,6 +16550,23 @@
         ]
       },
       "XmpMappingFieldToLayerWithRequiredFieldsNotAllowedException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "layerId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "XmpMappingFieldToLayerWithMetadataProtectionForCreateOrUpdateNotSupportedException": {
         "allOf": [
           {
             "$ref": "#/components/schemas/PictureparkValidationException"
@@ -18035,9 +18368,17 @@
         "x-abstract": true,
         "additionalProperties": false,
         "required": [
-          "kind"
+          "kind",
+          "enableImageAnalytics",
+          "enableLegacyTaggingBehavior"
         ],
         "properties": {
+          "enableImageAnalytics": {
+            "type": "boolean"
+          },
+          "enableLegacyTaggingBehavior": {
+            "type": "boolean"
+          },
           "defaultTagOutputFormatId": {
             "type": "string",
             "nullable": true
@@ -18298,14 +18639,53 @@
               },
               "viewForAll": {
                 "type": "boolean",
-                "description": "Indicates if outputs derived from original output format should be accessible also for users not having AccessOriginal permission on the content."
+                "description": "Indicates if outputs of this or derived formats should be accessible also for users not having AccessOriginal permission on the content."
               },
               "enableXmpWriteback": {
                 "type": "boolean",
                 "description": "Indicates if metadata should be written into XMP header of outputs where applicable and configured."
+              },
+              "xmpWritebackOptions": {
+                "description": "Defines additional settings for XmpWriteback",
+                "nullable": true,
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/XmpWritebackOptions"
+                  }
+                ]
               }
             }
           }
+        ]
+      },
+      "XmpWritebackOptions": {
+        "type": "object",
+        "description": "Defines additional settings for XmpWriteback",
+        "additionalProperties": false,
+        "required": [
+          "mergeMode"
+        ],
+        "properties": {
+          "mergeMode": {
+            "description": "Defines how data from XmpMappings interacts with unaltered Xmp data contained in originally uploaded file",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/XmpWritebackMergeMode"
+              }
+            ]
+          }
+        }
+      },
+      "XmpWritebackMergeMode": {
+        "type": "string",
+        "description": "Defines how data from XmpMappings interacts with unaltered Xmp data",
+        "x-enumNames": [
+          "MappingOnly",
+          "MergeWithOriginal"
+        ],
+        "enum": [
+          "MappingOnly",
+          "MergeWithOriginal"
         ]
       },
       "OutputFormatRenderingSpecification": {
@@ -18648,7 +19028,8 @@
           "propertyName": "kind",
           "mapping": {
             "AlphaHandlingAction": "#/components/schemas/AlphaHandlingAction",
-            "CropActionBase": "#/components/schemas/CropActionBase",
+            "CropActionGeneric": "#/components/schemas/CropActionGeneric",
+            "CropActionAbsoluteSizeBase": "#/components/schemas/CropActionAbsoluteSizeBase",
             "CropAction": "#/components/schemas/CropAction",
             "GravityBasedCropAction": "#/components/schemas/GravityBasedCropAction",
             "RelativeCropAction": "#/components/schemas/RelativeCropAction",
@@ -18709,14 +19090,67 @@
           "ReplaceInvertedAlpha"
         ]
       },
-      "CropAction": {
+      "CropActionGeneric": {
         "allOf": [
           {
-            "$ref": "#/components/schemas/CropActionBase"
+            "$ref": "#/components/schemas/ImageActionBase"
           },
           {
             "type": "object",
-            "description": "An ImageAction that allows cropping an image.",
+            "description": "Parameters for cropping actions.",
+            "additionalProperties": false,
+            "properties": {
+              "position": {
+                "description": "Defines position of cropping rectangle.",
+                "nullable": true,
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/CropPositionBase"
+                  }
+                ]
+              },
+              "size": {
+                "description": "Defines size of cropping rectangle.",
+                "nullable": true,
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/CropSizeBase"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "CropPositionBase": {
+        "type": "object",
+        "discriminator": {
+          "propertyName": "kind",
+          "mapping": {
+            "CropOriginAbsolute": "#/components/schemas/CropOriginAbsolute",
+            "CropCenterRelative": "#/components/schemas/CropCenterRelative",
+            "CropPositionGravity": "#/components/schemas/CropPositionGravity"
+          }
+        },
+        "description": "Defines position of cropping rectangle.",
+        "x-abstract": true,
+        "additionalProperties": false,
+        "required": [
+          "kind"
+        ],
+        "properties": {
+          "kind": {
+            "type": "string"
+          }
+        }
+      },
+      "CropOriginAbsolute": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/CropPositionBase"
+          },
+          {
+            "type": "object",
             "additionalProperties": false,
             "properties": {
               "x": {
@@ -18733,39 +19167,40 @@
           }
         ]
       },
-      "CropActionBase": {
+      "CropCenterRelative": {
         "allOf": [
           {
-            "$ref": "#/components/schemas/ImageActionBase"
+            "$ref": "#/components/schemas/CropPositionBase"
           },
           {
             "type": "object",
-            "description": "Base parameters for cropping actions.",
-            "x-abstract": true,
             "additionalProperties": false,
             "properties": {
-              "width": {
-                "type": "integer",
-                "description": "Width of the cropping rectangle.",
-                "format": "int32"
+              "x": {
+                "type": "number",
+                "description": "Relative horizontal position of center for crop. 0.5 designates the center of the image.",
+                "format": "float",
+                "maximum": 1.0,
+                "minimum": 0.0
               },
-              "height": {
-                "type": "integer",
-                "description": "Height of the cropping rectangle.",
-                "format": "int32"
+              "y": {
+                "type": "number",
+                "description": "Relative vertical position of center for crop. 0.5 designates the center of the image.",
+                "format": "float",
+                "maximum": 1.0,
+                "minimum": 0.0
               }
             }
           }
         ]
       },
-      "GravityBasedCropAction": {
+      "CropPositionGravity": {
         "allOf": [
           {
-            "$ref": "#/components/schemas/CropActionBase"
+            "$ref": "#/components/schemas/CropPositionBase"
           },
           {
             "type": "object",
-            "description": "An ImageAction that allows cropping an image, weighing the cropping rectangle on a gravity.",
             "additionalProperties": false,
             "properties": {
               "gravity": {
@@ -18791,7 +19226,8 @@
           "SouthEast",
           "South",
           "SouthWest",
-          "West"
+          "West",
+          "Center"
         ],
         "enum": [
           "NorthWest",
@@ -18801,13 +19237,146 @@
           "SouthEast",
           "South",
           "SouthWest",
-          "West"
+          "West",
+          "Center"
+        ]
+      },
+      "CropSizeBase": {
+        "type": "object",
+        "discriminator": {
+          "propertyName": "kind",
+          "mapping": {
+            "CropSizeAbsolute": "#/components/schemas/CropSizeAbsolute",
+            "CropSizeRelative": "#/components/schemas/CropSizeRelative"
+          }
+        },
+        "description": "Defines size of cropping rectangle.",
+        "x-abstract": true,
+        "additionalProperties": false,
+        "required": [
+          "kind"
+        ],
+        "properties": {
+          "kind": {
+            "type": "string"
+          }
+        }
+      },
+      "CropSizeAbsolute": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/CropSizeBase"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "width": {
+                "type": "integer",
+                "description": "Width of the cropping rectangle.",
+                "format": "int32"
+              },
+              "height": {
+                "type": "integer",
+                "description": "Height of the cropping rectangle.",
+                "format": "int32"
+              }
+            }
+          }
+        ]
+      },
+      "CropSizeRelative": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/CropSizeBase"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "width": {
+                "type": "number",
+                "description": "Width of the cropping rectangle in range [0, 1].",
+                "format": "float",
+                "maximum": 1.0,
+                "minimum": 0.0
+              },
+              "height": {
+                "type": "number",
+                "description": "Height of the cropping rectangle in range [0, 1].",
+                "format": "float",
+                "maximum": 1.0,
+                "minimum": 0.0
+              }
+            }
+          }
+        ]
+      },
+      "CropAction": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/CropActionAbsoluteSizeBase"
+          },
+          {
+            "type": "object",
+            "description": "An ImageAction that allows cropping an image.",
+            "additionalProperties": false,
+            "properties": {
+              "x": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "y": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          }
+        ]
+      },
+      "CropActionAbsoluteSizeBase": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/CropActionGeneric"
+          },
+          {
+            "type": "object",
+            "x-abstract": true,
+            "additionalProperties": false,
+            "properties": {
+              "height": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "width": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          }
+        ]
+      },
+      "GravityBasedCropAction": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/CropActionAbsoluteSizeBase"
+          },
+          {
+            "type": "object",
+            "description": "An ImageAction that allows cropping an image, weighing the cropping rectangle on a gravity.",
+            "additionalProperties": false,
+            "properties": {
+              "gravity": {
+                "$ref": "#/components/schemas/CropGravity"
+              }
+            }
+          }
         ]
       },
       "RelativeCropAction": {
         "allOf": [
           {
-            "$ref": "#/components/schemas/CropActionBase"
+            "$ref": "#/components/schemas/CropActionAbsoluteSizeBase"
           },
           {
             "type": "object",
@@ -18816,12 +19385,10 @@
             "properties": {
               "x": {
                 "type": "number",
-                "description": "Relative position of origin point from the left of the image. 0.5 designates the center of the image.",
                 "format": "float"
               },
               "y": {
                 "type": "number",
-                "description": "Relative position of origin point from the top of the image. 0.5 designates the center of the image.",
                 "format": "float"
               }
             }
@@ -21480,6 +22047,39 @@
           }
         }
       },
+      "CustomerSettings": {
+        "type": "object",
+        "description": "Customer settings",
+        "additionalProperties": false,
+        "required": [
+          "downloadPrefixName"
+        ],
+        "properties": {
+          "uiDefaultShareExpirationTime": {
+            "type": "string",
+            "description": "Default expiration time as time span that will be applied as default by the UI when creating a new Share",
+            "format": "time-span",
+            "nullable": true
+          },
+          "downloadPrefixName": {
+            "type": "string",
+            "description": "Prefix to be used for the zip file created when downloading multiple contents",
+            "minLength": 1
+          }
+        }
+      },
+      "CustomerSettingsUpdateRequest": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/CustomerSettings"
+          },
+          {
+            "type": "object",
+            "description": "Customer settings update request",
+            "additionalProperties": false
+          }
+        ]
+      },
       "EnvironmentConfiguration": {
         "type": "object",
         "additionalProperties": false,
@@ -22274,6 +22874,7 @@
             "SessionRenewalEvent": "#/components/schemas/SessionRenewalEvent",
             "SharePageViewEvent": "#/components/schemas/SharePageViewEvent",
             "ApiStatisticsEvent": "#/components/schemas/ApiStatisticsEvent",
+            "TrafficStatisticsEvent": "#/components/schemas/TrafficStatisticsEvent",
             "OutputRenderedEvent": "#/components/schemas/OutputRenderedEvent",
             "ConfigurationChangeEvent": "#/components/schemas/ConfigurationChangeEvent",
             "CustomerChangeEvent": "#/components/schemas/CustomerChangeEvent",
@@ -22567,6 +23168,31 @@
           }
         ]
       },
+      "TrafficStatisticsEvent": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ApplicationEvent"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "service": {
+                "type": "string",
+                "nullable": true
+              },
+              "requestSize": {
+                "type": "integer",
+                "format": "int64"
+              },
+              "responseSize": {
+                "type": "integer",
+                "format": "int64"
+              }
+            }
+          }
+        ]
+      },
       "OutputRenderedEvent": {
         "allOf": [
           {
@@ -22787,6 +23413,7 @@
         "required": [
           "kind",
           "retries",
+          "retriesPerformed",
           "priority",
           "deduplicate"
         ],
@@ -22796,6 +23423,10 @@
             "nullable": true
           },
           "retries": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "retriesPerformed": {
             "type": "integer",
             "format": "int32"
           },

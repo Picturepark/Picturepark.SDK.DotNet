@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Picturepark.SDK.V1
 {
+    /// <summary>
+    /// Decorating <see cref="HttpClientHandler"/> which retries calls when HTTP 429 (Too many requests) is returned
+    /// </summary>
     public class PictureparkRetryHandler : DelegatingHandler
     {
         private readonly int _maxRetries;
@@ -45,18 +48,16 @@ namespace Picturepark.SDK.V1
         protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
         {
             HttpResponseMessage msg = null;
-            for (int i = 0; i < _maxRetries + 1; i++)
+            for (var i = 0; i < _maxRetries + 1; i++)
             {
                 msg = await base.SendAsync(request, cancellationToken).ConfigureAwait(false);
                 if (msg.StatusCode != (HttpStatusCode)429)
-                {
                     return msg;
-                }
 
                 var delay = TimeSpan.FromSeconds(Math.Pow(2, i));
-                if (msg.Headers.RetryAfter.Delta != null)
+                if (msg.Headers.RetryAfter?.Delta != null)
                     delay = delay.Add(msg.Headers.RetryAfter.Delta.Value);
-                else if (msg.Headers.RetryAfter.Date != null)
+                else if (msg.Headers.RetryAfter?.Date != null)
                     delay = msg.Headers.RetryAfter.Date.Value - DateTime.Now;
 
                 await Task.Delay(delay, cancellationToken).ConfigureAwait(false);
