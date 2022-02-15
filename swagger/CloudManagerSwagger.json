@@ -12692,6 +12692,23 @@
           }
         ]
       },
+      "InvalidContentSchemaForMetadataValuesSchemaRemoveCommandException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "schemaId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
       "InvalidMetadataException": {
         "allOf": [
           {
