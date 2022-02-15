@@ -16704,6 +16704,23 @@
           }
         ]
       },
+      "ConversionPresetTemplateNotFoundException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkNotFoundException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "conversionPresetTemplateId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
       "ProblemDetails": {
         "type": "object",
         "additionalProperties": {
