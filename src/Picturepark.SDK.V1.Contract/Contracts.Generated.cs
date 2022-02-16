@@ -910,7 +910,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <summary>Create conversion preset template</summary>
         /// <param name="request">Request containing information needed to create new conversion preset template.</param>
         /// <param name="timeout">Timeout</param>
-        /// <returns>Represents a conversion preset templates.</returns>
+        /// <returns>Represents the detail of a conversion preset template</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
@@ -920,9 +920,9 @@ namespace Picturepark.SDK.V1.Contract
         System.Threading.Tasks.Task<ConversionPresetTemplateDetail> CreateAsync(ConversionPresetTemplateCreateRequest request, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <summary>Get multiple conversion preset template</summary>
+        /// <summary>Get multiple conversion preset templates</summary>
         /// <param name="ids">Conversion preset template IDs to get information about.</param>
-        /// <returns>Array of Represents a conversion preset templates.</returns>
+        /// <returns>Array of Represents the detail of a conversion preset template</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -937,7 +937,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="id">Conversion preset template ID.</param>
         /// <param name="request">Request containing information needed to update the conversion preset template.</param>
         /// <param name="timeout">Timeout</param>
-        /// <returns>Represents a conversion preset templates.</returns>
+        /// <returns>Represents the detail of a conversion preset template</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
@@ -961,7 +961,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Get conversion preset template</summary>
         /// <param name="id">Conversion preset template ID.</param>
-        /// <returns>Represents a conversion preset templates.</returns>
+        /// <returns>Represents the detail of a conversion preset template</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
@@ -971,7 +971,7 @@ namespace Picturepark.SDK.V1.Contract
         System.Threading.Tasks.Task<ConversionPresetTemplateDetail> GetAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <summary>Create multiple conversion preset template</summary>
+        /// <summary>Create multiple conversion preset templates</summary>
         /// <param name="request">Request containing information needed to create new conversion preset template.</param>
         /// <returns>Business process</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
@@ -983,7 +983,7 @@ namespace Picturepark.SDK.V1.Contract
         System.Threading.Tasks.Task<BusinessProcess> CreateManyAsync(ConversionPresetTemplateCreateManyRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <summary>Update multiple conversion preset template</summary>
+        /// <summary>Update multiple conversion preset templates</summary>
         /// <param name="request">Request containing information needed to update the conversion preset template.</param>
         /// <returns>Business process</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
@@ -995,7 +995,7 @@ namespace Picturepark.SDK.V1.Contract
         System.Threading.Tasks.Task<BusinessProcess> UpdateManyAsync(ConversionPresetTemplateUpdateManyRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <summary>Delete multiple conversion preset template</summary>
+        /// <summary>Delete multiple conversion preset templates</summary>
         /// <param name="request">The request with conversion preset template IDs to delete.</param>
         /// <returns>Business process</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
@@ -19340,7 +19340,7 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    /// <summary>Holds results of the conversion preset template search.</summary>
+    /// <summary>Holds results of the conversion preset template search</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class ConversionPresetTemplateSearchResult : SearchBehaviorBaseResultOfConversionPresetTemplate
     {
@@ -19417,7 +19417,7 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    /// <summary>Represents a conversion preset templates.</summary>
+    /// <summary>Represents a conversion preset template</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class ConversionPresetTemplate : ConversionPresetTemplateUpdateRequest
     {
@@ -19446,7 +19446,7 @@ namespace Picturepark.SDK.V1.Contract
         [System.ComponentModel.DataAnnotations.Required]
         public TranslatedStringDictionary Names { get; set; } = new TranslatedStringDictionary();
     
-        /// <summary>Language specific schema descriptions.</summary>
+        /// <summary>Language specific descriptions.</summary>
         [Newtonsoft.Json.JsonProperty("descriptions", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public TranslatedStringDictionary Descriptions { get; set; }
     
@@ -19478,11 +19478,11 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("searchBehaviors", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public System.Collections.Generic.ICollection<SearchBehavior> SearchBehaviors { get; set; }
     
-        /// <summary>Fields and respective directions requested to sort the search results.</summary>
+        /// <summary>Fields and respective directions requested to sort the search results. Sorting on a not indexed field will throw an exception.</summary>
         [Newtonsoft.Json.JsonProperty("sort", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<SortInfo> Sort { get; set; }
     
-        /// <summary>Limits the document count of the result set. Defaults to 30.</summary>
+        /// <summary>Limits the document count of the result set.</summary>
         [Newtonsoft.Json.JsonProperty("limit", Required = Newtonsoft.Json.Required.Always)]
         public int Limit { get; set; } = 30;
     
@@ -19490,7 +19490,7 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("pageToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string PageToken { get; set; }
     
-        /// <summary>Filter applied to user roles.</summary>
+        /// <summary>An optional search filter. Limits the document result set.</summary>
         [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public FilterBase Filter { get; set; }
     
@@ -19498,7 +19498,8 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("debugMode", Required = Newtonsoft.Json.Required.Always)]
         public bool DebugMode { get; set; } = false;
     
-        /// <summary>Which languages to search against when using the search string.</summary>
+        /// <summary>When searching in multi language fields, limit the searchable fields to the ones corresponding to the specified languages.
+        /// If not specified, all metadata languages defined in the system are used.</summary>
         [Newtonsoft.Json.JsonProperty("searchLanguages", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> SearchLanguages { get; set; }
     
@@ -19514,7 +19515,7 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
-    /// <summary>Represents a conversion preset templates.</summary>
+    /// <summary>Represents the detail of a conversion preset template</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class ConversionPresetTemplateDetail : ConversionPresetTemplate
     {

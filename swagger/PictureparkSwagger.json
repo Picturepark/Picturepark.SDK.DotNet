@@ -8325,7 +8325,7 @@
         ]
       }
     },
-    "/v1/ConversionPresetTemplate/search": {
+    "/v1/ConversionPresetTemplates/search": {
       "post": {
         "tags": [
           "ConversionPresetTemplate"
@@ -8418,7 +8418,7 @@
         }
       }
     },
-    "/v1/ConversionPresetTemplate": {
+    "/v1/ConversionPresetTemplates": {
       "post": {
         "tags": [
           "ConversionPresetTemplate"
@@ -8454,7 +8454,7 @@
         },
         "responses": {
           "200": {
-            "description": "Represents a conversion preset templates.",
+            "description": "Represents the detail of a conversion preset template",
             "content": {
               "application/json": {
                 "schema": {
@@ -8528,8 +8528,8 @@
         "tags": [
           "ConversionPresetTemplate"
         ],
-        "summary": "Get multiple conversion preset template",
-        "description": "Gets multiple conversion preset template details by the conversion preset template IDs. Can fetch maximum of 100 conversion preset template at once.",
+        "summary": "Get multiple conversion preset templates",
+        "description": "Gets multiple conversion preset template details by the conversion preset template IDs. Can fetch maximum of 100 conversion preset templates at once.",
         "operationId": "ConversionPresetTemplate_GetMany",
         "parameters": [
           {
@@ -8550,7 +8550,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Array of Represents a conversion preset templates.",
+            "description": "Array of Represents the detail of a conversion preset template",
             "content": {
               "application/json": {
                 "schema": {
@@ -8648,7 +8648,7 @@
         }
       }
     },
-    "/v1/ConversionPresetTemplate/{id}": {
+    "/v1/ConversionPresetTemplates/{id}": {
       "put": {
         "tags": [
           "ConversionPresetTemplate"
@@ -8695,7 +8695,7 @@
         },
         "responses": {
           "200": {
-            "description": "Represents a conversion preset templates.",
+            "description": "Represents the detail of a conversion preset template",
             "content": {
               "application/json": {
                 "schema": {
@@ -8883,7 +8883,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Represents a conversion preset templates.",
+            "description": "Represents the detail of a conversion preset template",
             "content": {
               "application/json": {
                 "schema": {
@@ -8954,13 +8954,13 @@
         }
       }
     },
-    "/v1/ConversionPresetTemplate/many": {
+    "/v1/ConversionPresetTemplates/many": {
       "post": {
         "tags": [
           "ConversionPresetTemplate"
         ],
-        "summary": "Create multiple conversion preset template",
-        "description": "Creates new conversion preset template based on supplied requests. The operation is executed asynchronously and is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.",
+        "summary": "Create multiple conversion preset templates",
+        "description": "Creates new conversion preset templates based on supplied requests. The operation is executed asynchronously and is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.",
         "operationId": "ConversionPresetTemplate_CreateMany",
         "requestBody": {
           "x-name": "request",
@@ -9051,8 +9051,8 @@
         "tags": [
           "ConversionPresetTemplate"
         ],
-        "summary": "Update multiple conversion preset template",
-        "description": "Updates the conversion preset template specified by the IDs and based on supplied requests. The operation is executed asynchronously and is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.",
+        "summary": "Update multiple conversion preset templates",
+        "description": "Updates the conversion preset templates specified by the IDs and based on supplied requests. The operation is executed asynchronously and is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.",
         "operationId": "ConversionPresetTemplate_UpdateMany",
         "requestBody": {
           "x-name": "request",
@@ -9140,13 +9140,13 @@
         }
       }
     },
-    "/v1/ConversionPresetTemplate/many/delete": {
+    "/v1/ConversionPresetTemplates/many/delete": {
       "post": {
         "tags": [
           "ConversionPresetTemplate"
         ],
-        "summary": "Delete multiple conversion preset template",
-        "description": "Deletes the conversion preset template specified by the IDs. The operation is executed asynchronously and is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.",
+        "summary": "Delete multiple conversion preset templates",
+        "description": "Deletes the conversion preset templates specified by the IDs. The operation is executed asynchronously and is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.",
         "operationId": "ConversionPresetTemplate_DeleteMany",
         "requestBody": {
           "x-name": "request",
@@ -43166,7 +43166,7 @@
           },
           {
             "type": "object",
-            "description": "Holds results of the conversion preset template search.",
+            "description": "Holds results of the conversion preset template search",
             "additionalProperties": false
           }
         ]
@@ -43243,7 +43243,7 @@
           },
           {
             "type": "object",
-            "description": "Represents a conversion preset templates.",
+            "description": "Represents a conversion preset template",
             "additionalProperties": false,
             "properties": {
               "id": {
@@ -43272,7 +43272,7 @@
             ]
           },
           "descriptions": {
-            "description": "Language specific schema descriptions.",
+            "description": "Language specific descriptions.",
             "nullable": true,
             "oneOf": [
               {
@@ -43311,7 +43311,7 @@
           },
           "sort": {
             "type": "array",
-            "description": "Fields and respective directions requested to sort the search results.",
+            "description": "Fields and respective directions requested to sort the search results. Sorting on a not indexed field will throw an exception.",
             "nullable": true,
             "items": {
               "$ref": "#/components/schemas/SortInfo"
@@ -43319,7 +43319,7 @@
           },
           "limit": {
             "type": "integer",
-            "description": "Limits the document count of the result set. Defaults to 30.",
+            "description": "Limits the document count of the result set.",
             "format": "int32",
             "default": 30
           },
@@ -43329,7 +43329,7 @@
             "nullable": true
           },
           "filter": {
-            "description": "Filter applied to user roles.",
+            "description": "An optional search filter. Limits the document result set.",
             "nullable": true,
             "oneOf": [
               {
@@ -43344,7 +43344,7 @@
           },
           "searchLanguages": {
             "type": "array",
-            "description": "Which languages to search against when using the search string.",
+            "description": "When searching in multi language fields, limit the searchable fields to the ones corresponding to the specified languages.\nIf not specified, all metadata languages defined in the system are used.",
             "nullable": true,
             "items": {
               "type": "string"
@@ -43359,7 +43359,7 @@
           },
           {
             "type": "object",
-            "description": "Represents a conversion preset templates.",
+            "description": "Represents the detail of a conversion preset template",
             "additionalProperties": false,
             "properties": {
               "audit": {
@@ -56396,6 +56396,10 @@
     {
       "name": "Content",
       "description": "Endpoints to work with content.\r\n\r\nFor search / filtering: See [Search](#tag/Search)\r\n\r\n- [Code examples](https://github.com/Picturepark/Picturepark.SDK.DotNet/blob/master/src/Picturepark.SDK.V1.Tests/Clients/ContentTests.cs)\r\n- [Code examples analyzers](https://github.com/Picturepark/Picturepark.SDK.DotNet/blob/master/src/Picturepark.SDK.V1.Tests/AnalyzerTests.cs)\r\n"
+    },
+    {
+      "name": "ConversionPresetTemplate",
+      "description": "Endpoints for conversion preset templates retrieval and manipulation.\r\n\r\n[Code examples](https://github.com/Picturepark/Picturepark.SDK.DotNet/blob/master/src/Picturepark.SDK.V1.Tests/Clients/ConversionPresetTemplateTests.cs)\r\n"
     },
     {
       "name": "DisplayValue",

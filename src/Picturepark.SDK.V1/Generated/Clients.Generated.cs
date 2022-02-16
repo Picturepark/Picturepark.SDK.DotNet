@@ -11345,7 +11345,7 @@ namespace Picturepark.SDK.V1
                 throw new System.ArgumentNullException("request");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/ConversionPresetTemplate/search");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/ConversionPresetTemplates/search");
     
             var client_ = _httpClient;
             try
@@ -11474,7 +11474,7 @@ namespace Picturepark.SDK.V1
         /// <summary>Create conversion preset template</summary>
         /// <param name="request">Request containing information needed to create new conversion preset template.</param>
         /// <param name="timeout">Timeout</param>
-        /// <returns>Represents a conversion preset templates.</returns>
+        /// <returns>Represents the detail of a conversion preset template</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
@@ -11487,7 +11487,7 @@ namespace Picturepark.SDK.V1
                 throw new System.ArgumentNullException("request");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/ConversionPresetTemplate?");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/ConversionPresetTemplates?");
             if (timeout != null) 
             {
                 urlBuilder_.Append(System.Uri.EscapeDataString("timeout") + "=").Append(System.Uri.EscapeDataString(ConvertToString(timeout, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
@@ -11618,9 +11618,9 @@ namespace Picturepark.SDK.V1
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <summary>Get multiple conversion preset template</summary>
+        /// <summary>Get multiple conversion preset templates</summary>
         /// <param name="ids">Conversion preset template IDs to get information about.</param>
-        /// <returns>Array of Represents a conversion preset templates.</returns>
+        /// <returns>Array of Represents the detail of a conversion preset template</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -11631,7 +11631,7 @@ namespace Picturepark.SDK.V1
         public async System.Threading.Tasks.Task<System.Collections.Generic.ICollection<ConversionPresetTemplateDetail>> GetManyAsync(System.Collections.Generic.IEnumerable<string> ids = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/ConversionPresetTemplate?");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/ConversionPresetTemplates?");
             if (ids != null) 
             {
                 foreach (var item_ in ids) { urlBuilder_.Append(System.Uri.EscapeDataString("ids") + "=").Append(System.Uri.EscapeDataString(ConvertToString(item_, System.Globalization.CultureInfo.InvariantCulture))).Append("&"); }
@@ -11763,7 +11763,7 @@ namespace Picturepark.SDK.V1
         /// <param name="id">Conversion preset template ID.</param>
         /// <param name="request">Request containing information needed to update the conversion preset template.</param>
         /// <param name="timeout">Timeout</param>
-        /// <returns>Represents a conversion preset templates.</returns>
+        /// <returns>Represents the detail of a conversion preset template</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
@@ -11776,7 +11776,7 @@ namespace Picturepark.SDK.V1
                 throw new System.ArgumentNullException("request");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/ConversionPresetTemplate/{id}?");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/ConversionPresetTemplates/{id}?");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
             if (timeout != null) 
             {
@@ -11920,7 +11920,7 @@ namespace Picturepark.SDK.V1
         public async System.Threading.Tasks.Task DeleteAsync(string id, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/ConversionPresetTemplate/{id}?");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/ConversionPresetTemplates/{id}?");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
             if (timeout != null) 
             {
@@ -12047,7 +12047,7 @@ namespace Picturepark.SDK.V1
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Get conversion preset template</summary>
         /// <param name="id">Conversion preset template ID.</param>
-        /// <returns>Represents a conversion preset templates.</returns>
+        /// <returns>Represents the detail of a conversion preset template</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
@@ -12057,7 +12057,7 @@ namespace Picturepark.SDK.V1
         public async System.Threading.Tasks.Task<ConversionPresetTemplateDetail> GetAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/ConversionPresetTemplate/{id}");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/ConversionPresetTemplates/{id}");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
     
             var client_ = _httpClient;
@@ -12181,7 +12181,7 @@ namespace Picturepark.SDK.V1
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <summary>Create multiple conversion preset template</summary>
+        /// <summary>Create multiple conversion preset templates</summary>
         /// <param name="request">Request containing information needed to create new conversion preset template.</param>
         /// <returns>Business process</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
@@ -12196,7 +12196,7 @@ namespace Picturepark.SDK.V1
                 throw new System.ArgumentNullException("request");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/ConversionPresetTemplate/many");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/ConversionPresetTemplates/many");
     
             var client_ = _httpClient;
             try
@@ -12322,7 +12322,7 @@ namespace Picturepark.SDK.V1
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <summary>Update multiple conversion preset template</summary>
+        /// <summary>Update multiple conversion preset templates</summary>
         /// <param name="request">Request containing information needed to update the conversion preset template.</param>
         /// <returns>Business process</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
@@ -12337,7 +12337,7 @@ namespace Picturepark.SDK.V1
                 throw new System.ArgumentNullException("request");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/ConversionPresetTemplate/many");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/ConversionPresetTemplates/many");
     
             var client_ = _httpClient;
             try
@@ -12463,7 +12463,7 @@ namespace Picturepark.SDK.V1
         }
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <summary>Delete multiple conversion preset template</summary>
+        /// <summary>Delete multiple conversion preset templates</summary>
         /// <param name="request">The request with conversion preset template IDs to delete.</param>
         /// <returns>Business process</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
@@ -12478,7 +12478,7 @@ namespace Picturepark.SDK.V1
                 throw new System.ArgumentNullException("request");
     
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/ConversionPresetTemplate/many/delete");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/ConversionPresetTemplates/many/delete");
     
             var client_ = _httpClient;
             try
