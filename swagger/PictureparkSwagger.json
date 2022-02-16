@@ -30226,7 +30226,8 @@
           "ReadStatistics",
           "WriteStatistics",
           "ExportStatistics",
-          "EditImages"
+          "EditImages",
+          "ManageConversionPresetTemplates"
         ],
         "enum": [
           "ManageContent",
@@ -30253,7 +30254,8 @@
           "ReadStatistics",
           "WriteStatistics",
           "ExportStatistics",
-          "EditImages"
+          "EditImages",
+          "ManageConversionPresetTemplates"
         ]
       },
       "PermissionSetNotFoundException": {

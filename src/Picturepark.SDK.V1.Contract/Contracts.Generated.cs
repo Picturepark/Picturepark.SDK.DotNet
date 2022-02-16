@@ -6487,6 +6487,9 @@ namespace Picturepark.SDK.V1.Contract
         [System.Runtime.Serialization.EnumMember(Value = @"EditImages")]
         EditImages = 24,
     
+        [System.Runtime.Serialization.EnumMember(Value = @"ManageConversionPresetTemplates")]
+        ManageConversionPresetTemplates = 25,
+    
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
