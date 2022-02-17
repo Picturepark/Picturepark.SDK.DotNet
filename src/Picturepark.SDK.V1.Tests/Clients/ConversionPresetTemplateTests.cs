@@ -8,6 +8,7 @@ using Xunit;
 
 namespace Picturepark.SDK.V1.Tests.Clients
 {
+    [Trait("Stack", "ConversionPresetTemplates")]
     public class ConversionPresetTemplateTests : IClassFixture<ClientFixture>
     {
         private readonly IPictureparkService _client;
@@ -18,7 +19,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
         }
 
         [Fact]
-        [Trait("Stack", "ConversionPresetTemplates")]
         public async Task ShouldCreateUpdateAndDelete()
         {
             // Arrange
@@ -50,7 +50,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
         }
 
         [Fact]
-        [Trait("Stack", "ConversionPresetTemplates")]
         public async Task ShouldCreateManyUpdateManyAndDeleteMany()
         {
             var createRequestMany = new ConversionPresetTemplateCreateManyRequest
@@ -114,7 +113,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
         }
 
         [Fact]
-        [Trait("Stack", "ConversionPresetTemplates")]
         public async Task ShouldSearch()
         {
             var createRequestMany = new ConversionPresetTemplateCreateManyRequest
