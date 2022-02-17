@@ -8415,7 +8415,14 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "conversionpresettemplate_read"
+            ]
+          }
+        ]
       }
     },
     "/v1/ConversionPresetTemplates": {
@@ -8522,7 +8529,14 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "conversionpresettemplate_write"
+            ]
+          }
+        ]
       },
       "get": {
         "tags": [
@@ -8645,7 +8659,14 @@
               }
             ]
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "conversionpresettemplate_read"
+            ]
+          }
+        ]
       }
     },
     "/v1/ConversionPresetTemplates/{id}": {
@@ -8763,7 +8784,14 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "conversionpresettemplate_write"
+            ]
+          }
+        ]
       },
       "delete": {
         "tags": [
@@ -8859,7 +8887,14 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "conversionpresettemplate_write"
+            ]
+          }
+        ]
       },
       "get": {
         "tags": [
@@ -8951,7 +8986,14 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "conversionpresettemplate_read"
+            ]
+          }
+        ]
       }
     },
     "/v1/ConversionPresetTemplates/many": {
@@ -9045,7 +9087,14 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "conversionpresettemplate_write"
+            ]
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -9137,7 +9186,14 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "conversionpresettemplate_write"
+            ]
+          }
+        ]
       }
     },
     "/v1/ConversionPresetTemplates/many/delete": {
@@ -9231,7 +9287,14 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "conversionpresettemplate_write"
+            ]
+          }
+        ]
       }
     },
     "/v1/DisplayValues/status": {
@@ -56341,6 +56404,8 @@
               "permission_write": "Write content permission sets and schema permission sets",
               "content_read": "Read content",
               "content_write": "Write content",
+              "conversionpresettemplate_read": "Read conversion preset templates",
+              "conversionpresettemplate_write": "Write conversion preset templates",
               "schema_read": "Read display values, metadata and schemas",
               "schema_write": "Write display values, metadata and schemas",
               "documenthistory_read": "Read document history",
