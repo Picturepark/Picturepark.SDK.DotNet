@@ -78,6 +78,8 @@ namespace Picturepark.SDK.V1
 
         public IStatisticClient Statistics { get; private set; }
 
+        public IConversionPresetTemplateClient ConversionPresetTemplate { get; private set; }
+
         public void Dispose()
         {
             if (_httpClient != null)
@@ -116,6 +118,7 @@ namespace Picturepark.SDK.V1
             Notification = new NotificationClient(settings, httpClient);
             Template = new TemplateClient(settings, httpClient);
             Statistics = new StatisticClient(settings, httpClient);
+            ConversionPresetTemplate = new ConversionPresetTemplateClient(settings, httpClient);
         }
     }
 }
