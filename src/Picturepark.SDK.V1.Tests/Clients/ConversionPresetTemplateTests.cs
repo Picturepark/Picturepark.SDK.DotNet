@@ -27,7 +27,8 @@ namespace Picturepark.SDK.V1.Tests.Clients
             {
                 Names = new TranslatedStringDictionary { { "en", $"Template Name {guid}" } },
                 Descriptions = new TranslatedStringDictionary { { "en", $"Template Description {guid}" } },
-                Template = $"My template {guid}"
+                Template = $"My template {guid}",
+                OutputFormatId = "Preview"
             };
 
             var conversionPresetTemplate = await _client.ConversionPresetTemplate.CreateAsync(createRequest).ConfigureAwait(false);
@@ -61,7 +62,8 @@ namespace Picturepark.SDK.V1.Tests.Clients
                             Names = new TranslatedStringDictionary { { "en", $"Template Name {i}" } },
                             Descriptions = new TranslatedStringDictionary { { "en", $"Template Description {i}" } },
                             Template = $"My template {i}",
-                            RequestId = i.ToString()
+                            RequestId = i.ToString(),
+                            OutputFormatId = "Preview"
                         })
                     .ToArray()
             };
@@ -124,7 +126,8 @@ namespace Picturepark.SDK.V1.Tests.Clients
                             Names = new TranslatedStringDictionary { { "en", $"Template Name {i}" } },
                             Descriptions = new TranslatedStringDictionary { { "en", $"Template Description {i}" } },
                             Template = $"My template {i}",
-                            RequestId = i.ToString()
+                            RequestId = i.ToString(),
+                            OutputFormatId = "Preview"
                         })
                     .ToArray()
             };
