@@ -11937,7 +11937,8 @@
           "ReadStatistics",
           "WriteStatistics",
           "ExportStatistics",
-          "EditImages"
+          "EditImages",
+          "ManageConversionPresetTemplates"
         ],
         "enum": [
           "ManageContent",
@@ -11964,7 +11965,8 @@
           "ReadStatistics",
           "WriteStatistics",
           "ExportStatistics",
-          "EditImages"
+          "EditImages",
+          "ManageConversionPresetTemplates"
         ]
       },
       "PermissionSetNotFoundException": {
@@ -16701,6 +16703,23 @@
           {
             "type": "object",
             "additionalProperties": false
+          }
+        ]
+      },
+      "ConversionPresetTemplateNotFoundException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkNotFoundException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "conversionPresetTemplateId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
           }
         ]
       },
