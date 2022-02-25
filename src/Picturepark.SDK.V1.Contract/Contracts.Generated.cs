@@ -19425,8 +19425,14 @@ namespace Picturepark.SDK.V1.Contract
     public partial class ConversionPresetTemplate : ConversionPresetTemplateUpdateRequest
     {
         /// <summary>Conversion preset template ID.</summary>
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
         public string Id { get; set; }
+    
+        /// <summary>The output format ID to which the conversion preset template is associated</summary>
+        [Newtonsoft.Json.JsonProperty("outputFormatId", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public string OutputFormatId { get; set; }
     
         public string ToJson() 
         {
@@ -19547,6 +19553,11 @@ namespace Picturepark.SDK.V1.Contract
         /// It is not persisted anywhere and it is ignored in single operations.</summary>
         [Newtonsoft.Json.JsonProperty("requestId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string RequestId { get; set; }
+    
+        /// <summary>The output format ID to which the conversion preset template is associated</summary>
+        [Newtonsoft.Json.JsonProperty("outputFormatId", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public string OutputFormatId { get; set; }
     
         public string ToJson() 
         {

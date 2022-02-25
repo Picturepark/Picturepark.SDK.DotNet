@@ -43310,11 +43310,20 @@
             "type": "object",
             "description": "Represents a conversion preset template",
             "additionalProperties": false,
+            "required": [
+              "id",
+              "outputFormatId"
+            ],
             "properties": {
               "id": {
                 "type": "string",
                 "description": "Conversion preset template ID.",
-                "nullable": true
+                "minLength": 1
+              },
+              "outputFormatId": {
+                "type": "string",
+                "description": "The output format ID to which the conversion preset template is associated",
+                "minLength": 1
               }
             }
           }
@@ -43449,11 +43458,19 @@
             "type": "object",
             "description": "Holds information needed for conversion preset template creation",
             "additionalProperties": false,
+            "required": [
+              "outputFormatId"
+            ],
             "properties": {
               "requestId": {
                 "type": "string",
                 "description": "Optional client reference for this request.\nWill be returned back in response to make easier for clients to match request items with the respective results.\nIt is not persisted anywhere and it is ignored in single operations.",
                 "nullable": true
+              },
+              "outputFormatId": {
+                "type": "string",
+                "description": "The output format ID to which the conversion preset template is associated",
+                "minLength": 1
               }
             }
           }
