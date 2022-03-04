@@ -52751,11 +52751,14 @@
             "type": "object",
             "description": "Template",
             "additionalProperties": false,
+            "required": [
+              "id"
+            ],
             "properties": {
               "id": {
                 "type": "string",
                 "description": "ID of template.",
-                "nullable": true
+                "minLength": 1
               },
               "system": {
                 "type": "boolean",

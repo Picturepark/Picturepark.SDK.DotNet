@@ -28560,7 +28560,8 @@ namespace Picturepark.SDK.V1.Contract
     public partial class Template : TemplateCreateRequest
     {
         /// <summary>ID of template.</summary>
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
         public string Id { get; set; }
     
         /// <summary>Indicates if this is a read-only system template.</summary>
