@@ -29002,6 +29002,17 @@
           }
         ]
       },
+      "OutputOperationInProgressException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkBusinessException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
       "DownloadLinkExpiredException": {
         "allOf": [
           {
@@ -46921,6 +46932,7 @@
             "JpegFormat": "#/components/schemas/JpegFormat",
             "PngFormat": "#/components/schemas/PngFormat",
             "TiffFormat": "#/components/schemas/TiffFormat",
+            "WebPFormat": "#/components/schemas/WebPFormat",
             "VideoFormatBase": "#/components/schemas/VideoFormatBase",
             "AudioFormatBase": "#/components/schemas/AudioFormatBase",
             "Mp4VideoFormat": "#/components/schemas/Mp4VideoFormat",
@@ -47764,6 +47776,25 @@
           "Lzw",
           "Rle",
           "Zip"
+        ]
+      },
+      "WebPFormat": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ImageFormatBase"
+          },
+          {
+            "type": "object",
+            "description": "Renders a WebP image.",
+            "additionalProperties": false,
+            "properties": {
+              "quality": {
+                "type": "integer",
+                "description": "Compression quality. Must be in range [0,100] and defaults to 90.",
+                "format": "int32"
+              }
+            }
+          }
         ]
       },
       "VideoFormatBase": {

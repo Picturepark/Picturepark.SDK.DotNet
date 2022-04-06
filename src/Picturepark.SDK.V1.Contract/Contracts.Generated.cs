@@ -3380,6 +3380,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("OutputEditingNotSupportedException", typeof(OutputEditingNotSupportedException))]
     [JsonInheritanceAttribute("OutputBackupNotRequestedException", typeof(OutputBackupNotRequestedException))]
     [JsonInheritanceAttribute("OutputBackupHashMismatchException", typeof(OutputBackupHashMismatchException))]
+    [JsonInheritanceAttribute("OutputOperationInProgressException", typeof(OutputOperationInProgressException))]
     [JsonInheritanceAttribute("DownloadLinkExpiredException", typeof(DownloadLinkExpiredException))]
     [JsonInheritanceAttribute("RenderingNotAwaitedException", typeof(RenderingNotAwaitedException))]
     [JsonInheritanceAttribute("DuplicateContentDownloadRequestException", typeof(DuplicateContentDownloadRequestException))]
@@ -4987,6 +4988,22 @@ namespace Picturepark.SDK.V1.Contract
         public static OutputBackupHashMismatchException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<OutputBackupHashMismatchException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class OutputOperationInProgressException : PictureparkBusinessException
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static OutputOperationInProgressException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<OutputOperationInProgressException>(data);
         }
     
     }
@@ -23158,6 +23175,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("JpegFormat", typeof(JpegFormat))]
     [JsonInheritanceAttribute("PngFormat", typeof(PngFormat))]
     [JsonInheritanceAttribute("TiffFormat", typeof(TiffFormat))]
+    [JsonInheritanceAttribute("WebPFormat", typeof(WebPFormat))]
     [JsonInheritanceAttribute("Mp4VideoFormat", typeof(Mp4VideoFormat))]
     [JsonInheritanceAttribute("VideoSpriteFormat", typeof(VideoSpriteFormat))]
     [JsonInheritanceAttribute("VideoStillFormat", typeof(VideoStillFormat))]
@@ -23998,6 +24016,26 @@ namespace Picturepark.SDK.V1.Contract
     
         [System.Runtime.Serialization.EnumMember(Value = @"Zip")]
         Zip = 3,
+    
+    }
+    
+    /// <summary>Renders a WebP image.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class WebPFormat : ImageFormatBase
+    {
+        /// <summary>Compression quality. Must be in range [0,100] and defaults to 90.</summary>
+        [Newtonsoft.Json.JsonProperty("quality", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int Quality { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static WebPFormat FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<WebPFormat>(data);
+        }
     
     }
     
