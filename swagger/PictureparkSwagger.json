@@ -46933,6 +46933,7 @@
             "PngFormat": "#/components/schemas/PngFormat",
             "TiffFormat": "#/components/schemas/TiffFormat",
             "WebPFormat": "#/components/schemas/WebPFormat",
+            "AvifFormat": "#/components/schemas/AvifFormat",
             "VideoFormatBase": "#/components/schemas/VideoFormatBase",
             "AudioFormatBase": "#/components/schemas/AudioFormatBase",
             "Mp4VideoFormat": "#/components/schemas/Mp4VideoFormat",
@@ -47786,6 +47787,25 @@
           {
             "type": "object",
             "description": "Renders a WebP image.",
+            "additionalProperties": false,
+            "properties": {
+              "quality": {
+                "type": "integer",
+                "description": "Compression quality. Must be in range [0,100] and defaults to 90.",
+                "format": "int32"
+              }
+            }
+          }
+        ]
+      },
+      "AvifFormat": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ImageFormatBase"
+          },
+          {
+            "type": "object",
+            "description": "Renders an AVIF image.",
             "additionalProperties": false,
             "properties": {
               "quality": {
