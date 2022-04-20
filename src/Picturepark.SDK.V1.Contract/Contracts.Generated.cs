@@ -23176,6 +23176,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("PngFormat", typeof(PngFormat))]
     [JsonInheritanceAttribute("TiffFormat", typeof(TiffFormat))]
     [JsonInheritanceAttribute("WebPFormat", typeof(WebPFormat))]
+    [JsonInheritanceAttribute("AvifFormat", typeof(AvifFormat))]
     [JsonInheritanceAttribute("Mp4VideoFormat", typeof(Mp4VideoFormat))]
     [JsonInheritanceAttribute("VideoSpriteFormat", typeof(VideoSpriteFormat))]
     [JsonInheritanceAttribute("VideoStillFormat", typeof(VideoStillFormat))]
@@ -24035,6 +24036,26 @@ namespace Picturepark.SDK.V1.Contract
         public static WebPFormat FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<WebPFormat>(data);
+        }
+    
+    }
+    
+    /// <summary>Renders an AVIF image.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class AvifFormat : ImageFormatBase
+    {
+        /// <summary>Compression quality. Must be in range [0,100] and defaults to 90.</summary>
+        [Newtonsoft.Json.JsonProperty("quality", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int Quality { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static AvifFormat FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<AvifFormat>(data);
         }
     
     }
