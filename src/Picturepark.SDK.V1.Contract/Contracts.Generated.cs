@@ -13157,6 +13157,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("ContentPermissionSetAssignedCondition", typeof(ContentPermissionSetAssignedCondition))]
     [JsonInheritanceAttribute("ContentPermissionSetUnassignedCondition", typeof(ContentPermissionSetUnassignedCondition))]
     [JsonInheritanceAttribute("FieldValueChangedCondition", typeof(FieldValueChangedCondition))]
+    [JsonInheritanceAttribute("FieldValueCondition", typeof(FieldValueCondition))]
     [JsonInheritanceAttribute("MatchRegexCondition", typeof(MatchRegexCondition))]
     [JsonInheritanceAttribute("StringContainsCondition", typeof(StringContainsCondition))]
     [JsonInheritanceAttribute("UserInUserRolesCondition", typeof(UserInUserRolesCondition))]
@@ -13352,6 +13353,30 @@ namespace Picturepark.SDK.V1.Contract
         public static FieldValueChangedCondition FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<FieldValueChangedCondition>(data);
+        }
+    
+    }
+    
+    /// <summary>Matches when a field matching the field path string (JSON path) has the expected value.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class FieldValueCondition : BusinessRuleCondition
+    {
+        /// <summary>JSON path to the field</summary>
+        [Newtonsoft.Json.JsonProperty("fieldPath", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string FieldPath { get; set; }
+    
+        /// <summary>Expected value for the field to have to satisfy the condition</summary>
+        [Newtonsoft.Json.JsonProperty("expectedValue", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public object ExpectedValue { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static FieldValueCondition FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<FieldValueCondition>(data);
         }
     
     }
