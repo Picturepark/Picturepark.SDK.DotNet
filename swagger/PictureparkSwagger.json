@@ -36714,6 +36714,7 @@
             "ContentPermissionSetAssignedCondition": "#/components/schemas/ContentPermissionSetAssignedCondition",
             "ContentPermissionSetUnassignedCondition": "#/components/schemas/ContentPermissionSetUnassignedCondition",
             "FieldValueChangedCondition": "#/components/schemas/FieldValueChangedCondition",
+            "FieldValueCondition": "#/components/schemas/FieldValueCondition",
             "MatchRegexCondition": "#/components/schemas/MatchRegexCondition",
             "StringContainsCondition": "#/components/schemas/StringContainsCondition",
             "UserInUserRolesCondition": "#/components/schemas/UserInUserRolesCondition",
@@ -36898,6 +36899,29 @@
           {
             "type": "object",
             "description": "Matches when a field matching the field path string (JSON path) changes to the expected value.",
+            "additionalProperties": false,
+            "properties": {
+              "fieldPath": {
+                "type": "string",
+                "description": "JSON path to the field",
+                "nullable": true
+              },
+              "expectedValue": {
+                "description": "Expected value for the field to have to satisfy the condition",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "FieldValueCondition": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BusinessRuleCondition"
+          },
+          {
+            "type": "object",
+            "description": "Matches when a field matching the field path string (JSON path) has the expected value.",
             "additionalProperties": false,
             "properties": {
               "fieldPath": {
