@@ -1,5 +1,5 @@
 {
-  "x-generator": "NSwag v13.13.2.0 (NJsonSchema v10.5.2.0 (Newtonsoft.Json v12.0.0.0))",
+  "x-generator": "NSwag v13.14.8.0 (NJsonSchema v10.5.2.0 (Newtonsoft.Json v13.0.0.0))",
   "openapi": "3.0.0",
   "info": {
     "title": "Picturepark Cloud Manager API V1",
@@ -14443,7 +14443,7 @@
           }
         ]
       },
-      "SchemaFieldIndexException": {
+      "SchemaFieldNotFilterableException": {
         "allOf": [
           {
             "$ref": "#/components/schemas/PictureparkValidationException"
@@ -17514,40 +17514,6 @@
             }
           }
         ]
-      },
-      "ProblemDetails": {
-        "type": "object",
-        "additionalProperties": {
-          "nullable": true
-        },
-        "properties": {
-          "type": {
-            "type": "string",
-            "nullable": true
-          },
-          "title": {
-            "type": "string",
-            "nullable": true
-          },
-          "status": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "detail": {
-            "type": "string",
-            "nullable": true
-          },
-          "instance": {
-            "type": "string",
-            "nullable": true
-          },
-          "extensions": {
-            "type": "object",
-            "nullable": true,
-            "additionalProperties": {}
-          }
-        }
       },
       "SnapshotRepository": {
         "type": "object",
@@ -23006,7 +22972,12 @@
             "additionalProperties": false,
             "properties": {
               "function": {
-                "$ref": "#/components/schemas/QueuePriorityMathFunctionAndArguments"
+                "nullable": true,
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/QueuePriorityMathFunctionAndArguments"
+                  }
+                ]
               }
             }
           }
@@ -24740,10 +24711,12 @@
             "additionalProperties": false,
             "properties": {
               "contentRepairRequestId": {
-                "type": "string"
+                "type": "string",
+                "nullable": true
               },
               "contentId": {
-                "type": "string"
+                "type": "string",
+                "nullable": true
               },
               "error": {
                 "nullable": true,
