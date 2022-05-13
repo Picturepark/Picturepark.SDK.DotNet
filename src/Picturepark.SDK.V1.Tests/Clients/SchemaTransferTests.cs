@@ -8,6 +8,7 @@ using System.Linq;
 
 namespace Picturepark.SDK.V1.Tests.Clients
 {
+    [Trait("Stack", "SchemaTransfer")]
     public class SchemaTransferTests : IClassFixture<ClientFixture>
     {
         private readonly ClientFixture _fixture;
@@ -20,7 +21,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
         }
 
         [Fact]
-        [Trait("Stack", "SchemaTransfer")]
         public async Task ShouldThrowFileTransferNotFoundException()
         {
             // Assert
@@ -39,7 +39,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
         }
 
         [Fact]
-        [Trait("Stack", "SchemaTransfer")]
         public async Task ShouldImportPlanetSchema()
         {
             // Arrange
