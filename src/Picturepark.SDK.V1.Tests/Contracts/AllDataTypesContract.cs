@@ -54,7 +54,7 @@ namespace Picturepark.SDK.V1.Tests.Contracts
             "RelationName",
             "{ 'kind': 'TermFilter', 'field': 'contentType', term: 'Bitmap' }"
         )]
-        [PictureparkRelationUiSettings(RelationView.ThumbSmall, maxListRows: 6, maxThumbRows: 3)]
+        [PictureparkRelationUiSettings(ItemFieldViewMode.ThumbSmall, maxListRows: 6, maxThumbRows: 3)]
         public SimpleRelation RelationField { get; set; }
 
         [PictureparkContentRelation(
@@ -62,6 +62,10 @@ namespace Picturepark.SDK.V1.Tests.Contracts
             "{ 'kind': 'TermFilter', 'field': 'contentType', Term: 'bitmap' }"
         )]
         public List<SimpleRelation> RelationsField { get; set; }
+
+        [PictureparkDynamicView("{ 'kind': 'TermFilter', 'field': 'contentType', term: 'Bitmap' }")]
+        [PictureparkDynamicViewUiSettings(ItemFieldViewMode.ThumbMedium, maxListRows: 5, maxThumbRows: 3, showRelatedContentOnDownload: true)]
+        public DynamicViewObject DynamicViewField { get; set; }
     }
 
     [PictureparkReference]
