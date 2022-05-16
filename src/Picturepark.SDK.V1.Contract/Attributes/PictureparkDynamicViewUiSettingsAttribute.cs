@@ -6,16 +6,16 @@ namespace Picturepark.SDK.V1.Contract.Attributes
     /// Sets the UI settings of a single / multi relationship field
     /// </summary>
     [AttributeUsage(AttributeTargets.Property | AttributeTargets.Field)]
-    public class PictureparkRelationUiSettingsAttribute : PictureparkItemFieldUiSettingsAttributeBase
+    public class PictureparkDynamicViewUiSettingsAttribute : PictureparkItemFieldUiSettingsAttributeBase
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="PictureparkRelationUiSettingsAttribute"/> class.
+        /// Initializes a new instance of the <see cref="PictureparkDynamicViewUiSettingsAttribute"/> class.
         /// </summary>
         /// <param name="view">The default view that the UI will use to render the relationship field</param>
         /// <param name="maxListRows">Maximum number of rows for the list view.</param>
         /// <param name="maxThumbRows">Maximum number of rows for the Thumbnail views.</param>
         /// <param name="showRelatedContentOnDownload">Whether related content should be shown in UI download dialog</param>
-        public PictureparkRelationUiSettingsAttribute(
+        public PictureparkDynamicViewUiSettingsAttribute(
             ItemFieldViewMode view,
             int maxListRows,
             int maxThumbRows,
@@ -25,11 +25,11 @@ namespace Picturepark.SDK.V1.Contract.Attributes
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="PictureparkRelationUiSettingsAttribute"/> class.
+        /// Initializes a new instance of the <see cref="PictureparkDynamicViewUiSettingsAttribute"/> class.
         /// </summary>
         /// <param name="view">The default view that the UI will use to render the field</param>
         /// <param name="showRelatedContentOnDownload">Whether related content should be shown in UI download dialog</param>
-        public PictureparkRelationUiSettingsAttribute(
+        public PictureparkDynamicViewUiSettingsAttribute(
             ItemFieldViewMode view,
             bool showRelatedContentOnDownload)
             : base(view, showRelatedContentOnDownload: showRelatedContentOnDownload)
@@ -37,12 +37,12 @@ namespace Picturepark.SDK.V1.Contract.Attributes
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="PictureparkRelationUiSettingsAttribute"/> class.
+        /// Initializes a new instance of the <see cref="PictureparkDynamicViewUiSettingsAttribute"/> class.
         /// </summary>
         /// <param name="view">The default view that the UI will use to render the field</param>
         /// <param name="maxListRows">Maximum number of rows for the list view.</param>
         /// <param name="maxThumbRows">Maximum number of rows for the Thumbnail views.</param>
-        public PictureparkRelationUiSettingsAttribute(
+        public PictureparkDynamicViewUiSettingsAttribute(
             ItemFieldViewMode view,
             int maxListRows,
             int maxThumbRows)
@@ -51,10 +51,10 @@ namespace Picturepark.SDK.V1.Contract.Attributes
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="PictureparkRelationUiSettingsAttribute"/> class.
+        /// Initializes a new instance of the <see cref="PictureparkDynamicViewUiSettingsAttribute"/> class.
         /// </summary>
         /// <param name="view">The default view that the UI will use to render the relationship field</param>
-        public PictureparkRelationUiSettingsAttribute(
+        public PictureparkDynamicViewUiSettingsAttribute(
             ItemFieldViewMode view)
             : base(view)
         {

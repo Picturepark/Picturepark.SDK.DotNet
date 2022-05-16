@@ -1526,7 +1526,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [JsonInheritanceAttribute("SchemaSortFieldException", typeof(SchemaSortFieldException))]
     [JsonInheritanceAttribute("SchemaFieldIdException", typeof(SchemaFieldIdException))]
     [JsonInheritanceAttribute("SchemaFieldTypeChangeException", typeof(SchemaFieldTypeChangeException))]
-    [JsonInheritanceAttribute("SchemaFieldIndexException", typeof(SchemaFieldIndexException))]
+    [JsonInheritanceAttribute("SchemaFieldNotFilterableException", typeof(SchemaFieldNotFilterableException))]
     [JsonInheritanceAttribute("SchemaFieldNotSortableException", typeof(SchemaFieldNotSortableException))]
     [JsonInheritanceAttribute("SchemaFieldNotSearchableException", typeof(SchemaFieldNotSearchableException))]
     [JsonInheritanceAttribute("SchemaFieldInvalidBoostException", typeof(SchemaFieldInvalidBoostException))]
@@ -6284,7 +6284,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
     [Newtonsoft.Json.JsonObjectAttribute]
-    public partial class SchemaFieldIndexException : PictureparkValidationException
+    public partial class SchemaFieldNotFilterableException : PictureparkValidationException
     {
         [Newtonsoft.Json.JsonProperty("schemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string SchemaId { get; set; }
@@ -6297,9 +6297,9 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
         }
     
-        public static SchemaFieldIndexException FromJson(string data)
+        public static SchemaFieldNotFilterableException FromJson(string data)
         {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaFieldIndexException>(data);
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaFieldNotFilterableException>(data);
         }
     
     }
@@ -9672,48 +9672,6 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         public static ConversionPresetTemplateNotFoundException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<ConversionPresetTemplateNotFoundException>(data);
-        }
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
-    public partial class ProblemDetails 
-    {
-        [Newtonsoft.Json.JsonProperty("type", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Type { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("title", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Title { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("status", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? Status { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("detail", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Detail { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("instance", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Instance { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("extensions", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.IDictionary<string, object> Extensions { get; set; }
-    
-        private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
-    
-        [Newtonsoft.Json.JsonExtensionData]
-        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
-        {
-            get { return _additionalProperties; }
-            set { _additionalProperties = value; }
-        }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-    
-        public static ProblemDetails FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<ProblemDetails>(data);
         }
     
     }
@@ -14910,7 +14868,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class MessagesInFlight : QueuePriorityModelConfiguration
     {
-        [Newtonsoft.Json.JsonProperty("function", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("function", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public QueuePriorityMathFunctionAndArguments Function { get; set; }
     
         public string ToJson() 
@@ -16747,10 +16705,10 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class DataExtractionRepairEvent : ApplicationEvent
     {
-        [Newtonsoft.Json.JsonProperty("contentRepairRequestId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("contentRepairRequestId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ContentRepairRequestId { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("contentId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("contentId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ContentId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("error", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
