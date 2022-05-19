@@ -458,6 +458,83 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "13.6.2.0 (NJsonSchema v10.1.23.0 (Newtonsoft.Json v11.0.0.0))")]
+    public partial interface ICustomerQueuePriorityClient
+    {
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        System.Threading.Tasks.Task<CustomerQueuePriorityConfiguration> GetEffectiveAsync(string customerId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        System.Threading.Tasks.Task<CustomerQueuePriorityConfiguration> GetCustomAsync(string customerId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        System.Threading.Tasks.Task<QueuePriorityConfiguration> GetEffectiveForQueueAsync(string customerId, string queueFamily, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        System.Threading.Tasks.Task<QueuePriorityConfiguration> GetCustomForQueueAsync(string customerId, string queueFamily, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        System.Threading.Tasks.Task<CustomerQueuePriorityConfiguration> UpdateAsync(string customerId, CustomerQueuePriorityConfiguration updateRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        System.Threading.Tasks.Task ResetAllQueueConfigurationsAsync(string customerId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        System.Threading.Tasks.Task<CustomerQueuePriorityConfiguration> UpdateForQueueAsync(string customerId, string queueFamily, QueuePriorityConfiguration updateRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        System.Threading.Tasks.Task<CustomerQueuePriorityConfiguration> ResetQueueAsync(string customerId, string queueFamily, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NSwag", "13.6.2.0 (NJsonSchema v10.1.23.0 (Newtonsoft.Json v11.0.0.0))")]
     public partial interface ICustomerServiceProviderClient
     {
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
@@ -1311,6 +1388,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [JsonInheritanceAttribute("OutputEditingNotSupportedException", typeof(OutputEditingNotSupportedException))]
     [JsonInheritanceAttribute("OutputBackupNotRequestedException", typeof(OutputBackupNotRequestedException))]
     [JsonInheritanceAttribute("OutputBackupHashMismatchException", typeof(OutputBackupHashMismatchException))]
+    [JsonInheritanceAttribute("OutputOperationInProgressException", typeof(OutputOperationInProgressException))]
     [JsonInheritanceAttribute("DownloadLinkExpiredException", typeof(DownloadLinkExpiredException))]
     [JsonInheritanceAttribute("RenderingNotAwaitedException", typeof(RenderingNotAwaitedException))]
     [JsonInheritanceAttribute("DuplicateContentDownloadRequestException", typeof(DuplicateContentDownloadRequestException))]
@@ -1562,6 +1640,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [JsonInheritanceAttribute("BusinessRuleStringContainsConditionValuesToMatchMissingException", typeof(BusinessRuleStringContainsConditionValuesToMatchMissingException))]
     [JsonInheritanceAttribute("BusinessRuleUserInUserRolesConditionUserRoleIdsMissingException", typeof(BusinessRuleUserInUserRolesConditionUserRoleIdsMissingException))]
     [JsonInheritanceAttribute("BusinessRuleDateMathTransformationTimeSpanInvalidException", typeof(BusinessRuleDateMathTransformationTimeSpanInvalidException))]
+    [JsonInheritanceAttribute("BusinessRuleTransferOwnershipTransferUserIdMissingException", typeof(BusinessRuleTransferOwnershipTransferUserIdMissingException))]
     [JsonInheritanceAttribute("NamedCacheConfigurationException", typeof(NamedCacheConfigurationException))]
     [JsonInheritanceAttribute("NamedCacheNameMissingException", typeof(NamedCacheNameMissingException))]
     [JsonInheritanceAttribute("NamedCacheNameDuplicationException", typeof(NamedCacheNameDuplicationException))]
@@ -1604,6 +1683,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [JsonInheritanceAttribute("StatisticsExportNotEnabledException", typeof(StatisticsExportNotEnabledException))]
     [JsonInheritanceAttribute("StatisticsReadNotEnabledException", typeof(StatisticsReadNotEnabledException))]
     [JsonInheritanceAttribute("StatisticsWriteNotEnabledException", typeof(StatisticsWriteNotEnabledException))]
+    [JsonInheritanceAttribute("ConversionPresetTemplateNotFoundException", typeof(ConversionPresetTemplateNotFoundException))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
     [Newtonsoft.Json.JsonObjectAttribute]
     public partial class PictureparkException : System.Exception
@@ -2929,6 +3009,22 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         public static OutputBackupHashMismatchException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<OutputBackupHashMismatchException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class OutputOperationInProgressException : PictureparkBusinessException
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static OutputOperationInProgressException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<OutputOperationInProgressException>(data);
         }
     
     }
@@ -4428,6 +4524,9 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
         [System.Runtime.Serialization.EnumMember(Value = @"EditImages")]
         EditImages = 24,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"ManageConversionPresetTemplates")]
+        ManageConversionPresetTemplates = 25,
     
     }
     
@@ -8735,6 +8834,22 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
     [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class BusinessRuleTransferOwnershipTransferUserIdMissingException : PictureparkValidationException
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static BusinessRuleTransferOwnershipTransferUserIdMissingException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessRuleTransferOwnershipTransferUserIdMissingException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
     public partial class NamedCacheConfigurationException : PictureparkValidationException
     {
         [Newtonsoft.Json.JsonProperty("innerExceptions", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -9538,6 +9653,25 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         public static StatisticsWriteNotEnabledException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<StatisticsWriteNotEnabledException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class ConversionPresetTemplateNotFoundException : PictureparkNotFoundException
+    {
+        [Newtonsoft.Json.JsonProperty("conversionPresetTemplateId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ConversionPresetTemplateId { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static ConversionPresetTemplateNotFoundException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ConversionPresetTemplateNotFoundException>(data);
         }
     
     }
@@ -11555,6 +11689,8 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [JsonInheritanceAttribute("JpegFormat", typeof(JpegFormat))]
     [JsonInheritanceAttribute("PngFormat", typeof(PngFormat))]
     [JsonInheritanceAttribute("TiffFormat", typeof(TiffFormat))]
+    [JsonInheritanceAttribute("WebPFormat", typeof(WebPFormat))]
+    [JsonInheritanceAttribute("AvifFormat", typeof(AvifFormat))]
     [JsonInheritanceAttribute("Mp4VideoFormat", typeof(Mp4VideoFormat))]
     [JsonInheritanceAttribute("VideoSpriteFormat", typeof(VideoSpriteFormat))]
     [JsonInheritanceAttribute("VideoStillFormat", typeof(VideoStillFormat))]
@@ -12395,6 +12531,46 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
         [System.Runtime.Serialization.EnumMember(Value = @"Zip")]
         Zip = 3,
+    
+    }
+    
+    /// <summary>Renders a WebP image.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class WebPFormat : ImageFormatBase
+    {
+        /// <summary>Compression quality. Must be in range [0,100] and defaults to 90.</summary>
+        [Newtonsoft.Json.JsonProperty("quality", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int Quality { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static WebPFormat FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<WebPFormat>(data);
+        }
+    
+    }
+    
+    /// <summary>Renders an AVIF image.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class AvifFormat : ImageFormatBase
+    {
+        /// <summary>Compression quality. Must be in range [0,100] and defaults to 90.</summary>
+        [Newtonsoft.Json.JsonProperty("quality", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int Quality { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static AvifFormat FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<AvifFormat>(data);
+        }
     
     }
     
@@ -14617,6 +14793,519 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         public static IndexShardSettings FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<IndexShardSettings>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class CustomerQueuePriorityConfiguration 
+    {
+        [Newtonsoft.Json.JsonProperty("customerId", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public string CustomerId { get; set; }
+    
+        /// <summary>By QueueFamily</summary>
+        [Newtonsoft.Json.JsonProperty("queueConfigurations", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.Collections.Generic.IDictionary<string, QueuePriorityConfiguration> QueueConfigurations { get; set; } = new System.Collections.Generic.Dictionary<string, QueuePriorityConfiguration>();
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static CustomerQueuePriorityConfiguration FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<CustomerQueuePriorityConfiguration>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class QueuePriorityConfiguration 
+    {
+        [Newtonsoft.Json.JsonProperty("models", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.Collections.Generic.ICollection<QueuePriorityModelConfiguration> Models { get; set; } = new System.Collections.Generic.List<QueuePriorityModelConfiguration>();
+    
+        [Newtonsoft.Json.JsonProperty("aggregation", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public QueueModelAggregationConfiguration Aggregation { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static QueuePriorityConfiguration FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<QueuePriorityConfiguration>(data);
+        }
+    
+    }
+    
+    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
+    [JsonInheritanceAttribute("Legacy", typeof(Legacy))]
+    [JsonInheritanceAttribute("MessagesInFlight", typeof(MessagesInFlight))]
+    [JsonInheritanceAttribute("PerOperation", typeof(PerOperation))]
+    [JsonInheritanceAttribute("ConcurrentInteractiveLimit", typeof(ConcurrentInteractiveLimit))]
+    [JsonInheritanceAttribute("LowItemCountRequestRateMalus", typeof(LowItemCountRequestRateMalus))]
+    [JsonInheritanceAttribute("LowItemCountRequestRateBonus", typeof(LowItemCountRequestRateBonus))]
+    [JsonInheritanceAttribute("InheritFromCurrentProcessingMessage", typeof(InheritFromCurrentProcessingMessage))]
+    [JsonInheritanceAttribute("LowMessageRateBonus", typeof(LowMessageRateBonus))]
+    [JsonInheritanceAttribute("Constant", typeof(Constant))]
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public abstract partial class QueuePriorityModelConfiguration 
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static QueuePriorityModelConfiguration FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<QueuePriorityModelConfiguration>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class Legacy : LowLevelPriorityRelatedConfigurationBase
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static Legacy FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<Legacy>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public abstract partial class LowLevelPriorityRelatedConfigurationBase : QueuePriorityModelConfiguration
+    {
+        [Newtonsoft.Json.JsonProperty("lowLevelMaxPriority", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int LowLevelMaxPriority { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("ignorePriority", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool IgnorePriority { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("ignoreInteractivity", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool IgnoreInteractivity { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static LowLevelPriorityRelatedConfigurationBase FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<LowLevelPriorityRelatedConfigurationBase>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class MessagesInFlight : QueuePriorityModelConfiguration
+    {
+        [Newtonsoft.Json.JsonProperty("function", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public QueuePriorityMathFunctionAndArguments Function { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static MessagesInFlight FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<MessagesInFlight>(data);
+        }
+    
+    }
+    
+    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
+    [JsonInheritanceAttribute("QueuePriorityMathFunctionAndArgumentsExponentialFalling", typeof(QueuePriorityMathFunctionAndArgumentsExponentialFalling))]
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public abstract partial class QueuePriorityMathFunctionAndArguments 
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static QueuePriorityMathFunctionAndArguments FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<QueuePriorityMathFunctionAndArguments>(data);
+        }
+    
+    }
+    
+    /// <summary>(a^b)^-x: Result divides by A every 1/B&amp;gt;, example:
+    /// a == 3, b == 0.1, x == 0 =&amp;gt; 1
+    /// a == 3, b == 0.1, x == 10 =&amp;gt; 1/3
+    /// a == 3, b == 0.1, x == 20 =&amp;gt; 1/9</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class QueuePriorityMathFunctionAndArgumentsExponentialFalling : QueuePriorityMathFunctionAndArguments
+    {
+        [Newtonsoft.Json.JsonProperty("a", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public double A { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("b", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public double B { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static QueuePriorityMathFunctionAndArgumentsExponentialFalling FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<QueuePriorityMathFunctionAndArgumentsExponentialFalling>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class PerOperation : QueuePriorityModelConfiguration
+    {
+        [Newtonsoft.Json.JsonProperty("boostMessageCount", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int BoostMessageCount { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static PerOperation FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<PerOperation>(data);
+        }
+    
+    }
+    
+    /// <summary>Provides possibility to respect internal interactivity request but only for a limited number of messages in parallel</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class ConcurrentInteractiveLimit : QueuePriorityModelConfiguration
+    {
+        [Newtonsoft.Json.JsonProperty("maxInteractiveInFlight", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int MaxInteractiveInFlight { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("limitReached", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public LimitReachedBehavior LimitReached { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("priorityBonusIfInteractivityDenied", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool PriorityBonusIfInteractivityDenied { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static ConcurrentInteractiveLimit FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ConcurrentInteractiveLimit>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public enum LimitReachedBehavior
+    {
+        [System.Runtime.Serialization.EnumMember(Value = @"Ignore")]
+        Ignore = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"RespondNegative")]
+        RespondNegative = 1,
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class LowItemCountRequestRateMalus : LowItemCountRequestRateBase
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static LowItemCountRequestRateMalus FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<LowItemCountRequestRateMalus>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public abstract partial class LowItemCountRequestRateBase : QueuePriorityModelMessageRateConfigurationBase
+    {
+        [Newtonsoft.Json.JsonProperty("itemCountBoundaryInclusive", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int ItemCountBoundaryInclusive { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("voteOnInteractivity", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool VoteOnInteractivity { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static LowItemCountRequestRateBase FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<LowItemCountRequestRateBase>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public abstract partial class QueuePriorityModelMessageRateConfigurationBase : QueuePriorityModelConfiguration
+    {
+        [Newtonsoft.Json.JsonProperty("windowLength", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.TimeSpan WindowLength { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("rate", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int Rate { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static QueuePriorityModelMessageRateConfigurationBase FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<QueuePriorityModelMessageRateConfigurationBase>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class LowItemCountRequestRateBonus : LowItemCountRequestRateBase
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static LowItemCountRequestRateBonus FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<LowItemCountRequestRateBonus>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class InheritFromCurrentProcessingMessage : LowLevelPriorityRelatedConfigurationBase
+    {
+        /// <summary>Adds result of this model to the enqueued message</summary>
+        [Newtonsoft.Json.JsonProperty("attachResultAsTag", Required = Newtonsoft.Json.Required.Always)]
+        public bool AttachResultAsTag { get; set; }
+    
+        /// <summary>Whether an attached result from AttachResultAsTag&amp;gt; should be used as result</summary>
+        [Newtonsoft.Json.JsonProperty("ignoreIncomingTag", Required = Newtonsoft.Json.Required.Always)]
+        public bool IgnoreIncomingTag { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static InheritFromCurrentProcessingMessage FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<InheritFromCurrentProcessingMessage>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class LowMessageRateBonus : QueuePriorityModelMessageRateConfigurationBase
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static LowMessageRateBonus FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<LowMessageRateBonus>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class Constant : QueuePriorityModelConfiguration
+    {
+        [Newtonsoft.Json.JsonProperty("priority", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [System.ComponentModel.DataAnnotations.Range(0.0D, 1.0D)]
+        public double? Priority { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("interactive", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool? Interactive { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static Constant FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<Constant>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class QueueModelAggregationConfiguration 
+    {
+        [Newtonsoft.Json.JsonProperty("interactivity", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public MessagePriorityModelResultInteractivityAggregator Interactivity { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("priority", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public MessagePriorityModelResultPriorityAggregator Priority { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static QueueModelAggregationConfiguration FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<QueueModelAggregationConfiguration>(data);
+        }
+    
+    }
+    
+    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
+    [JsonInheritanceAttribute("InteractivityAggregatorSingleVeto", typeof(InteractivityAggregatorSingleVeto))]
+    [JsonInheritanceAttribute("InteractivityAggregatorMajorityVote", typeof(InteractivityAggregatorMajorityVote))]
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public abstract partial class MessagePriorityModelResultInteractivityAggregator 
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static MessagePriorityModelResultInteractivityAggregator FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<MessagePriorityModelResultInteractivityAggregator>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class InteractivityAggregatorSingleVeto : MessagePriorityModelResultInteractivityAggregator
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static InteractivityAggregatorSingleVeto FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<InteractivityAggregatorSingleVeto>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class InteractivityAggregatorMajorityVote : MessagePriorityModelResultInteractivityAggregator
+    {
+        [Newtonsoft.Json.JsonProperty("interactiveOnTie", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool InteractiveOnTie { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static InteractivityAggregatorMajorityVote FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<InteractivityAggregatorMajorityVote>(data);
+        }
+    
+    }
+    
+    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
+    [JsonInheritanceAttribute("PriorityAverage", typeof(PriorityAverage))]
+    [JsonInheritanceAttribute("PriorityAverageWeighted", typeof(PriorityAverageWeighted))]
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public abstract partial class MessagePriorityModelResultPriorityAggregator 
+    {
+        [Newtonsoft.Json.JsonProperty("maxPriority", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Range(0, 255)]
+        public int MaxPriority { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static MessagePriorityModelResultPriorityAggregator FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<MessagePriorityModelResultPriorityAggregator>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class PriorityAverage : MessagePriorityModelResultPriorityAggregator
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static PriorityAverage FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<PriorityAverage>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class PriorityAverageWeighted : MessagePriorityModelResultPriorityAggregator
+    {
+        /// <summary>ModelResults are considered as long as their cumulative weight is at or below this value</summary>
+        [Newtonsoft.Json.JsonProperty("maxWeight", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [System.ComponentModel.DataAnnotations.Range(1, 2147483647)]
+        public int MaxWeight { get; set; } = 100;
+    
+        /// <summary>Weights to be used for model results (if they were produced). Results with undefined weights are ignored.</summary>
+        [Newtonsoft.Json.JsonProperty("modelWeights", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.Collections.Generic.ICollection<PriorityAverageWeightedModelWeight> ModelWeights { get; set; } = new System.Collections.Generic.List<PriorityAverageWeightedModelWeight>();
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static PriorityAverageWeighted FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<PriorityAverageWeighted>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class PriorityAverageWeightedModelWeight 
+    {
+        [Newtonsoft.Json.JsonProperty("modelType", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public string ModelType { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("weight", Required = Newtonsoft.Json.Required.Always)]
+        public int Weight { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static PriorityAverageWeightedModelWeight FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<PriorityAverageWeightedModelWeight>(data);
         }
     
     }

@@ -892,6 +892,123 @@ namespace Picturepark.SDK.V1.Contract
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "13.6.2.0 (NJsonSchema v10.1.23.0 (Newtonsoft.Json v11.0.0.0))")]
+    public partial interface IConversionPresetTemplateClient
+    {
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>Search conversion preset templates</summary>
+        /// <param name="request">Conversion preset templates search request.</param>
+        /// <returns>Result of the conversion preset templates search</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        System.Threading.Tasks.Task<ConversionPresetTemplateSearchResult> SearchAsync(ConversionPresetTemplateSearchRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>Create conversion preset template</summary>
+        /// <param name="request">Request containing information needed to create new conversion preset template.</param>
+        /// <param name="timeout">Timeout</param>
+        /// <returns>Represents the detail of a conversion preset template</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        System.Threading.Tasks.Task<ConversionPresetTemplateDetail> CreateAsync(ConversionPresetTemplateCreateRequest request, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>Get multiple conversion preset templates</summary>
+        /// <param name="ids">Conversion preset template IDs to get information about.</param>
+        /// <returns>Array of Represents the detail of a conversion preset template</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="RequestSizeLimitExceededException">List of IDs exceeded maximum size</exception>
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<ConversionPresetTemplateDetail>> GetManyAsync(System.Collections.Generic.IEnumerable<string> ids = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>Update conversion preset template</summary>
+        /// <param name="id">Conversion preset template ID.</param>
+        /// <param name="request">Request containing information needed to update the conversion preset template.</param>
+        /// <param name="timeout">Timeout</param>
+        /// <returns>Represents the detail of a conversion preset template</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        System.Threading.Tasks.Task<ConversionPresetTemplateDetail> UpdateAsync(string id, ConversionPresetTemplateUpdateRequest request, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>Delete conversion preset template</summary>
+        /// <param name="id">Conversion preset template ID.</param>
+        /// <param name="timeout">Timeout</param>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        System.Threading.Tasks.Task DeleteAsync(string id, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>Get conversion preset template</summary>
+        /// <param name="id">Conversion preset template ID.</param>
+        /// <returns>Represents the detail of a conversion preset template</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        System.Threading.Tasks.Task<ConversionPresetTemplateDetail> GetAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>Create multiple conversion preset templates</summary>
+        /// <param name="request">Request containing information needed to create new conversion preset template.</param>
+        /// <returns>Business process</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        System.Threading.Tasks.Task<BusinessProcess> CreateManyAsync(ConversionPresetTemplateCreateManyRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>Update multiple conversion preset templates</summary>
+        /// <param name="request">Request containing information needed to update the conversion preset template.</param>
+        /// <returns>Business process</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        System.Threading.Tasks.Task<BusinessProcess> UpdateManyAsync(ConversionPresetTemplateUpdateManyRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>Delete multiple conversion preset templates</summary>
+        /// <param name="request">The request with conversion preset template IDs to delete.</param>
+        /// <returns>Business process</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        System.Threading.Tasks.Task<BusinessProcess> DeleteManyAsync(ConversionPresetTemplateDeleteManyRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NSwag", "13.6.2.0 (NJsonSchema v10.1.23.0 (Newtonsoft.Json v11.0.0.0))")]
     public partial interface IDisplayValueClient
     {
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
@@ -2279,6 +2396,18 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Template>> GetAllAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>Search templates</summary>
+        /// <param name="searchRequest">The template search request.</param>
+        /// <returns>Template search result</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        System.Threading.Tasks.Task<TemplateSearchResult> SearchAsync(TemplateSearchRequest searchRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "13.6.2.0 (NJsonSchema v10.1.23.0 (Newtonsoft.Json v11.0.0.0))")]
@@ -2839,16 +2968,29 @@ namespace Picturepark.SDK.V1.Contract
         System.Threading.Tasks.Task<XmpMappingEntrySearchResult> SearchAsync(XmpMappingEntrySearchRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <summary>Get xmp mapping</summary>
-        /// <param name="id">Xmp mapping ID.</param>
-        /// <returns>XMP mapping entry</returns>
+        /// <summary>Create xmp mapping</summary>
+        /// <param name="request">Request containing information needed to create new xmp mapping.</param>
+        /// <returns>Business process</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        System.Threading.Tasks.Task<XmpMappingEntry> GetAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<BusinessProcess> CreateAsync(XmpMappingEntryCreateRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>Get multiple xmp mappings</summary>
+        /// <param name="ids">Xmp mapping IDs to get information about.</param>
+        /// <returns>Array of XMP mapping entry</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="RequestSizeLimitExceededException">List of IDs exceeded maximum size</exception>
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<XmpMappingEntry>> GetManyAsync(System.Collections.Generic.IEnumerable<string> ids = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Update xmp mapping</summary>
@@ -2876,29 +3018,16 @@ namespace Picturepark.SDK.V1.Contract
         System.Threading.Tasks.Task<BusinessProcess> DeleteAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <summary>Create xmp mapping</summary>
-        /// <param name="request">Request containing information needed to create new xmp mapping.</param>
-        /// <returns>Business process</returns>
+        /// <summary>Get xmp mapping</summary>
+        /// <param name="id">Xmp mapping ID.</param>
+        /// <returns>XMP mapping entry</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        System.Threading.Tasks.Task<BusinessProcess> CreateAsync(XmpMappingEntryCreateRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-    
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <summary>Get multiple xmp mappings</summary>
-        /// <param name="ids">Xmp mapping IDs to get information about.</param>
-        /// <returns>Array of XMP mapping entry</returns>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
-        /// <exception cref="PictureparkConflictException">Version conflict</exception>
-        /// <exception cref="PictureparkException">Internal server error</exception>
-        /// <exception cref="PictureparkValidationException">Validation exception</exception>
-        /// <exception cref="RequestSizeLimitExceededException">List of IDs exceeded maximum size</exception>
-        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<XmpMappingEntry>> GetManyAsync(System.Collections.Generic.IEnumerable<string> ids = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<XmpMappingEntry> GetAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>Create multiple xmp mappings</summary>
@@ -3251,6 +3380,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("OutputEditingNotSupportedException", typeof(OutputEditingNotSupportedException))]
     [JsonInheritanceAttribute("OutputBackupNotRequestedException", typeof(OutputBackupNotRequestedException))]
     [JsonInheritanceAttribute("OutputBackupHashMismatchException", typeof(OutputBackupHashMismatchException))]
+    [JsonInheritanceAttribute("OutputOperationInProgressException", typeof(OutputOperationInProgressException))]
     [JsonInheritanceAttribute("DownloadLinkExpiredException", typeof(DownloadLinkExpiredException))]
     [JsonInheritanceAttribute("RenderingNotAwaitedException", typeof(RenderingNotAwaitedException))]
     [JsonInheritanceAttribute("DuplicateContentDownloadRequestException", typeof(DuplicateContentDownloadRequestException))]
@@ -3489,6 +3619,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("BusinessRuleStringContainsConditionValuesToMatchMissingException", typeof(BusinessRuleStringContainsConditionValuesToMatchMissingException))]
     [JsonInheritanceAttribute("BusinessRuleUserInUserRolesConditionUserRoleIdsMissingException", typeof(BusinessRuleUserInUserRolesConditionUserRoleIdsMissingException))]
     [JsonInheritanceAttribute("BusinessRuleDateMathTransformationTimeSpanInvalidException", typeof(BusinessRuleDateMathTransformationTimeSpanInvalidException))]
+    [JsonInheritanceAttribute("BusinessRuleTransferOwnershipTransferUserIdMissingException", typeof(BusinessRuleTransferOwnershipTransferUserIdMissingException))]
     [JsonInheritanceAttribute("NamedCacheConfigurationException", typeof(NamedCacheConfigurationException))]
     [JsonInheritanceAttribute("NamedCacheNameMissingException", typeof(NamedCacheNameMissingException))]
     [JsonInheritanceAttribute("NamedCacheNameDuplicationException", typeof(NamedCacheNameDuplicationException))]
@@ -3531,6 +3662,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("StatisticsExportNotEnabledException", typeof(StatisticsExportNotEnabledException))]
     [JsonInheritanceAttribute("StatisticsReadNotEnabledException", typeof(StatisticsReadNotEnabledException))]
     [JsonInheritanceAttribute("StatisticsWriteNotEnabledException", typeof(StatisticsWriteNotEnabledException))]
+    [JsonInheritanceAttribute("ConversionPresetTemplateNotFoundException", typeof(ConversionPresetTemplateNotFoundException))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
     [Newtonsoft.Json.JsonObjectAttribute]
     public partial class PictureparkException : System.Exception
@@ -4856,6 +4988,22 @@ namespace Picturepark.SDK.V1.Contract
         public static OutputBackupHashMismatchException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<OutputBackupHashMismatchException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class OutputOperationInProgressException : PictureparkBusinessException
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static OutputOperationInProgressException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<OutputOperationInProgressException>(data);
         }
     
     }
@@ -6355,6 +6503,9 @@ namespace Picturepark.SDK.V1.Contract
     
         [System.Runtime.Serialization.EnumMember(Value = @"EditImages")]
         EditImages = 24,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"ManageConversionPresetTemplates")]
+        ManageConversionPresetTemplates = 25,
     
     }
     
@@ -10662,6 +10813,22 @@ namespace Picturepark.SDK.V1.Contract
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
     [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class BusinessRuleTransferOwnershipTransferUserIdMissingException : PictureparkValidationException
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static BusinessRuleTransferOwnershipTransferUserIdMissingException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessRuleTransferOwnershipTransferUserIdMissingException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
     public partial class NamedCacheConfigurationException : PictureparkValidationException
     {
         [Newtonsoft.Json.JsonProperty("innerExceptions", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -11465,6 +11632,25 @@ namespace Picturepark.SDK.V1.Contract
         public static StatisticsWriteNotEnabledException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<StatisticsWriteNotEnabledException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class ConversionPresetTemplateNotFoundException : PictureparkNotFoundException
+    {
+        [Newtonsoft.Json.JsonProperty("conversionPresetTemplateId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ConversionPresetTemplateId { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static ConversionPresetTemplateNotFoundException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ConversionPresetTemplateNotFoundException>(data);
         }
     
     }
@@ -13901,6 +14087,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("EnqueueTaggingAction", typeof(EnqueueTaggingAction))]
     [JsonInheritanceAttribute("ProduceNotificationAction", typeof(ProduceNotificationAction))]
     [JsonInheritanceAttribute("GetNumberFromNumberSequenceAction", typeof(GetNumberFromNumberSequenceAction))]
+    [JsonInheritanceAttribute("EnqueueTransferOwnershipAction", typeof(EnqueueTransferOwnershipAction))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public abstract partial class BusinessRuleAction 
     {
@@ -14404,6 +14591,26 @@ namespace Picturepark.SDK.V1.Contract
         public static GetNumberFromNumberSequenceAction FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<GetNumberFromNumberSequenceAction>(data);
+        }
+    
+    }
+    
+    /// <summary>Enqueue content for transfer ownership</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class EnqueueTransferOwnershipAction : BusinessRuleAction
+    {
+        /// <summary>Id of the user to whom the ownership should be transferred.</summary>
+        [Newtonsoft.Json.JsonProperty("transferUserId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string TransferUserId { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static EnqueueTransferOwnershipAction FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<EnqueueTransferOwnershipAction>(data);
         }
     
     }
@@ -19153,6 +19360,314 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>Holds results of the conversion preset template search</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class ConversionPresetTemplateSearchResult : SearchBehaviorBaseResultOfConversionPresetTemplate
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static ConversionPresetTemplateSearchResult FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ConversionPresetTemplateSearchResult>(data);
+        }
+    
+    }
+    
+    /// <summary>Base class for search result queries that support SearchBehaviors</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class SearchBehaviorBaseResultOfConversionPresetTemplate : BaseResultOfConversionPresetTemplate
+    {
+        /// <summary>The search string used to query the data.</summary>
+        [Newtonsoft.Json.JsonProperty("searchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string SearchString { get; set; }
+    
+        /// <summary>Flag to notify if the SearchString was modified compared to the original requested one.</summary>
+        [Newtonsoft.Json.JsonProperty("isSearchStringRewritten", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool IsSearchStringRewritten { get; set; }
+    
+        /// <summary>Additional information regarding the query execution and reason of the matched documents. Multiple items are returned if multiple queries were performed.</summary>
+        [Newtonsoft.Json.JsonProperty("queryDebugInformation", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<QueryDebugInformation> QueryDebugInformation { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static SearchBehaviorBaseResultOfConversionPresetTemplate FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SearchBehaviorBaseResultOfConversionPresetTemplate>(data);
+        }
+    
+    }
+    
+    /// <summary>Base class for search results</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class BaseResultOfConversionPresetTemplate 
+    {
+        /// <summary>The total number of matching documents.</summary>
+        [Newtonsoft.Json.JsonProperty("totalResults", Required = Newtonsoft.Json.Required.Always)]
+        public long TotalResults { get; set; }
+    
+        /// <summary>The matched documents.</summary>
+        [Newtonsoft.Json.JsonProperty("results", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.Collections.Generic.ICollection<ConversionPresetTemplate> Results { get; set; } = new System.Collections.Generic.List<ConversionPresetTemplate>();
+    
+        /// <summary>The search execution time in milliseconds.</summary>
+        [Newtonsoft.Json.JsonProperty("elapsedMilliseconds", Required = Newtonsoft.Json.Required.Always)]
+        public long ElapsedMilliseconds { get; set; }
+    
+        /// <summary>An optional token to access the next page of results for those endpoints that support backend scrolling logic.</summary>
+        [Newtonsoft.Json.JsonProperty("pageToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string PageToken { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static BaseResultOfConversionPresetTemplate FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BaseResultOfConversionPresetTemplate>(data);
+        }
+    
+    }
+    
+    /// <summary>Represents a conversion preset template</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class ConversionPresetTemplate : ConversionPresetTemplateUpdateRequest
+    {
+        /// <summary>Conversion preset template ID.</summary>
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public string Id { get; set; }
+    
+        /// <summary>The output format ID to which the conversion preset template is associated</summary>
+        [Newtonsoft.Json.JsonProperty("outputFormatId", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public string OutputFormatId { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static ConversionPresetTemplate FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ConversionPresetTemplate>(data);
+        }
+    
+    }
+    
+    /// <summary>Holds information needed for conversion preset template update.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class ConversionPresetTemplateUpdateRequest 
+    {
+        /// <summary>Language specific names.</summary>
+        [Newtonsoft.Json.JsonProperty("names", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public TranslatedStringDictionary Names { get; set; } = new TranslatedStringDictionary();
+    
+        /// <summary>Language specific descriptions.</summary>
+        [Newtonsoft.Json.JsonProperty("descriptions", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public TranslatedStringDictionary Descriptions { get; set; }
+    
+        /// <summary>The template for the conversion.</summary>
+        [Newtonsoft.Json.JsonProperty("template", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Template { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static ConversionPresetTemplateUpdateRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ConversionPresetTemplateUpdateRequest>(data);
+        }
+    
+    }
+    
+    /// <summary>Conversion preset templates search request</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class ConversionPresetTemplateSearchRequest 
+    {
+        /// <summary>Limits the search by using a query string filter. The Lucene query string syntax is supported.</summary>
+        [Newtonsoft.Json.JsonProperty("searchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string SearchString { get; set; }
+    
+        /// <summary>An optional list of search behaviors. All the passed behaviors will be applied.</summary>
+        [Newtonsoft.Json.JsonProperty("searchBehaviors", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public System.Collections.Generic.ICollection<SearchBehavior> SearchBehaviors { get; set; }
+    
+        /// <summary>Fields and respective directions requested to sort the search results. Sorting on a not indexed field will throw an exception.</summary>
+        [Newtonsoft.Json.JsonProperty("sort", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<SortInfo> Sort { get; set; }
+    
+        /// <summary>Limits the document count of the result set.</summary>
+        [Newtonsoft.Json.JsonProperty("limit", Required = Newtonsoft.Json.Required.Always)]
+        public int Limit { get; set; } = 30;
+    
+        /// <summary>The token used to retrieve the next page of results. It must be null on first request and only filled with the returned pageToken to request next page of results.</summary>
+        [Newtonsoft.Json.JsonProperty("pageToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string PageToken { get; set; }
+    
+        /// <summary>An optional search filter. Limits the document result set.</summary>
+        [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public FilterBase Filter { get; set; }
+    
+        /// <summary>Enable debug mode to get as result of the Searched additional debug information. Warning! It severely affects performance.</summary>
+        [Newtonsoft.Json.JsonProperty("debugMode", Required = Newtonsoft.Json.Required.Always)]
+        public bool DebugMode { get; set; } = false;
+    
+        /// <summary>When searching in multi language fields, limit the searchable fields to the ones corresponding to the specified languages.
+        /// If not specified, all metadata languages defined in the system are used.</summary>
+        [Newtonsoft.Json.JsonProperty("searchLanguages", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> SearchLanguages { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static ConversionPresetTemplateSearchRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ConversionPresetTemplateSearchRequest>(data);
+        }
+    
+    }
+    
+    /// <summary>Represents the detail of a conversion preset template</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class ConversionPresetTemplateDetail : ConversionPresetTemplate
+    {
+        /// <summary>Audit information.</summary>
+        [Newtonsoft.Json.JsonProperty("audit", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public UserAuditDetail Audit { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static ConversionPresetTemplateDetail FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ConversionPresetTemplateDetail>(data);
+        }
+    
+    }
+    
+    /// <summary>Holds information needed for conversion preset template creation</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class ConversionPresetTemplateCreateRequest : ConversionPresetTemplateUpdateRequest
+    {
+        /// <summary>Optional client reference for this request.
+        /// Will be returned back in response to make easier for clients to match request items with the respective results.
+        /// It is not persisted anywhere and it is ignored in single operations.</summary>
+        [Newtonsoft.Json.JsonProperty("requestId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string RequestId { get; set; }
+    
+        /// <summary>The output format ID to which the conversion preset template is associated</summary>
+        [Newtonsoft.Json.JsonProperty("outputFormatId", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public string OutputFormatId { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static ConversionPresetTemplateCreateRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ConversionPresetTemplateCreateRequest>(data);
+        }
+    
+    }
+    
+    /// <summary>Used to create multiple new conversion preset templates at once.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class ConversionPresetTemplateCreateManyRequest 
+    {
+        /// <summary>Conversion preset templates items to be created.</summary>
+        [Newtonsoft.Json.JsonProperty("items", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<ConversionPresetTemplateCreateRequest> Items { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static ConversionPresetTemplateCreateManyRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ConversionPresetTemplateCreateManyRequest>(data);
+        }
+    
+    }
+    
+    /// <summary>Used to modify multiple conversion preset templates at once.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class ConversionPresetTemplateUpdateManyRequest 
+    {
+        /// <summary>Conversion preset templates items to be modified.</summary>
+        [Newtonsoft.Json.JsonProperty("items", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<ConversionPresetTemplateUpdateManyRequestItem> Items { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static ConversionPresetTemplateUpdateManyRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ConversionPresetTemplateUpdateManyRequest>(data);
+        }
+    
+    }
+    
+    /// <summary>Represents one item to be modified in a bulk update operation on conversion preset templates.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class ConversionPresetTemplateUpdateManyRequestItem : ConversionPresetTemplateUpdateRequest
+    {
+        /// <summary>ID of the conversion preset templates to modify.</summary>
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static ConversionPresetTemplateUpdateManyRequestItem FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ConversionPresetTemplateUpdateManyRequestItem>(data);
+        }
+    
+    }
+    
+    /// <summary>Used to remove multiple conversion preset templates at once.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class ConversionPresetTemplateDeleteManyRequest 
+    {
+        /// <summary>List of IDs of conversion preset templates to remove.</summary>
+        [Newtonsoft.Json.JsonProperty("ids", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> Ids { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static ConversionPresetTemplateDeleteManyRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ConversionPresetTemplateDeleteManyRequest>(data);
+        }
+    
+    }
+    
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class DisplayValueStatus 
     {
@@ -19639,6 +20154,10 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("settings", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
         public CustomerInfoSettings Settings { get; set; } = new CustomerInfoSettings();
+    
+        /// <summary>True if a dashboard overview template is available.</summary>
+        [Newtonsoft.Json.JsonProperty("hasDashboard", Required = Newtonsoft.Json.Required.Always)]
+        public bool HasDashboard { get; set; }
     
         public string ToJson() 
         {
@@ -22656,6 +23175,8 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("JpegFormat", typeof(JpegFormat))]
     [JsonInheritanceAttribute("PngFormat", typeof(PngFormat))]
     [JsonInheritanceAttribute("TiffFormat", typeof(TiffFormat))]
+    [JsonInheritanceAttribute("WebPFormat", typeof(WebPFormat))]
+    [JsonInheritanceAttribute("AvifFormat", typeof(AvifFormat))]
     [JsonInheritanceAttribute("Mp4VideoFormat", typeof(Mp4VideoFormat))]
     [JsonInheritanceAttribute("VideoSpriteFormat", typeof(VideoSpriteFormat))]
     [JsonInheritanceAttribute("VideoStillFormat", typeof(VideoStillFormat))]
@@ -23496,6 +24017,46 @@ namespace Picturepark.SDK.V1.Contract
     
         [System.Runtime.Serialization.EnumMember(Value = @"Zip")]
         Zip = 3,
+    
+    }
+    
+    /// <summary>Renders a WebP image.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class WebPFormat : ImageFormatBase
+    {
+        /// <summary>Compression quality. Must be in range [0,100] and defaults to 90.</summary>
+        [Newtonsoft.Json.JsonProperty("quality", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int Quality { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static WebPFormat FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<WebPFormat>(data);
+        }
+    
+    }
+    
+    /// <summary>Renders an AVIF image.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class AvifFormat : ImageFormatBase
+    {
+        /// <summary>Compression quality. Must be in range [0,100] and defaults to 90.</summary>
+        [Newtonsoft.Json.JsonProperty("quality", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int Quality { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static AvifFormat FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<AvifFormat>(data);
+        }
     
     }
     
@@ -25676,6 +26237,10 @@ namespace Picturepark.SDK.V1.Contract
         [System.ComponentModel.DataAnnotations.Required]
         public System.Collections.Generic.ICollection<RelationType> RelationTypes { get; set; } = new System.Collections.Generic.List<RelationType>();
     
+        /// <summary>Settings for displaying purposes in the UI</summary>
+        [Newtonsoft.Json.JsonProperty("uiSettings", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public RelationUiSettings UiSettings { get; set; }
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -25722,6 +26287,51 @@ namespace Picturepark.SDK.V1.Contract
     
     }
     
+    /// <summary>Ui settings for the single and multi relationship fields</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class RelationUiSettings 
+    {
+        /// <summary>Maximum number of rows to be displayed in the List view.</summary>
+        [Newtonsoft.Json.JsonProperty("maxListRows", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int? MaxListRows { get; set; }
+    
+        /// <summary>Maximum number of rows to be displayed in the Thumbnail views.</summary>
+        [Newtonsoft.Json.JsonProperty("maxThumbRows", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int? MaxThumbRows { get; set; }
+    
+        /// <summary>The view to be used when rendering the field.</summary>
+        [Newtonsoft.Json.JsonProperty("view", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public RelationView View { get; set; } = Picturepark.SDK.V1.Contract.RelationView.List;
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static RelationUiSettings FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<RelationUiSettings>(data);
+        }
+    
+    }
+    
+    /// <summary>The view for the single and multi relationship field</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public enum RelationView
+    {
+        [System.Runtime.Serialization.EnumMember(Value = @"List")]
+        List = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"ThumbSmall")]
+        ThumbSmall = 1,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"ThumbMedium")]
+        ThumbMedium = 2,
+    
+    }
+    
     /// <summary>The field used to store multiple relations</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class FieldMultiRelation : FieldBase
@@ -25747,6 +26357,10 @@ namespace Picturepark.SDK.V1.Contract
         /// <summary>The minimum number of items that must be stored.</summary>
         [Newtonsoft.Json.JsonProperty("minimumItems", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int? MinimumItems { get; set; }
+    
+        /// <summary>Settings for displaying purposes in the UI</summary>
+        [Newtonsoft.Json.JsonProperty("uiSettings", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public RelationUiSettings UiSettings { get; set; }
     
         public string ToJson() 
         {
@@ -28005,7 +28619,8 @@ namespace Picturepark.SDK.V1.Contract
     public partial class Template : TemplateCreateRequest
     {
         /// <summary>ID of template.</summary>
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
         public string Id { get; set; }
     
         /// <summary>Indicates if this is a read-only system template.</summary>
@@ -28099,6 +28714,9 @@ namespace Picturepark.SDK.V1.Contract
         [System.Runtime.Serialization.EnumMember(Value = @"NotificationMailItem")]
         NotificationMailItem = 11,
     
+        [System.Runtime.Serialization.EnumMember(Value = @"DashboardPage")]
+        DashboardPage = 12,
+    
     }
     
     /// <summary>Request to update a template</summary>
@@ -28149,6 +28767,56 @@ namespace Picturepark.SDK.V1.Contract
         public static TemplateValue FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<TemplateValue>(data);
+        }
+    
+    }
+    
+    /// <summary>Result for template search operation</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class TemplateSearchResult 
+    {
+        /// <summary>The total number of matching documents.</summary>
+        [Newtonsoft.Json.JsonProperty("totalResults", Required = Newtonsoft.Json.Required.Always)]
+        public long TotalResults { get; set; }
+    
+        /// <summary>The matched documents.</summary>
+        [Newtonsoft.Json.JsonProperty("results", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.Collections.Generic.ICollection<Template> Results { get; set; } = new System.Collections.Generic.List<Template>();
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static TemplateSearchResult FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<TemplateSearchResult>(data);
+        }
+    
+    }
+    
+    /// <summary>Request to search for templates</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class TemplateSearchRequest 
+    {
+        /// <summary>Language code of the template.</summary>
+        [Newtonsoft.Json.JsonProperty("languageCode", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string LanguageCode { get; set; }
+    
+        /// <summary>Type of the template.</summary>
+        [Newtonsoft.Json.JsonProperty("templateType", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public TemplateType? TemplateType { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static TemplateSearchRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<TemplateSearchRequest>(data);
         }
     
     }

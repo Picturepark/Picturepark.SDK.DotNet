@@ -4305,6 +4305,787 @@
         }
       }
     },
+    "/CustomerQueuePriority/{customerId}/queuePriority/effective": {
+      "get": {
+        "tags": [
+          "CustomerQueuePriority"
+        ],
+        "operationId": "CustomerQueuePriority_GetEffective",
+        "parameters": [
+          {
+            "name": "customerId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustomerQueuePriorityConfiguration"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/CustomerQueuePriority/{customerId}/queuePriority/custom": {
+      "get": {
+        "tags": [
+          "CustomerQueuePriority"
+        ],
+        "operationId": "CustomerQueuePriority_GetCustom",
+        "parameters": [
+          {
+            "name": "customerId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustomerQueuePriorityConfiguration"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/CustomerQueuePriority/{customerId}/queuePriority/{queueFamily}/effective": {
+      "get": {
+        "tags": [
+          "CustomerQueuePriority"
+        ],
+        "operationId": "CustomerQueuePriority_GetEffectiveForQueue",
+        "parameters": [
+          {
+            "name": "customerId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 1
+          },
+          {
+            "name": "queueFamily",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 2
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/QueuePriorityConfiguration"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/CustomerQueuePriority/{customerId}/queuePriority/{queueFamily}/custom": {
+      "get": {
+        "tags": [
+          "CustomerQueuePriority"
+        ],
+        "operationId": "CustomerQueuePriority_GetCustomForQueue",
+        "parameters": [
+          {
+            "name": "customerId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 1
+          },
+          {
+            "name": "queueFamily",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 2
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/QueuePriorityConfiguration"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/CustomerQueuePriority/{customerId}/queuePriority": {
+      "put": {
+        "tags": [
+          "CustomerQueuePriority"
+        ],
+        "operationId": "CustomerQueuePriority_Update",
+        "parameters": [
+          {
+            "name": "customerId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 1
+          }
+        ],
+        "requestBody": {
+          "x-name": "updateRequest",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CustomerQueuePriorityConfiguration"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 2
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustomerQueuePriorityConfiguration"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "CustomerQueuePriority"
+        ],
+        "operationId": "CustomerQueuePriority_ResetAllQueueConfigurations",
+        "parameters": [
+          {
+            "name": "customerId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/CustomerQueuePriority/{customerId}/queuePriority/{queueFamily}": {
+      "put": {
+        "tags": [
+          "CustomerQueuePriority"
+        ],
+        "operationId": "CustomerQueuePriority_UpdateForQueue",
+        "parameters": [
+          {
+            "name": "customerId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 1
+          },
+          {
+            "name": "queueFamily",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 2
+          }
+        ],
+        "requestBody": {
+          "x-name": "updateRequest",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/QueuePriorityConfiguration"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 3
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustomerQueuePriorityConfiguration"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "CustomerQueuePriority"
+        ],
+        "operationId": "CustomerQueuePriority_ResetQueue",
+        "parameters": [
+          {
+            "name": "customerId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 1
+          },
+          {
+            "name": "queueFamily",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 2
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustomerQueuePriorityConfiguration"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/service/customer/serviceProvider": {
       "post": {
         "tags": [
@@ -10650,6 +11431,17 @@
           }
         ]
       },
+      "OutputOperationInProgressException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkBusinessException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
       "DownloadLinkExpiredException": {
         "allOf": [
           {
@@ -11937,7 +12729,8 @@
           "ReadStatistics",
           "WriteStatistics",
           "ExportStatistics",
-          "EditImages"
+          "EditImages",
+          "ManageConversionPresetTemplates"
         ],
         "enum": [
           "ManageContent",
@@ -11964,7 +12757,8 @@
           "ReadStatistics",
           "WriteStatistics",
           "ExportStatistics",
-          "EditImages"
+          "EditImages",
+          "ManageConversionPresetTemplates"
         ]
       },
       "PermissionSetNotFoundException": {
@@ -15977,6 +16771,17 @@
           }
         ]
       },
+      "BusinessRuleTransferOwnershipTransferUserIdMissingException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
       "NamedCacheConfigurationException": {
         "allOf": [
           {
@@ -16690,6 +17495,23 @@
           {
             "type": "object",
             "additionalProperties": false
+          }
+        ]
+      },
+      "ConversionPresetTemplateNotFoundException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkNotFoundException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "conversionPresetTemplateId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
           }
         ]
       },
@@ -18757,6 +19579,8 @@
             "JpegFormat": "#/components/schemas/JpegFormat",
             "PngFormat": "#/components/schemas/PngFormat",
             "TiffFormat": "#/components/schemas/TiffFormat",
+            "WebPFormat": "#/components/schemas/WebPFormat",
+            "AvifFormat": "#/components/schemas/AvifFormat",
             "VideoFormatBase": "#/components/schemas/VideoFormatBase",
             "AudioFormatBase": "#/components/schemas/AudioFormatBase",
             "Mp4VideoFormat": "#/components/schemas/Mp4VideoFormat",
@@ -19600,6 +20424,44 @@
           "Lzw",
           "Rle",
           "Zip"
+        ]
+      },
+      "WebPFormat": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ImageFormatBase"
+          },
+          {
+            "type": "object",
+            "description": "Renders a WebP image.",
+            "additionalProperties": false,
+            "properties": {
+              "quality": {
+                "type": "integer",
+                "description": "Compression quality. Must be in range [0,100] and defaults to 90.",
+                "format": "int32"
+              }
+            }
+          }
+        ]
+      },
+      "AvifFormat": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ImageFormatBase"
+          },
+          {
+            "type": "object",
+            "description": "Renders an AVIF image.",
+            "additionalProperties": false,
+            "properties": {
+              "quality": {
+                "type": "integer",
+                "description": "Compression quality. Must be in range [0,100] and defaults to 90.",
+                "format": "int32"
+              }
+            }
+          }
         ]
       },
       "VideoFormatBase": {
@@ -22022,6 +22884,506 @@
             "type": "integer",
             "format": "int32",
             "nullable": true
+          }
+        }
+      },
+      "CustomerQueuePriorityConfiguration": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "customerId",
+          "queueConfigurations"
+        ],
+        "properties": {
+          "customerId": {
+            "type": "string",
+            "minLength": 1
+          },
+          "queueConfigurations": {
+            "type": "object",
+            "description": "By QueueFamily",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/QueuePriorityConfiguration"
+            }
+          }
+        }
+      },
+      "QueuePriorityConfiguration": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "models"
+        ],
+        "properties": {
+          "models": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/QueuePriorityModelConfiguration"
+            }
+          },
+          "aggregation": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/QueueModelAggregationConfiguration"
+              }
+            ]
+          }
+        }
+      },
+      "QueuePriorityModelConfiguration": {
+        "type": "object",
+        "discriminator": {
+          "propertyName": "kind",
+          "mapping": {
+            "LowLevelPriorityRelatedConfigurationBase": "#/components/schemas/LowLevelPriorityRelatedConfigurationBase",
+            "Legacy": "#/components/schemas/Legacy",
+            "MessagesInFlight": "#/components/schemas/MessagesInFlight",
+            "PerOperation": "#/components/schemas/PerOperation",
+            "ConcurrentInteractiveLimit": "#/components/schemas/ConcurrentInteractiveLimit",
+            "QueuePriorityModelMessageRateConfigurationBase": "#/components/schemas/QueuePriorityModelMessageRateConfigurationBase",
+            "LowItemCountRequestRateBase": "#/components/schemas/LowItemCountRequestRateBase",
+            "LowItemCountRequestRateMalus": "#/components/schemas/LowItemCountRequestRateMalus",
+            "LowItemCountRequestRateBonus": "#/components/schemas/LowItemCountRequestRateBonus",
+            "InheritFromCurrentProcessingMessage": "#/components/schemas/InheritFromCurrentProcessingMessage",
+            "LowMessageRateBonus": "#/components/schemas/LowMessageRateBonus",
+            "Constant": "#/components/schemas/Constant"
+          }
+        },
+        "x-abstract": true,
+        "additionalProperties": false,
+        "required": [
+          "kind"
+        ],
+        "properties": {
+          "kind": {
+            "type": "string"
+          }
+        }
+      },
+      "Legacy": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/LowLevelPriorityRelatedConfigurationBase"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "LowLevelPriorityRelatedConfigurationBase": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/QueuePriorityModelConfiguration"
+          },
+          {
+            "type": "object",
+            "x-abstract": true,
+            "additionalProperties": false,
+            "properties": {
+              "lowLevelMaxPriority": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "ignorePriority": {
+                "type": "boolean"
+              },
+              "ignoreInteractivity": {
+                "type": "boolean"
+              }
+            }
+          }
+        ]
+      },
+      "MessagesInFlight": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/QueuePriorityModelConfiguration"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "function": {
+                "$ref": "#/components/schemas/QueuePriorityMathFunctionAndArguments"
+              }
+            }
+          }
+        ]
+      },
+      "QueuePriorityMathFunctionAndArguments": {
+        "type": "object",
+        "discriminator": {
+          "propertyName": "kind",
+          "mapping": {
+            "QueuePriorityMathFunctionAndArgumentsExponentialFalling": "#/components/schemas/QueuePriorityMathFunctionAndArgumentsExponentialFalling"
+          }
+        },
+        "x-abstract": true,
+        "additionalProperties": false,
+        "required": [
+          "kind"
+        ],
+        "properties": {
+          "kind": {
+            "type": "string"
+          }
+        }
+      },
+      "QueuePriorityMathFunctionAndArgumentsExponentialFalling": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/QueuePriorityMathFunctionAndArguments"
+          },
+          {
+            "type": "object",
+            "description": "(a^b)^-x: Result divides by A every 1/B&gt;, example:\na == 3, b == 0.1, x == 0 =&gt; 1\na == 3, b == 0.1, x == 10 =&gt; 1/3\na == 3, b == 0.1, x == 20 =&gt; 1/9",
+            "additionalProperties": false,
+            "properties": {
+              "a": {
+                "type": "number",
+                "format": "double"
+              },
+              "b": {
+                "type": "number",
+                "format": "double"
+              }
+            }
+          }
+        ]
+      },
+      "PerOperation": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/QueuePriorityModelConfiguration"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "boostMessageCount": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          }
+        ]
+      },
+      "ConcurrentInteractiveLimit": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/QueuePriorityModelConfiguration"
+          },
+          {
+            "type": "object",
+            "description": "Provides possibility to respect internal interactivity request but only for a limited number of messages in parallel",
+            "additionalProperties": false,
+            "properties": {
+              "maxInteractiveInFlight": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "limitReached": {
+                "$ref": "#/components/schemas/LimitReachedBehavior"
+              },
+              "priorityBonusIfInteractivityDenied": {
+                "type": "boolean"
+              }
+            }
+          }
+        ]
+      },
+      "LimitReachedBehavior": {
+        "type": "string",
+        "description": "",
+        "x-enumNames": [
+          "Ignore",
+          "RespondNegative"
+        ],
+        "enum": [
+          "Ignore",
+          "RespondNegative"
+        ]
+      },
+      "LowItemCountRequestRateMalus": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/LowItemCountRequestRateBase"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "LowItemCountRequestRateBase": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/QueuePriorityModelMessageRateConfigurationBase"
+          },
+          {
+            "type": "object",
+            "x-abstract": true,
+            "additionalProperties": false,
+            "properties": {
+              "itemCountBoundaryInclusive": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "voteOnInteractivity": {
+                "type": "boolean"
+              }
+            }
+          }
+        ]
+      },
+      "QueuePriorityModelMessageRateConfigurationBase": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/QueuePriorityModelConfiguration"
+          },
+          {
+            "type": "object",
+            "x-abstract": true,
+            "additionalProperties": false,
+            "properties": {
+              "windowLength": {
+                "type": "string",
+                "format": "time-span"
+              },
+              "rate": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          }
+        ]
+      },
+      "LowItemCountRequestRateBonus": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/LowItemCountRequestRateBase"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "InheritFromCurrentProcessingMessage": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/LowLevelPriorityRelatedConfigurationBase"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "attachResultAsTag",
+              "ignoreIncomingTag"
+            ],
+            "properties": {
+              "attachResultAsTag": {
+                "type": "boolean",
+                "description": "Adds result of this model to the enqueued message"
+              },
+              "ignoreIncomingTag": {
+                "type": "boolean",
+                "description": "Whether an attached result from AttachResultAsTag&gt; should be used as result"
+              }
+            }
+          }
+        ]
+      },
+      "LowMessageRateBonus": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/QueuePriorityModelMessageRateConfigurationBase"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "Constant": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/QueuePriorityModelConfiguration"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "priority": {
+                "type": "number",
+                "format": "double",
+                "maximum": 1.0,
+                "minimum": 0.0,
+                "nullable": true
+              },
+              "interactive": {
+                "type": "boolean",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "QueueModelAggregationConfiguration": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "interactivity": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/MessagePriorityModelResultInteractivityAggregator"
+              }
+            ]
+          },
+          "priority": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/MessagePriorityModelResultPriorityAggregator"
+              }
+            ]
+          }
+        }
+      },
+      "MessagePriorityModelResultInteractivityAggregator": {
+        "type": "object",
+        "discriminator": {
+          "propertyName": "kind",
+          "mapping": {
+            "InteractivityAggregatorSingleVeto": "#/components/schemas/InteractivityAggregatorSingleVeto",
+            "InteractivityAggregatorMajorityVote": "#/components/schemas/InteractivityAggregatorMajorityVote"
+          }
+        },
+        "x-abstract": true,
+        "additionalProperties": false,
+        "required": [
+          "kind"
+        ],
+        "properties": {
+          "kind": {
+            "type": "string"
+          }
+        }
+      },
+      "InteractivityAggregatorSingleVeto": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/MessagePriorityModelResultInteractivityAggregator"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "InteractivityAggregatorMajorityVote": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/MessagePriorityModelResultInteractivityAggregator"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "interactiveOnTie": {
+                "type": "boolean"
+              }
+            }
+          }
+        ]
+      },
+      "MessagePriorityModelResultPriorityAggregator": {
+        "type": "object",
+        "discriminator": {
+          "propertyName": "kind",
+          "mapping": {
+            "PriorityAverage": "#/components/schemas/PriorityAverage",
+            "PriorityAverageWeighted": "#/components/schemas/PriorityAverageWeighted"
+          }
+        },
+        "x-abstract": true,
+        "additionalProperties": false,
+        "required": [
+          "kind",
+          "maxPriority"
+        ],
+        "properties": {
+          "maxPriority": {
+            "type": "integer",
+            "format": "int32",
+            "maximum": 255.0,
+            "minimum": 0.0
+          },
+          "kind": {
+            "type": "string"
+          }
+        }
+      },
+      "PriorityAverage": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/MessagePriorityModelResultPriorityAggregator"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "PriorityAverageWeighted": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/MessagePriorityModelResultPriorityAggregator"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "modelWeights"
+            ],
+            "properties": {
+              "maxWeight": {
+                "type": "integer",
+                "description": "ModelResults are considered as long as their cumulative weight is at or below this value",
+                "format": "int32",
+                "default": 100,
+                "maximum": 2147483647.0,
+                "minimum": 1.0
+              },
+              "modelWeights": {
+                "type": "array",
+                "description": "Weights to be used for model results (if they were produced). Results with undefined weights are ignored.",
+                "items": {
+                  "$ref": "#/components/schemas/PriorityAverageWeightedModelWeight"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "PriorityAverageWeightedModelWeight": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "modelType",
+          "weight"
+        ],
+        "properties": {
+          "modelType": {
+            "type": "string",
+            "minLength": 1
+          },
+          "weight": {
+            "type": "integer",
+            "format": "int32"
           }
         }
       },
