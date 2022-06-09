@@ -19216,6 +19216,113 @@
         ]
       }
     },
+    "/v1/Schemas/many/sortFieldsBySchemaType": {
+      "get": {
+        "tags": [
+          "Schema"
+        ],
+        "summary": "Retrieve the fields that can be used for sorting.",
+        "operationId": "Schema_GetSortFieldsBySchemaTypes",
+        "parameters": [
+          {
+            "name": "schemaTypes",
+            "in": "query",
+            "style": "form",
+            "explode": true,
+            "description": "Schema types to include in search",
+            "schema": {
+              "type": "array",
+              "nullable": true,
+              "items": {
+                "$ref": "#/components/schemas/SchemaType"
+              }
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The list of fields",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SortFieldInfo"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "schema_read"
+            ]
+          }
+        ]
+      }
+    },
     "/v1/SchemaTransfers/import": {
       "post": {
         "tags": [
@@ -50476,7 +50583,8 @@
             "required": [
               "targetDocType",
               "viewUiSettings",
-              "filterTemplate"
+              "filterTemplate",
+              "sort"
             ],
             "properties": {
               "targetDocType": {
@@ -50499,6 +50607,13 @@
                     "$ref": "#/components/schemas/FilterBase"
                   }
                 ]
+              },
+              "sort": {
+                "type": "array",
+                "description": "Specifies sorting to be used in search with FilterBase&gt; from FilterTemplate",
+                "items": {
+                  "$ref": "#/components/schemas/SortInfo"
+                }
               }
             }
           }
