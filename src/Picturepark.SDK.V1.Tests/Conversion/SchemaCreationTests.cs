@@ -387,6 +387,17 @@ namespace Picturepark.SDK.V1.Tests.Conversion
             uiSettings.MaxListRows.Should().Be(20);
             uiSettings.MaxThumbRows.Should().Be(5);
             uiSettings.ShowRelatedContentOnDownload.Should().BeTrue();
+
+            var sort = viewField.Sort;
+            sort.Should().HaveCount(2);
+
+            var firstSort = sort.First();
+            firstSort.Field.Should().Be(ListWithDynamicView.DynamicViewFilterProvider.Field);
+            firstSort.Direction.Should().Be(SortDirection.Asc);
+
+            var lastSort = sort.Last();
+            lastSort.Field.Should().Be(ListWithDynamicView.DynamicViewFilterProvider.Field + "Desc");
+            lastSort.Direction.Should().Be(SortDirection.Desc);
         }
 
         [PictureparkSchema(SchemaType.List)]
@@ -394,6 +405,8 @@ namespace Picturepark.SDK.V1.Tests.Conversion
         {
             [PictureparkDynamicView(typeof(DynamicViewFilterProvider))]
             [PictureparkDynamicViewUiSettings(ItemFieldViewMode.ThumbMedium, maxListRows: 20, maxThumbRows: 5, showRelatedContentOnDownload: true)]
+            [PictureparkDynamicViewSort(DynamicViewFilterProvider.Field, SortDirection.Asc)]
+            [PictureparkDynamicViewSort(DynamicViewFilterProvider.Field + "Desc", SortDirection.Desc)]
             public DynamicViewObject ViewField { get; set; }
 
             internal class DynamicViewFilterProvider : IFilterProvider
