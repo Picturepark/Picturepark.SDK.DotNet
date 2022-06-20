@@ -39489,6 +39489,7 @@
           },
           "direction": {
             "description": "The sort direction (ascending/descending).",
+            "default": "Asc",
             "oneOf": [
               {
                 "$ref": "#/components/schemas/SortDirection"

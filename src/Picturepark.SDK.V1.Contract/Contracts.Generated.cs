@@ -15672,7 +15672,7 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("direction", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public SortDirection Direction { get; set; }
+        public SortDirection Direction { get; set; } = Picturepark.SDK.V1.Contract.SortDirection.Asc;
     
         public string ToJson() 
         {
