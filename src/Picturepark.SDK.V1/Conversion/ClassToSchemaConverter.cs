@@ -673,11 +673,14 @@ namespace Picturepark.SDK.V1.Conversion
                         var dynamicViewAttribute = property.PictureparkAttributes.OfType<PictureparkDynamicViewAttribute>().SingleOrDefault()
                             ?? throw new InvalidOperationException($"Property of type {nameof(DynamicViewObject)} must be annotated with {nameof(PictureparkDynamicViewAttribute)}");
 
+                        var sortInfoAttributes = property.PictureparkAttributes.OfType<PictureparkDynamicViewSortAttribute>();
+
                         field = new FieldDynamicView
                         {
                             TargetDocType = dynamicViewAttribute.TargetDocType,
                             FilterTemplate = dynamicViewAttribute.FilterTemplate,
-                            ViewUiSettings = (DynamicViewFieldUiSettings)uiSettings
+                            ViewUiSettings = (DynamicViewFieldUiSettings)uiSettings,
+                            Sort = sortInfoAttributes.SelectMany(sia => sia.SortInfos).ToList()
                         };
                     }
                     else if (property.IsReference)
@@ -764,26 +767,27 @@ namespace Picturepark.SDK.V1.Conversion
                 if (attribute is PictureparkSortAttribute)
                 {
                     if (field is FieldSingleRelation || field is FieldMultiRelation)
-                    {
                         throw new InvalidOperationException($"Relation property {property.Name} must not be marked as sortable.");
-                    }
 
                     if (field is FieldGeoPoint)
-                    {
                         throw new InvalidOperationException($"GeoPoint property {property.Name} must not be marked as sortable.");
-                    }
 
                     if (field is FieldTrigger)
-                    {
                         throw new InvalidOperationException($"Trigger property {property.Name} must not be marked as sortable.");
-                    }
+
+                    if (field is FieldDynamicView)
+                        throw new InvalidOperationException($"DynamicView property {property.Name} must not be marked as sortable.");
 
                     field.Sortable = true;
                 }
 
-                if (attribute is PictureparkDynamicViewAttribute && property.TypeName != nameof(DynamicViewObject))
+                if (property.TypeName != nameof(DynamicViewObject))
                 {
-                    throw new InvalidOperationException($"{nameof(PictureparkDynamicViewAttribute)} must only be used on properties of type {nameof(DynamicViewObject)}");
+                    if (attribute is PictureparkDynamicViewAttribute)
+                        throw new InvalidOperationException($"{nameof(PictureparkDynamicViewAttribute)} must only be used on properties of type {nameof(DynamicViewObject)}");
+
+                    if (attribute is PictureparkDynamicViewSortAttribute)
+                        throw new InvalidOperationException($"{nameof(PictureparkDynamicViewSortAttribute)} must only be used on properties of type {nameof(DynamicViewObject)}");
                 }
             }
 

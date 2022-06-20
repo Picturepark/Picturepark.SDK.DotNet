@@ -2052,6 +2052,18 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<System.Collections.Generic.ICollection<FieldInfo>> GetFilterFieldsManyAsync(System.Collections.Generic.IEnumerable<string> ids = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>Retrieve the fields that can be used for sorting.</summary>
+        /// <param name="schemaTypes">Schema types to include in search</param>
+        /// <returns>The list of fields</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        System.Threading.Tasks.Task<System.Collections.Generic.ICollection<SortFieldInfo>> GetSortFieldsBySchemaTypesAsync(System.Collections.Generic.IEnumerable<SchemaType> schemaTypes = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "13.6.2.0 (NJsonSchema v10.1.23.0 (Newtonsoft.Json v11.0.0.0))")]
@@ -15660,7 +15672,7 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("direction", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public SortDirection Direction { get; set; }
+        public SortDirection Direction { get; set; } = Picturepark.SDK.V1.Contract.SortDirection.Asc;
     
         public string ToJson() 
         {
@@ -26449,6 +26461,11 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("filterTemplate", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
         public FilterBase FilterTemplate { get; set; } = new FilterBase();
+    
+        /// <summary>Specifies sorting to be used in search with FilterBase&amp;gt; from FilterTemplate</summary>
+        [Newtonsoft.Json.JsonProperty("sort", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.Collections.Generic.ICollection<SortInfo> Sort { get; set; } = new System.Collections.Generic.List<SortInfo>();
     
         public string ToJson() 
         {
