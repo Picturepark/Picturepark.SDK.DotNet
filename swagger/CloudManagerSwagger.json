@@ -19427,7 +19427,7 @@
               },
               "viewForAll": {
                 "type": "boolean",
-                "description": "Indicates if outputs of this or derived formats should be accessible also for users not having AccessOriginal permission on the content."
+                "description": "Indicates if outputs of this format should be accessible for users not having AccessOriginal permission on the content."
               },
               "enableXmpWriteback": {
                 "type": "boolean",
