@@ -14677,7 +14677,7 @@ namespace Picturepark.SDK.V1.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class EnqueueCreateEmbedAction : BusinessRuleAction
     {
-        /// <summary>Name of the embed. If empty, it will be automatically initialized with the Content Name display value.</summary>
+        /// <summary>Name of the embed. If empty, it will be automatically initialized with the 'Embed_{ContentId}_{OutputFormatId}'.</summary>
         [Newtonsoft.Json.JsonProperty("embedName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string EmbedName { get; set; }
     
@@ -14698,11 +14698,11 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("lockDeliveryOptions", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool LockDeliveryOptions { get; set; }
     
-        /// <summary>Optional date when embed expires and cannot be accessed anymore.</summary>
+        /// <summary>Optional date when embed expires and cannot be accessed anymore: It must be in ISO format, with or without milliseconds 'yyyy-MM-ddTHH:mm:ss(.fffffff)K'.</summary>
         [Newtonsoft.Json.JsonProperty("expirationDate", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ExpirationDate { get; set; }
     
-        /// <summary>Optional variable name to store the url of the embed that will be created in.</summary>
+        /// <summary>Optional variable name to store in the url of the embed that will be created.</summary>
         [Newtonsoft.Json.JsonProperty("storeIn", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string StoreIn { get; set; }
     

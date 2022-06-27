@@ -38572,7 +38572,7 @@
             "properties": {
               "embedName": {
                 "type": "string",
-                "description": "Name of the embed. If empty, it will be automatically initialized with the Content Name display value.",
+                "description": "Name of the embed. If empty, it will be automatically initialized with the 'Embed_{ContentId}_{OutputFormatId}'.",
                 "nullable": true
               },
               "embedDescription": {
@@ -38596,12 +38596,12 @@
               },
               "expirationDate": {
                 "type": "string",
-                "description": "Optional date when embed expires and cannot be accessed anymore.",
+                "description": "Optional date when embed expires and cannot be accessed anymore: It must be in ISO format, with or without milliseconds 'yyyy-MM-ddTHH:mm:ss(.fffffff)K'.",
                 "nullable": true
               },
               "storeIn": {
                 "type": "string",
-                "description": "Optional variable name to store the url of the embed that will be created in.",
+                "description": "Optional variable name to store in the url of the embed that will be created.",
                 "nullable": true
               }
             }

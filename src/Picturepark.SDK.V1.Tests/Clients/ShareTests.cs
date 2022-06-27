@@ -660,7 +660,8 @@ namespace Picturepark.SDK.V1.Tests.Clients
                     SourceOutputFormats = new SourceOutputFormats
                     {
                         Image = sourceFormat
-                    }
+                    },
+                    ViewForAll = true
                 };
             }).ToList();
 
