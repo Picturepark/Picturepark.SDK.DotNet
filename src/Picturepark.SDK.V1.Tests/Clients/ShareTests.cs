@@ -661,7 +661,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                     {
                         Image = sourceFormat
                     },
-                    ViewForAll = true
+                    ViewForAll = sourceFormat != "Original"
                 };
             }).ToList();
 
