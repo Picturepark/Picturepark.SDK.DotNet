@@ -3657,6 +3657,8 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("BusinessRuleUserInUserRolesConditionUserRoleIdsMissingException", typeof(BusinessRuleUserInUserRolesConditionUserRoleIdsMissingException))]
     [JsonInheritanceAttribute("BusinessRuleDateMathTransformationTimeSpanInvalidException", typeof(BusinessRuleDateMathTransformationTimeSpanInvalidException))]
     [JsonInheritanceAttribute("BusinessRuleTransferOwnershipTransferUserIdMissingException", typeof(BusinessRuleTransferOwnershipTransferUserIdMissingException))]
+    [JsonInheritanceAttribute("BusinessRuleOutputFormatIdMissingException", typeof(BusinessRuleOutputFormatIdMissingException))]
+    [JsonInheritanceAttribute("BusinessRuleEnqueueCreateEmbedActionExpirationDateInvalidException", typeof(BusinessRuleEnqueueCreateEmbedActionExpirationDateInvalidException))]
     [JsonInheritanceAttribute("NamedCacheConfigurationException", typeof(NamedCacheConfigurationException))]
     [JsonInheritanceAttribute("NamedCacheNameMissingException", typeof(NamedCacheNameMissingException))]
     [JsonInheritanceAttribute("NamedCacheNameDuplicationException", typeof(NamedCacheNameDuplicationException))]
@@ -10866,6 +10868,41 @@ namespace Picturepark.SDK.V1.Contract
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
     [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class BusinessRuleOutputFormatIdMissingException : PictureparkValidationException
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static BusinessRuleOutputFormatIdMissingException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessRuleOutputFormatIdMissingException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class BusinessRuleEnqueueCreateEmbedActionExpirationDateInvalidException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("expirationDate", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ExpirationDate { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static BusinessRuleEnqueueCreateEmbedActionExpirationDateInvalidException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessRuleEnqueueCreateEmbedActionExpirationDateInvalidException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
     public partial class NamedCacheConfigurationException : PictureparkValidationException
     {
         [Newtonsoft.Json.JsonProperty("innerExceptions", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -14108,6 +14145,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("ProduceNotificationAction", typeof(ProduceNotificationAction))]
     [JsonInheritanceAttribute("GetNumberFromNumberSequenceAction", typeof(GetNumberFromNumberSequenceAction))]
     [JsonInheritanceAttribute("EnqueueTransferOwnershipAction", typeof(EnqueueTransferOwnershipAction))]
+    [JsonInheritanceAttribute("EnqueueCreateEmbedAction", typeof(EnqueueCreateEmbedAction))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public abstract partial class BusinessRuleAction 
     {
@@ -14631,6 +14669,51 @@ namespace Picturepark.SDK.V1.Contract
         public static EnqueueTransferOwnershipAction FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<EnqueueTransferOwnershipAction>(data);
+        }
+    
+    }
+    
+    /// <summary>Enqueue creation of an embed</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class EnqueueCreateEmbedAction : BusinessRuleAction
+    {
+        /// <summary>Name of the embed. If empty, it will be automatically initialized with the Content Name display value.</summary>
+        [Newtonsoft.Json.JsonProperty("embedName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string EmbedName { get; set; }
+    
+        /// <summary>Optional description of the embed.</summary>
+        [Newtonsoft.Json.JsonProperty("embedDescription", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string EmbedDescription { get; set; }
+    
+        /// <summary>Output format of the content to be embedded.</summary>
+        [Newtonsoft.Json.JsonProperty("outputFormatId", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public string OutputFormatId { get; set; }
+    
+        /// <summary>Optional conversion to apply to the output.</summary>
+        [Newtonsoft.Json.JsonProperty("conversionString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ConversionString { get; set; }
+    
+        /// <summary>Indicates if the conversion is locked and therefore cannot be changed by the caller of the embed URI.</summary>
+        [Newtonsoft.Json.JsonProperty("lockDeliveryOptions", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool LockDeliveryOptions { get; set; }
+    
+        /// <summary>Optional date when embed expires and cannot be accessed anymore.</summary>
+        [Newtonsoft.Json.JsonProperty("expirationDate", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ExpirationDate { get; set; }
+    
+        /// <summary>Optional variable name to store the url of the embed that will be created in.</summary>
+        [Newtonsoft.Json.JsonProperty("storeIn", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string StoreIn { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static EnqueueCreateEmbedAction FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<EnqueueCreateEmbedAction>(data);
         }
     
     }
