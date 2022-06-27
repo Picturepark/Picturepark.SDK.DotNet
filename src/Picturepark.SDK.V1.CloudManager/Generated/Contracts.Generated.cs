@@ -11130,6 +11130,10 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.TimeSpan IncompleteTransferRetentionTime { get; set; }
     
+        [Newtonsoft.Json.JsonProperty("rollingIndexCreationScheduleTime", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public System.TimeSpan RollingIndexCreationScheduleTime { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("documentHistoryRetentionTime", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.TimeSpan DocumentHistoryRetentionTime { get; set; }
@@ -13113,6 +13117,10 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.TimeSpan OwnerTokenRetentionTime { get; set; }
     
+        [Newtonsoft.Json.JsonProperty("rollingIndexCreationScheduleTime", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public System.TimeSpan RollingIndexCreationScheduleTime { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("documentHistoryRetentionTime", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.TimeSpan DocumentHistoryRetentionTime { get; set; }
@@ -13293,6 +13301,10 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [Newtonsoft.Json.JsonProperty("ownerTokenRetentionTime", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.TimeSpan OwnerTokenRetentionTime { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("rollingIndexCreationScheduleTime", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public System.TimeSpan RollingIndexCreationScheduleTime { get; set; }
     
         [Newtonsoft.Json.JsonProperty("documentHistoryRetentionTime", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
