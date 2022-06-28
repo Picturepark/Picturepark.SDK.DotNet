@@ -38592,7 +38592,8 @@
               },
               "lockDeliveryOptions": {
                 "type": "boolean",
-                "description": "Indicates if the conversion is locked and therefore cannot be changed by the caller of the embed URI."
+                "description": "Indicates if the conversion is locked and therefore cannot be changed by the caller of the embed URI.",
+                "default": true
               },
               "expirationDate": {
                 "type": "string",
