@@ -3494,6 +3494,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("DeleteListItemsWithReferencesException", typeof(DeleteListItemsWithReferencesException))]
     [JsonInheritanceAttribute("ListItemUpdateManyException", typeof(ListItemUpdateManyException))]
     [JsonInheritanceAttribute("ListItemSchemaMismatchException", typeof(ListItemSchemaMismatchException))]
+    [JsonInheritanceAttribute("ListItemResolveBehaviorNotSupportedException", typeof(ListItemResolveBehaviorNotSupportedException))]
     [JsonInheritanceAttribute("TransferInfoNotFoundException", typeof(TransferInfoNotFoundException))]
     [JsonInheritanceAttribute("InvalidTransferTypeException", typeof(InvalidTransferTypeException))]
     [JsonInheritanceAttribute("TransferNotFoundException", typeof(TransferNotFoundException))]
@@ -3520,6 +3521,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("OutdatedMetadataUpdateInProgressException", typeof(OutdatedMetadataUpdateInProgressException))]
     [JsonInheritanceAttribute("SortingSupportedOnlyOnTermsAndTermsRelationAggregatorsException", typeof(SortingSupportedOnlyOnTermsAndTermsRelationAggregatorsException))]
     [JsonInheritanceAttribute("SchemasMetadataProtectionException", typeof(SchemasMetadataProtectionException))]
+    [JsonInheritanceAttribute("FilterTemplateRenderingException", typeof(FilterTemplateRenderingException))]
     [JsonInheritanceAttribute("SchemaFieldOverwriteTypeMismatchException", typeof(SchemaFieldOverwriteTypeMismatchException))]
     [JsonInheritanceAttribute("SchemaFieldOverwriteIdException", typeof(SchemaFieldOverwriteIdException))]
     [JsonInheritanceAttribute("SchemaFieldIdDuplicatedException", typeof(SchemaFieldIdDuplicatedException))]
@@ -3584,6 +3586,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("SchemaFieldDisplayPatternTypeNotSupportedException", typeof(SchemaFieldDisplayPatternTypeNotSupportedException))]
     [JsonInheritanceAttribute("SchemaFieldMarkdownNotMultilineException", typeof(SchemaFieldMarkdownNotMultilineException))]
     [JsonInheritanceAttribute("IndexingDisplayValueInFilterOnlySupportedForIndexedTagboxFieldsException", typeof(IndexingDisplayValueInFilterOnlySupportedForIndexedTagboxFieldsException))]
+    [JsonInheritanceAttribute("SchemaFieldDynamicViewFieldInvalidFilterTemplateException", typeof(SchemaFieldDynamicViewFieldInvalidFilterTemplateException))]
     [JsonInheritanceAttribute("DeleteContentsWithReferencesException", typeof(DeleteContentsWithReferencesException))]
     [JsonInheritanceAttribute("ContentMetadataUpdateManyException", typeof(ContentMetadataUpdateManyException))]
     [JsonInheritanceAttribute("ContentLayerInvalidException", typeof(ContentLayerInvalidException))]
@@ -3593,6 +3596,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("ContentHistoricVersionNotFoundException", typeof(ContentHistoricVersionNotFoundException))]
     [JsonInheritanceAttribute("UnableToDeleteLatestXmpWritebackGeneratedContentHistoricVersionException", typeof(UnableToDeleteLatestXmpWritebackGeneratedContentHistoricVersionException))]
     [JsonInheritanceAttribute("ConcurrentFileReplacementDuringRepairException", typeof(ConcurrentFileReplacementDuringRepairException))]
+    [JsonInheritanceAttribute("ContentResolveBehaviorNotSupportedException", typeof(ContentResolveBehaviorNotSupportedException))]
     [JsonInheritanceAttribute("BusinessProcessEngineRequestException", typeof(BusinessProcessEngineRequestException))]
     [JsonInheritanceAttribute("BusinessProcessNotFoundException", typeof(BusinessProcessNotFoundException))]
     [JsonInheritanceAttribute("BusinessProcessDefinitionNotFoundException", typeof(BusinessProcessDefinitionNotFoundException))]
@@ -6955,6 +6959,66 @@ namespace Picturepark.SDK.V1.Contract
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
     [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class ListItemResolveBehaviorNotSupportedException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("behaviors", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public System.Collections.Generic.ICollection<ListItemResolveBehavior> Behaviors { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static ListItemResolveBehaviorNotSupportedException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ListItemResolveBehaviorNotSupportedException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public enum ListItemResolveBehavior
+    {
+        [System.Runtime.Serialization.EnumMember(Value = @"Content")]
+        Content = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"LinkedListItems")]
+        LinkedListItems = 1,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"InnerDisplayValueThumbnail")]
+        InnerDisplayValueThumbnail = 2,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"InnerDisplayValueList")]
+        InnerDisplayValueList = 3,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"InnerDisplayValueDetail")]
+        InnerDisplayValueDetail = 4,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"InnerDisplayValueName")]
+        InnerDisplayValueName = 5,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"OuterDisplayValueThumbnail")]
+        OuterDisplayValueThumbnail = 6,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"OuterDisplayValueList")]
+        OuterDisplayValueList = 7,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"OuterDisplayValueDetail")]
+        OuterDisplayValueDetail = 8,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"OuterDisplayValueName")]
+        OuterDisplayValueName = 9,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"DynamicViewFields")]
+        DynamicViewFields = 10,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"DynamicViewFieldsWithHasItems")]
+        DynamicViewFieldsWithHasItems = 11,
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
     public partial class TransferInfoNotFoundException : PictureparkNotFoundException
     {
         [Newtonsoft.Json.JsonProperty("transferInfoId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -7640,6 +7704,22 @@ namespace Picturepark.SDK.V1.Contract
         public static SchemasMetadataProtectionException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemasMetadataProtectionException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class FilterTemplateRenderingException : PictureparkValidationException
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static FilterTemplateRenderingException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<FilterTemplateRenderingException>(data);
         }
     
     }
@@ -9247,6 +9327,31 @@ namespace Picturepark.SDK.V1.Contract
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
     [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class SchemaFieldDynamicViewFieldInvalidFilterTemplateException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("schemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string SchemaId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("fieldId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string FieldId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("errors", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> Errors { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static SchemaFieldDynamicViewFieldInvalidFilterTemplateException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaFieldDynamicViewFieldInvalidFilterTemplateException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
     public partial class DeleteContentsWithReferencesException : PictureparkValidationException
     {
         [Newtonsoft.Json.JsonProperty("numberOfReferences", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -9588,6 +9693,81 @@ namespace Picturepark.SDK.V1.Contract
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<ConcurrentFileReplacementDuringRepairException>(data);
         }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class ContentResolveBehaviorNotSupportedException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("behaviors", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public System.Collections.Generic.ICollection<ContentResolveBehavior> Behaviors { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static ContentResolveBehaviorNotSupportedException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentResolveBehaviorNotSupportedException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public enum ContentResolveBehavior
+    {
+        [System.Runtime.Serialization.EnumMember(Value = @"Content")]
+        Content = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"LinkedListItems")]
+        LinkedListItems = 1,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Metadata")]
+        Metadata = 2,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Outputs")]
+        Outputs = 3,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"InnerDisplayValueThumbnail")]
+        InnerDisplayValueThumbnail = 4,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"InnerDisplayValueList")]
+        InnerDisplayValueList = 5,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"InnerDisplayValueDetail")]
+        InnerDisplayValueDetail = 6,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"InnerDisplayValueName")]
+        InnerDisplayValueName = 7,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Owner")]
+        Owner = 8,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Permissions")]
+        Permissions = 9,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"OuterDisplayValueThumbnail")]
+        OuterDisplayValueThumbnail = 10,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"OuterDisplayValueList")]
+        OuterDisplayValueList = 11,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"OuterDisplayValueDetail")]
+        OuterDisplayValueDetail = 12,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"OuterDisplayValueName")]
+        OuterDisplayValueName = 13,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"HistoricVersionCount")]
+        HistoricVersionCount = 14,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"DynamicViewFields")]
+        DynamicViewFields = 15,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"DynamicViewFieldsWithHasItems")]
+        DynamicViewFieldsWithHasItems = 16,
     
     }
     
@@ -17390,56 +17570,6 @@ namespace Picturepark.SDK.V1.Contract
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
-    public enum ContentResolveBehavior
-    {
-        [System.Runtime.Serialization.EnumMember(Value = @"Content")]
-        Content = 0,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"LinkedListItems")]
-        LinkedListItems = 1,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"Metadata")]
-        Metadata = 2,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"Outputs")]
-        Outputs = 3,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"InnerDisplayValueThumbnail")]
-        InnerDisplayValueThumbnail = 4,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"InnerDisplayValueList")]
-        InnerDisplayValueList = 5,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"InnerDisplayValueDetail")]
-        InnerDisplayValueDetail = 6,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"InnerDisplayValueName")]
-        InnerDisplayValueName = 7,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"Owner")]
-        Owner = 8,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"Permissions")]
-        Permissions = 9,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"OuterDisplayValueThumbnail")]
-        OuterDisplayValueThumbnail = 10,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"OuterDisplayValueList")]
-        OuterDisplayValueList = 11,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"OuterDisplayValueDetail")]
-        OuterDisplayValueDetail = 12,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"OuterDisplayValueName")]
-        OuterDisplayValueName = 13,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"HistoricVersionCount")]
-        HistoricVersionCount = 14,
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class ProblemDetails 
     {
         [Newtonsoft.Json.JsonProperty("type", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -20731,41 +20861,6 @@ namespace Picturepark.SDK.V1.Contract
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<ListItemDetail>(data);
         }
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
-    public enum ListItemResolveBehavior
-    {
-        [System.Runtime.Serialization.EnumMember(Value = @"Content")]
-        Content = 0,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"LinkedListItems")]
-        LinkedListItems = 1,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"InnerDisplayValueThumbnail")]
-        InnerDisplayValueThumbnail = 2,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"InnerDisplayValueList")]
-        InnerDisplayValueList = 3,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"InnerDisplayValueDetail")]
-        InnerDisplayValueDetail = 4,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"InnerDisplayValueName")]
-        InnerDisplayValueName = 5,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"OuterDisplayValueThumbnail")]
-        OuterDisplayValueThumbnail = 6,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"OuterDisplayValueList")]
-        OuterDisplayValueList = 7,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"OuterDisplayValueDetail")]
-        OuterDisplayValueDetail = 8,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"OuterDisplayValueName")]
-        OuterDisplayValueName = 9,
     
     }
     
@@ -32379,6 +32474,87 @@ namespace Picturepark.SDK.V1.Contract
         public static VectorMetadata FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<VectorMetadata>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class DynamicViewFieldMeta : DynamicViewFieldMetaBase
+    {
+        [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public FilterBase Filter { get; set; } = new FilterBase();
+    
+        [Newtonsoft.Json.JsonProperty("sort", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<SortInfo> Sort { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("targetDocType", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public string TargetDocType { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static DynamicViewFieldMeta FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<DynamicViewFieldMeta>(data);
+        }
+    
+    }
+    
+    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
+    [JsonInheritanceAttribute("DynamicViewFieldMeta", typeof(DynamicViewFieldMeta))]
+    [JsonInheritanceAttribute("DynamicViewFieldMetaWithRenderingError", typeof(DynamicViewFieldMetaWithRenderingError))]
+    [JsonInheritanceAttribute("DynamicViewFieldMetaWithHasItems", typeof(DynamicViewFieldMetaWithHasItems))]
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public abstract partial class DynamicViewFieldMetaBase 
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static DynamicViewFieldMetaBase FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<DynamicViewFieldMetaBase>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class DynamicViewFieldMetaWithHasItems : DynamicViewFieldMeta
+    {
+        [Newtonsoft.Json.JsonProperty("hasItems", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool HasItems { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static DynamicViewFieldMetaWithHasItems FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<DynamicViewFieldMetaWithHasItems>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class DynamicViewFieldMetaWithRenderingError : DynamicViewFieldMetaBase
+    {
+        [Newtonsoft.Json.JsonProperty("error", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Error { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static DynamicViewFieldMetaWithRenderingError FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<DynamicViewFieldMetaWithRenderingError>(data);
         }
     
     }
