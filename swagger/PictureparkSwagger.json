@@ -38572,7 +38572,7 @@
             "properties": {
               "embedName": {
                 "type": "string",
-                "description": "Name of the embed. If empty, it will be automatically initialized with the 'Embed_{ContentId}_{OutputFormatId}'.",
+                "description": "Name of the embed. If empty, it will be automatically initialized with the 'Embed_{RuleId}'.",
                 "nullable": true
               },
               "embedDescription": {
