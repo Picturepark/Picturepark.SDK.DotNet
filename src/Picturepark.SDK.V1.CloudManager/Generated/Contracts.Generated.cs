@@ -1641,6 +1641,8 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [JsonInheritanceAttribute("BusinessRuleUserInUserRolesConditionUserRoleIdsMissingException", typeof(BusinessRuleUserInUserRolesConditionUserRoleIdsMissingException))]
     [JsonInheritanceAttribute("BusinessRuleDateMathTransformationTimeSpanInvalidException", typeof(BusinessRuleDateMathTransformationTimeSpanInvalidException))]
     [JsonInheritanceAttribute("BusinessRuleTransferOwnershipTransferUserIdMissingException", typeof(BusinessRuleTransferOwnershipTransferUserIdMissingException))]
+    [JsonInheritanceAttribute("BusinessRuleOutputFormatIdMissingException", typeof(BusinessRuleOutputFormatIdMissingException))]
+    [JsonInheritanceAttribute("BusinessRuleEnqueueCreateEmbedActionExpirationDateInvalidException", typeof(BusinessRuleEnqueueCreateEmbedActionExpirationDateInvalidException))]
     [JsonInheritanceAttribute("NamedCacheConfigurationException", typeof(NamedCacheConfigurationException))]
     [JsonInheritanceAttribute("NamedCacheNameMissingException", typeof(NamedCacheNameMissingException))]
     [JsonInheritanceAttribute("NamedCacheNameDuplicationException", typeof(NamedCacheNameDuplicationException))]
@@ -8844,6 +8846,41 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         public static BusinessRuleTransferOwnershipTransferUserIdMissingException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessRuleTransferOwnershipTransferUserIdMissingException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class BusinessRuleOutputFormatIdMissingException : PictureparkValidationException
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static BusinessRuleOutputFormatIdMissingException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessRuleOutputFormatIdMissingException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class BusinessRuleEnqueueCreateEmbedActionExpirationDateInvalidException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("expirationDate", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ExpirationDate { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static BusinessRuleEnqueueCreateEmbedActionExpirationDateInvalidException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessRuleEnqueueCreateEmbedActionExpirationDateInvalidException>(data);
         }
     
     }

@@ -34675,6 +34675,34 @@
           }
         ]
       },
+      "BusinessRuleOutputFormatIdMissingException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "BusinessRuleEnqueueCreateEmbedActionExpirationDateInvalidException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "expirationDate": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
       "NamedCacheConfigurationException": {
         "allOf": [
           {
@@ -37989,7 +38017,8 @@
             "EnqueueTaggingAction": "#/components/schemas/EnqueueTaggingAction",
             "ProduceNotificationAction": "#/components/schemas/ProduceNotificationAction",
             "GetNumberFromNumberSequenceAction": "#/components/schemas/GetNumberFromNumberSequenceAction",
-            "EnqueueTransferOwnershipAction": "#/components/schemas/EnqueueTransferOwnershipAction"
+            "EnqueueTransferOwnershipAction": "#/components/schemas/EnqueueTransferOwnershipAction",
+            "EnqueueCreateEmbedAction": "#/components/schemas/EnqueueCreateEmbedAction"
           }
         },
         "description": "Action to be performed by a business rule",
@@ -38522,6 +38551,58 @@
               "transferUserId": {
                 "type": "string",
                 "description": "Id of the user to whom the ownership should be transferred.",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "EnqueueCreateEmbedAction": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BusinessRuleAction"
+          },
+          {
+            "type": "object",
+            "description": "Enqueue creation of an embed",
+            "additionalProperties": false,
+            "required": [
+              "outputFormatId"
+            ],
+            "properties": {
+              "embedName": {
+                "type": "string",
+                "description": "Name of the embed. If empty, it will be automatically initialized with the 'Embed_{RuleId}'.",
+                "nullable": true
+              },
+              "embedDescription": {
+                "type": "string",
+                "description": "Optional description of the embed.",
+                "nullable": true
+              },
+              "outputFormatId": {
+                "type": "string",
+                "description": "Output format of the content to be embedded.",
+                "minLength": 1
+              },
+              "conversionString": {
+                "type": "string",
+                "description": "Optional conversion to apply to the output.",
+                "nullable": true
+              },
+              "lockDeliveryOptions": {
+                "type": "boolean",
+                "description": "Indicates if the conversion is locked and therefore cannot be changed by the caller of the embed URI.",
+                "default": true
+              },
+              "expirationDate": {
+                "type": "string",
+                "description": "Optional date when embed expires and cannot be accessed anymore: It must be in ISO format, with or without milliseconds 'yyyy-MM-ddTHH:mm:ss(.fffffff)K'.",
+                "nullable": true
+              },
+              "storeIn": {
+                "type": "string",
+                "description": "Optional variable name to store in the url of the embed that will be created.",
                 "nullable": true
               }
             }
