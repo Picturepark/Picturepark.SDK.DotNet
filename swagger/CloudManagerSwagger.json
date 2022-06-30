@@ -13137,6 +13137,58 @@
           }
         ]
       },
+      "ListItemResolveBehaviorNotSupportedException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "behaviors": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/ListItemResolveBehavior"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "ListItemResolveBehavior": {
+        "type": "string",
+        "description": "",
+        "x-enumNames": [
+          "Content",
+          "LinkedListItems",
+          "InnerDisplayValueThumbnail",
+          "InnerDisplayValueList",
+          "InnerDisplayValueDetail",
+          "InnerDisplayValueName",
+          "OuterDisplayValueThumbnail",
+          "OuterDisplayValueList",
+          "OuterDisplayValueDetail",
+          "OuterDisplayValueName",
+          "DynamicViewFields",
+          "DynamicViewFieldsWithHasItems"
+        ],
+        "enum": [
+          "Content",
+          "LinkedListItems",
+          "InnerDisplayValueThumbnail",
+          "InnerDisplayValueList",
+          "InnerDisplayValueDetail",
+          "InnerDisplayValueName",
+          "OuterDisplayValueThumbnail",
+          "OuterDisplayValueList",
+          "OuterDisplayValueDetail",
+          "OuterDisplayValueName",
+          "DynamicViewFields",
+          "DynamicViewFieldsWithHasItems"
+        ]
+      },
       "TransferInfoNotFoundException": {
         "allOf": [
           {
@@ -13791,6 +13843,17 @@
                 "nullable": true
               }
             }
+          }
+        ]
+      },
+      "FilterTemplateRenderingException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
           }
         ]
       },
@@ -15371,6 +15434,34 @@
           }
         ]
       },
+      "SchemaFieldDynamicViewFieldInvalidFilterTemplateException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "schemaId": {
+                "type": "string",
+                "nullable": true
+              },
+              "fieldId": {
+                "type": "string",
+                "nullable": true
+              },
+              "errors": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ]
+      },
       "DeleteContentsWithReferencesException": {
         "allOf": [
           {
@@ -15689,6 +15780,68 @@
               }
             }
           }
+        ]
+      },
+      "ContentResolveBehaviorNotSupportedException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "behaviors": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/ContentResolveBehavior"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "ContentResolveBehavior": {
+        "type": "string",
+        "description": "",
+        "x-enumNames": [
+          "Content",
+          "LinkedListItems",
+          "Metadata",
+          "Outputs",
+          "InnerDisplayValueThumbnail",
+          "InnerDisplayValueList",
+          "InnerDisplayValueDetail",
+          "InnerDisplayValueName",
+          "Owner",
+          "Permissions",
+          "OuterDisplayValueThumbnail",
+          "OuterDisplayValueList",
+          "OuterDisplayValueDetail",
+          "OuterDisplayValueName",
+          "HistoricVersionCount",
+          "DynamicViewFields",
+          "DynamicViewFieldsWithHasItems"
+        ],
+        "enum": [
+          "Content",
+          "LinkedListItems",
+          "Metadata",
+          "Outputs",
+          "InnerDisplayValueThumbnail",
+          "InnerDisplayValueList",
+          "InnerDisplayValueDetail",
+          "InnerDisplayValueName",
+          "Owner",
+          "Permissions",
+          "OuterDisplayValueThumbnail",
+          "OuterDisplayValueList",
+          "OuterDisplayValueDetail",
+          "OuterDisplayValueName",
+          "HistoricVersionCount",
+          "DynamicViewFields",
+          "DynamicViewFieldsWithHasItems"
         ]
       },
       "BusinessProcessEngineRequestException": {
@@ -25416,6 +25569,126 @@
                     "$ref": "#/components/schemas/EpsMetadata"
                   }
                 ]
+              }
+            }
+          }
+        ]
+      },
+      "DynamicViewFieldMeta": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/DynamicViewFieldMetaBase"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "filter",
+              "targetDocType"
+            ],
+            "properties": {
+              "filter": {
+                "$ref": "#/components/schemas/FilterBase"
+              },
+              "sort": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/SortInfo"
+                }
+              },
+              "targetDocType": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        ]
+      },
+      "SortInfo": {
+        "type": "object",
+        "description": "Sorting information",
+        "additionalProperties": false,
+        "required": [
+          "direction"
+        ],
+        "properties": {
+          "field": {
+            "type": "string",
+            "description": "The field's ID to sort on.",
+            "nullable": true
+          },
+          "direction": {
+            "description": "The sort direction (ascending/descending).",
+            "default": "Asc",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/SortDirection"
+              }
+            ]
+          }
+        }
+      },
+      "SortDirection": {
+        "type": "string",
+        "description": "The sort direction",
+        "x-enumNames": [
+          "Asc",
+          "Desc"
+        ],
+        "enum": [
+          "Asc",
+          "Desc"
+        ]
+      },
+      "DynamicViewFieldMetaBase": {
+        "type": "object",
+        "discriminator": {
+          "propertyName": "kind",
+          "mapping": {
+            "DynamicViewFieldMetaWithRenderingError": "#/components/schemas/DynamicViewFieldMetaWithRenderingError",
+            "DynamicViewFieldMeta": "#/components/schemas/DynamicViewFieldMeta"
+          }
+        },
+        "x-abstract": true,
+        "additionalProperties": false,
+        "required": [
+          "kind"
+        ],
+        "properties": {
+          "kind": {
+            "type": "string"
+          }
+        }
+      },
+      "DynamicViewFieldMetaWithHasItems": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/DynamicViewFieldMeta"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "hasItems": {
+                "type": "boolean"
+              }
+            }
+          }
+        ]
+      },
+      "DynamicViewFieldMetaWithRenderingError": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/DynamicViewFieldMetaBase"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "error": {
+                "type": "string",
+                "nullable": true
               }
             }
           }

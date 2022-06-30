@@ -1,4 +1,6 @@
-﻿using FluentAssertions;
+﻿#pragma warning disable SA1201 // Elements must appear in the correct order
+
+using FluentAssertions;
 using Newtonsoft.Json;
 using Picturepark.SDK.V1.Contract;
 using Picturepark.SDK.V1.Tests.Contracts;
@@ -13,6 +15,9 @@ using System.Net;
 using System.Net.Http;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
+using Picturepark.SDK.V1.Contract.Attributes;
+using Picturepark.SDK.V1.Contract.Providers;
+using Picturepark.SDK.V1.Contract.SystemTypes;
 using Picturepark.SDK.V1.Tests.Helpers;
 using Xunit;
 
@@ -2039,6 +2044,67 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             var ex = await Record.ExceptionAsync(() => _client.Content.DeleteAsync(content.Id)).ConfigureAwait(false);
             ex.Should().BeOfType<SchemasMetadataProtectionException>();
+        }
+
+        [Fact]
+        public async Task ShouldResolveFilterTemplatesAndReturnHasItems()
+        {
+            // Arrange
+            await SchemaHelper.CreateSchemasIfNotExistentAsync<ContentWithDynamicView>(_client).ConfigureAwait(false);
+
+            // Act
+            var contentForViewField = new ContentWithDynamicView { FilterValue = $"{Guid.NewGuid():N}" };
+
+            var content = await _client.Content.CreateAsync(
+                new ContentCreateRequest
+                {
+                    ContentSchemaId = Metadata.ResolveSchemaId(contentForViewField),
+                    Content = contentForViewField
+                },
+                new[]
+                {
+                    ContentResolveBehavior.Content,
+                    ContentResolveBehavior.DynamicViewFields,
+                    ContentResolveBehavior.DynamicViewFieldsWithHasItems
+                },
+                waitSearchDocCreation: true).ConfigureAwait(false);
+
+            // Assert
+            var viewField = content.AsContentItem<ContentWithDynamicView>().Content.ViewField;
+            viewField.Meta.Should().NotBeNull();
+
+            var withHasItems = viewField.Meta.Should().BeOfType<DynamicViewFieldMetaWithHasItems>().Which;
+            withHasItems.Filter.Should().BeOfType<TermsFilter>().Which.Terms.Should().Contain(contentForViewField.FilterValue);
+            withHasItems.HasItems.Should().BeTrue();
+
+            var searchResultForFilter =
+                await _client.Content.SearchAsync(new ContentSearchRequest { Filter = withHasItems.Filter, Limit = 1 }).ConfigureAwait(false);
+            searchResultForFilter.TotalResults.Should().Be(1);
+            searchResultForFilter.Results.Should().Contain(c => c.Id == content.Id);
+        }
+
+        [PictureparkSchema(SchemaType.Content)]
+        public class ContentWithDynamicView
+        {
+            [PictureparkDynamicView(typeof(DynamicViewFilterProvider))]
+            [PictureparkDynamicViewUiSettings(ItemFieldViewMode.List, showRelatedContentOnDownload: false)]
+            public DynamicViewObject ViewField { get; set; }
+
+            [PictureparkSearch(Index = true)]
+            public string FilterValue { get; set; }
+
+            internal class DynamicViewFilterProvider : IFilterProvider
+            {
+                public static readonly string[] FilterTerms = { $"{{{{data.{nameof(ContentWithDynamicView).ToLowerCamelCase()}.{Field}}}}}", "hardcodedValue" };
+
+                public static string Field => "filterValue";
+
+                public FilterBase GetFilter() => new TermsFilter
+                {
+                    Field = $"{nameof(ContentWithDynamicView).ToLowerCamelCase()}.{Field}",
+                    Terms = FilterTerms
+                };
+            }
         }
 
         private static async Task AssertFileResponseOkAndNonEmpty(FileResponse response, string expectedContentType = null)
