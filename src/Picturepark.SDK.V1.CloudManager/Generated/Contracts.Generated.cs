@@ -1395,6 +1395,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [JsonInheritanceAttribute("InvalidContentDownloadRequestException", typeof(InvalidContentDownloadRequestException))]
     [JsonInheritanceAttribute("DownloadNotFoundException", typeof(DownloadNotFoundException))]
     [JsonInheritanceAttribute("EmbedMultiDownloadException", typeof(EmbedMultiDownloadException))]
+    [JsonInheritanceAttribute("ImageOptimizationLicensingException", typeof(ImageOptimizationLicensingException))]
     [JsonInheritanceAttribute("LeaseNotAcquiredException", typeof(LeaseNotAcquiredException))]
     [JsonInheritanceAttribute("OperationInProgressException", typeof(OperationInProgressException))]
     [JsonInheritanceAttribute("OwnerTokenNotFoundException", typeof(OwnerTokenNotFoundException))]
@@ -3139,6 +3140,22 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         public static EmbedMultiDownloadException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<EmbedMultiDownloadException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class ImageOptimizationLicensingException : PictureparkValidationException
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static ImageOptimizationLicensingException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ImageOptimizationLicensingException>(data);
         }
     
     }
@@ -10408,6 +10425,10 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [Newtonsoft.Json.JsonProperty("contentStatistics", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public StatisticsLicenseState ContentStatistics { get; set; }
     
+        /// <summary>Image optimization licensing options</summary>
+        [Newtonsoft.Json.JsonProperty("imageOptimization", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public ImageOptimizationLicenseState ImageOptimization { get; set; }
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -10488,6 +10509,29 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         public static StatisticsLicenseState FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<StatisticsLicenseState>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class ImageOptimizationLicenseState 
+    {
+        /// <summary>Whether image optimization can be used when delivering embeds.</summary>
+        [Newtonsoft.Json.JsonProperty("embedDelivery", Required = Newtonsoft.Json.Required.Always)]
+        public bool EmbedDelivery { get; set; }
+    
+        /// <summary>Whether edit output endpoint is available in API.</summary>
+        [Newtonsoft.Json.JsonProperty("apiOutputEditing", Required = Newtonsoft.Json.Required.Always)]
+        public bool ApiOutputEditing { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static ImageOptimizationLicenseState FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ImageOptimizationLicenseState>(data);
         }
     
     }
@@ -17498,16 +17542,20 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
     }
     
+    /// <summary>Meta information for a dynamic view field</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class DynamicViewFieldMeta : DynamicViewFieldMetaBase
     {
+        /// <summary>Filter for the dynamic view field.</summary>
         [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
         public FilterBase Filter { get; set; } = new FilterBase();
     
+        /// <summary>Sorting information.</summary>
         [Newtonsoft.Json.JsonProperty("sort", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<SortInfo> Sort { get; set; }
     
+        /// <summary>Target doc type.</summary>
         [Newtonsoft.Json.JsonProperty("targetDocType", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
         public string TargetDocType { get; set; }
@@ -17562,6 +17610,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
     }
     
+    /// <summary>Base class of meta information for a dynamic view field</summary>
     [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
     [JsonInheritanceAttribute("DynamicViewFieldMeta", typeof(DynamicViewFieldMeta))]
     [JsonInheritanceAttribute("DynamicViewFieldMetaWithRenderingError", typeof(DynamicViewFieldMetaWithRenderingError))]
@@ -17581,9 +17630,11 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
     }
     
+    /// <summary>Meta information for a dynamic view field including a flag that indicates if the rendered filter does match some items.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class DynamicViewFieldMetaWithHasItems : DynamicViewFieldMeta
     {
+        /// <summary>indicates if the rendered filter does match some items.</summary>
         [Newtonsoft.Json.JsonProperty("hasItems", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool HasItems { get; set; }
     
@@ -17599,9 +17650,11 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
     }
     
+    /// <summary>Meta information for a dynamic view field where the filter could not be rendered successfully.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class DynamicViewFieldMetaWithRenderingError : DynamicViewFieldMetaBase
     {
+        /// <summary>Error.</summary>
         [Newtonsoft.Json.JsonProperty("error", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Error { get; set; }
     

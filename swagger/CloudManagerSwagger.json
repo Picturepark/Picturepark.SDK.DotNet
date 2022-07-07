@@ -11530,6 +11530,17 @@
           }
         ]
       },
+      "ImageOptimizationLicensingException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
       "LeaseNotAcquiredException": {
         "allOf": [
           {
@@ -18216,6 +18227,15 @@
                 "$ref": "#/components/schemas/StatisticsLicenseState"
               }
             ]
+          },
+          "imageOptimization": {
+            "description": "Image optimization licensing options",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ImageOptimizationLicenseState"
+              }
+            ]
           }
         }
       },
@@ -18284,6 +18304,24 @@
           "export": {
             "type": "boolean",
             "description": "Allows or prevents export of the respective statistics"
+          }
+        }
+      },
+      "ImageOptimizationLicenseState": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "embedDelivery",
+          "apiOutputEditing"
+        ],
+        "properties": {
+          "embedDelivery": {
+            "type": "boolean",
+            "description": "Whether image optimization can be used when delivering embeds."
+          },
+          "apiOutputEditing": {
+            "type": "boolean",
+            "description": "Whether edit output endpoint is available in API."
           }
         }
       },
@@ -25581,6 +25619,7 @@
           },
           {
             "type": "object",
+            "description": "Meta information for a dynamic view field",
             "additionalProperties": false,
             "required": [
               "filter",
@@ -25588,10 +25627,16 @@
             ],
             "properties": {
               "filter": {
-                "$ref": "#/components/schemas/FilterBase"
+                "description": "Filter for the dynamic view field.",
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/FilterBase"
+                  }
+                ]
               },
               "sort": {
                 "type": "array",
+                "description": "Sorting information.",
                 "nullable": true,
                 "items": {
                   "$ref": "#/components/schemas/SortInfo"
@@ -25599,6 +25644,7 @@
               },
               "targetDocType": {
                 "type": "string",
+                "description": "Target doc type.",
                 "minLength": 1
               }
             }
@@ -25650,6 +25696,7 @@
             "DynamicViewFieldMeta": "#/components/schemas/DynamicViewFieldMeta"
           }
         },
+        "description": "Base class of meta information for a dynamic view field",
         "x-abstract": true,
         "additionalProperties": false,
         "required": [
@@ -25668,10 +25715,12 @@
           },
           {
             "type": "object",
+            "description": "Meta information for a dynamic view field including a flag that indicates if the rendered filter does match some items.",
             "additionalProperties": false,
             "properties": {
               "hasItems": {
-                "type": "boolean"
+                "type": "boolean",
+                "description": "indicates if the rendered filter does match some items."
               }
             }
           }
@@ -25684,10 +25733,12 @@
           },
           {
             "type": "object",
+            "description": "Meta information for a dynamic view field where the filter could not be rendered successfully.",
             "additionalProperties": false,
             "properties": {
               "error": {
                 "type": "string",
+                "description": "Error.",
                 "nullable": true
               }
             }

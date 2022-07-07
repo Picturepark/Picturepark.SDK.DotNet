@@ -29423,6 +29423,17 @@
           }
         ]
       },
+      "ImageOptimizationLicensingException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
       "LeaseNotAcquiredException": {
         "allOf": [
           {
@@ -38762,58 +38773,6 @@
           }
         ]
       },
-      "EnqueueCreateEmbedAction": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/BusinessRuleAction"
-          },
-          {
-            "type": "object",
-            "description": "Enqueue creation of an embed",
-            "additionalProperties": false,
-            "required": [
-              "outputFormatId"
-            ],
-            "properties": {
-              "embedName": {
-                "type": "string",
-                "description": "Name of the embed. If empty, it will be automatically initialized with the 'Embed_{RuleId}'.",
-                "nullable": true
-              },
-              "embedDescription": {
-                "type": "string",
-                "description": "Optional description of the embed.",
-                "nullable": true
-              },
-              "outputFormatId": {
-                "type": "string",
-                "description": "Output format of the content to be embedded.",
-                "minLength": 1
-              },
-              "conversionString": {
-                "type": "string",
-                "description": "Optional conversion to apply to the output.",
-                "nullable": true
-              },
-              "lockDeliveryOptions": {
-                "type": "boolean",
-                "description": "Indicates if the conversion is locked and therefore cannot be changed by the caller of the embed URI.",
-                "default": true
-              },
-              "expirationDate": {
-                "type": "string",
-                "description": "Optional date when embed expires and cannot be accessed anymore: It must be in ISO format, with or without milliseconds 'yyyy-MM-ddTHH:mm:ss(.fffffff)K'.",
-                "nullable": true
-              },
-              "storeIn": {
-                "type": "string",
-                "description": "Optional variable name to store in the url of the embed that will be created.",
-                "nullable": true
-              }
-            }
-          }
-        ]
-      },
       "BusinessRuleScript": {
         "allOf": [
           {
@@ -44816,7 +44775,8 @@
         "additionalProperties": false,
         "required": [
           "historicVersioningState",
-          "contentStatistics"
+          "contentStatistics",
+          "imageOptimization"
         ],
         "properties": {
           "historicVersioningState": {
@@ -44832,6 +44792,14 @@
             "oneOf": [
               {
                 "$ref": "#/components/schemas/StatisticsLicenseState"
+              }
+            ]
+          },
+          "imageOptimization": {
+            "description": "Licensing options for image optimization.",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ImageOptimizationLicenseState"
               }
             ]
           }
@@ -44876,6 +44844,24 @@
           "export": {
             "type": "boolean",
             "description": "Allows or prevents export of the respective statistics"
+          }
+        }
+      },
+      "ImageOptimizationLicenseState": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "embedDelivery",
+          "apiOutputEditing"
+        ],
+        "properties": {
+          "embedDelivery": {
+            "type": "boolean",
+            "description": "Whether image optimization can be used when delivering embeds."
+          },
+          "apiOutputEditing": {
+            "type": "boolean",
+            "description": "Whether edit output endpoint is available in API."
           }
         }
       },
@@ -57156,6 +57142,7 @@
           },
           {
             "type": "object",
+            "description": "Meta information for a dynamic view field",
             "additionalProperties": false,
             "required": [
               "filter",
@@ -57163,10 +57150,16 @@
             ],
             "properties": {
               "filter": {
-                "$ref": "#/components/schemas/FilterBase"
+                "description": "Filter for the dynamic view field.",
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/FilterBase"
+                  }
+                ]
               },
               "sort": {
                 "type": "array",
+                "description": "Sorting information.",
                 "nullable": true,
                 "items": {
                   "$ref": "#/components/schemas/SortInfo"
@@ -57174,6 +57167,7 @@
               },
               "targetDocType": {
                 "type": "string",
+                "description": "Target doc type.",
                 "minLength": 1
               }
             }
@@ -57189,6 +57183,7 @@
             "DynamicViewFieldMeta": "#/components/schemas/DynamicViewFieldMeta"
           }
         },
+        "description": "Base class of meta information for a dynamic view field",
         "x-abstract": true,
         "additionalProperties": false,
         "required": [
@@ -57207,10 +57202,12 @@
           },
           {
             "type": "object",
+            "description": "Meta information for a dynamic view field including a flag that indicates if the rendered filter does match some items.",
             "additionalProperties": false,
             "properties": {
               "hasItems": {
-                "type": "boolean"
+                "type": "boolean",
+                "description": "indicates if the rendered filter does match some items."
               }
             }
           }
@@ -57223,10 +57220,12 @@
           },
           {
             "type": "object",
+            "description": "Meta information for a dynamic view field where the filter could not be rendered successfully.",
             "additionalProperties": false,
             "properties": {
               "error": {
                 "type": "string",
+                "description": "Error.",
                 "nullable": true
               }
             }
