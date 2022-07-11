@@ -22,7 +22,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
         [Fact]
         public async Task ShouldCreateUpdateAndDelete()
         {
-            // Arrange
             await SchemaHelper.CreateSchemasIfNotExistentAsync<ContentItem>(_client).ConfigureAwait(false);
 
             var request = new ContentCreateRequest
@@ -31,7 +30,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 ContentSchemaId = nameof(ContentItem)
             };
 
-            var content = await _client.Content.CreateAsync(request, new[] { ContentResolveBehavior.OuterDisplayValueThumbnail }, timeout: TimeSpan.FromMinutes(5)).ConfigureAwait(false);
+            var content = await _client.Content.CreateAsync(request, new[] { ContentResolveBehavior.OuterDisplayValueThumbnail }).ConfigureAwait(false);
 
             var message = Guid.NewGuid().ToString("N");
             var createRequest = new CommentCreateRequest
@@ -69,7 +68,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 ContentSchemaId = nameof(ContentItem)
             };
 
-            var content = await _client.Content.CreateAsync(request, new[] { ContentResolveBehavior.OuterDisplayValueThumbnail }, timeout: TimeSpan.FromMinutes(5)).ConfigureAwait(false);
+            var content = await _client.Content.CreateAsync(request, new[] { ContentResolveBehavior.OuterDisplayValueThumbnail }).ConfigureAwait(false);
 
             var messages = Enumerable.Range(0, 10).Select(_ => Guid.NewGuid().ToString("N")).ToArray();
 
@@ -84,13 +83,27 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 await _client.Content.CreateCommentAsync(content.Id, createRequest).ConfigureAwait(false);
             }
 
-            var comments = await _client.Content.SearchCommentsAsync(content.Id, new CommentSearchRequest()).ConfigureAwait(false);
-            comments.Results.Should().HaveCount(10);
-            comments.Results.Select(c => c.Message).Should().BeEquivalentTo(messages);
-
-            foreach (var comment in comments.Results)
+            CommentSearchResult comments = null;
+            try
             {
-                await _client.Content.DeleteCommentAsync(comment.Id).ConfigureAwait(false);
+                // Act
+                comments = await _client.Content
+                    .SearchCommentsAsync(content.Id, new CommentSearchRequest { Ascending = true })
+                    .ConfigureAwait(false);
+
+                // Assert
+                comments.Results.Should().HaveCount(10);
+                comments.Results.Select(c => c.Message).Should().ContainInOrder(messages);
+            }
+            finally
+            {
+                if (comments != null)
+                {
+                    foreach (var comment in comments.Results)
+                    {
+                        await _client.Content.DeleteCommentAsync(comment.Id).ConfigureAwait(false);
+                    }
+                }
             }
         }
     }

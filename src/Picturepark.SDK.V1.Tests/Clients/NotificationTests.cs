@@ -135,8 +135,8 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 }).ConfigureAwait(false);
 
             // Assert
-            configuration.Sources.Values.First().Interval.Should().Be(EmailNotificationsInterval.Hourly);
-            configuration.Sources.Values.First().DisableAll.Should().BeTrue();
+            configuration.Sources.Values.Single().Interval.Should().Be(EmailNotificationsInterval.Hourly);
+            configuration.Sources.Values.Single().DisableAll.Should().BeTrue();
 
             var exclusion = configuration.Sources.Values.First().Exclusions.Should().HaveCount(1).And.ContainSingle().Which;
             exclusion.Should().Be(notificationId);
