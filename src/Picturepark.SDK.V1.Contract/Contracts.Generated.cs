@@ -3451,6 +3451,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("InvalidContentDownloadRequestException", typeof(InvalidContentDownloadRequestException))]
     [JsonInheritanceAttribute("DownloadNotFoundException", typeof(DownloadNotFoundException))]
     [JsonInheritanceAttribute("EmbedMultiDownloadException", typeof(EmbedMultiDownloadException))]
+    [JsonInheritanceAttribute("ImageOptimizationLicensingException", typeof(ImageOptimizationLicensingException))]
     [JsonInheritanceAttribute("LeaseNotAcquiredException", typeof(LeaseNotAcquiredException))]
     [JsonInheritanceAttribute("OperationInProgressException", typeof(OperationInProgressException))]
     [JsonInheritanceAttribute("OwnerTokenNotFoundException", typeof(OwnerTokenNotFoundException))]
@@ -5186,6 +5187,22 @@ namespace Picturepark.SDK.V1.Contract
         public static EmbedMultiDownloadException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<EmbedMultiDownloadException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class ImageOptimizationLicensingException : PictureparkValidationException
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static ImageOptimizationLicensingException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ImageOptimizationLicensingException>(data);
         }
     
     }
@@ -20900,6 +20917,11 @@ namespace Picturepark.SDK.V1.Contract
         [System.ComponentModel.DataAnnotations.Required]
         public StatisticsLicenseState ContentStatistics { get; set; } = new StatisticsLicenseState();
     
+        /// <summary>Licensing options for image optimization.</summary>
+        [Newtonsoft.Json.JsonProperty("imageOptimization", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public ImageOptimizationLicenseState ImageOptimization { get; set; } = new ImageOptimizationLicenseState();
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -20953,6 +20975,29 @@ namespace Picturepark.SDK.V1.Contract
         public static StatisticsLicenseState FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<StatisticsLicenseState>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class ImageOptimizationLicenseState 
+    {
+        /// <summary>Whether image optimization can be used when delivering embeds.</summary>
+        [Newtonsoft.Json.JsonProperty("embedDelivery", Required = Newtonsoft.Json.Required.Always)]
+        public bool EmbedDelivery { get; set; }
+    
+        /// <summary>Whether edit output endpoint is available in API.</summary>
+        [Newtonsoft.Json.JsonProperty("apiOutputEditing", Required = Newtonsoft.Json.Required.Always)]
+        public bool ApiOutputEditing { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static ImageOptimizationLicenseState FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ImageOptimizationLicenseState>(data);
         }
     
     }

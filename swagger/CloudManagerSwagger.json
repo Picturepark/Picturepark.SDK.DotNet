@@ -11530,6 +11530,17 @@
           }
         ]
       },
+      "ImageOptimizationLicensingException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
       "LeaseNotAcquiredException": {
         "allOf": [
           {
@@ -18309,6 +18320,15 @@
                 "$ref": "#/components/schemas/StatisticsLicenseState"
               }
             ]
+          },
+          "imageOptimization": {
+            "description": "Image optimization licensing options",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ImageOptimizationLicenseState"
+              }
+            ]
           }
         }
       },
@@ -18377,6 +18397,24 @@
           "export": {
             "type": "boolean",
             "description": "Allows or prevents export of the respective statistics"
+          }
+        }
+      },
+      "ImageOptimizationLicenseState": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "embedDelivery",
+          "apiOutputEditing"
+        ],
+        "properties": {
+          "embedDelivery": {
+            "type": "boolean",
+            "description": "Whether image optimization can be used when delivering embeds."
+          },
+          "apiOutputEditing": {
+            "type": "boolean",
+            "description": "Whether edit output endpoint is available in API."
           }
         }
       },
