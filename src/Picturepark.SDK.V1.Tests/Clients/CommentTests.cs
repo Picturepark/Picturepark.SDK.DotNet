@@ -70,7 +70,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
             var content = await _client.Content.CreateAsync(request, new[] { ContentResolveBehavior.OuterDisplayValueThumbnail }).ConfigureAwait(false);
 
-            var messages = Enumerable.Range(0, 10).Select(_ => Guid.NewGuid().ToString("N")).ToArray();
+            var messages = Enumerable.Range(0, 5).Select(_ => Guid.NewGuid().ToString("N")).ToArray();
 
             foreach (var message in messages)
             {
@@ -92,7 +92,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
                     .ConfigureAwait(false);
 
                 // Assert
-                comments.Results.Should().HaveCount(10);
+                comments.Results.Should().HaveCount(5);
                 comments.Results.Select(c => c.Message).Should().ContainInOrder(messages);
             }
             finally
