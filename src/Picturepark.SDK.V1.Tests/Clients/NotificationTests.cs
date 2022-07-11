@@ -123,16 +123,22 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var configuration = await _client.Notification.PutEmailNotificationSettingsAsync(
                 new EmailNotificationsSettings
                 {
-                    Interval = EmailNotificationsInterval.Hourly,
-                    DisableAll = true,
-                    Exclusions = new[] { notificationId }
+                    Sources = new Dictionary<string, EmailNotificationsSourceSettings>
+                    {
+                        ["businessRule"] = new EmailNotificationsSourceSettings
+                        {
+                            Interval = EmailNotificationsInterval.Hourly,
+                            DisableAll = true,
+                            Exclusions = new[] { notificationId }
+                        }
+                    }
                 }).ConfigureAwait(false);
 
             // Assert
-            configuration.Interval.Should().Be(EmailNotificationsInterval.Hourly);
-            configuration.DisableAll.Should().BeTrue();
+            configuration.Sources.Values.First().Interval.Should().Be(EmailNotificationsInterval.Hourly);
+            configuration.Sources.Values.First().DisableAll.Should().BeTrue();
 
-            var exclusion = configuration.Exclusions.Should().HaveCount(1).And.ContainSingle().Which;
+            var exclusion = configuration.Sources.Values.First().Exclusions.Should().HaveCount(1).And.ContainSingle().Which;
             exclusion.Should().Be(notificationId);
         }
 

@@ -1690,6 +1690,11 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [JsonInheritanceAttribute("StatisticsReadNotEnabledException", typeof(StatisticsReadNotEnabledException))]
     [JsonInheritanceAttribute("StatisticsWriteNotEnabledException", typeof(StatisticsWriteNotEnabledException))]
     [JsonInheritanceAttribute("ConversionPresetTemplateNotFoundException", typeof(ConversionPresetTemplateNotFoundException))]
+    [JsonInheritanceAttribute("CommentNotFoundException", typeof(CommentNotFoundException))]
+    [JsonInheritanceAttribute("CommentOwnershipFailureException", typeof(CommentOwnershipFailureException))]
+    [JsonInheritanceAttribute("CommentReplyDeletionException", typeof(CommentReplyDeletionException))]
+    [JsonInheritanceAttribute("CommentReplyParentException", typeof(CommentReplyParentException))]
+    [JsonInheritanceAttribute("CommentReplyContentMismatchException", typeof(CommentReplyContentMismatchException))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
     [Newtonsoft.Json.JsonObjectAttribute]
     public partial class PictureparkException : System.Exception
@@ -4533,6 +4538,12 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
         [System.Runtime.Serialization.EnumMember(Value = @"ManageConversionPresetTemplates")]
         ManageConversionPresetTemplates = 25,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"ManageComments")]
+        ManageComments = 26,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"ManageAllComments")]
+        ManageAllComments = 27,
     
     }
     
@@ -9889,6 +9900,104 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         public static ConversionPresetTemplateNotFoundException FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<ConversionPresetTemplateNotFoundException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class CommentNotFoundException : PictureparkNotFoundException
+    {
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static CommentNotFoundException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<CommentNotFoundException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class CommentOwnershipFailureException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("commentId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string CommentId { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static CommentOwnershipFailureException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<CommentOwnershipFailureException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class CommentReplyDeletionException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("commentId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string CommentId { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static CommentReplyDeletionException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<CommentReplyDeletionException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class CommentReplyParentException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("parentId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ParentId { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static CommentReplyParentException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<CommentReplyParentException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class CommentReplyContentMismatchException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("parentId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ParentId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("contentId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ContentId { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static CommentReplyContentMismatchException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<CommentReplyContentMismatchException>(data);
         }
     
     }
@@ -17498,16 +17607,20 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
     }
     
+    /// <summary>Meta information for a dynamic view field</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class DynamicViewFieldMeta : DynamicViewFieldMetaBase
     {
+        /// <summary>Filter for the dynamic view field.</summary>
         [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
         public FilterBase Filter { get; set; } = new FilterBase();
     
+        /// <summary>Sorting information.</summary>
         [Newtonsoft.Json.JsonProperty("sort", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<SortInfo> Sort { get; set; }
     
+        /// <summary>Target doc type.</summary>
         [Newtonsoft.Json.JsonProperty("targetDocType", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
         public string TargetDocType { get; set; }
@@ -17562,6 +17675,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
     }
     
+    /// <summary>Base class of meta information for a dynamic view field</summary>
     [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
     [JsonInheritanceAttribute("DynamicViewFieldMeta", typeof(DynamicViewFieldMeta))]
     [JsonInheritanceAttribute("DynamicViewFieldMetaWithRenderingError", typeof(DynamicViewFieldMetaWithRenderingError))]
@@ -17581,9 +17695,11 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
     }
     
+    /// <summary>Meta information for a dynamic view field including a flag that indicates if the rendered filter does match some items.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class DynamicViewFieldMetaWithHasItems : DynamicViewFieldMeta
     {
+        /// <summary>indicates if the rendered filter does match some items.</summary>
         [Newtonsoft.Json.JsonProperty("hasItems", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool HasItems { get; set; }
     
@@ -17599,9 +17715,11 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
     }
     
+    /// <summary>Meta information for a dynamic view field where the filter could not be rendered successfully.</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class DynamicViewFieldMetaWithRenderingError : DynamicViewFieldMetaBase
     {
+        /// <summary>Error.</summary>
         [Newtonsoft.Json.JsonProperty("error", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Error { get; set; }
     

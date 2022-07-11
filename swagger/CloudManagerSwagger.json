@@ -12730,7 +12730,9 @@
           "WriteStatistics",
           "ExportStatistics",
           "EditImages",
-          "ManageConversionPresetTemplates"
+          "ManageConversionPresetTemplates",
+          "ManageComments",
+          "ManageAllComments"
         ],
         "enum": [
           "ManageContent",
@@ -12758,7 +12760,9 @@
           "WriteStatistics",
           "ExportStatistics",
           "EditImages",
-          "ManageConversionPresetTemplates"
+          "ManageConversionPresetTemplates",
+          "ManageComments",
+          "ManageAllComments"
         ]
       },
       "PermissionSetNotFoundException": {
@@ -17689,6 +17693,95 @@
             "additionalProperties": false,
             "properties": {
               "conversionPresetTemplateId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "CommentNotFoundException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkNotFoundException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "CommentOwnershipFailureException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "commentId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "CommentReplyDeletionException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "commentId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "CommentReplyParentException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "parentId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "CommentReplyContentMismatchException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "parentId": {
+                "type": "string",
+                "nullable": true
+              },
+              "contentId": {
                 "type": "string",
                 "nullable": true
               }
@@ -25581,6 +25674,7 @@
           },
           {
             "type": "object",
+            "description": "Meta information for a dynamic view field",
             "additionalProperties": false,
             "required": [
               "filter",
@@ -25588,10 +25682,16 @@
             ],
             "properties": {
               "filter": {
-                "$ref": "#/components/schemas/FilterBase"
+                "description": "Filter for the dynamic view field.",
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/FilterBase"
+                  }
+                ]
               },
               "sort": {
                 "type": "array",
+                "description": "Sorting information.",
                 "nullable": true,
                 "items": {
                   "$ref": "#/components/schemas/SortInfo"
@@ -25599,6 +25699,7 @@
               },
               "targetDocType": {
                 "type": "string",
+                "description": "Target doc type.",
                 "minLength": 1
               }
             }
@@ -25650,6 +25751,7 @@
             "DynamicViewFieldMeta": "#/components/schemas/DynamicViewFieldMeta"
           }
         },
+        "description": "Base class of meta information for a dynamic view field",
         "x-abstract": true,
         "additionalProperties": false,
         "required": [
@@ -25668,10 +25770,12 @@
           },
           {
             "type": "object",
+            "description": "Meta information for a dynamic view field including a flag that indicates if the rendered filter does match some items.",
             "additionalProperties": false,
             "properties": {
               "hasItems": {
-                "type": "boolean"
+                "type": "boolean",
+                "description": "indicates if the rendered filter does match some items."
               }
             }
           }
@@ -25684,10 +25788,12 @@
           },
           {
             "type": "object",
+            "description": "Meta information for a dynamic view field where the filter could not be rendered successfully.",
             "additionalProperties": false,
             "properties": {
               "error": {
                 "type": "string",
+                "description": "Error.",
                 "nullable": true
               }
             }
