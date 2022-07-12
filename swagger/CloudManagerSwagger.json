@@ -25744,6 +25744,20 @@
             }
           }
         ]
+      },
+      "ContentBackupFileRemoveInfo": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "customerId": {
+            "type": "string",
+            "nullable": true
+          },
+          "filePath": {
+            "type": "string",
+            "nullable": true
+          }
+        }
       }
     }
   }
