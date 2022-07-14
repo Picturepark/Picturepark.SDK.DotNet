@@ -13868,6 +13868,23 @@
           }
         ]
       },
+      "ResolvedLinkedItemsThresholdReachedException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "metadataItemId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
       "SchemaFieldOverwriteTypeMismatchException": {
         "allOf": [
           {
