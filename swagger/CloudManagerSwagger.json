@@ -12741,7 +12741,9 @@
           "WriteStatistics",
           "ExportStatistics",
           "EditImages",
-          "ManageConversionPresetTemplates"
+          "ManageConversionPresetTemplates",
+          "ManageComments",
+          "ManageAllComments"
         ],
         "enum": [
           "ManageContent",
@@ -12769,7 +12771,9 @@
           "WriteStatistics",
           "ExportStatistics",
           "EditImages",
-          "ManageConversionPresetTemplates"
+          "ManageConversionPresetTemplates",
+          "ManageComments",
+          "ManageAllComments"
         ]
       },
       "PermissionSetNotFoundException": {
@@ -17700,6 +17704,95 @@
             "additionalProperties": false,
             "properties": {
               "conversionPresetTemplateId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "CommentNotFoundException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkNotFoundException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "CommentOwnershipFailureException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "commentId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "CommentReplyDeletionException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "commentId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "CommentReplyParentException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "parentId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "CommentReplyContentMismatchException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "parentId": {
+                "type": "string",
+                "nullable": true
+              },
+              "contentId": {
                 "type": "string",
                 "nullable": true
               }

@@ -1031,7 +1031,7 @@
         ],
         "responses": {
           "200": {
-            "description": "BusinessProcessSummaryBaseViewItem",
+            "description": "BusinessProcessSummaryBase",
             "content": {
               "application/json": {
                 "schema": {
@@ -1152,7 +1152,7 @@
         ],
         "responses": {
           "200": {
-            "description": "BusinessProcessBatchViewItem",
+            "description": "BusinessProcessBatch",
             "content": {
               "application/json": {
                 "schema": {
@@ -1273,7 +1273,7 @@
         ],
         "responses": {
           "200": {
-            "description": "BusinessProcessBatchViewItem",
+            "description": "BusinessProcessBatch",
             "content": {
               "application/json": {
                 "schema": {
@@ -8325,6 +8325,624 @@
         ]
       }
     },
+    "/v1/Contents/{id}/comments/{commentId}": {
+      "get": {
+        "tags": [
+          "Content"
+        ],
+        "summary": "Get comment",
+        "operationId": "Content_GetComment",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Content ID.",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 1
+          },
+          {
+            "name": "commentId",
+            "in": "path",
+            "required": true,
+            "description": "Comment ID.",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 2
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Comment if found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Comment"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            },
+            "x-expectedSchemas": [
+              {
+                "description": "Entity not found",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkNotFoundException"
+                    }
+                  ]
+                }
+              },
+              {
+                "description": "Comment not found",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/CommentNotFoundException"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "content_read"
+            ]
+          }
+        ]
+      },
+      "put": {
+        "tags": [
+          "Content"
+        ],
+        "summary": "Update comment",
+        "operationId": "Content_UpdateComment",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Content ID.",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 1
+          },
+          {
+            "name": "commentId",
+            "in": "path",
+            "required": true,
+            "description": "Comment ID.",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 2
+          },
+          {
+            "name": "timeout",
+            "in": "query",
+            "description": "Operation timeout.",
+            "schema": {
+              "type": "string",
+              "format": "time-span",
+              "nullable": true
+            },
+            "x-position": 4
+          }
+        ],
+        "requestBody": {
+          "x-name": "request",
+          "description": "Comment update.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CommentEditable"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 3
+        },
+        "responses": {
+          "200": {
+            "description": "Updated comment",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Comment"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "content_write"
+            ]
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "Content"
+        ],
+        "summary": "Delete comment",
+        "operationId": "Content_DeleteComment",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Content ID.",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 1
+          },
+          {
+            "name": "commentId",
+            "in": "path",
+            "required": true,
+            "description": "Comment ID.",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 2
+          },
+          {
+            "name": "timeout",
+            "in": "query",
+            "description": "Operation timeout.",
+            "schema": {
+              "type": "string",
+              "format": "time-span",
+              "nullable": true
+            },
+            "x-position": 3
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "content_write"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/Contents/{id}/comments": {
+      "post": {
+        "tags": [
+          "Content"
+        ],
+        "summary": "Create comment",
+        "operationId": "Content_CreateComment",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Content ID.",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 1
+          },
+          {
+            "name": "timeout",
+            "in": "query",
+            "description": "Operation timeout.",
+            "schema": {
+              "type": "string",
+              "format": "time-span",
+              "nullable": true
+            },
+            "x-position": 3
+          }
+        ],
+        "requestBody": {
+          "x-name": "request",
+          "description": "Comment creation request.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CommentCreateRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 2
+        },
+        "responses": {
+          "200": {
+            "description": "Created comment",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Comment"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "content_write"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/Contents/{id}/comments/search": {
+      "post": {
+        "tags": [
+          "Content"
+        ],
+        "summary": "Search comments",
+        "operationId": "Content_SearchComments",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Content ID.",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 1
+          }
+        ],
+        "requestBody": {
+          "x-name": "request",
+          "description": "Search request.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CommentSearchRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 2
+        },
+        "responses": {
+          "200": {
+            "description": "List of found comments",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CommentSearchResult"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "content_read"
+            ]
+          }
+        ]
+      }
+    },
     "/v1/ConversionPresetTemplates/search": {
       "post": {
         "tags": [
@@ -13603,13 +14221,16 @@
         "operationId": "Notification_GetAvailableNotificationTypes",
         "responses": {
           "200": {
-            "description": "Array of Notification that is available for email settings.",
+            "description": null,
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/NotificationType"
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/NotificationType"
+                    }
                   }
                 }
               }
@@ -30634,7 +31255,9 @@
           "WriteStatistics",
           "ExportStatistics",
           "EditImages",
-          "ManageConversionPresetTemplates"
+          "ManageConversionPresetTemplates",
+          "ManageComments",
+          "ManageAllComments"
         ],
         "enum": [
           "ManageContent",
@@ -30662,7 +31285,9 @@
           "WriteStatistics",
           "ExportStatistics",
           "EditImages",
-          "ManageConversionPresetTemplates"
+          "ManageConversionPresetTemplates",
+          "ManageComments",
+          "ManageAllComments"
         ]
       },
       "PermissionSetNotFoundException": {
@@ -35593,6 +36218,95 @@
             "additionalProperties": false,
             "properties": {
               "conversionPresetTemplateId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "CommentNotFoundException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkNotFoundException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "CommentOwnershipFailureException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "commentId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "CommentReplyDeletionException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "commentId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "CommentReplyParentException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "parentId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "CommentReplyContentMismatchException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "parentId": {
+                "type": "string",
+                "nullable": true
+              },
+              "contentId": {
                 "type": "string",
                 "nullable": true
               }
@@ -43791,6 +44505,171 @@
           }
         }
       },
+      "Comment": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/CommentEditable"
+          },
+          {
+            "type": "object",
+            "description": "Represents a comment",
+            "additionalProperties": false,
+            "required": [
+              "id",
+              "contentId"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "description": "Comment ID.",
+                "minLength": 1
+              },
+              "contentId": {
+                "type": "string",
+                "description": "ID of the content this comment is on.",
+                "minLength": 1
+              },
+              "parentId": {
+                "type": "string",
+                "description": "ID of the parent comment, in case this comment is a reply.",
+                "nullable": true
+              },
+              "audit": {
+                "description": "Audit information.",
+                "nullable": true,
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/UserAuditDetail"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "CommentEditable": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "message"
+        ],
+        "properties": {
+          "message": {
+            "type": "string",
+            "description": "Text of the comment message.",
+            "minLength": 1
+          }
+        }
+      },
+      "CommentCreateRequest": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/CommentEditable"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "parentId": {
+                "type": "string",
+                "description": "ID of the parent comment, in case the comment should be a reply.",
+                "nullable": true
+              },
+              "requestId": {
+                "type": "string",
+                "description": "Optional client reference for this request.\nWill be returned back in response to make easier for clients to match request items with the respective results.\nIt is not persisted anywhere and it is ignored in single operations.",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "CommentSearchResult": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BaseResultOfComment"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "queryDebugInformation": {
+                "type": "array",
+                "description": "Additional information regarding the query execution and reason of the matched documents. Multiple items are returned if multiple queries were performed.",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/QueryDebugInformation"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "BaseResultOfComment": {
+        "type": "object",
+        "description": "Base class for search results",
+        "additionalProperties": false,
+        "required": [
+          "results",
+          "totalResults",
+          "elapsedMilliseconds"
+        ],
+        "properties": {
+          "totalResults": {
+            "type": "integer",
+            "description": "The total number of matching documents.",
+            "format": "int64"
+          },
+          "results": {
+            "type": "array",
+            "description": "The matched documents.",
+            "items": {
+              "$ref": "#/components/schemas/Comment"
+            }
+          },
+          "elapsedMilliseconds": {
+            "type": "integer",
+            "description": "The search execution time in milliseconds.",
+            "format": "int64"
+          },
+          "pageToken": {
+            "type": "string",
+            "description": "An optional token to access the next page of results for those endpoints that support backend scrolling logic.",
+            "nullable": true
+          }
+        }
+      },
+      "CommentSearchRequest": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "limit",
+          "ascending",
+          "debugMode"
+        ],
+        "properties": {
+          "limit": {
+            "type": "integer",
+            "description": "Limits the document count of the result set. Defaults to 30.",
+            "format": "int32",
+            "default": 30
+          },
+          "ascending": {
+            "type": "boolean",
+            "description": "If set to true, the result set will be sorted in an ascending order based on time of when which comment was originally created, replies will be always in descending order.\nIf false, the result set will be sorted in a descending order of when which comment was originally created."
+          },
+          "pageToken": {
+            "type": "string",
+            "description": "The token used to retrieve the next page of results. It must be null on first request and only filled with the returned pageToken to request next page of results.",
+            "nullable": true
+          },
+          "debugMode": {
+            "type": "boolean",
+            "description": "Enable debug mode: additional debug information regarding the query execution and reason of the matched documents are returned in the CommentSearchResult.\nWarning! It severely affects performance.",
+            "default": false
+          }
+        }
+      },
       "ConversionPresetTemplateSearchResult": {
         "allOf": [
           {
@@ -43889,7 +44768,7 @@
               },
               "outputFormatId": {
                 "type": "string",
-                "description": "The output format ID to which the conversion preset template is associated",
+                "description": "The output format ID to which the conversion preset template is associated.",
                 "minLength": 1
               }
             }
@@ -46133,6 +47012,7 @@
           "StatisticsExportCompleted",
           "StatisticsExportFailed",
           "StatisticsExportCancelled",
+          "NewComment",
           "UserEmailConflictSolved",
           "UserEmailConflictSolvedSubject",
           "SupportUserDeactivation",
@@ -46233,6 +47113,7 @@
           "StatisticsExportCompleted",
           "StatisticsExportFailed",
           "StatisticsExportCancelled",
+          "NewComment",
           "UserEmailConflictSolved",
           "UserEmailConflictSolvedSubject",
           "SupportUserDeactivation",
@@ -46339,7 +47220,8 @@
           "StatisticsExportInProgress",
           "StatisticsExportCompleted",
           "StatisticsExportFailed",
-          "StatisticsExportCancelled"
+          "StatisticsExportCancelled",
+          "NewComment"
         ],
         "enum": [
           "TransferInProgressMessage",
@@ -46438,7 +47320,8 @@
           "StatisticsExportInProgress",
           "StatisticsExportCompleted",
           "StatisticsExportFailed",
-          "StatisticsExportCancelled"
+          "StatisticsExportCancelled",
+          "NewComment"
         ]
       },
       "NotificationDetailBase": {
@@ -46472,7 +47355,8 @@
             "NotificationDetailMetadataItemDeactivationBase": "#/components/schemas/NotificationDetailMetadataItemDeactivationBase",
             "NotificationDetailContentDeactivation": "#/components/schemas/NotificationDetailContentDeactivation",
             "NotificationDetailListItemMetadataBatchEdit": "#/components/schemas/NotificationDetailListItemMetadataBatchEdit",
-            "NotificationDetailListItemDeactivation": "#/components/schemas/NotificationDetailListItemDeactivation"
+            "NotificationDetailListItemDeactivation": "#/components/schemas/NotificationDetailListItemDeactivation",
+            "NotificationDetailComment": "#/components/schemas/NotificationDetailComment"
           }
         },
         "x-abstract": true,
@@ -47041,6 +47925,52 @@
           }
         ]
       },
+      "NotificationDetailComment": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/NotificationDetailBase"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "reason": {
+                "$ref": "#/components/schemas/CommentNotificationReason"
+              },
+              "contentId": {
+                "type": "string",
+                "nullable": true
+              },
+              "commenterId": {
+                "type": "string",
+                "nullable": true
+              },
+              "commentMessage": {
+                "type": "string",
+                "nullable": true
+              },
+              "count": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          }
+        ]
+      },
+      "CommentNotificationReason": {
+        "type": "string",
+        "description": "Reason for a comment notification.",
+        "x-enumNames": [
+          "Owned",
+          "Replied",
+          "Mentioned"
+        ],
+        "enum": [
+          "Owned",
+          "Replied",
+          "Mentioned"
+        ]
+      },
       "NotificationState": {
         "type": "string",
         "description": "",
@@ -47207,6 +48137,21 @@
       "EmailNotificationsSettings": {
         "type": "object",
         "description": "Email notification settings",
+        "additionalProperties": false,
+        "properties": {
+          "sources": {
+            "type": "object",
+            "description": "Settings for notification sources",
+            "nullable": true,
+            "additionalProperties": {
+              "$ref": "#/components/schemas/EmailNotificationsSourceSettings"
+            }
+          }
+        }
+      },
+      "EmailNotificationsSourceSettings": {
+        "type": "object",
+        "description": "Email notification settings for a specific notification source",
         "additionalProperties": false,
         "required": [
           "interval",

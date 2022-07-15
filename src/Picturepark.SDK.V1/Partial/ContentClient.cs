@@ -193,5 +193,14 @@ namespace Picturepark.SDK.V1
             var token = await CreateVersionDownloadLinkAsync(contentId, version, cancellationToken).ConfigureAwait(false);
             return await GetDownloadLinkAsync(token, cancellationToken).ConfigureAwait(false);
         }
+
+        /// <inheritdoc />
+        public async Task<Comment> GetCommentAsync(string id) => await GetCommentCoreAsync("dummy", id).ConfigureAwait(false);
+
+        /// <inheritdoc />
+        public async Task<Comment> UpdateCommentAsync(string id, CommentEditable request) => await UpdateCommentCoreAsync("dummy", id, request).ConfigureAwait(false);
+
+        /// <inheritdoc />
+        public async Task DeleteCommentAsync(string id) => await DeleteCommentCoreAsync("dummy", id).ConfigureAwait(false);
     }
 }
