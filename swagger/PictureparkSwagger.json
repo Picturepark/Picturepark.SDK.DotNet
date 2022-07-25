@@ -47958,7 +47958,7 @@
                 "type": "string",
                 "nullable": true
               },
-              "commenterId": {
+              "commenterName": {
                 "type": "string",
                 "nullable": true
               },
@@ -48204,12 +48204,14 @@
           "Daily",
           "Hourly",
           "QuarterHourly",
+          "EveryFiveMinutes",
           "Off"
         ],
         "enum": [
           "Daily",
           "Hourly",
           "QuarterHourly",
+          "EveryFiveMinutes",
           "Off"
         ]
       },
@@ -54522,7 +54524,8 @@
           "UserEmailConflictSolvedMail",
           "NotificationMail",
           "NotificationMailItem",
-          "DashboardPage"
+          "DashboardPage",
+          "CommentNotificationMailItem"
         ],
         "enum": [
           "ShareMail",
@@ -54537,7 +54540,8 @@
           "UserEmailConflictSolvedMail",
           "NotificationMail",
           "NotificationMailItem",
-          "DashboardPage"
+          "DashboardPage",
+          "CommentNotificationMailItem"
         ]
       },
       "TemplateUpdateRequest": {

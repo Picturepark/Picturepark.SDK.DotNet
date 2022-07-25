@@ -23337,8 +23337,8 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("contentId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ContentId { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("commenterId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string CommenterId { get; set; }
+        [Newtonsoft.Json.JsonProperty("commenterName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string CommenterName { get; set; }
     
         [Newtonsoft.Json.JsonProperty("commentMessage", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string CommentMessage { get; set; }
@@ -23593,8 +23593,11 @@ namespace Picturepark.SDK.V1.Contract
         [System.Runtime.Serialization.EnumMember(Value = @"QuarterHourly")]
         QuarterHourly = 2,
     
+        [System.Runtime.Serialization.EnumMember(Value = @"EveryFiveMinutes")]
+        EveryFiveMinutes = 3,
+    
         [System.Runtime.Serialization.EnumMember(Value = @"Off")]
-        Off = 3,
+        Off = 4,
     
     }
     
@@ -29522,6 +29525,9 @@ namespace Picturepark.SDK.V1.Contract
     
         [System.Runtime.Serialization.EnumMember(Value = @"DashboardPage")]
         DashboardPage = 12,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"CommentNotificationMailItem")]
+        CommentNotificationMailItem = 13,
     
     }
     
