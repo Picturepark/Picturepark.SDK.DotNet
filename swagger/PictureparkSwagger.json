@@ -51928,12 +51928,14 @@
         "x-enumNames": [
           "List",
           "ThumbSmall",
-          "ThumbMedium"
+          "ThumbMedium",
+          "ThumbLarge"
         ],
         "enum": [
           "List",
           "ThumbSmall",
-          "ThumbMedium"
+          "ThumbMedium",
+          "ThumbLarge"
         ]
       },
       "DynamicViewFieldUiSettings": {
