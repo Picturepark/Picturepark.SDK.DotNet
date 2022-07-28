@@ -27088,6 +27088,9 @@ namespace Picturepark.SDK.V1.Contract
         [System.Runtime.Serialization.EnumMember(Value = @"ThumbMedium")]
         ThumbMedium = 2,
     
+        [System.Runtime.Serialization.EnumMember(Value = @"ThumbLarge")]
+        ThumbLarge = 3,
+    
     }
     
     /// <summary>Ui settings for FieldDynamicView</summary>
