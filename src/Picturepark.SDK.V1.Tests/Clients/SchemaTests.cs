@@ -292,6 +292,34 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
         [Fact]
         [Trait("Stack", "Schema")]
+        public async Task ShouldSearchAndAggregateAllTogether()
+        {
+            // Act
+            var searchRequest = new SchemaSearchRequest
+            {
+                Limit = 5,
+                Aggregators = new[]
+                {
+                    new TermsAggregator
+                        { Field = nameof(SchemaDetail.Types).ToLowerCamelCase(), Name = "schemaTypesAggregation" }
+                }
+            };
+            var searchResult = await _client.Schema.SearchAsync(searchRequest).ConfigureAwait(false);
+
+            // Assert
+            searchResult.Results.Should().HaveCount(5);
+
+            // one aggregation result item per schema type
+            searchResult.AggregationResults.Should()
+                .HaveCount(1)
+                .And.Subject.First()
+                .AggregationResultItems.Should()
+                .HaveCount(4)
+                .And.OnlyContain(i => i.Count > 0);
+        }
+
+        [Fact]
+        [Trait("Stack", "Schema")]
         public async Task ShouldUpdate()
         {
             // Arrange
