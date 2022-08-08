@@ -16203,6 +16203,9 @@ namespace Picturepark.SDK.V1.Contract
         [System.Runtime.Serialization.EnumMember(Value = @"UserRole")]
         UserRole = 6,
     
+        [System.Runtime.Serialization.EnumMember(Value = @"SchemaPermissionSet")]
+        SchemaPermissionSet = 7,
+    
     }
     
     /// <summary>A multi-bucket value aggregator used for aggregations on indexed enum values.</summary>
@@ -27725,7 +27728,7 @@ namespace Picturepark.SDK.V1.Contract
     
     /// <summary>Result for schema search operation</summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
-    public partial class SchemaSearchResult : SearchBehaviorBaseResultOfSchema
+    public partial class SchemaSearchResult : SearchBehaviorWithAggregationBaseResultOfSchema
     {
         public string ToJson() 
         {
@@ -27735,6 +27738,26 @@ namespace Picturepark.SDK.V1.Contract
         public static SchemaSearchResult FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaSearchResult>(data);
+        }
+    
+    }
+    
+    /// <summary>Base class for search result queries that support SearchBehaviors</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class SearchBehaviorWithAggregationBaseResultOfSchema : SearchBehaviorBaseResultOfSchema
+    {
+        /// <summary>Results of the aggregation, if any aggregators was passed in the request.</summary>
+        [Newtonsoft.Json.JsonProperty("aggregationResults", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<AggregationResult> AggregationResults { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static SearchBehaviorWithAggregationBaseResultOfSchema FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SearchBehaviorWithAggregationBaseResultOfSchema>(data);
         }
     
     }
@@ -27898,6 +27921,19 @@ namespace Picturepark.SDK.V1.Contract
         /// <summary>Limits the schemas to the ones the user has the specified MetadataRights.</summary>
         [Newtonsoft.Json.JsonProperty("rightsFilter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public System.Collections.Generic.ICollection<MetadataRight> RightsFilter { get; set; }
+    
+        /// <summary>List of aggregators that defines how the items should be aggregated.</summary>
+        [Newtonsoft.Json.JsonProperty("aggregators", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<AggregatorBase> Aggregators { get; set; }
+    
+        /// <summary>Special filters used to filter down independently the aggregations' values and the search results on specific conditions.
+        /// For the search results, the aggregation filters are used to create a Filter that is put in AND with the eventual existing Filter of the search request to nail down the search results. The filters generated
+        /// by the aggregation filters are put in OR each other if they have the same AggregationName, and then such groups are put in AND.
+        /// For the aggregation values, only the original Filter of the search request is used to nail down the data to be considered for the aggregations. Then, on top of that, for each aggregator in the search request, a Filter is created to filter down the
+        /// aggregation results of that aggregation: depending if the AggregationName of the AggregationFilter matches the AggregationName of the Aggregator, the filter is put in OR (if it matches) or in AND (if it does not match it).
+        /// Moreover, an AggregationFilter ensures that the related value is returned in the AggregationResults also if the top aggregation values returned by default do not contain it.</summary>
+        [Newtonsoft.Json.JsonProperty("aggregationFilters", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<AggregationFilter> AggregationFilters { get; set; }
     
         public string ToJson() 
         {
