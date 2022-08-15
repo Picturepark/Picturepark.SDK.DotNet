@@ -33607,7 +33607,8 @@
           "PathHierarchy",
           "EdgeNGram",
           "NGram",
-          "NoDiacritics"
+          "NoDiacritics",
+          "KeywordLowercase"
         ],
         "enum": [
           "None",
@@ -33616,7 +33617,8 @@
           "PathHierarchy",
           "EdgeNGram",
           "NGram",
-          "NoDiacritics"
+          "NoDiacritics",
+          "KeywordLowercase"
         ]
       },
       "SchemaFieldRelationMultipleTypesException": {
@@ -51496,7 +51498,8 @@
             "NGramAnalyzer": "#/components/schemas/NGramAnalyzer",
             "PathHierarchyAnalyzer": "#/components/schemas/PathHierarchyAnalyzer",
             "SimpleAnalyzer": "#/components/schemas/SimpleAnalyzer",
-            "NoDiacriticsAnalyzer": "#/components/schemas/NoDiacriticsAnalyzer"
+            "NoDiacriticsAnalyzer": "#/components/schemas/NoDiacriticsAnalyzer",
+            "KeywordLowercaseAnalyzer": "#/components/schemas/KeywordLowercaseAnalyzer"
           }
         },
         "description": "The analyzer base class",
@@ -51667,6 +51670,33 @@
               "fieldSuffix": {
                 "type": "string",
                 "description": "The suffix for the analyzed field: nodiacritics.",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "KeywordLowercaseAnalyzer": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/AnalyzerBase"
+          },
+          {
+            "type": "object",
+            "description": "An analyzer that represents a lowercase normalizer on a keyword field",
+            "additionalProperties": false,
+            "properties": {
+              "type": {
+                "description": "The analyzer type: KeywordLowercase",
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/Analyzer"
+                  }
+                ]
+              },
+              "fieldSuffix": {
+                "type": "string",
+                "description": "The suffix for the analyzed field: keywordlowercase.",
                 "nullable": true
               }
             }
