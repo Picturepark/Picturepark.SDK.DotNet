@@ -17829,7 +17829,8 @@
           "PathHierarchy",
           "EdgeNGram",
           "NGram",
-          "NoDiacritics"
+          "NoDiacritics",
+          "KeywordLowercase"
         ],
         "enum": [
           "None",
@@ -17838,7 +17839,8 @@
           "PathHierarchy",
           "EdgeNGram",
           "NGram",
-          "NoDiacritics"
+          "NoDiacritics",
+          "KeywordLowercase"
         ]
       },
       "SchemaFieldRelationMultipleTypesException": {

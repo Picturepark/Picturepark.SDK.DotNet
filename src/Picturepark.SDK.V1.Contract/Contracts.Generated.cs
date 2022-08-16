@@ -9033,6 +9033,9 @@ namespace Picturepark.SDK.V1.Contract
         [System.Runtime.Serialization.EnumMember(Value = @"NoDiacritics")]
         NoDiacritics = 6,
     
+        [System.Runtime.Serialization.EnumMember(Value = @"KeywordLowercase")]
+        KeywordLowercase = 7,
+    
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
@@ -26698,6 +26701,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("PathHierarchyAnalyzer", typeof(PathHierarchyAnalyzer))]
     [JsonInheritanceAttribute("SimpleAnalyzer", typeof(SimpleAnalyzer))]
     [JsonInheritanceAttribute("NoDiacriticsAnalyzer", typeof(NoDiacriticsAnalyzer))]
+    [JsonInheritanceAttribute("KeywordLowercaseAnalyzer", typeof(KeywordLowercaseAnalyzer))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public abstract partial class AnalyzerBase 
     {
@@ -26859,6 +26863,31 @@ namespace Picturepark.SDK.V1.Contract
         public static NoDiacriticsAnalyzer FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<NoDiacriticsAnalyzer>(data);
+        }
+    
+    }
+    
+    /// <summary>An analyzer that represents a lowercase normalizer on a keyword field</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class KeywordLowercaseAnalyzer : AnalyzerBase
+    {
+        /// <summary>The analyzer type: KeywordLowercase</summary>
+        [Newtonsoft.Json.JsonProperty("type", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public Analyzer Type { get; set; }
+    
+        /// <summary>The suffix for the analyzed field: keywordlowercase.</summary>
+        [Newtonsoft.Json.JsonProperty("fieldSuffix", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string FieldSuffix { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static KeywordLowercaseAnalyzer FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<KeywordLowercaseAnalyzer>(data);
         }
     
     }

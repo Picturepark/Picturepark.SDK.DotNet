@@ -7111,6 +7111,9 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [System.Runtime.Serialization.EnumMember(Value = @"NoDiacritics")]
         NoDiacritics = 6,
     
+        [System.Runtime.Serialization.EnumMember(Value = @"KeywordLowercase")]
+        KeywordLowercase = 7,
+    
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]

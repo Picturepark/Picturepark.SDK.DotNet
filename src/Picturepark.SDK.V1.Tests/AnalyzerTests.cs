@@ -61,7 +61,8 @@ namespace Picturepark.SDK.V1.Tests
                     NGramField = "NGramFieldValue",
                     PathHierarchyField = "Path/Hierarchy/Field",
                     SimpleField = "Simple12Field",
-                    NoDiacriticsField = "Bröt"
+                    NoDiacriticsField = "Bröt",
+                    KeywordLowercaseField = "JpG"
                 };
 
                 var res = await _client.ListItem.CreateFromObjectAsync(analyzerValue).ConfigureAwait(false);
@@ -118,6 +119,14 @@ namespace Picturepark.SDK.V1.Tests
             }).ConfigureAwait(false);
 
             Assert.True(noDiactricsResults.TotalResults > 0);
+
+            var keywordLowercaseResults = await _client.ListItem.SearchAsync(new ListItemSearchRequest
+            {
+                SchemaIds = requestSchemaIds,
+                Filter = FilterBase.FromExpression<AnalyzerTestObject>(o => o.KeywordLowercaseField, "jPg", Analyzer.KeywordLowercase)
+            }).ConfigureAwait(false);
+
+            Assert.True(keywordLowercaseResults.TotalResults > 0);
         }
 
         [PictureparkSchema(SchemaType.List)]
@@ -140,6 +149,9 @@ namespace Picturepark.SDK.V1.Tests
 
             [PictureparkNoDiacriticsAnalyzer(Index = true)]
             public string NoDiacriticsField { get; set; }
+
+            [PictureparkKeywordLowercaseAnalyzer(Index = true)]
+            public string KeywordLowercaseField { get; set; }
         }
     }
 }
