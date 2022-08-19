@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class PictureparkRelationUiSettingsAttribute
    | Picturepark.SDK.V1 API ">
-    <meta name="generator" content="docfx 2.59.2.0">
+    <meta name="generator" content="docfx 2.59.3.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -89,12 +89,25 @@
     <h5>Inheritance</h5>
     <div class="level0"><span class="xref">System.Object</span></div>
     <div class="level1"><span class="xref">System.Attribute</span></div>
-    <div class="level2"><span class="xref">PictureparkRelationUiSettingsAttribute</span></div>
+    <div class="level2"><a class="xref" href="Picturepark.SDK.V1.Contract.Attributes.PictureparkItemFieldUiSettingsAttributeBase.html">PictureparkItemFieldUiSettingsAttributeBase</a></div>
+    <div class="level3"><span class="xref">PictureparkRelationUiSettingsAttribute</span></div>
   </div>
   
   
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="Picturepark.SDK.V1.Contract.Attributes.PictureparkItemFieldUiSettingsAttributeBase.html#Picturepark_SDK_V1_Contract_Attributes_PictureparkItemFieldUiSettingsAttributeBase_View">PictureparkItemFieldUiSettingsAttributeBase.View</a>
+    </div>
+    <div>
+      <a class="xref" href="Picturepark.SDK.V1.Contract.Attributes.PictureparkItemFieldUiSettingsAttributeBase.html#Picturepark_SDK_V1_Contract_Attributes_PictureparkItemFieldUiSettingsAttributeBase_MaxListRows">PictureparkItemFieldUiSettingsAttributeBase.MaxListRows</a>
+    </div>
+    <div>
+      <a class="xref" href="Picturepark.SDK.V1.Contract.Attributes.PictureparkItemFieldUiSettingsAttributeBase.html#Picturepark_SDK_V1_Contract_Attributes_PictureparkItemFieldUiSettingsAttributeBase_MaxThumbRows">PictureparkItemFieldUiSettingsAttributeBase.MaxThumbRows</a>
+    </div>
+    <div>
+      <a class="xref" href="Picturepark.SDK.V1.Contract.Attributes.PictureparkItemFieldUiSettingsAttributeBase.html#Picturepark_SDK_V1_Contract_Attributes_PictureparkItemFieldUiSettingsAttributeBase_ShowRelatedContentOnDownload">PictureparkItemFieldUiSettingsAttributeBase.ShowRelatedContentOnDownload</a>
+    </div>
     <div>
       <span class="xref">System.Attribute.GetCustomAttributes(System.Reflection.MemberInfo, System.Type)</span>
     </div>
@@ -240,7 +253,7 @@
   <h5 id="Picturepark_SDK_V1_Contract_Attributes_PictureparkRelationUiSettingsAttribute_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[AttributeUsage(AttributeTargets.Property | AttributeTargets.Field)]
-public class PictureparkRelationUiSettingsAttribute : Attribute, _Attribute, IPictureparkAttribute</code></pre>
+public class PictureparkRelationUiSettingsAttribute : PictureparkItemFieldUiSettingsAttributeBase, _Attribute, IPictureparkAttribute</code></pre>
   </div>
   
   
@@ -253,25 +266,25 @@ public class PictureparkRelationUiSettingsAttribute : Attribute, _Attribute, IPi
   
   <a id="Picturepark_SDK_V1_Contract_Attributes_PictureparkRelationUiSettingsAttribute__ctor_" data-uid="Picturepark.SDK.V1.Contract.Attributes.PictureparkRelationUiSettingsAttribute.#ctor*"></a>
   
-  <h4 id="Picturepark_SDK_V1_Contract_Attributes_PictureparkRelationUiSettingsAttribute__ctor_Picturepark_SDK_V1_Contract_RelationView_" data-uid="Picturepark.SDK.V1.Contract.Attributes.PictureparkRelationUiSettingsAttribute.#ctor(Picturepark.SDK.V1.Contract.RelationView)"><a href="#collapsible-Picturepark_SDK_V1_Contract_Attributes_PictureparkRelationUiSettingsAttribute__ctor_Picturepark_SDK_V1_Contract_RelationView_" class="expander" data-toggle="collapse">PictureparkRelationUiSettingsAttribute(RelationView)</a></h4>
+  <h4 id="Picturepark_SDK_V1_Contract_Attributes_PictureparkRelationUiSettingsAttribute__ctor_Picturepark_SDK_V1_Contract_ItemFieldViewMode_" data-uid="Picturepark.SDK.V1.Contract.Attributes.PictureparkRelationUiSettingsAttribute.#ctor(Picturepark.SDK.V1.Contract.ItemFieldViewMode)"><a href="#collapsible-Picturepark_SDK_V1_Contract_Attributes_PictureparkRelationUiSettingsAttribute__ctor_Picturepark_SDK_V1_Contract_ItemFieldViewMode_" class="expander" data-toggle="collapse">PictureparkRelationUiSettingsAttribute(ItemFieldViewMode)</a></h4>
   
-  <div id="collapsible-Picturepark_SDK_V1_Contract_Attributes_PictureparkRelationUiSettingsAttribute__ctor_Picturepark_SDK_V1_Contract_RelationView_" class="collapse in">
+  <div id="collapsible-Picturepark_SDK_V1_Contract_Attributes_PictureparkRelationUiSettingsAttribute__ctor_Picturepark_SDK_V1_Contract_ItemFieldViewMode_" class="collapse in">
   <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Picturepark.SDK.V1.Contract.Attributes.PictureparkRelationUiSettingsAttribute.html">PictureparkRelationUiSettingsAttribute</a> class.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public PictureparkRelationUiSettingsAttribute(RelationView view)</code></pre>
+    <pre><code class="lang-csharp hljs">public PictureparkRelationUiSettingsAttribute(ItemFieldViewMode view)</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
       <td>
-        <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.RelationView.html">RelationView</a></span>
+        <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.ItemFieldViewMode.html">ItemFieldViewMode</a></span>
         <span class="parametername">view</span>
-        <p><p>Default view that the UI will use to render a single / multi relationship field.</p>
+        <p><p>The default view that the UI will use to render the relationship field</p>
 </p>
       </td>
     </tr>
@@ -292,25 +305,72 @@ public class PictureparkRelationUiSettingsAttribute : Attribute, _Attribute, IPi
   
   <a id="Picturepark_SDK_V1_Contract_Attributes_PictureparkRelationUiSettingsAttribute__ctor_" data-uid="Picturepark.SDK.V1.Contract.Attributes.PictureparkRelationUiSettingsAttribute.#ctor*"></a>
   
-  <h4 id="Picturepark_SDK_V1_Contract_Attributes_PictureparkRelationUiSettingsAttribute__ctor_Picturepark_SDK_V1_Contract_RelationView_System_Int32_System_Int32_" data-uid="Picturepark.SDK.V1.Contract.Attributes.PictureparkRelationUiSettingsAttribute.#ctor(Picturepark.SDK.V1.Contract.RelationView,System.Int32,System.Int32)"><a href="#collapsible-Picturepark_SDK_V1_Contract_Attributes_PictureparkRelationUiSettingsAttribute__ctor_Picturepark_SDK_V1_Contract_RelationView_System_Int32_System_Int32_" class="expander" data-toggle="collapse">PictureparkRelationUiSettingsAttribute(RelationView, Int32, Int32)</a></h4>
+  <h4 id="Picturepark_SDK_V1_Contract_Attributes_PictureparkRelationUiSettingsAttribute__ctor_Picturepark_SDK_V1_Contract_ItemFieldViewMode_System_Boolean_" data-uid="Picturepark.SDK.V1.Contract.Attributes.PictureparkRelationUiSettingsAttribute.#ctor(Picturepark.SDK.V1.Contract.ItemFieldViewMode,System.Boolean)"><a href="#collapsible-Picturepark_SDK_V1_Contract_Attributes_PictureparkRelationUiSettingsAttribute__ctor_Picturepark_SDK_V1_Contract_ItemFieldViewMode_System_Boolean_" class="expander" data-toggle="collapse">PictureparkRelationUiSettingsAttribute(ItemFieldViewMode, Boolean)</a></h4>
   
-  <div id="collapsible-Picturepark_SDK_V1_Contract_Attributes_PictureparkRelationUiSettingsAttribute__ctor_Picturepark_SDK_V1_Contract_RelationView_System_Int32_System_Int32_" class="collapse in">
+  <div id="collapsible-Picturepark_SDK_V1_Contract_Attributes_PictureparkRelationUiSettingsAttribute__ctor_Picturepark_SDK_V1_Contract_ItemFieldViewMode_System_Boolean_" class="collapse in">
   <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Picturepark.SDK.V1.Contract.Attributes.PictureparkRelationUiSettingsAttribute.html">PictureparkRelationUiSettingsAttribute</a> class.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public PictureparkRelationUiSettingsAttribute(RelationView view, int maxListRows, int maxThumbRows)</code></pre>
+    <pre><code class="lang-csharp hljs">public PictureparkRelationUiSettingsAttribute(ItemFieldViewMode view, bool showRelatedContentOnDownload)</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
       <td>
-        <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.RelationView.html">RelationView</a></span>
+        <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.ItemFieldViewMode.html">ItemFieldViewMode</a></span>
         <span class="parametername">view</span>
-        <p><p>The default view that the UI will use to render the relationship field</p>
+        <p><p>The default view that the UI will use to render the field</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Boolean</span></span>
+        <span class="parametername">showRelatedContentOnDownload</span>
+        <p><p>Whether related content should be shown in UI download dialog</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div>
+  
+  
+  <a id="Picturepark_SDK_V1_Contract_Attributes_PictureparkRelationUiSettingsAttribute__ctor_" data-uid="Picturepark.SDK.V1.Contract.Attributes.PictureparkRelationUiSettingsAttribute.#ctor*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_Contract_Attributes_PictureparkRelationUiSettingsAttribute__ctor_Picturepark_SDK_V1_Contract_ItemFieldViewMode_System_Int32_System_Int32_" data-uid="Picturepark.SDK.V1.Contract.Attributes.PictureparkRelationUiSettingsAttribute.#ctor(Picturepark.SDK.V1.Contract.ItemFieldViewMode,System.Int32,System.Int32)"><a href="#collapsible-Picturepark_SDK_V1_Contract_Attributes_PictureparkRelationUiSettingsAttribute__ctor_Picturepark_SDK_V1_Contract_ItemFieldViewMode_System_Int32_System_Int32_" class="expander" data-toggle="collapse">PictureparkRelationUiSettingsAttribute(ItemFieldViewMode, Int32, Int32)</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_Contract_Attributes_PictureparkRelationUiSettingsAttribute__ctor_Picturepark_SDK_V1_Contract_ItemFieldViewMode_System_Int32_System_Int32_" class="collapse in">
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Picturepark.SDK.V1.Contract.Attributes.PictureparkRelationUiSettingsAttribute.html">PictureparkRelationUiSettingsAttribute</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PictureparkRelationUiSettingsAttribute(ItemFieldViewMode view, int maxListRows, int maxThumbRows)</code></pre>
+  </div>
+  
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.ItemFieldViewMode.html">ItemFieldViewMode</a></span>
+        <span class="parametername">view</span>
+        <p><p>The default view that the UI will use to render the field</p>
 </p>
       </td>
     </tr>
@@ -343,34 +403,54 @@ public class PictureparkRelationUiSettingsAttribute : Attribute, _Attribute, IPi
   
   
   </div>
-  <h3 id="properties">Properties
-  </h3>
   
   
-  <a id="Picturepark_SDK_V1_Contract_Attributes_PictureparkRelationUiSettingsAttribute_MaxListRows_" data-uid="Picturepark.SDK.V1.Contract.Attributes.PictureparkRelationUiSettingsAttribute.MaxListRows*"></a>
+  <a id="Picturepark_SDK_V1_Contract_Attributes_PictureparkRelationUiSettingsAttribute__ctor_" data-uid="Picturepark.SDK.V1.Contract.Attributes.PictureparkRelationUiSettingsAttribute.#ctor*"></a>
   
-  <h4 id="Picturepark_SDK_V1_Contract_Attributes_PictureparkRelationUiSettingsAttribute_MaxListRows" data-uid="Picturepark.SDK.V1.Contract.Attributes.PictureparkRelationUiSettingsAttribute.MaxListRows"><a href="#collapsible-Picturepark_SDK_V1_Contract_Attributes_PictureparkRelationUiSettingsAttribute_MaxListRows" class="expander" data-toggle="collapse">MaxListRows</a></h4>
+  <h4 id="Picturepark_SDK_V1_Contract_Attributes_PictureparkRelationUiSettingsAttribute__ctor_Picturepark_SDK_V1_Contract_ItemFieldViewMode_System_Int32_System_Int32_System_Boolean_" data-uid="Picturepark.SDK.V1.Contract.Attributes.PictureparkRelationUiSettingsAttribute.#ctor(Picturepark.SDK.V1.Contract.ItemFieldViewMode,System.Int32,System.Int32,System.Boolean)"><a href="#collapsible-Picturepark_SDK_V1_Contract_Attributes_PictureparkRelationUiSettingsAttribute__ctor_Picturepark_SDK_V1_Contract_ItemFieldViewMode_System_Int32_System_Int32_System_Boolean_" class="expander" data-toggle="collapse">PictureparkRelationUiSettingsAttribute(ItemFieldViewMode, Int32, Int32, Boolean)</a></h4>
   
-  <div id="collapsible-Picturepark_SDK_V1_Contract_Attributes_PictureparkRelationUiSettingsAttribute_MaxListRows" class="collapse in">
-  <div class="markdown level1 summary"><p>Maximum number of rows for the list view.</p>
+  <div id="collapsible-Picturepark_SDK_V1_Contract_Attributes_PictureparkRelationUiSettingsAttribute__ctor_Picturepark_SDK_V1_Contract_ItemFieldViewMode_System_Int32_System_Int32_System_Boolean_" class="collapse in">
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Picturepark.SDK.V1.Contract.Attributes.PictureparkRelationUiSettingsAttribute.html">PictureparkRelationUiSettingsAttribute</a> class.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public int? MaxListRows { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public PictureparkRelationUiSettingsAttribute(ItemFieldViewMode view, int maxListRows, int maxThumbRows, bool showRelatedContentOnDownload)</code></pre>
   </div>
   
-  
-  
-  
-  
-  <h5 class="propertyValue">Property Value</h5>
+  <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
       <td>
-        <span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;
-        <p>
+        <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.ItemFieldViewMode.html">ItemFieldViewMode</a></span>
+        <span class="parametername">view</span>
+        <p><p>The default view that the UI will use to render the relationship field</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Int32</span></span>
+        <span class="parametername">maxListRows</span>
+        <p><p>Maximum number of rows for the list view.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Int32</span></span>
+        <span class="parametername">maxThumbRows</span>
+        <p><p>Maximum number of rows for the Thumbnail views.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Boolean</span></span>
+        <span class="parametername">showRelatedContentOnDownload</span>
+        <p><p>Whether related content should be shown in UI download dialog</p>
+</p>
       </td>
     </tr>
   </table>
@@ -378,76 +458,6 @@ public class PictureparkRelationUiSettingsAttribute : Attribute, _Attribute, IPi
   
   
   
-  
-  
-  
-  </div>
-  
-  
-  <a id="Picturepark_SDK_V1_Contract_Attributes_PictureparkRelationUiSettingsAttribute_MaxThumbRows_" data-uid="Picturepark.SDK.V1.Contract.Attributes.PictureparkRelationUiSettingsAttribute.MaxThumbRows*"></a>
-  
-  <h4 id="Picturepark_SDK_V1_Contract_Attributes_PictureparkRelationUiSettingsAttribute_MaxThumbRows" data-uid="Picturepark.SDK.V1.Contract.Attributes.PictureparkRelationUiSettingsAttribute.MaxThumbRows"><a href="#collapsible-Picturepark_SDK_V1_Contract_Attributes_PictureparkRelationUiSettingsAttribute_MaxThumbRows" class="expander" data-toggle="collapse">MaxThumbRows</a></h4>
-  
-  <div id="collapsible-Picturepark_SDK_V1_Contract_Attributes_PictureparkRelationUiSettingsAttribute_MaxThumbRows" class="collapse in">
-  <div class="markdown level1 summary"><p>Maximum number of rows for the Thumbnail views.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public int? MaxThumbRows { get; }</code></pre>
-  </div>
-  
-  
-  
-  
-  
-  <h5 class="propertyValue">Property Value</h5>
-  <table>
-    <tr>
-      <td>
-        <span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;
-        <p>
-      </td>
-    </tr>
-  </table>
-  
-  
-  
-  
-  
-  
-  
-  </div>
-  
-  
-  <a id="Picturepark_SDK_V1_Contract_Attributes_PictureparkRelationUiSettingsAttribute_View_" data-uid="Picturepark.SDK.V1.Contract.Attributes.PictureparkRelationUiSettingsAttribute.View*"></a>
-  
-  <h4 id="Picturepark_SDK_V1_Contract_Attributes_PictureparkRelationUiSettingsAttribute_View" data-uid="Picturepark.SDK.V1.Contract.Attributes.PictureparkRelationUiSettingsAttribute.View"><a href="#collapsible-Picturepark_SDK_V1_Contract_Attributes_PictureparkRelationUiSettingsAttribute_View" class="expander" data-toggle="collapse">View</a></h4>
-  
-  <div id="collapsible-Picturepark_SDK_V1_Contract_Attributes_PictureparkRelationUiSettingsAttribute_View" class="collapse in">
-  <div class="markdown level1 summary"><p>Default view that the UI will use to render a single / multi relationship field.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public RelationView View { get; }</code></pre>
-  </div>
-  
-  
-  
-  
-  
-  <h5 class="propertyValue">Property Value</h5>
-  <table>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.RelationView.html">RelationView</a>
-        <p>
-      </td>
-    </tr>
-  </table>
   
   
   
