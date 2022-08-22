@@ -182,8 +182,7 @@ namespace Picturepark.SDK.V1.Conversion
 
                     propertyInfo.PictureparkAttributes = property.AttributeProvider
                         .GetAttributes(true)
-                        .Select(i => i as IPictureparkAttribute)
-                        .Where(i => i != null)
+                        .OfType<IPictureparkAttribute>()
                         .ToList();
 
                     contractTypeInfo.Properties.Add(propertyInfo);
@@ -451,7 +450,6 @@ namespace Picturepark.SDK.V1.Conversion
                     field = new FieldTranslatedString
                     {
                         Required = false,
-                        Fixed = false,
                         Index = true,
                         SimpleSearch = true,
                         MultiLine = translatedStringAttribute?.MultiLine ?? default,
@@ -577,12 +575,29 @@ namespace Picturepark.SDK.V1.Conversion
             {
                 var schemaIndexingAttribute = property.PictureparkAttributes.OfType<PictureparkSchemaIndexingAttribute>().SingleOrDefault();
                 var listItemCreateTemplateAttribute = property.PictureparkAttributes.OfType<PictureparkListItemCreateTemplateAttribute>().SingleOrDefault();
-                var tagboxAttributes = property.PictureparkAttributes.OfType<PictureparkTagboxAttribute>().SingleOrDefault();
+                var tagboxAttribute = property.PictureparkAttributes.OfType<PictureparkTagboxAttribute>().SingleOrDefault();
                 var contentRelationAttributes = property.PictureparkAttributes.OfType<PictureparkContentRelationAttribute>().ToList();
-                var relationUiSettingsAttribute = property.PictureparkAttributes.OfType<PictureparkRelationUiSettingsAttribute>().SingleOrDefault();
-                var relationUiSettings = relationUiSettingsAttribute != null ?
-                    new RelationUiSettings { View = relationUiSettingsAttribute.View, MaxListRows = relationUiSettingsAttribute.MaxListRows, MaxThumbRows = relationUiSettingsAttribute.MaxThumbRows } :
-                    null;
+
+                var uiSettingsAttribute = property.PictureparkAttributes.OfType<PictureparkItemFieldUiSettingsAttributeBase>().SingleOrDefault();
+
+                ItemFieldUiSettingsViewItemBase uiSettings = null;
+                switch (uiSettingsAttribute)
+                {
+                    case PictureparkRelationUiSettingsAttribute _:
+                        uiSettings = new RelationUiSettings();
+                        break;
+                    case PictureparkDynamicViewUiSettingsAttribute _:
+                        uiSettings = new DynamicViewFieldUiSettings();
+                        break;
+                }
+
+                if (uiSettings != null)
+                {
+                    uiSettings.View = uiSettingsAttribute.View;
+                    uiSettings.MaxListRows = uiSettingsAttribute.MaxListRows;
+                    uiSettings.MaxThumbRows = uiSettingsAttribute.MaxThumbRows;
+                    uiSettings.ShowRelatedContentOnDownload = uiSettingsAttribute.ShowRelatedContentOnDownload;
+                }
 
                 var relationTypes = new List<RelationType>();
                 if (contentRelationAttributes.Any())
@@ -606,7 +621,7 @@ namespace Picturepark.SDK.V1.Conversion
                             RelationTypes = relationTypes,
                             SchemaId = property.TypeName,
                             SchemaIndexingInfo = schemaIndexingAttribute?.SchemaIndexingInfo,
-                            UiSettings = relationUiSettings
+                            UiSettings = (RelationUiSettings)uiSettings
                         };
                     }
                     else if (property.IsReference)
@@ -616,7 +631,7 @@ namespace Picturepark.SDK.V1.Conversion
                             Index = true,
                             SimpleSearch = true,
                             SchemaId = property.TypeName,
-                            Filter = tagboxAttributes?.Filter,
+                            Filter = tagboxAttribute?.Filter,
                             SchemaIndexingInfo = schemaIndexingAttribute?.SchemaIndexingInfo,
                             ListItemCreateTemplate = listItemCreateTemplateAttribute?.ListItemCreateTemplate
                         };
@@ -643,14 +658,29 @@ namespace Picturepark.SDK.V1.Conversion
                             RelationTypes = relationTypes,
                             SchemaId = property.TypeName,
                             SchemaIndexingInfo = schemaIndexingAttribute?.SchemaIndexingInfo,
-                            UiSettings = relationUiSettings
+                            UiSettings = (RelationUiSettings)uiSettings
                         };
                     }
-                    else if (property.TypeName == "GeoPoint")
+                    else if (property.TypeName == nameof(GeoPoint))
                     {
                         field = new FieldGeoPoint
                         {
                             Index = true
+                        };
+                    }
+                    else if (property.TypeName == nameof(DynamicViewObject))
+                    {
+                        var dynamicViewAttribute = property.PictureparkAttributes.OfType<PictureparkDynamicViewAttribute>().SingleOrDefault()
+                            ?? throw new InvalidOperationException($"Property of type {nameof(DynamicViewObject)} must be annotated with {nameof(PictureparkDynamicViewAttribute)}");
+
+                        var sortInfoAttributes = property.PictureparkAttributes.OfType<PictureparkDynamicViewSortAttribute>();
+
+                        field = new FieldDynamicView
+                        {
+                            TargetDocType = dynamicViewAttribute.TargetDocType,
+                            FilterTemplate = dynamicViewAttribute.FilterTemplate,
+                            ViewUiSettings = (DynamicViewFieldUiSettings)uiSettings,
+                            Sort = sortInfoAttributes.SelectMany(sia => sia.SortInfos).ToList()
                         };
                     }
                     else if (property.IsReference)
@@ -660,7 +690,7 @@ namespace Picturepark.SDK.V1.Conversion
                             Index = true,
                             SimpleSearch = true,
                             SchemaId = property.TypeName,
-                            Filter = tagboxAttributes?.Filter,
+                            Filter = tagboxAttribute?.Filter,
                             SchemaIndexingInfo = schemaIndexingAttribute?.SchemaIndexingInfo,
                             ListItemCreateTemplate = listItemCreateTemplateAttribute?.ListItemCreateTemplate
                         };
@@ -737,21 +767,27 @@ namespace Picturepark.SDK.V1.Conversion
                 if (attribute is PictureparkSortAttribute)
                 {
                     if (field is FieldSingleRelation || field is FieldMultiRelation)
-                    {
                         throw new InvalidOperationException($"Relation property {property.Name} must not be marked as sortable.");
-                    }
 
                     if (field is FieldGeoPoint)
-                    {
                         throw new InvalidOperationException($"GeoPoint property {property.Name} must not be marked as sortable.");
-                    }
 
                     if (field is FieldTrigger)
-                    {
                         throw new InvalidOperationException($"Trigger property {property.Name} must not be marked as sortable.");
-                    }
+
+                    if (field is FieldDynamicView)
+                        throw new InvalidOperationException($"DynamicView property {property.Name} must not be marked as sortable.");
 
                     field.Sortable = true;
+                }
+
+                if (property.TypeName != nameof(DynamicViewObject))
+                {
+                    if (attribute is PictureparkDynamicViewAttribute)
+                        throw new InvalidOperationException($"{nameof(PictureparkDynamicViewAttribute)} must only be used on properties of type {nameof(DynamicViewObject)}");
+
+                    if (attribute is PictureparkDynamicViewSortAttribute)
+                        throw new InvalidOperationException($"{nameof(PictureparkDynamicViewSortAttribute)} must only be used on properties of type {nameof(DynamicViewObject)}");
                 }
             }
 

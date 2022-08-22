@@ -21,9 +21,10 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkException">Entity not found</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         System.Threading.Tasks.Task<BusinessProcess> PurgeForCustomerAsync(string alias, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
     }
@@ -35,162 +36,180 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkException">Entity not found</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         System.Threading.Tasks.Task<SnapshotRepository> CreateRepositoryAsync(SnapshotRepositoryCustomerCreateRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkException">Entity not found</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         System.Threading.Tasks.Task<SnapshotEnqueueResult> CreateSnapshotAsync(SnapshotCustomerCreateRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkException">Entity not found</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         System.Threading.Tasks.Task<CustomerExportResult> ExportAsync(CustomerExportRequest request, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkException">Entity not found</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         System.Threading.Tasks.Task<SnapshotRestore> RestoreAsync(SnapshotCustomerRestoreRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkException">Entity not found</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         System.Threading.Tasks.Task<SnapshotCustomerCloneRequest> CloneRequestAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkException">Entity not found</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         System.Threading.Tasks.Task<Customer> CloneAsync(SnapshotCustomerCloneRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkException">Entity not found</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         System.Threading.Tasks.Task<Customer> ImportAsync(CustomerImportRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkException">Entity not found</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         System.Threading.Tasks.Task<SnapshotRepository> CreateRepository2Async(SnapshotRepositoryEnvironmentCreateRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkException">Entity not found</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         System.Threading.Tasks.Task<SnapshotEnqueueResult> CreateSnapshot2Async(SnapshotEnvironmentCreateRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkException">Entity not found</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         System.Threading.Tasks.Task<SnapshotRestore> Restore2Async(SnapshotEnvironmentRestoreRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkException">Entity not found</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         System.Threading.Tasks.Task<SnapshotEnvironmentSearchResult> SearchAsync(SnapshotEnvironmentSearchRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkException">Entity not found</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         System.Threading.Tasks.Task<SnapshotCustomerSearchResult> SearchSnapshotsAsync(SnapshotCustomerSearchRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkException">Entity not found</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         System.Threading.Tasks.Task<SnapshotRepositorySearchResult> SearchRepositoriesAsync(SnapshotRepositoryCustomerSearchRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkException">Entity not found</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         System.Threading.Tasks.Task<SnapshotRepositorySearchResult> SearchEnvironmentRepositoriesAsync(SnapshotRepositoryEnvironmentSearchRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkException">Entity not found</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         System.Threading.Tasks.Task<SnapshotRepositoryCleanupResult> CleanupAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkException">Entity not found</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         System.Threading.Tasks.Task<SnapshotRepository> ArchiveAsync(SnapshotRepositoryArchiveRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkException">Entity not found</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         System.Threading.Tasks.Task<SnapshotRepository> Search2Async(SnapshotRepositorySearchByNameRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkException">Entity not found</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         System.Threading.Tasks.Task<GlobalSnapshotRepositoryStateResult> GetGlobalRepositoryStateAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
     }
@@ -202,108 +221,120 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkException">Entity not found</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         System.Threading.Tasks.Task<ContentBackupSearchResult> SearchMissingOriginalsAsync(ContentBackupSearchRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkException">Entity not found</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         System.Threading.Tasks.Task EnableAsync(ContentBackupEnableRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkException">Entity not found</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         System.Threading.Tasks.Task DisableAsync(ContentBackupDisableRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkException">Entity not found</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         System.Threading.Tasks.Task CancelRecoveryAsync(ContentBackupCancelRecoveryRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkException">Entity not found</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         System.Threading.Tasks.Task ForceRecoveryAsync(ContentBackupForceCompleteRecoveryRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkException">Entity not found</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         System.Threading.Tasks.Task ResetAsync(string customerId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkException">Entity not found</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         System.Threading.Tasks.Task CancelResetAsync(string customerId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkException">Entity not found</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         System.Threading.Tasks.Task<bool> AnyBackupRequestedAsync(string customerId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkException">Entity not found</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         System.Threading.Tasks.Task<ContentBackupAcknowledgementResult> AckBackupAsync(string customerId, string filePath, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkException">Entity not found</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         System.Threading.Tasks.Task<System.Collections.Generic.ICollection<ContentBackupAcknowledgementResult>> AckBackupManyAsync(string customerId, System.Collections.Generic.IEnumerable<string> filePaths, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkException">Entity not found</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         System.Threading.Tasks.Task<System.Collections.Generic.ICollection<ContentBackupAcknowledgementResult>> AckBackupManyWithHashesAsync(string customerId, System.Collections.Generic.IEnumerable<ContentBackupAcknowledgementRequest> requests, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkException">Entity not found</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         System.Threading.Tasks.Task<long> NotAcknowledgedCountAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
     }
@@ -315,144 +346,160 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkException">Entity not found</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         System.Threading.Tasks.Task<CustomerCreateRequest> GetCreateRequestAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkException">Entity not found</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         System.Threading.Tasks.Task<CustomerConfiguration> CreateAsync(CustomerCreateRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkException">Entity not found</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         System.Threading.Tasks.Task<CustomerConfiguration> UpdateAsync(CustomerUpdateRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkException">Entity not found</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         System.Threading.Tasks.Task<CustomerSearchResult> ListAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkException">Entity not found</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         System.Threading.Tasks.Task<CustomerConfiguration> GetAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkException">Entity not found</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         System.Threading.Tasks.Task DeleteAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkException">Entity not found</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         System.Threading.Tasks.Task<CustomerSearchResult> SearchAsync(CustomerSearchRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkException">Entity not found</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         System.Threading.Tasks.Task<System.Collections.Generic.ICollection<UserWithRoles>> GetUsersAsync(string alias, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkException">Entity not found</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         System.Threading.Tasks.Task RestoreAsync(string alias, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkException">Entity not found</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         System.Threading.Tasks.Task InvalidateAsync(string alias, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkException">Entity not found</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         System.Threading.Tasks.Task<Index> ReindexAsync(string alias, SearchIndexReindexShardsRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkException">Entity not found</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         System.Threading.Tasks.Task<System.Collections.Generic.ICollection<string>> GetAvailableMetadataLanguagesAsync(string alias, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkException">Entity not found</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         System.Threading.Tasks.Task<EnvironmentProcess> AddMetadataLanguageAsync(string alias, CustomerMetadataLanguageCreateRequest request, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkException">Entity not found</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         System.Threading.Tasks.Task<EnvironmentProcess> UpdateBoostValuesAsync(string alias, CustomerBoostValuesUpdateRequest request, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkException">Entity not found</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Index>> GetIndicesAsync(string alias, bool? onlyForReshard = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkException">Entity not found</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         System.Threading.Tasks.Task<EnvironmentProcess> ReshardElasticIndicesAsync(string alias, CustomerReshardRequest request, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
     }
@@ -464,72 +511,80 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkException">Entity not found</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         System.Threading.Tasks.Task<CustomerQueuePriorityConfiguration> GetEffectiveAsync(string customerId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkException">Entity not found</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         System.Threading.Tasks.Task<CustomerQueuePriorityConfiguration> GetCustomAsync(string customerId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkException">Entity not found</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         System.Threading.Tasks.Task<QueuePriorityConfiguration> GetEffectiveForQueueAsync(string customerId, string queueFamily, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkException">Entity not found</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         System.Threading.Tasks.Task<QueuePriorityConfiguration> GetCustomForQueueAsync(string customerId, string queueFamily, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkException">Entity not found</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         System.Threading.Tasks.Task<CustomerQueuePriorityConfiguration> UpdateAsync(string customerId, CustomerQueuePriorityConfiguration updateRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkException">Entity not found</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         System.Threading.Tasks.Task ResetAllQueueConfigurationsAsync(string customerId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkException">Entity not found</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         System.Threading.Tasks.Task<CustomerQueuePriorityConfiguration> UpdateForQueueAsync(string customerId, string queueFamily, QueuePriorityConfiguration updateRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkException">Entity not found</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         System.Threading.Tasks.Task<CustomerQueuePriorityConfiguration> ResetQueueAsync(string customerId, string queueFamily, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
     }
@@ -541,18 +596,20 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkException">Entity not found</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         System.Threading.Tasks.Task<CustomerServiceProvider> CreateAsync(CustomerServiceProviderCreateRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkException">Entity not found</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         System.Threading.Tasks.Task DeleteAsync(string alias, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
     }
@@ -564,18 +621,20 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkException">Entity not found</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         System.Threading.Tasks.Task<CustomerSettings> GetAsync(string customerId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkException">Entity not found</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         System.Threading.Tasks.Task<CustomerSettings> UpdateAsync(string customerId, CustomerSettingsUpdateRequest updateRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
     }
@@ -587,18 +646,20 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkException">Entity not found</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         System.Threading.Tasks.Task<EnvironmentConfiguration> CreateAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkException">Entity not found</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         System.Threading.Tasks.Task<VersionInfo> GetVersionAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
     }
@@ -610,45 +671,50 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkException">Entity not found</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         System.Threading.Tasks.Task CancelAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkException">Entity not found</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         System.Threading.Tasks.Task AcknowledgeAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkException">Entity not found</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         System.Threading.Tasks.Task<EnvironmentProcess> GetAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkException">Entity not found</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         System.Threading.Tasks.Task<EnvironmentProcessWaitResult> WaitForLifeCyclesAsync(string id, System.Collections.Generic.IEnumerable<EnvironmentProcessLifeCycle> lifeCycles = null, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkException">Entity not found</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         System.Threading.Tasks.Task<EnvironmentProcessSearchResult> SearchAsync(EnvironmentProcessSearchRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
     }
@@ -660,36 +726,40 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkException">Entity not found</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         System.Threading.Tasks.Task<EnvironmentConfiguration> CreateGlobalConfigurationAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkException">Entity not found</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         System.Threading.Tasks.Task<FileResponse> GetConfigurationAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkException">Entity not found</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         System.Threading.Tasks.Task<VersionInfo> GetVersionAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkException">Entity not found</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         System.Threading.Tasks.Task CreateServiceAsync(CreateServiceConfigurationRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
     }
@@ -701,64 +771,81 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkException">Entity not found</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         System.Threading.Tasks.Task<BusinessProcess> TouchSchemasAsync(string id, TouchSchemasRequest request, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkException">Entity not found</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         System.Threading.Tasks.Task<BusinessProcess> ResetRetryAttemptsAsync(string id, OutputResetRetryAttemptsRequest request, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkException">Entity not found</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         System.Threading.Tasks.Task<BusinessProcess> RecalculateFileInformationAsync(string id, RecalculateFileInformationRequest request, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkException">Entity not found</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         System.Threading.Tasks.Task<BusinessProcess> MoveToSubfoldersAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkException">Entity not found</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         System.Threading.Tasks.Task<RecreateXmpUntouchedOriginalsResponse> RecreateXmpUntouchedOriginalsAsync(string id, RecreateXmpUntouchedOriginalsRequest request, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkException">Entity not found</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         System.Threading.Tasks.Task<BusinessProcess> UpdateOutdatedMetadataAsync(string id, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkException">Entity not found</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         System.Threading.Tasks.Task<BusinessProcess> AddStatisticsEventsAsync(string id, AddContentEventsRequest request, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkException">Entity not found</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        System.Threading.Tasks.Task ApplySlowLogSettingsAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
     }
     
@@ -769,18 +856,20 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkException">Entity not found</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         System.Threading.Tasks.Task InitializeAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkException">Entity not found</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         System.Threading.Tasks.Task ResetAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
     }
@@ -792,36 +881,40 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkException">Entity not found</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         System.Threading.Tasks.Task<OutputFormatDetail> GetAsync(string customerId, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkException">Entity not found</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         System.Threading.Tasks.Task<BusinessProcess> UpdateAsync(string customerId, string id, OutputFormatEditable format, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkException">Entity not found</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         System.Threading.Tasks.Task<BusinessProcess> DeleteAsync(string customerId, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkException">Entity not found</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         System.Threading.Tasks.Task<BusinessProcess> CreateAsync(string customerId, OutputFormat format, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
     }
@@ -833,18 +926,20 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkException">Entity not found</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         System.Threading.Tasks.Task<ServiceProvider> CreateAsync(ServiceProviderCreateRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkException">Entity not found</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         System.Threading.Tasks.Task DeleteAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
     }
@@ -856,108 +951,120 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkException">Entity not found</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         System.Threading.Tasks.Task ShutdownAllAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkException">Entity not found</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         System.Threading.Tasks.Task RestartAllAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkException">Entity not found</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         System.Threading.Tasks.Task ShutdownAsync(string serviceName, string nodeId = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkException">Entity not found</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         System.Threading.Tasks.Task RestartAsync(string serviceName, string nodeId = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkException">Entity not found</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         System.Threading.Tasks.Task SetLogLevelAsync(SetServiceLogLevelRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkException">Entity not found</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         System.Threading.Tasks.Task EnableLoggingDiagnosticsAsync(bool? enable = null, string serviceName = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkException">Entity not found</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         System.Threading.Tasks.Task PingActiveNodesAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkException">Entity not found</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         System.Threading.Tasks.Task<System.Collections.Generic.ICollection<NodeInfo>> GetActiveNodesAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkException">Entity not found</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         System.Threading.Tasks.Task DeleteNodeInfosAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkException">Entity not found</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         System.Threading.Tasks.Task DumpCachesAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkException">Entity not found</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         System.Threading.Tasks.Task InvalidateAllCachesAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkException">Entity not found</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         System.Threading.Tasks.Task RecycleElasticClientsAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
     }
@@ -969,99 +1076,110 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkException">Entity not found</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         System.Threading.Tasks.Task<UpdateInfo> GetAvailableEnvironmentUpdateAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkException">Entity not found</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         System.Threading.Tasks.Task<VersionInfo> GetEnvironmentVersionAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkException">Entity not found</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         System.Threading.Tasks.Task ReactivateEnvironmentAsync(ReactivationEnvironmentRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkException">Entity not found</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         System.Threading.Tasks.Task DeactivateEnvironmentAsync(DeactivationEnvironmentRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkException">Entity not found</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         System.Threading.Tasks.Task<EnvironmentProcess> UpdateEnvironmentAsync(UpdateEnvironmentRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkException">Entity not found</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         System.Threading.Tasks.Task<UpdateInfo> GetAvailableCustomerUpdateAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkException">Entity not found</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         System.Threading.Tasks.Task<System.Collections.Generic.ICollection<CustomerVersionInfo>> GetCustomerVersionsAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkException">Entity not found</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         System.Threading.Tasks.Task<CustomerVersionInfo> GetCustomerVersionAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkException">Entity not found</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         System.Threading.Tasks.Task DeactivateCustomersAsync(System.Collections.Generic.IEnumerable<DeactivationCustomerRequest> requests, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkException">Entity not found</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         System.Threading.Tasks.Task ReactivateCustomersAsync(System.Collections.Generic.IEnumerable<ReactivationCustomerRequest> requests, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkException">Entity not found</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         System.Threading.Tasks.Task<System.Collections.Generic.ICollection<EnvironmentProcess>> UpdateCustomersAsync(System.Collections.Generic.IEnumerable<UpdateCustomerRequest> requests, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
     }
@@ -1073,18 +1191,20 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkException">Entity not found</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         System.Threading.Tasks.Task<bool> GetUserDeveloperFlagAsync(string alias, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkException">Entity not found</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         System.Threading.Tasks.Task<bool> UpdateUserDeveloperFlagAsync(string alias, UserDeveloperFlagUpdateRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
     }
@@ -1333,8 +1453,8 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [JsonInheritanceAttribute("EnvironmentNotAvailableException", typeof(EnvironmentNotAvailableException))]
     [JsonInheritanceAttribute("CustomerNotAvailableException", typeof(CustomerNotAvailableException))]
     [JsonInheritanceAttribute("PictureparkForbiddenException", typeof(PictureparkForbiddenException))]
-    [JsonInheritanceAttribute("PictureparkNotFoundException", typeof(PictureparkNotFoundException))]
     [JsonInheritanceAttribute("PictureparkConflictException", typeof(PictureparkConflictException))]
+    [JsonInheritanceAttribute("PictureparkNotFoundException", typeof(PictureparkNotFoundException))]
     [JsonInheritanceAttribute("PictureparkTimeoutException", typeof(PictureparkTimeoutException))]
     [JsonInheritanceAttribute("UserEmailAlreadyExistsException", typeof(UserEmailAlreadyExistsException))]
     [JsonInheritanceAttribute("UserRoleAssignedException", typeof(UserRoleAssignedException))]
@@ -1395,6 +1515,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [JsonInheritanceAttribute("InvalidContentDownloadRequestException", typeof(InvalidContentDownloadRequestException))]
     [JsonInheritanceAttribute("DownloadNotFoundException", typeof(DownloadNotFoundException))]
     [JsonInheritanceAttribute("EmbedMultiDownloadException", typeof(EmbedMultiDownloadException))]
+    [JsonInheritanceAttribute("ImageOptimizationLicensingException", typeof(ImageOptimizationLicensingException))]
     [JsonInheritanceAttribute("LeaseNotAcquiredException", typeof(LeaseNotAcquiredException))]
     [JsonInheritanceAttribute("OperationInProgressException", typeof(OperationInProgressException))]
     [JsonInheritanceAttribute("OwnerTokenNotFoundException", typeof(OwnerTokenNotFoundException))]
@@ -1468,6 +1589,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [JsonInheritanceAttribute("DeleteListItemsWithReferencesException", typeof(DeleteListItemsWithReferencesException))]
     [JsonInheritanceAttribute("ListItemUpdateManyException", typeof(ListItemUpdateManyException))]
     [JsonInheritanceAttribute("ListItemSchemaMismatchException", typeof(ListItemSchemaMismatchException))]
+    [JsonInheritanceAttribute("ListItemResolveBehaviorNotSupportedException", typeof(ListItemResolveBehaviorNotSupportedException))]
     [JsonInheritanceAttribute("TransferInfoNotFoundException", typeof(TransferInfoNotFoundException))]
     [JsonInheritanceAttribute("FileTransferNotFoundException", typeof(FileTransferNotFoundException))]
     [JsonInheritanceAttribute("InvalidTransferTypeException", typeof(InvalidTransferTypeException))]
@@ -1497,6 +1619,8 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [JsonInheritanceAttribute("OutdatedMetadataUpdateInProgressException", typeof(OutdatedMetadataUpdateInProgressException))]
     [JsonInheritanceAttribute("SortingSupportedOnlyOnTermsAndTermsRelationAggregatorsException", typeof(SortingSupportedOnlyOnTermsAndTermsRelationAggregatorsException))]
     [JsonInheritanceAttribute("SchemasMetadataProtectionException", typeof(SchemasMetadataProtectionException))]
+    [JsonInheritanceAttribute("FilterTemplateRenderingException", typeof(FilterTemplateRenderingException))]
+    [JsonInheritanceAttribute("ResolvedLinkedItemsThresholdReachedException", typeof(ResolvedLinkedItemsThresholdReachedException))]
     [JsonInheritanceAttribute("SchemaFieldOverwriteTypeMismatchException", typeof(SchemaFieldOverwriteTypeMismatchException))]
     [JsonInheritanceAttribute("SchemaFieldOverwriteIdException", typeof(SchemaFieldOverwriteIdException))]
     [JsonInheritanceAttribute("SchemaFieldIdDuplicatedException", typeof(SchemaFieldIdDuplicatedException))]
@@ -1526,7 +1650,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [JsonInheritanceAttribute("SchemaSortFieldException", typeof(SchemaSortFieldException))]
     [JsonInheritanceAttribute("SchemaFieldIdException", typeof(SchemaFieldIdException))]
     [JsonInheritanceAttribute("SchemaFieldTypeChangeException", typeof(SchemaFieldTypeChangeException))]
-    [JsonInheritanceAttribute("SchemaFieldIndexException", typeof(SchemaFieldIndexException))]
+    [JsonInheritanceAttribute("SchemaFieldNotFilterableException", typeof(SchemaFieldNotFilterableException))]
     [JsonInheritanceAttribute("SchemaFieldNotSortableException", typeof(SchemaFieldNotSortableException))]
     [JsonInheritanceAttribute("SchemaFieldNotSearchableException", typeof(SchemaFieldNotSearchableException))]
     [JsonInheritanceAttribute("SchemaFieldInvalidBoostException", typeof(SchemaFieldInvalidBoostException))]
@@ -1565,6 +1689,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [JsonInheritanceAttribute("SchemaFieldDisplayPatternTypeNotSupportedException", typeof(SchemaFieldDisplayPatternTypeNotSupportedException))]
     [JsonInheritanceAttribute("SchemaFieldMarkdownNotMultilineException", typeof(SchemaFieldMarkdownNotMultilineException))]
     [JsonInheritanceAttribute("IndexingDisplayValueInFilterOnlySupportedForIndexedTagboxFieldsException", typeof(IndexingDisplayValueInFilterOnlySupportedForIndexedTagboxFieldsException))]
+    [JsonInheritanceAttribute("SchemaFieldDynamicViewFieldInvalidFilterTemplateException", typeof(SchemaFieldDynamicViewFieldInvalidFilterTemplateException))]
     [JsonInheritanceAttribute("DeleteContentsWithReferencesException", typeof(DeleteContentsWithReferencesException))]
     [JsonInheritanceAttribute("ContentMetadataUpdateManyException", typeof(ContentMetadataUpdateManyException))]
     [JsonInheritanceAttribute("ContentNotFoundException", typeof(ContentNotFoundException))]
@@ -1576,6 +1701,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [JsonInheritanceAttribute("UnableToDeleteLatestXmpWritebackGeneratedContentHistoricVersionException", typeof(UnableToDeleteLatestXmpWritebackGeneratedContentHistoricVersionException))]
     [JsonInheritanceAttribute("ContentSchemaChangeException", typeof(ContentSchemaChangeException))]
     [JsonInheritanceAttribute("ConcurrentFileReplacementDuringRepairException", typeof(ConcurrentFileReplacementDuringRepairException))]
+    [JsonInheritanceAttribute("ContentResolveBehaviorNotSupportedException", typeof(ContentResolveBehaviorNotSupportedException))]
     [JsonInheritanceAttribute("BusinessProcessEngineRequestException", typeof(BusinessProcessEngineRequestException))]
     [JsonInheritanceAttribute("BusinessProcessNotFoundException", typeof(BusinessProcessNotFoundException))]
     [JsonInheritanceAttribute("BusinessProcessDefinitionNotFoundException", typeof(BusinessProcessDefinitionNotFoundException))]
@@ -1641,6 +1767,8 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [JsonInheritanceAttribute("BusinessRuleUserInUserRolesConditionUserRoleIdsMissingException", typeof(BusinessRuleUserInUserRolesConditionUserRoleIdsMissingException))]
     [JsonInheritanceAttribute("BusinessRuleDateMathTransformationTimeSpanInvalidException", typeof(BusinessRuleDateMathTransformationTimeSpanInvalidException))]
     [JsonInheritanceAttribute("BusinessRuleTransferOwnershipTransferUserIdMissingException", typeof(BusinessRuleTransferOwnershipTransferUserIdMissingException))]
+    [JsonInheritanceAttribute("BusinessRuleOutputFormatIdMissingException", typeof(BusinessRuleOutputFormatIdMissingException))]
+    [JsonInheritanceAttribute("BusinessRuleEnqueueCreateEmbedActionExpirationDateInvalidException", typeof(BusinessRuleEnqueueCreateEmbedActionExpirationDateInvalidException))]
     [JsonInheritanceAttribute("NamedCacheConfigurationException", typeof(NamedCacheConfigurationException))]
     [JsonInheritanceAttribute("NamedCacheNameMissingException", typeof(NamedCacheNameMissingException))]
     [JsonInheritanceAttribute("NamedCacheNameDuplicationException", typeof(NamedCacheNameDuplicationException))]
@@ -1684,6 +1812,11 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [JsonInheritanceAttribute("StatisticsReadNotEnabledException", typeof(StatisticsReadNotEnabledException))]
     [JsonInheritanceAttribute("StatisticsWriteNotEnabledException", typeof(StatisticsWriteNotEnabledException))]
     [JsonInheritanceAttribute("ConversionPresetTemplateNotFoundException", typeof(ConversionPresetTemplateNotFoundException))]
+    [JsonInheritanceAttribute("CommentNotFoundException", typeof(CommentNotFoundException))]
+    [JsonInheritanceAttribute("CommentOwnershipFailureException", typeof(CommentOwnershipFailureException))]
+    [JsonInheritanceAttribute("CommentReplyDeletionException", typeof(CommentReplyDeletionException))]
+    [JsonInheritanceAttribute("CommentReplyParentException", typeof(CommentReplyParentException))]
+    [JsonInheritanceAttribute("CommentReplyContentMismatchException", typeof(CommentReplyContentMismatchException))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
     [Newtonsoft.Json.JsonObjectAttribute]
     public partial class PictureparkException : System.Exception
@@ -3139,6 +3272,22 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
     [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class ImageOptimizationLicensingException : PictureparkValidationException
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static ImageOptimizationLicensingException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ImageOptimizationLicensingException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
     public partial class LeaseNotAcquiredException : PictureparkBusinessException
     {
         [Newtonsoft.Json.JsonProperty("resourceId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -4528,6 +4677,12 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [System.Runtime.Serialization.EnumMember(Value = @"ManageConversionPresetTemplates")]
         ManageConversionPresetTemplates = 25,
     
+        [System.Runtime.Serialization.EnumMember(Value = @"ManageComments")]
+        ManageComments = 26,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"ManageAllComments")]
+        ManageAllComments = 27,
+    
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
@@ -4932,6 +5087,66 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<ListItemSchemaMismatchException>(data);
         }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class ListItemResolveBehaviorNotSupportedException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("behaviors", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public System.Collections.Generic.ICollection<ListItemResolveBehavior> Behaviors { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static ListItemResolveBehaviorNotSupportedException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ListItemResolveBehaviorNotSupportedException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public enum ListItemResolveBehavior
+    {
+        [System.Runtime.Serialization.EnumMember(Value = @"Content")]
+        Content = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"LinkedListItems")]
+        LinkedListItems = 1,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"InnerDisplayValueThumbnail")]
+        InnerDisplayValueThumbnail = 2,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"InnerDisplayValueList")]
+        InnerDisplayValueList = 3,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"InnerDisplayValueDetail")]
+        InnerDisplayValueDetail = 4,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"InnerDisplayValueName")]
+        InnerDisplayValueName = 5,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"OuterDisplayValueThumbnail")]
+        OuterDisplayValueThumbnail = 6,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"OuterDisplayValueList")]
+        OuterDisplayValueList = 7,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"OuterDisplayValueDetail")]
+        OuterDisplayValueDetail = 8,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"OuterDisplayValueName")]
+        OuterDisplayValueName = 9,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"DynamicViewFields")]
+        DynamicViewFields = 10,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"DynamicViewFieldsWithHasItems")]
+        DynamicViewFieldsWithHasItems = 11,
     
     }
     
@@ -5628,6 +5843,41 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
     [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class FilterTemplateRenderingException : PictureparkValidationException
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static FilterTemplateRenderingException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<FilterTemplateRenderingException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class ResolvedLinkedItemsThresholdReachedException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("metadataItemId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string MetadataItemId { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static ResolvedLinkedItemsThresholdReachedException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ResolvedLinkedItemsThresholdReachedException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
     public partial class SchemaFieldOverwriteTypeMismatchException : PictureparkValidationException
     {
         [Newtonsoft.Json.JsonProperty("schemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -6284,7 +6534,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
     [Newtonsoft.Json.JsonObjectAttribute]
-    public partial class SchemaFieldIndexException : PictureparkValidationException
+    public partial class SchemaFieldNotFilterableException : PictureparkValidationException
     {
         [Newtonsoft.Json.JsonProperty("schemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string SchemaId { get; set; }
@@ -6297,9 +6547,9 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
         }
     
-        public static SchemaFieldIndexException FromJson(string data)
+        public static SchemaFieldNotFilterableException FromJson(string data)
         {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaFieldIndexException>(data);
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaFieldNotFilterableException>(data);
         }
     
     }
@@ -7229,6 +7479,31 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
     [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class SchemaFieldDynamicViewFieldInvalidFilterTemplateException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("schemaId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string SchemaId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("fieldId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string FieldId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("errors", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> Errors { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static SchemaFieldDynamicViewFieldInvalidFilterTemplateException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SchemaFieldDynamicViewFieldInvalidFilterTemplateException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
     public partial class DeleteContentsWithReferencesException : PictureparkValidationException
     {
         [Newtonsoft.Json.JsonProperty("numberOfReferences", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -7570,6 +7845,81 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<ConcurrentFileReplacementDuringRepairException>(data);
         }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class ContentResolveBehaviorNotSupportedException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("behaviors", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public System.Collections.Generic.ICollection<ContentResolveBehavior> Behaviors { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static ContentResolveBehaviorNotSupportedException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentResolveBehaviorNotSupportedException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public enum ContentResolveBehavior
+    {
+        [System.Runtime.Serialization.EnumMember(Value = @"Content")]
+        Content = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"LinkedListItems")]
+        LinkedListItems = 1,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Metadata")]
+        Metadata = 2,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Outputs")]
+        Outputs = 3,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"InnerDisplayValueThumbnail")]
+        InnerDisplayValueThumbnail = 4,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"InnerDisplayValueList")]
+        InnerDisplayValueList = 5,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"InnerDisplayValueDetail")]
+        InnerDisplayValueDetail = 6,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"InnerDisplayValueName")]
+        InnerDisplayValueName = 7,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Owner")]
+        Owner = 8,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Permissions")]
+        Permissions = 9,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"OuterDisplayValueThumbnail")]
+        OuterDisplayValueThumbnail = 10,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"OuterDisplayValueList")]
+        OuterDisplayValueList = 11,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"OuterDisplayValueDetail")]
+        OuterDisplayValueDetail = 12,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"OuterDisplayValueName")]
+        OuterDisplayValueName = 13,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"HistoricVersionCount")]
+        HistoricVersionCount = 14,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"DynamicViewFields")]
+        DynamicViewFields = 15,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"DynamicViewFieldsWithHasItems")]
+        DynamicViewFieldsWithHasItems = 16,
     
     }
     
@@ -8850,6 +9200,41 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
     [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class BusinessRuleOutputFormatIdMissingException : PictureparkValidationException
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static BusinessRuleOutputFormatIdMissingException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessRuleOutputFormatIdMissingException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class BusinessRuleEnqueueCreateEmbedActionExpirationDateInvalidException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("expirationDate", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ExpirationDate { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static BusinessRuleEnqueueCreateEmbedActionExpirationDateInvalidException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessRuleEnqueueCreateEmbedActionExpirationDateInvalidException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
     public partial class NamedCacheConfigurationException : PictureparkValidationException
     {
         [Newtonsoft.Json.JsonProperty("innerExceptions", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -9677,43 +10062,99 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
-    public partial class ProblemDetails 
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class CommentNotFoundException : PictureparkNotFoundException
     {
-        [Newtonsoft.Json.JsonProperty("type", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Type { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("title", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Title { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("status", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? Status { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("detail", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Detail { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("instance", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Instance { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("extensions", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.IDictionary<string, object> Extensions { get; set; }
-    
-        private System.Collections.Generic.IDictionary<string, object> _additionalProperties = new System.Collections.Generic.Dictionary<string, object>();
-    
-        [Newtonsoft.Json.JsonExtensionData]
-        public System.Collections.Generic.IDictionary<string, object> AdditionalProperties
-        {
-            get { return _additionalProperties; }
-            set { _additionalProperties = value; }
-        }
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Id { get; set; }
     
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
         }
     
-        public static ProblemDetails FromJson(string data)
+        public static CommentNotFoundException FromJson(string data)
         {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<ProblemDetails>(data);
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<CommentNotFoundException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class CommentOwnershipFailureException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("commentId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string CommentId { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static CommentOwnershipFailureException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<CommentOwnershipFailureException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class CommentReplyDeletionException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("commentId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string CommentId { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static CommentReplyDeletionException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<CommentReplyDeletionException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class CommentReplyParentException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("parentId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ParentId { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static CommentReplyParentException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<CommentReplyParentException>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class CommentReplyContentMismatchException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("parentId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ParentId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("contentId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ContentId { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static CommentReplyContentMismatchException FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<CommentReplyContentMismatchException>(data);
         }
     
     }
@@ -10233,6 +10674,10 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [Newtonsoft.Json.JsonProperty("contentStatistics", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public StatisticsLicenseState ContentStatistics { get; set; }
     
+        /// <summary>Image optimization licensing options</summary>
+        [Newtonsoft.Json.JsonProperty("imageOptimization", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public ImageOptimizationLicenseState ImageOptimization { get; set; }
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -10313,6 +10758,29 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         public static StatisticsLicenseState FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<StatisticsLicenseState>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class ImageOptimizationLicenseState 
+    {
+        /// <summary>Whether image optimization can be used when delivering embeds.</summary>
+        [Newtonsoft.Json.JsonProperty("embedDelivery", Required = Newtonsoft.Json.Required.Always)]
+        public bool EmbedDelivery { get; set; }
+    
+        /// <summary>Whether edit output endpoint is available in API.</summary>
+        [Newtonsoft.Json.JsonProperty("apiOutputEditing", Required = Newtonsoft.Json.Required.Always)]
+        public bool ApiOutputEditing { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static ImageOptimizationLicenseState FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ImageOptimizationLicenseState>(data);
         }
     
     }
@@ -11172,6 +11640,10 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.TimeSpan IncompleteTransferRetentionTime { get; set; }
     
+        [Newtonsoft.Json.JsonProperty("rollingIndexCreationScheduleTime", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public System.TimeSpan RollingIndexCreationScheduleTime { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("documentHistoryRetentionTime", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.TimeSpan DocumentHistoryRetentionTime { get; set; }
@@ -11565,7 +12037,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [Newtonsoft.Json.JsonProperty("downloadFileNamePatterns", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public TranslatedStringDictionary DownloadFileNamePatterns { get; set; }
     
-        /// <summary>Indicates if outputs of this or derived formats should be accessible also for users not having AccessOriginal permission on the content.</summary>
+        /// <summary>Indicates if outputs of this format should be accessible for users not having AccessOriginal permission on the content.</summary>
         [Newtonsoft.Json.JsonProperty("viewForAll", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool ViewForAll { get; set; }
     
@@ -13155,6 +13627,10 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.TimeSpan OwnerTokenRetentionTime { get; set; }
     
+        [Newtonsoft.Json.JsonProperty("rollingIndexCreationScheduleTime", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public System.TimeSpan RollingIndexCreationScheduleTime { get; set; }
+    
         [Newtonsoft.Json.JsonProperty("documentHistoryRetentionTime", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.TimeSpan DocumentHistoryRetentionTime { get; set; }
@@ -13335,6 +13811,10 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [Newtonsoft.Json.JsonProperty("ownerTokenRetentionTime", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
         public System.TimeSpan OwnerTokenRetentionTime { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("rollingIndexCreationScheduleTime", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        public System.TimeSpan RollingIndexCreationScheduleTime { get; set; }
     
         [Newtonsoft.Json.JsonProperty("documentHistoryRetentionTime", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
@@ -14910,7 +15390,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class MessagesInFlight : QueuePriorityModelConfiguration
     {
-        [Newtonsoft.Json.JsonProperty("function", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("function", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public QueuePriorityMathFunctionAndArguments Function { get; set; }
     
         public string ToJson() 
@@ -16747,10 +17227,10 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class DataExtractionRepairEvent : ApplicationEvent
     {
-        [Newtonsoft.Json.JsonProperty("contentRepairRequestId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("contentRepairRequestId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ContentRepairRequestId { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("contentId", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("contentId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ContentId { get; set; }
     
         [Newtonsoft.Json.JsonProperty("error", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -17307,6 +17787,155 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         public static VectorMetadata FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<VectorMetadata>(data);
+        }
+    
+    }
+    
+    /// <summary>Meta information for a dynamic view field</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class DynamicViewFieldMeta : DynamicViewFieldMetaBase
+    {
+        /// <summary>Filter for the dynamic view field.</summary>
+        [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public FilterBase Filter { get; set; } = new FilterBase();
+    
+        /// <summary>Sorting information.</summary>
+        [Newtonsoft.Json.JsonProperty("sort", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<SortInfo> Sort { get; set; }
+    
+        /// <summary>Target doc type.</summary>
+        [Newtonsoft.Json.JsonProperty("targetDocType", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public string TargetDocType { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static DynamicViewFieldMeta FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<DynamicViewFieldMeta>(data);
+        }
+    
+    }
+    
+    /// <summary>Sorting information</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class SortInfo 
+    {
+        /// <summary>The field's ID to sort on.</summary>
+        [Newtonsoft.Json.JsonProperty("field", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Field { get; set; }
+    
+        /// <summary>The sort direction (ascending/descending).</summary>
+        [Newtonsoft.Json.JsonProperty("direction", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public SortDirection Direction { get; set; } = Picturepark.SDK.V1.CloudManager.Contract.SortDirection.Asc;
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static SortInfo FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SortInfo>(data);
+        }
+    
+    }
+    
+    /// <summary>The sort direction</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public enum SortDirection
+    {
+        [System.Runtime.Serialization.EnumMember(Value = @"Asc")]
+        Asc = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Desc")]
+        Desc = 1,
+    
+    }
+    
+    /// <summary>Base class of meta information for a dynamic view field</summary>
+    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
+    [JsonInheritanceAttribute("DynamicViewFieldMeta", typeof(DynamicViewFieldMeta))]
+    [JsonInheritanceAttribute("DynamicViewFieldMetaWithRenderingError", typeof(DynamicViewFieldMetaWithRenderingError))]
+    [JsonInheritanceAttribute("DynamicViewFieldMetaWithHasItems", typeof(DynamicViewFieldMetaWithHasItems))]
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public abstract partial class DynamicViewFieldMetaBase 
+    {
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static DynamicViewFieldMetaBase FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<DynamicViewFieldMetaBase>(data);
+        }
+    
+    }
+    
+    /// <summary>Meta information for a dynamic view field including a flag that indicates if the rendered filter does match some items.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class DynamicViewFieldMetaWithHasItems : DynamicViewFieldMeta
+    {
+        /// <summary>indicates if the rendered filter does match some items.</summary>
+        [Newtonsoft.Json.JsonProperty("hasItems", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool HasItems { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static DynamicViewFieldMetaWithHasItems FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<DynamicViewFieldMetaWithHasItems>(data);
+        }
+    
+    }
+    
+    /// <summary>Meta information for a dynamic view field where the filter could not be rendered successfully.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class DynamicViewFieldMetaWithRenderingError : DynamicViewFieldMetaBase
+    {
+        /// <summary>Error.</summary>
+        [Newtonsoft.Json.JsonProperty("error", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Error { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static DynamicViewFieldMetaWithRenderingError FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<DynamicViewFieldMetaWithRenderingError>(data);
+        }
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class ContentBackupFileRemoveInfo 
+    {
+        [Newtonsoft.Json.JsonProperty("customerId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string CustomerId { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("filePath", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string FilePath { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static ContentBackupFileRemoveInfo FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ContentBackupFileRemoveInfo>(data);
         }
     
     }

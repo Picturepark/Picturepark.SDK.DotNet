@@ -153,5 +153,27 @@ namespace Picturepark.SDK.V1.Contract
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>Download link</returns>
         Task<DownloadLink> GetVersionDownloadLinkAsync(string contentId, int version, CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Get a comment
+        /// </summary>
+        /// <param name="id">Comment ID</param>
+        /// <returns>Comment</returns>
+        Task<Comment> GetCommentAsync(string id);
+
+        /// <summary>
+        /// Update a comment
+        /// </summary>
+        /// <param name="id">Comment ID</param>
+        /// <param name="request">What should be updated</param>
+        /// <returns>Updated comment</returns>
+        Task<Comment> UpdateCommentAsync(string id, CommentEditable request);
+
+        /// <summary>
+        /// Delete a comment
+        /// </summary>
+        /// <param name="id">Comment ID</param>
+        /// <returns>OK</returns>
+        Task DeleteCommentAsync(string id);
     }
 }

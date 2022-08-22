@@ -12,6 +12,7 @@ using FluentAssertions;
 using Picturepark.SDK.V1.Builders;
 using Picturepark.SDK.V1.Contract.Attributes.Analyzer;
 using Picturepark.SDK.V1.Contract.Providers;
+using Picturepark.SDK.V1.Contract.SystemTypes;
 using Picturepark.SDK.V1.Providers;
 using Xunit;
 
@@ -84,18 +85,19 @@ namespace Picturepark.SDK.V1.Tests.Conversion
 
             // Assert
             var type = allTypes.Single(t => t.Id == nameof(ClassWithSimpleRelationAndSchemaIndexingInfoProvider));
-            var field = (FieldSingleRelation)type.Fields.Single(f => f.Id == "relationField");
+            var field = type.Fields.Should().ContainSingle(f => f.Id == "relationField").Which.Should().BeOfType<FieldSingleRelation>().Which;
             field.UiSettings.Should().NotBeNull();
-            field.UiSettings.View.Should().Be(RelationView.ThumbMedium);
+            field.UiSettings.View.Should().Be(ItemFieldViewMode.ThumbMedium);
             field.UiSettings.MaxListRows.Should().Be(6);
             field.UiSettings.MaxThumbRows.Should().Be(3);
+            field.UiSettings.ShowRelatedContentOnDownload.Should().BeFalse();
         }
 
         [PictureparkSchema(SchemaType.Content)]
         public class ClassWithSimpleRelationAndSchemaIndexingInfoProvider
         {
             [PictureparkContentRelation("RelationName", "{ 'kind': 'TermFilter', 'field': 'contentType', term: 'Bitmap' }")]
-            [PictureparkRelationUiSettings(RelationView.ThumbMedium, maxListRows: 6, maxThumbRows: 3)]
+            [PictureparkRelationUiSettings(ItemFieldViewMode.ThumbMedium, maxListRows: 6, maxThumbRows: 3, showRelatedContentOnDownload: false)]
             [PictureparkSchemaIndexing(typeof(RelationFieldSchemaIndexingInfoProvider))]
             public SimpleRelation RelationField { get; set; }
 
@@ -357,6 +359,67 @@ namespace Picturepark.SDK.V1.Tests.Conversion
         {
             [PictureparkSearch(Boost = 1.3, Index = false, SimpleSearch = true)]
             public TriggerObject Trigger { get; set; }
+        }
+
+        [Fact]
+        [Trait("Stack", "SchemaCreation")]
+        public async Task ShouldGenerateDynamicViewField()
+        {
+            var schemas = await _client.Schema.GenerateSchemasAsync(typeof(ListWithDynamicView)).ConfigureAwait(false);
+            var schema = schemas.Should().ContainSingle().Which;
+
+            var viewField = schema.Fields.Should().ContainSingle().Which.Should().BeOfType<FieldDynamicView>().Which;
+
+            viewField.TargetDocType.Should().Be(nameof(Content));
+
+            viewField.Index.Should().BeFalse();
+            viewField.SimpleSearch.Should().BeFalse();
+            viewField.Sortable.Should().BeFalse();
+            viewField.Required.Should().BeFalse();
+
+            var filterTemplate = viewField.FilterTemplate.Should().BeOfType<TermsFilter>().Which;
+            filterTemplate.Field.Should().Be(ListWithDynamicView.DynamicViewFilterProvider.Field);
+            filterTemplate.Terms.Should().Contain(ListWithDynamicView.DynamicViewFilterProvider.FilterTerms);
+
+            var uiSettings = viewField.ViewUiSettings;
+            uiSettings.Should().NotBeNull();
+            uiSettings.View.Should().Be(ItemFieldViewMode.ThumbMedium);
+            uiSettings.MaxListRows.Should().Be(20);
+            uiSettings.MaxThumbRows.Should().Be(5);
+            uiSettings.ShowRelatedContentOnDownload.Should().BeTrue();
+
+            var sort = viewField.Sort;
+            sort.Should().HaveCount(2);
+
+            var firstSort = sort.First();
+            firstSort.Field.Should().Be(ListWithDynamicView.DynamicViewFilterProvider.Field);
+            firstSort.Direction.Should().Be(SortDirection.Asc);
+
+            var lastSort = sort.Last();
+            lastSort.Field.Should().Be(ListWithDynamicView.DynamicViewFilterProvider.Field + "Desc");
+            lastSort.Direction.Should().Be(SortDirection.Desc);
+        }
+
+        [PictureparkSchema(SchemaType.List)]
+        public class ListWithDynamicView
+        {
+            [PictureparkDynamicView(typeof(DynamicViewFilterProvider))]
+            [PictureparkDynamicViewUiSettings(ItemFieldViewMode.ThumbMedium, maxListRows: 20, maxThumbRows: 5, showRelatedContentOnDownload: true)]
+            [PictureparkDynamicViewSort(DynamicViewFilterProvider.Field, SortDirection.Asc)]
+            [PictureparkDynamicViewSort(DynamicViewFilterProvider.Field + "Desc", SortDirection.Desc)]
+            public DynamicViewObject ViewField { get; set; }
+
+            internal class DynamicViewFilterProvider : IFilterProvider
+            {
+                public const string Field = "layer1.field1";
+                public static readonly string[] FilterTerms = new[] { "{{metadata.layer1.field2}}", "{{content.field2.en}}", "hardcodedValue" };
+
+                public FilterBase GetFilter() => new TermsFilter
+                {
+                    Field = Field,
+                    Terms = FilterTerms
+                };
+            }
         }
 
         [Fact]

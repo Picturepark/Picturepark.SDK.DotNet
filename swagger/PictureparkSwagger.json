@@ -1,5 +1,5 @@
 {
-  "x-generator": "NSwag v13.13.2.0 (NJsonSchema v10.5.2.0 (Newtonsoft.Json v12.0.0.0))",
+  "x-generator": "NSwag v13.14.8.0 (NJsonSchema v10.5.2.0 (Newtonsoft.Json v13.0.0.0))",
   "openapi": "3.0.0",
   "info": {
     "title": "Picturepark API V1",
@@ -1031,7 +1031,7 @@
         ],
         "responses": {
           "200": {
-            "description": "BusinessProcessSummaryBaseViewItem",
+            "description": "BusinessProcessSummaryBase",
             "content": {
               "application/json": {
                 "schema": {
@@ -1152,7 +1152,7 @@
         ],
         "responses": {
           "200": {
-            "description": "BusinessProcessBatchViewItem",
+            "description": "BusinessProcessBatch",
             "content": {
               "application/json": {
                 "schema": {
@@ -1273,7 +1273,7 @@
         ],
         "responses": {
           "200": {
-            "description": "BusinessProcessBatchViewItem",
+            "description": "BusinessProcessBatch",
             "content": {
               "application/json": {
                 "schema": {
@@ -8325,6 +8325,624 @@
         ]
       }
     },
+    "/v1/Contents/{id}/comments/{commentId}": {
+      "get": {
+        "tags": [
+          "Content"
+        ],
+        "summary": "Get comment",
+        "operationId": "Content_GetComment",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Content ID.",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 1
+          },
+          {
+            "name": "commentId",
+            "in": "path",
+            "required": true,
+            "description": "Comment ID.",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 2
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Comment if found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Comment"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            },
+            "x-expectedSchemas": [
+              {
+                "description": "Entity not found",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkNotFoundException"
+                    }
+                  ]
+                }
+              },
+              {
+                "description": "Comment not found",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/CommentNotFoundException"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "content_read"
+            ]
+          }
+        ]
+      },
+      "put": {
+        "tags": [
+          "Content"
+        ],
+        "summary": "Update comment",
+        "operationId": "Content_UpdateComment",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Content ID.",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 1
+          },
+          {
+            "name": "commentId",
+            "in": "path",
+            "required": true,
+            "description": "Comment ID.",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 2
+          },
+          {
+            "name": "timeout",
+            "in": "query",
+            "description": "Operation timeout.",
+            "schema": {
+              "type": "string",
+              "format": "time-span",
+              "nullable": true
+            },
+            "x-position": 4
+          }
+        ],
+        "requestBody": {
+          "x-name": "request",
+          "description": "Comment update.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CommentEditable"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 3
+        },
+        "responses": {
+          "200": {
+            "description": "Updated comment",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Comment"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "content_write"
+            ]
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "Content"
+        ],
+        "summary": "Delete comment",
+        "operationId": "Content_DeleteComment",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Content ID.",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 1
+          },
+          {
+            "name": "commentId",
+            "in": "path",
+            "required": true,
+            "description": "Comment ID.",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 2
+          },
+          {
+            "name": "timeout",
+            "in": "query",
+            "description": "Operation timeout.",
+            "schema": {
+              "type": "string",
+              "format": "time-span",
+              "nullable": true
+            },
+            "x-position": 3
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "content_write"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/Contents/{id}/comments": {
+      "post": {
+        "tags": [
+          "Content"
+        ],
+        "summary": "Create comment",
+        "operationId": "Content_CreateComment",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Content ID.",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 1
+          },
+          {
+            "name": "timeout",
+            "in": "query",
+            "description": "Operation timeout.",
+            "schema": {
+              "type": "string",
+              "format": "time-span",
+              "nullable": true
+            },
+            "x-position": 3
+          }
+        ],
+        "requestBody": {
+          "x-name": "request",
+          "description": "Comment creation request.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CommentCreateRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 2
+        },
+        "responses": {
+          "200": {
+            "description": "Created comment",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Comment"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "content_write"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/Contents/{id}/comments/search": {
+      "post": {
+        "tags": [
+          "Content"
+        ],
+        "summary": "Search comments",
+        "operationId": "Content_SearchComments",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Content ID.",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 1
+          }
+        ],
+        "requestBody": {
+          "x-name": "request",
+          "description": "Search request.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CommentSearchRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 2
+        },
+        "responses": {
+          "200": {
+            "description": "List of found comments",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CommentSearchResult"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "content_read"
+            ]
+          }
+        ]
+      }
+    },
     "/v1/ConversionPresetTemplates/search": {
       "post": {
         "tags": [
@@ -13603,13 +14221,16 @@
         "operationId": "Notification_GetAvailableNotificationTypes",
         "responses": {
           "200": {
-            "description": "Array of Notification that is available for email settings.",
+            "description": null,
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/NotificationType"
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/NotificationType"
+                    }
                   }
                 }
               }
@@ -14020,7 +14641,7 @@
         ],
         "summary": "Enables or disables XMP writeback for multiple output formats",
         "description": "This is allowed for both static and dynamic formats.\nHowever, enabling XMP writeback for Thumbnail formats or temporary formats is not allowed. The operation is executed asynchronously and is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.",
-        "operationId": "OutputFormat_SetXmpWritebackState2",
+        "operationId": "OutputFormat_SetXmpWritebackStateMany",
         "requestBody": {
           "x-name": "request",
           "description": "The request containing the state changes for each output format.",
@@ -14028,6 +14649,221 @@
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/OutputFormatSetXmpWritebackStateManyRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "Business process",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BusinessProcess"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "outputformat_write"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/OutputFormats/{id}/permission": {
+      "put": {
+        "tags": [
+          "OutputFormat"
+        ],
+        "summary": "Updates permission-related settings for an output format",
+        "description": "This is allowed for both static and dynamic formats. The operation is executed asynchronously and is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.",
+        "operationId": "OutputFormat_SetPermission",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "ID of the output format.",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 1
+          }
+        ],
+        "requestBody": {
+          "x-name": "request",
+          "description": "The request containing the settings for the output format.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OutputFormatSetPermissionRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 2
+        },
+        "responses": {
+          "200": {
+            "description": "Business process",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BusinessProcess"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "outputformat_write"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/OutputFormats/many/permission": {
+      "put": {
+        "tags": [
+          "OutputFormat"
+        ],
+        "summary": "Updates permission-related settings for multiple output formats",
+        "description": "This is allowed for both static and dynamic formats. The operation is executed asynchronously and is not awaited. Call [WaitForCompletion](#operation/BusinessProcess_WaitForCompletion) to wait for the process to finish.",
+        "operationId": "OutputFormat_SetPermissionMany",
+        "requestBody": {
+          "x-name": "request",
+          "description": "The request containing the state changes for each output format.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OutputFormatSetPermissionManyRequest"
               }
             }
           },
@@ -19142,6 +19978,113 @@
                   "type": "array",
                   "items": {
                     "$ref": "#/components/schemas/FieldInfo"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "schema_read"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/Schemas/many/sortFieldsBySchemaType": {
+      "get": {
+        "tags": [
+          "Schema"
+        ],
+        "summary": "Retrieve the fields that can be used for sorting.",
+        "operationId": "Schema_GetSortFieldsBySchemaTypes",
+        "parameters": [
+          {
+            "name": "schemaTypes",
+            "in": "query",
+            "style": "form",
+            "explode": true,
+            "description": "Schema types to include in search",
+            "schema": {
+              "type": "array",
+              "nullable": true,
+              "items": {
+                "$ref": "#/components/schemas/SchemaType"
+              }
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The list of fields",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SortFieldInfo"
                   }
                 }
               }
@@ -29101,6 +30044,17 @@
           }
         ]
       },
+      "ImageOptimizationLicensingException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
       "LeaseNotAcquiredException": {
         "allOf": [
           {
@@ -30301,7 +31255,9 @@
           "WriteStatistics",
           "ExportStatistics",
           "EditImages",
-          "ManageConversionPresetTemplates"
+          "ManageConversionPresetTemplates",
+          "ManageComments",
+          "ManageAllComments"
         ],
         "enum": [
           "ManageContent",
@@ -30329,7 +31285,9 @@
           "WriteStatistics",
           "ExportStatistics",
           "EditImages",
-          "ManageConversionPresetTemplates"
+          "ManageConversionPresetTemplates",
+          "ManageComments",
+          "ManageAllComments"
         ]
       },
       "PermissionSetNotFoundException": {
@@ -30706,6 +31664,58 @@
               }
             }
           }
+        ]
+      },
+      "ListItemResolveBehaviorNotSupportedException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "behaviors": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/ListItemResolveBehavior"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "ListItemResolveBehavior": {
+        "type": "string",
+        "description": "",
+        "x-enumNames": [
+          "Content",
+          "LinkedListItems",
+          "InnerDisplayValueThumbnail",
+          "InnerDisplayValueList",
+          "InnerDisplayValueDetail",
+          "InnerDisplayValueName",
+          "OuterDisplayValueThumbnail",
+          "OuterDisplayValueList",
+          "OuterDisplayValueDetail",
+          "OuterDisplayValueName",
+          "DynamicViewFields",
+          "DynamicViewFieldsWithHasItems"
+        ],
+        "enum": [
+          "Content",
+          "LinkedListItems",
+          "InnerDisplayValueThumbnail",
+          "InnerDisplayValueList",
+          "InnerDisplayValueDetail",
+          "InnerDisplayValueName",
+          "OuterDisplayValueThumbnail",
+          "OuterDisplayValueList",
+          "OuterDisplayValueDetail",
+          "OuterDisplayValueName",
+          "DynamicViewFields",
+          "DynamicViewFieldsWithHasItems"
         ]
       },
       "TransferInfoNotFoundException": {
@@ -31365,6 +32375,34 @@
           }
         ]
       },
+      "FilterTemplateRenderingException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "ResolvedLinkedItemsThresholdReachedException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "metadataItemId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
       "SchemaFieldOverwriteTypeMismatchException": {
         "allOf": [
           {
@@ -32014,7 +33052,7 @@
           }
         ]
       },
-      "SchemaFieldIndexException": {
+      "SchemaFieldNotFilterableException": {
         "allOf": [
           {
             "$ref": "#/components/schemas/PictureparkValidationException"
@@ -32942,6 +33980,34 @@
           }
         ]
       },
+      "SchemaFieldDynamicViewFieldInvalidFilterTemplateException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "schemaId": {
+                "type": "string",
+                "nullable": true
+              },
+              "fieldId": {
+                "type": "string",
+                "nullable": true
+              },
+              "errors": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ]
+      },
       "DeleteContentsWithReferencesException": {
         "allOf": [
           {
@@ -33260,6 +34326,68 @@
               }
             }
           }
+        ]
+      },
+      "ContentResolveBehaviorNotSupportedException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "behaviors": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/ContentResolveBehavior"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "ContentResolveBehavior": {
+        "type": "string",
+        "description": "",
+        "x-enumNames": [
+          "Content",
+          "LinkedListItems",
+          "Metadata",
+          "Outputs",
+          "InnerDisplayValueThumbnail",
+          "InnerDisplayValueList",
+          "InnerDisplayValueDetail",
+          "InnerDisplayValueName",
+          "Owner",
+          "Permissions",
+          "OuterDisplayValueThumbnail",
+          "OuterDisplayValueList",
+          "OuterDisplayValueDetail",
+          "OuterDisplayValueName",
+          "HistoricVersionCount",
+          "DynamicViewFields",
+          "DynamicViewFieldsWithHasItems"
+        ],
+        "enum": [
+          "Content",
+          "LinkedListItems",
+          "Metadata",
+          "Outputs",
+          "InnerDisplayValueThumbnail",
+          "InnerDisplayValueList",
+          "InnerDisplayValueDetail",
+          "InnerDisplayValueName",
+          "Owner",
+          "Permissions",
+          "OuterDisplayValueThumbnail",
+          "OuterDisplayValueList",
+          "OuterDisplayValueDetail",
+          "OuterDisplayValueName",
+          "HistoricVersionCount",
+          "DynamicViewFields",
+          "DynamicViewFieldsWithHasItems"
         ]
       },
       "BusinessProcessEngineRequestException": {
@@ -34353,6 +35481,34 @@
           }
         ]
       },
+      "BusinessRuleOutputFormatIdMissingException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "BusinessRuleEnqueueCreateEmbedActionExpirationDateInvalidException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "expirationDate": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
       "NamedCacheConfigurationException": {
         "allOf": [
           {
@@ -35086,39 +36242,94 @@
           }
         ]
       },
-      "ProblemDetails": {
-        "type": "object",
-        "additionalProperties": {
-          "nullable": true
-        },
-        "properties": {
-          "type": {
-            "type": "string",
-            "nullable": true
+      "CommentNotFoundException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkNotFoundException"
           },
-          "title": {
-            "type": "string",
-            "nullable": true
-          },
-          "status": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "detail": {
-            "type": "string",
-            "nullable": true
-          },
-          "instance": {
-            "type": "string",
-            "nullable": true
-          },
-          "extensions": {
+          {
             "type": "object",
-            "nullable": true,
-            "additionalProperties": {}
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string",
+                "nullable": true
+              }
+            }
           }
-        }
+        ]
+      },
+      "CommentOwnershipFailureException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "commentId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "CommentReplyDeletionException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "commentId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "CommentReplyParentException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "parentId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "CommentReplyContentMismatchException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "parentId": {
+                "type": "string",
+                "nullable": true
+              },
+              "contentId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
       },
       "BusinessProcessCreateRequest": {
         "type": "object",
@@ -36714,6 +37925,7 @@
             "ContentPermissionSetAssignedCondition": "#/components/schemas/ContentPermissionSetAssignedCondition",
             "ContentPermissionSetUnassignedCondition": "#/components/schemas/ContentPermissionSetUnassignedCondition",
             "FieldValueChangedCondition": "#/components/schemas/FieldValueChangedCondition",
+            "FieldValueCondition": "#/components/schemas/FieldValueCondition",
             "MatchRegexCondition": "#/components/schemas/MatchRegexCondition",
             "StringContainsCondition": "#/components/schemas/StringContainsCondition",
             "UserInUserRolesCondition": "#/components/schemas/UserInUserRolesCondition",
@@ -36898,6 +38110,29 @@
           {
             "type": "object",
             "description": "Matches when a field matching the field path string (JSON path) changes to the expected value.",
+            "additionalProperties": false,
+            "properties": {
+              "fieldPath": {
+                "type": "string",
+                "description": "JSON path to the field",
+                "nullable": true
+              },
+              "expectedValue": {
+                "description": "Expected value for the field to have to satisfy the condition",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "FieldValueCondition": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BusinessRuleCondition"
+          },
+          {
+            "type": "object",
+            "description": "Matches when a field matching the field path string (JSON path) has the expected value.",
             "additionalProperties": false,
             "properties": {
               "fieldPath": {
@@ -37677,7 +38912,8 @@
             "EnqueueTaggingAction": "#/components/schemas/EnqueueTaggingAction",
             "ProduceNotificationAction": "#/components/schemas/ProduceNotificationAction",
             "GetNumberFromNumberSequenceAction": "#/components/schemas/GetNumberFromNumberSequenceAction",
-            "EnqueueTransferOwnershipAction": "#/components/schemas/EnqueueTransferOwnershipAction"
+            "EnqueueTransferOwnershipAction": "#/components/schemas/EnqueueTransferOwnershipAction",
+            "EnqueueCreateEmbedAction": "#/components/schemas/EnqueueCreateEmbedAction"
           }
         },
         "description": "Action to be performed by a business rule",
@@ -38210,6 +39446,58 @@
               "transferUserId": {
                 "type": "string",
                 "description": "Id of the user to whom the ownership should be transferred.",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "EnqueueCreateEmbedAction": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BusinessRuleAction"
+          },
+          {
+            "type": "object",
+            "description": "Enqueue creation of an embed",
+            "additionalProperties": false,
+            "required": [
+              "outputFormatId"
+            ],
+            "properties": {
+              "embedName": {
+                "type": "string",
+                "description": "Name of the embed. If empty, it will be automatically initialized with the 'Embed_{RuleId}'.",
+                "nullable": true
+              },
+              "embedDescription": {
+                "type": "string",
+                "description": "Optional description of the embed.",
+                "nullable": true
+              },
+              "outputFormatId": {
+                "type": "string",
+                "description": "Output format of the content to be embedded.",
+                "minLength": 1
+              },
+              "conversionString": {
+                "type": "string",
+                "description": "Optional conversion to apply to the output.",
+                "nullable": true
+              },
+              "lockDeliveryOptions": {
+                "type": "boolean",
+                "description": "Indicates if the conversion is locked and therefore cannot be changed by the caller of the embed URI.",
+                "default": true
+              },
+              "expirationDate": {
+                "type": "string",
+                "description": "Optional date when embed expires and cannot be accessed anymore: It must be in ISO format, with or without milliseconds 'yyyy-MM-ddTHH:mm:ss(.fffffff)K'.",
+                "nullable": true
+              },
+              "storeIn": {
+                "type": "string",
+                "description": "Optional variable name to store in the url of the embed that will be created.",
                 "nullable": true
               }
             }
@@ -39392,6 +40680,7 @@
           },
           "direction": {
             "description": "The sort direction (ascending/descending).",
+            "default": "Asc",
             "oneOf": [
               {
                 "$ref": "#/components/schemas/SortDirection"
@@ -41108,43 +42397,41 @@
           }
         }
       },
-      "ContentResolveBehavior": {
-        "type": "string",
-        "description": "",
-        "x-enumNames": [
-          "Content",
-          "LinkedListItems",
-          "Metadata",
-          "Outputs",
-          "InnerDisplayValueThumbnail",
-          "InnerDisplayValueList",
-          "InnerDisplayValueDetail",
-          "InnerDisplayValueName",
-          "Owner",
-          "Permissions",
-          "OuterDisplayValueThumbnail",
-          "OuterDisplayValueList",
-          "OuterDisplayValueDetail",
-          "OuterDisplayValueName",
-          "HistoricVersionCount"
+      "ProblemDetails": {
+        "type": "object",
+        "additionalProperties": {
+          "nullable": true
+        },
+        "required": [
+          "extensions"
         ],
-        "enum": [
-          "Content",
-          "LinkedListItems",
-          "Metadata",
-          "Outputs",
-          "InnerDisplayValueThumbnail",
-          "InnerDisplayValueList",
-          "InnerDisplayValueDetail",
-          "InnerDisplayValueName",
-          "Owner",
-          "Permissions",
-          "OuterDisplayValueThumbnail",
-          "OuterDisplayValueList",
-          "OuterDisplayValueDetail",
-          "OuterDisplayValueName",
-          "HistoricVersionCount"
-        ]
+        "properties": {
+          "type": {
+            "type": "string",
+            "nullable": true
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "detail": {
+            "type": "string",
+            "nullable": true
+          },
+          "instance": {
+            "type": "string",
+            "nullable": true
+          },
+          "extensions": {
+            "type": "object",
+            "additionalProperties": {}
+          }
+        }
       },
       "ThumbnailSize": {
         "type": "string",
@@ -43235,6 +44522,171 @@
           }
         }
       },
+      "Comment": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/CommentEditable"
+          },
+          {
+            "type": "object",
+            "description": "Represents a comment",
+            "additionalProperties": false,
+            "required": [
+              "id",
+              "contentId"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "description": "Comment ID.",
+                "minLength": 1
+              },
+              "contentId": {
+                "type": "string",
+                "description": "ID of the content this comment is on.",
+                "minLength": 1
+              },
+              "parentId": {
+                "type": "string",
+                "description": "ID of the parent comment, in case this comment is a reply.",
+                "nullable": true
+              },
+              "audit": {
+                "description": "Audit information.",
+                "nullable": true,
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/UserAuditDetail"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "CommentEditable": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "message"
+        ],
+        "properties": {
+          "message": {
+            "type": "string",
+            "description": "Text of the comment message.",
+            "minLength": 1
+          }
+        }
+      },
+      "CommentCreateRequest": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/CommentEditable"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "parentId": {
+                "type": "string",
+                "description": "ID of the parent comment, in case the comment should be a reply.",
+                "nullable": true
+              },
+              "requestId": {
+                "type": "string",
+                "description": "Optional client reference for this request.\nWill be returned back in response to make easier for clients to match request items with the respective results.\nIt is not persisted anywhere and it is ignored in single operations.",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "CommentSearchResult": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BaseResultOfComment"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "queryDebugInformation": {
+                "type": "array",
+                "description": "Additional information regarding the query execution and reason of the matched documents. Multiple items are returned if multiple queries were performed.",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/QueryDebugInformation"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "BaseResultOfComment": {
+        "type": "object",
+        "description": "Base class for search results",
+        "additionalProperties": false,
+        "required": [
+          "results",
+          "totalResults",
+          "elapsedMilliseconds"
+        ],
+        "properties": {
+          "totalResults": {
+            "type": "integer",
+            "description": "The total number of matching documents.",
+            "format": "int64"
+          },
+          "results": {
+            "type": "array",
+            "description": "The matched documents.",
+            "items": {
+              "$ref": "#/components/schemas/Comment"
+            }
+          },
+          "elapsedMilliseconds": {
+            "type": "integer",
+            "description": "The search execution time in milliseconds.",
+            "format": "int64"
+          },
+          "pageToken": {
+            "type": "string",
+            "description": "An optional token to access the next page of results for those endpoints that support backend scrolling logic.",
+            "nullable": true
+          }
+        }
+      },
+      "CommentSearchRequest": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "limit",
+          "ascending",
+          "debugMode"
+        ],
+        "properties": {
+          "limit": {
+            "type": "integer",
+            "description": "Limits the document count of the result set. Defaults to 30.",
+            "format": "int32",
+            "default": 30
+          },
+          "ascending": {
+            "type": "boolean",
+            "description": "If set to true, the result set will be sorted in an ascending order based on time of when which comment was originally created, replies will be always in descending order.\nIf false, the result set will be sorted in a descending order of when which comment was originally created."
+          },
+          "pageToken": {
+            "type": "string",
+            "description": "The token used to retrieve the next page of results. It must be null on first request and only filled with the returned pageToken to request next page of results.",
+            "nullable": true
+          },
+          "debugMode": {
+            "type": "boolean",
+            "description": "Enable debug mode: additional debug information regarding the query execution and reason of the matched documents are returned in the CommentSearchResult.\nWarning! It severely affects performance.",
+            "default": false
+          }
+        }
+      },
       "ConversionPresetTemplateSearchResult": {
         "allOf": [
           {
@@ -43333,7 +44785,7 @@
               },
               "outputFormatId": {
                 "type": "string",
-                "description": "The output format ID to which the conversion preset template is associated",
+                "description": "The output format ID to which the conversion preset template is associated.",
                 "minLength": 1
               }
             }
@@ -44219,7 +45671,8 @@
         "additionalProperties": false,
         "required": [
           "historicVersioningState",
-          "contentStatistics"
+          "contentStatistics",
+          "imageOptimization"
         ],
         "properties": {
           "historicVersioningState": {
@@ -44235,6 +45688,14 @@
             "oneOf": [
               {
                 "$ref": "#/components/schemas/StatisticsLicenseState"
+              }
+            ]
+          },
+          "imageOptimization": {
+            "description": "Licensing options for image optimization.",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/ImageOptimizationLicenseState"
               }
             ]
           }
@@ -44279,6 +45740,24 @@
           "export": {
             "type": "boolean",
             "description": "Allows or prevents export of the respective statistics"
+          }
+        }
+      },
+      "ImageOptimizationLicenseState": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "embedDelivery",
+          "apiOutputEditing"
+        ],
+        "properties": {
+          "embedDelivery": {
+            "type": "boolean",
+            "description": "Whether image optimization can be used when delivering embeds."
+          },
+          "apiOutputEditing": {
+            "type": "boolean",
+            "description": "Whether edit output endpoint is available in API."
           }
         }
       },
@@ -44485,34 +45964,6 @@
             ]
           }
         }
-      },
-      "ListItemResolveBehavior": {
-        "type": "string",
-        "description": "",
-        "x-enumNames": [
-          "Content",
-          "LinkedListItems",
-          "InnerDisplayValueThumbnail",
-          "InnerDisplayValueList",
-          "InnerDisplayValueDetail",
-          "InnerDisplayValueName",
-          "OuterDisplayValueThumbnail",
-          "OuterDisplayValueList",
-          "OuterDisplayValueDetail",
-          "OuterDisplayValueName"
-        ],
-        "enum": [
-          "Content",
-          "LinkedListItems",
-          "InnerDisplayValueThumbnail",
-          "InnerDisplayValueList",
-          "InnerDisplayValueDetail",
-          "InnerDisplayValueName",
-          "OuterDisplayValueThumbnail",
-          "OuterDisplayValueList",
-          "OuterDisplayValueDetail",
-          "OuterDisplayValueName"
-        ]
       },
       "ListItemUpdateRequest": {
         "type": "object",
@@ -45578,6 +47029,7 @@
           "StatisticsExportCompleted",
           "StatisticsExportFailed",
           "StatisticsExportCancelled",
+          "NewComment",
           "UserEmailConflictSolved",
           "UserEmailConflictSolvedSubject",
           "SupportUserDeactivation",
@@ -45678,6 +47130,7 @@
           "StatisticsExportCompleted",
           "StatisticsExportFailed",
           "StatisticsExportCancelled",
+          "NewComment",
           "UserEmailConflictSolved",
           "UserEmailConflictSolvedSubject",
           "SupportUserDeactivation",
@@ -45784,7 +47237,8 @@
           "StatisticsExportInProgress",
           "StatisticsExportCompleted",
           "StatisticsExportFailed",
-          "StatisticsExportCancelled"
+          "StatisticsExportCancelled",
+          "NewComment"
         ],
         "enum": [
           "TransferInProgressMessage",
@@ -45883,7 +47337,8 @@
           "StatisticsExportInProgress",
           "StatisticsExportCompleted",
           "StatisticsExportFailed",
-          "StatisticsExportCancelled"
+          "StatisticsExportCancelled",
+          "NewComment"
         ]
       },
       "NotificationDetailBase": {
@@ -45917,7 +47372,8 @@
             "NotificationDetailMetadataItemDeactivationBase": "#/components/schemas/NotificationDetailMetadataItemDeactivationBase",
             "NotificationDetailContentDeactivation": "#/components/schemas/NotificationDetailContentDeactivation",
             "NotificationDetailListItemMetadataBatchEdit": "#/components/schemas/NotificationDetailListItemMetadataBatchEdit",
-            "NotificationDetailListItemDeactivation": "#/components/schemas/NotificationDetailListItemDeactivation"
+            "NotificationDetailListItemDeactivation": "#/components/schemas/NotificationDetailListItemDeactivation",
+            "NotificationDetailComment": "#/components/schemas/NotificationDetailComment"
           }
         },
         "x-abstract": true,
@@ -46486,6 +47942,52 @@
           }
         ]
       },
+      "NotificationDetailComment": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/NotificationDetailBase"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "reason": {
+                "$ref": "#/components/schemas/CommentNotificationReason"
+              },
+              "contentId": {
+                "type": "string",
+                "nullable": true
+              },
+              "commenterName": {
+                "type": "string",
+                "nullable": true
+              },
+              "commentMessage": {
+                "type": "string",
+                "nullable": true
+              },
+              "count": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          }
+        ]
+      },
+      "CommentNotificationReason": {
+        "type": "string",
+        "description": "Reason for a comment notification.",
+        "x-enumNames": [
+          "Owned",
+          "Replied",
+          "Mentioned"
+        ],
+        "enum": [
+          "Owned",
+          "Replied",
+          "Mentioned"
+        ]
+      },
       "NotificationState": {
         "type": "string",
         "description": "",
@@ -46653,6 +48155,21 @@
         "type": "object",
         "description": "Email notification settings",
         "additionalProperties": false,
+        "properties": {
+          "sources": {
+            "type": "object",
+            "description": "Settings for notification sources",
+            "nullable": true,
+            "additionalProperties": {
+              "$ref": "#/components/schemas/EmailNotificationsSourceSettings"
+            }
+          }
+        }
+      },
+      "EmailNotificationsSourceSettings": {
+        "type": "object",
+        "description": "Email notification settings for a specific notification source",
+        "additionalProperties": false,
         "required": [
           "interval",
           "disableAll"
@@ -46687,12 +48204,14 @@
           "Daily",
           "Hourly",
           "QuarterHourly",
+          "EveryFiveMinutes",
           "Off"
         ],
         "enum": [
           "Daily",
           "Hourly",
           "QuarterHourly",
+          "EveryFiveMinutes",
           "Off"
         ]
       },
@@ -46836,6 +48355,57 @@
               "id": {
                 "type": "string",
                 "description": "ID of the output format to set XMP writeback state for.",
+                "minLength": 1
+              }
+            }
+          }
+        ]
+      },
+      "OutputFormatSetPermissionRequest": {
+        "type": "object",
+        "description": "Request to change permission-related settings on an OutputFormat",
+        "additionalProperties": false,
+        "required": [
+          "viewForAll"
+        ],
+        "properties": {
+          "viewForAll": {
+            "type": "boolean",
+            "description": "Indicates if outputs of this format should be accessible for users not having AccessOriginal permission on the content."
+          }
+        }
+      },
+      "OutputFormatSetPermissionManyRequest": {
+        "type": "object",
+        "description": "Used to change permission-related settings on multiple OutputFormat",
+        "additionalProperties": false,
+        "properties": {
+          "items": {
+            "type": "array",
+            "description": "Permission changes to be processed.",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/OutputFormatSetPermissionRequestItem"
+            }
+          }
+        }
+      },
+      "OutputFormatSetPermissionRequestItem": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/OutputFormatSetPermissionRequest"
+          },
+          {
+            "type": "object",
+            "description": "Represents a change to permission-related settings of an OutputFormat&gt;",
+            "additionalProperties": false,
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "description": "ID of the output format to set permission for.",
                 "minLength": 1
               }
             }
@@ -48277,7 +49847,7 @@
               },
               "viewForAll": {
                 "type": "boolean",
-                "description": "Indicates if outputs of this or derived formats should be accessible also for users not having AccessOriginal permission on the content."
+                "description": "Indicates if outputs of this format should be accessible for users not having AccessOriginal permission on the content."
               },
               "enableXmpWriteback": {
                 "type": "boolean",
@@ -49222,7 +50792,8 @@
             "FieldStringArray": "#/components/schemas/FieldStringArray",
             "FieldTranslatedString": "#/components/schemas/FieldTranslatedString",
             "FieldSingleRelation": "#/components/schemas/FieldSingleRelation",
-            "FieldMultiRelation": "#/components/schemas/FieldMultiRelation"
+            "FieldMultiRelation": "#/components/schemas/FieldMultiRelation",
+            "FieldDynamicView": "#/components/schemas/FieldDynamicView"
           }
         },
         "description": "The field base class",
@@ -49232,7 +50803,6 @@
           "id",
           "kind",
           "required",
-          "fixed",
           "index",
           "simpleSearch",
           "sortable"
@@ -49274,10 +50844,6 @@
           "required": {
             "type": "boolean",
             "description": "Defines if a field value is mandatory or not."
-          },
-          "fixed": {
-            "type": "boolean",
-            "description": "Defines if the field can be edited or not."
           },
           "index": {
             "type": "boolean",
@@ -50309,8 +51875,20 @@
         }
       },
       "RelationUiSettings": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ItemFieldUiSettingsViewItemBase"
+          },
+          {
+            "type": "object",
+            "description": "Ui settings for the single and multi relationship fields",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "ItemFieldUiSettingsViewItemBase": {
         "type": "object",
-        "description": "Ui settings for the single and multi relationship fields",
+        "x-abstract": true,
         "additionalProperties": false,
         "required": [
           "view"
@@ -50333,15 +51911,20 @@
             "default": "List",
             "oneOf": [
               {
-                "$ref": "#/components/schemas/RelationView"
+                "$ref": "#/components/schemas/ItemFieldViewMode"
               }
             ]
+          },
+          "showRelatedContentOnDownload": {
+            "type": "boolean",
+            "description": "Whether related content should be shown in UI download dialog",
+            "nullable": true
           }
         }
       },
-      "RelationView": {
+      "ItemFieldViewMode": {
         "type": "string",
-        "description": "The view for the single and multi relationship field",
+        "description": "The view mode for related items",
         "x-enumNames": [
           "List",
           "ThumbSmall",
@@ -50351,6 +51934,18 @@
           "List",
           "ThumbSmall",
           "ThumbMedium"
+        ]
+      },
+      "DynamicViewFieldUiSettings": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ItemFieldUiSettingsViewItemBase"
+          },
+          {
+            "type": "object",
+            "description": "Ui settings for FieldDynamicView",
+            "additionalProperties": false
+          }
         ]
       },
       "FieldMultiRelation": {
@@ -50408,6 +52003,54 @@
                     "$ref": "#/components/schemas/RelationUiSettings"
                   }
                 ]
+              }
+            }
+          }
+        ]
+      },
+      "FieldDynamicView": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/FieldBase"
+          },
+          {
+            "type": "object",
+            "description": "Stores a filter template which can be used to query for related items",
+            "additionalProperties": false,
+            "required": [
+              "targetDocType",
+              "viewUiSettings",
+              "filterTemplate",
+              "sort"
+            ],
+            "properties": {
+              "targetDocType": {
+                "type": "string",
+                "description": "Type of item this field points to. Restricted to Content at this time.",
+                "minLength": 1
+              },
+              "viewUiSettings": {
+                "description": "Settings for displaying purposes in the UI",
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/DynamicViewFieldUiSettings"
+                  }
+                ]
+              },
+              "filterTemplate": {
+                "description": "Template to generate filter based on current item.",
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/FilterBase"
+                  }
+                ]
+              },
+              "sort": {
+                "type": "array",
+                "description": "Specifies sorting to be used in search with FilterBase&gt; from FilterTemplate",
+                "items": {
+                  "$ref": "#/components/schemas/SortInfo"
+                }
               }
             }
           }
@@ -52881,7 +54524,8 @@
           "UserEmailConflictSolvedMail",
           "NotificationMail",
           "NotificationMailItem",
-          "DashboardPage"
+          "DashboardPage",
+          "CommentNotificationMailItem"
         ],
         "enum": [
           "ShareMail",
@@ -52896,7 +54540,8 @@
           "UserEmailConflictSolvedMail",
           "NotificationMail",
           "NotificationMailItem",
-          "DashboardPage"
+          "DashboardPage",
+          "CommentNotificationMailItem"
         ]
       },
       "TemplateUpdateRequest": {
@@ -55842,10 +57487,12 @@
             "additionalProperties": false,
             "properties": {
               "contentRepairRequestId": {
-                "type": "string"
+                "type": "string",
+                "nullable": true
               },
               "contentId": {
-                "type": "string"
+                "type": "string",
+                "nullable": true
               },
               "error": {
                 "nullable": true,
@@ -56449,6 +58096,103 @@
                     "$ref": "#/components/schemas/EpsMetadata"
                   }
                 ]
+              }
+            }
+          }
+        ]
+      },
+      "DynamicViewFieldMeta": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/DynamicViewFieldMetaBase"
+          },
+          {
+            "type": "object",
+            "description": "Meta information for a dynamic view field",
+            "additionalProperties": false,
+            "required": [
+              "filter",
+              "targetDocType"
+            ],
+            "properties": {
+              "filter": {
+                "description": "Filter for the dynamic view field.",
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/FilterBase"
+                  }
+                ]
+              },
+              "sort": {
+                "type": "array",
+                "description": "Sorting information.",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/SortInfo"
+                }
+              },
+              "targetDocType": {
+                "type": "string",
+                "description": "Target doc type.",
+                "minLength": 1
+              }
+            }
+          }
+        ]
+      },
+      "DynamicViewFieldMetaBase": {
+        "type": "object",
+        "discriminator": {
+          "propertyName": "kind",
+          "mapping": {
+            "DynamicViewFieldMetaWithRenderingError": "#/components/schemas/DynamicViewFieldMetaWithRenderingError",
+            "DynamicViewFieldMeta": "#/components/schemas/DynamicViewFieldMeta"
+          }
+        },
+        "description": "Base class of meta information for a dynamic view field",
+        "x-abstract": true,
+        "additionalProperties": false,
+        "required": [
+          "kind"
+        ],
+        "properties": {
+          "kind": {
+            "type": "string"
+          }
+        }
+      },
+      "DynamicViewFieldMetaWithHasItems": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/DynamicViewFieldMeta"
+          },
+          {
+            "type": "object",
+            "description": "Meta information for a dynamic view field including a flag that indicates if the rendered filter does match some items.",
+            "additionalProperties": false,
+            "properties": {
+              "hasItems": {
+                "type": "boolean",
+                "description": "indicates if the rendered filter does match some items."
+              }
+            }
+          }
+        ]
+      },
+      "DynamicViewFieldMetaWithRenderingError": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/DynamicViewFieldMetaBase"
+          },
+          {
+            "type": "object",
+            "description": "Meta information for a dynamic view field where the filter could not be rendered successfully.",
+            "additionalProperties": false,
+            "properties": {
+              "error": {
+                "type": "string",
+                "description": "Error.",
+                "nullable": true
               }
             }
           }
