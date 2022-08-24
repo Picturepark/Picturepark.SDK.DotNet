@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class OutputFormatClient
    | Picturepark.SDK.V1 API ">
-    <meta name="generator" content="docfx 2.59.2.0">
+    <meta name="generator" content="docfx 2.59.3.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -1788,25 +1788,137 @@ Set parameter to null to clear any already set patterns.</p>
   </div>
   
   
-  <a id="Picturepark_SDK_V1_OutputFormatClient_SetXmpWritebackState2Async_" data-uid="Picturepark.SDK.V1.OutputFormatClient.SetXmpWritebackState2Async*"></a>
+  <a id="Picturepark_SDK_V1_OutputFormatClient_SetPermissionAsync_" data-uid="Picturepark.SDK.V1.OutputFormatClient.SetPermissionAsync*"></a>
   
-  <h4 id="Picturepark_SDK_V1_OutputFormatClient_SetXmpWritebackState2Async_Picturepark_SDK_V1_Contract_OutputFormatSetXmpWritebackStateManyRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.OutputFormatClient.SetXmpWritebackState2Async(Picturepark.SDK.V1.Contract.OutputFormatSetXmpWritebackStateManyRequest,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_OutputFormatClient_SetXmpWritebackState2Async_Picturepark_SDK_V1_Contract_OutputFormatSetXmpWritebackStateManyRequest_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">SetXmpWritebackState2Async(OutputFormatSetXmpWritebackStateManyRequest, CancellationToken)</a></h4>
+  <h4 id="Picturepark_SDK_V1_OutputFormatClient_SetPermissionAsync_System_String_Picturepark_SDK_V1_Contract_OutputFormatSetPermissionRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.OutputFormatClient.SetPermissionAsync(System.String,Picturepark.SDK.V1.Contract.OutputFormatSetPermissionRequest,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_OutputFormatClient_SetPermissionAsync_System_String_Picturepark_SDK_V1_Contract_OutputFormatSetPermissionRequest_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">SetPermissionAsync(String, OutputFormatSetPermissionRequest, CancellationToken)</a></h4>
   
-  <div id="collapsible-Picturepark_SDK_V1_OutputFormatClient_SetXmpWritebackState2Async_Picturepark_SDK_V1_Contract_OutputFormatSetXmpWritebackStateManyRequest_System_Threading_CancellationToken_" class="collapse in">
-  <div class="markdown level1 summary"><p>Enables or disables XMP writeback for multiple output formats</p>
+  <div id="collapsible-Picturepark_SDK_V1_OutputFormatClient_SetPermissionAsync_System_String_Picturepark_SDK_V1_Contract_OutputFormatSetPermissionRequest_System_Threading_CancellationToken_" class="collapse in">
+  <div class="markdown level1 summary"><p>Updates permission-related settings for an output format</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public async Task&lt;BusinessProcess&gt; SetXmpWritebackState2Async(OutputFormatSetXmpWritebackStateManyRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public async Task&lt;BusinessProcess&gt; SetPermissionAsync(string id, OutputFormatSetPermissionRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
       <td>
-        <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.OutputFormatSetXmpWritebackStateManyRequest.html">OutputFormatSetXmpWritebackStateManyRequest</a></span>
+        <span class="pull-right"><span class="xref">System.String</span></span>
+        <span class="parametername">id</span>
+        <p><p>ID of the output format.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.OutputFormatSetPermissionRequest.html">OutputFormatSetPermissionRequest</a></span>
+        <span class="parametername">request</span>
+        <p><p>The request containing the settings for the output format.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
+        <span class="parametername">cancellationToken</span>
+        <p><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.BusinessProcess.html">BusinessProcess</a>&gt;
+        <p><p>Business process</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="Picturepark.SDK.V1.Contract.IOutputFormatClient.html#Picturepark_SDK_V1_Contract_IOutputFormatClient_SetPermissionAsync_System_String_Picturepark_SDK_V1_Contract_OutputFormatSetPermissionRequest_System_Threading_CancellationToken_">IOutputFormatClient.SetPermissionAsync(String, OutputFormatSetPermissionRequest, CancellationToken)</a></div>
+  
+  
+  
+  <h5 class="exceptions">Exceptions</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
+        <p><p>A server side error occurred.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkForbiddenException.html">PictureparkForbiddenException</a>
+        <p><p>Forbidden</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
+        <p><p>Entity not found</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
+        <p><p>Version conflict</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  </div>
+  
+  
+  <a id="Picturepark_SDK_V1_OutputFormatClient_SetPermissionManyAsync_" data-uid="Picturepark.SDK.V1.OutputFormatClient.SetPermissionManyAsync*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_OutputFormatClient_SetPermissionManyAsync_Picturepark_SDK_V1_Contract_OutputFormatSetPermissionManyRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.OutputFormatClient.SetPermissionManyAsync(Picturepark.SDK.V1.Contract.OutputFormatSetPermissionManyRequest,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_OutputFormatClient_SetPermissionManyAsync_Picturepark_SDK_V1_Contract_OutputFormatSetPermissionManyRequest_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">SetPermissionManyAsync(OutputFormatSetPermissionManyRequest, CancellationToken)</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_OutputFormatClient_SetPermissionManyAsync_Picturepark_SDK_V1_Contract_OutputFormatSetPermissionManyRequest_System_Threading_CancellationToken_" class="collapse in">
+  <div class="markdown level1 summary"><p>Updates permission-related settings for multiple output formats</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public async Task&lt;BusinessProcess&gt; SetPermissionManyAsync(OutputFormatSetPermissionManyRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.OutputFormatSetPermissionManyRequest.html">OutputFormatSetPermissionManyRequest</a></span>
         <span class="parametername">request</span>
         <p><p>The request containing the state changes for each output format.</p>
 </p>
@@ -1839,7 +1951,7 @@ Set parameter to null to clear any already set patterns.</p>
   
   
   <h5 class="implements">Implements</h5>
-      <div><a class="xref" href="Picturepark.SDK.V1.Contract.IOutputFormatClient.html#Picturepark_SDK_V1_Contract_IOutputFormatClient_SetXmpWritebackState2Async_Picturepark_SDK_V1_Contract_OutputFormatSetXmpWritebackStateManyRequest_System_Threading_CancellationToken_">IOutputFormatClient.SetXmpWritebackState2Async(OutputFormatSetXmpWritebackStateManyRequest, CancellationToken)</a></div>
+      <div><a class="xref" href="Picturepark.SDK.V1.Contract.IOutputFormatClient.html#Picturepark_SDK_V1_Contract_IOutputFormatClient_SetPermissionManyAsync_Picturepark_SDK_V1_Contract_OutputFormatSetPermissionManyRequest_System_Threading_CancellationToken_">IOutputFormatClient.SetPermissionManyAsync(OutputFormatSetPermissionManyRequest, CancellationToken)</a></div>
   
   
   
@@ -1952,6 +2064,110 @@ Set parameter to null to clear any already set patterns.</p>
   
   <h5 class="implements">Implements</h5>
       <div><a class="xref" href="Picturepark.SDK.V1.Contract.IOutputFormatClient.html#Picturepark_SDK_V1_Contract_IOutputFormatClient_SetXmpWritebackStateAsync_System_String_Picturepark_SDK_V1_Contract_OutputFormatSetXmpWritebackStateRequest_System_Threading_CancellationToken_">IOutputFormatClient.SetXmpWritebackStateAsync(String, OutputFormatSetXmpWritebackStateRequest, CancellationToken)</a></div>
+  
+  
+  
+  <h5 class="exceptions">Exceptions</h5>
+  <table>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
+        <p><p>A server side error occurred.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
+        <p><p>Validation exception</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkForbiddenException.html">PictureparkForbiddenException</a>
+        <p><p>Forbidden</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
+        <p><p>Entity not found</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
+        <p><p>Version conflict</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
+        <p><p>Internal server error</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  </div>
+  
+  
+  <a id="Picturepark_SDK_V1_OutputFormatClient_SetXmpWritebackStateManyAsync_" data-uid="Picturepark.SDK.V1.OutputFormatClient.SetXmpWritebackStateManyAsync*"></a>
+  
+  <h4 id="Picturepark_SDK_V1_OutputFormatClient_SetXmpWritebackStateManyAsync_Picturepark_SDK_V1_Contract_OutputFormatSetXmpWritebackStateManyRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.OutputFormatClient.SetXmpWritebackStateManyAsync(Picturepark.SDK.V1.Contract.OutputFormatSetXmpWritebackStateManyRequest,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_OutputFormatClient_SetXmpWritebackStateManyAsync_Picturepark_SDK_V1_Contract_OutputFormatSetXmpWritebackStateManyRequest_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">SetXmpWritebackStateManyAsync(OutputFormatSetXmpWritebackStateManyRequest, CancellationToken)</a></h4>
+  
+  <div id="collapsible-Picturepark_SDK_V1_OutputFormatClient_SetXmpWritebackStateManyAsync_Picturepark_SDK_V1_Contract_OutputFormatSetXmpWritebackStateManyRequest_System_Threading_CancellationToken_" class="collapse in">
+  <div class="markdown level1 summary"><p>Enables or disables XMP writeback for multiple output formats</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public async Task&lt;BusinessProcess&gt; SetXmpWritebackStateManyAsync(OutputFormatSetXmpWritebackStateManyRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  
+  <h5 class="parameters">Parameters</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.OutputFormatSetXmpWritebackStateManyRequest.html">OutputFormatSetXmpWritebackStateManyRequest</a></span>
+        <span class="parametername">request</span>
+        <p><p>The request containing the state changes for each output format.</p>
+</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
+        <span class="parametername">cancellationToken</span>
+        <p><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  <h5 class="returns">Returns</h5>
+  <table>
+    <tr>
+      <td>
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.BusinessProcess.html">BusinessProcess</a>&gt;
+        <p><p>Business process</p>
+</p>
+      </td>
+    </tr>
+  </table>
+  
+  
+  
+  
+  
+  
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="Picturepark.SDK.V1.Contract.IOutputFormatClient.html#Picturepark_SDK_V1_Contract_IOutputFormatClient_SetXmpWritebackStateManyAsync_Picturepark_SDK_V1_Contract_OutputFormatSetXmpWritebackStateManyRequest_System_Threading_CancellationToken_">IOutputFormatClient.SetXmpWritebackStateManyAsync(OutputFormatSetXmpWritebackStateManyRequest, CancellationToken)</a></div>
   
   
   
