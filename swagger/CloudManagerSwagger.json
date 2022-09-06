@@ -21905,7 +21905,8 @@
           "apiCallsPerMinute",
           "enableSupportUserRegistrationEmailNotification",
           "enableSupportUserRegistrationNotification",
-          "skipSignUpCaptcha"
+          "skipSignUpCaptcha",
+          "bffDevMode"
         ],
         "properties": {
           "alias": {
@@ -22169,6 +22170,9 @@
           "idsAccentColor": {
             "type": "string",
             "nullable": true
+          },
+          "bffDevMode": {
+            "type": "boolean"
           }
         }
       },
@@ -23923,7 +23927,8 @@
           "enableSupportUserRegistrationEmailNotification",
           "enableSupportUserRegistrationNotification",
           "isClone",
-          "skipSignUpCaptcha"
+          "skipSignUpCaptcha",
+          "bffDevMode"
         ],
         "properties": {
           "id": {
@@ -24309,6 +24314,9 @@
           "idsAccentColor": {
             "type": "string",
             "nullable": true
+          },
+          "bffDevMode": {
+            "type": "boolean"
           }
         }
       },
@@ -24376,7 +24384,8 @@
           "apiCallsPerMinute",
           "enableSupportUserRegistrationEmailNotification",
           "enableSupportUserRegistrationNotification",
-          "skipSignUpCaptcha"
+          "skipSignUpCaptcha",
+          "bffDevMode"
         ],
         "properties": {
           "id": {
@@ -24577,6 +24586,9 @@
           "idsAccentColor": {
             "type": "string",
             "nullable": true
+          },
+          "bffDevMode": {
+            "type": "boolean"
           }
         }
       },

@@ -11720,6 +11720,9 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [Newtonsoft.Json.JsonProperty("idsAccentColor", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string IdsAccentColor { get; set; }
     
+        [Newtonsoft.Json.JsonProperty("bffDevMode", Required = Newtonsoft.Json.Required.Always)]
+        public bool BffDevMode { get; set; }
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -13716,6 +13719,9 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [Newtonsoft.Json.JsonProperty("idsAccentColor", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string IdsAccentColor { get; set; }
     
+        [Newtonsoft.Json.JsonProperty("bffDevMode", Required = Newtonsoft.Json.Required.Always)]
+        public bool BffDevMode { get; set; }
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -13925,6 +13931,9 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
         [Newtonsoft.Json.JsonProperty("idsAccentColor", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string IdsAccentColor { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("bffDevMode", Required = Newtonsoft.Json.Required.Always)]
+        public bool BffDevMode { get; set; }
     
         public string ToJson() 
         {
