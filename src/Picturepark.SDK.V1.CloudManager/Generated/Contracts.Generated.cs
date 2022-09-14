@@ -15,6 +15,31 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     using System = global::System;
     
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "13.6.2.0 (NJsonSchema v10.1.23.0 (Newtonsoft.Json v11.0.0.0))")]
+    public partial interface IBusinessProcessClient
+    {
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkException">Entity not found</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        System.Threading.Tasks.Task<BusinessProcessWaitForLifeCycleResult> WaitForCompletionAsync(string alias, string id, System.TimeSpan? timeout = null, bool? waitForContinuationCompletion = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkException">Entity not found</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        System.Threading.Tasks.Task<BusinessProcess> GetAsync(string alias, string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCode("NSwag", "13.6.2.0 (NJsonSchema v10.1.23.0 (Newtonsoft.Json v11.0.0.0))")]
     public partial interface ICdnClient
     {
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
@@ -502,6 +527,26 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         System.Threading.Tasks.Task<EnvironmentProcess> ReshardElasticIndicesAsync(string alias, CustomerReshardRequest request, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkException">Entity not found</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        System.Threading.Tasks.Task<BusinessProcess> ChangeStorageSiloAsync(string alias, ChangeStorageSiloRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkException">Entity not found</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        System.Threading.Tasks.Task ClearCacheSiloAsync(string alias, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+    
     }
     
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "13.6.2.0 (NJsonSchema v10.1.23.0 (Newtonsoft.Json v11.0.0.0))")]
@@ -796,26 +841,6 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         System.Threading.Tasks.Task<BusinessProcess> RecalculateFileInformationAsync(string id, RecalculateFileInformationRequest request, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-    
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkValidationException">Validation exception</exception>
-        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkConflictException">Version conflict</exception>
-        /// <exception cref="PictureparkException">Internal server error</exception>
-        /// <exception cref="PictureparkException">Entity not found</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
-        System.Threading.Tasks.Task<BusinessProcess> MoveToSubfoldersAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-    
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkValidationException">Validation exception</exception>
-        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkConflictException">Version conflict</exception>
-        /// <exception cref="PictureparkException">Internal server error</exception>
-        /// <exception cref="PictureparkException">Entity not found</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
-        System.Threading.Tasks.Task<RecreateXmpUntouchedOriginalsResponse> RecreateXmpUntouchedOriginalsAsync(string id, RecreateXmpUntouchedOriginalsRequest request, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
     
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <exception cref="ApiException">A server side error occurred.</exception>
@@ -1209,6 +1234,59 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
     }
 
+    /// <summary>Result from waiting for life cycle(s) on a business process</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class BusinessProcessWaitForLifeCycleResult 
+    {
+        /// <summary>The life cycle that was hit.</summary>
+        [Newtonsoft.Json.JsonProperty("lifeCycleHit", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public BusinessProcessLifeCycle? LifeCycleHit { get; set; }
+    
+        /// <summary>The business process.</summary>
+        [Newtonsoft.Json.JsonProperty("businessProcess", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public BusinessProcess BusinessProcess { get; set; } = new BusinessProcess();
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static BusinessProcessWaitForLifeCycleResult FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessProcessWaitForLifeCycleResult>(data);
+        }
+    
+    }
+    
+    /// <summary>Life cycle of the business process</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public enum BusinessProcessLifeCycle
+    {
+        [System.Runtime.Serialization.EnumMember(Value = @"Draft")]
+        Draft = 0,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"InProgress")]
+        InProgress = 1,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Succeeded")]
+        Succeeded = 2,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Cancelled")]
+        Cancelled = 3,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"CancellationInProgress")]
+        CancellationInProgress = 4,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"Failed")]
+        Failed = 5,
+    
+        [System.Runtime.Serialization.EnumMember(Value = @"SucceededWithErrors")]
+        SucceededWithErrors = 6,
+    
+    }
+    
     /// <summary>Business process</summary>
     [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
@@ -1299,33 +1377,6 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
         [System.Runtime.Serialization.EnumMember(Value = @"User")]
         User = 1,
-    
-    }
-    
-    /// <summary>Life cycle of the business process</summary>
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
-    public enum BusinessProcessLifeCycle
-    {
-        [System.Runtime.Serialization.EnumMember(Value = @"Draft")]
-        Draft = 0,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"InProgress")]
-        InProgress = 1,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"Succeeded")]
-        Succeeded = 2,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"Cancelled")]
-        Cancelled = 3,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"CancellationInProgress")]
-        CancellationInProgress = 4,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"Failed")]
-        Failed = 5,
-    
-        [System.Runtime.Serialization.EnumMember(Value = @"SucceededWithErrors")]
-        SucceededWithErrors = 6,
     
     }
     
@@ -10499,9 +10550,6 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [Newtonsoft.Json.JsonProperty("corsAllowedHosts", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> CorsAllowedHosts { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("storagePath", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string StoragePath { get; set; }
-    
         [Newtonsoft.Json.JsonProperty("baseUrl", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string BaseUrl { get; set; }
     
@@ -10589,14 +10637,8 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [Newtonsoft.Json.JsonProperty("contractVersion", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ContractVersion { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("storagePath", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string StoragePath { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("watermarkPath", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string WatermarkPath { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("logoPath", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string LogoPath { get; set; }
+        [Newtonsoft.Json.JsonProperty("storageSiloName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string StorageSiloName { get; set; }
     
         [Newtonsoft.Json.JsonProperty("lifeCycle", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
@@ -10804,10 +10846,6 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [Newtonsoft.Json.JsonProperty("snapshotName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string SnapshotName { get; set; }
     
-        /// <summary>Storage path of the originals and outputs, path shall not include the customer id</summary>
-        [Newtonsoft.Json.JsonProperty("storagePath", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string StoragePath { get; set; }
-    
         /// <summary>Set to true if the customer was configured against another IDS instance</summary>
         [Newtonsoft.Json.JsonProperty("resetExternalUserIds", Required = Newtonsoft.Json.Required.Always)]
         public bool ResetExternalUserIds { get; set; }
@@ -10827,18 +10865,6 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <summary>Reset service providers</summary>
         [Newtonsoft.Json.JsonProperty("resetServiceProviders", Required = Newtonsoft.Json.Required.Always)]
         public bool ResetServiceProviders { get; set; }
-    
-        /// <summary>Storage path of the content backup, path shall not include the customer id</summary>
-        [Newtonsoft.Json.JsonProperty("contentBackupStoragePath", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string ContentBackupStoragePath { get; set; }
-    
-        /// <summary>Logo path, if not given, the path is automatically set inside the customer folder</summary>
-        [Newtonsoft.Json.JsonProperty("logoPath", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string LogoPath { get; set; }
-    
-        /// <summary>Watermark path, if not given, the path is automatically set inside the customer folder</summary>
-        [Newtonsoft.Json.JsonProperty("watermarkPath", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string WatermarkPath { get; set; }
     
         /// <summary>Base url for for shares</summary>
         [Newtonsoft.Json.JsonProperty("baseUrl", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -10860,6 +10886,15 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// If null, searchIndices will be recreated on the cluster they were on when the snapshot was taken (or, if that cluster does not exist, on the default)</summary>
         [Newtonsoft.Json.JsonProperty("recreateSearchIndicesCluster", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string RecreateSearchIndicesCluster { get; set; }
+    
+        /// <summary>Name of the storage silo where customer's files are located. Must be configured in cloud.</summary>
+        [Newtonsoft.Json.JsonProperty("storageSiloName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string StorageSiloName { get; set; }
+    
+        /// <summary>Optional name of the storage silo where customer's content backup is written to. Must be configured in cloud.
+        /// If not set, default configured in cloud will be used.</summary>
+        [Newtonsoft.Json.JsonProperty("contentBackupStorageSiloName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ContentBackupStorageSiloName { get; set; }
     
         public string ToJson() 
         {
@@ -11542,15 +11577,6 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [Newtonsoft.Json.JsonProperty("baseUrl", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string BaseUrl { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("storagePath", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string StoragePath { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("watermarkPath", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string WatermarkPath { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("logoPath", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string LogoPath { get; set; }
-    
         [Newtonsoft.Json.JsonProperty("customerHosts", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> CustomerHosts { get; set; }
     
@@ -11696,9 +11722,6 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [Newtonsoft.Json.JsonProperty("apiCallsPerMinute", Required = Newtonsoft.Json.Required.Always)]
         public int ApiCallsPerMinute { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("contentBackupStoragePath", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string ContentBackupStoragePath { get; set; }
-    
         [Newtonsoft.Json.JsonProperty("boostValues", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<double> BoostValues { get; set; }
     
@@ -11719,6 +11742,12 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
         [Newtonsoft.Json.JsonProperty("idsAccentColor", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string IdsAccentColor { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("storageSiloName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string StorageSiloName { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("contentBackupSiloName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ContentBackupSiloName { get; set; }
     
         [Newtonsoft.Json.JsonProperty("bffDevMode", Required = Newtonsoft.Json.Required.Always)]
         public bool BffDevMode { get; set; }
@@ -13520,15 +13549,6 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [Newtonsoft.Json.JsonProperty("metadataItemCollectionCatalog", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string MetadataItemCollectionCatalog { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("watermarkPath", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string WatermarkPath { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("logoPath", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string LogoPath { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("storagePath", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string StoragePath { get; set; }
-    
         [Newtonsoft.Json.JsonProperty("contractVersion", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ContractVersion { get; set; }
     
@@ -13686,9 +13706,6 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [Newtonsoft.Json.JsonProperty("apiCallsPerMinute", Required = Newtonsoft.Json.Required.Always)]
         public int ApiCallsPerMinute { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("contentBackupStoragePath", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string ContentBackupStoragePath { get; set; }
-    
         [Newtonsoft.Json.JsonProperty("defaultContentPermissionSetIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> DefaultContentPermissionSetIds { get; set; }
     
@@ -13721,6 +13738,12 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
         [Newtonsoft.Json.JsonProperty("bffDevMode", Required = Newtonsoft.Json.Required.Always)]
         public bool BffDevMode { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("storageSiloName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string StorageSiloName { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("contentBackupSiloName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ContentBackupSiloName { get; set; }
     
         public string ToJson() 
         {
@@ -13872,15 +13895,6 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [Newtonsoft.Json.JsonProperty("baseUrl", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string BaseUrl { get; set; }
     
-        [Newtonsoft.Json.JsonProperty("watermarkPath", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string WatermarkPath { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("logoPath", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string LogoPath { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("contentBackupStoragePath", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string ContentBackupStoragePath { get; set; }
-    
         [Newtonsoft.Json.JsonProperty("supportContactEmailAddress", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string SupportContactEmailAddress { get; set; }
     
@@ -13898,9 +13912,6 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
         [Newtonsoft.Json.JsonProperty("apiCallsPerMinute", Required = Newtonsoft.Json.Required.Always)]
         public int ApiCallsPerMinute { get; set; }
-    
-        [Newtonsoft.Json.JsonProperty("storagePath", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string StoragePath { get; set; }
     
         [Newtonsoft.Json.JsonProperty("defaultContentPermissionSetIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> DefaultContentPermissionSetIds { get; set; }
@@ -13934,6 +13945,9 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
         [Newtonsoft.Json.JsonProperty("bffDevMode", Required = Newtonsoft.Json.Required.Always)]
         public bool BffDevMode { get; set; }
+    
+        [Newtonsoft.Json.JsonProperty("contentBackupSiloName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ContentBackupSiloName { get; set; }
     
         public string ToJson() 
         {
@@ -15289,6 +15303,35 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     
     }
     
+    /// <summary>Changes the storage silo of a customer.</summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
+    public partial class ChangeStorageSiloRequest 
+    {
+        /// <summary>Target silo name, must be configured in the cloud.</summary>
+        [Newtonsoft.Json.JsonProperty("targetSiloName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string TargetSiloName { get; set; }
+    
+        /// <summary>Specifies if contents of currently configured silo should be copied to new silo.</summary>
+        [Newtonsoft.Json.JsonProperty("copySiloContents", Required = Newtonsoft.Json.Required.Always)]
+        public bool CopySiloContents { get; set; }
+    
+        /// <summary>Start the operation even though another one is already running for the same customer.
+        /// Cancels all currently running operations.</summary>
+        [Newtonsoft.Json.JsonProperty("force", Required = Newtonsoft.Json.Required.Always)]
+        public bool Force { get; set; }
+    
+        public string ToJson() 
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+    
+        public static ChangeStorageSiloRequest FromJson(string data)
+        {
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ChangeStorageSiloRequest>(data);
+        }
+    
+    }
+    
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
     public partial class CustomerQueuePriorityConfiguration 
     {
@@ -16107,56 +16150,6 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         public static RecalculateFileInformationRequest FromJson(string data)
         {
             return Newtonsoft.Json.JsonConvert.DeserializeObject<RecalculateFileInformationRequest>(data);
-        }
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
-    public partial class RecreateXmpUntouchedOriginalsResponse 
-    {
-        /// <summary>Null if operation finished, otherwise token which allows restart of operation</summary>
-        [Newtonsoft.Json.JsonProperty("resumeToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string ResumeToken { get; set; }
-    
-        /// <summary>Indicated the number of contents that were checked for missing Originals</summary>
-        [Newtonsoft.Json.JsonProperty("checkedContents", Required = Newtonsoft.Json.Required.Always)]
-        public int CheckedContents { get; set; }
-    
-        /// <summary>Indicates the number of Originals (can be &amp;gt; 1 per Content) which were created</summary>
-        [Newtonsoft.Json.JsonProperty("createdOriginals", Required = Newtonsoft.Json.Required.Always)]
-        public int CreatedOriginals { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-    
-        public static RecreateXmpUntouchedOriginalsResponse FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<RecreateXmpUntouchedOriginalsResponse>(data);
-        }
-    
-    }
-    
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "10.1.23.0 (Newtonsoft.Json v11.0.0.0)")]
-    public partial class RecreateXmpUntouchedOriginalsRequest 
-    {
-        /// <summary>Optional list of Content IDs you want to filter on.</summary>
-        [Newtonsoft.Json.JsonProperty("contentIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> ContentIds { get; set; }
-    
-        /// <summary>Token returned from previous call</summary>
-        [Newtonsoft.Json.JsonProperty("resumeToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string ResumeToken { get; set; }
-    
-        public string ToJson() 
-        {
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this);
-        }
-    
-        public static RecreateXmpUntouchedOriginalsRequest FromJson(string data)
-        {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<RecreateXmpUntouchedOriginalsRequest>(data);
         }
     
     }
