@@ -14589,6 +14589,10 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [Newtonsoft.Json.JsonProperty("isFederated", Required = Newtonsoft.Json.Required.Always)]
         public bool IsFederated { get; set; }
     
+        /// <summary>Last activity of user.</summary>
+        [Newtonsoft.Json.JsonProperty("lastActivity", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.DateTime? LastActivity { get; set; }
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
