@@ -28906,13 +28906,30 @@
       "UserNotFoundException": {
         "allOf": [
           {
-            "$ref": "#/components/schemas/PictureparkBusinessException"
+            "$ref": "#/components/schemas/PictureparkNotFoundException"
           },
           {
             "type": "object",
             "additionalProperties": false,
             "properties": {
               "missingUserId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "PictureparkNotFoundException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkBusinessException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "reference": {
                 "type": "string",
                 "nullable": true
               }
@@ -29060,23 +29077,6 @@
                 "items": {
                   "type": "string"
                 }
-              }
-            }
-          }
-        ]
-      },
-      "PictureparkNotFoundException": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/PictureparkBusinessException"
-          },
-          {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "reference": {
-                "type": "string",
-                "nullable": true
               }
             }
           }
