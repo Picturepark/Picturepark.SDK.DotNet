@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class EmailNotificationsSettings
    | Picturepark.SDK.V1 API ">
-    <meta name="generator" content="docfx 2.59.2.0">
+    <meta name="generator" content="docfx 2.59.3.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -132,20 +132,18 @@
   </h3>
   
   
-  <a id="Picturepark_SDK_V1_Contract_EmailNotificationsSettings_DisableAll_" data-uid="Picturepark.SDK.V1.Contract.EmailNotificationsSettings.DisableAll*"></a>
+  <a id="Picturepark_SDK_V1_Contract_EmailNotificationsSettings_Sources_" data-uid="Picturepark.SDK.V1.Contract.EmailNotificationsSettings.Sources*"></a>
   
-  <h4 id="Picturepark_SDK_V1_Contract_EmailNotificationsSettings_DisableAll" data-uid="Picturepark.SDK.V1.Contract.EmailNotificationsSettings.DisableAll"><a href="#collapsible-Picturepark_SDK_V1_Contract_EmailNotificationsSettings_DisableAll" class="expander" data-toggle="collapse">DisableAll</a></h4>
+  <h4 id="Picturepark_SDK_V1_Contract_EmailNotificationsSettings_Sources" data-uid="Picturepark.SDK.V1.Contract.EmailNotificationsSettings.Sources"><a href="#collapsible-Picturepark_SDK_V1_Contract_EmailNotificationsSettings_Sources" class="expander" data-toggle="collapse">Sources</a></h4>
   
-  <div id="collapsible-Picturepark_SDK_V1_Contract_EmailNotificationsSettings_DisableAll" class="collapse in">
-  <div class="markdown level1 summary"><p>Receive all</p>
-<p>When set to false, Exclusions property acts as a blacklist (all items are included by default).
-When set to true, Exclusions property acts as a whitelist (no items are included by default).</p>
+  <div id="collapsible-Picturepark_SDK_V1_Contract_EmailNotificationsSettings_Sources" class="collapse in">
+  <div class="markdown level1 summary"><p>Settings for notification sources</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool DisableAll { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public IDictionary&lt;string, EmailNotificationsSourceSettings&gt; Sources { get; set; }</code></pre>
   </div>
   
   
@@ -156,82 +154,7 @@ When set to true, Exclusions property acts as a whitelist (no items are included
   <table>
     <tr>
       <td>
-        <span class="xref">System.Boolean</span>
-        <p>
-      </td>
-    </tr>
-  </table>
-  
-  
-  
-  
-  
-  
-  
-  </div>
-  
-  
-  <a id="Picturepark_SDK_V1_Contract_EmailNotificationsSettings_Exclusions_" data-uid="Picturepark.SDK.V1.Contract.EmailNotificationsSettings.Exclusions*"></a>
-  
-  <h4 id="Picturepark_SDK_V1_Contract_EmailNotificationsSettings_Exclusions" data-uid="Picturepark.SDK.V1.Contract.EmailNotificationsSettings.Exclusions"><a href="#collapsible-Picturepark_SDK_V1_Contract_EmailNotificationsSettings_Exclusions" class="expander" data-toggle="collapse">Exclusions</a></h4>
-  
-  <div id="collapsible-Picturepark_SDK_V1_Contract_EmailNotificationsSettings_Exclusions" class="collapse in">
-  <div class="markdown level1 summary"><p>Exclusions from the default set by DisableAll property.
-List of notification IDs which are excluded or included from the email, depending on the DisableAll property.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ICollection&lt;string&gt; Exclusions { get; set; }</code></pre>
-  </div>
-  
-  
-  
-  
-  
-  <h5 class="propertyValue">Property Value</h5>
-  <table>
-    <tr>
-      <td>
-        <span class="xref">System.Collections.Generic.ICollection</span>&lt;<span class="xref">System.String</span>&gt;
-        <p>
-      </td>
-    </tr>
-  </table>
-  
-  
-  
-  
-  
-  
-  
-  </div>
-  
-  
-  <a id="Picturepark_SDK_V1_Contract_EmailNotificationsSettings_Interval_" data-uid="Picturepark.SDK.V1.Contract.EmailNotificationsSettings.Interval*"></a>
-  
-  <h4 id="Picturepark_SDK_V1_Contract_EmailNotificationsSettings_Interval" data-uid="Picturepark.SDK.V1.Contract.EmailNotificationsSettings.Interval"><a href="#collapsible-Picturepark_SDK_V1_Contract_EmailNotificationsSettings_Interval" class="expander" data-toggle="collapse">Interval</a></h4>
-  
-  <div id="collapsible-Picturepark_SDK_V1_Contract_EmailNotificationsSettings_Interval" class="collapse in">
-  <div class="markdown level1 summary"><p>Interval.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public EmailNotificationsInterval Interval { get; set; }</code></pre>
-  </div>
-  
-  
-  
-  
-  
-  <h5 class="propertyValue">Property Value</h5>
-  <table>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.EmailNotificationsInterval.html">EmailNotificationsInterval</a>
+        <span class="xref">System.Collections.Generic.IDictionary</span>&lt;<span class="xref">System.String</span>, <a class="xref" href="Picturepark.SDK.V1.Contract.EmailNotificationsSourceSettings.html">EmailNotificationsSourceSettings</a>&gt;
         <p>
       </td>
     </tr>

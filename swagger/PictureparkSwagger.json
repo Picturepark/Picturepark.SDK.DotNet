@@ -55866,6 +55866,12 @@
                     "$ref": "#/components/schemas/UserAuditDetail"
                   }
                 ]
+              },
+              "lastActivity": {
+                "type": "string",
+                "description": "Last activity of user.",
+                "format": "date-time",
+                "nullable": true
               }
             }
           }
@@ -56358,6 +56364,12 @@
           "isFederated": {
             "type": "boolean",
             "description": "Federated user is a user who is (currently) governed by an external identity provider."
+          },
+          "lastActivity": {
+            "type": "string",
+            "description": "Last activity of user.",
+            "format": "date-time",
+            "nullable": true
           }
         }
       },

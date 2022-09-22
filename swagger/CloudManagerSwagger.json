@@ -1,5 +1,5 @@
 {
-  "x-generator": "NSwag v13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))",
+  "x-generator": "NSwag v13.14.8.0 (NJsonSchema v10.5.2.0 (Newtonsoft.Json v13.0.0.0))",
   "openapi": "3.0.0",
   "info": {
     "title": "Picturepark Cloud Manager API V1",
@@ -15,6 +15,275 @@
     }
   },
   "paths": {
+    "/BusinessProcesses/{alias}/{id}/waitCompletion": {
+      "get": {
+        "tags": [
+          "BusinessProcesses"
+        ],
+        "operationId": "BusinessProcess_WaitForCompletion",
+        "parameters": [
+          {
+            "name": "alias",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 1
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 2
+          },
+          {
+            "name": "timeout",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "time-span",
+              "nullable": true
+            },
+            "x-position": 3
+          },
+          {
+            "name": "waitForContinuationCompletion",
+            "in": "query",
+            "schema": {
+              "type": "boolean",
+              "default": true
+            },
+            "x-position": 4
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BusinessProcessWaitForLifeCycleResult"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            },
+            "x-expectedSchemas": [
+              {
+                "description": "Entity not found",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkException"
+                    }
+                  ]
+                }
+              },
+              {
+                "description": "Entity not found",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkNotFoundException"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
+    "/BusinessProcesses/{alias}/{id}": {
+      "get": {
+        "tags": [
+          "BusinessProcesses"
+        ],
+        "operationId": "BusinessProcess_Get",
+        "parameters": [
+          {
+            "name": "alias",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 1
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 2
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BusinessProcess"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            },
+            "x-expectedSchemas": [
+              {
+                "description": "Entity not found",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkException"
+                    }
+                  ]
+                }
+              },
+              {
+                "description": "Entity not found",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkNotFoundException"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
     "/customer/{alias}/cdn": {
       "post": {
         "tags": [
@@ -372,7 +641,7 @@
             "in": "query",
             "schema": {
               "type": "string",
-              "format": "duration",
+              "format": "time-span",
               "nullable": true
             },
             "x-position": 2
@@ -4918,7 +5187,7 @@
             "in": "query",
             "schema": {
               "type": "string",
-              "format": "duration",
+              "format": "time-span",
               "nullable": true
             },
             "x-position": 3
@@ -5055,7 +5324,7 @@
             "in": "query",
             "schema": {
               "type": "string",
-              "format": "duration",
+              "format": "time-span",
               "nullable": true
             },
             "x-position": 3
@@ -5318,7 +5587,7 @@
             "in": "query",
             "schema": {
               "type": "string",
-              "format": "duration",
+              "format": "time-span",
               "nullable": true
             },
             "x-position": 3
@@ -5346,6 +5615,241 @@
                 }
               }
             }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            },
+            "x-expectedSchemas": [
+              {
+                "description": "Entity not found",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkException"
+                    }
+                  ]
+                }
+              },
+              {
+                "description": "Entity not found",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkNotFoundException"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
+    "/Customer/{alias}/changeStorageSilo": {
+      "post": {
+        "tags": [
+          "Customer"
+        ],
+        "operationId": "Customer_ChangeStorageSilo",
+        "parameters": [
+          {
+            "name": "alias",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 1
+          }
+        ],
+        "requestBody": {
+          "x-name": "request",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ChangeStorageSiloRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 2
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BusinessProcess"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            },
+            "x-expectedSchemas": [
+              {
+                "description": "Entity not found",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkException"
+                    }
+                  ]
+                }
+              },
+              {
+                "description": "Entity not found",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkNotFoundException"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
+    "/Customer/{alias}/clearCacheSilo": {
+      "post": {
+        "tags": [
+          "Customer"
+        ],
+        "operationId": "Customer_ClearCacheSilo",
+        "parameters": [
+          {
+            "name": "alias",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
           },
           "400": {
             "description": "Validation exception",
@@ -7452,7 +7956,7 @@
             "in": "query",
             "schema": {
               "type": "string",
-              "format": "duration",
+              "format": "time-span",
               "nullable": true
             },
             "x-position": 3
@@ -8110,7 +8614,7 @@
             "in": "query",
             "schema": {
               "type": "string",
-              "format": "duration",
+              "format": "time-span",
               "nullable": true
             },
             "x-position": 3
@@ -8247,7 +8751,7 @@
             "in": "query",
             "schema": {
               "type": "string",
-              "format": "duration",
+              "format": "time-span",
               "nullable": true
             },
             "x-position": 3
@@ -8384,7 +8888,7 @@
             "in": "query",
             "schema": {
               "type": "string",
-              "format": "duration",
+              "format": "time-span",
               "nullable": true
             },
             "x-position": 3
@@ -8499,258 +9003,6 @@
         }
       }
     },
-    "/Maintenance/customer/{id}/outputs/moveToSubfolders": {
-      "post": {
-        "tags": [
-          "Maintenance"
-        ],
-        "operationId": "Maintenance_MoveToSubfolders",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 1
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/BusinessProcess"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Validation exception",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkValidationException"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkForbiddenException"
-                }
-              }
-            }
-          },
-          "405": {
-            "description": "Method not allowed"
-          },
-          "409": {
-            "description": "Version conflict",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkConflictException"
-                }
-              }
-            }
-          },
-          "429": {
-            "description": "Too many requests"
-          },
-          "500": {
-            "description": "Internal server error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkException"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Entity not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkException"
-                }
-              }
-            },
-            "x-expectedSchemas": [
-              {
-                "description": "Entity not found",
-                "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkException"
-                    }
-                  ]
-                }
-              },
-              {
-                "description": "Entity not found",
-                "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkNotFoundException"
-                    }
-                  ]
-                }
-              }
-            ]
-          }
-        }
-      }
-    },
-    "/Maintenance/customer/{id}/outputs/recreateXmpUntouchedOriginals": {
-      "post": {
-        "tags": [
-          "Maintenance"
-        ],
-        "operationId": "Maintenance_RecreateXmpUntouchedOriginals",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "nullable": true
-            },
-            "x-position": 1
-          },
-          {
-            "name": "timeout",
-            "in": "query",
-            "schema": {
-              "type": "string",
-              "format": "duration",
-              "nullable": true
-            },
-            "x-position": 3
-          }
-        ],
-        "requestBody": {
-          "x-name": "request",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/RecreateXmpUntouchedOriginalsRequest"
-              }
-            }
-          },
-          "required": true,
-          "x-position": 2
-        },
-        "responses": {
-          "200": {
-            "description": "",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RecreateXmpUntouchedOriginalsResponse"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Validation exception",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkValidationException"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkForbiddenException"
-                }
-              }
-            }
-          },
-          "405": {
-            "description": "Method not allowed"
-          },
-          "409": {
-            "description": "Version conflict",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkConflictException"
-                }
-              }
-            }
-          },
-          "429": {
-            "description": "Too many requests"
-          },
-          "500": {
-            "description": "Internal server error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkException"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Entity not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PictureparkException"
-                }
-              }
-            },
-            "x-expectedSchemas": [
-              {
-                "description": "Entity not found",
-                "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkException"
-                    }
-                  ]
-                }
-              },
-              {
-                "description": "Entity not found",
-                "schema": {
-                  "nullable": true,
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/PictureparkNotFoundException"
-                    }
-                  ]
-                }
-              }
-            ]
-          }
-        }
-      }
-    },
     "/Maintenance/customer/{id}/metadata/updateOutdated": {
       "post": {
         "tags": [
@@ -8773,7 +9025,7 @@
             "in": "query",
             "schema": {
               "type": "string",
-              "format": "duration",
+              "format": "time-span",
               "nullable": true
             },
             "x-position": 2
@@ -8898,7 +9150,7 @@
             "in": "query",
             "schema": {
               "type": "string",
-              "format": "duration",
+              "format": "time-span",
               "nullable": true
             },
             "x-position": 3
@@ -12740,6 +12992,55 @@
   },
   "components": {
     "schemas": {
+      "BusinessProcessWaitForLifeCycleResult": {
+        "type": "object",
+        "description": "Result from waiting for life cycle(s) on a business process",
+        "additionalProperties": false,
+        "required": [
+          "businessProcess"
+        ],
+        "properties": {
+          "lifeCycleHit": {
+            "description": "The life cycle that was hit.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/BusinessProcessLifeCycle"
+              }
+            ]
+          },
+          "businessProcess": {
+            "description": "The business process.",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/BusinessProcess"
+              }
+            ]
+          }
+        }
+      },
+      "BusinessProcessLifeCycle": {
+        "type": "string",
+        "description": "Life cycle of the business process",
+        "x-enumNames": [
+          "Draft",
+          "InProgress",
+          "Succeeded",
+          "Cancelled",
+          "CancellationInProgress",
+          "Failed",
+          "SucceededWithErrors"
+        ],
+        "enum": [
+          "Draft",
+          "InProgress",
+          "Succeeded",
+          "Cancelled",
+          "CancellationInProgress",
+          "Failed",
+          "SucceededWithErrors"
+        ]
+      },
       "BusinessProcess": {
         "type": "object",
         "discriminator": {
@@ -12852,28 +13153,6 @@
         "enum": [
           "System",
           "User"
-        ]
-      },
-      "BusinessProcessLifeCycle": {
-        "type": "string",
-        "description": "Life cycle of the business process",
-        "x-enumNames": [
-          "Draft",
-          "InProgress",
-          "Succeeded",
-          "Cancelled",
-          "CancellationInProgress",
-          "Failed",
-          "SucceededWithErrors"
-        ],
-        "enum": [
-          "Draft",
-          "InProgress",
-          "Succeeded",
-          "Cancelled",
-          "CancellationInProgress",
-          "Failed",
-          "SucceededWithErrors"
         ]
       },
       "BusinessProcessState": {
@@ -14790,11 +15069,11 @@
             "properties": {
               "snapshotRetentionTime": {
                 "type": "string",
-                "format": "duration"
+                "format": "time-span"
               },
               "minimumRetentionTime": {
                 "type": "string",
-                "format": "duration"
+                "format": "time-span"
               }
             }
           }
@@ -20881,10 +21160,6 @@
               "type": "string"
             }
           },
-          "storagePath": {
-            "type": "string",
-            "nullable": true
-          },
           "baseUrl": {
             "type": "string",
             "nullable": true
@@ -20986,15 +21261,7 @@
             "type": "string",
             "nullable": true
           },
-          "storagePath": {
-            "type": "string",
-            "nullable": true
-          },
-          "watermarkPath": {
-            "type": "string",
-            "nullable": true
-          },
-          "logoPath": {
+          "storageSiloName": {
             "type": "string",
             "nullable": true
           },
@@ -21199,11 +21466,6 @@
             "description": "Name of the snapshot within the ElasticSearch repository if available",
             "nullable": true
           },
-          "storagePath": {
-            "type": "string",
-            "description": "Storage path of the originals and outputs, path shall not include the customer id",
-            "nullable": true
-          },
           "resetExternalUserIds": {
             "type": "boolean",
             "description": "Set to true if the customer was configured against another IDS instance"
@@ -21225,21 +21487,6 @@
           "resetServiceProviders": {
             "type": "boolean",
             "description": "Reset service providers"
-          },
-          "contentBackupStoragePath": {
-            "type": "string",
-            "description": "Storage path of the content backup, path shall not include the customer id",
-            "nullable": true
-          },
-          "logoPath": {
-            "type": "string",
-            "description": "Logo path, if not given, the path is automatically set inside the customer folder",
-            "nullable": true
-          },
-          "watermarkPath": {
-            "type": "string",
-            "description": "Watermark path, if not given, the path is automatically set inside the customer folder",
-            "nullable": true
           },
           "baseUrl": {
             "type": "string",
@@ -21270,6 +21517,16 @@
           "recreateSearchIndicesCluster": {
             "type": "string",
             "description": "Defines where searchIndices are recreated if they did not exist (not part of restored snapshot, for example)\nIf null, searchIndices will be recreated on the cluster they were on when the snapshot was taken (or, if that cluster does not exist, on the default)",
+            "nullable": true
+          },
+          "storageSiloName": {
+            "type": "string",
+            "description": "Name of the storage silo where customer's files are located. Must be configured in cloud.",
+            "nullable": true
+          },
+          "contentBackupStorageSiloName": {
+            "type": "string",
+            "description": "Optional name of the storage silo where customer's content backup is written to. Must be configured in cloud.\nIf not set, default configured in cloud will be used.",
             "nullable": true
           }
         }
@@ -21757,7 +22014,7 @@
           "exclusionTime": {
             "type": "string",
             "description": "Time span relative to now for which missing backup timestamp is not considered a missing backup",
-            "format": "duration"
+            "format": "time-span"
           },
           "limit": {
             "type": "integer",
@@ -21905,7 +22162,8 @@
           "apiCallsPerMinute",
           "enableSupportUserRegistrationEmailNotification",
           "enableSupportUserRegistrationNotification",
-          "skipSignUpCaptcha"
+          "skipSignUpCaptcha",
+          "bffDevMode"
         ],
         "properties": {
           "alias": {
@@ -21921,18 +22179,6 @@
             "nullable": true
           },
           "baseUrl": {
-            "type": "string",
-            "nullable": true
-          },
-          "storagePath": {
-            "type": "string",
-            "nullable": true
-          },
-          "watermarkPath": {
-            "type": "string",
-            "nullable": true
-          },
-          "logoPath": {
             "type": "string",
             "nullable": true
           },
@@ -22053,66 +22299,66 @@
           },
           "contentRetentionTime": {
             "type": "string",
-            "format": "duration"
+            "format": "time-span"
           },
           "listItemRetentionTime": {
             "type": "string",
-            "format": "duration"
+            "format": "time-span"
           },
           "userRetentionTime": {
             "type": "string",
-            "format": "duration"
+            "format": "time-span"
           },
           "ownerTokenRetentionTime": {
             "type": "string",
-            "format": "duration"
+            "format": "time-span"
           },
           "successfulTransferRetentionTime": {
             "type": "string",
-            "format": "duration"
+            "format": "time-span"
           },
           "incompleteTransferRetentionTime": {
             "type": "string",
-            "format": "duration"
+            "format": "time-span"
           },
           "rollingIndexCreationScheduleTime": {
             "type": "string",
-            "format": "duration"
+            "format": "time-span"
           },
           "documentHistoryRetentionTime": {
             "type": "string",
-            "format": "duration"
+            "format": "time-span"
           },
           "liveStreamRetentionTime": {
             "type": "string",
-            "format": "duration"
+            "format": "time-span"
           },
           "importCollectionRetentionTime": {
             "type": "string",
-            "format": "duration"
+            "format": "time-span"
           },
           "editCollectionRetentionTime": {
             "type": "string",
-            "format": "duration"
+            "format": "time-span"
           },
           "notificationEventCollectionRetentionTime": {
             "type": "string",
-            "format": "duration"
+            "format": "time-span"
           },
           "replacedOriginalsRetentionTime": {
             "type": "string",
-            "format": "duration"
+            "format": "time-span"
           },
           "snapshotEnabled": {
             "type": "boolean"
           },
           "snapshotFullbackupScheduleTime": {
             "type": "string",
-            "format": "duration"
+            "format": "time-span"
           },
           "snapshotRetentionTime": {
             "type": "string",
-            "format": "duration"
+            "format": "time-span"
           },
           "adminUser": {
             "nullable": true,
@@ -22132,10 +22378,6 @@
           "apiCallsPerMinute": {
             "type": "integer",
             "format": "int32"
-          },
-          "contentBackupStoragePath": {
-            "type": "string",
-            "nullable": true
           },
           "boostValues": {
             "type": "array",
@@ -22169,6 +22411,17 @@
           "idsAccentColor": {
             "type": "string",
             "nullable": true
+          },
+          "storageSiloName": {
+            "type": "string",
+            "nullable": true
+          },
+          "contentBackupSiloName": {
+            "type": "string",
+            "nullable": true
+          },
+          "bffDevMode": {
+            "type": "boolean"
           }
         }
       },
@@ -22486,7 +22739,7 @@
               "retentionTime": {
                 "type": "string",
                 "description": "How long should the dynamic outputs created from this format be kept.",
-                "format": "duration"
+                "format": "time-span"
               },
               "downloadFileNamePatterns": {
                 "description": "Optional patterns (liquid syntax) that produce the filename for item of this output format.\nIf set, the customer's default language is required.",
@@ -23923,7 +24176,8 @@
           "enableSupportUserRegistrationEmailNotification",
           "enableSupportUserRegistrationNotification",
           "isClone",
-          "skipSignUpCaptcha"
+          "skipSignUpCaptcha",
+          "bffDevMode"
         ],
         "properties": {
           "id": {
@@ -24035,18 +24289,6 @@
             "nullable": true
           },
           "metadataItemCollectionCatalog": {
-            "type": "string",
-            "nullable": true
-          },
-          "watermarkPath": {
-            "type": "string",
-            "nullable": true
-          },
-          "logoPath": {
-            "type": "string",
-            "nullable": true
-          },
-          "storagePath": {
             "type": "string",
             "nullable": true
           },
@@ -24173,63 +24415,63 @@
           },
           "snapshotRetentionTime": {
             "type": "string",
-            "format": "duration"
+            "format": "time-span"
           },
           "snapshotFullbackupScheduleTime": {
             "type": "string",
-            "format": "duration"
+            "format": "time-span"
           },
           "contentRetentionTime": {
             "type": "string",
-            "format": "duration"
+            "format": "time-span"
           },
           "listItemRetentionTime": {
             "type": "string",
-            "format": "duration"
+            "format": "time-span"
           },
           "userRetentionTime": {
             "type": "string",
-            "format": "duration"
+            "format": "time-span"
           },
           "ownerTokenRetentionTime": {
             "type": "string",
-            "format": "duration"
+            "format": "time-span"
           },
           "rollingIndexCreationScheduleTime": {
             "type": "string",
-            "format": "duration"
+            "format": "time-span"
           },
           "documentHistoryRetentionTime": {
             "type": "string",
-            "format": "duration"
+            "format": "time-span"
           },
           "liveStreamRetentionTime": {
             "type": "string",
-            "format": "duration"
+            "format": "time-span"
           },
           "successfulTransferRetentionTime": {
             "type": "string",
-            "format": "duration"
+            "format": "time-span"
           },
           "incompleteTransferRetentionTime": {
             "type": "string",
-            "format": "duration"
+            "format": "time-span"
           },
           "replacedOriginalsRetentionTime": {
             "type": "string",
-            "format": "duration"
+            "format": "time-span"
           },
           "importCollectionRetentionTime": {
             "type": "string",
-            "format": "duration"
+            "format": "time-span"
           },
           "editCollectionRetentionTime": {
             "type": "string",
-            "format": "duration"
+            "format": "time-span"
           },
           "notificationEventCollectionRetentionTime": {
             "type": "string",
-            "format": "duration"
+            "format": "time-span"
           },
           "deactivationMessage": {
             "nullable": true,
@@ -24254,10 +24496,6 @@
           "apiCallsPerMinute": {
             "type": "integer",
             "format": "int32"
-          },
-          "contentBackupStoragePath": {
-            "type": "string",
-            "nullable": true
           },
           "defaultContentPermissionSetIds": {
             "type": "array",
@@ -24307,6 +24545,17 @@
             ]
           },
           "idsAccentColor": {
+            "type": "string",
+            "nullable": true
+          },
+          "bffDevMode": {
+            "type": "boolean"
+          },
+          "storageSiloName": {
+            "type": "string",
+            "nullable": true
+          },
+          "contentBackupSiloName": {
             "type": "string",
             "nullable": true
           }
@@ -24376,7 +24625,8 @@
           "apiCallsPerMinute",
           "enableSupportUserRegistrationEmailNotification",
           "enableSupportUserRegistrationNotification",
-          "skipSignUpCaptcha"
+          "skipSignUpCaptcha",
+          "bffDevMode"
         ],
         "properties": {
           "id": {
@@ -24392,11 +24642,11 @@
           },
           "liveStreamRetentionTime": {
             "type": "string",
-            "format": "duration"
+            "format": "time-span"
           },
           "snapshotFullbackupScheduleTime": {
             "type": "string",
-            "format": "duration"
+            "format": "time-span"
           },
           "customerHosts": {
             "type": "array",
@@ -24407,55 +24657,55 @@
           },
           "contentRetentionTime": {
             "type": "string",
-            "format": "duration"
+            "format": "time-span"
           },
           "listItemRetentionTime": {
             "type": "string",
-            "format": "duration"
+            "format": "time-span"
           },
           "userRetentionTime": {
             "type": "string",
-            "format": "duration"
+            "format": "time-span"
           },
           "ownerTokenRetentionTime": {
             "type": "string",
-            "format": "duration"
+            "format": "time-span"
           },
           "rollingIndexCreationScheduleTime": {
             "type": "string",
-            "format": "duration"
+            "format": "time-span"
           },
           "documentHistoryRetentionTime": {
             "type": "string",
-            "format": "duration"
+            "format": "time-span"
           },
           "snapshotRetentionTime": {
             "type": "string",
-            "format": "duration"
+            "format": "time-span"
           },
           "successfulTransferRetentionTime": {
             "type": "string",
-            "format": "duration"
+            "format": "time-span"
           },
           "incompleteTransferRetentionTime": {
             "type": "string",
-            "format": "duration"
+            "format": "time-span"
           },
           "importCollectionRetentionTime": {
             "type": "string",
-            "format": "duration"
+            "format": "time-span"
           },
           "editCollectionRetentionTime": {
             "type": "string",
-            "format": "duration"
+            "format": "time-span"
           },
           "notificationEventCollectionRetentionTime": {
             "type": "string",
-            "format": "duration"
+            "format": "time-span"
           },
           "replacedOriginalsRetentionTime": {
             "type": "string",
-            "format": "duration"
+            "format": "time-span"
           },
           "useSsl": {
             "type": "boolean"
@@ -24480,18 +24730,6 @@
             ]
           },
           "baseUrl": {
-            "type": "string",
-            "nullable": true
-          },
-          "watermarkPath": {
-            "type": "string",
-            "nullable": true
-          },
-          "logoPath": {
-            "type": "string",
-            "nullable": true
-          },
-          "contentBackupStoragePath": {
             "type": "string",
             "nullable": true
           },
@@ -24523,10 +24761,6 @@
           "apiCallsPerMinute": {
             "type": "integer",
             "format": "int32"
-          },
-          "storagePath": {
-            "type": "string",
-            "nullable": true
           },
           "defaultContentPermissionSetIds": {
             "type": "array",
@@ -24575,6 +24809,13 @@
             ]
           },
           "idsAccentColor": {
+            "type": "string",
+            "nullable": true
+          },
+          "bffDevMode": {
+            "type": "boolean"
+          },
+          "contentBackupSiloName": {
             "type": "string",
             "nullable": true
           }
@@ -25274,6 +25515,12 @@
           "isFederated": {
             "type": "boolean",
             "description": "Federated user is a user who is (currently) governed by an external identity provider."
+          },
+          "lastActivity": {
+            "type": "string",
+            "description": "Last activity of user.",
+            "format": "date-time",
+            "nullable": true
           }
         }
       },
@@ -25935,6 +26182,30 @@
           }
         }
       },
+      "ChangeStorageSiloRequest": {
+        "type": "object",
+        "description": "Changes the storage silo of a customer.",
+        "additionalProperties": false,
+        "required": [
+          "copySiloContents",
+          "force"
+        ],
+        "properties": {
+          "targetSiloName": {
+            "type": "string",
+            "description": "Target silo name, must be configured in the cloud.",
+            "nullable": true
+          },
+          "copySiloContents": {
+            "type": "boolean",
+            "description": "Specifies if contents of currently configured silo should be copied to new silo."
+          },
+          "force": {
+            "type": "boolean",
+            "description": "Start the operation even though another one is already running for the same customer.\nCancels all currently running operations."
+          }
+        }
+      },
       "CustomerQueuePriorityConfiguration": {
         "type": "object",
         "additionalProperties": false,
@@ -26091,7 +26362,7 @@
           },
           {
             "type": "object",
-            "description": "(a^b)^-x: Result divides by A every 1/B>, example:\na == 3, b == 0.1, x == 0 => 1\na == 3, b == 0.1, x == 10 => 1/3\na == 3, b == 0.1, x == 20 => 1/9",
+            "description": "(a^b)^-x: Result divides by A every 1/B&gt;, example:\na == 3, b == 0.1, x == 0 =&gt; 1\na == 3, b == 0.1, x == 10 =&gt; 1/3\na == 3, b == 0.1, x == 20 =&gt; 1/9",
             "additionalProperties": false,
             "properties": {
               "a": {
@@ -26203,7 +26474,7 @@
             "properties": {
               "windowLength": {
                 "type": "string",
-                "format": "duration"
+                "format": "time-span"
               },
               "rate": {
                 "type": "integer",
@@ -26243,7 +26514,7 @@
               },
               "ignoreIncomingTag": {
                 "type": "boolean",
-                "description": "Whether an attached result from AttachResultAsTag> should be used as result"
+                "description": "Whether an attached result from AttachResultAsTag&gt; should be used as result"
               }
             }
           }
@@ -26473,7 +26744,7 @@
           "uiDefaultShareExpirationTime": {
             "type": "string",
             "description": "Default expiration time as time span that will be applied as default by the UI when creating a new Share",
-            "format": "duration",
+            "format": "time-span",
             "nullable": true
           },
           "downloadPrefixName": {
@@ -26743,50 +27014,6 @@
           "skipHashCalculation": {
             "type": "boolean",
             "description": "Skip hash calculation (only fix file size)"
-          }
-        }
-      },
-      "RecreateXmpUntouchedOriginalsResponse": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "checkedContents",
-          "createdOriginals"
-        ],
-        "properties": {
-          "resumeToken": {
-            "type": "string",
-            "description": "Null if operation finished, otherwise token which allows restart of operation",
-            "nullable": true
-          },
-          "checkedContents": {
-            "type": "integer",
-            "description": "Indicated the number of contents that were checked for missing Originals",
-            "format": "int32"
-          },
-          "createdOriginals": {
-            "type": "integer",
-            "description": "Indicates the number of Originals (can be > 1 per Content) which were created",
-            "format": "int32"
-          }
-        }
-      },
-      "RecreateXmpUntouchedOriginalsRequest": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "contentIds": {
-            "type": "array",
-            "description": "Optional list of Content IDs you want to filter on.",
-            "nullable": true,
-            "items": {
-              "type": "string"
-            }
-          },
-          "resumeToken": {
-            "type": "string",
-            "description": "Token returned from previous call",
-            "nullable": true
           }
         }
       },
@@ -27707,7 +27934,7 @@
               },
               "duration": {
                 "type": "string",
-                "format": "duration"
+                "format": "time-span"
               }
             }
           }
