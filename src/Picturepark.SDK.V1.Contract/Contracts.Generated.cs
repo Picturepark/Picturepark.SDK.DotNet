@@ -30804,6 +30804,10 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("audit", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public UserAuditDetail Audit { get; set; }
     
+        /// <summary>Last activity of user.</summary>
+        [Newtonsoft.Json.JsonProperty("lastActivity", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.DateTime? LastActivity { get; set; }
+    
         public string ToJson() 
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
@@ -31300,6 +31304,10 @@ namespace Picturepark.SDK.V1.Contract
         /// <summary>Federated user is a user who is (currently) governed by an external identity provider.</summary>
         [Newtonsoft.Json.JsonProperty("isFederated", Required = Newtonsoft.Json.Required.Always)]
         public bool IsFederated { get; set; }
+    
+        /// <summary>Last activity of user.</summary>
+        [Newtonsoft.Json.JsonProperty("lastActivity", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.DateTime? LastActivity { get; set; }
     
         public string ToJson() 
         {
