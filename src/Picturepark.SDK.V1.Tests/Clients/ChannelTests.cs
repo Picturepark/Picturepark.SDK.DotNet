@@ -76,8 +76,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             await _client.Channel.DeleteAsync(createdChannel.Id).ConfigureAwait(false);
 
             // Assert
-            var deletedChannel = await _client.Channel.GetAsync(createdChannel.Id).ConfigureAwait(false);
-            deletedChannel.Should().BeNull();
+            await Assert.ThrowsAsync<ChannelsNotFoundException>(async () => await _client.Channel.GetAsync(createdChannel.Id).ConfigureAwait(false));
         }
 
         [Fact]
