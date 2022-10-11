@@ -29338,6 +29338,23 @@
           }
         ]
       },
+      "UserByOwnerTokenNotFoundException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkNotFoundException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "ownerToken": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
       "RenderingException": {
         "allOf": [
           {
@@ -34782,6 +34799,23 @@
           {
             "type": "object",
             "additionalProperties": false
+          }
+        ]
+      },
+      "NotificationNotFoundException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkNotFoundException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "notificationId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
           }
         ]
       },

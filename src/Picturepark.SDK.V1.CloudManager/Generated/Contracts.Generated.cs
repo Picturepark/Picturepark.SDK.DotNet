@@ -1631,6 +1631,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [JsonInheritanceAttribute("UserPropertyChangeNotSupportedException", typeof(UserPropertyChangeNotSupportedException))]
     [JsonInheritanceAttribute("UserNotLinkedWithIdsException", typeof(UserNotLinkedWithIdsException))]
     [JsonInheritanceAttribute("LanguageCodeNotExistingException", typeof(LanguageCodeNotExistingException))]
+    [JsonInheritanceAttribute("UserByOwnerTokenNotFoundException", typeof(UserByOwnerTokenNotFoundException))]
     [JsonInheritanceAttribute("RenderingException", typeof(RenderingException))]
     [JsonInheritanceAttribute("FormatNotApplicableForRenderingException", typeof(FormatNotApplicableForRenderingException))]
     [JsonInheritanceAttribute("FocalPointCropSizeMissingException", typeof(FocalPointCropSizeMissingException))]
@@ -1873,6 +1874,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [JsonInheritanceAttribute("BusinessProcessStateNotHitException", typeof(BusinessProcessStateNotHitException))]
     [JsonInheritanceAttribute("BusinessProcessLifeCycleNotHitException", typeof(BusinessProcessLifeCycleNotHitException))]
     [JsonInheritanceAttribute("OnlyAccessibleToRecipientException", typeof(OnlyAccessibleToRecipientException))]
+    [JsonInheritanceAttribute("NotificationNotFoundException", typeof(NotificationNotFoundException))]
     [JsonInheritanceAttribute("CustomerAliasHeaderMissingException", typeof(CustomerAliasHeaderMissingException))]
     [JsonInheritanceAttribute("BusinessRuleActionInvalidDocumentTypeException", typeof(BusinessRuleActionInvalidDocumentTypeException))]
     [JsonInheritanceAttribute("BusinessRuleActionsMissingException", typeof(BusinessRuleActionsMissingException))]
@@ -2710,6 +2712,28 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         {
 
             return Newtonsoft.Json.JsonConvert.DeserializeObject<LanguageCodeNotExistingException>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class UserByOwnerTokenNotFoundException : PictureparkNotFoundException
+    {
+        [Newtonsoft.Json.JsonProperty("ownerToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string OwnerToken { get; set; }
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static UserByOwnerTokenNotFoundException FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<UserByOwnerTokenNotFoundException>(data, new Newtonsoft.Json.JsonSerializerSettings());
 
         }
 
@@ -9503,6 +9527,28 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         {
 
             return Newtonsoft.Json.JsonConvert.DeserializeObject<OnlyAccessibleToRecipientException>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class NotificationNotFoundException : PictureparkNotFoundException
+    {
+        [Newtonsoft.Json.JsonProperty("notificationId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string NotificationId { get; set; }
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static NotificationNotFoundException FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<NotificationNotFoundException>(data, new Newtonsoft.Json.JsonSerializerSettings());
 
         }
 
