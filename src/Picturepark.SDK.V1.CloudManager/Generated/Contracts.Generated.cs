@@ -2489,7 +2489,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
     [Newtonsoft.Json.JsonObjectAttribute]
-    public partial class IdentityProviderNotFoundException : PictureparkValidationException
+    public partial class IdentityProviderNotFoundException : PictureparkNotFoundException
     {
         [Newtonsoft.Json.JsonProperty("missingIdentityProviderId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string MissingIdentityProviderId { get; set; }
