@@ -29153,7 +29153,7 @@
       "IdentityProviderNotFoundException": {
         "allOf": [
           {
-            "$ref": "#/components/schemas/PictureparkValidationException"
+            "$ref": "#/components/schemas/PictureparkNotFoundException"
           },
           {
             "type": "object",
