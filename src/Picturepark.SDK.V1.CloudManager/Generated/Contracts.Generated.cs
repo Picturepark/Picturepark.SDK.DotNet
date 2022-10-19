@@ -13584,6 +13584,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
     [JsonInheritanceAttribute("ClarifaiTaggingConfiguration", typeof(ClarifaiTaggingConfiguration))]
     [JsonInheritanceAttribute("SimulatedTaggingConfiguration", typeof(SimulatedTaggingConfiguration))]
+    [JsonInheritanceAttribute("AzureTaggingConfiguration", typeof(AzureTaggingConfiguration))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
     public abstract partial class TaggingConfigurationBase
     {
@@ -13608,6 +13609,9 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [Newtonsoft.Json.JsonProperty("defaultMissingKeywordsFieldId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string DefaultMissingKeywordsFieldId { get; set; }
 
+        [Newtonsoft.Json.JsonProperty("useDownloadLink", Required = Newtonsoft.Json.Required.Always)]
+        public bool UseDownloadLink { get; set; }
+
         public string ToJson()
         {
 
@@ -13628,9 +13632,6 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     {
         [Newtonsoft.Json.JsonProperty("apiToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ApiToken { get; set; }
-
-        [Newtonsoft.Json.JsonProperty("useDownloadLink", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool UseDownloadLink { get; set; }
 
         [Newtonsoft.Json.JsonProperty("defaultModel", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string DefaultModel { get; set; }
@@ -13672,6 +13673,42 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         {
 
             return Newtonsoft.Json.JsonConvert.DeserializeObject<SimulatedTaggingConfiguration>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class AzureTaggingConfiguration : TaggingConfigurationBase
+    {
+        [Newtonsoft.Json.JsonProperty("apiUrl", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ApiUrl { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("apiKey", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ApiKey { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("languageCode", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string LanguageCode { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("minimumValue", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public decimal MinimumValue { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("enableTagging", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool EnableTagging { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("enableObjectDetection", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool EnableObjectDetection { get; set; }
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static AzureTaggingConfiguration FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<AzureTaggingConfiguration>(data, new Newtonsoft.Json.JsonSerializerSettings());
 
         }
 

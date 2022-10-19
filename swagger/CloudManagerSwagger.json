@@ -22509,7 +22509,8 @@
           "propertyName": "kind",
           "mapping": {
             "ClarifaiTaggingConfiguration": "#/components/schemas/ClarifaiTaggingConfiguration",
-            "SimulatedTaggingConfiguration": "#/components/schemas/SimulatedTaggingConfiguration"
+            "SimulatedTaggingConfiguration": "#/components/schemas/SimulatedTaggingConfiguration",
+            "AzureTaggingConfiguration": "#/components/schemas/AzureTaggingConfiguration"
           }
         },
         "x-abstract": true,
@@ -22517,7 +22518,8 @@
         "required": [
           "kind",
           "enableImageAnalytics",
-          "enableLegacyTaggingBehavior"
+          "enableLegacyTaggingBehavior",
+          "useDownloadLink"
         ],
         "properties": {
           "enableImageAnalytics": {
@@ -22546,6 +22548,9 @@
             "type": "string",
             "nullable": true
           },
+          "useDownloadLink": {
+            "type": "boolean"
+          },
           "kind": {
             "type": "string"
           }
@@ -22563,9 +22568,6 @@
               "apiToken": {
                 "type": "string",
                 "nullable": true
-              },
-              "useDownloadLink": {
-                "type": "boolean"
               },
               "defaultModel": {
                 "type": "string",
@@ -22595,6 +22597,41 @@
               "defaultNumberOfKeywords": {
                 "type": "integer",
                 "format": "int32"
+              }
+            }
+          }
+        ]
+      },
+      "AzureTaggingConfiguration": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/TaggingConfigurationBase"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "apiUrl": {
+                "type": "string",
+                "nullable": true
+              },
+              "apiKey": {
+                "type": "string",
+                "nullable": true
+              },
+              "languageCode": {
+                "type": "string",
+                "nullable": true
+              },
+              "minimumValue": {
+                "type": "number",
+                "format": "decimal"
+              },
+              "enableTagging": {
+                "type": "boolean"
+              },
+              "enableObjectDetection": {
+                "type": "boolean"
               }
             }
           }

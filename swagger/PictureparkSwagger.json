@@ -39231,7 +39231,8 @@
         "x-abstract": true,
         "additionalProperties": false,
         "required": [
-          "kind"
+          "kind",
+          "useDownloadLink"
         ],
         "properties": {
           "tagOutputFormatId": {
@@ -39258,6 +39259,9 @@
             "type": "string",
             "description": "Override for the field id where not found tags are stored.",
             "nullable": true
+          },
+          "useDownloadLink": {
+            "type": "boolean"
           },
           "kind": {
             "type": "string"

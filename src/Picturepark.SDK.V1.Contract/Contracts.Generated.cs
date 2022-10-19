@@ -17661,6 +17661,9 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("missingKeywordsFieldId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string MissingKeywordsFieldId { get; set; }
 
+        [Newtonsoft.Json.JsonProperty("useDownloadLink", Required = Newtonsoft.Json.Required.Always)]
+        public bool UseDownloadLink { get; set; }
+
         public string ToJson()
         {
 
