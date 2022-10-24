@@ -22632,6 +22632,9 @@
               },
               "enableObjectDetection": {
                 "type": "boolean"
+              },
+              "enableOcr": {
+                "type": "boolean"
               }
             }
           }

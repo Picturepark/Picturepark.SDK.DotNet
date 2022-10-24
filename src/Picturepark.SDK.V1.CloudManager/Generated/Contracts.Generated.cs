@@ -13699,6 +13699,9 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [Newtonsoft.Json.JsonProperty("enableObjectDetection", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool EnableObjectDetection { get; set; }
 
+        [Newtonsoft.Json.JsonProperty("enableOcr", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool EnableOcr { get; set; }
+
         public string ToJson()
         {
 
