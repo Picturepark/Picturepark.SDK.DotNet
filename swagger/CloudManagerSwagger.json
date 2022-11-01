@@ -27597,7 +27597,8 @@
             "SearchReindexCompletedEvent": "#/components/schemas/SearchReindexCompletedEvent",
             "BusinessRuleFiredEvent": "#/components/schemas/BusinessRuleFiredEvent",
             "BusinessProcessCancellationRequestedEvent": "#/components/schemas/BusinessProcessCancellationRequestedEvent",
-            "DataExtractionRepairEvent": "#/components/schemas/DataExtractionRepairEvent"
+            "DataExtractionRepairEvent": "#/components/schemas/DataExtractionRepairEvent",
+            "TaggerStatisticsEvent": "#/components/schemas/TaggerStatisticsEvent"
           }
         },
         "additionalProperties": false,
@@ -28111,6 +28112,35 @@
               },
               "hadChanges": {
                 "type": "boolean"
+              }
+            }
+          }
+        ]
+      },
+      "TaggerStatisticsEvent": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ApplicationEvent"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "requestsCounter": {
+                "type": "integer",
+                "format": "int64"
+              },
+              "taggerCounter": {
+                "type": "integer",
+                "format": "int64"
+              },
+              "ocrCounter": {
+                "type": "integer",
+                "format": "int64"
+              },
+              "taggerName": {
+                "type": "string",
+                "nullable": true
               }
             }
           }
