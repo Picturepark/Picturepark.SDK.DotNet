@@ -13660,7 +13660,7 @@
       "IdentityProviderNotFoundException": {
         "allOf": [
           {
-            "$ref": "#/components/schemas/PictureparkValidationException"
+            "$ref": "#/components/schemas/PictureparkNotFoundException"
           },
           {
             "type": "object",
@@ -22597,6 +22597,9 @@
               "defaultNumberOfKeywords": {
                 "type": "integer",
                 "format": "int32"
+              },
+              "enableOcr": {
+                "type": "boolean"
               }
             }
           }
@@ -22609,32 +22612,40 @@
           },
           {
             "type": "object",
+            "description": "Options for Azure tagging",
             "additionalProperties": false,
             "properties": {
               "apiUrl": {
                 "type": "string",
+                "description": "Url to Azure Computer Vision Service",
                 "nullable": true
               },
               "apiKey": {
                 "type": "string",
+                "description": "API Key to Azure Computer Vision Service (needed for connection)",
                 "nullable": true
               },
               "languageCode": {
                 "type": "string",
+                "description": "Determines the language, list of supported language codes: https://aka.ms/cv-languages",
                 "nullable": true
               },
               "minimumValue": {
                 "type": "number",
+                "description": "Minimum value of confidence to accept the service result",
                 "format": "decimal"
               },
               "enableTagging": {
-                "type": "boolean"
+                "type": "boolean",
+                "description": "Specifies if tagging feature should be enabled"
               },
               "enableObjectDetection": {
-                "type": "boolean"
+                "type": "boolean",
+                "description": "Specifies if object detection feature should be enabled"
               },
               "enableOcr": {
-                "type": "boolean"
+                "type": "boolean",
+                "description": "Specifies if OCR feature should be enabled"
               }
             }
           }

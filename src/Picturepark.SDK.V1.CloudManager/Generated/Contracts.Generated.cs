@@ -2489,7 +2489,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
     [Newtonsoft.Json.JsonObjectAttribute]
-    public partial class IdentityProviderNotFoundException : PictureparkValidationException
+    public partial class IdentityProviderNotFoundException : PictureparkNotFoundException
     {
         [Newtonsoft.Json.JsonProperty("missingIdentityProviderId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string MissingIdentityProviderId { get; set; }
@@ -13663,6 +13663,9 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [Newtonsoft.Json.JsonProperty("defaultNumberOfKeywords", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public int DefaultNumberOfKeywords { get; set; }
 
+        [Newtonsoft.Json.JsonProperty("enableOcr", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool EnableOcr { get; set; }
+
         public string ToJson()
         {
 
@@ -13678,27 +13681,51 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
 
     }
 
+    /// <summary>
+    /// Options for Azure tagging
+    /// </summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
     public partial class AzureTaggingConfiguration : TaggingConfigurationBase
     {
+        /// <summary>
+        /// Url to Azure Computer Vision Service
+        /// </summary>
         [Newtonsoft.Json.JsonProperty("apiUrl", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ApiUrl { get; set; }
 
+        /// <summary>
+        /// API Key to Azure Computer Vision Service (needed for connection)
+        /// </summary>
         [Newtonsoft.Json.JsonProperty("apiKey", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ApiKey { get; set; }
 
+        /// <summary>
+        /// Determines the language, list of supported language codes: https://aka.ms/cv-languages
+        /// </summary>
         [Newtonsoft.Json.JsonProperty("languageCode", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string LanguageCode { get; set; }
 
+        /// <summary>
+        /// Minimum value of confidence to accept the service result
+        /// </summary>
         [Newtonsoft.Json.JsonProperty("minimumValue", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public decimal MinimumValue { get; set; }
 
+        /// <summary>
+        /// Specifies if tagging feature should be enabled
+        /// </summary>
         [Newtonsoft.Json.JsonProperty("enableTagging", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool EnableTagging { get; set; }
 
+        /// <summary>
+        /// Specifies if object detection feature should be enabled
+        /// </summary>
         [Newtonsoft.Json.JsonProperty("enableObjectDetection", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool EnableObjectDetection { get; set; }
 
+        /// <summary>
+        /// Specifies if OCR feature should be enabled
+        /// </summary>
         [Newtonsoft.Json.JsonProperty("enableOcr", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public bool EnableOcr { get; set; }
 

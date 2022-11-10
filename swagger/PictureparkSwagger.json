@@ -29153,7 +29153,7 @@
       "IdentityProviderNotFoundException": {
         "allOf": [
           {
-            "$ref": "#/components/schemas/PictureparkValidationException"
+            "$ref": "#/components/schemas/PictureparkNotFoundException"
           },
           {
             "type": "object",
@@ -39231,8 +39231,7 @@
         "x-abstract": true,
         "additionalProperties": false,
         "required": [
-          "kind",
-          "useDownloadLink"
+          "kind"
         ],
         "properties": {
           "tagOutputFormatId": {
@@ -39259,9 +39258,6 @@
             "type": "string",
             "description": "Override for the field id where not found tags are stored.",
             "nullable": true
-          },
-          "useDownloadLink": {
-            "type": "boolean"
           },
           "kind": {
             "type": "string"
@@ -39310,6 +39306,10 @@
                 "type": "string",
                 "description": "Number of keywords to assign.",
                 "nullable": true
+              },
+              "enableOcr": {
+                "type": "boolean",
+                "description": "Enables/disables ocr feature"
               }
             }
           }

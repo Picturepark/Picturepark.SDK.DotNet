@@ -4834,7 +4834,7 @@ namespace Picturepark.SDK.V1.Contract
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
     [Newtonsoft.Json.JsonObjectAttribute]
-    public partial class IdentityProviderNotFoundException : PictureparkValidationException
+    public partial class IdentityProviderNotFoundException : PictureparkNotFoundException
     {
         [Newtonsoft.Json.JsonProperty("missingIdentityProviderId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string MissingIdentityProviderId { get; set; }
@@ -17661,9 +17661,6 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("missingKeywordsFieldId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string MissingKeywordsFieldId { get; set; }
 
-        [Newtonsoft.Json.JsonProperty("useDownloadLink", Required = Newtonsoft.Json.Required.Always)]
-        public bool UseDownloadLink { get; set; }
-
         public string ToJson()
         {
 
@@ -17726,6 +17723,12 @@ namespace Picturepark.SDK.V1.Contract
         /// </summary>
         [Newtonsoft.Json.JsonProperty("numberOfKeywords", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string NumberOfKeywords { get; set; }
+
+        /// <summary>
+        /// Enables/disables ocr feature
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("enableOcr", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool EnableOcr { get; set; }
 
         public string ToJson()
         {
