@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class XmpMappingClient
    | Picturepark.SDK.V1 API ">
-    <meta name="generator" content="docfx 2.59.3.0">
+    <meta name="generator" content="docfx 2.59.4.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -272,7 +272,7 @@
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public async Task&lt;BusinessProcess&gt; CreateAsync(XmpMappingEntryCreateRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public virtual async Task&lt;BusinessProcess&gt; CreateAsync(XmpMappingEntryCreateRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -376,7 +376,7 @@
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public async Task&lt;BusinessProcess&gt; CreateManyAsync(XmpMappingEntryCreateManyRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public virtual async Task&lt;BusinessProcess&gt; CreateManyAsync(XmpMappingEntryCreateManyRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -480,7 +480,7 @@
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public async Task&lt;BusinessProcess&gt; DeleteAsync(string id, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public virtual async Task&lt;BusinessProcess&gt; DeleteAsync(string id, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -584,7 +584,7 @@
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public async Task&lt;BusinessProcess&gt; DeleteManyAsync(XmpMappingEntryDeleteManyRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public virtual async Task&lt;BusinessProcess&gt; DeleteManyAsync(XmpMappingEntryDeleteManyRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -688,7 +688,7 @@
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public async Task&lt;XmpMappingEntry&gt; GetAsync(string id, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public virtual async Task&lt;XmpMappingEntry&gt; GetAsync(string id, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -792,7 +792,7 @@
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public async Task&lt;XmpMappingTargets&gt; GetAvailableTargetsAsync(CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public virtual async Task&lt;XmpMappingTargets&gt; GetAvailableTargetsAsync(CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -888,7 +888,7 @@
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public async Task&lt;ICollection&lt;XmpMappingEntry&gt;&gt; GetManyAsync(IEnumerable&lt;string&gt; ids = null, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public virtual async Task&lt;ICollection&lt;XmpMappingEntry&gt;&gt; GetManyAsync(IEnumerable&lt;string&gt; ids = null, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -990,15 +990,15 @@
   
   <a id="Picturepark_SDK_V1_XmpMappingClient_ReadObjectResponseAsync_" data-uid="Picturepark.SDK.V1.XmpMappingClient.ReadObjectResponseAsync*"></a>
   
-  <h4 id="Picturepark_SDK_V1_XmpMappingClient_ReadObjectResponseAsync__1_System_Net_Http_HttpResponseMessage_System_Collections_Generic_IReadOnlyDictionary_System_String_System_Collections_Generic_IEnumerable_System_String___" data-uid="Picturepark.SDK.V1.XmpMappingClient.ReadObjectResponseAsync``1(System.Net.Http.HttpResponseMessage,System.Collections.Generic.IReadOnlyDictionary{System.String,System.Collections.Generic.IEnumerable{System.String}})"><a href="#collapsible-Picturepark_SDK_V1_XmpMappingClient_ReadObjectResponseAsync__1_System_Net_Http_HttpResponseMessage_System_Collections_Generic_IReadOnlyDictionary_System_String_System_Collections_Generic_IEnumerable_System_String___" class="expander" data-toggle="collapse">ReadObjectResponseAsync&lt;T&gt;(Http.HttpResponseMessage, IReadOnlyDictionary&lt;String, IEnumerable&lt;String&gt;&gt;)</a></h4>
+  <h4 id="Picturepark_SDK_V1_XmpMappingClient_ReadObjectResponseAsync__1_System_Net_Http_HttpResponseMessage_System_Collections_Generic_IReadOnlyDictionary_System_String_System_Collections_Generic_IEnumerable_System_String___System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.XmpMappingClient.ReadObjectResponseAsync``1(System.Net.Http.HttpResponseMessage,System.Collections.Generic.IReadOnlyDictionary{System.String,System.Collections.Generic.IEnumerable{System.String}},System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_XmpMappingClient_ReadObjectResponseAsync__1_System_Net_Http_HttpResponseMessage_System_Collections_Generic_IReadOnlyDictionary_System_String_System_Collections_Generic_IEnumerable_System_String___System_Threading_CancellationToken_" class="expander" data-toggle="collapse">ReadObjectResponseAsync&lt;T&gt;(Http.HttpResponseMessage, IReadOnlyDictionary&lt;String, IEnumerable&lt;String&gt;&gt;, CancellationToken)</a></h4>
   
-  <div id="collapsible-Picturepark_SDK_V1_XmpMappingClient_ReadObjectResponseAsync__1_System_Net_Http_HttpResponseMessage_System_Collections_Generic_IReadOnlyDictionary_System_String_System_Collections_Generic_IEnumerable_System_String___" class="collapse in">
+  <div id="collapsible-Picturepark_SDK_V1_XmpMappingClient_ReadObjectResponseAsync__1_System_Net_Http_HttpResponseMessage_System_Collections_Generic_IReadOnlyDictionary_System_String_System_Collections_Generic_IEnumerable_System_String___System_Threading_CancellationToken_" class="collapse in">
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected virtual async Task&lt;XmpMappingClient.ObjectResponseResult&lt;T&gt;&gt; ReadObjectResponseAsync&lt;T&gt;(Http.HttpResponseMessage response, IReadOnlyDictionary&lt;string, IEnumerable&lt;string&gt;&gt; headers)</code></pre>
+    <pre><code class="lang-csharp hljs">protected virtual async Task&lt;XmpMappingClient.ObjectResponseResult&lt;T&gt;&gt; ReadObjectResponseAsync&lt;T&gt;(Http.HttpResponseMessage response, IReadOnlyDictionary&lt;string, IEnumerable&lt;string&gt;&gt; headers, CancellationToken cancellationToken)</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -1014,6 +1014,13 @@
       <td>
         <span class="pull-right"><span class="xref">System.Collections.Generic.IReadOnlyDictionary</span>&lt;<span class="xref">System.String</span>, <span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">System.String</span>&gt;&gt;</span>
         <span class="parametername">headers</span>
+        <p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
+        <span class="parametername">cancellationToken</span>
         <p>
       </td>
     </tr>
@@ -1061,7 +1068,7 @@
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public async Task&lt;XmpMappingEntrySearchResult&gt; SearchAsync(XmpMappingEntrySearchRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public virtual async Task&lt;XmpMappingEntrySearchResult&gt; SearchAsync(XmpMappingEntrySearchRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -1165,7 +1172,7 @@
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public async Task&lt;BusinessProcess&gt; UpdateAsync(string id, XmpMappingEntry request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public virtual async Task&lt;BusinessProcess&gt; UpdateAsync(string id, XmpMappingEntry request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -1277,7 +1284,7 @@
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public async Task&lt;BusinessProcess&gt; UpdateManyAsync(XmpMappingEntryUpdateManyRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public virtual async Task&lt;BusinessProcess&gt; UpdateManyAsync(XmpMappingEntryUpdateManyRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
