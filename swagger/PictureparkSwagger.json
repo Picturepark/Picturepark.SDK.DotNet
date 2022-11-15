@@ -1,5 +1,5 @@
 {
-  "x-generator": "NSwag v13.14.8.0 (NJsonSchema v10.5.2.0 (Newtonsoft.Json v13.0.0.0))",
+  "x-generator": "NSwag v13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))",
   "openapi": "3.0.0",
   "info": {
     "title": "Picturepark API V1",
@@ -572,7 +572,7 @@
             "description": "The timeout to wait for completion.",
             "schema": {
               "type": "string",
-              "format": "time-span",
+              "format": "duration",
               "nullable": true
             },
             "x-position": 3
@@ -699,7 +699,7 @@
             "description": "The timeout to wait for completion.",
             "schema": {
               "type": "string",
-              "format": "time-span",
+              "format": "duration",
               "nullable": true
             },
             "x-position": 3
@@ -811,7 +811,7 @@
             "description": "The timeout to wait for completion.",
             "schema": {
               "type": "string",
-              "format": "time-span",
+              "format": "duration",
               "nullable": true
             },
             "x-position": 2
@@ -4109,7 +4109,7 @@
             "description": "Maximum time to wait for the operation to complete. If timeout is exceeded, the operation is not aborted but continues anyhow.\n            Only the waiting is aborted, and the calls returned.",
             "schema": {
               "type": "string",
-              "format": "time-span",
+              "format": "duration",
               "nullable": true
             },
             "x-position": 3
@@ -4228,7 +4228,7 @@
           "Content"
         ],
         "summary": "Download content",
-        "description": "Download a single content in a specific output format. To resize images on download specify target width &amp; height. To download only a portion of the file, specify the range parameter.\nTo use conversion presets on download, e.g. to crop or rotate, please see [EditOutput](#operation/Content_EditOutput).",
+        "description": "Download a single content in a specific output format. To resize images on download specify target width & height. To download only a portion of the file, specify the range parameter.\nTo use conversion presets on download, e.g. to crop or rotate, please see [EditOutput](#operation/Content_EditOutput).",
         "operationId": "Content_Download",
         "parameters": [
           {
@@ -4694,7 +4694,7 @@
             "description": "Maximum time to wait for the operation to complete. If timeout is exceeded, the operation is not aborted but continues anyhow.\n            Only the waiting is aborted, and the calls returned.",
             "schema": {
               "type": "string",
-              "format": "time-span",
+              "format": "duration",
               "nullable": true
             },
             "x-position": 4
@@ -5048,7 +5048,7 @@
             "description": "Maximum time to wait for the operation to complete. If timeout is exceeded, the operation is not aborted but continues anyhow.\n            Only the waiting is aborted, and the calls returned.",
             "schema": {
               "type": "string",
-              "format": "time-span",
+              "format": "duration",
               "nullable": true
             },
             "x-position": 5
@@ -5222,7 +5222,7 @@
             "description": "Maximum time to wait for the operation to complete. If timeout is exceeded, the operation is not aborted but continues anyhow.\n            Only the waiting is aborted, and the calls returned.",
             "schema": {
               "type": "string",
-              "format": "time-span",
+              "format": "duration",
               "nullable": true
             },
             "x-position": 4
@@ -5391,7 +5391,7 @@
             "description": "Maximum time to wait for the operation to complete. If timeout is exceeded, the operation is not aborted but continues anyhow.\n            Only the waiting is aborted, and the calls returned.",
             "schema": {
               "type": "string",
-              "format": "time-span",
+              "format": "duration",
               "nullable": true
             },
             "x-position": 3
@@ -5506,7 +5506,7 @@
             "description": "Maximum time to wait for the operation to complete. If timeout is exceeded, the operation is not aborted but continues anyhow.\n            Only the waiting is aborted, and the calls returned.",
             "schema": {
               "type": "string",
-              "format": "time-span",
+              "format": "duration",
               "nullable": true
             },
             "x-position": 3
@@ -8494,7 +8494,7 @@
             "description": "Operation timeout.",
             "schema": {
               "type": "string",
-              "format": "time-span",
+              "format": "duration",
               "nullable": true
             },
             "x-position": 4
@@ -8627,7 +8627,7 @@
             "description": "Operation timeout.",
             "schema": {
               "type": "string",
-              "format": "time-span",
+              "format": "duration",
               "nullable": true
             },
             "x-position": 3
@@ -8731,7 +8731,7 @@
             "description": "Operation timeout.",
             "schema": {
               "type": "string",
-              "format": "time-span",
+              "format": "duration",
               "nullable": true
             },
             "x-position": 3
@@ -9058,7 +9058,7 @@
             "description": "Timeout",
             "schema": {
               "type": "string",
-              "format": "time-span",
+              "format": "duration",
               "nullable": true
             },
             "x-position": 2
@@ -9313,7 +9313,7 @@
             "description": "Timeout",
             "schema": {
               "type": "string",
-              "format": "time-span",
+              "format": "duration",
               "nullable": true
             },
             "x-position": 3
@@ -9436,7 +9436,7 @@
             "description": "Timeout",
             "schema": {
               "type": "string",
-              "format": "time-span",
+              "format": "duration",
               "nullable": true
             },
             "x-position": 2
@@ -11497,7 +11497,7 @@
             "description": "Maximum time to wait for the operation to complete. If timeout is exceeded, the operation is not aborted but continues anyhow.\n            Only the waiting is aborted, and the calls returned.",
             "schema": {
               "type": "string",
-              "format": "time-span",
+              "format": "duration",
               "nullable": true
             },
             "x-position": 5
@@ -11640,7 +11640,7 @@
             "description": "Maximum time to wait for the operation to complete. If timeout is exceeded, the operation is not aborted but continues anyhow.\n            Only the waiting is aborted, and the calls returned.",
             "schema": {
               "type": "string",
-              "format": "time-span",
+              "format": "duration",
               "nullable": true
             },
             "x-position": 3
@@ -11789,7 +11789,7 @@
             "description": "Maximum time to wait for the operation to complete. If timeout is exceeded, the operation is not aborted but continues anyhow.\n            Only the waiting is aborted, and the calls returned.",
             "schema": {
               "type": "string",
-              "format": "time-span",
+              "format": "duration",
               "nullable": true
             },
             "x-position": 3
@@ -12032,7 +12032,7 @@
             "description": "Maximum time to wait for the operation to complete. If timeout is exceeded, the operation is not aborted but continues anyhow.\n            Only the waiting is aborted, and the calls returned.",
             "schema": {
               "type": "string",
-              "format": "time-span",
+              "format": "duration",
               "nullable": true
             },
             "x-position": 4
@@ -17957,7 +17957,7 @@
             "description": "Maximum time to wait for the operation to complete. If timeout is exceeded, the operation is not aborted but continues anyhow.\n            Only the waiting is aborted, and the calls returned.",
             "schema": {
               "type": "string",
-              "format": "time-span",
+              "format": "duration",
               "nullable": true
             },
             "x-position": 3
@@ -18139,7 +18139,7 @@
             "description": "Maximum time to wait for the operation to complete. If timeout is exceeded, the operation is not aborted but continues anyhow.\n            Only the waiting is aborted, and the calls returned.",
             "schema": {
               "type": "string",
-              "format": "time-span",
+              "format": "duration",
               "nullable": true
             },
             "x-position": 2
@@ -18661,7 +18661,7 @@
             "description": "Maximum time to wait for the operation to complete. If timeout is exceeded, the operation is not aborted but continues anyhow.\n            Only the waiting is aborted, and the calls returned.",
             "schema": {
               "type": "string",
-              "format": "time-span",
+              "format": "duration",
               "nullable": true
             },
             "x-position": 3
@@ -18768,7 +18768,7 @@
             "description": "Maximum time to wait for the operation to complete. If timeout is exceeded, the operation is not aborted but continues anyhow.\n            Only the waiting is aborted, and the calls returned.",
             "schema": {
               "type": "string",
-              "format": "time-span",
+              "format": "duration",
               "nullable": true
             },
             "x-position": 2
@@ -20317,7 +20317,6 @@
           },
           {
             "name": "lang",
-            "x-originalName": "languageCode",
             "in": "query",
             "description": "Language code",
             "schema": {
@@ -20447,7 +20446,6 @@
           },
           {
             "name": "lang",
-            "x-originalName": "languageCode",
             "in": "query",
             "description": "Language code",
             "schema": {
@@ -20893,7 +20891,7 @@
           "Share"
         ],
         "summary": "Download shared output",
-        "description": "Download single content in a specific output format (or automatically determined format if none is specified). To resize images on download specify target width &amp; height. To download only a portion of the file, specify the range parameter.",
+        "description": "Download single content in a specific output format (or automatically determined format if none is specified). To resize images on download specify target width & height. To download only a portion of the file, specify the range parameter.",
         "operationId": "Share_DownloadSingleContent",
         "parameters": [
           {
@@ -22167,7 +22165,7 @@
               "nullable": true,
               "items": {
                 "type": "string",
-                "format": "time-span"
+                "format": "duration"
               }
             },
             "x-position": 2
@@ -24277,7 +24275,6 @@
         "parameters": [
           {
             "name": "ChunkNumber",
-            "x-originalName": "upload",
             "in": "query",
             "required": true,
             "description": "Information about chunk.",
@@ -24289,7 +24286,6 @@
           },
           {
             "name": "CurrentChunkSize",
-            "x-originalName": "upload",
             "in": "query",
             "required": true,
             "description": "Information about chunk.",
@@ -24301,7 +24297,6 @@
           },
           {
             "name": "TotalSize",
-            "x-originalName": "upload",
             "in": "query",
             "required": true,
             "description": "Information about chunk.",
@@ -24313,7 +24308,6 @@
           },
           {
             "name": "TotalChunks",
-            "x-originalName": "upload",
             "in": "query",
             "required": true,
             "description": "Information about chunk.",
@@ -28912,13 +28906,30 @@
       "UserNotFoundException": {
         "allOf": [
           {
-            "$ref": "#/components/schemas/PictureparkBusinessException"
+            "$ref": "#/components/schemas/PictureparkNotFoundException"
           },
           {
             "type": "object",
             "additionalProperties": false,
             "properties": {
               "missingUserId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "PictureparkNotFoundException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkBusinessException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "reference": {
                 "type": "string",
                 "nullable": true
               }
@@ -29071,23 +29082,6 @@
           }
         ]
       },
-      "PictureparkNotFoundException": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/PictureparkBusinessException"
-          },
-          {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "reference": {
-                "type": "string",
-                "nullable": true
-              }
-            }
-          }
-        ]
-      },
       "UnauthorizedException": {
         "allOf": [
           {
@@ -29159,7 +29153,7 @@
       "IdentityProviderNotFoundException": {
         "allOf": [
           {
-            "$ref": "#/components/schemas/PictureparkValidationException"
+            "$ref": "#/components/schemas/PictureparkNotFoundException"
           },
           {
             "type": "object",
@@ -29339,6 +29333,23 @@
                 "items": {
                   "type": "string"
                 }
+              }
+            }
+          }
+        ]
+      },
+      "UserByOwnerTokenNotFoundException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkNotFoundException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "ownerToken": {
+                "type": "string",
+                "nullable": true
               }
             }
           }
@@ -30568,11 +30579,11 @@
             "properties": {
               "snapshotRetentionTime": {
                 "type": "string",
-                "format": "time-span"
+                "format": "duration"
               },
               "minimumRetentionTime": {
                 "type": "string",
-                "format": "time-span"
+                "format": "duration"
               }
             }
           }
@@ -33607,7 +33618,8 @@
           "PathHierarchy",
           "EdgeNGram",
           "NGram",
-          "NoDiacritics"
+          "NoDiacritics",
+          "KeywordLowercase"
         ],
         "enum": [
           "None",
@@ -33616,7 +33628,8 @@
           "PathHierarchy",
           "EdgeNGram",
           "NGram",
-          "NoDiacritics"
+          "NoDiacritics",
+          "KeywordLowercase"
         ]
       },
       "SchemaFieldRelationMultipleTypesException": {
@@ -34786,6 +34799,23 @@
           {
             "type": "object",
             "additionalProperties": false
+          }
+        ]
+      },
+      "NotificationNotFoundException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkNotFoundException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "notificationId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
           }
         ]
       },
@@ -40733,7 +40763,8 @@
           "User",
           "ContentPermissionSet",
           "Owner",
-          "UserRole"
+          "UserRole",
+          "SchemaPermissionSet"
         ],
         "enum": [
           "Content",
@@ -40742,7 +40773,8 @@
           "User",
           "ContentPermissionSet",
           "Owner",
-          "UserRole"
+          "UserRole",
+          "SchemaPermissionSet"
         ]
       },
       "TermsEnumAggregator": {
@@ -42295,12 +42327,12 @@
           "start": {
             "type": "string",
             "description": "The starting point in time of the sprite in the video.",
-            "format": "time-span"
+            "format": "duration"
           },
           "end": {
             "type": "string",
             "description": "The ending point in time of the sprite in the video.",
-            "format": "time-span"
+            "format": "duration"
           }
         }
       },
@@ -48397,7 +48429,7 @@
           },
           {
             "type": "object",
-            "description": "Represents a change to permission-related settings of an OutputFormat&gt;",
+            "description": "Represents a change to permission-related settings of an OutputFormat>",
             "additionalProperties": false,
             "required": [
               "id"
@@ -49834,7 +49866,7 @@
               "retentionTime": {
                 "type": "string",
                 "description": "How long should the dynamic outputs created from this format be kept.",
-                "format": "time-span"
+                "format": "duration"
               },
               "downloadFileNamePatterns": {
                 "description": "Optional patterns (liquid syntax) that produce the filename for item of this output format.\nIf set, the customer's default language is required.",
@@ -51494,7 +51526,8 @@
             "NGramAnalyzer": "#/components/schemas/NGramAnalyzer",
             "PathHierarchyAnalyzer": "#/components/schemas/PathHierarchyAnalyzer",
             "SimpleAnalyzer": "#/components/schemas/SimpleAnalyzer",
-            "NoDiacriticsAnalyzer": "#/components/schemas/NoDiacriticsAnalyzer"
+            "NoDiacriticsAnalyzer": "#/components/schemas/NoDiacriticsAnalyzer",
+            "KeywordLowercaseAnalyzer": "#/components/schemas/KeywordLowercaseAnalyzer"
           }
         },
         "description": "The analyzer base class",
@@ -51665,6 +51698,33 @@
               "fieldSuffix": {
                 "type": "string",
                 "description": "The suffix for the analyzed field: nodiacritics.",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "KeywordLowercaseAnalyzer": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/AnalyzerBase"
+          },
+          {
+            "type": "object",
+            "description": "An analyzer that represents a lowercase normalizer on a keyword field",
+            "additionalProperties": false,
+            "properties": {
+              "type": {
+                "description": "The analyzer type: KeywordLowercase",
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/Analyzer"
+                  }
+                ]
+              },
+              "fieldSuffix": {
+                "type": "string",
+                "description": "The suffix for the analyzed field: keywordlowercase.",
                 "nullable": true
               }
             }
@@ -51928,12 +51988,14 @@
         "x-enumNames": [
           "List",
           "ThumbSmall",
-          "ThumbMedium"
+          "ThumbMedium",
+          "ThumbLarge"
         ],
         "enum": [
           "List",
           "ThumbSmall",
-          "ThumbMedium"
+          "ThumbMedium",
+          "ThumbLarge"
         ]
       },
       "DynamicViewFieldUiSettings": {
@@ -52047,7 +52109,7 @@
               },
               "sort": {
                 "type": "array",
-                "description": "Specifies sorting to be used in search with FilterBase&gt; from FilterTemplate",
+                "description": "Specifies sorting to be used in search with FilterBase> from FilterTemplate",
                 "items": {
                   "$ref": "#/components/schemas/SortInfo"
                 }
@@ -52628,12 +52690,34 @@
       "SchemaSearchResult": {
         "allOf": [
           {
-            "$ref": "#/components/schemas/SearchBehaviorBaseResultOfSchema"
+            "$ref": "#/components/schemas/SearchBehaviorWithAggregationBaseResultOfSchema"
           },
           {
             "type": "object",
             "description": "Result for schema search operation",
             "additionalProperties": false
+          }
+        ]
+      },
+      "SearchBehaviorWithAggregationBaseResultOfSchema": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/SearchBehaviorBaseResultOfSchema"
+          },
+          {
+            "type": "object",
+            "description": "Base class for search result queries that support SearchBehaviors",
+            "additionalProperties": false,
+            "properties": {
+              "aggregationResults": {
+                "type": "array",
+                "description": "Results of the aggregation, if any aggregators was passed in the request.",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/AggregationResult"
+                }
+              }
+            }
           }
         ]
       },
@@ -52848,6 +52932,22 @@
             "nullable": true,
             "items": {
               "$ref": "#/components/schemas/MetadataRight"
+            }
+          },
+          "aggregators": {
+            "type": "array",
+            "description": "List of aggregators that defines how the items should be aggregated.",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/AggregatorBase"
+            }
+          },
+          "aggregationFilters": {
+            "type": "array",
+            "description": "Special filters used to filter down independently the aggregations' values and the search results on specific conditions.\nFor the search results, the aggregation filters are used to create a Filter that is put in AND with the eventual existing Filter of the search request to nail down the search results. The filters generated\nby the aggregation filters are put in OR each other if they have the same AggregationName, and then such groups are put in AND.\nFor the aggregation values, only the original Filter of the search request is used to nail down the data to be considered for the aggregations. Then, on top of that, for each aggregator in the search request, a Filter is created to filter down the\naggregation results of that aggregation: depending if the AggregationName of the AggregationFilter matches the AggregationName of the Aggregator, the filter is put in OR (if it matches) or in AND (if it does not match it).\nMoreover, an AggregationFilter ensures that the related value is returned in the AggregationResults also if the top aggregation values returned by default do not contain it.",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/AggregationFilter"
             }
           }
         }
@@ -54276,7 +54376,7 @@
           "timeFrame": {
             "type": "string",
             "description": "The timeframe for which statistical data in this bucket was aggregated",
-            "format": "time-span",
+            "format": "duration",
             "minLength": 1
           },
           "data": {
@@ -54330,7 +54430,7 @@
           "interval": {
             "type": "string",
             "description": "Desired temporal resolution of exported data. Must not be lower than 1 hour",
-            "format": "time-span",
+            "format": "duration",
             "nullable": true
           },
           "notifyProgress": {
@@ -55800,6 +55900,12 @@
                     "$ref": "#/components/schemas/UserAuditDetail"
                   }
                 ]
+              },
+              "lastActivity": {
+                "type": "string",
+                "description": "Last activity of user.",
+                "format": "date-time",
+                "nullable": true
               }
             }
           }
@@ -56292,6 +56398,12 @@
           "isFederated": {
             "type": "boolean",
             "description": "Federated user is a user who is (currently) governed by an external identity provider."
+          },
+          "lastActivity": {
+            "type": "string",
+            "description": "Last activity of user.",
+            "format": "date-time",
+            "nullable": true
           }
         }
       },
@@ -57401,7 +57513,7 @@
               },
               "duration": {
                 "type": "string",
-                "format": "time-span"
+                "format": "duration"
               }
             }
           }
