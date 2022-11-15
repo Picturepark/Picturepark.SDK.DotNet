@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class ContentMetadataUpdateRequest
    | Picturepark.SDK.V1 API ">
-    <meta name="generator" content="docfx 2.59.3.0">
+    <meta name="generator" content="docfx 2.59.4.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -139,9 +139,9 @@
   
   <div id="collapsible-Picturepark_SDK_V1_Contract_ContentMetadataUpdateRequest_Content" class="collapse in">
   <div class="markdown level1 summary"><p>The content data of the content. It&apos;s an object of dynamic metadata whose structure is defined in the Content schema identified by
-the ContentSchemaId property. Updating the Content property is only possible for virtual items (contents
-whose ContentType is Virtual).
-Update of content data will be done only if this attribute has any data, i.e. if it&apos;s not null or empty.</p>
+<br>the ContentSchemaId property. Updating the Content property is only possible for virtual items (contents
+<br>whose ContentType is Virtual).
+<br>Update of content data will be done only if this attribute has any data, i.e. if it&apos;s not null or empty.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -179,9 +179,9 @@ Update of content data will be done only if this attribute has any data, i.e. if
   
   <div id="collapsible-Picturepark_SDK_V1_Contract_ContentMetadataUpdateRequest_ContentFieldsUpdateOptions" class="collapse in">
   <div class="markdown level1 summary"><p>Options to modify the behavior for updating the content.
-Merge: the values specified in the Content object are merged to the existing content.
-Replace: the values specified in the Content object entirely replace the content.
-Defaults to Merge.</p>
+<br>Merge: the values specified in the Content object are merged to the existing content.
+<br>Replace: the values specified in the Content object entirely replace the content.
+<br>Defaults to Merge.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -219,9 +219,9 @@ Defaults to Merge.</p>
   
   <div id="collapsible-Picturepark_SDK_V1_Contract_ContentMetadataUpdateRequest_LayerFieldsUpdateOptions" class="collapse in">
   <div class="markdown level1 summary"><p>Options to modify the behavior for updating the values of schemas.
-Merge: the values specified in the Metadata dictionary are merged to the existing values of the corresponding schema on the content.
-Replace: the values specified in the Metadata dictionary entirely replace any existing value of the corresponding schema on the content.
-Defaults to Merge.</p>
+<br>Merge: the values specified in the Metadata dictionary are merged to the existing values of the corresponding schema on the content.
+<br>Replace: the values specified in the Metadata dictionary entirely replace any existing value of the corresponding schema on the content.
+<br>Defaults to Merge.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -259,7 +259,7 @@ Defaults to Merge.</p>
   
   <div id="collapsible-Picturepark_SDK_V1_Contract_ContentMetadataUpdateRequest_LayerSchemaIds" class="collapse in">
   <div class="markdown level1 summary"><p>An optional list of IDs of the schemas that should be updated/replaced based on the options below and Metadata provided.
-The SchemaType of the specified schemas must be Layer.</p>
+<br>The SchemaType of the specified schemas must be Layer.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -297,11 +297,11 @@ The SchemaType of the specified schemas must be Layer.</p>
   
   <div id="collapsible-Picturepark_SDK_V1_Contract_ContentMetadataUpdateRequest_LayerSchemasUpdateOptions" class="collapse in">
   <div class="markdown level1 summary"><p>Options to modify the behavior for updating the layers.
-Merge: the content is updated so that the assigned layers to the content will be a merge of the ones specified in the LayerSchemaIds property
-and the ones already existing; existing assigned layers not specified in the property are kept and missing layers are assigned.
-Replace: the content is updated so that only the layers specified in the LayerSchemaIds property are assigned to the content;
-existing assigned layers not specified in the property are removed and missing layers are assigned.
-Defaults to Merge.</p>
+<br>Merge: the content is updated so that the assigned layers to the content will be a merge of the ones specified in the LayerSchemaIds property
+<br>and the ones already existing; existing assigned layers not specified in the property are kept and missing layers are assigned.
+<br>Replace: the content is updated so that only the layers specified in the LayerSchemaIds property are assigned to the content;
+<br>existing assigned layers not specified in the property are removed and missing layers are assigned.
+<br>Defaults to Merge.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -339,9 +339,9 @@ Defaults to Merge.</p>
   
   <div id="collapsible-Picturepark_SDK_V1_Contract_ContentMetadataUpdateRequest_Metadata" class="collapse in">
   <div class="markdown level1 summary"><p>The dynamic data structure matching the field schematics of the schemas with type layer (LayerSchemaIds).
-The metadata belonging to the layers of the content. It&apos;s a dictionary of dynamic metadata whose structure is defined in the Layer schemas identified
-by the LayerSchemaIds property.
-If there are no data for a specified LayerSchemaId, it is treated as empty.</p>
+<br>The metadata belonging to the layers of the content. It&apos;s a dictionary of dynamic metadata whose structure is defined in the Layer schemas identified
+<br>by the LayerSchemaIds property.
+<br>If there are no data for a specified LayerSchemaId, it is treated as empty.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>

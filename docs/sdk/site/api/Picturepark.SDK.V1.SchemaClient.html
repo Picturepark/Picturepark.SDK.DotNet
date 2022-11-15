@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class SchemaClient
    | Picturepark.SDK.V1 API ">
-    <meta name="generator" content="docfx 2.59.3.0">
+    <meta name="generator" content="docfx 2.59.4.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -330,7 +330,7 @@
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public async Task&lt;SchemaCreateResult&gt; CreateAsync(SchemaCreateRequest request, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public virtual async Task&lt;SchemaCreateResult&gt; CreateAsync(SchemaCreateRequest request, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -348,7 +348,7 @@
         <span class="pull-right"><span class="xref">System.Nullable</span>&lt;<span class="xref">System.TimeSpan</span>&gt;</span>
         <span class="parametername">timeout</span>
         <p><p>Maximum time to wait for the operation to complete. If timeout is exceeded, the operation is not aborted but continues anyhow.
-            Only the waiting is aborted, and the calls returned.</p>
+<br>            Only the waiting is aborted, and the calls returned.</p>
 </p>
       </td>
     </tr>
@@ -758,7 +758,7 @@
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected async Task&lt;BusinessProcess&gt; CreateManyCoreAsync(SchemaCreateManyRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">protected virtual async Task&lt;BusinessProcess&gt; CreateManyCoreAsync(SchemaCreateManyRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -956,7 +956,7 @@
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public async Task&lt;SchemaDeleteResult&gt; DeleteAsync(string id, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public virtual async Task&lt;SchemaDeleteResult&gt; DeleteAsync(string id, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -974,7 +974,7 @@
         <span class="pull-right"><span class="xref">System.Nullable</span>&lt;<span class="xref">System.TimeSpan</span>&gt;</span>
         <span class="parametername">timeout</span>
         <p><p>Maximum time to wait for the operation to complete. If timeout is exceeded, the operation is not aborted but continues anyhow.
-            Only the waiting is aborted, and the calls returned.</p>
+<br>            Only the waiting is aborted, and the calls returned.</p>
 </p>
       </td>
     </tr>
@@ -1159,7 +1159,7 @@
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected async Task&lt;SchemaExistsResponse&gt; ExistsCoreAsync(string id, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">protected virtual async Task&lt;SchemaExistsResponse&gt; ExistsCoreAsync(string id, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -1261,7 +1261,7 @@
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public async Task&lt;FieldExistsResponse&gt; FieldExistsAsync(string schemaId, string fieldId, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public virtual async Task&lt;FieldExistsResponse&gt; FieldExistsAsync(string schemaId, string fieldId, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -1451,7 +1451,7 @@
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public async Task&lt;ICollection&lt;FieldInfo&gt;&gt; GetAggregationFieldsAsync(string id, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public virtual async Task&lt;ICollection&lt;FieldInfo&gt;&gt; GetAggregationFieldsAsync(string id, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -1555,7 +1555,7 @@
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public async Task&lt;ICollection&lt;FieldInfo&gt;&gt; GetAggregationFieldsManyAsync(IEnumerable&lt;string&gt; ids = null, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public virtual async Task&lt;ICollection&lt;FieldInfo&gt;&gt; GetAggregationFieldsManyAsync(IEnumerable&lt;string&gt; ids = null, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -1659,7 +1659,7 @@
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public async Task&lt;SchemaDetail&gt; GetAsync(string id, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public virtual async Task&lt;SchemaDetail&gt; GetAsync(string id, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -1770,7 +1770,7 @@
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public async Task&lt;ICollection&lt;FieldInfo&gt;&gt; GetFilterFieldsAsync(string id, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public virtual async Task&lt;ICollection&lt;FieldInfo&gt;&gt; GetFilterFieldsAsync(string id, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -1874,7 +1874,7 @@
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public async Task&lt;ICollection&lt;FieldInfo&gt;&gt; GetFilterFieldsManyAsync(IEnumerable&lt;string&gt; ids = null, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public virtual async Task&lt;ICollection&lt;FieldInfo&gt;&gt; GetFilterFieldsManyAsync(IEnumerable&lt;string&gt; ids = null, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -1978,7 +1978,7 @@
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public async Task&lt;ICollection&lt;SchemaDetail&gt;&gt; GetManyAsync(IEnumerable&lt;string&gt; ids = null, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public virtual async Task&lt;ICollection&lt;SchemaDetail&gt;&gt; GetManyAsync(IEnumerable&lt;string&gt; ids = null, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -2089,7 +2089,7 @@
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public async Task&lt;ICollection&lt;SchemaDetail&gt;&gt; GetManyReferencedAsync(IEnumerable&lt;string&gt; ids = null, bool? sourceSchema = null, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public virtual async Task&lt;ICollection&lt;SchemaDetail&gt;&gt; GetManyReferencedAsync(IEnumerable&lt;string&gt; ids = null, bool? sourceSchema = null, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -2201,7 +2201,7 @@
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public async Task&lt;ICollection&lt;SchemaDetail&gt;&gt; GetReferencedAsync(string id, bool? sourceSchema = null, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public virtual async Task&lt;ICollection&lt;SchemaDetail&gt;&gt; GetReferencedAsync(string id, bool? sourceSchema = null, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -2320,7 +2320,7 @@
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public async Task&lt;ICollection&lt;SortFieldInfo&gt;&gt; GetSortFieldsBySchemaTypesAsync(IEnumerable&lt;SchemaType&gt; schemaTypes = null, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public virtual async Task&lt;ICollection&lt;SortFieldInfo&gt;&gt; GetSortFieldsBySchemaTypesAsync(IEnumerable&lt;SchemaType&gt; schemaTypes = null, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -2415,15 +2415,15 @@
   
   <a id="Picturepark_SDK_V1_SchemaClient_ReadObjectResponseAsync_" data-uid="Picturepark.SDK.V1.SchemaClient.ReadObjectResponseAsync*"></a>
   
-  <h4 id="Picturepark_SDK_V1_SchemaClient_ReadObjectResponseAsync__1_System_Net_Http_HttpResponseMessage_System_Collections_Generic_IReadOnlyDictionary_System_String_System_Collections_Generic_IEnumerable_System_String___" data-uid="Picturepark.SDK.V1.SchemaClient.ReadObjectResponseAsync``1(System.Net.Http.HttpResponseMessage,System.Collections.Generic.IReadOnlyDictionary{System.String,System.Collections.Generic.IEnumerable{System.String}})"><a href="#collapsible-Picturepark_SDK_V1_SchemaClient_ReadObjectResponseAsync__1_System_Net_Http_HttpResponseMessage_System_Collections_Generic_IReadOnlyDictionary_System_String_System_Collections_Generic_IEnumerable_System_String___" class="expander" data-toggle="collapse">ReadObjectResponseAsync&lt;T&gt;(Http.HttpResponseMessage, IReadOnlyDictionary&lt;String, IEnumerable&lt;String&gt;&gt;)</a></h4>
+  <h4 id="Picturepark_SDK_V1_SchemaClient_ReadObjectResponseAsync__1_System_Net_Http_HttpResponseMessage_System_Collections_Generic_IReadOnlyDictionary_System_String_System_Collections_Generic_IEnumerable_System_String___System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.SchemaClient.ReadObjectResponseAsync``1(System.Net.Http.HttpResponseMessage,System.Collections.Generic.IReadOnlyDictionary{System.String,System.Collections.Generic.IEnumerable{System.String}},System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_SchemaClient_ReadObjectResponseAsync__1_System_Net_Http_HttpResponseMessage_System_Collections_Generic_IReadOnlyDictionary_System_String_System_Collections_Generic_IEnumerable_System_String___System_Threading_CancellationToken_" class="expander" data-toggle="collapse">ReadObjectResponseAsync&lt;T&gt;(Http.HttpResponseMessage, IReadOnlyDictionary&lt;String, IEnumerable&lt;String&gt;&gt;, CancellationToken)</a></h4>
   
-  <div id="collapsible-Picturepark_SDK_V1_SchemaClient_ReadObjectResponseAsync__1_System_Net_Http_HttpResponseMessage_System_Collections_Generic_IReadOnlyDictionary_System_String_System_Collections_Generic_IEnumerable_System_String___" class="collapse in">
+  <div id="collapsible-Picturepark_SDK_V1_SchemaClient_ReadObjectResponseAsync__1_System_Net_Http_HttpResponseMessage_System_Collections_Generic_IReadOnlyDictionary_System_String_System_Collections_Generic_IEnumerable_System_String___System_Threading_CancellationToken_" class="collapse in">
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected virtual async Task&lt;SchemaClient.ObjectResponseResult&lt;T&gt;&gt; ReadObjectResponseAsync&lt;T&gt;(Http.HttpResponseMessage response, IReadOnlyDictionary&lt;string, IEnumerable&lt;string&gt;&gt; headers)</code></pre>
+    <pre><code class="lang-csharp hljs">protected virtual async Task&lt;SchemaClient.ObjectResponseResult&lt;T&gt;&gt; ReadObjectResponseAsync&lt;T&gt;(Http.HttpResponseMessage response, IReadOnlyDictionary&lt;string, IEnumerable&lt;string&gt;&gt; headers, CancellationToken cancellationToken)</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -2439,6 +2439,13 @@
       <td>
         <span class="pull-right"><span class="xref">System.Collections.Generic.IReadOnlyDictionary</span>&lt;<span class="xref">System.String</span>, <span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">System.String</span>&gt;&gt;</span>
         <span class="parametername">headers</span>
+        <p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
+        <span class="parametername">cancellationToken</span>
         <p>
       </td>
     </tr>
@@ -2486,7 +2493,7 @@
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public async Task&lt;SchemaSearchResult&gt; SearchAsync(SchemaSearchRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public virtual async Task&lt;SchemaSearchResult&gt; SearchAsync(SchemaSearchRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -2590,7 +2597,7 @@
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public async Task TransferOwnershipAsync(string id, SchemaOwnershipTransferRequest request, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public virtual async Task TransferOwnershipAsync(string id, SchemaOwnershipTransferRequest request, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -2616,7 +2623,7 @@
         <span class="pull-right"><span class="xref">System.Nullable</span>&lt;<span class="xref">System.TimeSpan</span>&gt;</span>
         <span class="parametername">timeout</span>
         <p><p>Maximum time to wait for the operation to complete. If timeout is exceeded, the operation is not aborted but continues anyhow.
-            Only the waiting is aborted, and the calls returned.</p>
+<br>            Only the waiting is aborted, and the calls returned.</p>
 </p>
       </td>
     </tr>
@@ -2711,7 +2718,7 @@
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public async Task&lt;BusinessProcess&gt; TransferOwnershipManyAsync(SchemaOwnershipTransferManyRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public virtual async Task&lt;BusinessProcess&gt; TransferOwnershipManyAsync(SchemaOwnershipTransferManyRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -2900,7 +2907,7 @@
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public async Task&lt;SchemaUpdateResult&gt; UpdateAsync(string id, SchemaUpdateRequest request, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">public virtual async Task&lt;SchemaUpdateResult&gt; UpdateAsync(string id, SchemaUpdateRequest request, TimeSpan? timeout = null, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
@@ -2926,7 +2933,7 @@
         <span class="pull-right"><span class="xref">System.Nullable</span>&lt;<span class="xref">System.TimeSpan</span>&gt;</span>
         <span class="parametername">timeout</span>
         <p><p>Maximum time to wait for the operation to complete. If timeout is exceeded, the operation is not aborted but continues anyhow.
-            Only the waiting is aborted, and the calls returned.</p>
+<br>            Only the waiting is aborted, and the calls returned.</p>
 </p>
       </td>
     </tr>
@@ -3184,7 +3191,7 @@
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected async Task&lt;BusinessProcess&gt; UpdateManyCoreAsync(SchemaUpdateManyRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+    <pre><code class="lang-csharp hljs">protected virtual async Task&lt;BusinessProcess&gt; UpdateManyCoreAsync(SchemaUpdateManyRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
