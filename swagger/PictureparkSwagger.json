@@ -39224,7 +39224,8 @@
           "propertyName": "kind",
           "mapping": {
             "ClarifaiTaggingOptions": "#/components/schemas/ClarifaiTaggingOptions",
-            "SimulatedTaggingOptions": "#/components/schemas/SimulatedTaggingOptions"
+            "SimulatedTaggingOptions": "#/components/schemas/SimulatedTaggingOptions",
+            "AzureTaggingOptions": "#/components/schemas/AzureTaggingOptions"
           }
         },
         "description": "Options for tagging",
@@ -39310,6 +39311,52 @@
               "enableOcr": {
                 "type": "boolean",
                 "description": "Enables/disables ocr feature"
+              }
+            }
+          }
+        ]
+      },
+      "AzureTaggingOptions": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/TaggingOptionsBase"
+          },
+          {
+            "type": "object",
+            "description": "Options for Azure tagging",
+            "additionalProperties": false,
+            "properties": {
+              "apiUrl": {
+                "type": "string",
+                "description": "Url to Azure Computer Vision Service",
+                "nullable": true
+              },
+              "apiKey": {
+                "type": "string",
+                "description": "API Key to Azure Computer Vision Service (needed for connection)",
+                "nullable": true
+              },
+              "languageCode": {
+                "type": "string",
+                "description": "Determines the language, list of supported language codes: https://aka.ms/cv-languages",
+                "nullable": true
+              },
+              "minimumValue": {
+                "type": "number",
+                "description": "Minimum value of confidence to accept the service result",
+                "format": "decimal"
+              },
+              "enableTagging": {
+                "type": "boolean",
+                "description": "Specifies if tagging feature should be enabled"
+              },
+              "enableObjectDetection": {
+                "type": "boolean",
+                "description": "Specifies if object detection feature should be enabled"
+              },
+              "enableOcr": {
+                "type": "boolean",
+                "description": "Specifies if OCR feature should be enabled"
               }
             }
           }
