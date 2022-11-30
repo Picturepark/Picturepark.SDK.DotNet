@@ -17628,6 +17628,7 @@ namespace Picturepark.SDK.V1.Contract
     [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
     [JsonInheritanceAttribute("ClarifaiTaggingOptions", typeof(ClarifaiTaggingOptions))]
     [JsonInheritanceAttribute("SimulatedTaggingOptions", typeof(SimulatedTaggingOptions))]
+    [JsonInheritanceAttribute("AzureTaggingOptions", typeof(AzureTaggingOptions))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
     public abstract partial class TaggingOptionsBase
     {
@@ -17724,6 +17725,12 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("numberOfKeywords", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string NumberOfKeywords { get; set; }
 
+        /// <summary>
+        /// Enables/disables ocr feature
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("enableOcr", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool EnableOcr { get; set; }
+
         public string ToJson()
         {
 
@@ -17734,6 +17741,69 @@ namespace Picturepark.SDK.V1.Contract
         {
 
             return Newtonsoft.Json.JsonConvert.DeserializeObject<SimulatedTaggingOptions>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    /// <summary>
+    /// Options for Azure tagging
+    /// </summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class AzureTaggingOptions : TaggingOptionsBase
+    {
+        /// <summary>
+        /// Url to Azure Computer Vision Service
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("apiUrl", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ApiUrl { get; set; }
+
+        /// <summary>
+        /// API Key to Azure Computer Vision Service (needed for connection)
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("apiKey", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ApiKey { get; set; }
+
+        /// <summary>
+        /// Determines the language, list of supported language codes: https://aka.ms/cv-languages
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("languageCode", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string LanguageCode { get; set; }
+
+        /// <summary>
+        /// Minimum value of confidence to accept the service result
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("minimumValue", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public decimal MinimumValue { get; set; }
+
+        /// <summary>
+        /// Specifies if tagging feature should be enabled
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("enableTagging", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool EnableTagging { get; set; }
+
+        /// <summary>
+        /// Specifies if object detection feature should be enabled
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("enableObjectDetection", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool EnableObjectDetection { get; set; }
+
+        /// <summary>
+        /// Specifies if OCR feature should be enabled
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("enableOcr", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool EnableOcr { get; set; }
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static AzureTaggingOptions FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<AzureTaggingOptions>(data, new Newtonsoft.Json.JsonSerializerSettings());
 
         }
 
@@ -40421,6 +40491,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("BusinessRuleFiredEvent", typeof(BusinessRuleFiredEvent))]
     [JsonInheritanceAttribute("BusinessProcessCancellationRequestedEvent", typeof(BusinessProcessCancellationRequestedEvent))]
     [JsonInheritanceAttribute("DataExtractionRepairEvent", typeof(DataExtractionRepairEvent))]
+    [JsonInheritanceAttribute("TaggerStatisticsEvent", typeof(TaggerStatisticsEvent))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
     public partial class ApplicationEvent
     {
@@ -40945,6 +41016,36 @@ namespace Picturepark.SDK.V1.Contract
         {
 
             return Newtonsoft.Json.JsonConvert.DeserializeObject<DataExtractionRepairEvent>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class TaggerStatisticsEvent : ApplicationEvent
+    {
+        [Newtonsoft.Json.JsonProperty("requestsCounter", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public long RequestsCounter { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("taggerCounter", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public long TaggerCounter { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("ocrCounter", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public long OcrCounter { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("taggerName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string TaggerName { get; set; }
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static TaggerStatisticsEvent FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<TaggerStatisticsEvent>(data, new Newtonsoft.Json.JsonSerializerSettings());
 
         }
 
