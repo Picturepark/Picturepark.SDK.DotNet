@@ -34,7 +34,7 @@ try {
 	}
 
 	dotnet restore "$PSScriptRoot/../src/Picturepark.SDK.V1.Tests/" --no-cache
-	dotnet test "$PSScriptRoot/../src/Picturepark.SDK.V1.Tests/Picturepark.SDK.V1.Tests.csproj" -c RELEASE -f netcoreapp3.1
+	dotnet test "$PSScriptRoot/../src/Picturepark.SDK.V1.Tests/Picturepark.SDK.V1.Tests.csproj" -c RELEASE -f net6.0
     if ($lastexitcode -ne 0)
     {
         throw "A unit test failed."
