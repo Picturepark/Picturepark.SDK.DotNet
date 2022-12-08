@@ -26,7 +26,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var displayValue = await _client.DisplayValue.GetStatusAsync().ConfigureAwait(false);
 
             // Assert
-            displayValue.State.Should().NotBeNull();
             displayValue.ContentOrLayerSchemaIds.Should().NotBeNull();
             displayValue.ListSchemaIds.Should().NotBeNull();
         }

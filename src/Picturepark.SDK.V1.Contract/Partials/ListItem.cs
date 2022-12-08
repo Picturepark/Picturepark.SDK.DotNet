@@ -1,5 +1,4 @@
 ﻿using Newtonsoft.Json.Linq;
-using System;
 
 namespace Picturepark.SDK.V1.Contract
 {
