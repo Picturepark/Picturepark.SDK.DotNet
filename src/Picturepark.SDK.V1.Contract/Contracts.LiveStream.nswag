@@ -16,7 +16,7 @@
       "output": null,
       "outputType": "Swagger2",
       "assemblyPaths": [
-        "../../../Picturepark/Picturepark.API.Contract.V1/bin/Debug/netstandard1.3/Picturepark.API.Contract.V1.dll"
+        "../../../Picturepark/Picturepark.API.Contract.V1/bin/Debug/netstandard2.0/Picturepark.API.Contract.V1.dll"
       ],
       "referencePaths": []
     }

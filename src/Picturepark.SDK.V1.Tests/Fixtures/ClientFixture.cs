@@ -3,7 +3,6 @@ using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.IO;
-using System.Net;
 using System.Net.Http;
 using System.Reflection;
 using System.Threading.Tasks;
@@ -27,14 +26,6 @@ namespace Picturepark.SDK.V1.Tests.Fixtures
 
         public ClientFixture()
         {
-#if NET452
-            ServicePointManager.SecurityProtocol =
-                SecurityProtocolType.Ssl3 |
-                SecurityProtocolType.Tls12 |
-                SecurityProtocolType.Tls11 |
-                SecurityProtocolType.Tls;
-#endif
-
             var assemblyDirectory = Path.GetFullPath(Path.GetDirectoryName(typeof(ClientFixture).GetTypeInfo().Assembly.Location));
             ProjectDirectory = Path.GetFullPath(assemblyDirectory + "/../../../");
 

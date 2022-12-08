@@ -7,9 +7,8 @@ namespace Picturepark.SDK.V1.Tests.FluentAssertions
 {
     public class UserAssertions : ReferenceTypeAssertions<User, UserAssertions>
     {
-        public UserAssertions(User instance)
+        public UserAssertions(User instance) : base(instance)
         {
-            Subject = instance;
         }
 
         protected override string Identifier => "user";

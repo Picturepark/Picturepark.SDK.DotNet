@@ -3,7 +3,7 @@ try {
 	[System.Net.ServicePointManager]::SecurityProtocol = $AllProtocols
 
 	$customerInfo = Invoke-WebRequest "${Env:TestApiServer}/v1/info/customer" -Method Get -Headers @{ "Accept" = "application/json"; "Picturepark-CustomerAlias" = "${Env:TestCustomerAlias}" } | ConvertFrom-Json
-	
+
 	${Env:TestCustomerId} = $customerInfo.CustomerId
 
 	$acr_values = "tenant:{""id"":""${Env:TestCustomerId}"",""alias"":""${Env:TestCustomerAlias}""}"
@@ -18,37 +18,30 @@ try {
 		acr_values    = $acr_values;
 		scope         = "openid profile picturepark_api all_scopes";
 	}
-	
+
 	$result = Invoke-WebRequest ${Env:TestIdentityServer} -Method Post -Body $tokenParams | ConvertFrom-Json
-	
+
 	${Env:TestAccessToken} = $result.access_token
-	
-	if (!(Test-Path "$PSScriptRoot/../src/Picturepark.SDK.V1.Tests/Configuration.json")) { 
-		(Get-Content "$PSScriptRoot/../src/Picturepark.SDK.V1.Tests/Configuration_template.json") | 
-			ForEach-Object { $_ -replace "{Server}", "$env:TestApiServer" } | 
-			ForEach-Object { $_ -replace "{Username}", "$env:TestUsername" } | 
-			ForEach-Object { $_ -replace "{Password}", "$env:TestPassword" } | 
-			ForEach-Object { $_ -replace "{AccessToken}", "$env:TestAccessToken" } | 
-			ForEach-Object { $_ -replace "{CustomerAlias}", "$env:TestCustomerAlias" } | 
+
+	if (!(Test-Path "$PSScriptRoot/../src/Picturepark.SDK.V1.Tests/Configuration.json")) {
+		(Get-Content "$PSScriptRoot/../src/Picturepark.SDK.V1.Tests/Configuration_template.json") |
+			ForEach-Object { $_ -replace "{Server}", "$env:TestApiServer" } |
+			ForEach-Object { $_ -replace "{Username}", "$env:TestUsername" } |
+			ForEach-Object { $_ -replace "{Password}", "$env:TestPassword" } |
+			ForEach-Object { $_ -replace "{AccessToken}", "$env:TestAccessToken" } |
+			ForEach-Object { $_ -replace "{CustomerAlias}", "$env:TestCustomerAlias" } |
 			Set-Content "$PSScriptRoot/../src/Picturepark.SDK.V1.Tests/Configuration.json"
 	}
-	
-	dotnet restore "$PSScriptRoot/../src/Picturepark.SDK.V1.Tests/" --no-cache
-	dotnet test "$PSScriptRoot/../src/Picturepark.SDK.V1.Tests/Picturepark.SDK.V1.Tests.csproj" -c RELEASE -f netcoreapp2.0
-    if ($lastexitcode -ne 0)
-    {
-        throw "A unit test failed."
-    }
 
-	dotnet test "$PSScriptRoot/../src/Picturepark.SDK.V1.Tests/Picturepark.SDK.V1.Tests.csproj" -c RELEASE -f net452
-    
+	dotnet restore "$PSScriptRoot/../src/Picturepark.SDK.V1.Tests/" --no-cache
+	dotnet test "$PSScriptRoot/../src/Picturepark.SDK.V1.Tests/Picturepark.SDK.V1.Tests.csproj" -c RELEASE -f net6.0
     if ($lastexitcode -ne 0)
     {
         throw "A unit test failed."
     }
-} 
-catch [Exception] { 
-    "Failed to run unit tests: $_.Exception.Message" 
-    $_.Exception.StackTrace 
-    Exit 1 
+}
+catch [Exception] {
+    "Failed to run unit tests: $_.Exception.Message"
+    $_.Exception.StackTrace
+    Exit 1
 }
