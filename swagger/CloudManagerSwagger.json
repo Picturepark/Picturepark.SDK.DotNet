@@ -22509,7 +22509,8 @@
           "propertyName": "kind",
           "mapping": {
             "ClarifaiTaggingConfiguration": "#/components/schemas/ClarifaiTaggingConfiguration",
-            "SimulatedTaggingConfiguration": "#/components/schemas/SimulatedTaggingConfiguration"
+            "SimulatedTaggingConfiguration": "#/components/schemas/SimulatedTaggingConfiguration",
+            "AzureTaggingConfiguration": "#/components/schemas/AzureTaggingConfiguration"
           }
         },
         "x-abstract": true,
@@ -22517,7 +22518,8 @@
         "required": [
           "kind",
           "enableImageAnalytics",
-          "enableLegacyTaggingBehavior"
+          "enableLegacyTaggingBehavior",
+          "useDownloadLink"
         ],
         "properties": {
           "enableImageAnalytics": {
@@ -22546,6 +22548,9 @@
             "type": "string",
             "nullable": true
           },
+          "useDownloadLink": {
+            "type": "boolean"
+          },
           "kind": {
             "type": "string"
           }
@@ -22563,9 +22568,6 @@
               "apiToken": {
                 "type": "string",
                 "nullable": true
-              },
-              "useDownloadLink": {
-                "type": "boolean"
               },
               "defaultModel": {
                 "type": "string",
@@ -22595,6 +22597,55 @@
               "defaultNumberOfKeywords": {
                 "type": "integer",
                 "format": "int32"
+              },
+              "enableOcr": {
+                "type": "boolean"
+              }
+            }
+          }
+        ]
+      },
+      "AzureTaggingConfiguration": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/TaggingConfigurationBase"
+          },
+          {
+            "type": "object",
+            "description": "Options for Azure tagging",
+            "additionalProperties": false,
+            "properties": {
+              "apiUrl": {
+                "type": "string",
+                "description": "Url to Azure Computer Vision Service",
+                "nullable": true
+              },
+              "apiKey": {
+                "type": "string",
+                "description": "API Key to Azure Computer Vision Service (needed for connection)",
+                "nullable": true
+              },
+              "languageCode": {
+                "type": "string",
+                "description": "Determines the language, list of supported language codes: https://aka.ms/cv-languages",
+                "nullable": true
+              },
+              "minimumValue": {
+                "type": "number",
+                "description": "Minimum value of confidence to accept the service result",
+                "format": "decimal"
+              },
+              "enableTagging": {
+                "type": "boolean",
+                "description": "Specifies if tagging feature should be enabled"
+              },
+              "enableObjectDetection": {
+                "type": "boolean",
+                "description": "Specifies if object detection feature should be enabled"
+              },
+              "enableOcr": {
+                "type": "boolean",
+                "description": "Specifies if OCR feature should be enabled"
               }
             }
           }
@@ -27557,7 +27608,8 @@
             "SearchReindexCompletedEvent": "#/components/schemas/SearchReindexCompletedEvent",
             "BusinessRuleFiredEvent": "#/components/schemas/BusinessRuleFiredEvent",
             "BusinessProcessCancellationRequestedEvent": "#/components/schemas/BusinessProcessCancellationRequestedEvent",
-            "DataExtractionRepairEvent": "#/components/schemas/DataExtractionRepairEvent"
+            "DataExtractionRepairEvent": "#/components/schemas/DataExtractionRepairEvent",
+            "TaggerStatisticsEvent": "#/components/schemas/TaggerStatisticsEvent"
           }
         },
         "additionalProperties": false,
@@ -28071,6 +28123,35 @@
               },
               "hadChanges": {
                 "type": "boolean"
+              }
+            }
+          }
+        ]
+      },
+      "TaggerStatisticsEvent": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ApplicationEvent"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "requestsCounter": {
+                "type": "integer",
+                "format": "int64"
+              },
+              "taggerCounter": {
+                "type": "integer",
+                "format": "int64"
+              },
+              "ocrCounter": {
+                "type": "integer",
+                "format": "int64"
+              },
+              "taggerName": {
+                "type": "string",
+                "nullable": true
               }
             }
           }
