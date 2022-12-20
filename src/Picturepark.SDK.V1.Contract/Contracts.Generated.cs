@@ -20306,7 +20306,8 @@ namespace Picturepark.SDK.V1.Contract
         /// <summary>
         /// User's Picturepark ID.
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
         public string Id { get; set; }
 
         /// <summary>
@@ -25434,7 +25435,8 @@ namespace Picturepark.SDK.V1.Contract
         /// <summary>
         /// Identity provider ID (has to match an existing IdP defined in IdentityServer)
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
         public string Id { get; set; }
 
         /// <summary>

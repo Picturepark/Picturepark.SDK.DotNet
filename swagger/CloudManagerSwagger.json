@@ -21223,6 +21223,7 @@
         "type": "object",
         "additionalProperties": false,
         "required": [
+          "id",
           "emailAddress",
           "isDeleted"
         ],
@@ -21230,7 +21231,7 @@
           "id": {
             "type": "string",
             "description": "User's Picturepark ID.",
-            "nullable": true
+            "minLength": 1
           },
           "firstName": {
             "type": "string",
@@ -22249,13 +22250,6 @@
             "type": "string",
             "nullable": true
           },
-          "identityServerProviders": {
-            "type": "array",
-            "nullable": true,
-            "items": {
-              "$ref": "#/components/schemas/IdentityServerProvider"
-            }
-          },
           "serviceProviders": {
             "type": "array",
             "nullable": true,
@@ -22650,24 +22644,6 @@
             }
           }
         ]
-      },
-      "IdentityServerProvider": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "id": {
-            "type": "string",
-            "nullable": true
-          },
-          "name": {
-            "type": "string",
-            "nullable": true
-          },
-          "url": {
-            "type": "string",
-            "nullable": true
-          }
-        }
       },
       "CustomerServiceProvider": {
         "type": "object",
