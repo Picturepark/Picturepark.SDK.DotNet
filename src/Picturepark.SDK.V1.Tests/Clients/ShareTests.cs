@@ -420,7 +420,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             }
         }
 
-        [Theory]
+        [Theory(Skip = "PP9-16840: Currently broken on backend, will re-enable")]
         [Trait("Stack", "Shares")]
         [InlineData("", 400, 400)]
         [InlineData("resize-to:200x150", 200, 150)]
