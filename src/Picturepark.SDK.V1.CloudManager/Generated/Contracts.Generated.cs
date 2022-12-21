@@ -14065,6 +14065,9 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
 
     }
 
+    /// <summary>
+    /// Defines behavior of an OutputFormat in DownloadDialog
+    /// </summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
     public enum DownloadDialogBehavior
     {
@@ -14117,6 +14120,9 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
 
     }
 
+    /// <summary>
+    /// Defines behavior of OutputFormat in ShareAccess
+    /// </summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
     public enum OutputAccessBehavior
     {
@@ -14129,6 +14135,9 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
 
     }
 
+    /// <summary>
+    /// Defines behavior of OutputFormat in Media editor
+    /// </summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
     public enum MediaEditorBehavior
     {

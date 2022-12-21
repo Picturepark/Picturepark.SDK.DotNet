@@ -22909,7 +22909,7 @@
       },
       "DownloadDialogBehavior": {
         "type": "string",
-        "description": "",
+        "description": "Defines behavior of an OutputFormat in DownloadDialog",
         "x-enumNames": [
           "ShowAlways",
           "ShowMoreFormats",
@@ -22950,7 +22950,7 @@
       },
       "OutputAccessBehavior": {
         "type": "string",
-        "description": "",
+        "description": "Defines behavior of OutputFormat in ShareAccess",
         "x-enumNames": [
           "Include",
           "Exclude"
@@ -22962,7 +22962,7 @@
       },
       "MediaEditorBehavior": {
         "type": "string",
-        "description": "",
+        "description": "Defines behavior of OutputFormat in Media editor",
         "x-enumNames": [
           "Show",
           "Hide"
