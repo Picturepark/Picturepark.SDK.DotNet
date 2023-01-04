@@ -22827,6 +22827,15 @@
                     "$ref": "#/components/schemas/XmpWritebackOptions"
                   }
                 ]
+              },
+              "behaviors": {
+                "description": "Defines how the OutputFormat should behave for certain features (Download, Sharing, Media editing).",
+                "nullable": true,
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/OutputFormatBehaviors"
+                  }
+                ]
               }
             }
           }
@@ -22860,6 +22869,107 @@
         "enum": [
           "MappingOnly",
           "MergeWithOriginal"
+        ]
+      },
+      "OutputFormatBehaviors": {
+        "type": "object",
+        "description": "Behaviors of OutputFormat",
+        "additionalProperties": false,
+        "required": [
+          "downloadDialogBehavior",
+          "mediaEditorBehavior"
+        ],
+        "properties": {
+          "downloadDialogBehavior": {
+            "description": "Behavior for DownloadDialog.",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/DownloadDialogBehavior"
+              }
+            ]
+          },
+          "shareOutputAccessBehaviors": {
+            "description": "Behavior when sharing.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/OutputFormatShareOutputAccessBehaviors"
+              }
+            ]
+          },
+          "mediaEditorBehavior": {
+            "description": "Behavior for media editor.",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/MediaEditorBehavior"
+              }
+            ]
+          }
+        }
+      },
+      "DownloadDialogBehavior": {
+        "type": "string",
+        "description": "Defines behavior of an OutputFormat in DownloadDialog",
+        "x-enumNames": [
+          "ShowAlways",
+          "ShowMoreFormats",
+          "Hide"
+        ],
+        "enum": [
+          "ShowAlways",
+          "ShowMoreFormats",
+          "Hide"
+        ]
+      },
+      "OutputFormatShareOutputAccessBehaviors": {
+        "type": "object",
+        "description": "Behavior when sharing for OutputFormat",
+        "additionalProperties": false,
+        "required": [
+          "full",
+          "preview"
+        ],
+        "properties": {
+          "full": {
+            "description": "Behavior when sharing with Full.",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/OutputAccessBehavior"
+              }
+            ]
+          },
+          "preview": {
+            "description": "Behavior when sharing with Preview.",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/OutputAccessBehavior"
+              }
+            ]
+          }
+        }
+      },
+      "OutputAccessBehavior": {
+        "type": "string",
+        "description": "Defines behavior of OutputFormat in ShareAccess",
+        "x-enumNames": [
+          "Include",
+          "Exclude"
+        ],
+        "enum": [
+          "Include",
+          "Exclude"
+        ]
+      },
+      "MediaEditorBehavior": {
+        "type": "string",
+        "description": "Defines behavior of OutputFormat in Media editor",
+        "x-enumNames": [
+          "Show",
+          "Hide"
+        ],
+        "enum": [
+          "Show",
+          "Hide"
         ]
       },
       "OutputFormatRenderingSpecification": {

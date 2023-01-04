@@ -17773,8 +17773,8 @@ namespace Picturepark.SDK.V1.Contract
         /// <summary>
         /// Minimum value of confidence to accept the service result
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("minimumValue", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public decimal MinimumValue { get; set; }
+        [Newtonsoft.Json.JsonProperty("minimumValue", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string MinimumValue { get; set; }
 
         /// <summary>
         /// Specifies if tagging feature should be enabled
@@ -25916,6 +25916,12 @@ namespace Picturepark.SDK.V1.Contract
         [System.ComponentModel.DataAnnotations.Required]
         public TranslatedStringDictionary Names { get; set; } = new TranslatedStringDictionary();
 
+        /// <summary>
+        /// Format behaviors.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("behaviors", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public OutputFormatBehaviors Behaviors { get; set; }
+
         public string ToJson()
         {
 
@@ -25928,6 +25934,134 @@ namespace Picturepark.SDK.V1.Contract
             return Newtonsoft.Json.JsonConvert.DeserializeObject<OutputFormatInfo>(data, new Newtonsoft.Json.JsonSerializerSettings());
 
         }
+
+    }
+
+    /// <summary>
+    /// Behaviors of OutputFormat
+    /// </summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class OutputFormatBehaviors
+    {
+        /// <summary>
+        /// Behavior for DownloadDialog.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("downloadDialogBehavior", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public DownloadDialogBehavior DownloadDialogBehavior { get; set; }
+
+        /// <summary>
+        /// Behavior when sharing.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("shareOutputAccessBehaviors", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public OutputFormatShareOutputAccessBehaviors ShareOutputAccessBehaviors { get; set; }
+
+        /// <summary>
+        /// Behavior for media editor.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("mediaEditorBehavior", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public MediaEditorBehavior MediaEditorBehavior { get; set; }
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static OutputFormatBehaviors FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<OutputFormatBehaviors>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    /// <summary>
+    /// Defines behavior of an OutputFormat in DownloadDialog
+    /// </summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public enum DownloadDialogBehavior
+    {
+
+        [System.Runtime.Serialization.EnumMember(Value = @"ShowAlways")]
+        ShowAlways = 0,
+
+        [System.Runtime.Serialization.EnumMember(Value = @"ShowMoreFormats")]
+        ShowMoreFormats = 1,
+
+        [System.Runtime.Serialization.EnumMember(Value = @"Hide")]
+        Hide = 2,
+
+    }
+
+    /// <summary>
+    /// Behavior when sharing for OutputFormat
+    /// </summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class OutputFormatShareOutputAccessBehaviors
+    {
+        /// <summary>
+        /// Behavior when sharing with Full.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("full", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public OutputAccessBehavior Full { get; set; }
+
+        /// <summary>
+        /// Behavior when sharing with Preview.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("preview", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public OutputAccessBehavior Preview { get; set; }
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static OutputFormatShareOutputAccessBehaviors FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<OutputFormatShareOutputAccessBehaviors>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    /// <summary>
+    /// Defines behavior of OutputFormat in ShareAccess
+    /// </summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public enum OutputAccessBehavior
+    {
+
+        [System.Runtime.Serialization.EnumMember(Value = @"Include")]
+        Include = 0,
+
+        [System.Runtime.Serialization.EnumMember(Value = @"Exclude")]
+        Exclude = 1,
+
+    }
+
+    /// <summary>
+    /// Defines behavior of OutputFormat in Media editor
+    /// </summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public enum MediaEditorBehavior
+    {
+
+        [System.Runtime.Serialization.EnumMember(Value = @"Show")]
+        Show = 0,
+
+        [System.Runtime.Serialization.EnumMember(Value = @"Hide")]
+        Hide = 1,
 
     }
 
@@ -31345,6 +31479,12 @@ namespace Picturepark.SDK.V1.Contract
         /// </summary>
         [Newtonsoft.Json.JsonProperty("xmpWritebackOptions", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public XmpWritebackOptions XmpWritebackOptions { get; set; }
+
+        /// <summary>
+        /// Defines how the OutputFormat should behave for certain features (Download, Sharing, Media editing).
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("behaviors", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public OutputFormatBehaviors Behaviors { get; set; }
 
         public string ToJson()
         {
