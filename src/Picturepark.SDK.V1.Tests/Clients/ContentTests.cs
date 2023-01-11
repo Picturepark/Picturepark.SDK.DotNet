@@ -1104,7 +1104,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             }
         }
 
-        [Fact(Skip = "PP9-16840: Currently broken on backend, will re-enable")]
+        [Fact]
         public async Task ShouldEditContent()
         {
             // Arrange
