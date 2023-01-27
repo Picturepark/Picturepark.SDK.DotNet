@@ -1,6 +1,6 @@
 {
   "homepages": [],
-  "source_base_path": "C:/Dev/projects/Picturepark/Picturepark.SDK.DotNet/docs/sdk",
+  "source_base_path": "C:/Dev/Picturepark.SDK.DotNet/docs/sdk",
   "xrefmap": "xrefmap.yml",
   "files": [
     {
@@ -21,7 +21,7 @@
       "output": {
         ".html": {
           "relative_path": "index.html",
-          "hash": "oWDvtSUE96NrRIhWR+ESswl5wo1+ZomeeI6jXqMcsIY="
+          "hash": "rFlHyAvqKFEeWFCDVUZZQhPY6M0DdkR2xxRv9D7OgJs="
         }
       },
       "is_incremental": false,
@@ -69,7 +69,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Builders.SchemaIndexingInfoBuilder-1.html",
-          "hash": "KQiFdFsQApqZIGUJXRrvCMdHqmZjXd4w0trEnDxueZA="
+          "hash": "KyP0lnzb+QjCCRpSMJHByY5r62zw/zDNALRAiS0Ym3I="
         }
       },
       "is_incremental": false,
@@ -105,7 +105,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.BusinessProcessClient.html",
-          "hash": "HB7x7hjszqE/6TV6ehf/pCeJgfvWPB5rW9GqhArw2vs="
+          "hash": "fMRpT3l5Yp5cPUsytr9LgtoBk014RRKtOfBuiv1sU9c="
         }
       },
       "is_incremental": false,
@@ -153,7 +153,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.ChannelClient.html",
-          "hash": "DBinlEFkMQdONfPRyYj3fe5epyrds4qeUtbEpsWXRW0="
+          "hash": "mYPvmL/SSNcCYXbErXsgrM2fYyJVbLs+BqjRDdJ91VE="
         }
       },
       "is_incremental": false,
@@ -261,7 +261,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.CloudManagerService.html",
-          "hash": "Ad79N8FCDi5EF5jdDYt8THnSRHDCbZKLeQ0tLOVfk5w="
+          "hash": "CDH24VyyoULk9u+lr6UDTJeLVnR5QO49pQxGhDa78hg="
         }
       },
       "is_incremental": false,
@@ -273,7 +273,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.CloudManagerServiceSettings.html",
-          "hash": "ghfdx8qgEBctHExZNQZTKoIZcT+YlH3hylGVc1r9F1o="
+          "hash": "IDVpKGljuArzKsy192JKOLFgxj3REezb2YmjkGhEif8="
         }
       },
       "is_incremental": false,
@@ -573,7 +573,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.ApplicationEvent.html",
-          "hash": "ryKMoOME7wiQW4U5MfsIO1bSAq9ZRZS7t58Uv2mH9vI="
+          "hash": "JS/hJz/e4XiZCpwGnr6GiL5h5nST24jT+XhkSZStuJE="
         }
       },
       "is_incremental": false,
@@ -670,6 +670,18 @@
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.AvifFormat.html",
           "hash": "e3PWf2w7DDiBZ3r0+nz1p9auFe6Omm0Si1Dv5S8bs9s="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.CloudManager.Contract.AzureTaggingConfiguration.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.AzureTaggingConfiguration.html",
+          "hash": "sAWXU7dp6+xv+UJDumnlAx5DK8XIDPruAlyfh+YGHmc="
         }
       },
       "is_incremental": false,
@@ -1569,7 +1581,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.ClarifaiTaggingConfiguration.html",
-          "hash": "1ciBOMXlOKjCLpEDfoaF1zQ2hfK4Wfv5kjD7LfFgGJM="
+          "hash": "BAhlV+hLUprx4X8/M8KCWu+wxWKF2SMx9AhsoVGBsBA="
         }
       },
       "is_incremental": false,
@@ -2493,7 +2505,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.CustomerCreateRequest.html",
-          "hash": "gYdv4Gxe8Gp5bMXt90yJKt+VAml+fTnmD8uEGQVIUVI="
+          "hash": "q/lO1Dk/DpMrMFwKZHcJepR50jauNaTLGhf2XkUFltg="
         }
       },
       "is_incremental": false,
@@ -3010,6 +3022,18 @@
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.DocumentVersionNotFoundException.html",
           "hash": "CqKte783bS3bgFTGsyHJgIl0D1JEEUef8EbgeysNN7g="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.CloudManager.Contract.DownloadDialogBehavior.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.DownloadDialogBehavior.html",
+          "hash": "FDowSCSSumTtgOeL3KpSdXLwO2mGO/0qdP/XgtG83vQ="
         }
       },
       "is_incremental": false,
@@ -4049,18 +4073,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "obj/api/Picturepark.SDK.V1.CloudManager.Contract.IdentityServerProvider.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.IdentityServerProvider.html",
-          "hash": "P2N3yXq0CIi7Xk8JPK23m8SMI/8w45zJscTuoUQT2tk="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "obj/api/Picturepark.SDK.V1.CloudManager.Contract.IllegalAuthorizationStateTransitionException.yml",
       "output": {
         ".html": {
@@ -4937,6 +4949,18 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.CloudManager.Contract.MediaEditorBehavior.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.MediaEditorBehavior.html",
+          "hash": "7hal4brHY8njhkepDAibCmYC+ck5Gj29TadP6cHGpRk="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/api/Picturepark.SDK.V1.CloudManager.Contract.Message.yml",
       "output": {
         ".html": {
@@ -5393,6 +5417,18 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.CloudManager.Contract.OutputAccessBehavior.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.OutputAccessBehavior.html",
+          "hash": "BvzWMOVWwrzOLirEcmA0Y85O8e8PLL1GjqVp8Gyw+Ls="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/api/Picturepark.SDK.V1.CloudManager.Contract.OutputBackupHashMismatchException.yml",
       "output": {
         ".html": {
@@ -5433,7 +5469,19 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.OutputFormat.html",
-          "hash": "CLLCkJODDT8859d9mVJ/0AiPvfvmRzRwa/sL7YY5C4M="
+          "hash": "i9ryvMKlVyecLgJt8liYRIK1rv1R5Hsd/LyJWFkeQdQ="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.CloudManager.Contract.OutputFormatBehaviors.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.OutputFormatBehaviors.html",
+          "hash": "swbiBmh5L0vJrfNcxSBGHQ9OBmDDt8jUuFGotHE9azM="
         }
       },
       "is_incremental": false,
@@ -5445,7 +5493,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.OutputFormatDetail.html",
-          "hash": "/xgWdfeCwaptzaDvdNuuuNmtVRDEiAH94Rh0q1DgEOU="
+          "hash": "ERwsalnzxE93Ylw0GquXVhLzhQmCJgBWKMI85Ik3I8A="
         }
       },
       "is_incremental": false,
@@ -5457,7 +5505,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.OutputFormatEditable.html",
-          "hash": "zNWIyDWtBKGFIq+84r0vB1W7BZeT4cx+fCTvj9M1HVo="
+          "hash": "LS53es8SNgiy4l6U2tW4won/3OxFST0GqGPXtY3RYUo="
         }
       },
       "is_incremental": false,
@@ -5506,6 +5554,18 @@
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.OutputFormatRetentionTimeOutOfRangeException.html",
           "hash": "SM5tvkjWHo/9VigD31ceD6PtWJJCXArHpqNA4Hj79pg="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.CloudManager.Contract.OutputFormatShareOutputAccessBehaviors.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.OutputFormatShareOutputAccessBehaviors.html",
+          "hash": "sH5Qf8XNnjc757uqlp1yQgLBlZ/QrGld1XXHzb7IOuU="
         }
       },
       "is_incremental": false,
@@ -7425,7 +7485,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.SimulatedTaggingConfiguration.html",
-          "hash": "txacu2kgNoLYcuINfnSEsvb3G1Da3cWs9rQpuddDnQo="
+          "hash": "eF5xjT8/7ksaonwYKG0ifgv8OSJ/B7+1jOaRRoWWtOc="
         }
       },
       "is_incremental": false,
@@ -7973,11 +8033,23 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.CloudManager.Contract.TaggerStatisticsEvent.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.TaggerStatisticsEvent.html",
+          "hash": "fPufN6YSb+5VZFtuFcJ0n2ZZYqCmMxmORQeEhJ1EFww="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/api/Picturepark.SDK.V1.CloudManager.Contract.TaggingConfigurationBase.yml",
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.TaggingConfigurationBase.html",
-          "hash": "blCHkbk1aHzxgH41FsiPFVMwUkfLzAFmCdFhLukyyHw="
+          "hash": "BTeIjs/Dacui8qtAF9KQFwmnZqdoPJyBzx3J6MZQ0zM="
         }
       },
       "is_incremental": false,
@@ -8913,7 +8985,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.html",
-          "hash": "YBfucaEmgjqbG1Xld6nYxFCE01rHCj++cIQ6avwzsTo="
+          "hash": "7RyMsr42v3RINiK97DxbQ5loMJjsU5aJcrnswFr0oas="
         }
       },
       "is_incremental": false,
@@ -9093,7 +9165,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.ICloudManagerServiceSettings.html",
-          "hash": "jNhZR6L6Jp7LYvypQQr84LgkIzPhgPlyjPeZZm5dwaI="
+          "hash": "C8fV0X2fiqGRPrOZ5VNNv8vOGxqcwynNXWNTxvWqNU4="
         }
       },
       "is_incremental": false,
@@ -9297,7 +9369,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.ContentClient.html",
-          "hash": "9zp0PBnfjPAZa8dmCeImGljZtzdbuMp/qSz4ufeCZn4="
+          "hash": "pE90wdPwb2V4ANmVSbn+dpqWhmCLmvjoUg08ulVZF4k="
         }
       },
       "is_incremental": false,
@@ -9417,7 +9489,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.AggregationFilter.html",
-          "hash": "5i3ZDPT/3rpoLrJhAnz1Ou2QzLouKhSywQwTtMLUOh4="
+          "hash": "TMHsKli82i7y8G5Fr5TH0kLdbIoo4zzTzrbI9olqavw="
         }
       },
       "is_incremental": false,
@@ -9597,7 +9669,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.AndFilter.html",
-          "hash": "RPgvlp4qkpxanaciZeXnHcmqhyDDBzCfYGURVYygpIg="
+          "hash": "TzPO/vpF0uUmKBINR1swspcoeQClb0uN6diWNeCf3cE="
         }
       },
       "is_incremental": false,
@@ -9645,7 +9717,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.ApplicationEvent.html",
-          "hash": "0j8O5f3S2dVFQQp691RO4j/wGQJa7JKrNG3Ty/BJaW0="
+          "hash": "YojN8tt8i55lNlpuUxFEmS7xIcWIhfzexw9htcIoY7A="
         }
       },
       "is_incremental": false,
@@ -9741,7 +9813,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.Attributes.Analyzer.PictureparkAnalyzerAttribute.html",
-          "hash": "WmIfmtBoZJwUUQGdxj2KjB4HOuwXipGXSlXygEKojyU="
+          "hash": "1KugRlTUndtiecVl7wKyUKyQS2D3bicQib3FPmUcIyg="
         }
       },
       "is_incremental": false,
@@ -9753,7 +9825,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.Attributes.Analyzer.PictureparkEdgeNGramAnalyzerAttribute.html",
-          "hash": "FoKpJLPRhiCW+xOnOV8hmcABKwHpNr36i7uxPWyMehI="
+          "hash": "gXoKi0EwlguM0xOnvfEjR08HO0l4l8nUYMlFQ/6nR8Q="
         }
       },
       "is_incremental": false,
@@ -9765,7 +9837,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.Attributes.Analyzer.PictureparkKeywordLowercaseAnalyzerAttribute.html",
-          "hash": "z8/pJ6UFilqN1+A+H4bka3PUvVxJF7VFh7C+qtz8b20="
+          "hash": "I+Y7fW8m71OHUTlZtdLj2GsP0bUS9INa1dIpIRFNhWg="
         }
       },
       "is_incremental": false,
@@ -9777,7 +9849,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.Attributes.Analyzer.PictureparkLanguageAnalyzerAttribute.html",
-          "hash": "VKOEIFPunKCjXXynG5wDSJpyYF327oEoOnHdVgybyhk="
+          "hash": "fRnFu9l/lpcis4ekT3UGlKNJFvNHMh6Dzrn1cmVAf6w="
         }
       },
       "is_incremental": false,
@@ -9789,7 +9861,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.Attributes.Analyzer.PictureparkNGramAnalyzerAttribute.html",
-          "hash": "GiwBl2Ita4tPFSBcphXC7z3gyf2IgGZTor8O9pVhkC0="
+          "hash": "2/mpI7nLmOI4+6lNtgYT86RAy9fgI9Fu/nPhx4Tt8Yg="
         }
       },
       "is_incremental": false,
@@ -9801,7 +9873,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.Attributes.Analyzer.PictureparkNoDiacriticsAnalyzerAttribute.html",
-          "hash": "xtEKhdDHRV3LSivQ83jEbMzqkjN2vQp2mszyTsBtYos="
+          "hash": "O0qk2MjKIdxCyFg5Hm8UPv4XRwxfzH7yWtROv28hVQI="
         }
       },
       "is_incremental": false,
@@ -9813,7 +9885,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.Attributes.Analyzer.PictureparkPathHierarchyAnalyzerAttribute.html",
-          "hash": "dlqeh9Dt5Y6S7H7UUGtm35vg1CZfbO69APhbDnToKOo="
+          "hash": "VKmx9thm6BH1hBr6LDQxREgXcjMVKATIH/b9Es7B4sk="
         }
       },
       "is_incremental": false,
@@ -9825,7 +9897,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.Attributes.Analyzer.PictureparkSimpleAnalyzerAttribute.html",
-          "hash": "6PXXJqFs94llSKr5UW+B8o4t0qTikMzru+P5bhexPZ8="
+          "hash": "7Qi8QeO6PImC28pILRzbthPF6PLFdVCILu4VSXomUgM="
         }
       },
       "is_incremental": false,
@@ -9861,7 +9933,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.Attributes.PictureparkContentRelationAttribute.html",
-          "hash": "tKRbjqBaWfAEbOFcITAKLycH4qoUM7D4ttn7IWYgSvU="
+          "hash": "A+3qb5MrJdon+4ewRL1i6gnlR/iu5F8PUKklZouqrDQ="
         }
       },
       "is_incremental": false,
@@ -9873,7 +9945,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.Attributes.PictureparkDateAttribute.html",
-          "hash": "f6ioEgKynoKe36rdVj1qKhr0EEOV8S8cA0EiSBsgD/c="
+          "hash": "UTVZ+J0XxY0pvK/zq0ybg0pXj3MPmVr+xw3IDPZsYkM="
         }
       },
       "is_incremental": false,
@@ -9885,7 +9957,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.Attributes.PictureparkDateTimeAttribute.html",
-          "hash": "gYq0vYlYfFohCx0xNJHW9Pdrvta6LMV24WNzzwd57PQ="
+          "hash": "G2NtxgAM097KP1PO68zO8MmPXZyqrto0nQGKNlgh19o="
         }
       },
       "is_incremental": false,
@@ -9897,7 +9969,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.Attributes.PictureparkDateTypeAttribute.html",
-          "hash": "egnyA8tkozw5dw/KVr8MFta75/XV7BPxpCQzicwQv34="
+          "hash": "IHYKx8L2ihkmq7QuI6p5E5r4Hu3oNMK1fXq9j7d+Uqo="
         }
       },
       "is_incremental": false,
@@ -9909,7 +9981,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.Attributes.PictureparkDescriptionTranslationAttribute.html",
-          "hash": "pabmgXGKnovWF0sX28oPq5X0GDpWU+AY9/ynOfoTwos="
+          "hash": "lF3apZ8pHFEJtWqfKIwaPPFtagrQSfejzthchi0rbbw="
         }
       },
       "is_incremental": false,
@@ -9921,7 +9993,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.Attributes.PictureparkDisplayPatternAttribute.html",
-          "hash": "J4ysin/4IvXSOldaGSU26roX/tjwpMPoK18rkrE1gV0="
+          "hash": "KUUSyRIsBVZwinIerxCfborhItmYSoxqejOZKPwKvsI="
         }
       },
       "is_incremental": false,
@@ -9933,7 +10005,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.Attributes.PictureparkDynamicViewAttribute.html",
-          "hash": "7Ix1cuU/OL6UdFi8CeqoKnKeo7GDYTIPHOvdlHkXIPs="
+          "hash": "o/XgDM6cTDNqbqHGXZ5xu3s33Y5UaUQ07ZY0VbkOKL4="
         }
       },
       "is_incremental": false,
@@ -9945,7 +10017,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.Attributes.PictureparkDynamicViewSortAttribute.html",
-          "hash": "GgYUuCSL7QDCJUxlT4ipCQw41m+y3MdXsda5G9s+TpU="
+          "hash": "ewWToRaNhTu0j5SIzjt8aQs1B2fjuMqYfnHGWD9sKs0="
         }
       },
       "is_incremental": false,
@@ -9957,7 +10029,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.Attributes.PictureparkDynamicViewUiSettingsAttribute.html",
-          "hash": "wNMCn3BklCseruLVQD77d20WtcN58oqB9ZJnvEgSquE="
+          "hash": "WW6mkq8WlkATpsSARXR2Ot5xcs8K1LpW0J3b3vVg+tU="
         }
       },
       "is_incremental": false,
@@ -9969,7 +10041,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.Attributes.PictureparkItemFieldUiSettingsAttributeBase.html",
-          "hash": "zINjtkEcjjC3p66vfzCPwyxrc1hIdacvxkh5rAaT2vQ="
+          "hash": "+046OkaEUVkAxsffBQcAx3K8lvaabPIRroboxIyWb04="
         }
       },
       "is_incremental": false,
@@ -9981,7 +10053,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.Attributes.PictureparkListItemCreateTemplateAttribute.html",
-          "hash": "Xd6In7tyFN3TjiZYMJshQgRHf5g/dO3wV5UuS3+KUxg="
+          "hash": "284IKuFqIzd1KqsnTJX7ITOAvDwRAsmexqfCThnjMlw="
         }
       },
       "is_incremental": false,
@@ -9993,7 +10065,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.Attributes.PictureparkMaximumLengthAttribute.html",
-          "hash": "lEyppvG6MVlqmpoldGIXLrr6dmnMja/ZkP4e7/WMwpU="
+          "hash": "QpOw4g1ZWvdwGB71rhFEdyhwTcdm06CqjJI3B2drlOE="
         }
       },
       "is_incremental": false,
@@ -10005,7 +10077,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.Attributes.PictureparkNameTranslationAttribute.html",
-          "hash": "ghUUyPF7ry9RN27SZeZuF8XVwRLCxZZ5A/p5dLXujjk="
+          "hash": "zCQMoTwr1FUvoabgISxKKNMz55zWOFRfSK7p4IRtB3U="
         }
       },
       "is_incremental": false,
@@ -10017,7 +10089,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.Attributes.PictureparkPatternAttribute.html",
-          "hash": "q2xAm2dHfF586qiWxll53mhDHAgrmI9QrB1ib4w3wYo="
+          "hash": "/mUi/U07gZYKTotIcj/YFXvmmXY4MiYmkTkZagYJvFU="
         }
       },
       "is_incremental": false,
@@ -10029,7 +10101,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.Attributes.PictureparkReferenceAttribute.html",
-          "hash": "8b+jeMklC+T1O9WEMpBx2ksmuIawB8fiIgg2zW4LU7k="
+          "hash": "iRIHUJ3+qMK1EJgl5XvFiSYklrNccnmBsQLwBXSSEL4="
         }
       },
       "is_incremental": false,
@@ -10041,7 +10113,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.Attributes.PictureparkRelationUiSettingsAttribute.html",
-          "hash": "SiG9Jr77QE/VP+2hy680UI6VVMTYjcuoIKmlaVGFd4U="
+          "hash": "yIIiOi21HkaBS7AZhdBDWJebsVtmuh7TFOvy2/+aSvE="
         }
       },
       "is_incremental": false,
@@ -10053,7 +10125,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.Attributes.PictureparkRequiredAttribute.html",
-          "hash": "5aWAYxEATxre/VdN8qou2y10YGm6po37gNtzn3bBi5E="
+          "hash": "A7zD0zGH3K1QGaB/vXnpZeOIf1VlZDmAFMXL7WpNMLE="
         }
       },
       "is_incremental": false,
@@ -10065,7 +10137,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.Attributes.PictureparkSchemaAttribute.html",
-          "hash": "vhYvqyl1YMzFuSAh5WGKLW56YLoF7zDU1z7s4H4nXoA="
+          "hash": "vqskcf03Y6eKMtqp9qU+oNscqJ30Jy/BMLclObBmikg="
         }
       },
       "is_incremental": false,
@@ -10077,7 +10149,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.Attributes.PictureparkSchemaIndexingAttribute.html",
-          "hash": "OddSrot0f4twfqpEx/PM4pvzkaEMHpyElwT6lpyU43w="
+          "hash": "ZW9KNhVtYE1FfLCkWMA++xeyS8FyIh/JWM8siDL7RSE="
         }
       },
       "is_incremental": false,
@@ -10089,7 +10161,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.Attributes.PictureparkSearchAttribute.html",
-          "hash": "YQGFChQFpj9Jm459td00mHwl5cMEEuoVEMNp4vjfIz8="
+          "hash": "DbO4OSMFvUOVpdrWQcKHiPsdpC0aAXmqJvvc7HHv6Go="
         }
       },
       "is_incremental": false,
@@ -10101,7 +10173,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.Attributes.PictureparkSortAttribute.html",
-          "hash": "VHIAZwgB4VxR+QYOa1DOPLSofDAE2KKnU1NaO3cQqEE="
+          "hash": "FB/ZyYPv3mB6odV6jdyDbtclSSxhB9DUVd9utqucptk="
         }
       },
       "is_incremental": false,
@@ -10113,7 +10185,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.Attributes.PictureparkStringAttribute.html",
-          "hash": "HBapj2ePyU35HfoPzA+dDurTY3fraeIC23zRVFoiU7E="
+          "hash": "AFffHSjZkbhXN1Mi+DepwpJgqtHwum8xEPX+g5c9mPA="
         }
       },
       "is_incremental": false,
@@ -10125,7 +10197,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.Attributes.PictureparkSystemSchemaAttribute.html",
-          "hash": "BCvIEHravInzApqUpC6k+xm00geR5HyBClTpX01jPeE="
+          "hash": "zKewXzWNklKnaTyYrhoV/rcZNYIdMoLQhUZWoC/6Z/M="
         }
       },
       "is_incremental": false,
@@ -10137,7 +10209,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.Attributes.PictureparkTagboxAttribute.html",
-          "hash": "nz/Dqzm1539w47E7aslOK+nIYTOAp42OHt1L0Mih4sM="
+          "hash": "z86Nx+LpGI0SZds4nX70SqmOO5FKKxOu3taoMkupw1E="
         }
       },
       "is_incremental": false,
@@ -10149,7 +10221,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.Attributes.PictureparkTranslatedStringAttribute.html",
-          "hash": "ZZOTjiJmw0Oj4LEQ6Vcb1HCD6IjPfKaaHqtkXwaqab8="
+          "hash": "aOAsfgUmVahtSnQmwYbS6gPbkHAiHlWZa79HRjhkooo="
         }
       },
       "is_incremental": false,
@@ -10161,7 +10233,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.Attributes.html",
-          "hash": "ANLfLz3aoqiHiIQRzZkk941fbZiEd4HDn54buAjWAQo="
+          "hash": "61inwTz0AJldeuNB4PeUopS1pbjsGEKiI7yvSHBk6P0="
         }
       },
       "is_incremental": false,
@@ -10258,6 +10330,18 @@
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.AvifFormat.html",
           "hash": "Fm5pC6lIBnNhTAs2VtQC0IN2h9Yi/aq0hn8UD/IqHo8="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.AzureTaggingOptions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.Contract.AzureTaggingOptions.html",
+          "hash": "icC3Z0JpBF1IBrs7ThIRvBRvWnv6HkO4xwBpwQWF/Zg="
         }
       },
       "is_incremental": false,
@@ -12009,7 +12093,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.ChildFilter.html",
-          "hash": "Q27kFd5K8NHsIZVUdzUl2HLGAVXRvT7YGs0M38yG9fk="
+          "hash": "/Pv5MktPj2XuOnYwhyPKq2PQo4Vb/XTTtUXUNF8nRXo="
         }
       },
       "is_incremental": false,
@@ -12669,7 +12753,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.ContentMetadataUpdateItem.html",
-          "hash": "RTV+Ne3rA7qAGxvGmaI+w/mt5DaCFNpMgwGlkV+mpJs="
+          "hash": "S3YoqyR/elnYIAkPtAwiyAM1uR+okFDX6JrpIy7Lrcg="
         }
       },
       "is_incremental": false,
@@ -12705,7 +12789,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.ContentMetadataUpdateRequest.html",
-          "hash": "22quJA//5I/EydgeCxXtkyT/Di00qPEHpxFGFjPAOvQ="
+          "hash": "kF3wQaGxiu5DJFc+vqZxsiHmUfGI/VBqUyiQPBvCdqk="
         }
       },
       "is_incremental": false,
@@ -13881,7 +13965,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.DateRangeFilter.html",
-          "hash": "p80Mz+cEhRdshXjbm8eFgStVysCGf4qraBIwAE8yDuI="
+          "hash": "fwi/EFqLFKamVaYyBozYNF2VDJ/qrCKKEKnDRzmydDE="
         }
       },
       "is_incremental": false,
@@ -14158,6 +14242,18 @@
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.DocumentVersionNotFoundException.html",
           "hash": "k9WjsO6fDSskHCO7/TsH0iNOfeXkKZZ7GboIzTOmwlw="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.DownloadDialogBehavior.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.Contract.DownloadDialogBehavior.html",
+          "hash": "MA2ENapTAClQLzJT3hnvRs0W9DMaJ+9TdBsYpeLEut0="
         }
       },
       "is_incremental": false,
@@ -14685,7 +14781,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.ExistsFilter.html",
-          "hash": "1ayI3XXjrXg/OnxlXlCBSKGsC+j4hmTohQSsjJ1bZGY="
+          "hash": "pGmsH+PnqwqT108zEhHHKQNGZ5Qknz1PlfS28nZfMS0="
         }
       },
       "is_incremental": false,
@@ -15177,7 +15273,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.FileResponse.html",
-          "hash": "FNFmA4reqBFxZIUff2+2v9tEZJb6a3dyKLfTlxViiCs="
+          "hash": "gDdaMlJJmvMlEzYKcbGPnm2cv8oxPvAxHSAn403VAt0="
         }
       },
       "is_incremental": false,
@@ -15297,7 +15393,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.FilterBase.html",
-          "hash": "DZcVA3KQDAqHdZqW0GKn0yFD0yId2i6iSldepIxTeSs="
+          "hash": "Dp3rqnyEvOsBt2AdwU3RQb9P0DbIk6BglSy62YAA1eA="
         }
       },
       "is_incremental": false,
@@ -15381,7 +15477,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.GeoBoundingBoxFilter.html",
-          "hash": "Yn3CXuyRnFY32XGDIhMxh7UkYQKQKXzmLe11s9TjaQU="
+          "hash": "tr1yc6HvdMYwSG5q+1RivbsMT4iPNWejvmEWU8Dn+QE="
         }
       },
       "is_incremental": false,
@@ -15417,7 +15513,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.GeoDistanceFilter.html",
-          "hash": "fRWg4JB4YflsUGKddRYbjK7fGHWKg7Y85Pozxkhl6U4="
+          "hash": "g48PU/Ky6pu2Wwf3O7g33tY9ZuLIJ/GFCHla/I5cVGo="
         }
       },
       "is_incremental": false,
@@ -15537,7 +15633,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.IBusinessProcessClient.html",
-          "hash": "l2ZZg+KFkn3IAoknPSXZVVqJFSI7/d2E4W0OB2iai2o="
+          "hash": "Cf30x5BM0motDyVtniXkubmVrkZt6rluDb64tnI9bOU="
         }
       },
       "is_incremental": false,
@@ -15573,7 +15669,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.IContentClient.html",
-          "hash": "jATPP1SftR6DtAVyPEqZ4NZnch0VXIT/8FK3QMyfkCU="
+          "hash": "NezqEoeUTxKdxsMzC/akWM3c/JYWqk74pojYEvmqPl8="
         }
       },
       "is_incremental": false,
@@ -15669,7 +15765,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.IListItemClient.html",
-          "hash": "KH7n5Z3JWLbu2Rv1Tm52bYNvNhYYtSGhkswMYAprdzQ="
+          "hash": "kDsi1MhOwrZewJN3VzF9Ci28BGjqBeC8loVGAloQZ3E="
         }
       },
       "is_incremental": false,
@@ -15729,7 +15825,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.IOutputFormatClient.html",
-          "hash": "DthqUjk8Vtt7S8hMarSEXKrl1Imn5YPBkLiA8tjLcaE="
+          "hash": "KxqBPjX9Tl+9fRbBjLGyt+9eTtOTqP1L9Am8rd2QGps="
         }
       },
       "is_incremental": false,
@@ -15741,7 +15837,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.IPictureparkService.html",
-          "hash": "ZbK4baj6PRpux+t87Y7mnTKDbcPJP9Vz3MpVjszd8XA="
+          "hash": "E87+MD2XR47BnJuS9+cyi96d+vqQOiQCPi1Wdy36jPc="
         }
       },
       "is_incremental": false,
@@ -15753,7 +15849,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.IPictureparkServiceSettings.html",
-          "hash": "HsDHG/cVUpPOpj1qf9nmfqh1DG7fiKEQWZMAGr0yeNU="
+          "hash": "hPdVnRNe/kaGaBT8O3B4aFthGN41lkTbkPJDVLonZVE="
         }
       },
       "is_incremental": false,
@@ -15789,7 +15885,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.ISchemaClient.html",
-          "hash": "UhXy9W6BKEkcz32ssnO5SG5UxuEHgAKtuq9ufzd0dpg="
+          "hash": "toNGxBGVe2nd4l0TK0i2JAYxfsxgX8i47LbaruAByG4="
         }
       },
       "is_incremental": false,
@@ -15873,7 +15969,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.ITransferClient.html",
-          "hash": "8rfmcFIIbWuVXzGojktteMGCuq62RezXnsoUed+Y4Gc="
+          "hash": "3p0igXx7MZZ86XpfNkzfwduBIi2kmmyKPrRHvolIrWM="
         }
       },
       "is_incremental": false,
@@ -15885,7 +15981,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.ITriggerObject.html",
-          "hash": "3YusIZ/Y8/xe3CyEgWB2PfhWaAUOzIki4LFCdYW6l2s="
+          "hash": "m/RCoMR0XZy4uZkiMDf9G917u5e/egNE27Hor0ciKis="
         }
       },
       "is_incremental": false,
@@ -17261,6 +17357,18 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.MediaEditorBehavior.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.Contract.MediaEditorBehavior.html",
+          "hash": "OqSEQTrE+pi8ZEetEBxwV5IVgUgRi6kZ58ivgYNBK/s="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.Message.yml",
       "output": {
         ".html": {
@@ -17289,7 +17397,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.Metadata.html",
-          "hash": "9u8RU3JwXJ8cXti5C5JARQ9aDec3BQWCDUwhhQFhmmA="
+          "hash": "PUivXILUELU/9dwcS2j6LYgolJuULgpGVg33el6fakI="
         }
       },
       "is_incremental": false,
@@ -17685,7 +17793,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.NestedFilter.html",
-          "hash": "usLpEizlF30p8r+woNZ3VZcSc/r1Pvue3OYOhXCackM="
+          "hash": "MdPPGWhUDI1NsUxuZ56ftRydrhfxIoli43pGLd4GcIM="
         }
       },
       "is_incremental": false,
@@ -17769,7 +17877,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.NotFilter.html",
-          "hash": "gVLatTWdhLop6IFlciQt7vlZwXNG7ZH75UdgSf9V9do="
+          "hash": "KCY05NrnGQmm2SPP2VVTJZg4wizkKAQxTDXv4cX/EFM="
         }
       },
       "is_incremental": false,
@@ -18333,7 +18441,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.NumericRangeFilter.html",
-          "hash": "wLJhihuXhBdeycpAqFB3CyJegrA3tXLq33KUISy/sEw="
+          "hash": "6ksT9AohW2J2q5/WUNLTQFCxSLBSwhkNpStKCWDKvTk="
         }
       },
       "is_incremental": false,
@@ -18441,7 +18549,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.OrFilter.html",
-          "hash": "lNHb5isahKIPYCLpoIIOu1RNf1c1rHbD0uwP6X/RJ44="
+          "hash": "97vWR8ABJ4qtWtmCdW55AooTtzh6HShdeUAyHDsOQJQ="
         }
       },
       "is_incremental": false,
@@ -18502,6 +18610,18 @@
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.OutputAccess.html",
           "hash": "b43L9UYw224it2Eo8G/boOrqv34V19tXdOVeLrPFS/o="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.OutputAccessBehavior.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.Contract.OutputAccessBehavior.html",
+          "hash": "TOEQAlPF1Ox8jz3OZhetjj6wrN1OJH1pnOLSKWJ+Z3g="
         }
       },
       "is_incremental": false,
@@ -18645,7 +18765,19 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.OutputFormat.html",
-          "hash": "RrmOzdRfER4RkoV6K93y3VARPk+T3fGubBQRMHHPX6o="
+          "hash": "kqzsbDBkvhWUydWfB76RdyVgkYTF4n8X0Es4HT6fVt0="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.OutputFormatBehaviors.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.Contract.OutputFormatBehaviors.html",
+          "hash": "OHwZ2hMRfArWZL6Td7SE/hbSkKlZW7t8ZJzsG4dnzm8="
         }
       },
       "is_incremental": false,
@@ -18681,7 +18813,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.OutputFormatDetail.html",
-          "hash": "DOCn41xqRLcq0244IfHINpRYUvThiiUi++0FY3omsvA="
+          "hash": "RS81StpKG8aQunwz2zWzw1lm56Ihv1jsY1SErDLPCzE="
         }
       },
       "is_incremental": false,
@@ -18717,7 +18849,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.OutputFormatEditable.html",
-          "hash": "g/u6mm3/lx0BEbAUuFGzWncAw7hMoiy9AQLzXSbhsaQ="
+          "hash": "v46LfN7uDhfANEjK9AEQSxVDxSK+KdxK66K6bqXbVNM="
         }
       },
       "is_incremental": false,
@@ -18729,7 +18861,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.OutputFormatInfo.html",
-          "hash": "txZLdIU/7a4T55jdFQIlRuLzNmJouDkLIHlJAYfAQJg="
+          "hash": "Dsp3wQhOVqj93xP03IhOVE3qs+0E699Wb450/gIiv2s="
         }
       },
       "is_incremental": false,
@@ -18869,6 +19001,18 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.OutputFormatShareOutputAccessBehaviors.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.Contract.OutputFormatShareOutputAccessBehaviors.html",
+          "hash": "1SBhuWMSU1RSz3VlC/bUd365DgKEe+t5gw2vV2Ri7XQ="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.OutputFormatSourceNotDefinedException.yml",
       "output": {
         ".html": {
@@ -18909,7 +19053,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.OutputFormatUpdateManyRequestItem.html",
-          "hash": "tCnk2pMB4XOo+Xw8Lkbo6IbU1mhNg9l0P8mY9WixOEU="
+          "hash": "od/IOBhRniyhQwoTQii6qe1v0aLJ7MPMWyJgXxVrdsk="
         }
       },
       "is_incremental": false,
@@ -19161,7 +19305,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.ParentFilter.html",
-          "hash": "d2Ky+p735pwy4wDQA1hiK4PNCqDiOUJcoZoTSraUO14="
+          "hash": "2dHpBPQYZ2brFjq0nTYEgLCOV8ec+vIuQSbHJURFxD8="
         }
       },
       "is_incremental": false,
@@ -19629,7 +19773,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.PictureparkServiceSettings.html",
-          "hash": "JqbQiXdxm11hWsUBHlOq9ArxmhnpbQg7VIbK/UALhJ8="
+          "hash": "W70dNuG+60cAQ4IGZ32Hj+OzX/lCg4XdoaOG4psFr5Q="
         }
       },
       "is_incremental": false,
@@ -19677,7 +19821,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.PrefixFilter.html",
-          "hash": "lZVxNQfqlHMmPg7c0wsXKsDV6Xdnvf1477Ib/wc3Wk8="
+          "hash": "/LFW1FhdVD3Ycft7T3+mDBy7MdXfRO7YXsYonYVI60E="
         }
       },
       "is_incremental": false,
@@ -19869,7 +20013,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.ReferenceObjectConverter.html",
-          "hash": "lPaYcpIfu7VFZct+vbnYn51hm2ZLKEmGrx9nXHOPNZU="
+          "hash": "t4uJXHlR24VXxjx7gmFTL2me9ZsNFmTRPj5oK4tAl74="
         }
       },
       "is_incremental": false,
@@ -20145,7 +20289,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.Results.BatchOperationResult-1.html",
-          "hash": "osq//cYSkCcT8m0cJzB0jvkDnOSNCqzDrdGlkBqEv6o="
+          "hash": "wRl5b9fz609N9ORXAO1nGu5yHTPoWJnegEu2ljn7ZIA="
         }
       },
       "is_incremental": false,
@@ -20193,7 +20337,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.Results.BatchOperationWithRequestIdResult-1.html",
-          "hash": "OpISPZFjGdb6pszVfQCqaSuI6vjRhPAxCnTCroZemtA="
+          "hash": "nYLLvXVqvjg9S3uRMKWcPkP6V+WHG5qBiquUYWG9kw0="
         }
       },
       "is_incremental": false,
@@ -20217,7 +20361,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.Results.ContentBatchOperationResult.html",
-          "hash": "j7Ol6de/EoR0KzOKJr0xM4JtNDvjOqSr4oeADJcy0y0="
+          "hash": "epMq1Y46JtOhvwb2Xe6goAUHIUheruh3MoH1NwmOP9c="
         }
       },
       "is_incremental": false,
@@ -20229,7 +20373,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.Results.ContentBatchOperationWithRequestIdResult.html",
-          "hash": "h9knhkNJN07ySg1fwFXwyI3fWafteBQwo7XSsbIK+jA="
+          "hash": "xrOnWsklrGfR2d/3+74zcF0sb7u5UIjSVCwem5i2oIU="
         }
       },
       "is_incremental": false,
@@ -20241,7 +20385,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.Results.ListItemBatchOperationResult.html",
-          "hash": "mSyaFwvIVIQrqbPsoUWbCDkkd8jGdU5vLdLZi57x5QA="
+          "hash": "ogeJkz5IR5ADP1UL1q1EEGHGfIBFTK/QERiEuHjGMFM="
         }
       },
       "is_incremental": false,
@@ -20253,7 +20397,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.Results.ListItemBatchOperationWithRequestIdResult.html",
-          "hash": "0GXQRMiXyQqpq/5UR/W4Ssv3pSRfzH6nQIBS05fETes="
+          "hash": "bbEq/0pGXrUdEtzKxLJCPJuZsZzj2SFbWw0FvirsV9Q="
         }
       },
       "is_incremental": false,
@@ -20265,7 +20409,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.Results.OutputFormatBatchOperationResult.html",
-          "hash": "vru9nWxYZ4eYiEaJTNL7cUH7LcjofXLZV8e6p7ulH7M="
+          "hash": "FN1IfWsI9I/RJm15hUDWY4iD5W+HkBnOhQq66GaoJMY="
         }
       },
       "is_incremental": false,
@@ -20313,7 +20457,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.Results.SchemaBatchOperationResult.html",
-          "hash": "DDylMbt+1dZmx7numUJcehk1KYNxC5sdQ9kl9VEDLuk="
+          "hash": "QuQKlISqInQw1NZfZmltSzZPSc924CngjvkAzeDAJto="
         }
       },
       "is_incremental": false,
@@ -22005,7 +22149,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.ShareDetail.html",
-          "hash": "9toD8eNaBHXElM6Jf5Fwp5H1WzQig/YDS62394F9Lns="
+          "hash": "W931j2tsMADgetkamg50FfKVOzLQdv7TFhIHabirft8="
         }
       },
       "is_incremental": false,
@@ -22245,7 +22389,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.SimulatedTaggingOptions.html",
-          "hash": "x/dMIRiVfGl7/o+VEVeo6SE+KUizHuceAFOj/QiwNE8="
+          "hash": "nRTk6/+vKeiVrLAPp3exH5jx2a2xsumCXtnZ18ef63U="
         }
       },
       "is_incremental": false,
@@ -22685,11 +22829,23 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.TaggerStatisticsEvent.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.Contract.TaggerStatisticsEvent.html",
+          "hash": "vRRDpdLvnUvWnvaIY9fTryB0MZzemTjC6qBMxQaa6iM="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/api/Picturepark.SDK.V1.Contract.TaggingOptionsBase.yml",
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.TaggingOptionsBase.html",
-          "hash": "noCY0vh0TxFhRgrJd5VvN/onEVNUCmFhhWem5d3N2g4="
+          "hash": "TeGIFKJj6gNQNIHRNsG2QLEaShg+KiDSwbnsM4WOW38="
         }
       },
       "is_incremental": false,
@@ -22881,7 +23037,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.TermFilter.html",
-          "hash": "3FDxkjdOsq4NHO+NwB30AZvzfF0CLBQlRpBC+JrhU1U="
+          "hash": "GdmpV6os2xMatkv0j8a6dyCS3cFovx6GngWjCh6X8Ak="
         }
       },
       "is_incremental": false,
@@ -22917,7 +23073,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.TermsFilter.html",
-          "hash": "8dUHrcjiNGdVc8quz38gjgeH3cng/FLdujVVl6/MYwk="
+          "hash": "mhfuoNFz6PBSJYqCHHQg2tRfFFbWKs+akC7djEPejYE="
         }
       },
       "is_incremental": false,
@@ -23205,7 +23361,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.TriggerObject.html",
-          "hash": "6x/dkaG0hXZuiWF//n/XHPZAfS5Lwyy4ZA7zSBfG44A="
+          "hash": "G5GbeIYSJtkFalajzWxRdVIi2W6kqHeEaYtGhJ0Unbk="
         }
       },
       "is_incremental": false,
@@ -23445,7 +23601,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.UploadOptions.html",
-          "hash": "KbV96kkqqoyhauEEsbZe9WKtdCZxNpDM90WCwL65sg4="
+          "hash": "YAi4NvRr9WBgyEmfWOBKlhXdBeK7mgorkUDRg5GJ1W4="
         }
       },
       "is_incremental": false,
@@ -24573,7 +24729,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.html",
-          "hash": "sYgh44mvannL1dnjCpxUrN8UpoxeRpfdehNawyd3+tQ="
+          "hash": "9nlFMj5j9mWxoYBJhbh/wi6miiY9+mD0rDKNIOeygx0="
         }
       },
       "is_incremental": false,
@@ -24777,7 +24933,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.ListItemClient.html",
-          "hash": "hFL0o5MZduX40lpJeH4/P1KAF8guh5R00f81d5jIN/s="
+          "hash": "43yPniKp9hVBtpe/7quuhE956MGtBEahhM5Gf0kAJSE="
         }
       },
       "is_incremental": false,
@@ -24933,7 +25089,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.OutputFormatClient.html",
-          "hash": "7YLTIdl6k3nNmTXUKsBFYj8cFO6jFyBbMvH/xJBhGiw="
+          "hash": "/XymJu2Sha/0EQvyXdc4cijIzPl6klwkV375Dhyf9k0="
         }
       },
       "is_incremental": false,
@@ -24969,7 +25125,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.PictureparkService.html",
-          "hash": "BqoxPiiub6DG4jlWS1q0ySS1/5UHV9WcdzWpJ0Tp+bk="
+          "hash": "TIhAAvAiyxr8lDw9FBK5u+fp4fAel4CAiffROS1vGls="
         }
       },
       "is_incremental": false,
@@ -25041,7 +25197,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.SchemaClient.html",
-          "hash": "eLaX3iBiuZ+X1UWV6u4vCXFd9JD2C2L/v9HmhaF1HS4="
+          "hash": "anWntbK1cHL/OqOolpgkqmwmvOshEA+hbPRWJnap9Ug="
         }
       },
       "is_incremental": false,
@@ -25101,7 +25257,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.ServiceProvider.Buffer.EventArgsLiveStreamMessage.html",
-          "hash": "ibfWJDirhg0uIV4I9j+0AQ74KWxa+dczxIUwzEMmA3U="
+          "hash": "0DycWgV70O5h3xrvOvwh83eAPZrZhsSrmyhV3obtdnA="
         }
       },
       "is_incremental": false,
@@ -25113,7 +25269,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamBuffer.html",
-          "hash": "cjnMbgaprdAWAOAd+35WhppV22OU769rjHg/stX1lHI="
+          "hash": "b9tYL0eeHNRerOD8sUrbfiku/OhwG7X5wnfjA48d2Iw="
         }
       },
       "is_incremental": false,
@@ -25137,7 +25293,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.ServiceProvider.Buffer.LiveStreamConsumer.html",
-          "hash": "NB0/9n6KMo1wTdpcTyHA4QiGPb3A0ZL6Oh+ZrvLWTtA="
+          "hash": "TEkk8VfpA6q8ld2nLZV9EftRKaWeyPhQK+/jOoKW+Bs="
         }
       },
       "is_incremental": false,
@@ -25173,7 +25329,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.ServiceProvider.ServiceProviderClient.html",
-          "hash": "elF27nJKXxJdyAk1n3dMjnEtmTunn8JJdQvUxLxObZc="
+          "hash": "rCFtH/4Qb73Q8MQxrI+LqUjyl5FfDsr/JO0PyIQ4jCM="
         }
       },
       "is_incremental": false,
@@ -25293,7 +25449,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.TransferClient.html",
-          "hash": "lIyIbiPLUhtMqSyhxpHAZJJYnX3w0Mse3NzMKwDSxzQ="
+          "hash": "scRMUhHUYdKZjxUGCQBr3ZnUvU5xoTl2A040apcmUd0="
         }
       },
       "is_incremental": false,
@@ -25509,7 +25665,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "XFg/ZcCclq6lvC03+Gp/FKYDKMw93sBWe4BO7xDq5Q8="
+          "hash": "sT4CIRDE5lAyeMqBzmSd7iUczpc0Wz3DqkqcRxM/jd8="
         }
       },
       "is_incremental": false,
@@ -25531,23 +25687,25 @@
   "incremental_info": [
     {
       "status": {
-        "can_incremental": true,
+        "can_incremental": false,
+        "details": "Cannot build incrementally because docfx version changed from 2.58.4.0 to 2.59.4.0.",
         "incrementalPhase": "build",
         "total_file_count": 0,
-        "skipped_file_count": 0
+        "skipped_file_count": 0,
+        "full_build_reason_code": "DocfxVersionChanged"
       },
       "processors": {
         "ConceptualDocumentProcessor": {
-          "can_incremental": true,
+          "can_incremental": false,
           "incrementalPhase": "build",
           "total_file_count": 1,
-          "skipped_file_count": 1
+          "skipped_file_count": 0
         },
         "ManagedReferenceDocumentProcessor": {
-          "can_incremental": true,
+          "can_incremental": false,
           "incrementalPhase": "build",
-          "total_file_count": 2123,
-          "skipped_file_count": 2123
+          "total_file_count": 2136,
+          "skipped_file_count": 0
         },
         "TocDocumentProcessor": {
           "can_incremental": false,
