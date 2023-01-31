@@ -25694,6 +25694,13 @@ namespace Picturepark.SDK.V1.Contract
         public string ApiUrl { get; set; }
 
         /// <summary>
+        /// Host for integrations (Service Providers)
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("integrationHost", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public string IntegrationHost { get; set; }
+
+        /// <summary>
         /// Information if the query details can be enabled when searching. For debug purposes only.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("enableQueryDetails", Required = Newtonsoft.Json.Required.Always)]
