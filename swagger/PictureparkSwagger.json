@@ -45591,6 +45591,7 @@
           "customerAlias",
           "identityServerUrl",
           "apiUrl",
+          "integrationHost",
           "enableQueryDetails",
           "languageConfiguration",
           "languages",
@@ -45627,6 +45628,11 @@
           "apiUrl": {
             "type": "string",
             "description": "The base API URL.",
+            "minLength": 1
+          },
+          "integrationHost": {
+            "type": "string",
+            "description": "Host for integrations (Service Providers)",
             "minLength": 1
           },
           "enableQueryDetails": {

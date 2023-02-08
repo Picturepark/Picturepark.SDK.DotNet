@@ -5937,6 +5937,246 @@
         }
       }
     },
+    "/Customer/{alias}/hostConfiguration": {
+      "get": {
+        "tags": [
+          "Customer"
+        ],
+        "operationId": "Customer_GetHostConfiguration",
+        "parameters": [
+          {
+            "name": "alias",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustomerHostConfiguration"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            },
+            "x-expectedSchemas": [
+              {
+                "description": "Entity not found",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkException"
+                    }
+                  ]
+                }
+              },
+              {
+                "description": "Entity not found",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkNotFoundException"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Customer"
+        ],
+        "operationId": "Customer_UpdateHostConfiguration",
+        "parameters": [
+          {
+            "name": "alias",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 1
+          }
+        ],
+        "requestBody": {
+          "x-name": "request",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CustomerHostConfigurationWriteRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 2
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustomerHostConfigurationEditable"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            },
+            "x-expectedSchemas": [
+              {
+                "description": "Entity not found",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkException"
+                    }
+                  ]
+                }
+              },
+              {
+                "description": "Entity not found",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkNotFoundException"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
     "/CustomerQueuePriority/{customerId}/queuePriority/effective": {
       "get": {
         "tags": [
@@ -21180,19 +21420,20 @@
             "type": "string",
             "nullable": true
           },
-          "customerHosts": {
-            "type": "array",
-            "nullable": true,
-            "items": {
-              "type": "string"
-            }
-          },
           "corsAllowedHosts": {
             "type": "array",
             "nullable": true,
             "items": {
               "type": "string"
             }
+          },
+          "hostConfiguration": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/CustomerHostConfigurationWriteRequest"
+              }
+            ]
           },
           "baseUrl": {
             "type": "string",
@@ -21218,6 +21459,235 @@
             "nullable": true
           }
         }
+      },
+      "CustomerHostConfigurationWriteRequest": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "hostConfiguration": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/CustomerHostConfigurationEditable"
+              }
+            ]
+          },
+          "configureCustomCertificates": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/TlsSecretWriteRequest"
+              }
+            ]
+          }
+        }
+      },
+      "CustomerHostConfigurationEditable": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "frontend": {
+            "type": "object",
+            "nullable": true,
+            "additionalProperties": {
+              "$ref": "#/components/schemas/HostConfiguration"
+            }
+          },
+          "api": {
+            "type": "object",
+            "nullable": true,
+            "additionalProperties": {
+              "$ref": "#/components/schemas/HostConfiguration"
+            }
+          },
+          "integrationSubDomain": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "HostConfiguration": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "isDefault"
+        ],
+        "properties": {
+          "isDefault": {
+            "type": "boolean"
+          },
+          "certificateConfiguration": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/HostCertificateConfiguration"
+              }
+            ]
+          }
+        }
+      },
+      "HostCertificateConfiguration": {
+        "type": "object",
+        "discriminator": {
+          "propertyName": "kind",
+          "mapping": {
+            "IssuerCertificate": "#/components/schemas/IssuerCertificate",
+            "DefaultPlatformCertificate": "#/components/schemas/DefaultPlatformCertificate",
+            "CertificateReference": "#/components/schemas/CertificateReference"
+          }
+        },
+        "x-abstract": true,
+        "additionalProperties": false,
+        "required": [
+          "kind"
+        ],
+        "properties": {
+          "kind": {
+            "type": "string"
+          }
+        }
+      },
+      "IssuerCertificate": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/HostCertificateConfiguration"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "issuerNameOverride": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "DefaultPlatformCertificate": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/HostCertificateConfiguration"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "CertificateReference": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/HostCertificateConfiguration"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "certificateId"
+            ],
+            "properties": {
+              "certificateId": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        ]
+      },
+      "TlsSecretWriteRequest": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "commands"
+        ],
+        "properties": {
+          "commands": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TlsSecretCommandBase"
+            }
+          }
+        }
+      },
+      "TlsSecretCommandBase": {
+        "type": "object",
+        "discriminator": {
+          "propertyName": "kind",
+          "mapping": {
+            "TlsSecretPutCommand": "#/components/schemas/TlsSecretPutCommand",
+            "TlsSecretDeleteCommand": "#/components/schemas/TlsSecretDeleteCommand"
+          }
+        },
+        "x-abstract": true,
+        "additionalProperties": false,
+        "required": [
+          "certificateId",
+          "kind"
+        ],
+        "properties": {
+          "certificateId": {
+            "type": "string",
+            "description": "Certificate to mutate",
+            "minLength": 1
+          },
+          "kind": {
+            "type": "string"
+          }
+        }
+      },
+      "TlsSecretPutCommand": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/TlsSecretCommandBase"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "certificate"
+            ],
+            "properties": {
+              "certificate": {
+                "description": "Data to use when creating or updating the certificate",
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/TlsCertificate"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "TlsCertificate": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "crt",
+          "key"
+        ],
+        "properties": {
+          "crt": {
+            "type": "string",
+            "minLength": 1
+          },
+          "key": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      },
+      "TlsSecretDeleteCommand": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/TlsSecretCommandBase"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
       },
       "User": {
         "type": "object",
@@ -21528,13 +21998,14 @@
             "description": "Base url for for shares",
             "nullable": true
           },
-          "customerHosts": {
-            "type": "array",
-            "description": "List of customers hosts",
+          "hostConfiguration": {
+            "description": "Host configuration",
             "nullable": true,
-            "items": {
-              "type": "string"
-            }
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/CustomerHostConfigurationCreation"
+              }
+            ]
           },
           "corsAllowedHosts": {
             "type": "array",
@@ -21565,6 +22036,26 @@
             "nullable": true
           }
         }
+      },
+      "CustomerHostConfigurationCreation": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/CustomerHostConfigurationEditable"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "certificates": {
+                "type": "object",
+                "nullable": true,
+                "additionalProperties": {
+                  "$ref": "#/components/schemas/TlsCertificate"
+                }
+              }
+            }
+          }
+        ]
       },
       "SnapshotRepositoryEnvironmentCreateRequest": {
         "allOf": [
@@ -22167,7 +22658,6 @@
         "type": "object",
         "additionalProperties": false,
         "required": [
-          "useSsl",
           "enableQueryDetails",
           "elasticSearchNumberOfShards",
           "elasticSearchNumberOfReplicas",
@@ -22219,13 +22709,25 @@
           },
           "customerHosts": {
             "type": "array",
+            "deprecated": true,
+            "x-deprecatedMessage": "Use HostConfiguration instead",
             "nullable": true,
             "items": {
               "type": "string"
             }
           },
+          "hostConfiguration": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/CustomerHostConfigurationCreation"
+              }
+            ]
+          },
           "useSsl": {
-            "type": "boolean"
+            "type": "boolean",
+            "deprecated": true,
+            "nullable": true
           },
           "enableQueryDetails": {
             "type": "boolean"
@@ -24467,12 +24969,13 @@
             "type": "string",
             "nullable": true
           },
-          "customerHosts": {
-            "type": "array",
+          "hostConfiguration": {
             "nullable": true,
-            "items": {
-              "type": "string"
-            }
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/CustomerHostConfiguration"
+              }
+            ]
           },
           "useSsl": {
             "type": "boolean"
@@ -24732,6 +25235,26 @@
           }
         }
       },
+      "CustomerHostConfiguration": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/CustomerHostConfigurationEditable"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "certificateIds": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ]
+      },
       "CustomerServiceProviderConfiguration": {
         "type": "object",
         "additionalProperties": false,
@@ -24821,10 +25344,20 @@
           },
           "customerHosts": {
             "type": "array",
+            "deprecated": true,
+            "x-deprecatedMessage": "Use HostConfiguration instead",
             "nullable": true,
             "items": {
               "type": "string"
             }
+          },
+          "hostConfiguration": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/CustomerHostConfigurationEditable"
+              }
+            ]
           },
           "contentRetentionTime": {
             "type": "string",
