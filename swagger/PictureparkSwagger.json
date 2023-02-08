@@ -27475,6 +27475,106 @@
         ]
       }
     },
+    "/v1/Users/list": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "summary": "List users, similar to `search` with the difference that result contains only essential info about user",
+        "operationId": "User_List",
+        "requestBody": {
+          "x-name": "request",
+          "description": "User search request.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserSearchRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "Result of the user search",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ListUsersResult"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "user_read"
+            ]
+          }
+        ]
+      }
+    },
     "/v1/XmpMappings/targets": {
       "get": {
         "tags": [
@@ -45491,7 +45591,6 @@
           "customerAlias",
           "identityServerUrl",
           "apiUrl",
-          "integrationHost",
           "enableQueryDetails",
           "languageConfiguration",
           "languages",
@@ -45528,11 +45627,6 @@
           "apiUrl": {
             "type": "string",
             "description": "The base API URL.",
-            "minLength": 1
-          },
-          "integrationHost": {
-            "type": "string",
-            "description": "Host for integrations (Service Providers)",
             "minLength": 1
           },
           "enableQueryDetails": {
@@ -56742,6 +56836,105 @@
             }
           }
         ]
+      },
+      "ListUsersResult": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/SearchBehaviorWithAggregationBaseResultOfUser"
+          },
+          {
+            "type": "object",
+            "description": "Holds results of the list user search.",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "SearchBehaviorWithAggregationBaseResultOfUser": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/SearchBehaviorBaseResultOfUser"
+          },
+          {
+            "type": "object",
+            "description": "Base class for search result queries that support SearchBehaviors",
+            "additionalProperties": false,
+            "properties": {
+              "aggregationResults": {
+                "type": "array",
+                "description": "Results of the aggregation, if any aggregators was passed in the request.",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/AggregationResult"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "SearchBehaviorBaseResultOfUser": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BaseResultOfUser"
+          },
+          {
+            "type": "object",
+            "description": "Base class for search result queries that support SearchBehaviors",
+            "additionalProperties": false,
+            "properties": {
+              "searchString": {
+                "type": "string",
+                "description": "The search string used to query the data.",
+                "nullable": true
+              },
+              "isSearchStringRewritten": {
+                "type": "boolean",
+                "description": "Flag to notify if the SearchString was modified compared to the original requested one."
+              },
+              "queryDebugInformation": {
+                "type": "array",
+                "description": "Additional information regarding the query execution and reason of the matched documents. Multiple items are returned if multiple queries were performed.",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/QueryDebugInformation"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "BaseResultOfUser": {
+        "type": "object",
+        "description": "Base class for search results",
+        "additionalProperties": false,
+        "required": [
+          "results",
+          "totalResults",
+          "elapsedMilliseconds"
+        ],
+        "properties": {
+          "totalResults": {
+            "type": "integer",
+            "description": "The total number of matching documents.",
+            "format": "int64"
+          },
+          "results": {
+            "type": "array",
+            "description": "The matched documents.",
+            "items": {
+              "$ref": "#/components/schemas/User"
+            }
+          },
+          "elapsedMilliseconds": {
+            "type": "integer",
+            "description": "The search execution time in milliseconds.",
+            "format": "int64"
+          },
+          "pageToken": {
+            "type": "string",
+            "description": "An optional token to access the next page of results for those endpoints that support backend scrolling logic.",
+            "nullable": true
+          }
+        }
       },
       "XmpMappingTargets": {
         "type": "object",
