@@ -1529,6 +1529,18 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.CloudManager.Contract.CertificateReference.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.CertificateReference.html",
+          "hash": "jGIoHUAAtaLSKBt37GdxRMqm/UUGLBRGzspIJ+NrOD4="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/api/Picturepark.SDK.V1.CloudManager.Contract.ChangeStorageSiloRequest.yml",
       "output": {
         ".html": {
@@ -2493,7 +2505,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.CustomerConfiguration.html",
-          "hash": "rN2hpz3qHXfa5X63X7jb5DSHfrH5cr1x2ePbp5ix3b0="
+          "hash": "2I4Gs65M6tCu/Cd03HklSPr7NDzqMON4v5vxhnmESBY="
         }
       },
       "is_incremental": false,
@@ -2505,7 +2517,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.CustomerCreateRequest.html",
-          "hash": "q/lO1Dk/DpMrMFwKZHcJepR50jauNaTLGhf2XkUFltg="
+          "hash": "mAmcNcOawqCKKtMtdgDZnCl1oPKQEZ/6WCX9RtzxhYU="
         }
       },
       "is_incremental": false,
@@ -2549,6 +2561,54 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.CloudManager.Contract.CustomerHostConfiguration.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.CustomerHostConfiguration.html",
+          "hash": "omXdyVXZarrvtnDywQlJLpR4bDd+nDdpZfXSfSo4tJk="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.CloudManager.Contract.CustomerHostConfigurationCreation.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.CustomerHostConfigurationCreation.html",
+          "hash": "XZcdBAnIyt/ZMJfOhtTKSfeC0BMqfeSDWunkb9IkrP0="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.CloudManager.Contract.CustomerHostConfigurationEditable.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.CustomerHostConfigurationEditable.html",
+          "hash": "lFxUqdIjOAyRFa8sSloHHmpLsMHFL0/e+3pjeBy8LWI="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.CloudManager.Contract.CustomerHostConfigurationWriteRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.CustomerHostConfigurationWriteRequest.html",
+          "hash": "kuwLTmLIMrSnBhztK+V+kEHiuV7RoXWTLq1EYU59EvU="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/api/Picturepark.SDK.V1.CloudManager.Contract.CustomerHostNotFoundException.yml",
       "output": {
         ".html": {
@@ -2565,7 +2625,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.CustomerImportRequest.html",
-          "hash": "TRCG5OkCqZV/yUxKMvoK/ZRbH3fj/XjHP27vWRbsnho="
+          "hash": "TwAenOOv5yOuplzF1mU0yinJKDZb+DZQ2ijUEVRGOoU="
         }
       },
       "is_incremental": false,
@@ -2757,7 +2817,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.CustomerUpdateRequest.html",
-          "hash": "8eb+Mks02HjSppw74D0bPdhwlPwWmUHLYrZzKeIgJE4="
+          "hash": "ZS+TN/K8kLM21KNlKqknZfyBTzD86RZvXZQPPACQ1XI="
         }
       },
       "is_incremental": false,
@@ -2878,6 +2938,18 @@
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.DefaultChannelDeleteException.html",
           "hash": "8i2gxlQxuGC0boAxLoNTWtEZ1JE7lyaqsM7WezBi21U="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.CloudManager.Contract.DefaultPlatformCertificate.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.DefaultPlatformCertificate.html",
+          "hash": "wMdzZJWbwvrX4RjSFqHCLuYD/3lgV0iw2lbX8Mrn6fY="
         }
       },
       "is_incremental": false,
@@ -3845,6 +3917,30 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.CloudManager.Contract.HostCertificateConfiguration.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.HostCertificateConfiguration.html",
+          "hash": "V90WEp2Jeky3cf49ecDH/8mDSUf7c9CPngRyN7x+SgA="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.CloudManager.Contract.HostConfiguration.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.HostConfiguration.html",
+          "hash": "eabj0Y8ins6M9ex8trQhCuoGPBKDSibmPVYqkbmF+jg="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/api/Picturepark.SDK.V1.CloudManager.Contract.IBusinessProcessClient.yml",
       "output": {
         ".html": {
@@ -3897,7 +3993,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.ICustomerClient.html",
-          "hash": "7fdIDtzGvSmTDqGK59IZRz0zFSttCyh8NX+0dK0ikIE="
+          "hash": "P+OipMvNq1Ckwz2VvLTZ3hrlC6+8vpQesx+e/e3a4ZQ="
         }
       },
       "is_incremental": false,
@@ -4510,6 +4606,18 @@
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.InvalidVersionException.html",
           "hash": "42k+RuzSW8/kGq0eR3AEFrxncCaTs4Y4FdMtsRdt7hw="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.CloudManager.Contract.IssuerCertificate.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.IssuerCertificate.html",
+          "hash": "wdY2qpCoIPj9cze6PJQo8AmPV/INw16kp5UaI6wyc1o="
         }
       },
       "is_incremental": false,
@@ -7533,7 +7641,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.SnapshotCustomerCloneRequest.html",
-          "hash": "VEOJjZ4klnrMLPlyLijh1ywsAYHOOcydsgt1+Utmz5o="
+          "hash": "OnOtfPdldsgbJts8sJvY1MOCMaPzW6kAA70ALq3K1Hk="
         }
       },
       "is_incremental": false,
@@ -8170,6 +8278,66 @@
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.TiffFormat.html",
           "hash": "W0V462JPCvkpcljJaEtIxFn7eGvxxjrD9su4GgswOtw="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.CloudManager.Contract.TlsCertificate.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.TlsCertificate.html",
+          "hash": "Uv3O4jRF9mQopmJF35RdEjx+1RxyF3Cn6GgvsYpnNMg="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.CloudManager.Contract.TlsSecretCommandBase.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.TlsSecretCommandBase.html",
+          "hash": "wLN4aMnN+xnxYGvI+yHXpTody1mJKZ+SiDLEOxnq1Vs="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.CloudManager.Contract.TlsSecretDeleteCommand.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.TlsSecretDeleteCommand.html",
+          "hash": "fTlXIwg0luv0bFaqyKsGXrNE2m5+keV7/D6IImAU9oI="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.CloudManager.Contract.TlsSecretPutCommand.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.TlsSecretPutCommand.html",
+          "hash": "tRC6VcKxZcSvA0QMgLakppYFfNH/EhKJ4uMpwtME+c0="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Picturepark.SDK.V1.CloudManager.Contract.TlsSecretWriteRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.TlsSecretWriteRequest.html",
+          "hash": "usJXEZQCqI1BxuRu+QWiU14rckCBe8DKL8N88fqpkYg="
         }
       },
       "is_incremental": false,
@@ -8985,7 +9153,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.html",
-          "hash": "7RyMsr42v3RINiK97DxbQ5loMJjsU5aJcrnswFr0oas="
+          "hash": "bBpBSt/TGCgtF3GDu3xhZ7Feyg0bff9YCXmfuU/kxYM="
         }
       },
       "is_incremental": false,
@@ -9009,7 +9177,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.CustomerClient.html",
-          "hash": "bbN6UQo5YtoGPIPcn0Ph914Lyy9+FiyUZxi3ZwLsqT0="
+          "hash": "doeGF9GQQZDQbMJn4bhdheBpsSQGskbiK1PbC/oFp2M="
         }
       },
       "is_incremental": false,
@@ -13821,7 +13989,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.CustomerInfo.html",
-          "hash": "3QdbsWbFRKCbDM47yfJKHwUbJVPUB/Cga7j1bsdfDwg="
+          "hash": "U97JFoQwVG8tK+CjUgGNj2oJ1Pk3owoW5FCHKQXM7go="
         }
       },
       "is_incremental": false,
@@ -25665,7 +25833,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "sT4CIRDE5lAyeMqBzmSd7iUczpc0Wz3DqkqcRxM/jd8="
+          "hash": "C0PZOAihxgmYBNPiC3R6YfHG5OTprScghkWQwjqBp84="
         }
       },
       "is_incremental": false,
@@ -25687,25 +25855,23 @@
   "incremental_info": [
     {
       "status": {
-        "can_incremental": false,
-        "details": "Cannot build incrementally because docfx version changed from 2.58.4.0 to 2.59.4.0.",
+        "can_incremental": true,
         "incrementalPhase": "build",
         "total_file_count": 0,
-        "skipped_file_count": 0,
-        "full_build_reason_code": "DocfxVersionChanged"
+        "skipped_file_count": 0
       },
       "processors": {
         "ConceptualDocumentProcessor": {
-          "can_incremental": false,
+          "can_incremental": true,
           "incrementalPhase": "build",
           "total_file_count": 1,
-          "skipped_file_count": 0
+          "skipped_file_count": 1
         },
         "ManagedReferenceDocumentProcessor": {
-          "can_incremental": false,
+          "can_incremental": true,
           "incrementalPhase": "build",
-          "total_file_count": 2136,
-          "skipped_file_count": 0
+          "total_file_count": 2150,
+          "skipped_file_count": 97
         },
         "TocDocumentProcessor": {
           "can_incremental": false,
