@@ -46315,10 +46315,10 @@ namespace Picturepark.SDK.V1
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>
-        /// List users, similar to `search` with the difference that result contains only essential info about user
+        /// List users, similar to `search` with the difference that result contains only essential info about user and requires only the `ListUsers` UserRight
         /// </summary>
         /// <param name="request">User search request.</param>
-        /// <returns>Result of the user search</returns>
+        /// <returns>Result of the list users</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>

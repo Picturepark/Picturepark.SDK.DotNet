@@ -27480,7 +27480,7 @@
         "tags": [
           "User"
         ],
-        "summary": "List users, similar to `search` with the difference that result contains only essential info about user",
+        "summary": "List users, similar to `search` with the difference that result contains only essential info about user and requires only the `ListUsers` UserRight",
         "operationId": "User_List",
         "requestBody": {
           "x-name": "request",
@@ -27497,7 +27497,7 @@
         },
         "responses": {
           "200": {
-            "description": "Result of the user search",
+            "description": "Result of the list users",
             "content": {
               "application/json": {
                 "schema": {

@@ -315,6 +315,18 @@ namespace Picturepark.SDK.V1.Tests.Clients
             await Assert.ThrowsAsync<UserNotFoundException>(() => _client.User.GetAsync(user.Id)).ConfigureAwait(false);
         }
 
+        [Fact]
+        [Trait("Stack", "Users")]
+        public async Task ShouldListUsers()
+        {
+            // Act
+            var listUsersResult =
+                await _client.User.ListAsync(new UserSearchRequest { Limit = 10 }).ConfigureAwait(false);
+
+            // Assert
+            Assert.True(listUsersResult.Results.Any());
+        }
+
         private async Task LockUnlockCall(IEnumerable<string> ids, bool @lock)
         {
             var lockRequests = ids.Select(async id =>
