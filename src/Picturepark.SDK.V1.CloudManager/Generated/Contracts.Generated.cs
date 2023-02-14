@@ -555,6 +555,26 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         System.Threading.Tasks.Task ClearCacheSiloAsync(string alias, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkException">Entity not found</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        System.Threading.Tasks.Task<CustomerHostConfiguration> GetHostConfigurationAsync(string alias, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        /// <exception cref="PictureparkException">Entity not found</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        System.Threading.Tasks.Task<CustomerHostConfigurationEditable> UpdateHostConfigurationAsync(string alias, CustomerHostConfigurationWriteRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
     }
 
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
@@ -12051,11 +12071,11 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [Newtonsoft.Json.JsonProperty("customerAlias", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string CustomerAlias { get; set; }
 
-        [Newtonsoft.Json.JsonProperty("customerHosts", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> CustomerHosts { get; set; }
-
         [Newtonsoft.Json.JsonProperty("corsAllowedHosts", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<string> CorsAllowedHosts { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("hostConfiguration", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public CustomerHostConfigurationWriteRequest HostConfiguration { get; set; }
 
         [Newtonsoft.Json.JsonProperty("baseUrl", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string BaseUrl { get; set; }
@@ -12082,6 +12102,286 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         {
 
             return Newtonsoft.Json.JsonConvert.DeserializeObject<SnapshotCustomerCloneRequest>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class CustomerHostConfigurationWriteRequest
+    {
+        [Newtonsoft.Json.JsonProperty("hostConfiguration", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public CustomerHostConfigurationEditable HostConfiguration { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("configureCustomCertificates", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public TlsSecretWriteRequest ConfigureCustomCertificates { get; set; }
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static CustomerHostConfigurationWriteRequest FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<CustomerHostConfigurationWriteRequest>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class CustomerHostConfigurationEditable
+    {
+        [Newtonsoft.Json.JsonProperty("frontend", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.IDictionary<string, HostConfiguration> Frontend { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("api", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.IDictionary<string, HostConfiguration> Api { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("integrationSubDomain", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string IntegrationSubDomain { get; set; }
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static CustomerHostConfigurationEditable FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<CustomerHostConfigurationEditable>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class HostConfiguration
+    {
+        [Newtonsoft.Json.JsonProperty("isDefault", Required = Newtonsoft.Json.Required.Always)]
+        public bool IsDefault { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("certificateConfiguration", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public HostCertificateConfiguration CertificateConfiguration { get; set; }
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static HostConfiguration FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<HostConfiguration>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
+    [JsonInheritanceAttribute("IssuerCertificate", typeof(IssuerCertificate))]
+    [JsonInheritanceAttribute("DefaultPlatformCertificate", typeof(DefaultPlatformCertificate))]
+    [JsonInheritanceAttribute("CertificateReference", typeof(CertificateReference))]
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public abstract partial class HostCertificateConfiguration
+    {
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static HostCertificateConfiguration FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<HostCertificateConfiguration>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class IssuerCertificate : HostCertificateConfiguration
+    {
+        [Newtonsoft.Json.JsonProperty("issuerNameOverride", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string IssuerNameOverride { get; set; }
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static IssuerCertificate FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<IssuerCertificate>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class DefaultPlatformCertificate : HostCertificateConfiguration
+    {
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static DefaultPlatformCertificate FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<DefaultPlatformCertificate>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class CertificateReference : HostCertificateConfiguration
+    {
+        [Newtonsoft.Json.JsonProperty("certificateId", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public string CertificateId { get; set; }
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static CertificateReference FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<CertificateReference>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class TlsSecretWriteRequest
+    {
+        [Newtonsoft.Json.JsonProperty("commands", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.Collections.Generic.ICollection<TlsSecretCommandBase> Commands { get; set; } = new System.Collections.Generic.List<TlsSecretCommandBase>();
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static TlsSecretWriteRequest FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<TlsSecretWriteRequest>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
+    [JsonInheritanceAttribute("TlsSecretPutCommand", typeof(TlsSecretPutCommand))]
+    [JsonInheritanceAttribute("TlsSecretDeleteCommand", typeof(TlsSecretDeleteCommand))]
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public abstract partial class TlsSecretCommandBase
+    {
+        /// <summary>
+        /// Certificate to mutate
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("certificateId", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public string CertificateId { get; set; }
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static TlsSecretCommandBase FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<TlsSecretCommandBase>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class TlsSecretPutCommand : TlsSecretCommandBase
+    {
+        /// <summary>
+        /// Data to use when creating or updating the certificate
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("certificate", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public TlsCertificate Certificate { get; set; } = new TlsCertificate();
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static TlsSecretPutCommand FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<TlsSecretPutCommand>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class TlsCertificate
+    {
+        [Newtonsoft.Json.JsonProperty("crt", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public string Crt { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("key", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public string Key { get; set; }
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static TlsCertificate FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<TlsCertificate>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class TlsSecretDeleteCommand : TlsSecretCommandBase
+    {
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static TlsSecretDeleteCommand FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<TlsSecretDeleteCommand>(data, new Newtonsoft.Json.JsonSerializerSettings());
 
         }
 
@@ -12465,10 +12765,10 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         public string BaseUrl { get; set; }
 
         /// <summary>
-        /// List of customers hosts
+        /// Host configuration
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("customerHosts", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> CustomerHosts { get; set; }
+        [Newtonsoft.Json.JsonProperty("hostConfiguration", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public CustomerHostConfigurationCreation HostConfiguration { get; set; }
 
         /// <summary>
         /// List of CORS allowed hosts
@@ -12512,6 +12812,27 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         {
 
             return Newtonsoft.Json.JsonConvert.DeserializeObject<CustomerImportRequest>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class CustomerHostConfigurationCreation : CustomerHostConfigurationEditable
+    {
+        [Newtonsoft.Json.JsonProperty("certificates", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.IDictionary<string, TlsCertificate> Certificates { get; set; }
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static CustomerHostConfigurationCreation FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<CustomerHostConfigurationCreation>(data, new Newtonsoft.Json.JsonSerializerSettings());
 
         }
 
@@ -13342,10 +13663,15 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         public string BaseUrl { get; set; }
 
         [Newtonsoft.Json.JsonProperty("customerHosts", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [System.Obsolete("Use HostConfiguration instead")]
         public System.Collections.Generic.ICollection<string> CustomerHosts { get; set; }
 
-        [Newtonsoft.Json.JsonProperty("useSsl", Required = Newtonsoft.Json.Required.Always)]
-        public bool UseSsl { get; set; }
+        [Newtonsoft.Json.JsonProperty("hostConfiguration", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public CustomerHostConfigurationCreation HostConfiguration { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("useSsl", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [System.Obsolete]
+        public bool? UseSsl { get; set; }
 
         [Newtonsoft.Json.JsonProperty("enableQueryDetails", Required = Newtonsoft.Json.Required.Always)]
         public bool EnableQueryDetails { get; set; }
@@ -15948,8 +16274,8 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [Newtonsoft.Json.JsonProperty("contractVersion", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ContractVersion { get; set; }
 
-        [Newtonsoft.Json.JsonProperty("customerHosts", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> CustomerHosts { get; set; }
+        [Newtonsoft.Json.JsonProperty("hostConfiguration", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public CustomerHostConfiguration HostConfiguration { get; set; }
 
         [Newtonsoft.Json.JsonProperty("useSsl", Required = Newtonsoft.Json.Required.Always)]
         public bool UseSsl { get; set; }
@@ -16157,6 +16483,27 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     }
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class CustomerHostConfiguration : CustomerHostConfigurationEditable
+    {
+        [Newtonsoft.Json.JsonProperty("certificateIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> CertificateIds { get; set; }
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static CustomerHostConfiguration FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<CustomerHostConfiguration>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
     public partial class CustomerServiceProviderConfiguration
     {
         [Newtonsoft.Json.JsonProperty("serviceProviderId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -16231,7 +16578,11 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         public System.TimeSpan SnapshotFullbackupScheduleTime { get; set; }
 
         [Newtonsoft.Json.JsonProperty("customerHosts", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [System.Obsolete("Use HostConfiguration instead")]
         public System.Collections.Generic.ICollection<string> CustomerHosts { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("hostConfiguration", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public CustomerHostConfigurationEditable HostConfiguration { get; set; }
 
         [Newtonsoft.Json.JsonProperty("contentRetentionTime", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
