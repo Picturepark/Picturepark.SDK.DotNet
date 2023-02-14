@@ -27480,7 +27480,7 @@
         "tags": [
           "User"
         ],
-        "summary": "List users, similar to `search` with the difference that result contains only essential info about user and requires only the `ListUsers` UserRight",
+        "summary": "List users, result contains only essential info about user and requires only the `ListUsers` UserRight.",
         "operationId": "User_List",
         "requestBody": {
           "x-name": "request",
@@ -27488,7 +27488,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/UserSearchRequest"
+                "$ref": "#/components/schemas/UserListRequest"
               }
             }
           },
@@ -27501,7 +27501,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ListUsersResult"
+                  "$ref": "#/components/schemas/UserListResult"
                 }
               }
             }
@@ -56734,8 +56734,31 @@
         ]
       },
       "UserSearchAndAggregationBaseRequest": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/UsersSearchBaseRequest"
+          },
+          {
+            "type": "object",
+            "description": "Represents an aggregation request over users.",
+            "x-abstract": true,
+            "additionalProperties": false,
+            "properties": {
+              "aggregationFilters": {
+                "type": "array",
+                "description": "Special filters used to filter down independently the aggregations' values and the search results on specific conditions.\nFor the search results, the aggregation filters are used to create a Filter that is put in AND with the eventual existing Filter of the search request to nail down the search results. The filters generated\nby the aggregation filters are put in OR each other if they have the same AggregationName, and then such groups are put in AND.\nFor the aggregation values, only the original Filter of the search request is used to nail down the data to be considered for the aggregations. Then, on top of that, for each aggregator in the search request, a Filter is created to filter down the\naggregation results of that aggregation: depending if the AggregationName of the AggregationFilter matches the AggregationName of the Aggregator, the filter is put in OR (if it matches) or in AND (if it does not match it).\nMoreover, an AggregationFilter ensures that the related value is returned in the AggregationResults also if the top aggregation values returned by default do not contain it.",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/AggregationFilter"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "UsersSearchBaseRequest": {
         "type": "object",
-        "description": "Represents an aggregation request over users.",
+        "description": "Represents a search request over users.",
         "x-abstract": true,
         "additionalProperties": false,
         "required": [
@@ -56780,14 +56803,6 @@
             "nullable": true,
             "items": {
               "$ref": "#/components/schemas/UserRight"
-            }
-          },
-          "aggregationFilters": {
-            "type": "array",
-            "description": "Special filters used to filter down independently the aggregations' values and the search results on specific conditions.\nFor the search results, the aggregation filters are used to create a Filter that is put in AND with the eventual existing Filter of the search request to nail down the search results. The filters generated\nby the aggregation filters are put in OR each other if they have the same AggregationName, and then such groups are put in AND.\nFor the aggregation values, only the original Filter of the search request is used to nail down the data to be considered for the aggregations. Then, on top of that, for each aggregator in the search request, a Filter is created to filter down the\naggregation results of that aggregation: depending if the AggregationName of the AggregationFilter matches the AggregationName of the Aggregator, the filter is put in OR (if it matches) or in AND (if it does not match it).\nMoreover, an AggregationFilter ensures that the related value is returned in the AggregationResults also if the top aggregation values returned by default do not contain it.",
-            "nullable": true,
-            "items": {
-              "$ref": "#/components/schemas/AggregationFilter"
             }
           },
           "includeServiceUser": {
@@ -56843,37 +56858,15 @@
           }
         ]
       },
-      "ListUsersResult": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/SearchBehaviorWithAggregationBaseResultOfUser"
-          },
-          {
-            "type": "object",
-            "description": "Holds results of the list user search.",
-            "additionalProperties": false
-          }
-        ]
-      },
-      "SearchBehaviorWithAggregationBaseResultOfUser": {
+      "UserListResult": {
         "allOf": [
           {
             "$ref": "#/components/schemas/SearchBehaviorBaseResultOfUser"
           },
           {
             "type": "object",
-            "description": "Base class for search result queries that support SearchBehaviors",
-            "additionalProperties": false,
-            "properties": {
-              "aggregationResults": {
-                "type": "array",
-                "description": "Results of the aggregation, if any aggregators was passed in the request.",
-                "nullable": true,
-                "items": {
-                  "$ref": "#/components/schemas/AggregationResult"
-                }
-              }
-            }
+            "description": "Holds results of the list user search.",
+            "additionalProperties": false
           }
         ]
       },
@@ -56941,6 +56934,39 @@
             "nullable": true
           }
         }
+      },
+      "UserListRequest": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/UsersSearchBaseRequest"
+          },
+          {
+            "type": "object",
+            "description": "Represents user search request.",
+            "additionalProperties": false,
+            "properties": {
+              "sort": {
+                "type": "array",
+                "description": "Fields and respective directions requested to sort the search results. Sorting on a not indexed field will throw an exception.",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/SortInfo"
+                }
+              },
+              "limit": {
+                "type": "integer",
+                "description": "Limits the document count of the result set.",
+                "format": "int32",
+                "default": 30
+              },
+              "pageToken": {
+                "type": "string",
+                "description": "The token used to retrieve the next page of results. It must be null on first request and only filled with the returned pageToken to request next page of results.",
+                "nullable": true
+              }
+            }
+          }
+        ]
       },
       "XmpMappingTargets": {
         "type": "object",

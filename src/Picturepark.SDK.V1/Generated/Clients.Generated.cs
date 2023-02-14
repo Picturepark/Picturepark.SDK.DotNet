@@ -46315,7 +46315,7 @@ namespace Picturepark.SDK.V1
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>
-        /// List users, similar to `search` with the difference that result contains only essential info about user and requires only the `ListUsers` UserRight
+        /// List users, result contains only essential info about user and requires only the `ListUsers` UserRight.
         /// </summary>
         /// <param name="request">User search request.</param>
         /// <returns>Result of the list users</returns>
@@ -46325,7 +46325,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        public virtual async System.Threading.Tasks.Task<ListUsersResult> ListAsync(UserSearchRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public virtual async System.Threading.Tasks.Task<UserListResult> ListAsync(UserListRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (request == null)
                 throw new System.ArgumentNullException("request");
@@ -46368,7 +46368,7 @@ namespace Picturepark.SDK.V1
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            var objectResponse_ = await ReadObjectResponseAsync<ListUsersResult>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            var objectResponse_ = await ReadObjectResponseAsync<UserListResult>(response_, headers_, cancellationToken).ConfigureAwait(false);
                             if (objectResponse_.Object == null)
                             {
                                 throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
