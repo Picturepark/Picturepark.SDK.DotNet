@@ -5937,6 +5937,246 @@
         }
       }
     },
+    "/Customer/{alias}/hostConfiguration": {
+      "get": {
+        "tags": [
+          "Customer"
+        ],
+        "operationId": "Customer_GetHostConfiguration",
+        "parameters": [
+          {
+            "name": "alias",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 1
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustomerHostConfiguration"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            },
+            "x-expectedSchemas": [
+              {
+                "description": "Entity not found",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkException"
+                    }
+                  ]
+                }
+              },
+              {
+                "description": "Entity not found",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkNotFoundException"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Customer"
+        ],
+        "operationId": "Customer_UpdateHostConfiguration",
+        "parameters": [
+          {
+            "name": "alias",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 1
+          }
+        ],
+        "requestBody": {
+          "x-name": "request",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CustomerHostConfigurationWriteRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 2
+        },
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CustomerHostConfigurationEditable"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            },
+            "x-expectedSchemas": [
+              {
+                "description": "Entity not found",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkException"
+                    }
+                  ]
+                }
+              },
+              {
+                "description": "Entity not found",
+                "schema": {
+                  "nullable": true,
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/PictureparkNotFoundException"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      }
+    },
     "/CustomerQueuePriority/{customerId}/queuePriority/effective": {
       "get": {
         "tags": [
@@ -21180,19 +21420,20 @@
             "type": "string",
             "nullable": true
           },
-          "customerHosts": {
-            "type": "array",
-            "nullable": true,
-            "items": {
-              "type": "string"
-            }
-          },
           "corsAllowedHosts": {
             "type": "array",
             "nullable": true,
             "items": {
               "type": "string"
             }
+          },
+          "hostConfiguration": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/CustomerHostConfigurationWriteRequest"
+              }
+            ]
           },
           "baseUrl": {
             "type": "string",
@@ -21219,10 +21460,240 @@
           }
         }
       },
+      "CustomerHostConfigurationWriteRequest": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "hostConfiguration": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/CustomerHostConfigurationEditable"
+              }
+            ]
+          },
+          "configureCustomCertificates": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/TlsSecretWriteRequest"
+              }
+            ]
+          }
+        }
+      },
+      "CustomerHostConfigurationEditable": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "frontend": {
+            "type": "object",
+            "nullable": true,
+            "additionalProperties": {
+              "$ref": "#/components/schemas/HostConfiguration"
+            }
+          },
+          "api": {
+            "type": "object",
+            "nullable": true,
+            "additionalProperties": {
+              "$ref": "#/components/schemas/HostConfiguration"
+            }
+          },
+          "integrationSubDomain": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "HostConfiguration": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "isDefault"
+        ],
+        "properties": {
+          "isDefault": {
+            "type": "boolean"
+          },
+          "certificateConfiguration": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/HostCertificateConfiguration"
+              }
+            ]
+          }
+        }
+      },
+      "HostCertificateConfiguration": {
+        "type": "object",
+        "discriminator": {
+          "propertyName": "kind",
+          "mapping": {
+            "IssuerCertificate": "#/components/schemas/IssuerCertificate",
+            "DefaultPlatformCertificate": "#/components/schemas/DefaultPlatformCertificate",
+            "CertificateReference": "#/components/schemas/CertificateReference"
+          }
+        },
+        "x-abstract": true,
+        "additionalProperties": false,
+        "required": [
+          "kind"
+        ],
+        "properties": {
+          "kind": {
+            "type": "string"
+          }
+        }
+      },
+      "IssuerCertificate": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/HostCertificateConfiguration"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "issuerNameOverride": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "DefaultPlatformCertificate": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/HostCertificateConfiguration"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "CertificateReference": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/HostCertificateConfiguration"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "certificateId"
+            ],
+            "properties": {
+              "certificateId": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        ]
+      },
+      "TlsSecretWriteRequest": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "commands"
+        ],
+        "properties": {
+          "commands": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TlsSecretCommandBase"
+            }
+          }
+        }
+      },
+      "TlsSecretCommandBase": {
+        "type": "object",
+        "discriminator": {
+          "propertyName": "kind",
+          "mapping": {
+            "TlsSecretPutCommand": "#/components/schemas/TlsSecretPutCommand",
+            "TlsSecretDeleteCommand": "#/components/schemas/TlsSecretDeleteCommand"
+          }
+        },
+        "x-abstract": true,
+        "additionalProperties": false,
+        "required": [
+          "certificateId",
+          "kind"
+        ],
+        "properties": {
+          "certificateId": {
+            "type": "string",
+            "description": "Certificate to mutate",
+            "minLength": 1
+          },
+          "kind": {
+            "type": "string"
+          }
+        }
+      },
+      "TlsSecretPutCommand": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/TlsSecretCommandBase"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "certificate"
+            ],
+            "properties": {
+              "certificate": {
+                "description": "Data to use when creating or updating the certificate",
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/TlsCertificate"
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "TlsCertificate": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "crt",
+          "key"
+        ],
+        "properties": {
+          "crt": {
+            "type": "string",
+            "minLength": 1
+          },
+          "key": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      },
+      "TlsSecretDeleteCommand": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/TlsSecretCommandBase"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
       "User": {
         "type": "object",
         "additionalProperties": false,
         "required": [
+          "id",
           "emailAddress",
           "isDeleted"
         ],
@@ -21230,7 +21701,7 @@
           "id": {
             "type": "string",
             "description": "User's Picturepark ID.",
-            "nullable": true
+            "minLength": 1
           },
           "firstName": {
             "type": "string",
@@ -21527,13 +21998,14 @@
             "description": "Base url for for shares",
             "nullable": true
           },
-          "customerHosts": {
-            "type": "array",
-            "description": "List of customers hosts",
+          "hostConfiguration": {
+            "description": "Host configuration",
             "nullable": true,
-            "items": {
-              "type": "string"
-            }
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/CustomerHostConfigurationCreation"
+              }
+            ]
           },
           "corsAllowedHosts": {
             "type": "array",
@@ -21564,6 +22036,26 @@
             "nullable": true
           }
         }
+      },
+      "CustomerHostConfigurationCreation": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/CustomerHostConfigurationEditable"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "certificates": {
+                "type": "object",
+                "nullable": true,
+                "additionalProperties": {
+                  "$ref": "#/components/schemas/TlsCertificate"
+                }
+              }
+            }
+          }
+        ]
       },
       "SnapshotRepositoryEnvironmentCreateRequest": {
         "allOf": [
@@ -22166,7 +22658,6 @@
         "type": "object",
         "additionalProperties": false,
         "required": [
-          "useSsl",
           "enableQueryDetails",
           "elasticSearchNumberOfShards",
           "elasticSearchNumberOfReplicas",
@@ -22218,13 +22709,25 @@
           },
           "customerHosts": {
             "type": "array",
+            "deprecated": true,
+            "x-deprecatedMessage": "Use HostConfiguration instead",
             "nullable": true,
             "items": {
               "type": "string"
             }
           },
+          "hostConfiguration": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/CustomerHostConfigurationCreation"
+              }
+            ]
+          },
           "useSsl": {
-            "type": "boolean"
+            "type": "boolean",
+            "deprecated": true,
+            "nullable": true
           },
           "enableQueryDetails": {
             "type": "boolean"
@@ -22248,13 +22751,6 @@
           "supportContactEmailAddress": {
             "type": "string",
             "nullable": true
-          },
-          "identityServerProviders": {
-            "type": "array",
-            "nullable": true,
-            "items": {
-              "$ref": "#/components/schemas/IdentityServerProvider"
-            }
           },
           "serviceProviders": {
             "type": "array",
@@ -22509,7 +23005,8 @@
           "propertyName": "kind",
           "mapping": {
             "ClarifaiTaggingConfiguration": "#/components/schemas/ClarifaiTaggingConfiguration",
-            "SimulatedTaggingConfiguration": "#/components/schemas/SimulatedTaggingConfiguration"
+            "SimulatedTaggingConfiguration": "#/components/schemas/SimulatedTaggingConfiguration",
+            "AzureTaggingConfiguration": "#/components/schemas/AzureTaggingConfiguration"
           }
         },
         "x-abstract": true,
@@ -22517,7 +23014,8 @@
         "required": [
           "kind",
           "enableImageAnalytics",
-          "enableLegacyTaggingBehavior"
+          "enableLegacyTaggingBehavior",
+          "useDownloadLink"
         ],
         "properties": {
           "enableImageAnalytics": {
@@ -22546,6 +23044,9 @@
             "type": "string",
             "nullable": true
           },
+          "useDownloadLink": {
+            "type": "boolean"
+          },
           "kind": {
             "type": "string"
           }
@@ -22563,9 +23064,6 @@
               "apiToken": {
                 "type": "string",
                 "nullable": true
-              },
-              "useDownloadLink": {
-                "type": "boolean"
               },
               "defaultModel": {
                 "type": "string",
@@ -22595,28 +23093,59 @@
               "defaultNumberOfKeywords": {
                 "type": "integer",
                 "format": "int32"
+              },
+              "enableOcr": {
+                "type": "boolean"
               }
             }
           }
         ]
       },
-      "IdentityServerProvider": {
-        "type": "object",
-        "additionalProperties": false,
-        "properties": {
-          "id": {
-            "type": "string",
-            "nullable": true
+      "AzureTaggingConfiguration": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/TaggingConfigurationBase"
           },
-          "name": {
-            "type": "string",
-            "nullable": true
-          },
-          "url": {
-            "type": "string",
-            "nullable": true
+          {
+            "type": "object",
+            "description": "Options for Azure tagging",
+            "additionalProperties": false,
+            "properties": {
+              "apiUrl": {
+                "type": "string",
+                "description": "Url to Azure Computer Vision Service",
+                "nullable": true
+              },
+              "apiKey": {
+                "type": "string",
+                "description": "API Key to Azure Computer Vision Service (needed for connection)",
+                "nullable": true
+              },
+              "languageCode": {
+                "type": "string",
+                "description": "Determines the language, list of supported language codes: https://aka.ms/cv-languages",
+                "nullable": true
+              },
+              "minimumValue": {
+                "type": "number",
+                "description": "Minimum value of confidence to accept the service result",
+                "format": "decimal"
+              },
+              "enableTagging": {
+                "type": "boolean",
+                "description": "Specifies if tagging feature should be enabled"
+              },
+              "enableObjectDetection": {
+                "type": "boolean",
+                "description": "Specifies if object detection feature should be enabled"
+              },
+              "enableOcr": {
+                "type": "boolean",
+                "description": "Specifies if OCR feature should be enabled"
+              }
+            }
           }
-        }
+        ]
       },
       "CustomerServiceProvider": {
         "type": "object",
@@ -22800,6 +23329,15 @@
                     "$ref": "#/components/schemas/XmpWritebackOptions"
                   }
                 ]
+              },
+              "behaviors": {
+                "description": "Defines how the OutputFormat should behave for certain features (Download, Sharing, Media editing).",
+                "nullable": true,
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/OutputFormatBehaviors"
+                  }
+                ]
               }
             }
           }
@@ -22833,6 +23371,107 @@
         "enum": [
           "MappingOnly",
           "MergeWithOriginal"
+        ]
+      },
+      "OutputFormatBehaviors": {
+        "type": "object",
+        "description": "Behaviors of OutputFormat",
+        "additionalProperties": false,
+        "required": [
+          "downloadDialogBehavior",
+          "mediaEditorBehavior"
+        ],
+        "properties": {
+          "downloadDialogBehavior": {
+            "description": "Behavior for DownloadDialog.",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/DownloadDialogBehavior"
+              }
+            ]
+          },
+          "shareOutputAccessBehaviors": {
+            "description": "Behavior when sharing.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/OutputFormatShareOutputAccessBehaviors"
+              }
+            ]
+          },
+          "mediaEditorBehavior": {
+            "description": "Behavior for media editor.",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/MediaEditorBehavior"
+              }
+            ]
+          }
+        }
+      },
+      "DownloadDialogBehavior": {
+        "type": "string",
+        "description": "Defines behavior of an OutputFormat in DownloadDialog",
+        "x-enumNames": [
+          "ShowAlways",
+          "ShowMoreFormats",
+          "Hide"
+        ],
+        "enum": [
+          "ShowAlways",
+          "ShowMoreFormats",
+          "Hide"
+        ]
+      },
+      "OutputFormatShareOutputAccessBehaviors": {
+        "type": "object",
+        "description": "Behavior when sharing for OutputFormat",
+        "additionalProperties": false,
+        "required": [
+          "full",
+          "preview"
+        ],
+        "properties": {
+          "full": {
+            "description": "Behavior when sharing with Full.",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/OutputAccessBehavior"
+              }
+            ]
+          },
+          "preview": {
+            "description": "Behavior when sharing with Preview.",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/OutputAccessBehavior"
+              }
+            ]
+          }
+        }
+      },
+      "OutputAccessBehavior": {
+        "type": "string",
+        "description": "Defines behavior of OutputFormat in ShareAccess",
+        "x-enumNames": [
+          "Include",
+          "Exclude"
+        ],
+        "enum": [
+          "Include",
+          "Exclude"
+        ]
+      },
+      "MediaEditorBehavior": {
+        "type": "string",
+        "description": "Defines behavior of OutputFormat in Media editor",
+        "x-enumNames": [
+          "Show",
+          "Hide"
+        ],
+        "enum": [
+          "Show",
+          "Hide"
         ]
       },
       "OutputFormatRenderingSpecification": {
@@ -24330,12 +24969,13 @@
             "type": "string",
             "nullable": true
           },
-          "customerHosts": {
-            "type": "array",
+          "hostConfiguration": {
             "nullable": true,
-            "items": {
-              "type": "string"
-            }
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/CustomerHostConfiguration"
+              }
+            ]
           },
           "useSsl": {
             "type": "boolean"
@@ -24595,6 +25235,26 @@
           }
         }
       },
+      "CustomerHostConfiguration": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/CustomerHostConfigurationEditable"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "certificateIds": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ]
+      },
       "CustomerServiceProviderConfiguration": {
         "type": "object",
         "additionalProperties": false,
@@ -24684,10 +25344,20 @@
           },
           "customerHosts": {
             "type": "array",
+            "deprecated": true,
+            "x-deprecatedMessage": "Use HostConfiguration instead",
             "nullable": true,
             "items": {
               "type": "string"
             }
+          },
+          "hostConfiguration": {
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/CustomerHostConfigurationEditable"
+              }
+            ]
           },
           "contentRetentionTime": {
             "type": "string",
@@ -27557,7 +28227,8 @@
             "SearchReindexCompletedEvent": "#/components/schemas/SearchReindexCompletedEvent",
             "BusinessRuleFiredEvent": "#/components/schemas/BusinessRuleFiredEvent",
             "BusinessProcessCancellationRequestedEvent": "#/components/schemas/BusinessProcessCancellationRequestedEvent",
-            "DataExtractionRepairEvent": "#/components/schemas/DataExtractionRepairEvent"
+            "DataExtractionRepairEvent": "#/components/schemas/DataExtractionRepairEvent",
+            "TaggerStatisticsEvent": "#/components/schemas/TaggerStatisticsEvent"
           }
         },
         "additionalProperties": false,
@@ -28071,6 +28742,35 @@
               },
               "hadChanges": {
                 "type": "boolean"
+              }
+            }
+          }
+        ]
+      },
+      "TaggerStatisticsEvent": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ApplicationEvent"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "requestsCounter": {
+                "type": "integer",
+                "format": "int64"
+              },
+              "taggerCounter": {
+                "type": "integer",
+                "format": "int64"
+              },
+              "ocrCounter": {
+                "type": "integer",
+                "format": "int64"
+              },
+              "taggerName": {
+                "type": "string",
+                "nullable": true
               }
             }
           }

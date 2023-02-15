@@ -39224,7 +39224,8 @@
           "propertyName": "kind",
           "mapping": {
             "ClarifaiTaggingOptions": "#/components/schemas/ClarifaiTaggingOptions",
-            "SimulatedTaggingOptions": "#/components/schemas/SimulatedTaggingOptions"
+            "SimulatedTaggingOptions": "#/components/schemas/SimulatedTaggingOptions",
+            "AzureTaggingOptions": "#/components/schemas/AzureTaggingOptions"
           }
         },
         "description": "Options for tagging",
@@ -39306,6 +39307,56 @@
                 "type": "string",
                 "description": "Number of keywords to assign.",
                 "nullable": true
+              },
+              "enableOcr": {
+                "type": "boolean",
+                "description": "Enables/disables ocr feature"
+              }
+            }
+          }
+        ]
+      },
+      "AzureTaggingOptions": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/TaggingOptionsBase"
+          },
+          {
+            "type": "object",
+            "description": "Options for Azure tagging",
+            "additionalProperties": false,
+            "properties": {
+              "apiUrl": {
+                "type": "string",
+                "description": "Url to Azure Computer Vision Service",
+                "nullable": true
+              },
+              "apiKey": {
+                "type": "string",
+                "description": "API Key to Azure Computer Vision Service (needed for connection)",
+                "nullable": true
+              },
+              "languageCode": {
+                "type": "string",
+                "description": "Determines the language, list of supported language codes: https://aka.ms/cv-languages",
+                "nullable": true
+              },
+              "minimumValue": {
+                "type": "string",
+                "description": "Minimum value of confidence to accept the service result",
+                "nullable": true
+              },
+              "enableTagging": {
+                "type": "boolean",
+                "description": "Specifies if tagging feature should be enabled"
+              },
+              "enableObjectDetection": {
+                "type": "boolean",
+                "description": "Specifies if object detection feature should be enabled"
+              },
+              "enableOcr": {
+                "type": "boolean",
+                "description": "Specifies if OCR feature should be enabled"
               }
             }
           }
@@ -41354,6 +41405,7 @@
         "type": "object",
         "additionalProperties": false,
         "required": [
+          "id",
           "emailAddress",
           "isDeleted"
         ],
@@ -41361,7 +41413,7 @@
           "id": {
             "type": "string",
             "description": "User's Picturepark ID.",
-            "nullable": true
+            "minLength": 1
           },
           "firstName": {
             "type": "string",
@@ -45293,11 +45345,14 @@
             "type": "object",
             "description": "Represents an identity provider defined in IdentityServer and its Picturepark configuration",
             "additionalProperties": false,
+            "required": [
+              "id"
+            ],
             "properties": {
               "id": {
                 "type": "string",
                 "description": "Identity provider ID (has to match an existing IdP defined in IdentityServer)",
-                "nullable": true
+                "minLength": 1
               },
               "name": {
                 "type": "string",
@@ -45436,6 +45491,7 @@
           "customerAlias",
           "identityServerUrl",
           "apiUrl",
+          "integrationHost",
           "enableQueryDetails",
           "languageConfiguration",
           "languages",
@@ -45472,6 +45528,11 @@
           "apiUrl": {
             "type": "string",
             "description": "The base API URL.",
+            "minLength": 1
+          },
+          "integrationHost": {
+            "type": "string",
+            "description": "Host for integrations (Service Providers)",
             "minLength": 1
           },
           "enableQueryDetails": {
@@ -45664,8 +45725,118 @@
                 "$ref": "#/components/schemas/TranslatedStringDictionary"
               }
             ]
+          },
+          "behaviors": {
+            "description": "Format behaviors.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/OutputFormatBehaviors"
+              }
+            ]
           }
         }
+      },
+      "OutputFormatBehaviors": {
+        "type": "object",
+        "description": "Behaviors of OutputFormat",
+        "additionalProperties": false,
+        "required": [
+          "downloadDialogBehavior",
+          "mediaEditorBehavior"
+        ],
+        "properties": {
+          "downloadDialogBehavior": {
+            "description": "Behavior for DownloadDialog.",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/DownloadDialogBehavior"
+              }
+            ]
+          },
+          "shareOutputAccessBehaviors": {
+            "description": "Behavior when sharing.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/OutputFormatShareOutputAccessBehaviors"
+              }
+            ]
+          },
+          "mediaEditorBehavior": {
+            "description": "Behavior for media editor.",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/MediaEditorBehavior"
+              }
+            ]
+          }
+        }
+      },
+      "DownloadDialogBehavior": {
+        "type": "string",
+        "description": "Defines behavior of an OutputFormat in DownloadDialog",
+        "x-enumNames": [
+          "ShowAlways",
+          "ShowMoreFormats",
+          "Hide"
+        ],
+        "enum": [
+          "ShowAlways",
+          "ShowMoreFormats",
+          "Hide"
+        ]
+      },
+      "OutputFormatShareOutputAccessBehaviors": {
+        "type": "object",
+        "description": "Behavior when sharing for OutputFormat",
+        "additionalProperties": false,
+        "required": [
+          "full",
+          "preview"
+        ],
+        "properties": {
+          "full": {
+            "description": "Behavior when sharing with Full.",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/OutputAccessBehavior"
+              }
+            ]
+          },
+          "preview": {
+            "description": "Behavior when sharing with Preview.",
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/OutputAccessBehavior"
+              }
+            ]
+          }
+        }
+      },
+      "OutputAccessBehavior": {
+        "type": "string",
+        "description": "Defines behavior of OutputFormat in ShareAccess",
+        "x-enumNames": [
+          "Include",
+          "Exclude"
+        ],
+        "enum": [
+          "Include",
+          "Exclude"
+        ]
+      },
+      "MediaEditorBehavior": {
+        "type": "string",
+        "description": "Defines behavior of OutputFormat in Media editor",
+        "x-enumNames": [
+          "Show",
+          "Hide"
+        ],
+        "enum": [
+          "Show",
+          "Hide"
+        ]
       },
       "CustomerApp": {
         "type": "object",
@@ -49891,6 +50062,15 @@
                 "oneOf": [
                   {
                     "$ref": "#/components/schemas/XmpWritebackOptions"
+                  }
+                ]
+              },
+              "behaviors": {
+                "description": "Defines how the OutputFormat should behave for certain features (Download, Sharing, Media editing).",
+                "nullable": true,
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/OutputFormatBehaviors"
                   }
                 ]
               }
@@ -57154,7 +57334,8 @@
             "SearchReindexCompletedEvent": "#/components/schemas/SearchReindexCompletedEvent",
             "BusinessRuleFiredEvent": "#/components/schemas/BusinessRuleFiredEvent",
             "BusinessProcessCancellationRequestedEvent": "#/components/schemas/BusinessProcessCancellationRequestedEvent",
-            "DataExtractionRepairEvent": "#/components/schemas/DataExtractionRepairEvent"
+            "DataExtractionRepairEvent": "#/components/schemas/DataExtractionRepairEvent",
+            "TaggerStatisticsEvent": "#/components/schemas/TaggerStatisticsEvent"
           }
         },
         "additionalProperties": false,
@@ -57616,6 +57797,35 @@
               },
               "hadChanges": {
                 "type": "boolean"
+              }
+            }
+          }
+        ]
+      },
+      "TaggerStatisticsEvent": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ApplicationEvent"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "requestsCounter": {
+                "type": "integer",
+                "format": "int64"
+              },
+              "taggerCounter": {
+                "type": "integer",
+                "format": "int64"
+              },
+              "ocrCounter": {
+                "type": "integer",
+                "format": "int64"
+              },
+              "taggerName": {
+                "type": "string",
+                "nullable": true
               }
             }
           }

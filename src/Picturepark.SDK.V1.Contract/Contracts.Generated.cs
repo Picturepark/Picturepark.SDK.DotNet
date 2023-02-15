@@ -17628,6 +17628,7 @@ namespace Picturepark.SDK.V1.Contract
     [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
     [JsonInheritanceAttribute("ClarifaiTaggingOptions", typeof(ClarifaiTaggingOptions))]
     [JsonInheritanceAttribute("SimulatedTaggingOptions", typeof(SimulatedTaggingOptions))]
+    [JsonInheritanceAttribute("AzureTaggingOptions", typeof(AzureTaggingOptions))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
     public abstract partial class TaggingOptionsBase
     {
@@ -17724,6 +17725,12 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("numberOfKeywords", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string NumberOfKeywords { get; set; }
 
+        /// <summary>
+        /// Enables/disables ocr feature
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("enableOcr", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool EnableOcr { get; set; }
+
         public string ToJson()
         {
 
@@ -17734,6 +17741,69 @@ namespace Picturepark.SDK.V1.Contract
         {
 
             return Newtonsoft.Json.JsonConvert.DeserializeObject<SimulatedTaggingOptions>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    /// <summary>
+    /// Options for Azure tagging
+    /// </summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class AzureTaggingOptions : TaggingOptionsBase
+    {
+        /// <summary>
+        /// Url to Azure Computer Vision Service
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("apiUrl", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ApiUrl { get; set; }
+
+        /// <summary>
+        /// API Key to Azure Computer Vision Service (needed for connection)
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("apiKey", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ApiKey { get; set; }
+
+        /// <summary>
+        /// Determines the language, list of supported language codes: https://aka.ms/cv-languages
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("languageCode", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string LanguageCode { get; set; }
+
+        /// <summary>
+        /// Minimum value of confidence to accept the service result
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("minimumValue", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string MinimumValue { get; set; }
+
+        /// <summary>
+        /// Specifies if tagging feature should be enabled
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("enableTagging", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool EnableTagging { get; set; }
+
+        /// <summary>
+        /// Specifies if object detection feature should be enabled
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("enableObjectDetection", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool EnableObjectDetection { get; set; }
+
+        /// <summary>
+        /// Specifies if OCR feature should be enabled
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("enableOcr", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool EnableOcr { get; set; }
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static AzureTaggingOptions FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<AzureTaggingOptions>(data, new Newtonsoft.Json.JsonSerializerSettings());
 
         }
 
@@ -20236,7 +20306,8 @@ namespace Picturepark.SDK.V1.Contract
         /// <summary>
         /// User's Picturepark ID.
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
         public string Id { get; set; }
 
         /// <summary>
@@ -25364,7 +25435,8 @@ namespace Picturepark.SDK.V1.Contract
         /// <summary>
         /// Identity provider ID (has to match an existing IdP defined in IdentityServer)
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
         public string Id { get; set; }
 
         /// <summary>
@@ -25622,6 +25694,13 @@ namespace Picturepark.SDK.V1.Contract
         public string ApiUrl { get; set; }
 
         /// <summary>
+        /// Host for integrations (Service Providers)
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("integrationHost", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public string IntegrationHost { get; set; }
+
+        /// <summary>
         /// Information if the query details can be enabled when searching. For debug purposes only.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("enableQueryDetails", Required = Newtonsoft.Json.Required.Always)]
@@ -25844,6 +25923,12 @@ namespace Picturepark.SDK.V1.Contract
         [System.ComponentModel.DataAnnotations.Required]
         public TranslatedStringDictionary Names { get; set; } = new TranslatedStringDictionary();
 
+        /// <summary>
+        /// Format behaviors.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("behaviors", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public OutputFormatBehaviors Behaviors { get; set; }
+
         public string ToJson()
         {
 
@@ -25856,6 +25941,134 @@ namespace Picturepark.SDK.V1.Contract
             return Newtonsoft.Json.JsonConvert.DeserializeObject<OutputFormatInfo>(data, new Newtonsoft.Json.JsonSerializerSettings());
 
         }
+
+    }
+
+    /// <summary>
+    /// Behaviors of OutputFormat
+    /// </summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class OutputFormatBehaviors
+    {
+        /// <summary>
+        /// Behavior for DownloadDialog.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("downloadDialogBehavior", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public DownloadDialogBehavior DownloadDialogBehavior { get; set; }
+
+        /// <summary>
+        /// Behavior when sharing.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("shareOutputAccessBehaviors", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public OutputFormatShareOutputAccessBehaviors ShareOutputAccessBehaviors { get; set; }
+
+        /// <summary>
+        /// Behavior for media editor.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("mediaEditorBehavior", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public MediaEditorBehavior MediaEditorBehavior { get; set; }
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static OutputFormatBehaviors FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<OutputFormatBehaviors>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    /// <summary>
+    /// Defines behavior of an OutputFormat in DownloadDialog
+    /// </summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public enum DownloadDialogBehavior
+    {
+
+        [System.Runtime.Serialization.EnumMember(Value = @"ShowAlways")]
+        ShowAlways = 0,
+
+        [System.Runtime.Serialization.EnumMember(Value = @"ShowMoreFormats")]
+        ShowMoreFormats = 1,
+
+        [System.Runtime.Serialization.EnumMember(Value = @"Hide")]
+        Hide = 2,
+
+    }
+
+    /// <summary>
+    /// Behavior when sharing for OutputFormat
+    /// </summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class OutputFormatShareOutputAccessBehaviors
+    {
+        /// <summary>
+        /// Behavior when sharing with Full.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("full", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public OutputAccessBehavior Full { get; set; }
+
+        /// <summary>
+        /// Behavior when sharing with Preview.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("preview", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public OutputAccessBehavior Preview { get; set; }
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static OutputFormatShareOutputAccessBehaviors FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<OutputFormatShareOutputAccessBehaviors>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    /// <summary>
+    /// Defines behavior of OutputFormat in ShareAccess
+    /// </summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public enum OutputAccessBehavior
+    {
+
+        [System.Runtime.Serialization.EnumMember(Value = @"Include")]
+        Include = 0,
+
+        [System.Runtime.Serialization.EnumMember(Value = @"Exclude")]
+        Exclude = 1,
+
+    }
+
+    /// <summary>
+    /// Defines behavior of OutputFormat in Media editor
+    /// </summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public enum MediaEditorBehavior
+    {
+
+        [System.Runtime.Serialization.EnumMember(Value = @"Show")]
+        Show = 0,
+
+        [System.Runtime.Serialization.EnumMember(Value = @"Hide")]
+        Hide = 1,
 
     }
 
@@ -31273,6 +31486,12 @@ namespace Picturepark.SDK.V1.Contract
         /// </summary>
         [Newtonsoft.Json.JsonProperty("xmpWritebackOptions", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public XmpWritebackOptions XmpWritebackOptions { get; set; }
+
+        /// <summary>
+        /// Defines how the OutputFormat should behave for certain features (Download, Sharing, Media editing).
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("behaviors", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public OutputFormatBehaviors Behaviors { get; set; }
 
         public string ToJson()
         {
@@ -40421,6 +40640,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("BusinessRuleFiredEvent", typeof(BusinessRuleFiredEvent))]
     [JsonInheritanceAttribute("BusinessProcessCancellationRequestedEvent", typeof(BusinessProcessCancellationRequestedEvent))]
     [JsonInheritanceAttribute("DataExtractionRepairEvent", typeof(DataExtractionRepairEvent))]
+    [JsonInheritanceAttribute("TaggerStatisticsEvent", typeof(TaggerStatisticsEvent))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
     public partial class ApplicationEvent
     {
@@ -40945,6 +41165,36 @@ namespace Picturepark.SDK.V1.Contract
         {
 
             return Newtonsoft.Json.JsonConvert.DeserializeObject<DataExtractionRepairEvent>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class TaggerStatisticsEvent : ApplicationEvent
+    {
+        [Newtonsoft.Json.JsonProperty("requestsCounter", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public long RequestsCounter { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("taggerCounter", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public long TaggerCounter { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("ocrCounter", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public long OcrCounter { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("taggerName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string TaggerName { get; set; }
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static TaggerStatisticsEvent FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<TaggerStatisticsEvent>(data, new Newtonsoft.Json.JsonSerializerSettings());
 
         }
 

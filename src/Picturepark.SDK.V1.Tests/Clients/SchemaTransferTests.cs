@@ -82,7 +82,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var schema = await _client.Schema.GetAsync(schemaId).ConfigureAwait(false);
 
             // Assert
-            Assert.Equal(schema.Id, schemaId);
+            Assert.Equal(schemaId, schema.Id);
 
             // Tear down
             await _client.Schema.DeleteAsync(schema.Id).ConfigureAwait(false);

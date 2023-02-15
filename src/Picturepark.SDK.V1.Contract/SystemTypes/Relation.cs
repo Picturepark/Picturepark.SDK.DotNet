@@ -1,5 +1,4 @@
 ﻿using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
 
 namespace Picturepark.SDK.V1.Contract.SystemTypes
 {

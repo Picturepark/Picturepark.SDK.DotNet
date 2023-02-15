@@ -2,7 +2,6 @@
 using Picturepark.SDK.V1.CloudManager.Contract;
 using System;
 using System.IO;
-using System.Net;
 using System.Reflection;
 
 namespace Picturepark.SDK.V1.CloudManager.Tests.Fixtures
@@ -14,14 +13,6 @@ namespace Picturepark.SDK.V1.CloudManager.Tests.Fixtures
 
         public ClientFixture()
         {
-#if NET452
-            ServicePointManager.SecurityProtocol =
-                SecurityProtocolType.Ssl3 |
-                SecurityProtocolType.Tls12 |
-                SecurityProtocolType.Tls11 |
-                SecurityProtocolType.Tls;
-#endif
-
             ProjectDirectory = Path.GetFullPath(Path.GetDirectoryName(typeof(ClientFixture).GetTypeInfo().Assembly.Location) + "/../../../");
 
             var assemblyDirectory = Path.GetFullPath(Path.GetDirectoryName(typeof(ClientFixture).GetTypeInfo().Assembly.Location));

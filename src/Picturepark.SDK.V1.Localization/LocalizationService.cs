@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using DotLiquid;
 using NGettext;
 using Picturepark.SDK.V1.Contract;

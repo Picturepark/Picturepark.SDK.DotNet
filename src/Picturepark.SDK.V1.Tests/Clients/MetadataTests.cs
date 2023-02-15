@@ -28,7 +28,6 @@ namespace Picturepark.SDK.V1.Tests.Clients
             var metadataStatus = await _client.Metadata.GetStatusAsync().ConfigureAwait(false);
 
             // Assert
-            metadataStatus.State.Should().NotBeNull();
             metadataStatus.ContentOrLayerSchemaIds.Should().NotBeNull();
             metadataStatus.ListSchemaIds.Should().NotBeNull();
             metadataStatus.FieldIdsToCleanup.Should().NotBeNull();
