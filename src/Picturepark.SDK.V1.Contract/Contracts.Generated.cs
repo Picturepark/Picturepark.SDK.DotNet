@@ -3487,9 +3487,9 @@ namespace Picturepark.SDK.V1.Contract
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>
-        /// List users, result contains only essential info about user and requires only the `ListUsers` UserRight.
+        /// List users, result contains only essential info about user. Requires the `ListUsers` or the `ManageUsers` UserRight.
         /// </summary>
-        /// <param name="request">User search request.</param>
+        /// <param name="request">User list request.</param>
         /// <returns>Result of the list users</returns>
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
@@ -40027,7 +40027,7 @@ namespace Picturepark.SDK.V1.Contract
     }
 
     /// <summary>
-    /// Represents user search request.
+    /// Represents user list request.
     /// </summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
     public partial class UserListRequest : UsersSearchBaseRequest

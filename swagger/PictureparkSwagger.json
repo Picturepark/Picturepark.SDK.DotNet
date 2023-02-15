@@ -27480,11 +27480,11 @@
         "tags": [
           "User"
         ],
-        "summary": "List users, result contains only essential info about user and requires only the `ListUsers` UserRight.",
+        "summary": "List users, result contains only essential info about user. Requires the `ListUsers` or the `ManageUsers` UserRight.",
         "operationId": "User_List",
         "requestBody": {
           "x-name": "request",
-          "description": "User search request.",
+          "description": "User list request.",
           "content": {
             "application/json": {
               "schema": {
@@ -56942,7 +56942,7 @@
           },
           {
             "type": "object",
-            "description": "Represents user search request.",
+            "description": "Represents user list request.",
             "additionalProperties": false,
             "properties": {
               "sort": {
