@@ -27475,6 +27475,106 @@
         ]
       }
     },
+    "/v1/Users/list": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "summary": "List users, result contains only essential info about user. Requires the `ListUsers` or the `ManageUsers` UserRight.",
+        "operationId": "User_List",
+        "requestBody": {
+          "x-name": "request",
+          "description": "User list request.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserListRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "Result of the list users",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserListResult"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests"
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "user_read"
+            ]
+          }
+        ]
+      }
+    },
     "/v1/XmpMappings/targets": {
       "get": {
         "tags": [
@@ -31268,7 +31368,8 @@
           "EditImages",
           "ManageConversionPresetTemplates",
           "ManageComments",
-          "ManageAllComments"
+          "ManageAllComments",
+          "ListUsers"
         ],
         "enum": [
           "ManageContent",
@@ -31298,7 +31399,8 @@
           "EditImages",
           "ManageConversionPresetTemplates",
           "ManageComments",
-          "ManageAllComments"
+          "ManageAllComments",
+          "ListUsers"
         ]
       },
       "PermissionSetNotFoundException": {
@@ -56634,8 +56736,31 @@
         ]
       },
       "UserSearchAndAggregationBaseRequest": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/UsersSearchBaseRequest"
+          },
+          {
+            "type": "object",
+            "description": "Represents an aggregation request over users.",
+            "x-abstract": true,
+            "additionalProperties": false,
+            "properties": {
+              "aggregationFilters": {
+                "type": "array",
+                "description": "Special filters used to filter down independently the aggregations' values and the search results on specific conditions.\nFor the search results, the aggregation filters are used to create a Filter that is put in AND with the eventual existing Filter of the search request to nail down the search results. The filters generated\nby the aggregation filters are put in OR each other if they have the same AggregationName, and then such groups are put in AND.\nFor the aggregation values, only the original Filter of the search request is used to nail down the data to be considered for the aggregations. Then, on top of that, for each aggregator in the search request, a Filter is created to filter down the\naggregation results of that aggregation: depending if the AggregationName of the AggregationFilter matches the AggregationName of the Aggregator, the filter is put in OR (if it matches) or in AND (if it does not match it).\nMoreover, an AggregationFilter ensures that the related value is returned in the AggregationResults also if the top aggregation values returned by default do not contain it.",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/AggregationFilter"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "UsersSearchBaseRequest": {
         "type": "object",
-        "description": "Represents an aggregation request over users.",
+        "description": "Represents a search request over users.",
         "x-abstract": true,
         "additionalProperties": false,
         "required": [
@@ -56680,14 +56805,6 @@
             "nullable": true,
             "items": {
               "$ref": "#/components/schemas/UserRight"
-            }
-          },
-          "aggregationFilters": {
-            "type": "array",
-            "description": "Special filters used to filter down independently the aggregations' values and the search results on specific conditions.\nFor the search results, the aggregation filters are used to create a Filter that is put in AND with the eventual existing Filter of the search request to nail down the search results. The filters generated\nby the aggregation filters are put in OR each other if they have the same AggregationName, and then such groups are put in AND.\nFor the aggregation values, only the original Filter of the search request is used to nail down the data to be considered for the aggregations. Then, on top of that, for each aggregator in the search request, a Filter is created to filter down the\naggregation results of that aggregation: depending if the AggregationName of the AggregationFilter matches the AggregationName of the Aggregator, the filter is put in OR (if it matches) or in AND (if it does not match it).\nMoreover, an AggregationFilter ensures that the related value is returned in the AggregationResults also if the top aggregation values returned by default do not contain it.",
-            "nullable": true,
-            "items": {
-              "$ref": "#/components/schemas/AggregationFilter"
             }
           },
           "includeServiceUser": {
@@ -56737,6 +56854,116 @@
               "identityProviderId": {
                 "type": "string",
                 "description": "Identity provider to assign to users.",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "UserListResult": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/SearchBehaviorBaseResultOfUser"
+          },
+          {
+            "type": "object",
+            "description": "Holds results of the list user search.",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "SearchBehaviorBaseResultOfUser": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BaseResultOfUser"
+          },
+          {
+            "type": "object",
+            "description": "Base class for search result queries that support SearchBehaviors",
+            "additionalProperties": false,
+            "properties": {
+              "searchString": {
+                "type": "string",
+                "description": "The search string used to query the data.",
+                "nullable": true
+              },
+              "isSearchStringRewritten": {
+                "type": "boolean",
+                "description": "Flag to notify if the SearchString was modified compared to the original requested one."
+              },
+              "queryDebugInformation": {
+                "type": "array",
+                "description": "Additional information regarding the query execution and reason of the matched documents. Multiple items are returned if multiple queries were performed.",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/QueryDebugInformation"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "BaseResultOfUser": {
+        "type": "object",
+        "description": "Base class for search results",
+        "additionalProperties": false,
+        "required": [
+          "results",
+          "totalResults",
+          "elapsedMilliseconds"
+        ],
+        "properties": {
+          "totalResults": {
+            "type": "integer",
+            "description": "The total number of matching documents.",
+            "format": "int64"
+          },
+          "results": {
+            "type": "array",
+            "description": "The matched documents.",
+            "items": {
+              "$ref": "#/components/schemas/User"
+            }
+          },
+          "elapsedMilliseconds": {
+            "type": "integer",
+            "description": "The search execution time in milliseconds.",
+            "format": "int64"
+          },
+          "pageToken": {
+            "type": "string",
+            "description": "An optional token to access the next page of results for those endpoints that support backend scrolling logic.",
+            "nullable": true
+          }
+        }
+      },
+      "UserListRequest": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/UsersSearchBaseRequest"
+          },
+          {
+            "type": "object",
+            "description": "Represents user list request.",
+            "additionalProperties": false,
+            "properties": {
+              "sort": {
+                "type": "array",
+                "description": "Fields and respective directions requested to sort the search results. Sorting on a not indexed field will throw an exception.",
+                "nullable": true,
+                "items": {
+                  "$ref": "#/components/schemas/SortInfo"
+                }
+              },
+              "limit": {
+                "type": "integer",
+                "description": "Limits the document count of the result set.",
+                "format": "int32",
+                "default": 30
+              },
+              "pageToken": {
+                "type": "string",
+                "description": "The token used to retrieve the next page of results. It must be null on first request and only filled with the returned pageToken to request next page of results.",
                 "nullable": true
               }
             }

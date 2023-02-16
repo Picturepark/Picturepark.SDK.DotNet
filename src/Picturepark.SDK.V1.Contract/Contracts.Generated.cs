@@ -3485,6 +3485,20 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<BusinessProcess> UpdateIdentityProviderManyAsync(UserUpdateIdentityProviderManyRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>
+        /// List users, result contains only essential info about user. Requires the `ListUsers` or the `ManageUsers` UserRight.
+        /// </summary>
+        /// <param name="request">User list request.</param>
+        /// <returns>Result of the list users</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        System.Threading.Tasks.Task<UserListResult> ListAsync(UserListRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
     }
 
     [System.CodeDom.Compiler.GeneratedCode("NSwag", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
@@ -7669,6 +7683,9 @@ namespace Picturepark.SDK.V1.Contract
 
         [System.Runtime.Serialization.EnumMember(Value = @"ManageAllComments")]
         ManageAllComments = 27,
+
+        [System.Runtime.Serialization.EnumMember(Value = @"ListUsers")]
+        ListUsers = 28,
 
     }
 
@@ -39756,7 +39773,39 @@ namespace Picturepark.SDK.V1.Contract
     /// Represents an aggregation request over users.
     /// </summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
-    public abstract partial class UserSearchAndAggregationBaseRequest
+    public abstract partial class UserSearchAndAggregationBaseRequest : UsersSearchBaseRequest
+    {
+        /// <summary>
+        /// Special filters used to filter down independently the aggregations' values and the search results on specific conditions.
+        /// <br/>For the search results, the aggregation filters are used to create a Filter that is put in AND with the eventual existing Filter of the search request to nail down the search results. The filters generated
+        /// <br/>by the aggregation filters are put in OR each other if they have the same AggregationName, and then such groups are put in AND.
+        /// <br/>For the aggregation values, only the original Filter of the search request is used to nail down the data to be considered for the aggregations. Then, on top of that, for each aggregator in the search request, a Filter is created to filter down the
+        /// <br/>aggregation results of that aggregation: depending if the AggregationName of the AggregationFilter matches the AggregationName of the Aggregator, the filter is put in OR (if it matches) or in AND (if it does not match it).
+        /// <br/>Moreover, an AggregationFilter ensures that the related value is returned in the AggregationResults also if the top aggregation values returned by default do not contain it.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("aggregationFilters", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<AggregationFilter> AggregationFilters { get; set; }
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static UserSearchAndAggregationBaseRequest FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<UserSearchAndAggregationBaseRequest>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    /// <summary>
+    /// Represents a search request over users.
+    /// </summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public abstract partial class UsersSearchBaseRequest
     {
         /// <summary>
         /// Limits the search by using a query string filter. The Lucene query string syntax is supported.
@@ -39791,17 +39840,6 @@ namespace Picturepark.SDK.V1.Contract
         public System.Collections.Generic.ICollection<UserRight> UserRightsFilter { get; set; }
 
         /// <summary>
-        /// Special filters used to filter down independently the aggregations' values and the search results on specific conditions.
-        /// <br/>For the search results, the aggregation filters are used to create a Filter that is put in AND with the eventual existing Filter of the search request to nail down the search results. The filters generated
-        /// <br/>by the aggregation filters are put in OR each other if they have the same AggregationName, and then such groups are put in AND.
-        /// <br/>For the aggregation values, only the original Filter of the search request is used to nail down the data to be considered for the aggregations. Then, on top of that, for each aggregator in the search request, a Filter is created to filter down the
-        /// <br/>aggregation results of that aggregation: depending if the AggregationName of the AggregationFilter matches the AggregationName of the Aggregator, the filter is put in OR (if it matches) or in AND (if it does not match it).
-        /// <br/>Moreover, an AggregationFilter ensures that the related value is returned in the AggregationResults also if the top aggregation values returned by default do not contain it.
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty("aggregationFilters", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<AggregationFilter> AggregationFilters { get; set; }
-
-        /// <summary>
         /// Includes the service user in result.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("includeServiceUser", Required = Newtonsoft.Json.Required.Always)]
@@ -39820,10 +39858,10 @@ namespace Picturepark.SDK.V1.Contract
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
 
         }
-        public static UserSearchAndAggregationBaseRequest FromJson(string data)
+        public static UsersSearchBaseRequest FromJson(string data)
         {
 
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<UserSearchAndAggregationBaseRequest>(data, new Newtonsoft.Json.JsonSerializerSettings());
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<UsersSearchBaseRequest>(data, new Newtonsoft.Json.JsonSerializerSettings());
 
         }
 
@@ -39879,6 +39917,152 @@ namespace Picturepark.SDK.V1.Contract
         {
 
             return Newtonsoft.Json.JsonConvert.DeserializeObject<UserUpdateIdentityProviderManyRequest>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    /// <summary>
+    /// Holds results of the list user search.
+    /// </summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class UserListResult : SearchBehaviorBaseResultOfUser
+    {
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static UserListResult FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<UserListResult>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    /// <summary>
+    /// Base class for search result queries that support SearchBehaviors
+    /// </summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class SearchBehaviorBaseResultOfUser : BaseResultOfUser
+    {
+        /// <summary>
+        /// The search string used to query the data.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("searchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string SearchString { get; set; }
+
+        /// <summary>
+        /// Flag to notify if the SearchString was modified compared to the original requested one.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("isSearchStringRewritten", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool IsSearchStringRewritten { get; set; }
+
+        /// <summary>
+        /// Additional information regarding the query execution and reason of the matched documents. Multiple items are returned if multiple queries were performed.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("queryDebugInformation", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<QueryDebugInformation> QueryDebugInformation { get; set; }
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static SearchBehaviorBaseResultOfUser FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SearchBehaviorBaseResultOfUser>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    /// <summary>
+    /// Base class for search results
+    /// </summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class BaseResultOfUser
+    {
+        /// <summary>
+        /// The total number of matching documents.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("totalResults", Required = Newtonsoft.Json.Required.Always)]
+        public long TotalResults { get; set; }
+
+        /// <summary>
+        /// The matched documents.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("results", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.Collections.Generic.ICollection<User> Results { get; set; } = new System.Collections.Generic.List<User>();
+
+        /// <summary>
+        /// The search execution time in milliseconds.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("elapsedMilliseconds", Required = Newtonsoft.Json.Required.Always)]
+        public long ElapsedMilliseconds { get; set; }
+
+        /// <summary>
+        /// An optional token to access the next page of results for those endpoints that support backend scrolling logic.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("pageToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string PageToken { get; set; }
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static BaseResultOfUser FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BaseResultOfUser>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    /// <summary>
+    /// Represents user list request.
+    /// </summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class UserListRequest : UsersSearchBaseRequest
+    {
+        /// <summary>
+        /// Fields and respective directions requested to sort the search results. Sorting on a not indexed field will throw an exception.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("sort", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<SortInfo> Sort { get; set; }
+
+        /// <summary>
+        /// Limits the document count of the result set.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("limit", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int Limit { get; set; } = 30;
+
+        /// <summary>
+        /// The token used to retrieve the next page of results. It must be null on first request and only filled with the returned pageToken to request next page of results.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("pageToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string PageToken { get; set; }
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static UserListRequest FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<UserListRequest>(data, new Newtonsoft.Json.JsonSerializerSettings());
 
         }
 
