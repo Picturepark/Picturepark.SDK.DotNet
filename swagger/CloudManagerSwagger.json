@@ -23192,7 +23192,7 @@
       },
       "LogoKind": {
         "type": "string",
-        "description": "",
+        "description": "Type of logo",
         "x-enumNames": [
           "Background",
           "Full",
