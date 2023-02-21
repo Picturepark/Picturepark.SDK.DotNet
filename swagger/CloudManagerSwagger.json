@@ -16549,7 +16549,8 @@
           "EditImages",
           "ManageConversionPresetTemplates",
           "ManageComments",
-          "ManageAllComments"
+          "ManageAllComments",
+          "ListUsers"
         ],
         "enum": [
           "ManageContent",
@@ -16579,7 +16580,8 @@
           "EditImages",
           "ManageConversionPresetTemplates",
           "ManageComments",
-          "ManageAllComments"
+          "ManageAllComments",
+          "ListUsers"
         ]
       },
       "PermissionSetNotFoundException": {
@@ -23190,7 +23192,7 @@
       },
       "LogoKind": {
         "type": "string",
-        "description": "",
+        "description": "Type of logo",
         "x-enumNames": [
           "Background",
           "Full",
