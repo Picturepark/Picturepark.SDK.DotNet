@@ -4051,6 +4051,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("MissingCustomerDefaultLanguageException", typeof(MissingCustomerDefaultLanguageException))]
     [JsonInheritanceAttribute("PartialOperationNotSupportedException", typeof(PartialOperationNotSupportedException))]
     [JsonInheritanceAttribute("ContractMismatchException", typeof(ContractMismatchException))]
+    [JsonInheritanceAttribute("PictureparkTooManyRequestsException", typeof(PictureparkTooManyRequestsException))]
     [JsonInheritanceAttribute("InvalidArgumentException", typeof(InvalidArgumentException))]
     [JsonInheritanceAttribute("UnknownException", typeof(UnknownException))]
     [JsonInheritanceAttribute("OwnerTokenInUseException", typeof(OwnerTokenInUseException))]
@@ -4215,6 +4216,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("ContentResolveBehaviorNotSupportedException", typeof(ContentResolveBehaviorNotSupportedException))]
     [JsonInheritanceAttribute("BusinessProcessEngineRequestException", typeof(BusinessProcessEngineRequestException))]
     [JsonInheritanceAttribute("BusinessProcessNotFoundException", typeof(BusinessProcessNotFoundException))]
+    [JsonInheritanceAttribute("BusinessProcessTooManyRequestsException", typeof(BusinessProcessTooManyRequestsException))]
     [JsonInheritanceAttribute("BusinessProcessDefinitionNotFoundException", typeof(BusinessProcessDefinitionNotFoundException))]
     [JsonInheritanceAttribute("BusinessProcessDefinitionCreateException", typeof(BusinessProcessDefinitionCreateException))]
     [JsonInheritanceAttribute("BusinessProcessNotExternalException", typeof(BusinessProcessNotExternalException))]
@@ -6354,6 +6356,28 @@ namespace Picturepark.SDK.V1.Contract
         {
 
             return Newtonsoft.Json.JsonConvert.DeserializeObject<ContractMismatchException>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class PictureparkTooManyRequestsException : PictureparkBusinessException
+    {
+        [Newtonsoft.Json.JsonProperty("referenceRequest", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ReferenceRequest { get; set; }
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static PictureparkTooManyRequestsException FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<PictureparkTooManyRequestsException>(data, new Newtonsoft.Json.JsonSerializerSettings());
 
         }
 
@@ -11417,6 +11441,26 @@ namespace Picturepark.SDK.V1.Contract
         {
 
             return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessProcessNotFoundException>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class BusinessProcessTooManyRequestsException : PictureparkTooManyRequestsException
+    {
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static BusinessProcessTooManyRequestsException FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessProcessTooManyRequestsException>(data, new Newtonsoft.Json.JsonSerializerSettings());
 
         }
 

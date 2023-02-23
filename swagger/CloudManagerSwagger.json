@@ -15560,6 +15560,23 @@
           }
         ]
       },
+      "PictureparkTooManyRequestsException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkBusinessException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "referenceRequest": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
       "InvalidArgumentException": {
         "allOf": [
           {
@@ -19721,6 +19738,17 @@
                 "nullable": true
               }
             }
+          }
+        ]
+      },
+      "BusinessProcessTooManyRequestsException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkTooManyRequestsException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
           }
         ]
       },
