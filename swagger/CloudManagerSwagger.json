@@ -15567,13 +15567,7 @@
           },
           {
             "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "referenceRequest": {
-                "type": "string",
-                "nullable": true
-              }
-            }
+            "additionalProperties": false
           }
         ]
       },
@@ -19741,7 +19735,7 @@
           }
         ]
       },
-      "BusinessProcessTooManyRequestsException": {
+      "TooManyBusinessProcessesException": {
         "allOf": [
           {
             "$ref": "#/components/schemas/PictureparkTooManyRequestsException"

@@ -30386,13 +30386,7 @@
           },
           {
             "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "referenceRequest": {
-                "type": "string",
-                "nullable": true
-              }
-            }
+            "additionalProperties": false
           }
         ]
       },
@@ -34560,7 +34554,7 @@
           }
         ]
       },
-      "BusinessProcessTooManyRequestsException": {
+      "TooManyBusinessProcessesException": {
         "allOf": [
           {
             "$ref": "#/components/schemas/PictureparkTooManyRequestsException"
@@ -41426,11 +41420,14 @@
         "type": "object",
         "description": "Rights assigned to a user role.",
         "additionalProperties": false,
+        "required": [
+          "userRoleId"
+        ],
         "properties": {
           "userRoleId": {
             "type": "string",
             "description": "The user role ID.",
-            "nullable": true
+            "minLength": 1
           },
           "names": {
             "description": "Language specific user role names.",
@@ -41455,11 +41452,14 @@
         "type": "object",
         "description": "Rights assigned to a user role.",
         "additionalProperties": false,
+        "required": [
+          "userRoleId"
+        ],
         "properties": {
           "userRoleId": {
             "type": "string",
             "description": "The user role ID.",
-            "nullable": true
+            "minLength": 1
           },
           "names": {
             "description": "Language specific user role names.",
@@ -50685,11 +50685,14 @@
         "type": "object",
         "description": "Rights assigned to a user role.",
         "additionalProperties": false,
+        "required": [
+          "userRoleId"
+        ],
         "properties": {
           "userRoleId": {
             "type": "string",
             "description": "The user role ID.",
-            "nullable": true
+            "minLength": 1
           },
           "names": {
             "description": "Language specific user role names.",

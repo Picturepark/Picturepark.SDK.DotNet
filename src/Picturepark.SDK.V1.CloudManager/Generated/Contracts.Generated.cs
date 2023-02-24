@@ -1921,7 +1921,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [JsonInheritanceAttribute("ContentResolveBehaviorNotSupportedException", typeof(ContentResolveBehaviorNotSupportedException))]
     [JsonInheritanceAttribute("BusinessProcessEngineRequestException", typeof(BusinessProcessEngineRequestException))]
     [JsonInheritanceAttribute("BusinessProcessNotFoundException", typeof(BusinessProcessNotFoundException))]
-    [JsonInheritanceAttribute("BusinessProcessTooManyRequestsException", typeof(BusinessProcessTooManyRequestsException))]
+    [JsonInheritanceAttribute("TooManyBusinessProcessesException", typeof(TooManyBusinessProcessesException))]
     [JsonInheritanceAttribute("BusinessProcessDefinitionNotFoundException", typeof(BusinessProcessDefinitionNotFoundException))]
     [JsonInheritanceAttribute("BusinessProcessDefinitionCreateException", typeof(BusinessProcessDefinitionCreateException))]
     [JsonInheritanceAttribute("BusinessProcessNotExternalException", typeof(BusinessProcessNotExternalException))]
@@ -4072,8 +4072,6 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [Newtonsoft.Json.JsonObjectAttribute]
     public partial class PictureparkTooManyRequestsException : PictureparkBusinessException
     {
-        [Newtonsoft.Json.JsonProperty("referenceRequest", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string ReferenceRequest { get; set; }
 
         public string ToJson()
         {
@@ -9155,7 +9153,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
     [Newtonsoft.Json.JsonObjectAttribute]
-    public partial class BusinessProcessTooManyRequestsException : PictureparkTooManyRequestsException
+    public partial class TooManyBusinessProcessesException : PictureparkTooManyRequestsException
     {
 
         public string ToJson()
@@ -9164,10 +9162,10 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
 
         }
-        public static BusinessProcessTooManyRequestsException FromJson(string data)
+        public static TooManyBusinessProcessesException FromJson(string data)
         {
 
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessProcessTooManyRequestsException>(data, new Newtonsoft.Json.JsonSerializerSettings());
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<TooManyBusinessProcessesException>(data, new Newtonsoft.Json.JsonSerializerSettings());
 
         }
 
