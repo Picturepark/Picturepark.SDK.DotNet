@@ -30379,6 +30379,17 @@
           }
         ]
       },
+      "PictureparkTooManyRequestsException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkBusinessException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
+          }
+        ]
+      },
       "InvalidArgumentException": {
         "allOf": [
           {
@@ -34540,6 +34551,17 @@
                 "nullable": true
               }
             }
+          }
+        ]
+      },
+      "TooManyBusinessProcessesException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkTooManyRequestsException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
           }
         ]
       },
@@ -41398,11 +41420,14 @@
         "type": "object",
         "description": "Rights assigned to a user role.",
         "additionalProperties": false,
+        "required": [
+          "userRoleId"
+        ],
         "properties": {
           "userRoleId": {
             "type": "string",
             "description": "The user role ID.",
-            "nullable": true
+            "minLength": 1
           },
           "names": {
             "description": "Language specific user role names.",
@@ -41427,11 +41452,14 @@
         "type": "object",
         "description": "Rights assigned to a user role.",
         "additionalProperties": false,
+        "required": [
+          "userRoleId"
+        ],
         "properties": {
           "userRoleId": {
             "type": "string",
             "description": "The user role ID.",
-            "nullable": true
+            "minLength": 1
           },
           "names": {
             "description": "Language specific user role names.",
@@ -50657,11 +50685,14 @@
         "type": "object",
         "description": "Rights assigned to a user role.",
         "additionalProperties": false,
+        "required": [
+          "userRoleId"
+        ],
         "properties": {
           "userRoleId": {
             "type": "string",
             "description": "The user role ID.",
-            "nullable": true
+            "minLength": 1
           },
           "names": {
             "description": "Language specific user role names.",
