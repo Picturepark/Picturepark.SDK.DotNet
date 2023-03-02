@@ -23726,7 +23726,8 @@
           "enableSupportUserRegistrationEmailNotification",
           "enableSupportUserRegistrationNotification",
           "skipSignUpCaptcha",
-          "bffDevMode"
+          "bffDevMode",
+          "disableIdsRegisterLink"
         ],
         "properties": {
           "alias": {
@@ -23989,6 +23990,9 @@
             "nullable": true
           },
           "bffDevMode": {
+            "type": "boolean"
+          },
+          "disableIdsRegisterLink": {
             "type": "boolean"
           }
         }
@@ -25888,7 +25892,8 @@
           "enableSupportUserRegistrationNotification",
           "isClone",
           "skipSignUpCaptcha",
-          "bffDevMode"
+          "bffDevMode",
+          "disableIdsRegisterLink"
         ],
         "properties": {
           "id": {
@@ -26270,6 +26275,9 @@
           "contentBackupSiloName": {
             "type": "string",
             "nullable": true
+          },
+          "disableIdsRegisterLink": {
+            "type": "boolean"
           }
         }
       },
@@ -26358,7 +26366,8 @@
           "enableSupportUserRegistrationEmailNotification",
           "enableSupportUserRegistrationNotification",
           "skipSignUpCaptcha",
-          "bffDevMode"
+          "bffDevMode",
+          "disableIdsRegisterLink"
         ],
         "properties": {
           "id": {
@@ -26560,6 +26569,9 @@
           "contentBackupSiloName": {
             "type": "string",
             "nullable": true
+          },
+          "disableIdsRegisterLink": {
+            "type": "boolean"
           }
         }
       },
