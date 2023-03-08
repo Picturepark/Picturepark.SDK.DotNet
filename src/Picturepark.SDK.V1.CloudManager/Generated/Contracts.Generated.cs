@@ -1807,6 +1807,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [JsonInheritanceAttribute("ListItemUpdateManyException", typeof(ListItemUpdateManyException))]
     [JsonInheritanceAttribute("ListItemSchemaMismatchException", typeof(ListItemSchemaMismatchException))]
     [JsonInheritanceAttribute("ListItemResolveBehaviorNotSupportedException", typeof(ListItemResolveBehaviorNotSupportedException))]
+    [JsonInheritanceAttribute("InvalidLogoFileExtensionException", typeof(InvalidLogoFileExtensionException))]
     [JsonInheritanceAttribute("TransferInfoNotFoundException", typeof(TransferInfoNotFoundException))]
     [JsonInheritanceAttribute("FileTransferNotFoundException", typeof(FileTransferNotFoundException))]
     [JsonInheritanceAttribute("InvalidTransferTypeException", typeof(InvalidTransferTypeException))]
@@ -5948,6 +5949,31 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
 
         [System.Runtime.Serialization.EnumMember(Value = @"DynamicViewFieldsWithHasItems")]
         DynamicViewFieldsWithHasItems = 11,
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class InvalidLogoFileExtensionException : PictureparkValidationException
+    {
+        [Newtonsoft.Json.JsonProperty("fileExtension", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string FileExtension { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("supportedExtensions", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> SupportedExtensions { get; set; }
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static InvalidLogoFileExtensionException FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<InvalidLogoFileExtensionException>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
 
     }
 

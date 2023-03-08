@@ -17023,6 +17023,30 @@
           "DynamicViewFieldsWithHasItems"
         ]
       },
+      "InvalidLogoFileExtensionException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "fileExtension": {
+                "type": "string",
+                "nullable": true
+              },
+              "supportedExtensions": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ]
+      },
       "TransferInfoNotFoundException": {
         "allOf": [
           {
