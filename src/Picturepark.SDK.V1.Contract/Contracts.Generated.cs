@@ -8253,7 +8253,7 @@ namespace Picturepark.SDK.V1.Contract
         public string FileExtension { get; set; }
 
         [Newtonsoft.Json.JsonProperty("supportedExtensions", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string SupportedExtensions { get; set; }
+        public System.Collections.Generic.ICollection<string> SupportedExtensions { get; set; }
 
         public string ToJson()
         {

@@ -17037,8 +17037,11 @@
                 "nullable": true
               },
               "supportedExtensions": {
-                "type": "string",
-                "nullable": true
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "type": "string"
+                }
               }
             }
           }
