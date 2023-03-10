@@ -14362,6 +14362,9 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [Newtonsoft.Json.JsonProperty("bffDevMode", Required = Newtonsoft.Json.Required.Always)]
         public bool BffDevMode { get; set; }
 
+        [Newtonsoft.Json.JsonProperty("disableIdsRegisterLink", Required = Newtonsoft.Json.Required.Always)]
+        public bool DisableIdsRegisterLink { get; set; }
+
         public string ToJson()
         {
 
@@ -16986,6 +16989,9 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [Newtonsoft.Json.JsonProperty("contentBackupSiloName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ContentBackupSiloName { get; set; }
 
+        [Newtonsoft.Json.JsonProperty("disableIdsRegisterLink", Required = Newtonsoft.Json.Required.Always)]
+        public bool DisableIdsRegisterLink { get; set; }
+
         public string ToJson()
         {
 
@@ -17223,6 +17229,9 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
 
         [Newtonsoft.Json.JsonProperty("contentBackupSiloName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string ContentBackupSiloName { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("disableIdsRegisterLink", Required = Newtonsoft.Json.Required.Always)]
+        public bool DisableIdsRegisterLink { get; set; }
 
         public string ToJson()
         {
