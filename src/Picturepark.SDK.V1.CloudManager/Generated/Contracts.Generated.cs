@@ -12831,12 +12831,6 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [Newtonsoft.Json.JsonProperty("sort", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<SortInfo> Sort { get; set; }
 
-        [Newtonsoft.Json.JsonProperty("customerId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string CustomerId { get; set; }
-
-        [Newtonsoft.Json.JsonProperty("customerAlias", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string CustomerAlias { get; set; }
-
         public string ToJson()
         {
 
@@ -13394,6 +13388,12 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
 
         [System.Runtime.Serialization.EnumMember(Value = @"SchemaPermissionSet")]
         SchemaPermissionSet = 7,
+
+        [System.Runtime.Serialization.EnumMember(Value = @"IndexCustomerAlias")]
+        IndexCustomerAlias = 8,
+
+        [System.Runtime.Serialization.EnumMember(Value = @"IndexCustomerId")]
+        IndexCustomerId = 9,
 
     }
 

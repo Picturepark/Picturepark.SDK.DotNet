@@ -22618,14 +22618,6 @@
             "items": {
               "$ref": "#/components/schemas/SortInfo"
             }
-          },
-          "customerId": {
-            "type": "string",
-            "nullable": true
-          },
-          "customerAlias": {
-            "type": "string",
-            "nullable": true
           }
         }
       },
@@ -23071,7 +23063,9 @@
           "ContentPermissionSet",
           "Owner",
           "UserRole",
-          "SchemaPermissionSet"
+          "SchemaPermissionSet",
+          "IndexCustomerAlias",
+          "IndexCustomerId"
         ],
         "enum": [
           "Content",
@@ -23081,7 +23075,9 @@
           "ContentPermissionSet",
           "Owner",
           "UserRole",
-          "SchemaPermissionSet"
+          "SchemaPermissionSet",
+          "IndexCustomerAlias",
+          "IndexCustomerId"
         ]
       },
       "TermsEnumAggregator": {
