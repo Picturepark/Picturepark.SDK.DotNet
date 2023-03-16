@@ -28602,7 +28602,12 @@
           },
           "release": {
             "type": "string",
-            "description": "The bamboo release version. Only provided on bamboo deployments.",
+            "description": "The release version.",
+            "nullable": true
+          },
+          "cloudName": {
+            "type": "string",
+            "description": "Cloud name.",
             "nullable": true
           }
         }
