@@ -19154,10 +19154,16 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         public string ContractVersion { get; set; }
 
         /// <summary>
-        /// The bamboo release version. Only provided on bamboo deployments.
+        /// The release version.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("release", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Release { get; set; }
+
+        /// <summary>
+        /// Cloud name.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("cloudName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string CloudName { get; set; }
 
         public string ToJson()
         {
