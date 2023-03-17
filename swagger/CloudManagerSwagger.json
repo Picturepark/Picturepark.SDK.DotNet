@@ -284,8 +284,8 @@
         }
       }
     },
-    "/BusinessProcesses/crossCustomers/searchPending": {
-      "get": {
+    "/BusinessProcesses/search": {
+      "post": {
         "tags": [
           "BusinessProcesses"
         ],
