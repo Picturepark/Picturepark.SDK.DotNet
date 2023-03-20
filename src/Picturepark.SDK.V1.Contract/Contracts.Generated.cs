@@ -14937,7 +14937,7 @@ namespace Picturepark.SDK.V1.Contract
     /// Search result from a search for business processes
     /// </summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
-    public partial class BusinessProcessSearchResult : SearchBehaviorBaseResultOfBusinessProcess
+    public partial class BusinessProcessSearchResult : SearchBehaviorWithAggregationBaseResultOfBusinessProcess
     {
 
         public string ToJson()
@@ -14959,25 +14959,13 @@ namespace Picturepark.SDK.V1.Contract
     /// Base class for search result queries that support SearchBehaviors
     /// </summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
-    public partial class SearchBehaviorBaseResultOfBusinessProcess : BaseResultOfBusinessProcess
+    public partial class SearchBehaviorWithAggregationBaseResultOfBusinessProcess : SearchBehaviorBaseResultOfBusinessProcess
     {
         /// <summary>
-        /// The search string used to query the data.
+        /// Results of the aggregation, if any aggregators was passed in the request.
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("searchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string SearchString { get; set; }
-
-        /// <summary>
-        /// Flag to notify if the SearchString was modified compared to the original requested one.
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty("isSearchStringRewritten", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public bool IsSearchStringRewritten { get; set; }
-
-        /// <summary>
-        /// Additional information regarding the query execution and reason of the matched documents. Multiple items are returned if multiple queries were performed.
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty("queryDebugInformation", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<QueryDebugInformation> QueryDebugInformation { get; set; }
+        [Newtonsoft.Json.JsonProperty("aggregationResults", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<AggregationResult> AggregationResults { get; set; }
 
         public string ToJson()
         {
@@ -14985,75 +14973,40 @@ namespace Picturepark.SDK.V1.Contract
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
 
         }
-        public static SearchBehaviorBaseResultOfBusinessProcess FromJson(string data)
+        public static SearchBehaviorWithAggregationBaseResultOfBusinessProcess FromJson(string data)
         {
 
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<SearchBehaviorBaseResultOfBusinessProcess>(data, new Newtonsoft.Json.JsonSerializerSettings());
-
-        }
-
-    }
-
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
-    public partial class QueryDebugInformation
-    {
-        [Newtonsoft.Json.JsonProperty("general", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string General { get; set; }
-
-        [Newtonsoft.Json.JsonProperty("auditTrail", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string AuditTrail { get; set; }
-
-        [Newtonsoft.Json.JsonProperty("request", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public object Request { get; set; }
-
-        [Newtonsoft.Json.JsonProperty("response", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public object Response { get; set; }
-
-        public string ToJson()
-        {
-
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
-
-        }
-        public static QueryDebugInformation FromJson(string data)
-        {
-
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<QueryDebugInformation>(data, new Newtonsoft.Json.JsonSerializerSettings());
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SearchBehaviorWithAggregationBaseResultOfBusinessProcess>(data, new Newtonsoft.Json.JsonSerializerSettings());
 
         }
 
     }
 
     /// <summary>
-    /// Base class for search results
+    /// Result of an aggregation
     /// </summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
-    public partial class BaseResultOfBusinessProcess
+    public partial class AggregationResult
     {
         /// <summary>
-        /// The total number of matching documents.
+        /// Name of the aggregation.
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("totalResults", Required = Newtonsoft.Json.Required.Always)]
-        public long TotalResults { get; set; }
-
-        /// <summary>
-        /// The matched documents.
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty("results", Required = Newtonsoft.Json.Required.Always)]
+        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
-        public System.Collections.Generic.ICollection<BusinessProcess> Results { get; set; } = new System.Collections.Generic.List<BusinessProcess>();
+        public string Name { get; set; }
 
         /// <summary>
-        /// The search execution time in milliseconds.
+        /// When there are lots of unique terms, Elastic Search only returns the top terms; this number is the sum of the document counts for all buckets that are not part of the response.
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("elapsedMilliseconds", Required = Newtonsoft.Json.Required.Always)]
-        public long ElapsedMilliseconds { get; set; }
+        [Newtonsoft.Json.JsonProperty("sumOtherDocCount", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public long? SumOtherDocCount { get; set; }
 
         /// <summary>
-        /// An optional token to access the next page of results for those endpoints that support backend scrolling logic.
+        /// Items returned for the aggregation. Each item consists of a bucket with the matched value and the number of matches.
+        /// <br/>Optionally inner aggregations for further drill down can be available.
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("pageToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string PageToken { get; set; }
+        [Newtonsoft.Json.JsonProperty("aggregationResultItems", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<AggregationResultItem> AggregationResultItems { get; set; }
 
         public string ToJson()
         {
@@ -15061,57 +15014,91 @@ namespace Picturepark.SDK.V1.Contract
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
 
         }
-        public static BaseResultOfBusinessProcess FromJson(string data)
+        public static AggregationResult FromJson(string data)
         {
 
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<BaseResultOfBusinessProcess>(data, new Newtonsoft.Json.JsonSerializerSettings());
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<AggregationResult>(data, new Newtonsoft.Json.JsonSerializerSettings());
 
         }
 
     }
 
     /// <summary>
-    /// Search request to search for business processes
+    /// Aggregation result item
     /// </summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
-    public partial class BusinessProcessSearchRequest
+    public partial class AggregationResultItem
     {
         /// <summary>
-        /// Limits the document count of the result set.
+        /// Value matched.
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("limit", Required = Newtonsoft.Json.Required.Always)]
-        public int Limit { get; set; } = 30;
+        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public string Name { get; set; }
 
         /// <summary>
-        /// The token used to retrieve the next page of results. It must be null on first request and only filled with the returned pageToken to request next page of results.
+        /// Number of items matched.
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("pageToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string PageToken { get; set; }
+        [Newtonsoft.Json.JsonProperty("count", Required = Newtonsoft.Json.Required.Always)]
+        public long Count { get; set; }
 
         /// <summary>
-        /// An optional search filter. Limits the document result set.
+        /// Ready to use filter to filter the data based on the aggregation result values.
+        /// <br/>It can be passed as one of the aggregation filters of an aggregation query: it returns documents meeting the aggregation condition.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public AggregationFilter Filter { get; set; }
+
+        /// <summary>
+        /// True if the current result item matches on of the aggregation filters sent in the query.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("active", Required = Newtonsoft.Json.Required.Always)]
+        public bool Active { get; set; }
+
+        /// <summary>
+        /// Inner aggregation results, if inner aggregations were provided in the query.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("aggregationResults", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<AggregationResult> AggregationResults { get; set; }
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static AggregationResultItem FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<AggregationResultItem>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    /// <summary>
+    /// Filters aggregations
+    /// </summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class AggregationFilter : FilterBase
+    {
+        /// <summary>
+        /// The name of the aggregation this filter is connected to.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("aggregationName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string AggregationName { get; set; }
+
+        /// <summary>
+        /// The filter to be applied.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public FilterBase Filter { get; set; }
 
         /// <summary>
-        /// Limits the search by using a query string filter. The Lucene query string syntax is supported.
+        /// Autogenerated Guid at request time, for precise aggregation result mapping.
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("searchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string SearchString { get; set; }
-
-        /// <summary>
-        /// An optional list of search behaviors. All the passed behaviors will be applied.
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty("searchBehaviors", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public System.Collections.Generic.ICollection<SearchBehavior> SearchBehaviors { get; set; }
-
-        /// <summary>
-        /// Enable debug mode: additional debug information regarding the query execution and reason of the matched documents are returned in the BusinessProcessSearchResult.
-        /// <br/>Warning! It severely affects performance.
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty("debugMode", Required = Newtonsoft.Json.Required.Always)]
-        public bool DebugMode { get; set; } = false;
+        [Newtonsoft.Json.JsonProperty("temporaryAggregatorRequestId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string TemporaryAggregatorRequestId { get; set; }
 
         public string ToJson()
         {
@@ -15119,10 +15106,10 @@ namespace Picturepark.SDK.V1.Contract
             return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
 
         }
-        public static BusinessProcessSearchRequest FromJson(string data)
+        public static AggregationFilter FromJson(string data)
         {
 
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessProcessSearchRequest>(data, new Newtonsoft.Json.JsonSerializerSettings());
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<AggregationFilter>(data, new Newtonsoft.Json.JsonSerializerSettings());
 
         }
 
@@ -15144,9 +15131,9 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("PrefixFilter", typeof(PrefixFilter))]
     [JsonInheritanceAttribute("TermFilter", typeof(TermFilter))]
     [JsonInheritanceAttribute("TermsFilter", typeof(TermsFilter))]
-    [JsonInheritanceAttribute("AggregationFilter", typeof(AggregationFilter))]
     [JsonInheritanceAttribute("ChildFilter", typeof(ChildFilter))]
     [JsonInheritanceAttribute("ParentFilter", typeof(ParentFilter))]
+    [JsonInheritanceAttribute("AggregationFilter", typeof(AggregationFilter))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
     public partial class FilterBase
     {
@@ -15689,45 +15676,6 @@ namespace Picturepark.SDK.V1.Contract
     }
 
     /// <summary>
-    /// Filters aggregations
-    /// </summary>
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
-    public partial class AggregationFilter : FilterBase
-    {
-        /// <summary>
-        /// The name of the aggregation this filter is connected to.
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty("aggregationName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string AggregationName { get; set; }
-
-        /// <summary>
-        /// The filter to be applied.
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public FilterBase Filter { get; set; }
-
-        /// <summary>
-        /// Autogenerated Guid at request time, for precise aggregation result mapping.
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty("temporaryAggregatorRequestId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string TemporaryAggregatorRequestId { get; set; }
-
-        public string ToJson()
-        {
-
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
-
-        }
-        public static AggregationFilter FromJson(string data)
-        {
-
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<AggregationFilter>(data, new Newtonsoft.Json.JsonSerializerSettings());
-
-        }
-
-    }
-
-    /// <summary>
     /// Filters on child documents
     /// </summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
@@ -15798,6 +15746,202 @@ namespace Picturepark.SDK.V1.Contract
     }
 
     /// <summary>
+    /// Base class for search result queries that support SearchBehaviors
+    /// </summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class SearchBehaviorBaseResultOfBusinessProcess : BaseResultOfBusinessProcess
+    {
+        /// <summary>
+        /// The search string used to query the data.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("searchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string SearchString { get; set; }
+
+        /// <summary>
+        /// Flag to notify if the SearchString was modified compared to the original requested one.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("isSearchStringRewritten", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public bool IsSearchStringRewritten { get; set; }
+
+        /// <summary>
+        /// Additional information regarding the query execution and reason of the matched documents. Multiple items are returned if multiple queries were performed.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("queryDebugInformation", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<QueryDebugInformation> QueryDebugInformation { get; set; }
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static SearchBehaviorBaseResultOfBusinessProcess FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SearchBehaviorBaseResultOfBusinessProcess>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class QueryDebugInformation
+    {
+        [Newtonsoft.Json.JsonProperty("general", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string General { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("auditTrail", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string AuditTrail { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("request", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public object Request { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("response", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public object Response { get; set; }
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static QueryDebugInformation FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<QueryDebugInformation>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    /// <summary>
+    /// Base class for search results
+    /// </summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class BaseResultOfBusinessProcess
+    {
+        /// <summary>
+        /// The total number of matching documents.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("totalResults", Required = Newtonsoft.Json.Required.Always)]
+        public long TotalResults { get; set; }
+
+        /// <summary>
+        /// The matched documents.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("results", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.Collections.Generic.ICollection<BusinessProcess> Results { get; set; } = new System.Collections.Generic.List<BusinessProcess>();
+
+        /// <summary>
+        /// The search execution time in milliseconds.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("elapsedMilliseconds", Required = Newtonsoft.Json.Required.Always)]
+        public long ElapsedMilliseconds { get; set; }
+
+        /// <summary>
+        /// An optional token to access the next page of results for those endpoints that support backend scrolling logic.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("pageToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string PageToken { get; set; }
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static BaseResultOfBusinessProcess FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BaseResultOfBusinessProcess>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    /// <summary>
+    /// Search request to search for business processes
+    /// </summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class BusinessProcessSearchRequest
+    {
+        /// <summary>
+        /// Limits the document count of the result set.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("limit", Required = Newtonsoft.Json.Required.Always)]
+        public int Limit { get; set; } = 30;
+
+        /// <summary>
+        /// The token used to retrieve the next page of results. It must be null on first request and only filled with the returned pageToken to request next page of results.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("pageToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string PageToken { get; set; }
+
+        /// <summary>
+        /// An optional search filter. Limits the document result set.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public FilterBase Filter { get; set; }
+
+        /// <summary>
+        /// Limits the search by using a query string filter. The Lucene query string syntax is supported.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("searchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string SearchString { get; set; }
+
+        /// <summary>
+        /// An optional list of search behaviors. All the passed behaviors will be applied.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("searchBehaviors", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public System.Collections.Generic.ICollection<SearchBehavior> SearchBehaviors { get; set; }
+
+        /// <summary>
+        /// Enable debug mode: additional debug information regarding the query execution and reason of the matched documents are returned in the BusinessProcessSearchResult.
+        /// <br/>Warning! It severely affects performance.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("debugMode", Required = Newtonsoft.Json.Required.Always)]
+        public bool DebugMode { get; set; } = false;
+
+        /// <summary>
+        /// Special filters used to filter down independently the aggregations' values and the search results on specific conditions.
+        /// <br/>For the search results, the aggregation filters are used to create a Filter that is put in AND with the eventual existing Filter of the search request to nail down the search results. The filters generated
+        /// <br/>by the aggregation filters are put in OR each other if they have the same AggregationName, and then such groups are put in AND.
+        /// <br/>For the aggregation values, only the original Filter of the search request is used to nail down the data to be considered for the aggregations. Then, on top of that, for each aggregator in the search request, a Filter is created to filter down the
+        /// <br/>aggregation results of that aggregation: depending if the AggregationName of the AggregationFilter matches the AggregationName of the Aggregator, the filter is put in OR (if it matches) or in AND (if it does not match it).
+        /// <br/>Moreover, an AggregationFilter ensures that the related value is returned in the AggregationResults also if the top aggregation values returned by default do not contain it.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("aggregationFilters", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<AggregationFilter> AggregationFilters { get; set; }
+
+        /// <summary>
+        /// List of aggregators that defines how the items should be aggregated.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("aggregators", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<AggregatorBase> Aggregators { get; set; }
+
+        /// <summary>
+        /// Fields and respective directions requested to sort the search results. Sorting on a not indexed field will throw an exception.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("sort", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<SortInfo> Sort { get; set; }
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static BusinessProcessSearchRequest FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessProcessSearchRequest>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    /// <summary>
     /// Search behaviors
     /// </summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
@@ -15818,6 +15962,561 @@ namespace Picturepark.SDK.V1.Contract
 
         [System.Runtime.Serialization.EnumMember(Value = @"SimplifiedSearchOr")]
         SimplifiedSearchOr = 4,
+
+    }
+
+    /// <summary>
+    /// It is the base class for all aggregators.
+    /// </summary>
+    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
+    [JsonInheritanceAttribute("DateRangeAggregator", typeof(DateRangeAggregator))]
+    [JsonInheritanceAttribute("GeoDistanceAggregator", typeof(GeoDistanceAggregator))]
+    [JsonInheritanceAttribute("NestedAggregator", typeof(NestedAggregator))]
+    [JsonInheritanceAttribute("NumericRangeAggregator", typeof(NumericRangeAggregator))]
+    [JsonInheritanceAttribute("TermsAggregator", typeof(TermsAggregator))]
+    [JsonInheritanceAttribute("TermsRelationAggregator", typeof(TermsRelationAggregator))]
+    [JsonInheritanceAttribute("TermsEnumAggregator", typeof(TermsEnumAggregator))]
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public abstract partial class AggregatorBase
+    {
+        /// <summary>
+        /// The slug name of the aggregation. It must be unique per aggregation request.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public string Name { get; set; }
+
+        /// <summary>
+        /// Language specific field names.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("names", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public TranslatedStringDictionary Names { get; set; }
+
+        /// <summary>
+        /// An optional aggregator list for nested aggregations.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("aggregators", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<AggregatorBase> Aggregators { get; set; }
+
+        /// <summary>
+        /// An optional filter to limit the data set the aggregation is operation on.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public FilterBase Filter { get; set; }
+
+        /// <summary>
+        /// Optional behavior that the UI should keep in regards to the aggregation
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("uiBehavior", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public UiAggregatorBehavior UiBehavior { get; set; }
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static AggregatorBase FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<AggregatorBase>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    /// <summary>
+    /// Behavior that the UI should keep in regards to the aggregation
+    /// </summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class UiAggregatorBehavior
+    {
+        /// <summary>
+        /// Filters should be enabled in the UI.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("enableFilter", Required = Newtonsoft.Json.Required.Always)]
+        public bool EnableFilter { get; set; }
+
+        /// <summary>
+        /// Suggestions should be enabled in the UI.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("enableSuggestions", Required = Newtonsoft.Json.Required.Always)]
+        public bool EnableSuggestions { get; set; }
+
+        /// <summary>
+        /// Search functionality should be enabled in the filters in the UI.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("enableSearchInFilter", Required = Newtonsoft.Json.Required.Always)]
+        public bool EnableSearchInFilter { get; set; }
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static UiAggregatorBehavior FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<UiAggregatorBehavior>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    /// <summary>
+    /// A multi-bucket range aggregator dedicated for date values.
+    /// </summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class DateRangeAggregator : AggregatorBase
+    {
+        /// <summary>
+        /// The field's ID to execute the aggregation on.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("field", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public string Field { get; set; }
+
+        /// <summary>
+        /// A list of date time ranges.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("ranges", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.Collections.Generic.ICollection<DateRangeForAggregator> Ranges { get; set; } = new System.Collections.Generic.List<DateRangeForAggregator>();
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static DateRangeAggregator FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<DateRangeAggregator>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    /// <summary>
+    /// The date range class used in aggregators.
+    /// </summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class DateRangeForAggregator
+    {
+        /// <summary>
+        /// Language specific range names.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("names", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public TranslatedStringDictionary Names { get; set; }
+
+        /// <summary>
+        /// The from value: it can be a datetime string or a pattern now(+-)(int)(YMDHm).
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("from", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string From { get; set; }
+
+        /// <summary>
+        /// The to value: it can be a datetime string or a pattern now(+-)(int)(YMDHm).
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("to", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string To { get; set; }
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static DateRangeForAggregator FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<DateRangeForAggregator>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    /// <summary>
+    /// A multi-bucket range aggregator that works on geo_point fields
+    /// </summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class GeoDistanceAggregator : AggregatorBase
+    {
+        /// <summary>
+        /// The field's ID to execute the aggregation on.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("field", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public string Field { get; set; }
+
+        /// <summary>
+        /// The point of origin to calculate the distance from (latitude/longitude).
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("location", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public GeoLocation Location { get; set; } = new GeoLocation();
+
+        /// <summary>
+        /// A list of distance ranges.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("ranges", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.Collections.Generic.ICollection<GeoDistance> Ranges { get; set; } = new System.Collections.Generic.List<GeoDistance>();
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static GeoDistanceAggregator FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<GeoDistanceAggregator>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    /// <summary>
+    /// Stores geo distance information for gei distance aggregation
+    /// </summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class GeoDistance
+    {
+        /// <summary>
+        /// Language specific geo distance names.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("names", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public TranslatedStringDictionary Names { get; set; }
+
+        /// <summary>
+        /// The distance in meters.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("distance", Required = Newtonsoft.Json.Required.Always)]
+        public double Distance { get; set; }
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static GeoDistance FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<GeoDistance>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    /// <summary>
+    /// A special single bucket aggregation that enables aggregating on nested documents
+    /// </summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class NestedAggregator : AggregatorBase
+    {
+        /// <summary>
+        /// The path pointing to the nested object.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("path", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public string Path { get; set; }
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static NestedAggregator FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<NestedAggregator>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    /// <summary>
+    /// A multi-bucket range aggregator.
+    /// </summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class NumericRangeAggregator : AggregatorBase
+    {
+        /// <summary>
+        /// The field's ID to execute the aggregation on.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("field", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Field { get; set; }
+
+        /// <summary>
+        /// A list of numeric ranges on which aggregate.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("ranges", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.Collections.Generic.ICollection<NumericRangeForAggregator> Ranges { get; set; } = new System.Collections.Generic.List<NumericRangeForAggregator>();
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static NumericRangeAggregator FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<NumericRangeAggregator>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    /// <summary>
+    /// The numeric range for aggregator class
+    /// </summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class NumericRangeForAggregator
+    {
+        /// <summary>
+        /// Language specific range names.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("names", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public TranslatedStringDictionary Names { get; set; }
+
+        /// <summary>
+        /// The from value.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("from", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public double? From { get; set; }
+
+        /// <summary>
+        /// The to value.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("to", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public double? To { get; set; }
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static NumericRangeForAggregator FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<NumericRangeForAggregator>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    /// <summary>
+    /// A multi-bucket value aggregator
+    /// </summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class TermsAggregator : AggregatorBase
+    {
+        /// <summary>
+        /// The field's ID to execute the aggregation on. Only not analyzed fields are supported.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("field", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public string Field { get; set; }
+
+        /// <summary>
+        /// It defines how many term buckets should be returned out of the overall terms list.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("size", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public int? Size { get; set; }
+
+        /// <summary>
+        /// Includes values for which buckets will be created. Supports regular expression strings or arrays of exact values.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("includes", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> Includes { get; set; }
+
+        /// <summary>
+        /// Excludes values for which buckets will be created. Supports regular expression strings or arrays of exact values.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("excludes", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> Excludes { get; set; }
+
+        /// <summary>
+        /// Limits the possible returned aggregation values by using a query string filter. The Lucene query string syntax is supported.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("searchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string SearchString { get; set; }
+
+        /// <summary>
+        /// Search fields to be used to search the SearchString value into. If no search field is specified, the Field value is used.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("searchFields", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> SearchFields { get; set; }
+
+        /// <summary>
+        /// Sort settings for the aggregation results. If no sort is specified, aggregation is sorted on the item count.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("sort", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public SortInfo Sort { get; set; }
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static TermsAggregator FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<TermsAggregator>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    /// <summary>
+    /// Sorting information
+    /// </summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class SortInfo
+    {
+        /// <summary>
+        /// The field's ID to sort on.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("field", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string Field { get; set; }
+
+        /// <summary>
+        /// The sort direction (ascending/descending).
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("direction", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public SortDirection Direction { get; set; } = Picturepark.SDK.V1.Contract.SortDirection.Asc;
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static SortInfo FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<SortInfo>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    /// <summary>
+    /// The sort direction
+    /// </summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public enum SortDirection
+    {
+
+        [System.Runtime.Serialization.EnumMember(Value = @"Asc")]
+        Asc = 0,
+
+        [System.Runtime.Serialization.EnumMember(Value = @"Desc")]
+        Desc = 1,
+
+    }
+
+    /// <summary>
+    /// A multi-bucket value aggregator used for aggregations on relation item ids.
+    /// </summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class TermsRelationAggregator : TermsAggregator
+    {
+        /// <summary>
+        /// Type of the item target of the relation. It is used to resolve the target ID.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("documentType", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
+        public TermsRelationAggregatorDocumentType DocumentType { get; set; }
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static TermsRelationAggregator FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<TermsRelationAggregator>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public enum TermsRelationAggregatorDocumentType
+    {
+
+        [System.Runtime.Serialization.EnumMember(Value = @"Content")]
+        Content = 0,
+
+        [System.Runtime.Serialization.EnumMember(Value = @"ListItem")]
+        ListItem = 1,
+
+        [System.Runtime.Serialization.EnumMember(Value = @"Schema")]
+        Schema = 2,
+
+        [System.Runtime.Serialization.EnumMember(Value = @"User")]
+        User = 3,
+
+        [System.Runtime.Serialization.EnumMember(Value = @"ContentPermissionSet")]
+        ContentPermissionSet = 4,
+
+        [System.Runtime.Serialization.EnumMember(Value = @"Owner")]
+        Owner = 5,
+
+        [System.Runtime.Serialization.EnumMember(Value = @"UserRole")]
+        UserRole = 6,
+
+        [System.Runtime.Serialization.EnumMember(Value = @"SchemaPermissionSet")]
+        SchemaPermissionSet = 7,
+
+        [System.Runtime.Serialization.EnumMember(Value = @"IndexCustomerAlias")]
+        IndexCustomerAlias = 8,
+
+        [System.Runtime.Serialization.EnumMember(Value = @"IndexCustomerId")]
+        IndexCustomerId = 9,
+
+    }
+
+    /// <summary>
+    /// A multi-bucket value aggregator used for aggregations on indexed enum values.
+    /// </summary>
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    public partial class TermsEnumAggregator : TermsAggregator
+    {
+        /// <summary>
+        /// Type of the enum target of the relation. It is used to resolve the enum translation.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("enumType", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public string EnumType { get; set; }
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static TermsEnumAggregator FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<TermsEnumAggregator>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
 
     }
 
@@ -18589,100 +19288,6 @@ namespace Picturepark.SDK.V1.Contract
     }
 
     /// <summary>
-    /// Result of an aggregation
-    /// </summary>
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
-    public partial class AggregationResult
-    {
-        /// <summary>
-        /// Name of the aggregation.
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public string Name { get; set; }
-
-        /// <summary>
-        /// When there are lots of unique terms, Elastic Search only returns the top terms; this number is the sum of the document counts for all buckets that are not part of the response.
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty("sumOtherDocCount", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public long? SumOtherDocCount { get; set; }
-
-        /// <summary>
-        /// Items returned for the aggregation. Each item consists of a bucket with the matched value and the number of matches.
-        /// <br/>Optionally inner aggregations for further drill down can be available.
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty("aggregationResultItems", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<AggregationResultItem> AggregationResultItems { get; set; }
-
-        public string ToJson()
-        {
-
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
-
-        }
-        public static AggregationResult FromJson(string data)
-        {
-
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<AggregationResult>(data, new Newtonsoft.Json.JsonSerializerSettings());
-
-        }
-
-    }
-
-    /// <summary>
-    /// Aggregation result item
-    /// </summary>
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
-    public partial class AggregationResultItem
-    {
-        /// <summary>
-        /// Value matched.
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public string Name { get; set; }
-
-        /// <summary>
-        /// Number of items matched.
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty("count", Required = Newtonsoft.Json.Required.Always)]
-        public long Count { get; set; }
-
-        /// <summary>
-        /// Ready to use filter to filter the data based on the aggregation result values.
-        /// <br/>It can be passed as one of the aggregation filters of an aggregation query: it returns documents meeting the aggregation condition.
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public AggregationFilter Filter { get; set; }
-
-        /// <summary>
-        /// True if the current result item matches on of the aggregation filters sent in the query.
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty("active", Required = Newtonsoft.Json.Required.Always)]
-        public bool Active { get; set; }
-
-        /// <summary>
-        /// Inner aggregation results, if inner aggregations were provided in the query.
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty("aggregationResults", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<AggregationResult> AggregationResults { get; set; }
-
-        public string ToJson()
-        {
-
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
-
-        }
-        public static AggregationResultItem FromJson(string data)
-        {
-
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<AggregationResultItem>(data, new Newtonsoft.Json.JsonSerializerSettings());
-
-        }
-
-    }
-
-    /// <summary>
     /// Base class for search result queries that support SearchBehaviors
     /// </summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
@@ -19203,555 +19808,6 @@ namespace Picturepark.SDK.V1.Contract
         {
 
             return Newtonsoft.Json.JsonConvert.DeserializeObject<BusinessRuleTraceLogSearchRequest>(data, new Newtonsoft.Json.JsonSerializerSettings());
-
-        }
-
-    }
-
-    /// <summary>
-    /// It is the base class for all aggregators.
-    /// </summary>
-    [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
-    [JsonInheritanceAttribute("DateRangeAggregator", typeof(DateRangeAggregator))]
-    [JsonInheritanceAttribute("GeoDistanceAggregator", typeof(GeoDistanceAggregator))]
-    [JsonInheritanceAttribute("NestedAggregator", typeof(NestedAggregator))]
-    [JsonInheritanceAttribute("NumericRangeAggregator", typeof(NumericRangeAggregator))]
-    [JsonInheritanceAttribute("TermsAggregator", typeof(TermsAggregator))]
-    [JsonInheritanceAttribute("TermsRelationAggregator", typeof(TermsRelationAggregator))]
-    [JsonInheritanceAttribute("TermsEnumAggregator", typeof(TermsEnumAggregator))]
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
-    public abstract partial class AggregatorBase
-    {
-        /// <summary>
-        /// The slug name of the aggregation. It must be unique per aggregation request.
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public string Name { get; set; }
-
-        /// <summary>
-        /// Language specific field names.
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty("names", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public TranslatedStringDictionary Names { get; set; }
-
-        /// <summary>
-        /// An optional aggregator list for nested aggregations.
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty("aggregators", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<AggregatorBase> Aggregators { get; set; }
-
-        /// <summary>
-        /// An optional filter to limit the data set the aggregation is operation on.
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty("filter", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public FilterBase Filter { get; set; }
-
-        /// <summary>
-        /// Optional behavior that the UI should keep in regards to the aggregation
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty("uiBehavior", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public UiAggregatorBehavior UiBehavior { get; set; }
-
-        public string ToJson()
-        {
-
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
-
-        }
-        public static AggregatorBase FromJson(string data)
-        {
-
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<AggregatorBase>(data, new Newtonsoft.Json.JsonSerializerSettings());
-
-        }
-
-    }
-
-    /// <summary>
-    /// Behavior that the UI should keep in regards to the aggregation
-    /// </summary>
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
-    public partial class UiAggregatorBehavior
-    {
-        /// <summary>
-        /// Filters should be enabled in the UI.
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty("enableFilter", Required = Newtonsoft.Json.Required.Always)]
-        public bool EnableFilter { get; set; }
-
-        /// <summary>
-        /// Suggestions should be enabled in the UI.
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty("enableSuggestions", Required = Newtonsoft.Json.Required.Always)]
-        public bool EnableSuggestions { get; set; }
-
-        /// <summary>
-        /// Search functionality should be enabled in the filters in the UI.
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty("enableSearchInFilter", Required = Newtonsoft.Json.Required.Always)]
-        public bool EnableSearchInFilter { get; set; }
-
-        public string ToJson()
-        {
-
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
-
-        }
-        public static UiAggregatorBehavior FromJson(string data)
-        {
-
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<UiAggregatorBehavior>(data, new Newtonsoft.Json.JsonSerializerSettings());
-
-        }
-
-    }
-
-    /// <summary>
-    /// A multi-bucket range aggregator dedicated for date values.
-    /// </summary>
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
-    public partial class DateRangeAggregator : AggregatorBase
-    {
-        /// <summary>
-        /// The field's ID to execute the aggregation on.
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty("field", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public string Field { get; set; }
-
-        /// <summary>
-        /// A list of date time ranges.
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty("ranges", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.Collections.Generic.ICollection<DateRangeForAggregator> Ranges { get; set; } = new System.Collections.Generic.List<DateRangeForAggregator>();
-
-        public string ToJson()
-        {
-
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
-
-        }
-        public static DateRangeAggregator FromJson(string data)
-        {
-
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<DateRangeAggregator>(data, new Newtonsoft.Json.JsonSerializerSettings());
-
-        }
-
-    }
-
-    /// <summary>
-    /// The date range class used in aggregators.
-    /// </summary>
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
-    public partial class DateRangeForAggregator
-    {
-        /// <summary>
-        /// Language specific range names.
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty("names", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public TranslatedStringDictionary Names { get; set; }
-
-        /// <summary>
-        /// The from value: it can be a datetime string or a pattern now(+-)(int)(YMDHm).
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty("from", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string From { get; set; }
-
-        /// <summary>
-        /// The to value: it can be a datetime string or a pattern now(+-)(int)(YMDHm).
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty("to", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string To { get; set; }
-
-        public string ToJson()
-        {
-
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
-
-        }
-        public static DateRangeForAggregator FromJson(string data)
-        {
-
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<DateRangeForAggregator>(data, new Newtonsoft.Json.JsonSerializerSettings());
-
-        }
-
-    }
-
-    /// <summary>
-    /// A multi-bucket range aggregator that works on geo_point fields
-    /// </summary>
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
-    public partial class GeoDistanceAggregator : AggregatorBase
-    {
-        /// <summary>
-        /// The field's ID to execute the aggregation on.
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty("field", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public string Field { get; set; }
-
-        /// <summary>
-        /// The point of origin to calculate the distance from (latitude/longitude).
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty("location", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public GeoLocation Location { get; set; } = new GeoLocation();
-
-        /// <summary>
-        /// A list of distance ranges.
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty("ranges", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.Collections.Generic.ICollection<GeoDistance> Ranges { get; set; } = new System.Collections.Generic.List<GeoDistance>();
-
-        public string ToJson()
-        {
-
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
-
-        }
-        public static GeoDistanceAggregator FromJson(string data)
-        {
-
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<GeoDistanceAggregator>(data, new Newtonsoft.Json.JsonSerializerSettings());
-
-        }
-
-    }
-
-    /// <summary>
-    /// Stores geo distance information for gei distance aggregation
-    /// </summary>
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
-    public partial class GeoDistance
-    {
-        /// <summary>
-        /// Language specific geo distance names.
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty("names", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public TranslatedStringDictionary Names { get; set; }
-
-        /// <summary>
-        /// The distance in meters.
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty("distance", Required = Newtonsoft.Json.Required.Always)]
-        public double Distance { get; set; }
-
-        public string ToJson()
-        {
-
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
-
-        }
-        public static GeoDistance FromJson(string data)
-        {
-
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<GeoDistance>(data, new Newtonsoft.Json.JsonSerializerSettings());
-
-        }
-
-    }
-
-    /// <summary>
-    /// A special single bucket aggregation that enables aggregating on nested documents
-    /// </summary>
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
-    public partial class NestedAggregator : AggregatorBase
-    {
-        /// <summary>
-        /// The path pointing to the nested object.
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty("path", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public string Path { get; set; }
-
-        public string ToJson()
-        {
-
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
-
-        }
-        public static NestedAggregator FromJson(string data)
-        {
-
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<NestedAggregator>(data, new Newtonsoft.Json.JsonSerializerSettings());
-
-        }
-
-    }
-
-    /// <summary>
-    /// A multi-bucket range aggregator.
-    /// </summary>
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
-    public partial class NumericRangeAggregator : AggregatorBase
-    {
-        /// <summary>
-        /// The field's ID to execute the aggregation on.
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty("field", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Field { get; set; }
-
-        /// <summary>
-        /// A list of numeric ranges on which aggregate.
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty("ranges", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public System.Collections.Generic.ICollection<NumericRangeForAggregator> Ranges { get; set; } = new System.Collections.Generic.List<NumericRangeForAggregator>();
-
-        public string ToJson()
-        {
-
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
-
-        }
-        public static NumericRangeAggregator FromJson(string data)
-        {
-
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<NumericRangeAggregator>(data, new Newtonsoft.Json.JsonSerializerSettings());
-
-        }
-
-    }
-
-    /// <summary>
-    /// The numeric range for aggregator class
-    /// </summary>
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
-    public partial class NumericRangeForAggregator
-    {
-        /// <summary>
-        /// Language specific range names.
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty("names", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public TranslatedStringDictionary Names { get; set; }
-
-        /// <summary>
-        /// The from value.
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty("from", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double? From { get; set; }
-
-        /// <summary>
-        /// The to value.
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty("to", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public double? To { get; set; }
-
-        public string ToJson()
-        {
-
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
-
-        }
-        public static NumericRangeForAggregator FromJson(string data)
-        {
-
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<NumericRangeForAggregator>(data, new Newtonsoft.Json.JsonSerializerSettings());
-
-        }
-
-    }
-
-    /// <summary>
-    /// A multi-bucket value aggregator
-    /// </summary>
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
-    public partial class TermsAggregator : AggregatorBase
-    {
-        /// <summary>
-        /// The field's ID to execute the aggregation on. Only not analyzed fields are supported.
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty("field", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public string Field { get; set; }
-
-        /// <summary>
-        /// It defines how many term buckets should be returned out of the overall terms list.
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty("size", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public int? Size { get; set; }
-
-        /// <summary>
-        /// Includes values for which buckets will be created. Supports regular expression strings or arrays of exact values.
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty("includes", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> Includes { get; set; }
-
-        /// <summary>
-        /// Excludes values for which buckets will be created. Supports regular expression strings or arrays of exact values.
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty("excludes", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> Excludes { get; set; }
-
-        /// <summary>
-        /// Limits the possible returned aggregation values by using a query string filter. The Lucene query string syntax is supported.
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty("searchString", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string SearchString { get; set; }
-
-        /// <summary>
-        /// Search fields to be used to search the SearchString value into. If no search field is specified, the Field value is used.
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty("searchFields", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<string> SearchFields { get; set; }
-
-        /// <summary>
-        /// Sort settings for the aggregation results. If no sort is specified, aggregation is sorted on the item count.
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty("sort", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public SortInfo Sort { get; set; }
-
-        public string ToJson()
-        {
-
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
-
-        }
-        public static TermsAggregator FromJson(string data)
-        {
-
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<TermsAggregator>(data, new Newtonsoft.Json.JsonSerializerSettings());
-
-        }
-
-    }
-
-    /// <summary>
-    /// Sorting information
-    /// </summary>
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
-    public partial class SortInfo
-    {
-        /// <summary>
-        /// The field's ID to sort on.
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty("field", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string Field { get; set; }
-
-        /// <summary>
-        /// The sort direction (ascending/descending).
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty("direction", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required(AllowEmptyStrings = true)]
-        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public SortDirection Direction { get; set; } = Picturepark.SDK.V1.Contract.SortDirection.Asc;
-
-        public string ToJson()
-        {
-
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
-
-        }
-        public static SortInfo FromJson(string data)
-        {
-
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<SortInfo>(data, new Newtonsoft.Json.JsonSerializerSettings());
-
-        }
-
-    }
-
-    /// <summary>
-    /// The sort direction
-    /// </summary>
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
-    public enum SortDirection
-    {
-
-        [System.Runtime.Serialization.EnumMember(Value = @"Asc")]
-        Asc = 0,
-
-        [System.Runtime.Serialization.EnumMember(Value = @"Desc")]
-        Desc = 1,
-
-    }
-
-    /// <summary>
-    /// A multi-bucket value aggregator used for aggregations on relation item ids.
-    /// </summary>
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
-    public partial class TermsRelationAggregator : TermsAggregator
-    {
-        /// <summary>
-        /// Type of the item target of the relation. It is used to resolve the target ID.
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty("documentType", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        [Newtonsoft.Json.JsonConverter(typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
-        public TermsRelationAggregatorDocumentType DocumentType { get; set; }
-
-        public string ToJson()
-        {
-
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
-
-        }
-        public static TermsRelationAggregator FromJson(string data)
-        {
-
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<TermsRelationAggregator>(data, new Newtonsoft.Json.JsonSerializerSettings());
-
-        }
-
-    }
-
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
-    public enum TermsRelationAggregatorDocumentType
-    {
-
-        [System.Runtime.Serialization.EnumMember(Value = @"Content")]
-        Content = 0,
-
-        [System.Runtime.Serialization.EnumMember(Value = @"ListItem")]
-        ListItem = 1,
-
-        [System.Runtime.Serialization.EnumMember(Value = @"Schema")]
-        Schema = 2,
-
-        [System.Runtime.Serialization.EnumMember(Value = @"User")]
-        User = 3,
-
-        [System.Runtime.Serialization.EnumMember(Value = @"ContentPermissionSet")]
-        ContentPermissionSet = 4,
-
-        [System.Runtime.Serialization.EnumMember(Value = @"Owner")]
-        Owner = 5,
-
-        [System.Runtime.Serialization.EnumMember(Value = @"UserRole")]
-        UserRole = 6,
-
-        [System.Runtime.Serialization.EnumMember(Value = @"SchemaPermissionSet")]
-        SchemaPermissionSet = 7,
-
-    }
-
-    /// <summary>
-    /// A multi-bucket value aggregator used for aggregations on indexed enum values.
-    /// </summary>
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
-    public partial class TermsEnumAggregator : TermsAggregator
-    {
-        /// <summary>
-        /// Type of the enum target of the relation. It is used to resolve the enum translation.
-        /// </summary>
-        [Newtonsoft.Json.JsonProperty("enumType", Required = Newtonsoft.Json.Required.Always)]
-        [System.ComponentModel.DataAnnotations.Required]
-        public string EnumType { get; set; }
-
-        public string ToJson()
-        {
-
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
-
-        }
-        public static TermsEnumAggregator FromJson(string data)
-        {
-
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<TermsEnumAggregator>(data, new Newtonsoft.Json.JsonSerializerSettings());
 
         }
 
