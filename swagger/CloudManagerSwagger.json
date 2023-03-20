@@ -289,7 +289,7 @@
         "tags": [
           "BusinessProcesses"
         ],
-        "operationId": "BusinessProcess_SearchPending",
+        "operationId": "BusinessProcess_Search",
         "requestBody": {
           "x-name": "request",
           "content": {
@@ -25532,6 +25532,14 @@
             "type": "object",
             "additionalProperties": false,
             "properties": {
+              "userId": {
+                "type": "string",
+                "nullable": true
+              },
+              "appId": {
+                "type": "string",
+                "nullable": true
+              },
               "apiToken": {
                 "type": "string",
                 "nullable": true
@@ -29462,7 +29470,12 @@
           },
           "release": {
             "type": "string",
-            "description": "The bamboo release version. Only provided on bamboo deployments.",
+            "description": "The release version.",
+            "nullable": true
+          },
+          "cloudName": {
+            "type": "string",
+            "description": "Cloud name.",
             "nullable": true
           }
         }
