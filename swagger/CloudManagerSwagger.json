@@ -24127,6 +24127,14 @@
             "type": "object",
             "additionalProperties": false,
             "properties": {
+              "userId": {
+                "type": "string",
+                "nullable": true
+              },
+              "appId": {
+                "type": "string",
+                "nullable": true
+              },
               "apiToken": {
                 "type": "string",
                 "nullable": true
