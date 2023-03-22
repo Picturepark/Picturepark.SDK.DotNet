@@ -12018,7 +12018,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [JsonInheritanceAttribute("ParentFilter", typeof(ParentFilter))]
     [JsonInheritanceAttribute("AggregationFilter", typeof(AggregationFilter))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
-    public partial class FilterBase
+    public abstract partial class FilterBase
     {
 
         public string ToJson()

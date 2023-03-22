@@ -15135,7 +15135,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("ParentFilter", typeof(ParentFilter))]
     [JsonInheritanceAttribute("AggregationFilter", typeof(AggregationFilter))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
-    public partial class FilterBase
+    public abstract partial class FilterBase
     {
 
         public string ToJson()
@@ -16535,32 +16535,37 @@ namespace Picturepark.SDK.V1.Contract
         /// <summary>
         /// Rules.
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("rules", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<BusinessRule> Rules { get; set; }
+        [Newtonsoft.Json.JsonProperty("rules", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.Collections.Generic.ICollection<BusinessRule> Rules { get; set; } = new System.Collections.Generic.List<BusinessRule>();
 
         /// <summary>
         /// Named caches.
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("caches", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<NamedCacheConfigurationBase> Caches { get; set; }
+        [Newtonsoft.Json.JsonProperty("caches", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.Collections.Generic.ICollection<NamedCacheConfigurationBase> Caches { get; set; } = new System.Collections.Generic.List<NamedCacheConfigurationBase>();
 
         /// <summary>
         /// Notifications.
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("notifications", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<BusinessRuleNotification> Notifications { get; set; }
+        [Newtonsoft.Json.JsonProperty("notifications", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.Collections.Generic.ICollection<BusinessRuleNotification> Notifications { get; set; } = new System.Collections.Generic.List<BusinessRuleNotification>();
 
         /// <summary>
         /// Numbers sequences.
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("numberSequences", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<BusinessRuleNumberSequence> NumberSequences { get; set; }
+        [Newtonsoft.Json.JsonProperty("numberSequences", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.Collections.Generic.ICollection<BusinessRuleNumberSequence> NumberSequences { get; set; } = new System.Collections.Generic.List<BusinessRuleNumberSequence>();
 
         /// <summary>
         /// Schedules.
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("schedules", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<BusinessRuleSchedule> Schedules { get; set; }
+        [Newtonsoft.Json.JsonProperty("schedules", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.Collections.Generic.ICollection<BusinessRuleSchedule> Schedules { get; set; } = new System.Collections.Generic.List<BusinessRuleSchedule>();
 
         public string ToJson()
         {
@@ -16589,7 +16594,8 @@ namespace Picturepark.SDK.V1.Contract
         /// <summary>
         /// User defined ID of the rule.
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
         public string Id { get; set; }
 
         /// <summary>
@@ -19058,7 +19064,8 @@ namespace Picturepark.SDK.V1.Contract
         /// <summary>
         /// ID of the notification.
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
         public string Id { get; set; }
 
         /// <summary>
@@ -19109,7 +19116,8 @@ namespace Picturepark.SDK.V1.Contract
         /// <summary>
         /// ID of number sequence.
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
         public string Id { get; set; }
 
         /// <summary>
