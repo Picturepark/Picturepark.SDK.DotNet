@@ -37340,7 +37340,6 @@
           }
         },
         "description": "The filters' base class",
-        "x-abstract": true,
         "additionalProperties": false,
         "required": [
           "kind"
