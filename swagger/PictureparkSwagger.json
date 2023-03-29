@@ -94,7 +94,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -194,7 +201,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -308,7 +322,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -415,7 +436,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -509,7 +537,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -636,7 +671,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -763,7 +805,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -885,7 +934,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -986,7 +1042,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -1087,7 +1150,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -1208,7 +1278,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -1329,7 +1406,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -1430,7 +1514,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -1523,7 +1614,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -1621,7 +1719,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -1721,7 +1826,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -1821,7 +1933,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -1912,7 +2031,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -2011,7 +2137,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -2112,7 +2245,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -2224,7 +2364,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -2316,7 +2463,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -2406,7 +2560,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -2496,7 +2657,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -2586,7 +2754,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -2687,7 +2862,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -2799,7 +2981,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -2891,7 +3080,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -2992,7 +3188,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -3098,7 +3301,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -3205,7 +3415,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -3309,7 +3526,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -3410,7 +3634,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -3509,7 +3740,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -3610,7 +3848,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -3704,7 +3949,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -3812,7 +4064,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -3913,7 +4172,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -4019,7 +4285,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -4166,7 +4439,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -4332,7 +4612,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -4470,7 +4757,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -4618,7 +4912,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -4771,7 +5072,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -4907,7 +5215,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -5125,7 +5440,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -5299,7 +5621,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -5458,7 +5787,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -5586,7 +5922,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -5686,7 +6029,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -5799,7 +6149,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -5913,7 +6270,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -6027,7 +6391,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -6131,7 +6502,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -6232,7 +6610,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -6332,7 +6717,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -6433,7 +6825,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -6524,7 +6923,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -6659,7 +7065,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -6760,7 +7173,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -6861,7 +7281,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -6962,7 +7389,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -7063,7 +7497,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -7164,7 +7605,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -7268,7 +7716,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -7369,7 +7824,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -7470,7 +7932,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -7571,7 +8040,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -7672,7 +8148,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -7763,7 +8246,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -7874,7 +8364,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -7975,7 +8472,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -8088,7 +8592,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -8199,7 +8710,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -8303,7 +8821,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -8404,7 +8929,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -8571,7 +9103,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -8684,7 +9223,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -8808,7 +9354,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -8921,7 +9474,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -9021,7 +9581,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -9135,7 +9702,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -9231,7 +9805,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -9390,7 +9971,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -9493,7 +10081,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -9592,7 +10187,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -9693,7 +10295,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -9792,7 +10401,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -9893,7 +10509,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -9981,7 +10604,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -10069,7 +10699,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -10181,7 +10818,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -10304,7 +10948,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -10426,7 +11077,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -10559,7 +11217,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -10660,7 +11325,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -10751,7 +11423,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -10842,7 +11521,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -10942,7 +11628,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -11054,7 +11747,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -11145,7 +11845,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -11302,7 +12009,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -11426,7 +12140,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -11584,7 +12305,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -11697,7 +12425,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -11856,7 +12591,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -11970,7 +12712,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -12119,7 +12868,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -12240,7 +12996,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -12341,7 +13104,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -12440,7 +13210,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -12541,7 +13318,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -12642,7 +13426,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -12743,7 +13534,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -12844,7 +13642,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -12945,7 +13750,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -13046,7 +13858,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -13147,7 +13966,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -13248,7 +14074,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -13349,7 +14182,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -13437,7 +14277,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -13525,7 +14372,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -13625,7 +14479,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -13725,7 +14586,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -13825,7 +14693,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -13925,7 +14800,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -14005,7 +14887,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -14092,7 +14981,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -14190,7 +15086,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -14283,7 +15186,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -14397,7 +15307,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -14498,7 +15415,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -14612,7 +15536,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -14713,7 +15644,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -14827,7 +15765,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -14928,7 +15873,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -15030,7 +15982,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -15142,7 +16101,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -15275,7 +16241,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -15389,7 +16362,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -15488,7 +16468,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -15587,7 +16574,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -15688,7 +16682,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -15787,7 +16788,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -15888,7 +16896,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -15989,7 +17004,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -16090,7 +17112,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -16191,7 +17220,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -16279,7 +17315,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -16378,7 +17421,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -16459,7 +17509,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -16560,7 +17617,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -16672,7 +17736,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -16764,7 +17835,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -16865,7 +17943,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -16971,7 +18056,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -17078,7 +18170,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -17182,7 +18281,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -17283,7 +18389,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -17382,7 +18495,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -17483,7 +18603,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -17577,7 +18704,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -17685,7 +18819,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -17786,7 +18927,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -17877,7 +19025,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -18014,7 +19169,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -18183,7 +19345,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -18363,7 +19532,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -18475,7 +19651,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -18579,7 +19762,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -18731,7 +19921,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -18835,7 +20032,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -18987,7 +20191,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -19112,7 +20323,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -19257,7 +20475,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -19408,7 +20633,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -19509,7 +20741,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -19610,7 +20849,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -19713,7 +20959,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -19820,7 +21073,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -19923,7 +21183,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -20030,7 +21297,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -20137,7 +21411,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -20228,7 +21509,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -20410,7 +21698,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -20533,7 +21828,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -20626,7 +21928,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -20741,7 +22050,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -20870,7 +22186,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -21008,7 +22331,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -21137,7 +22467,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -21272,7 +22609,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -21408,7 +22752,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -21561,7 +22912,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -21642,7 +23000,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -21811,7 +23176,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -21911,7 +23283,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -22012,7 +23391,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -22113,7 +23499,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -22229,7 +23622,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -22330,7 +23730,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -22431,7 +23838,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -22532,7 +23946,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -22632,7 +24053,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -22743,7 +24171,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -22834,7 +24269,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -22934,7 +24376,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -23022,7 +24471,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -23123,7 +24579,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -23214,7 +24677,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -23347,7 +24817,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -23439,7 +24916,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -23553,7 +25037,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -23667,7 +25158,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -23761,7 +25259,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -23861,7 +25366,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -23961,7 +25473,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -24061,7 +25580,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -24154,7 +25680,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -24242,7 +25775,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -24403,7 +25943,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -24503,7 +26050,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -24601,7 +26155,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -24734,7 +26295,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -24835,7 +26403,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -24934,7 +26509,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -25035,7 +26617,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -25136,7 +26725,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -25248,7 +26844,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -25340,7 +26943,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -25440,7 +27050,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -25551,7 +27168,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -25658,7 +27282,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -25759,7 +27390,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -25866,7 +27504,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -25967,7 +27612,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -26061,7 +27713,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -26162,7 +27821,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -26256,7 +27922,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -26357,7 +28030,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -26457,7 +28137,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -26563,7 +28250,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -26657,7 +28351,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -26751,7 +28452,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -26844,7 +28552,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -26944,7 +28659,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -27045,7 +28767,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -27153,7 +28882,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -27253,7 +28989,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -27353,7 +29096,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -27453,7 +29203,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -27553,7 +29310,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -27640,7 +29404,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -27740,7 +29511,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -27841,7 +29619,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -27937,7 +29722,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -28085,7 +29877,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -28184,7 +29983,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -28283,7 +30089,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -28384,7 +30197,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -28483,7 +30303,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -28584,7 +30411,14 @@
             }
           },
           "429": {
-            "description": "Too many requests"
+            "description": "Too many ongoing operations",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TooManyBusinessProcessesException"
+                }
+              }
+            }
           },
           "500": {
             "description": "Internal server error",
@@ -38473,6 +40307,11 @@
         "description": "Represents the business rule configuration.",
         "additionalProperties": false,
         "required": [
+          "rules",
+          "caches",
+          "notifications",
+          "numberSequences",
+          "schedules",
           "disableRuleEngine"
         ],
         "properties": {
@@ -38483,7 +40322,6 @@
           "rules": {
             "type": "array",
             "description": "Rules.",
-            "nullable": true,
             "items": {
               "$ref": "#/components/schemas/BusinessRule"
             }
@@ -38491,7 +40329,6 @@
           "caches": {
             "type": "array",
             "description": "Named caches.",
-            "nullable": true,
             "items": {
               "$ref": "#/components/schemas/NamedCacheConfigurationBase"
             }
@@ -38499,7 +40336,6 @@
           "notifications": {
             "type": "array",
             "description": "Notifications.",
-            "nullable": true,
             "items": {
               "$ref": "#/components/schemas/BusinessRuleNotification"
             }
@@ -38507,7 +40343,6 @@
           "numberSequences": {
             "type": "array",
             "description": "Numbers sequences.",
-            "nullable": true,
             "items": {
               "$ref": "#/components/schemas/BusinessRuleNumberSequence"
             }
@@ -38515,7 +40350,6 @@
           "schedules": {
             "type": "array",
             "description": "Schedules.",
-            "nullable": true,
             "items": {
               "$ref": "#/components/schemas/BusinessRuleSchedule"
             }
@@ -38535,6 +40369,7 @@
         "x-abstract": true,
         "additionalProperties": false,
         "required": [
+          "id",
           "kind",
           "isEnabled",
           "enableTracing"
@@ -38543,7 +40378,7 @@
           "id": {
             "type": "string",
             "description": "User defined ID of the rule.",
-            "nullable": true
+            "minLength": 1
           },
           "triggerPoints": {
             "type": "array",
@@ -40465,13 +42300,14 @@
         "description": "Configuration for a notification sent by ProduceNotificationAction.",
         "additionalProperties": false,
         "required": [
+          "id",
           "createCollection"
         ],
         "properties": {
           "id": {
             "type": "string",
             "description": "ID of the notification.",
-            "nullable": true
+            "minLength": 1
           },
           "title": {
             "description": "Title of the notification.",
@@ -40507,13 +42343,14 @@
         "description": "Configuration for a number sequence.",
         "additionalProperties": false,
         "required": [
+          "id",
           "start"
         ],
         "properties": {
           "id": {
             "type": "string",
             "description": "ID of number sequence.",
-            "nullable": true
+            "minLength": 1
           },
           "format": {
             "type": "string",

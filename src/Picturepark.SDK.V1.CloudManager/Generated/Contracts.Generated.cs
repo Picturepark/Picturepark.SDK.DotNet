@@ -26,6 +26,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="TooManyBusinessProcessesException">Too many ongoing operations</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -36,6 +37,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="TooManyBusinessProcessesException">Too many ongoing operations</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -46,6 +48,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="TooManyBusinessProcessesException">Too many ongoing operations</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -62,6 +65,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="TooManyBusinessProcessesException">Too many ongoing operations</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -78,6 +82,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="TooManyBusinessProcessesException">Too many ongoing operations</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -88,6 +93,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="TooManyBusinessProcessesException">Too many ongoing operations</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -98,6 +104,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="TooManyBusinessProcessesException">Too many ongoing operations</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -108,6 +115,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="TooManyBusinessProcessesException">Too many ongoing operations</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -118,6 +126,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="TooManyBusinessProcessesException">Too many ongoing operations</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -128,6 +137,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="TooManyBusinessProcessesException">Too many ongoing operations</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -138,6 +148,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="TooManyBusinessProcessesException">Too many ongoing operations</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -148,6 +159,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="TooManyBusinessProcessesException">Too many ongoing operations</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -158,6 +170,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="TooManyBusinessProcessesException">Too many ongoing operations</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -168,6 +181,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="TooManyBusinessProcessesException">Too many ongoing operations</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -178,6 +192,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="TooManyBusinessProcessesException">Too many ongoing operations</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -188,6 +203,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="TooManyBusinessProcessesException">Too many ongoing operations</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -198,6 +214,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="TooManyBusinessProcessesException">Too many ongoing operations</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -208,6 +225,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="TooManyBusinessProcessesException">Too many ongoing operations</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -218,6 +236,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="TooManyBusinessProcessesException">Too many ongoing operations</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -228,6 +247,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="TooManyBusinessProcessesException">Too many ongoing operations</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -238,6 +258,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="TooManyBusinessProcessesException">Too many ongoing operations</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -248,6 +269,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="TooManyBusinessProcessesException">Too many ongoing operations</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -264,6 +286,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="TooManyBusinessProcessesException">Too many ongoing operations</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -274,6 +297,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="TooManyBusinessProcessesException">Too many ongoing operations</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -284,6 +308,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="TooManyBusinessProcessesException">Too many ongoing operations</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -294,6 +319,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="TooManyBusinessProcessesException">Too many ongoing operations</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -304,6 +330,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="TooManyBusinessProcessesException">Too many ongoing operations</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -314,6 +341,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="TooManyBusinessProcessesException">Too many ongoing operations</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -324,6 +352,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="TooManyBusinessProcessesException">Too many ongoing operations</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -334,6 +363,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="TooManyBusinessProcessesException">Too many ongoing operations</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -344,6 +374,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="TooManyBusinessProcessesException">Too many ongoing operations</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -354,6 +385,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="TooManyBusinessProcessesException">Too many ongoing operations</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -364,6 +396,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="TooManyBusinessProcessesException">Too many ongoing operations</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -374,6 +407,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="TooManyBusinessProcessesException">Too many ongoing operations</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -390,6 +424,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="TooManyBusinessProcessesException">Too many ongoing operations</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -400,6 +435,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="TooManyBusinessProcessesException">Too many ongoing operations</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -410,6 +446,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="TooManyBusinessProcessesException">Too many ongoing operations</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -420,6 +457,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="TooManyBusinessProcessesException">Too many ongoing operations</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -436,6 +474,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="TooManyBusinessProcessesException">Too many ongoing operations</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -446,6 +485,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="TooManyBusinessProcessesException">Too many ongoing operations</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -456,6 +496,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="TooManyBusinessProcessesException">Too many ongoing operations</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -466,6 +507,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="TooManyBusinessProcessesException">Too many ongoing operations</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -476,6 +518,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="TooManyBusinessProcessesException">Too many ongoing operations</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -486,6 +529,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="TooManyBusinessProcessesException">Too many ongoing operations</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -496,6 +540,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="TooManyBusinessProcessesException">Too many ongoing operations</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -506,6 +551,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="TooManyBusinessProcessesException">Too many ongoing operations</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -516,6 +562,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="TooManyBusinessProcessesException">Too many ongoing operations</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -526,6 +573,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="TooManyBusinessProcessesException">Too many ongoing operations</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -536,6 +584,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="TooManyBusinessProcessesException">Too many ongoing operations</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -546,6 +595,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="TooManyBusinessProcessesException">Too many ongoing operations</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -556,6 +606,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="TooManyBusinessProcessesException">Too many ongoing operations</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -566,6 +617,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="TooManyBusinessProcessesException">Too many ongoing operations</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -576,6 +628,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="TooManyBusinessProcessesException">Too many ongoing operations</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -586,6 +639,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="TooManyBusinessProcessesException">Too many ongoing operations</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -596,6 +650,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="TooManyBusinessProcessesException">Too many ongoing operations</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -606,6 +661,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="TooManyBusinessProcessesException">Too many ongoing operations</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -616,6 +672,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="TooManyBusinessProcessesException">Too many ongoing operations</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -626,6 +683,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="TooManyBusinessProcessesException">Too many ongoing operations</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -642,6 +700,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="TooManyBusinessProcessesException">Too many ongoing operations</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -652,6 +711,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="TooManyBusinessProcessesException">Too many ongoing operations</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -662,6 +722,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="TooManyBusinessProcessesException">Too many ongoing operations</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -672,6 +733,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="TooManyBusinessProcessesException">Too many ongoing operations</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -682,6 +744,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="TooManyBusinessProcessesException">Too many ongoing operations</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -692,6 +755,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="TooManyBusinessProcessesException">Too many ongoing operations</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -702,6 +766,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="TooManyBusinessProcessesException">Too many ongoing operations</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -712,6 +777,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="TooManyBusinessProcessesException">Too many ongoing operations</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -728,6 +794,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="TooManyBusinessProcessesException">Too many ongoing operations</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -738,6 +805,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="TooManyBusinessProcessesException">Too many ongoing operations</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -754,6 +822,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="TooManyBusinessProcessesException">Too many ongoing operations</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -764,6 +833,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="TooManyBusinessProcessesException">Too many ongoing operations</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -780,6 +850,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="TooManyBusinessProcessesException">Too many ongoing operations</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -790,6 +861,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="TooManyBusinessProcessesException">Too many ongoing operations</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -806,6 +878,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="TooManyBusinessProcessesException">Too many ongoing operations</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -816,6 +889,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="TooManyBusinessProcessesException">Too many ongoing operations</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -826,6 +900,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="TooManyBusinessProcessesException">Too many ongoing operations</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -836,6 +911,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="TooManyBusinessProcessesException">Too many ongoing operations</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -846,6 +922,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="TooManyBusinessProcessesException">Too many ongoing operations</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -862,6 +939,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="TooManyBusinessProcessesException">Too many ongoing operations</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -872,6 +950,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="TooManyBusinessProcessesException">Too many ongoing operations</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -882,6 +961,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="TooManyBusinessProcessesException">Too many ongoing operations</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -892,6 +972,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="TooManyBusinessProcessesException">Too many ongoing operations</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -908,6 +989,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="TooManyBusinessProcessesException">Too many ongoing operations</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -918,6 +1000,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="TooManyBusinessProcessesException">Too many ongoing operations</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -928,6 +1011,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="TooManyBusinessProcessesException">Too many ongoing operations</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -938,6 +1022,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="TooManyBusinessProcessesException">Too many ongoing operations</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -948,6 +1033,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="TooManyBusinessProcessesException">Too many ongoing operations</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -958,6 +1044,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="TooManyBusinessProcessesException">Too many ongoing operations</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -974,6 +1061,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="TooManyBusinessProcessesException">Too many ongoing operations</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -984,6 +1072,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="TooManyBusinessProcessesException">Too many ongoing operations</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -1000,6 +1089,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="TooManyBusinessProcessesException">Too many ongoing operations</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -1010,6 +1100,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="TooManyBusinessProcessesException">Too many ongoing operations</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -1020,6 +1111,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="TooManyBusinessProcessesException">Too many ongoing operations</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -1030,6 +1122,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="TooManyBusinessProcessesException">Too many ongoing operations</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -1046,6 +1139,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="TooManyBusinessProcessesException">Too many ongoing operations</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -1056,6 +1150,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="TooManyBusinessProcessesException">Too many ongoing operations</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -1072,6 +1167,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="TooManyBusinessProcessesException">Too many ongoing operations</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -1082,6 +1178,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="TooManyBusinessProcessesException">Too many ongoing operations</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -1092,6 +1189,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="TooManyBusinessProcessesException">Too many ongoing operations</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -1102,6 +1200,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="TooManyBusinessProcessesException">Too many ongoing operations</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -1112,6 +1211,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="TooManyBusinessProcessesException">Too many ongoing operations</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -1122,6 +1222,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="TooManyBusinessProcessesException">Too many ongoing operations</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -1132,6 +1233,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="TooManyBusinessProcessesException">Too many ongoing operations</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -1142,6 +1244,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="TooManyBusinessProcessesException">Too many ongoing operations</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -1152,6 +1255,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="TooManyBusinessProcessesException">Too many ongoing operations</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -1162,6 +1266,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="TooManyBusinessProcessesException">Too many ongoing operations</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -1172,6 +1277,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="TooManyBusinessProcessesException">Too many ongoing operations</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -1182,6 +1288,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="TooManyBusinessProcessesException">Too many ongoing operations</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -1198,6 +1305,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="TooManyBusinessProcessesException">Too many ongoing operations</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -1208,6 +1316,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="TooManyBusinessProcessesException">Too many ongoing operations</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -1218,6 +1327,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="TooManyBusinessProcessesException">Too many ongoing operations</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -1228,6 +1338,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="TooManyBusinessProcessesException">Too many ongoing operations</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -1238,6 +1349,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="TooManyBusinessProcessesException">Too many ongoing operations</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -1248,6 +1360,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="TooManyBusinessProcessesException">Too many ongoing operations</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -1258,6 +1371,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="TooManyBusinessProcessesException">Too many ongoing operations</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -1268,6 +1382,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="TooManyBusinessProcessesException">Too many ongoing operations</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -1278,6 +1393,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="TooManyBusinessProcessesException">Too many ongoing operations</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -1288,6 +1404,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="TooManyBusinessProcessesException">Too many ongoing operations</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -1298,6 +1415,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="TooManyBusinessProcessesException">Too many ongoing operations</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -1314,6 +1432,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="TooManyBusinessProcessesException">Too many ongoing operations</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -1324,6 +1443,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="TooManyBusinessProcessesException">Too many ongoing operations</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
@@ -1679,6 +1799,8 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [JsonInheritanceAttribute("CustomerNotAvailableException", typeof(CustomerNotAvailableException))]
     [JsonInheritanceAttribute("PictureparkForbiddenException", typeof(PictureparkForbiddenException))]
     [JsonInheritanceAttribute("PictureparkConflictException", typeof(PictureparkConflictException))]
+    [JsonInheritanceAttribute("TooManyBusinessProcessesException", typeof(TooManyBusinessProcessesException))]
+    [JsonInheritanceAttribute("PictureparkTooManyRequestsException", typeof(PictureparkTooManyRequestsException))]
     [JsonInheritanceAttribute("PictureparkNotFoundException", typeof(PictureparkNotFoundException))]
     [JsonInheritanceAttribute("PictureparkTimeoutException", typeof(PictureparkTimeoutException))]
     [JsonInheritanceAttribute("UserEmailAlreadyExistsException", typeof(UserEmailAlreadyExistsException))]
@@ -1755,7 +1877,6 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [JsonInheritanceAttribute("MissingCustomerDefaultLanguageException", typeof(MissingCustomerDefaultLanguageException))]
     [JsonInheritanceAttribute("PartialOperationNotSupportedException", typeof(PartialOperationNotSupportedException))]
     [JsonInheritanceAttribute("ContractMismatchException", typeof(ContractMismatchException))]
-    [JsonInheritanceAttribute("PictureparkTooManyRequestsException", typeof(PictureparkTooManyRequestsException))]
     [JsonInheritanceAttribute("InvalidArgumentException", typeof(InvalidArgumentException))]
     [JsonInheritanceAttribute("UnknownException", typeof(UnknownException))]
     [JsonInheritanceAttribute("OwnerTokenInUseException", typeof(OwnerTokenInUseException))]
@@ -1932,7 +2053,6 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [JsonInheritanceAttribute("ContentResolveBehaviorNotSupportedException", typeof(ContentResolveBehaviorNotSupportedException))]
     [JsonInheritanceAttribute("BusinessProcessEngineRequestException", typeof(BusinessProcessEngineRequestException))]
     [JsonInheritanceAttribute("BusinessProcessNotFoundException", typeof(BusinessProcessNotFoundException))]
-    [JsonInheritanceAttribute("TooManyBusinessProcessesException", typeof(TooManyBusinessProcessesException))]
     [JsonInheritanceAttribute("BusinessProcessDefinitionNotFoundException", typeof(BusinessProcessDefinitionNotFoundException))]
     [JsonInheritanceAttribute("BusinessProcessDefinitionCreateException", typeof(BusinessProcessDefinitionCreateException))]
     [JsonInheritanceAttribute("BusinessProcessNotExternalException", typeof(BusinessProcessNotExternalException))]
