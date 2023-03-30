@@ -32,6 +32,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<BusinessProcess> GetAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -46,6 +47,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<BusinessProcess> CreateAsync(BusinessProcessCreateRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -61,6 +63,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<BusinessProcess> ChangeStateAsync(string id, BusinessProcessStateChangeRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -75,6 +78,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task UpdateNotificationAsync(string id, BusinessProcessNotificationUpdateRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -88,6 +92,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task CancelAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -102,6 +107,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         [System.Obsolete]
         System.Threading.Tasks.Task<BusinessProcessDetails> GetDetailsAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
@@ -119,6 +125,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<BusinessProcessSummaryBase> GetSummaryAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -136,6 +143,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<BusinessProcessBatch> GetSuccessfulItemsAsync(string id, int limit, string pageToken = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -153,6 +161,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<BusinessProcessBatch> GetFailedItemsAsync(string id, int limit, string pageToken = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -167,6 +176,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<BusinessProcessSearchResult> SearchAsync(BusinessProcessSearchRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -186,6 +196,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<BusinessRuleConfiguration> GetConfigurationAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -200,6 +211,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<BusinessProcess> UpdateConfigurationAsync(BusinessRuleConfigurationUpdateRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -214,6 +226,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<BusinessRuleTraceLogSearchResult> SearchTracesAsync(BusinessRuleTraceLogSearchRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -229,6 +242,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<BusinessProcess> RunScheduleAsync(BusinessRuleSchedule schedule, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -248,6 +262,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Channel>> GetAllAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -262,6 +277,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<Channel> CreateAsync(ChannelCreateRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -276,6 +292,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<Channel> GetAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -291,6 +308,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<Channel> UpdateAsync(string id, ChannelUpdateRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -305,6 +323,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task DeleteAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -318,6 +337,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<System.Collections.Generic.ICollection<FieldInfo>> GetAggregationFieldsAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -331,6 +351,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<System.Collections.Generic.ICollection<SortFieldInfo>> GetSortFieldsAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -344,6 +365,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<System.Collections.Generic.ICollection<FieldInfo>> GetFilterFieldsAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -364,6 +386,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<ContentPermissionSetDetail> GetAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -379,6 +402,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<ContentPermissionSetDetail> UpdateAsync(string id, ContentPermissionSetUpdateRequest permissionSet, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -392,6 +416,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task DeleteAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -406,6 +431,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<ContentPermissionSetDetail> CreateAsync(ContentPermissionSetCreateRequest permissionSet, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -420,6 +446,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<System.Collections.Generic.ICollection<ContentPermissionSetDetail>> GetManyAsync(System.Collections.Generic.IEnumerable<string> ids = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -434,6 +461,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task TransferOwnershipAsync(string id, PermissionSetOwnershipTransferRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -448,6 +476,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<System.Collections.Generic.ICollection<PermissionSetRight>> GetPermissionsAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -462,6 +491,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<BulkResponse> CreateManyAsync(ContentPermissionSetCreateManyRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -476,6 +506,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<BulkResponse> UpdateManyAsync(ContentPermissionSetUpdateManyRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -490,6 +521,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<BulkResponse> DeleteManyAsync(PermissionSetDeleteManyRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -503,6 +535,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task TransferOwnershipManyAsync(PermissionSetOwnershipTransferManyRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -517,6 +550,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<System.Collections.Generic.ICollection<PermissionSetUserPermissionRights>> GetPermissionsManyAsync(System.Collections.Generic.IEnumerable<string> ids = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -531,6 +565,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<PermissionSetSearchResult> SearchAsync(PermissionSetSearchRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -551,6 +586,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="ContentNotFoundException">Content not found</exception>
@@ -571,6 +607,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="ReferencesUpdateException">Validation prevents deletion of item</exception>
@@ -590,6 +627,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<FileResponse> DownloadAsync(string contentId, string outputFormatId, int? width = null, int? height = null, string range = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -605,6 +643,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<FileResponse> EditOutputAsync(string contentId, string outputFormatId, string conversionPreset, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -621,6 +660,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<FileResponse> DownloadThumbnailAsync(string id, ThumbnailSize size, int? width = null, int? height = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -640,6 +680,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="BusinessProcessLifeCycleNotHitException">The specified wait timeout exceeded</exception>
@@ -655,6 +696,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="RequestSizeLimitExceededException">List of IDs exceeded maximum size</exception>
@@ -679,6 +721,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="BusinessProcessLifeCycleNotHitException">The specified wait timeout exceeded</exception>
@@ -700,6 +743,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="BusinessProcessLifeCycleNotHitException">The specified wait timeout exceeded</exception>
@@ -721,6 +765,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task RestoreAsync(string id, bool? allowMissingDependencies = null, System.TimeSpan? timeout = null, bool? waitSearchDocCreation = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -740,6 +785,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task TransferOwnershipAsync(string id, ContentOwnershipTransferRequest request, System.TimeSpan? timeout = null, bool? waitSearchDocCreation = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -754,6 +800,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<CheckContentSchemaIdChangeResult> CheckContentSchemaChangeAsync(CheckContentSchemaIdChangeRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -769,6 +816,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<CheckContentSchemaIdChangeResult> CheckUpdateFileAsync(string id, ContentFileUpdateCheckRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -784,6 +832,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<BusinessProcess> UpdateFileAsync(string id, ContentFileUpdateRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -799,6 +848,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<ContentReferencesResult> GetReferencesAsync(string id, ContentReferencesRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -813,6 +863,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<System.Collections.Generic.ICollection<OutputResolveResult>> GetOutputsAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -827,6 +878,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<BusinessProcess> CreateDownloadLinkAsync(ContentDownloadLinkCreateRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -841,6 +893,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<DownloadLink> GetDownloadLinkAsync(string token, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -855,6 +908,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<BusinessProcess> DeleteManyAsync(ContentDeleteManyRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -869,6 +923,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<BusinessProcess> DeleteManyByFilterAsync(ContentDeleteManyFilterRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -883,6 +938,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<BusinessProcess> RestoreManyAsync(ContentRestoreManyRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -897,6 +953,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<ContentReferencesResult> GetReferencesManyAsync(ContentManyReferencesRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -911,6 +968,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<System.Collections.Generic.ICollection<OutputResolveResult>> GetOutputsManyAsync(OutputResolveManyRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -925,6 +983,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<BusinessProcess> RepairContentsByFilterAsync(ContentRepairByFilterRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -939,6 +998,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<BusinessProcess> RepairContentsBatchAsync(ContentRepairBatchRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -953,6 +1013,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<ContentSearchResult> SearchAsync(ContentSearchRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -967,6 +1028,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<ObjectAggregationResult> AggregateOnChannelAsync(ContentAggregationOnChannelRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -981,6 +1043,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<ObjectAggregationResult> AggregateAsync(ContentAggregationRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -996,6 +1059,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<HistoricVersionSearchResult> GetVersionsAsync(string id, HistoricVersionSearchRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -1011,6 +1075,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<string> CreateVersionDownloadLinkAsync(string id, int versionId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -1026,6 +1091,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task DeleteVersionAsync(string id, int versionId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -1042,6 +1108,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<Comment> CreateCommentAsync(string id, CommentCreateRequest request, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -1057,6 +1124,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<CommentSearchResult> SearchCommentsAsync(string id, CommentSearchRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -1077,6 +1145,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<ConversionPresetTemplateSearchResult> SearchAsync(ConversionPresetTemplateSearchRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -1092,6 +1161,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<ConversionPresetTemplateDetail> CreateAsync(ConversionPresetTemplateCreateRequest request, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -1105,6 +1175,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="RequestSizeLimitExceededException">List of IDs exceeded maximum size</exception>
@@ -1123,6 +1194,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<ConversionPresetTemplateDetail> UpdateAsync(string id, ConversionPresetTemplateUpdateRequest request, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -1137,6 +1209,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task DeleteAsync(string id, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -1151,6 +1224,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<ConversionPresetTemplateDetail> GetAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -1165,6 +1239,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<BusinessProcess> CreateManyAsync(ConversionPresetTemplateCreateManyRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -1179,6 +1254,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<BusinessProcess> UpdateManyAsync(ConversionPresetTemplateUpdateManyRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -1193,6 +1269,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<BusinessProcess> DeleteManyAsync(ConversionPresetTemplateDeleteManyRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -1212,6 +1289,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<DisplayValueStatus> GetStatusAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -1225,6 +1303,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<BusinessProcess> RerenderAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -1246,6 +1325,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<DocumentHistory> GetCurrentAsync(string documentType, string documentId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -1262,6 +1342,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<DocumentHistory> GetVersionAsync(string documentType, string documentId, long documentVersion, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -1278,6 +1359,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<DocumentHistoryDifference> CompareWithCurrentAsync(string documentType, string documentId, long? version = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -1295,6 +1377,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<DocumentHistoryDifference> CompareWithVersionAsync(string documentType, string documentId, long documentVersion, long? version = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -1309,6 +1392,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<DocumentHistorySearchResult> SearchAsync(DocumentHistorySearchRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -1328,6 +1412,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<System.Collections.Generic.ICollection<IdentityProvider>> GetAllAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -1341,6 +1426,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<System.Collections.Generic.ICollection<IdentityProviderBasicInfo>> GetAllBasicInfosAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -1355,6 +1441,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<IdentityProvider> GetAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -1370,6 +1457,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<IdentityProvider> UpdateAsync(string id, IdentityProviderEditable provider, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -1383,6 +1471,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<System.Collections.Generic.ICollection<string>> GetSynchronizableAttributesAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -1439,6 +1528,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<ListItemDetail> GetAsync(string id, System.Collections.Generic.IEnumerable<ListItemResolveBehavior> resolveBehaviors = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -1457,6 +1547,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="ReferencesUpdateException">Validation prevents deletion of item</exception>
@@ -1478,6 +1569,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task RestoreAsync(string id, bool? allowMissingDependencies = null, System.TimeSpan? timeout = null, bool? waitSearchDocCreation = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -1493,6 +1585,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<ListItemReferencesResult> GetReferencesAsync(string id, ListItemReferencesRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -1513,6 +1606,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<ListItemDetail> CreateAsync(ListItemCreateRequest request, System.Collections.Generic.IEnumerable<ListItemResolveBehavior> resolveBehaviors = null, bool? allowMissingDependencies = null, System.TimeSpan? timeout = null, bool? waitSearchDocCreation = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -1528,6 +1622,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<System.Collections.Generic.ICollection<ListItemDetail>> GetManyAsync(System.Collections.Generic.IEnumerable<string> ids = null, System.Collections.Generic.IEnumerable<ListItemResolveBehavior> resolveBehaviors = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -1542,6 +1637,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<BusinessProcess> DeleteManyAsync(ListItemDeleteManyRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -1556,6 +1652,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<BusinessProcess> DeleteManyByFilterAsync(ListItemDeleteManyFilterRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -1570,6 +1667,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<BusinessProcess> RestoreManyAsync(ListItemRestoreManyRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -1584,6 +1682,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<ListItemReferencesResult> GetReferencesManyAsync(ListItemManyReferencesRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -1598,6 +1697,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<ListItemSearchResult> SearchAsync(ListItemSearchRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -1612,6 +1712,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<ObjectAggregationResult> AggregateAsync(ListItemAggregationRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -1632,6 +1733,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<LiveStreamSearchResult> SearchAsync(LiveStreamSearchRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -1651,6 +1753,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<MetadataStatus> GetStatusAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -1664,6 +1767,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<BusinessProcess> UpdateOutdatedAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -1684,6 +1788,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<Notification> GetAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -1698,6 +1803,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<Notification> MarkAsReadAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -1712,6 +1818,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<NotificationCompactResult> SearchAsync(NotificationSearchRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -1726,6 +1833,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<ObjectAggregationResult> AggregateAsync(NotificationAggregationRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -1738,6 +1846,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task MarkAllAsReadAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -1751,6 +1860,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<EmailNotificationsSettings> GetEmailNotificationSettingsAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -1765,6 +1875,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<EmailNotificationsSettings> PutEmailNotificationSettingsAsync(EmailNotificationsSettings configuration, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -1777,6 +1888,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<System.Collections.Generic.IDictionary<string, System.Collections.Generic.ICollection<NotificationType>>> GetAvailableNotificationTypesAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -1801,6 +1913,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<BusinessProcess> SetDownloadFileNamePatternsAsync(string id, System.Collections.Generic.IDictionary<string, string> patterns, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -1815,6 +1928,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<BusinessProcess> SetDownloadFileNamePatternsManyAsync(OutputFormatDownloadFileNamePatternUpdateManyRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -1830,6 +1944,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<BusinessProcess> SetXmpWritebackStateAsync(string id, OutputFormatSetXmpWritebackStateRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -1844,6 +1959,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<BusinessProcess> SetXmpWritebackStateManyAsync(OutputFormatSetXmpWritebackStateManyRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -1859,6 +1975,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<BusinessProcess> SetPermissionAsync(string id, OutputFormatSetPermissionRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -1873,6 +1990,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<BusinessProcess> SetPermissionManyAsync(OutputFormatSetPermissionManyRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -1887,6 +2005,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<FileResponse> RenderFormatPreviewAsync(OutputFormatRenderPreviewRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -1900,6 +2019,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="RequestSizeLimitExceededException">List of IDs exceeded maximum size</exception>
@@ -1916,6 +2036,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<OutputFormatDetail> GetAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -1936,6 +2057,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<OutputDetail> GetAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -1950,6 +2072,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<OutputSearchResult> SearchAsync(OutputSearchRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -1964,6 +2087,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<BusinessProcess> ResetRetryAttemptsAsync(OutputResetRetryAttemptsRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -1983,6 +2107,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<UserProfile> GetAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -1997,6 +2122,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<UserProfile> UpdateAsync(UserProfileUpdateRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -2010,6 +2136,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task RequestDeletionAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -2030,6 +2157,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<SchemaPermissionSetDetail> GetAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -2045,6 +2173,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<SchemaPermissionSetDetail> UpdateAsync(string id, SchemaPermissionSetUpdateRequest permissionSet, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -2058,6 +2187,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task DeleteAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -2072,6 +2202,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<SchemaPermissionSetDetail> CreateAsync(SchemaPermissionSetCreateRequest permissionSet, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -2086,6 +2217,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<System.Collections.Generic.ICollection<SchemaPermissionSetDetail>> GetManyAsync(System.Collections.Generic.IEnumerable<string> ids = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -2100,6 +2232,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task TransferOwnershipAsync(string id, PermissionSetOwnershipTransferRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -2114,6 +2247,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<System.Collections.Generic.ICollection<PermissionSetRight>> GetPermissionsAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -2128,6 +2262,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<BulkResponse> CreateManyAsync(SchemaPermissionSetCreateManyRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -2142,6 +2277,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<BulkResponse> UpdateManyAsync(SchemaPermissionSetUpdateManyRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -2156,6 +2292,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<BulkResponse> DeleteManyAsync(PermissionSetDeleteManyRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -2169,6 +2306,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task TransferOwnershipManyAsync(PermissionSetOwnershipTransferManyRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -2183,6 +2321,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<System.Collections.Generic.ICollection<PermissionSetUserPermissionRights>> GetPermissionsManyAsync(System.Collections.Generic.IEnumerable<string> ids = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -2197,6 +2336,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<PermissionSetSearchResult> SearchAsync(PermissionSetSearchRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -2216,6 +2356,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="SchemaNotFoundException">Requested schema could not be found</exception>
@@ -2233,6 +2374,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkArgumentNullException">Argument must not be null</exception>
@@ -2252,6 +2394,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkArgumentNullException">Argument must not be null</exception>
@@ -2272,6 +2415,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<FieldExistsResponse> FieldExistsAsync(string schemaId, string fieldId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -2286,6 +2430,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="RequestSizeLimitExceededException">List of IDs exceeded maximum size</exception>
@@ -2305,6 +2450,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task TransferOwnershipAsync(string id, SchemaOwnershipTransferRequest request, System.TimeSpan? timeout = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -2320,6 +2466,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="DuplicateSchemaException">Schema with this name already exists</exception>
@@ -2337,6 +2484,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="RequestSizeLimitExceededException">List of IDs exceeded maximum size</exception>
@@ -2354,6 +2502,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<System.Collections.Generic.ICollection<SchemaDetail>> GetManyReferencedAsync(System.Collections.Generic.IEnumerable<string> ids = null, bool? sourceSchema = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -2368,6 +2517,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<BusinessProcess> TransferOwnershipManyAsync(SchemaOwnershipTransferManyRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -2382,6 +2532,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<SchemaSearchResult> SearchAsync(SchemaSearchRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -2396,6 +2547,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<System.Collections.Generic.ICollection<FieldInfo>> GetAggregationFieldsAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -2410,6 +2562,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<System.Collections.Generic.ICollection<FieldInfo>> GetAggregationFieldsManyAsync(System.Collections.Generic.IEnumerable<string> ids = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -2424,6 +2577,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<System.Collections.Generic.ICollection<FieldInfo>> GetFilterFieldsAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -2438,6 +2592,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<System.Collections.Generic.ICollection<FieldInfo>> GetFilterFieldsManyAsync(System.Collections.Generic.IEnumerable<string> ids = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -2452,6 +2607,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<System.Collections.Generic.ICollection<SortFieldInfo>> GetSortFieldsBySchemaTypesAsync(System.Collections.Generic.IEnumerable<SchemaType> schemaTypes = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -2471,6 +2627,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="FileTransferNotFoundException">File transfer not found</exception>
@@ -2497,6 +2654,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<ShareDetail> GetShareJsonAsync(string token, string lang = null, System.Collections.Generic.IEnumerable<ShareResolveBehavior> resolveBehaviors = null, int? contentResolveLimit = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -2514,6 +2672,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<ShareContentDetailResult> GetShareContentsAsync(string token, string lang = null, int? limit = null, string pageToken = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -2528,6 +2687,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<ShareOutputsResult> GetOutputsInShareAsync(string token, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -2544,6 +2704,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<FileResponse> DownloadAsync(string token, int? width = null, int? height = null, string range = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -2559,6 +2720,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<DownloadLink> CreateShareSelectionDownloadLinkAsync(string token, ShareDownloadRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -2577,6 +2739,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<FileResponse> DownloadSingleContentAsync(string token, string contentId, string outputFormatId, int? width = null, int? height = null, string range = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -2592,6 +2755,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<FileResponse> DownloadWithConversionPresetAsync(string token, string conversionPreset, string range = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -2607,6 +2771,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="ShareNotFoundException">Share could not be found</exception>
@@ -2623,6 +2788,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="BusinessProcessLifeCycleNotHitException">A server side error occurred.</exception>
@@ -2641,6 +2807,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<ShareContentDetailResult> GetContentsInShareAsync(string id, int? limit = null, string pageToken = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -2653,6 +2820,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="ApiException">A server side error occurred.</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PermissionValidationException">No permission to share</exception>
@@ -2671,6 +2839,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<BusinessProcess> DeleteManyAsync(ShareDeleteManyRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -2685,6 +2854,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<BusinessProcess> RevokeAsync(ShareRevokeManyRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -2699,6 +2869,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<ObjectAggregationResult> AggregateAsync(ShareAggregationRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -2713,6 +2884,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<ShareSearchResult> SearchAsync(ShareSearchRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -2733,6 +2905,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<ContentStatisticsAggregated> GetSingleContentStatisticsAsync(string contentId, System.Collections.Generic.IEnumerable<System.TimeSpan> timeFrames = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -2747,6 +2920,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<BusinessProcess> ExportContentStatisticsAsync(ExportContentStatisticsRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -2761,6 +2935,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<DownloadLink> ResolveDownloadLinkAsync(string referenceId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -2775,6 +2950,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<BusinessProcess> AddContentEventsAsync(AddContentEventsRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -2795,6 +2971,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<Template> GetAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -2810,6 +2987,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<Template> UpdateAsync(string id, TemplateUpdateRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -2823,6 +3001,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task DeleteAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -2837,6 +3016,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<Template> CreateAsync(TemplateCreateRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -2850,6 +3030,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<System.Collections.Generic.ICollection<Template>> GetAllAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -2864,6 +3045,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<TemplateSearchResult> SearchAsync(TemplateSearchRequest searchRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -2883,6 +3065,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="MaximumTransferSizeException">A server side error occurred.</exception>
@@ -2899,6 +3082,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<TransferDetail> GetAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -2913,6 +3097,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task DeleteAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -2928,6 +3113,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<Transfer> ImportAsync(string id, ImportTransferRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -2943,6 +3129,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<Transfer> PartialImportAsync(string id, ImportTransferPartialRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -2957,6 +3144,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task CancelAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -2971,6 +3159,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<TransferSearchResult> SearchAsync(TransferSearchRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -2985,6 +3174,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<FileTransferDetail> GetFileAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -2999,6 +3189,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<FileTransferSearchResult> SearchFilesAsync(FileTransferSearchRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -3012,6 +3203,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task DeleteFilesAsync(FileTransferDeleteRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -3025,6 +3217,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<Blacklist> GetBlacklistAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -3045,6 +3238,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task UploadFileAsync(long chunkNumber, long currentChunkSize, long totalSize, long totalChunks, string transferId, string requestId, System.IO.Stream body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -3065,6 +3259,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<UserRoleSearchResult> SearchAsync(UserRoleSearchRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -3078,6 +3273,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="RequestSizeLimitExceededException">List of IDs exceeded maximum size</exception>
@@ -3094,6 +3290,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<UserRoleDetail> CreateAsync(UserRoleCreateRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -3108,6 +3305,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<BulkResponse> CreateManyAsync(UserRoleCreateManyRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -3122,6 +3320,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<BulkResponse> UpdateManyAsync(UserRoleUpdateManyRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -3136,6 +3335,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<BulkResponse> DeleteManyAsync(UserRoleDeleteManyRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -3150,6 +3350,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<UserRoleDetail> GetAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -3165,6 +3366,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<UserRoleDetail> UpdateAsync(string id, UserRoleEditable request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -3178,6 +3380,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task DeleteAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -3198,6 +3401,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<UserDetail> GetAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -3213,6 +3417,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<UserDetail> UpdateAsync(string id, UserUpdateRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -3228,6 +3433,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task LockAsync(string id, UserLockRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -3242,6 +3448,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<BusinessProcess> LockManyAsync(UserLockManyRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -3257,6 +3464,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task ReviewAsync(string id, UserReviewRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -3271,6 +3479,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<BusinessProcess> ReviewManyAsync(UserReviewManyRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -3285,6 +3494,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task InviteAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -3299,6 +3509,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<BusinessProcess> InviteManyAsync(UserInviteManyRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -3313,6 +3524,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task ReinviteAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -3327,6 +3539,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<BusinessProcess> ReInviteManyAsync(UserReinviteManyRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -3341,6 +3554,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<BusinessProcess> AssignUserRolesAsync(UserRoleAssignManyRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -3356,6 +3570,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task DeleteAsync(string id, UserDeleteRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -3370,6 +3585,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task ArchiveAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -3384,6 +3600,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task RestoreAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -3398,6 +3615,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task CancelDeletionRequestAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -3412,6 +3630,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<UserDetail> GetByOwnerTokenAsync(string tokenId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -3426,6 +3645,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<UserDetail> CreateAsync(UserCreateRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -3440,6 +3660,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<System.Collections.Generic.ICollection<UserDetail>> GetManyAsync(System.Collections.Generic.IEnumerable<string> ids = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -3454,6 +3675,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<UserSearchResult> SearchAsync(UserSearchRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -3468,6 +3690,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<ObjectAggregationResult> AggregateAsync(UserAggregationRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -3482,6 +3705,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<BusinessProcess> UpdateIdentityProviderManyAsync(UserUpdateIdentityProviderManyRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -3496,6 +3720,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<UserListResult> ListAsync(UserListRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -3515,6 +3740,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<XmpMappingTargets> GetAvailableTargetsAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -3529,6 +3755,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<XmpMappingEntrySearchResult> SearchAsync(XmpMappingEntrySearchRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -3543,6 +3770,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<BusinessProcess> CreateAsync(XmpMappingEntryCreateRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -3556,6 +3784,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkValidationException">Validation exception</exception>
         /// <exception cref="RequestSizeLimitExceededException">List of IDs exceeded maximum size</exception>
@@ -3573,6 +3802,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<BusinessProcess> UpdateAsync(string id, XmpMappingEntry request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -3587,6 +3817,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<BusinessProcess> DeleteAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -3601,6 +3832,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<XmpMappingEntry> GetAsync(string id, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -3615,6 +3847,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<BusinessProcess> CreateManyAsync(XmpMappingEntryCreateManyRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -3629,6 +3862,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<BusinessProcess> UpdateManyAsync(XmpMappingEntryUpdateManyRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -3643,6 +3877,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
         System.Threading.Tasks.Task<BusinessProcess> DeleteManyAsync(XmpMappingEntryDeleteManyRequest request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
@@ -3963,6 +4198,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("PictureparkForbiddenException", typeof(PictureparkForbiddenException))]
     [JsonInheritanceAttribute("PictureparkNotFoundException", typeof(PictureparkNotFoundException))]
     [JsonInheritanceAttribute("PictureparkConflictException", typeof(PictureparkConflictException))]
+    [JsonInheritanceAttribute("PictureparkTooManyRequestsException", typeof(PictureparkTooManyRequestsException))]
     [JsonInheritanceAttribute("ContentNotFoundException", typeof(ContentNotFoundException))]
     [JsonInheritanceAttribute("ReferencesUpdateException", typeof(ReferencesUpdateException))]
     [JsonInheritanceAttribute("ReferenceUpdateException", typeof(ReferenceUpdateException))]
@@ -4051,7 +4287,6 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("MissingCustomerDefaultLanguageException", typeof(MissingCustomerDefaultLanguageException))]
     [JsonInheritanceAttribute("PartialOperationNotSupportedException", typeof(PartialOperationNotSupportedException))]
     [JsonInheritanceAttribute("ContractMismatchException", typeof(ContractMismatchException))]
-    [JsonInheritanceAttribute("PictureparkTooManyRequestsException", typeof(PictureparkTooManyRequestsException))]
     [JsonInheritanceAttribute("InvalidArgumentException", typeof(InvalidArgumentException))]
     [JsonInheritanceAttribute("UnknownException", typeof(UnknownException))]
     [JsonInheritanceAttribute("OwnerTokenInUseException", typeof(OwnerTokenInUseException))]
@@ -16535,32 +16770,37 @@ namespace Picturepark.SDK.V1.Contract
         /// <summary>
         /// Rules.
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("rules", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<BusinessRule> Rules { get; set; }
+        [Newtonsoft.Json.JsonProperty("rules", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.Collections.Generic.ICollection<BusinessRule> Rules { get; set; } = new System.Collections.Generic.List<BusinessRule>();
 
         /// <summary>
         /// Named caches.
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("caches", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<NamedCacheConfigurationBase> Caches { get; set; }
+        [Newtonsoft.Json.JsonProperty("caches", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.Collections.Generic.ICollection<NamedCacheConfigurationBase> Caches { get; set; } = new System.Collections.Generic.List<NamedCacheConfigurationBase>();
 
         /// <summary>
         /// Notifications.
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("notifications", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<BusinessRuleNotification> Notifications { get; set; }
+        [Newtonsoft.Json.JsonProperty("notifications", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.Collections.Generic.ICollection<BusinessRuleNotification> Notifications { get; set; } = new System.Collections.Generic.List<BusinessRuleNotification>();
 
         /// <summary>
         /// Numbers sequences.
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("numberSequences", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<BusinessRuleNumberSequence> NumberSequences { get; set; }
+        [Newtonsoft.Json.JsonProperty("numberSequences", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.Collections.Generic.ICollection<BusinessRuleNumberSequence> NumberSequences { get; set; } = new System.Collections.Generic.List<BusinessRuleNumberSequence>();
 
         /// <summary>
         /// Schedules.
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("schedules", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public System.Collections.Generic.ICollection<BusinessRuleSchedule> Schedules { get; set; }
+        [Newtonsoft.Json.JsonProperty("schedules", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public System.Collections.Generic.ICollection<BusinessRuleSchedule> Schedules { get; set; } = new System.Collections.Generic.List<BusinessRuleSchedule>();
 
         public string ToJson()
         {
@@ -16589,7 +16829,8 @@ namespace Picturepark.SDK.V1.Contract
         /// <summary>
         /// User defined ID of the rule.
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
         public string Id { get; set; }
 
         /// <summary>
@@ -18910,7 +19151,8 @@ namespace Picturepark.SDK.V1.Contract
         /// <summary>
         /// Name of named cache.
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
         public string Name { get; set; }
 
         /// <summary>
@@ -19058,7 +19300,8 @@ namespace Picturepark.SDK.V1.Contract
         /// <summary>
         /// ID of the notification.
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
         public string Id { get; set; }
 
         /// <summary>
@@ -19109,7 +19352,8 @@ namespace Picturepark.SDK.V1.Contract
         /// <summary>
         /// ID of number sequence.
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("id", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
         public string Id { get; set; }
 
         /// <summary>
