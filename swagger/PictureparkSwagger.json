@@ -48470,6 +48470,7 @@
         "x-abstract": true,
         "additionalProperties": false,
         "required": [
+          "name",
           "kind",
           "caseSensitive"
         ],
@@ -48477,7 +48478,7 @@
           "name": {
             "type": "string",
             "description": "Name of named cache.",
-            "nullable": true
+            "minLength": 1
           },
           "caseSensitive": {
             "type": "boolean",

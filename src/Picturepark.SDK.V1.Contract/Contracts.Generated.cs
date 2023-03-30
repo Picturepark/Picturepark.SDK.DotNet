@@ -19386,7 +19386,8 @@ namespace Picturepark.SDK.V1.Contract
         /// <summary>
         /// Name of named cache.
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        [Newtonsoft.Json.JsonProperty("name", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
         public string Name { get; set; }
 
         /// <summary>
