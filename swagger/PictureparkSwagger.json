@@ -9503,6 +9503,261 @@
         ]
       }
     },
+    "/v1/Contents/{id}/displayContent/set": {
+      "put": {
+        "tags": [
+          "Content"
+        ],
+        "summary": "Sets/unsets a DisplayContent for a content with an id given in the request",
+        "operationId": "Content_SetDisplayContent",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "Id of the content",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 1
+          },
+          {
+            "name": "resolveBehaviors",
+            "in": "query",
+            "style": "form",
+            "explode": true,
+            "description": "List of enums that control which parts of the content are resolved and returned.",
+            "schema": {
+              "type": "array",
+              "nullable": true,
+              "items": {
+                "$ref": "#/components/schemas/ContentResolveBehavior"
+              }
+            },
+            "x-position": 3
+          },
+          {
+            "name": "timeout",
+            "in": "query",
+            "description": "Timeout for the operation",
+            "schema": {
+              "type": "string",
+              "format": "duration",
+              "nullable": true
+            },
+            "x-position": 4
+          },
+          {
+            "name": "waitForContinuation",
+            "in": "query",
+            "description": "Wait for the creation of the search doc update.",
+            "schema": {
+              "type": "boolean"
+            },
+            "x-position": 5
+          }
+        ],
+        "requestBody": {
+          "x-name": "setDisplayContentRequest",
+          "description": "Request with a content and displayContent ids",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SetDisplayContentRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 2
+        },
+        "responses": {
+          "200": {
+            "description": "Result of the operation"
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkTooManyRequestsException"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "content_write"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/Contents/many/displayContent": {
+      "post": {
+        "tags": [
+          "Content"
+        ],
+        "summary": "Process many requests to set/unset display contents for given contents",
+        "operationId": "Content_SetManyDisplayContents",
+        "requestBody": {
+          "x-name": "setDisplayContentsManyRequest",
+          "description": "Set many display contents request",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SetDisplayContentsManyRequest"
+              }
+            }
+          },
+          "required": true,
+          "x-position": 1
+        },
+        "responses": {
+          "200": {
+            "description": "Business process",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BusinessProcess"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkTooManyRequestsException"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "Bearer": [
+              "content_write"
+            ]
+          }
+        ]
+      }
+    },
     "/v1/ConversionPresetTemplates/search": {
       "post": {
         "tags": [
@@ -36352,7 +36607,8 @@
           "OuterDisplayValueName",
           "HistoricVersionCount",
           "DynamicViewFields",
-          "DynamicViewFieldsWithHasItems"
+          "DynamicViewFieldsWithHasItems",
+          "DisplayContentOutputs"
         ],
         "enum": [
           "Content",
@@ -36371,7 +36627,8 @@
           "OuterDisplayValueName",
           "HistoricVersionCount",
           "DynamicViewFields",
-          "DynamicViewFieldsWithHasItems"
+          "DynamicViewFieldsWithHasItems",
+          "DisplayContentOutputs"
         ]
       },
       "BusinessProcessEngineRequestException": {
@@ -38336,6 +38593,27 @@
                 "nullable": true
               },
               "contentId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "DisplayContentNotFoundException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkNotFoundException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "contentId": {
+                "type": "string",
+                "nullable": true
+              },
+              "displayContentId": {
                 "type": "string",
                 "nullable": true
               }
@@ -44083,6 +44361,14 @@
               "$ref": "#/components/schemas/Output"
             }
           },
+          "displayContentOutputs": {
+            "type": "array",
+            "description": "The Outputs generated from the related display contents",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/Output"
+            }
+          },
           "audit": {
             "description": "Audit information.",
             "nullable": true,
@@ -44884,6 +45170,15 @@
                 "$ref": "#/components/schemas/ContentShareReferenceResult"
               }
             ]
+          },
+          "displayContentUsagesReferences": {
+            "description": "List of usages as the display content",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/DisplayContentUsagesReferenceResult"
+              }
+            ]
           }
         }
       },
@@ -45070,6 +45365,52 @@
           "Embed"
         ]
       },
+      "DisplayContentUsagesReferenceResult": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/BaseResultOfString"
+          },
+          {
+            "type": "object",
+            "description": "Result class for display content reference search",
+            "additionalProperties": false
+          }
+        ]
+      },
+      "BaseResultOfString": {
+        "type": "object",
+        "description": "Base class for search results",
+        "additionalProperties": false,
+        "required": [
+          "results",
+          "totalResults",
+          "elapsedMilliseconds"
+        ],
+        "properties": {
+          "totalResults": {
+            "type": "integer",
+            "description": "The total number of matching documents.",
+            "format": "int64"
+          },
+          "results": {
+            "type": "array",
+            "description": "The matched documents.",
+            "items": {
+              "type": "string"
+            }
+          },
+          "elapsedMilliseconds": {
+            "type": "integer",
+            "description": "The search execution time in milliseconds.",
+            "format": "int64"
+          },
+          "pageToken": {
+            "type": "string",
+            "description": "An optional token to access the next page of results for those endpoints that support backend scrolling logic.",
+            "nullable": true
+          }
+        }
+      },
       "ContentReferencesRequest": {
         "type": "object",
         "description": "Request to get the references to a content",
@@ -45085,6 +45426,15 @@
             ]
           },
           "shares": {
+            "description": "Limits the number of the returned share references by setting paging information.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/PagingRequest"
+              }
+            ]
+          },
+          "usagesAsDisplayContent": {
             "description": "Limits the number of the returned share references by setting paging information.",
             "nullable": true,
             "oneOf": [
@@ -45609,6 +45959,15 @@
           },
           "shares": {
             "description": "Limits the number of the returned share references by setting paging information.",
+            "nullable": true,
+            "oneOf": [
+              {
+                "$ref": "#/components/schemas/PagingRequest"
+              }
+            ]
+          },
+          "usagesAsDisplayContent": {
+            "description": "Limits the number of the returned contentIds referencing as DisplayContent by setting paging information.",
             "nullable": true,
             "oneOf": [
               {
@@ -46812,6 +47171,55 @@
             "default": false
           }
         }
+      },
+      "SetDisplayContentRequest": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "displayContentId": {
+            "type": "string",
+            "description": "Id of the content which is supposed to be a DisplayContent",
+            "nullable": true
+          }
+        }
+      },
+      "SetDisplayContentsManyRequest": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "items"
+        ],
+        "properties": {
+          "items": {
+            "type": "array",
+            "description": "List of Content Permissions ownership transfer items.",
+            "items": {
+              "$ref": "#/components/schemas/SetDisplayContentItem"
+            }
+          }
+        }
+      },
+      "SetDisplayContentItem": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/SetDisplayContentRequest"
+          },
+          {
+            "type": "object",
+            "description": "Set display content item",
+            "additionalProperties": false,
+            "required": [
+              "contentId"
+            ],
+            "properties": {
+              "contentId": {
+                "type": "string",
+                "description": "The content ID.",
+                "minLength": 1
+              }
+            }
+          }
+        ]
       },
       "ConversionPresetTemplateSearchResult": {
         "allOf": [
@@ -55524,6 +55932,14 @@
             "type": "string",
             "description": "Contains an URL that can be used to retrieve the icon corresponding to the file type.",
             "nullable": true
+          },
+          "displayContentOutputs": {
+            "type": "array",
+            "description": "The Outputs generated from the related display contents",
+            "nullable": true,
+            "items": {
+              "$ref": "#/components/schemas/Output"
+            }
           }
         }
       },

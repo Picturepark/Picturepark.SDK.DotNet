@@ -20654,7 +20654,8 @@
           "OuterDisplayValueName",
           "HistoricVersionCount",
           "DynamicViewFields",
-          "DynamicViewFieldsWithHasItems"
+          "DynamicViewFieldsWithHasItems",
+          "DisplayContentOutputs"
         ],
         "enum": [
           "Content",
@@ -20673,7 +20674,8 @@
           "OuterDisplayValueName",
           "HistoricVersionCount",
           "DynamicViewFields",
-          "DynamicViewFieldsWithHasItems"
+          "DynamicViewFieldsWithHasItems",
+          "DisplayContentOutputs"
         ]
       },
       "BusinessProcessEngineRequestException": {
@@ -22638,6 +22640,27 @@
                 "nullable": true
               },
               "contentId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
+      "DisplayContentNotFoundException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkNotFoundException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "contentId": {
+                "type": "string",
+                "nullable": true
+              },
+              "displayContentId": {
                 "type": "string",
                 "nullable": true
               }
