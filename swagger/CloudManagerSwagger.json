@@ -22656,13 +22656,12 @@
             "type": "object",
             "additionalProperties": false,
             "properties": {
-              "contentId": {
-                "type": "string",
-                "nullable": true
-              },
-              "displayContentId": {
-                "type": "string",
-                "nullable": true
+              "idsOfContentsBeingDisplayContents": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "type": "string"
+                }
               }
             }
           }

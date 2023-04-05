@@ -9503,7 +9503,7 @@
         ]
       }
     },
-    "/v1/Contents/{id}/displayContent/set": {
+    "/v1/Contents/{id}/displayContent": {
       "put": {
         "tags": [
           "Content"
@@ -38609,13 +38609,12 @@
             "type": "object",
             "additionalProperties": false,
             "properties": {
-              "contentId": {
-                "type": "string",
-                "nullable": true
-              },
-              "displayContentId": {
-                "type": "string",
-                "nullable": true
+              "idsOfContentsBeingDisplayContents": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "type": "string"
+                }
               }
             }
           }
@@ -44363,7 +44362,7 @@
           },
           "displayContentOutputs": {
             "type": "array",
-            "description": "The Outputs generated from the related display contents",
+            "description": "The Outputs generated from the display content.",
             "nullable": true,
             "items": {
               "$ref": "#/components/schemas/Output"
@@ -45434,8 +45433,8 @@
               }
             ]
           },
-          "usagesAsDisplayContent": {
-            "description": "Limits the number of the returned share references by setting paging information.",
+          "displayContentUsages": {
+            "description": "Limits the number of the returned display content usages by setting paging information.",
             "nullable": true,
             "oneOf": [
               {
@@ -45966,7 +45965,7 @@
               }
             ]
           },
-          "usagesAsDisplayContent": {
+          "displayContentUsages": {
             "description": "Limits the number of the returned contentIds referencing as DisplayContent by setting paging information.",
             "nullable": true,
             "oneOf": [
@@ -47178,7 +47177,7 @@
         "properties": {
           "displayContentId": {
             "type": "string",
-            "description": "Id of the content which is supposed to be a DisplayContent",
+            "description": "Id of the content which is supposed to be a DisplayContent. Intentionally nullable, null on the the property means the 'unset' operation",
             "nullable": true
           }
         }
@@ -47192,7 +47191,7 @@
         "properties": {
           "items": {
             "type": "array",
-            "description": "List of Content Permissions ownership transfer items.",
+            "description": "List of set display content items",
             "items": {
               "$ref": "#/components/schemas/SetDisplayContentItem"
             }
@@ -55935,7 +55934,7 @@
           },
           "displayContentOutputs": {
             "type": "array",
-            "description": "The Outputs generated from the related display contents",
+            "description": "The Outputs generated from the related display content.",
             "nullable": true,
             "items": {
               "$ref": "#/components/schemas/Output"

@@ -14995,7 +14995,7 @@ namespace Picturepark.SDK.V1
                 throw new System.ArgumentNullException("setDisplayContentRequest");
 
             var urlBuilder_ = new System.Text.StringBuilder();
-            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/Contents/{id}/displayContent/set?");
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/Contents/{id}/displayContent?");
             urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
             if (resolveBehaviors != null)
             {

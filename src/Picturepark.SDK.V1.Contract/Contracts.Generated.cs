@@ -14376,11 +14376,8 @@ namespace Picturepark.SDK.V1.Contract
     [Newtonsoft.Json.JsonObjectAttribute]
     public partial class DisplayContentNotFoundException : PictureparkNotFoundException
     {
-        [Newtonsoft.Json.JsonProperty("contentId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string ContentId { get; set; }
-
-        [Newtonsoft.Json.JsonProperty("displayContentId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public string DisplayContentId { get; set; }
+        [Newtonsoft.Json.JsonProperty("idsOfContentsBeingDisplayContents", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> IdsOfContentsBeingDisplayContents { get; set; }
 
         public string ToJson()
         {
@@ -21619,7 +21616,7 @@ namespace Picturepark.SDK.V1.Contract
         public System.Collections.Generic.ICollection<Output> Outputs { get; set; }
 
         /// <summary>
-        /// The Outputs generated from the related display contents
+        /// The Outputs generated from the display content.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("displayContentOutputs", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<Output> DisplayContentOutputs { get; set; }
@@ -23066,10 +23063,10 @@ namespace Picturepark.SDK.V1.Contract
         public PagingRequest Shares { get; set; }
 
         /// <summary>
-        /// Limits the number of the returned share references by setting paging information.
+        /// Limits the number of the returned display content usages by setting paging information.
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("usagesAsDisplayContent", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public PagingRequest UsagesAsDisplayContent { get; set; }
+        [Newtonsoft.Json.JsonProperty("displayContentUsages", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public PagingRequest DisplayContentUsages { get; set; }
 
         public string ToJson()
         {
@@ -23790,8 +23787,8 @@ namespace Picturepark.SDK.V1.Contract
         /// <summary>
         /// Limits the number of the returned contentIds referencing as DisplayContent by setting paging information.
         /// </summary>
-        [Newtonsoft.Json.JsonProperty("usagesAsDisplayContent", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
-        public PagingRequest UsagesAsDisplayContent { get; set; }
+        [Newtonsoft.Json.JsonProperty("displayContentUsages", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public PagingRequest DisplayContentUsages { get; set; }
 
         public string ToJson()
         {
@@ -25255,7 +25252,7 @@ namespace Picturepark.SDK.V1.Contract
     public partial class SetDisplayContentRequest
     {
         /// <summary>
-        /// Id of the content which is supposed to be a DisplayContent
+        /// Id of the content which is supposed to be a DisplayContent. Intentionally nullable, null on the the property means the 'unset' operation
         /// </summary>
         [Newtonsoft.Json.JsonProperty("displayContentId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string DisplayContentId { get; set; }
@@ -25279,7 +25276,7 @@ namespace Picturepark.SDK.V1.Contract
     public partial class SetDisplayContentsManyRequest
     {
         /// <summary>
-        /// List of Content Permissions ownership transfer items.
+        /// List of set display content items
         /// </summary>
         [Newtonsoft.Json.JsonProperty("items", Required = Newtonsoft.Json.Required.Always)]
         [System.ComponentModel.DataAnnotations.Required]
@@ -36270,7 +36267,7 @@ namespace Picturepark.SDK.V1.Contract
         public string IconUrl { get; set; }
 
         /// <summary>
-        /// The Outputs generated from the related display contents
+        /// The Outputs generated from the related display content.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("displayContentOutputs", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<Output> DisplayContentOutputs { get; set; }
