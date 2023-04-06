@@ -22647,26 +22647,6 @@
           }
         ]
       },
-      "DisplayContentNotFoundException": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/PictureparkNotFoundException"
-          },
-          {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "idsOfContentsBeingDisplayContents": {
-                "type": "array",
-                "nullable": true,
-                "items": {
-                  "type": "string"
-                }
-              }
-            }
-          }
-        ]
-      },
       "BusinessProcessSearchResult": {
         "allOf": [
           {

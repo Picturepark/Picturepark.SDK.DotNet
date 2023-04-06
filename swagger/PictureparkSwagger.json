@@ -9560,7 +9560,7 @@
         ],
         "requestBody": {
           "x-name": "setDisplayContentRequest",
-          "description": "Request with a content and displayContent ids",
+          "description": "Request with DisplayContentId",
           "content": {
             "application/json": {
               "schema": {
@@ -38595,26 +38595,6 @@
               "contentId": {
                 "type": "string",
                 "nullable": true
-              }
-            }
-          }
-        ]
-      },
-      "DisplayContentNotFoundException": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/PictureparkNotFoundException"
-          },
-          {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
-              "idsOfContentsBeingDisplayContents": {
-                "type": "array",
-                "nullable": true,
-                "items": {
-                  "type": "string"
-                }
               }
             }
           }

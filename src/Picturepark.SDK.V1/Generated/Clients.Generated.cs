@@ -14977,7 +14977,7 @@ namespace Picturepark.SDK.V1
         /// Sets/unsets a DisplayContent for a content with an id given in the request
         /// </summary>
         /// <param name="id">Id of the content</param>
-        /// <param name="setDisplayContentRequest">Request with a content and displayContent ids</param>
+        /// <param name="setDisplayContentRequest">Request with DisplayContentId</param>
         /// <param name="resolveBehaviors">List of enums that control which parts of the content are resolved and returned.</param>
         /// <param name="timeout">Timeout for the operation</param>
         /// <param name="waitForContinuation">Wait for the creation of the search doc update.</param>
