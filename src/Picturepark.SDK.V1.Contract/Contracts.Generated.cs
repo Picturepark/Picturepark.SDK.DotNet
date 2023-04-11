@@ -25632,10 +25632,16 @@ namespace Picturepark.SDK.V1.Contract
         public string ContractVersion { get; set; }
 
         /// <summary>
-        /// The bamboo release version. Only provided on bamboo deployments.
+        /// The release version.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("release", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public string Release { get; set; }
+
+        /// <summary>
+        /// Cloud name.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("cloudName", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string CloudName { get; set; }
 
         public string ToJson()
         {
@@ -25776,6 +25782,13 @@ namespace Picturepark.SDK.V1.Contract
         /// </summary>
         [Newtonsoft.Json.JsonProperty("hasDashboard", Required = Newtonsoft.Json.Required.Always)]
         public bool HasDashboard { get; set; }
+
+        /// <summary>
+        /// Cloud name customer is located in.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("cloudName", Required = Newtonsoft.Json.Required.Always)]
+        [System.ComponentModel.DataAnnotations.Required]
+        public string CloudName { get; set; }
 
         public string ToJson()
         {

@@ -1,6 +1,6 @@
 {
   "homepages": [],
-  "source_base_path": "C:/Dev/Picturepark.SDK.DotNet/docs/sdk",
+  "source_base_path": "C:/Dev/projects/Picturepark/Picturepark.SDK.DotNet/docs/sdk",
   "xrefmap": "xrefmap.yml",
   "files": [
     {
@@ -21,7 +21,7 @@
       "output": {
         ".html": {
           "relative_path": "index.html",
-          "hash": "rFlHyAvqKFEeWFCDVUZZQhPY6M0DdkR2xxRv9D7OgJs="
+          "hash": "oWDvtSUE96NrRIhWR+ESswl5wo1+ZomeeI6jXqMcsIY="
         }
       },
       "is_incremental": false,
@@ -1593,7 +1593,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.ClarifaiTaggingConfiguration.html",
-          "hash": "BAhlV+hLUprx4X8/M8KCWu+wxWKF2SMx9AhsoVGBsBA="
+          "hash": "AlGwjpj5ZfTJXmDEaEFSB0UwQRYpC7gRnF4TSyNC3IY="
         }
       },
       "is_incremental": false,
@@ -2841,7 +2841,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.CustomerVersionInfo.html",
-          "hash": "SuTIyklXRQfnSaHg7pAj78/s/mOey81eDRiVI7C/ar0="
+          "hash": "8a+LdBuvu+clCP6nyzGjQ7gNUKPgCsF53ih6KHEgiWw="
         }
       },
       "is_incremental": false,
@@ -8937,7 +8937,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.CloudManager.Contract.VersionInfo.html",
-          "hash": "uzpPnZZIbyI5cLP8SaXosLvnpEAZwfkYrcOd91Mpi0c="
+          "hash": "HnV4tEX03xDXYD8h95LuJEP+HV7XFSm2ntxuUN5AkJA="
         }
       },
       "is_incremental": false,
@@ -13989,7 +13989,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.CustomerInfo.html",
-          "hash": "U97JFoQwVG8tK+CjUgGNj2oJ1Pk3owoW5FCHKQXM7go="
+          "hash": "xsBFLfGATh6XDb8oh7jCdq1ipARvaMiLvzHFRVc0JFI="
         }
       },
       "is_incremental": false,
@@ -24525,7 +24525,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Picturepark.SDK.V1.Contract.VersionInfo.html",
-          "hash": "hOY+LdZHywX7SvZWQv3HU18549WGoipMZ3QftAkxbh4="
+          "hash": "Q1s+JBcJWpgjn2PpCJsRnCTCGTjH3xsvGKGpAfjBDzE="
         }
       },
       "is_incremental": false,
@@ -25871,7 +25871,7 @@
           "can_incremental": true,
           "incrementalPhase": "build",
           "total_file_count": 2150,
-          "skipped_file_count": 97
+          "skipped_file_count": 17
         },
         "TocDocumentProcessor": {
           "can_incremental": false,

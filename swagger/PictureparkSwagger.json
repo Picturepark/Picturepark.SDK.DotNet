@@ -45476,7 +45476,12 @@
           },
           "release": {
             "type": "string",
-            "description": "The bamboo release version. Only provided on bamboo deployments.",
+            "description": "The release version.",
+            "nullable": true
+          },
+          "cloudName": {
+            "type": "string",
+            "description": "Cloud name.",
             "nullable": true
           }
         }
@@ -45502,7 +45507,8 @@
           "logosUrl",
           "licenseInformation",
           "settings",
-          "hasDashboard"
+          "hasDashboard",
+          "cloudName"
         ],
         "properties": {
           "customerId": {
@@ -45611,6 +45617,11 @@
           "hasDashboard": {
             "type": "boolean",
             "description": "True if a dashboard overview template is available."
+          },
+          "cloudName": {
+            "type": "string",
+            "description": "Cloud name customer is located in.",
+            "minLength": 1
           }
         }
       },
