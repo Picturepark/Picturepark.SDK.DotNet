@@ -1145,7 +1145,7 @@ namespace Picturepark.SDK.V1.Contract
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        System.Threading.Tasks.Task SetDisplayContentAsync(string id, SetDisplayContentRequest setDisplayContentRequest, System.Collections.Generic.IEnumerable<ContentResolveBehavior> resolveBehaviors = null, System.TimeSpan? timeout = null, bool? waitForContinuation = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ContentDetail> SetDisplayContentAsync(string id, SetDisplayContentRequest setDisplayContentRequest, System.Collections.Generic.IEnumerable<ContentResolveBehavior> resolveBehaviors = null, System.TimeSpan? timeout = null, bool? waitForContinuation = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>
@@ -21593,6 +21593,12 @@ namespace Picturepark.SDK.V1.Contract
         public System.Collections.Generic.ICollection<Output> Outputs { get; set; }
 
         /// <summary>
+        /// The id of related DisplayContent
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("displayContentId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string DisplayContentId { get; set; }
+
+        /// <summary>
         /// The Outputs generated from the display content.
         /// </summary>
         [Newtonsoft.Json.JsonProperty("displayContentOutputs", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -36248,6 +36254,12 @@ namespace Picturepark.SDK.V1.Contract
         /// </summary>
         [Newtonsoft.Json.JsonProperty("displayContentOutputs", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Collections.Generic.ICollection<Output> DisplayContentOutputs { get; set; }
+
+        /// <summary>
+        /// The id of related DisplayContent
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("displayContentId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string DisplayContentId { get; set; }
 
         public string ToJson()
         {

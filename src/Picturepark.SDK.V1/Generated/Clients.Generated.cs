@@ -14989,7 +14989,7 @@ namespace Picturepark.SDK.V1
         /// <exception cref="PictureparkConflictException">Version conflict</exception>
         /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
         /// <exception cref="PictureparkException">Internal server error</exception>
-        public virtual async System.Threading.Tasks.Task SetDisplayContentAsync(string id, SetDisplayContentRequest setDisplayContentRequest, System.Collections.Generic.IEnumerable<ContentResolveBehavior> resolveBehaviors = null, System.TimeSpan? timeout = null, bool? waitForContinuation = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public virtual async System.Threading.Tasks.Task<ContentDetail> SetDisplayContentAsync(string id, SetDisplayContentRequest setDisplayContentRequest, System.Collections.Generic.IEnumerable<ContentResolveBehavior> resolveBehaviors = null, System.TimeSpan? timeout = null, bool? waitForContinuation = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (setDisplayContentRequest == null)
                 throw new System.ArgumentNullException("setDisplayContentRequest");
@@ -15021,6 +15021,7 @@ namespace Picturepark.SDK.V1
                     content_.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json");
                     request_.Content = content_;
                     request_.Method = new System.Net.Http.HttpMethod("PUT");
+                    request_.Headers.Accept.Add(System.Net.Http.Headers.MediaTypeWithQualityHeaderValue.Parse("application/json"));
 
                     PrepareRequest(client_, request_, urlBuilder_);
 
@@ -15045,7 +15046,12 @@ namespace Picturepark.SDK.V1
                         var status_ = (int)response_.StatusCode;
                         if (status_ == 200)
                         {
-                            return;
+                            var objectResponse_ = await ReadObjectResponseAsync<ContentDetail>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            return objectResponse_.Object;
                         }
                         else
                         if (status_ == 400)

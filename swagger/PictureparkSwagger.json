@@ -9573,7 +9573,14 @@
         },
         "responses": {
           "200": {
-            "description": "Result of the operation"
+            "description": "Result of the operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContentDetail"
+                }
+              }
+            }
           },
           "400": {
             "description": "Validation exception",
@@ -44340,6 +44347,11 @@
               "$ref": "#/components/schemas/Output"
             }
           },
+          "displayContentId": {
+            "type": "string",
+            "description": "The id of related DisplayContent",
+            "nullable": true
+          },
           "displayContentOutputs": {
             "type": "array",
             "description": "The Outputs generated from the display content.",
@@ -55919,6 +55931,11 @@
             "items": {
               "$ref": "#/components/schemas/Output"
             }
+          },
+          "displayContentId": {
+            "type": "string",
+            "description": "The id of related DisplayContent",
+            "nullable": true
           }
         }
       },

@@ -2083,6 +2083,56 @@ namespace Picturepark.SDK.V1.Tests.Clients
             searchResultForFilter.Results.Should().Contain(c => c.Id == content.Id);
         }
 
+        [Fact]
+        public async Task ShouldSetAndUnsetDisplayContent()
+        {
+            // Arrange
+            var randomContents = await _fixture.GetRandomContentsAsync(".jpg", 2).ConfigureAwait(false);
+            var contentIds = randomContents.Results.Select(i => i.Id).ToList();
+
+            var contentId = contentIds[0];
+            var displayContentId = contentIds[1];
+
+            // Act - set the display content
+            var setDisplayContentRequest = new SetDisplayContentRequest
+            {
+                DisplayContentId = displayContentId
+            };
+
+            var result = await _client.Content.SetDisplayContentAsync(
+                contentId,
+                setDisplayContentRequest,
+                new[]
+                {
+                    ContentResolveBehavior.Content,
+                    ContentResolveBehavior.DisplayContentOutputs,
+                });
+
+            // Assert
+            result.DisplayContentId.Should().Be(displayContentId);
+            result.DisplayContentOutputs.Should().NotBeNull();
+            result.DisplayContentOutputs.Should().NotBeEmpty();
+
+            // unset display content by setting the 'DisplayContentId' property to null
+            setDisplayContentRequest = new SetDisplayContentRequest
+            {
+                DisplayContentId = null
+            };
+
+            result = await _client.Content.SetDisplayContentAsync(
+                contentId,
+                setDisplayContentRequest,
+                new[]
+                {
+                    ContentResolveBehavior.Content,
+                    ContentResolveBehavior.DisplayContentOutputs,
+                });
+
+            // Assert
+            result.DisplayContentId.Should().Be(null);
+            result.DisplayContentOutputs.Should().BeEmpty();
+        }
+
         [PictureparkSchema(SchemaType.Content)]
         public class ContentWithDynamicView
         {
