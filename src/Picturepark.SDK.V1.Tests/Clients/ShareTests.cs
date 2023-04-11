@@ -131,6 +131,7 @@ namespace Picturepark.SDK.V1.Tests.Clients
         [Trait("Stack", "Shares")]
         public async Task ShouldUpdateEmbed()
         {
+            // Arrange
             var shareId = await CreateShareAndReturnId(new ShareEmbedCreateRequest
             {
                 Contents = await GetRandomShareContent().ConfigureAwait(false),
