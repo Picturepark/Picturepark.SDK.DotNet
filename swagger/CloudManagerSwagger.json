@@ -20654,7 +20654,8 @@
           "OuterDisplayValueName",
           "HistoricVersionCount",
           "DynamicViewFields",
-          "DynamicViewFieldsWithHasItems"
+          "DynamicViewFieldsWithHasItems",
+          "DisplayContentOutputs"
         ],
         "enum": [
           "Content",
@@ -20673,7 +20674,8 @@
           "OuterDisplayValueName",
           "HistoricVersionCount",
           "DynamicViewFields",
-          "DynamicViewFieldsWithHasItems"
+          "DynamicViewFieldsWithHasItems",
+          "DisplayContentOutputs"
         ]
       },
       "BusinessProcessEngineRequestException": {

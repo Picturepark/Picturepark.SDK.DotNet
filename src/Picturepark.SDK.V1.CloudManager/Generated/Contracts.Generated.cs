@@ -9258,6 +9258,9 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         [System.Runtime.Serialization.EnumMember(Value = @"DynamicViewFieldsWithHasItems")]
         DynamicViewFieldsWithHasItems = 16,
 
+        [System.Runtime.Serialization.EnumMember(Value = @"DisplayContentOutputs")]
+        DisplayContentOutputs = 17,
+
     }
 
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]

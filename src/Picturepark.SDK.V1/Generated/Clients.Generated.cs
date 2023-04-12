@@ -14972,6 +14972,382 @@ namespace Picturepark.SDK.V1
             }
         }
 
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>
+        /// Sets/unsets a DisplayContent for a content with an id given in the request
+        /// </summary>
+        /// <param name="id">Id of the content</param>
+        /// <param name="setDisplayContentRequest">Request with DisplayContentId</param>
+        /// <param name="resolveBehaviors">List of enums that control which parts of the content are resolved and returned.</param>
+        /// <param name="timeout">Timeout for the operation</param>
+        /// <param name="waitForContinuation">Wait for the creation of the search doc update.</param>
+        /// <returns>Result of the operation</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        public virtual async System.Threading.Tasks.Task<ContentDetail> SetDisplayContentAsync(string id, SetDisplayContentRequest setDisplayContentRequest, System.Collections.Generic.IEnumerable<ContentResolveBehavior> resolveBehaviors = null, System.TimeSpan? timeout = null, bool? waitForContinuation = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            if (setDisplayContentRequest == null)
+                throw new System.ArgumentNullException("setDisplayContentRequest");
+
+            var urlBuilder_ = new System.Text.StringBuilder();
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/Contents/{id}/displayContent?");
+            urlBuilder_.Replace("{id}", System.Uri.EscapeDataString(ConvertToString(id, System.Globalization.CultureInfo.InvariantCulture)));
+            if (resolveBehaviors != null)
+            {
+                foreach (var item_ in resolveBehaviors) { urlBuilder_.Append(System.Uri.EscapeDataString("resolveBehaviors") + "=").Append(System.Uri.EscapeDataString(ConvertToString(item_, System.Globalization.CultureInfo.InvariantCulture))).Append("&"); }
+            }
+            if (timeout != null)
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("timeout") + "=").Append(System.Uri.EscapeDataString(ConvertToString(timeout, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            if (waitForContinuation != null)
+            {
+                urlBuilder_.Append(System.Uri.EscapeDataString("waitForContinuation") + "=").Append(System.Uri.EscapeDataString(ConvertToString(waitForContinuation, System.Globalization.CultureInfo.InvariantCulture))).Append("&");
+            }
+            urlBuilder_.Length--;
+
+            var client_ = _httpClient;
+            var disposeClient_ = false;
+            try
+            {
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
+                {
+                    var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(setDisplayContentRequest, _settings.Value));
+                    content_.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json");
+                    request_.Content = content_;
+                    request_.Method = new System.Net.Http.HttpMethod("PUT");
+                    request_.Headers.Accept.Add(System.Net.Http.Headers.MediaTypeWithQualityHeaderValue.Parse("application/json"));
+
+                    PrepareRequest(client_, request_, urlBuilder_);
+
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+
+                    PrepareRequest(client_, request_, url_);
+
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    var disposeResponse_ = true;
+                    try
+                    {
+                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
+                        if (response_.Content != null && response_.Content.Headers != null)
+                        {
+                            foreach (var item_ in response_.Content.Headers)
+                                headers_[item_.Key] = item_.Value;
+                        }
+
+                        ProcessResponse(client_, response_);
+
+                        var status_ = (int)response_.StatusCode;
+                        if (status_ == 200)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<ContentDetail>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            return objectResponse_.Object;
+                        }
+                        else
+                        if (status_ == 400)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkValidationException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkValidationException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
+                        }
+                        else
+                        if (status_ == 401)
+                        {
+                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
+                            throw new ApiException("Unauthorized", status_, responseText_, headers_, null);
+                        }
+                        else
+                        if (status_ == 403)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkForbiddenException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkForbiddenException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
+                        }
+                        else
+                        if (status_ == 404)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkNotFoundException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkNotFoundException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
+                        }
+                        else
+                        if (status_ == 405)
+                        {
+                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
+                            throw new ApiException("Method not allowed", status_, responseText_, headers_, null);
+                        }
+                        else
+                        if (status_ == 409)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkConflictException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkConflictException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
+                        }
+                        else
+                        if (status_ == 429)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
+                        }
+                        else
+                        if (status_ == 500)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
+                        }
+                        else
+                        {
+                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
+                            throw new ApiException("The HTTP status code of the response was not expected (" + status_ + ").", status_, responseData_, headers_, null);
+                        }
+                    }
+                    finally
+                    {
+                        if (disposeResponse_)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+                if (disposeClient_)
+                    client_.Dispose();
+            }
+        }
+
+        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
+        /// <summary>
+        /// Process many requests to set/unset display contents for given contents
+        /// </summary>
+        /// <param name="setDisplayContentsManyRequest">Set many display contents request</param>
+        /// <returns>Business process</returns>
+        /// <exception cref="ApiException">A server side error occurred.</exception>
+        /// <exception cref="PictureparkValidationException">Validation exception</exception>
+        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
+        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
+        /// <exception cref="PictureparkConflictException">Version conflict</exception>
+        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
+        /// <exception cref="PictureparkException">Internal server error</exception>
+        public virtual async System.Threading.Tasks.Task<BusinessProcess> SetManyDisplayContentsAsync(SetDisplayContentsManyRequest setDisplayContentsManyRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            if (setDisplayContentsManyRequest == null)
+                throw new System.ArgumentNullException("setDisplayContentsManyRequest");
+
+            var urlBuilder_ = new System.Text.StringBuilder();
+            urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/v1/Contents/many/displayContent");
+
+            var client_ = _httpClient;
+            var disposeClient_ = false;
+            try
+            {
+                using (var request_ = await CreateHttpRequestMessageAsync(cancellationToken).ConfigureAwait(false))
+                {
+                    var content_ = new System.Net.Http.StringContent(Newtonsoft.Json.JsonConvert.SerializeObject(setDisplayContentsManyRequest, _settings.Value));
+                    content_.Headers.ContentType = System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json");
+                    request_.Content = content_;
+                    request_.Method = new System.Net.Http.HttpMethod("POST");
+                    request_.Headers.Accept.Add(System.Net.Http.Headers.MediaTypeWithQualityHeaderValue.Parse("application/json"));
+
+                    PrepareRequest(client_, request_, urlBuilder_);
+
+                    var url_ = urlBuilder_.ToString();
+                    request_.RequestUri = new System.Uri(url_, System.UriKind.RelativeOrAbsolute);
+
+                    PrepareRequest(client_, request_, url_);
+
+                    var response_ = await client_.SendAsync(request_, System.Net.Http.HttpCompletionOption.ResponseHeadersRead, cancellationToken).ConfigureAwait(false);
+                    var disposeResponse_ = true;
+                    try
+                    {
+                        var headers_ = System.Linq.Enumerable.ToDictionary(response_.Headers, h_ => h_.Key, h_ => h_.Value);
+                        if (response_.Content != null && response_.Content.Headers != null)
+                        {
+                            foreach (var item_ in response_.Content.Headers)
+                                headers_[item_.Key] = item_.Value;
+                        }
+
+                        ProcessResponse(client_, response_);
+
+                        var status_ = (int)response_.StatusCode;
+                        if (status_ == 200)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<BusinessProcess>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            return objectResponse_.Object;
+                        }
+                        else
+                        if (status_ == 400)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkValidationException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkValidationException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
+                        }
+                        else
+                        if (status_ == 401)
+                        {
+                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
+                            throw new ApiException("Unauthorized", status_, responseText_, headers_, null);
+                        }
+                        else
+                        if (status_ == 403)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkForbiddenException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkForbiddenException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
+                        }
+                        else
+                        if (status_ == 404)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkNotFoundException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkNotFoundException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
+                        }
+                        else
+                        if (status_ == 405)
+                        {
+                            string responseText_ = ( response_.Content == null ) ? string.Empty : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
+                            throw new ApiException("Method not allowed", status_, responseText_, headers_, null);
+                        }
+                        else
+                        if (status_ == 409)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkConflictException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkConflictException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
+                        }
+                        else
+                        if (status_ == 429)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkTooManyRequestsException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkTooManyRequestsException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
+                        }
+                        else
+                        if (status_ == 500)
+                        {
+                            var objectResponse_ = await ReadObjectResponseAsync<PictureparkException>(response_, headers_, cancellationToken).ConfigureAwait(false);
+                            if (objectResponse_.Object == null)
+                            {
+                                throw new ApiException("Response was null which was not expected.", status_, objectResponse_.Text, headers_, null);
+                            }
+                            var responseObject_ = objectResponse_.Object != null ? objectResponse_.Object : new PictureparkException();
+                            responseObject_.Data.Add("HttpStatus", status_.ToString());
+                            responseObject_.Data.Add("HttpHeaders", headers_);
+                            responseObject_.Data.Add("HttpResponse", objectResponse_.Text);
+                            throw responseObject_;
+                        }
+                        else
+                        {
+                            var responseData_ = response_.Content == null ? null : await response_.Content.ReadAsStringAsync().ConfigureAwait(false);
+                            throw new ApiException("The HTTP status code of the response was not expected (" + status_ + ").", status_, responseData_, headers_, null);
+                        }
+                    }
+                    finally
+                    {
+                        if (disposeResponse_)
+                            response_.Dispose();
+                    }
+                }
+            }
+            finally
+            {
+                if (disposeClient_)
+                    client_.Dispose();
+            }
+        }
+
         protected struct ObjectResponseResult<T>
         {
             public ObjectResponseResult(T responseObject, string responseText)
