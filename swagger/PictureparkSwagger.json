@@ -46620,6 +46620,11 @@
             "items": {
               "$ref": "#/components/schemas/ContentRight"
             }
+          },
+          "displayContentId": {
+            "type": "string",
+            "description": "Id of the related display content",
+            "nullable": true
           }
         }
       },

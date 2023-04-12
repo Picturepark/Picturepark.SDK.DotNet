@@ -24561,6 +24561,12 @@ namespace Picturepark.SDK.V1.Contract
         [Newtonsoft.Json.JsonProperty("contentRights", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore, ItemConverterType = typeof(Newtonsoft.Json.Converters.StringEnumConverter))]
         public System.Collections.Generic.ICollection<ContentRight> ContentRights { get; set; }
 
+        /// <summary>
+        /// Id of the related display content
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("displayContentId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string DisplayContentId { get; set; }
+
         public string ToJson()
         {
 
