@@ -1,10 +1,10 @@
 ﻿{
-	"Server": "https://api.dd.local.dev",
-	"CustomerAlias": "local",
-	"AccessToken": "4EE012985B51385F2FA1D3729E24A0A1A79113F2EB17303AE2CCF8647BF5EEE0",
+	"Server": "",
+	"CustomerAlias": "",
+	"AccessToken": "",
 	"EmailRecipient": {
-		"FirstName": "cp",
-		"LastName": "support",
-		"EmailAddress": "cp-support@picturepark.com"
+		"FirstName": "Firstname",
+		"LastName": "Lastname",
+		"EmailAddress": "email"
 	}
 }
