@@ -2167,6 +2167,7 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
     [JsonInheritanceAttribute("CommentReplyDeletionException", typeof(CommentReplyDeletionException))]
     [JsonInheritanceAttribute("CommentReplyParentException", typeof(CommentReplyParentException))]
     [JsonInheritanceAttribute("CommentReplyContentMismatchException", typeof(CommentReplyContentMismatchException))]
+    [JsonInheritanceAttribute("VirtualDisplayContentNotSupportedException", typeof(VirtualDisplayContentNotSupportedException))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
     [Newtonsoft.Json.JsonObjectAttribute]
     public partial class PictureparkException : System.Exception
@@ -11934,6 +11935,28 @@ namespace Picturepark.SDK.V1.CloudManager.Contract
         {
 
             return Newtonsoft.Json.JsonConvert.DeserializeObject<CommentReplyContentMismatchException>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class VirtualDisplayContentNotSupportedException : PictureparkNotFoundException
+    {
+        [Newtonsoft.Json.JsonProperty("contentIds", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<string> ContentIds { get; set; }
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static VirtualDisplayContentNotSupportedException FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<VirtualDisplayContentNotSupportedException>(data, new Newtonsoft.Json.JsonSerializerSettings());
 
         }
 
