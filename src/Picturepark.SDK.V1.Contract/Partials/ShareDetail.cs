@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 
 namespace Picturepark.SDK.V1.Contract
 {
@@ -21,12 +20,7 @@ namespace Picturepark.SDK.V1.Contract
                 LayerSchemaIds = LayerSchemaIds,
                 Name = Name,
                 OutputAccess = OutputAccess,
-                Contents = ContentSelections.Select(i =>
-                    new ShareContent
-                    {
-                        ContentId = i.Id,
-                        OutputFormatIds = i.Outputs.Select(output => output.OutputFormatId).ToArray()
-                    }).ToArray()
+                Contents = Contents
             };
 
             update?.Invoke(result);

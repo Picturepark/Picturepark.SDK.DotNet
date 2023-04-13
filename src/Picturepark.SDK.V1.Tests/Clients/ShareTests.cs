@@ -156,6 +156,33 @@ namespace Picturepark.SDK.V1.Tests.Clients
 
         [Fact]
         [Trait("Stack", "Shares")]
+        public async Task ShouldPreserveEmbedsWhenUsingAsEmbedUpdateRequestExtension()
+        {
+            var embedContents = await GetRandomEmbedContentWithConversionPreset(2).ConfigureAwait(false);
+
+            // Arrange
+            var shareId = await CreateShareAndReturnId(new ShareEmbedCreateRequest
+            {
+                Contents = embedContents.Cast<ShareContentBase>().ToArray(),
+                Name = "Embed share"
+            }).ConfigureAwait(false);
+
+            var share = await _client.Share.GetAsync(shareId).ConfigureAwait(false);
+
+            // Act
+            var request = share.AsEmbedUpdateRequest(r => r.Description = "Foo");
+
+            var updateBp = await _client.Share.UpdateAsync(shareId, request).ConfigureAwait(false);
+            await _client.BusinessProcess.WaitForCompletionAsync(updateBp.Id).ConfigureAwait(false);
+
+            // Assert
+            var updatedShare = await _client.Share.GetAsync(shareId).ConfigureAwait(false);
+            updatedShare.Description.Should().Be("Foo");
+            updatedShare.Contents.OfType<EmbedContent>().Should().BeEquivalentTo(share.Contents);
+        }
+
+        [Fact]
+        [Trait("Stack", "Shares")]
         public async Task ShouldDeleteMany()
         {
             // Arrange
@@ -703,6 +730,22 @@ namespace Picturepark.SDK.V1.Tests.Clients
                 }).ToList<ShareContentBase>();
 
             return shareContentItems;
+        }
+
+        private async Task<List<EmbedContent>> GetRandomEmbedContentWithConversionPreset(int count = 2)
+        {
+            var outputFormatIds = new List<string> { "Original" };
+
+            var randomContents = await _fixture.GetRandomContentsAsync(string.Empty, count, new[] { ContentType.Bitmap }).ConfigureAwait(false);
+            var embedContentItems = randomContents.Results.Select(i =>
+                new EmbedContent
+                {
+                    ContentId = i.Id,
+                    OutputFormatIds = outputFormatIds,
+                    ConversionPresets = new List<ConversionPreset> { new ConversionPreset { OutputFormatId = "Original", Conversion = "rotate:180", Locked = true } }
+                }).ToList();
+
+            return embedContentItems;
         }
 
         private async Task<string> CreateShareWithContentsAndReturnId(int count)
