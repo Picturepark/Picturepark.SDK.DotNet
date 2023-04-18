@@ -2795,22 +2795,6 @@ namespace Picturepark.SDK.V1.Contract
 
         /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
         /// <summary>
-        /// Download shared display content outputs
-        /// </summary>
-        /// <param name="token">Share token</param>
-        /// <param name="contentId">The content id</param>
-        /// <param name="outputFormatId">Id of the output format</param>
-        /// <exception cref="ApiException">A server side error occurred.</exception>
-        /// <exception cref="PictureparkValidationException">Validation exception</exception>
-        /// <exception cref="PictureparkForbiddenException">Forbidden</exception>
-        /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
-        /// <exception cref="PictureparkConflictException">Version conflict</exception>
-        /// <exception cref="PictureparkTooManyRequestsException">Too many requests</exception>
-        /// <exception cref="PictureparkException">Internal server error</exception>
-        System.Threading.Tasks.Task<FileResponse> DownloadDisplayContentOutputsAsync(string token, string contentId, string outputFormatId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
-        /// <param name="cancellationToken">A cancellation token that can be used by other objects or threads to receive notice of cancellation.</param>
-        /// <summary>
         /// Get
         /// </summary>
         /// <param name="id">Share Id (not token, use [GetShareJson](#operation/Share_GetShareJson) to get share by token)</param>
@@ -36295,6 +36279,12 @@ namespace Picturepark.SDK.V1.Contract
         public string IconUrl { get; set; }
 
         /// <summary>
+        /// The Outputs generated from the related display content.
+        /// </summary>
+        [Newtonsoft.Json.JsonProperty("displayContentOutputs", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Collections.Generic.ICollection<Output> DisplayContentOutputs { get; set; }
+
+        /// <summary>
         /// The id of related DisplayContent
         /// </summary>
         [Newtonsoft.Json.JsonProperty("displayContentId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
@@ -36321,7 +36311,6 @@ namespace Picturepark.SDK.V1.Contract
     [Newtonsoft.Json.JsonConverter(typeof(JsonInheritanceConverter), "kind")]
     [JsonInheritanceAttribute("ShareOutputBasic", typeof(ShareOutputBasic))]
     [JsonInheritanceAttribute("ShareOutputEmbed", typeof(ShareOutputEmbed))]
-    [JsonInheritanceAttribute("ShareOutputDisplayContent", typeof(ShareOutputDisplayContent))]
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
     public abstract partial class ShareOutputBase
     {
@@ -36430,25 +36419,6 @@ namespace Picturepark.SDK.V1.Contract
         {
 
             return Newtonsoft.Json.JsonConvert.DeserializeObject<ShareOutputEmbed>(data, new Newtonsoft.Json.JsonSerializerSettings());
-
-        }
-
-    }
-
-    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
-    public partial class ShareOutputDisplayContent : ShareOutputBase
-    {
-
-        public string ToJson()
-        {
-
-            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
-
-        }
-        public static ShareOutputDisplayContent FromJson(string data)
-        {
-
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<ShareOutputDisplayContent>(data, new Newtonsoft.Json.JsonSerializerSettings());
 
         }
 
