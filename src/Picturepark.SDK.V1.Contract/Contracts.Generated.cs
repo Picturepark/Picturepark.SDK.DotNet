@@ -4300,6 +4300,7 @@ namespace Picturepark.SDK.V1.Contract
     [JsonInheritanceAttribute("ChannelsNotFoundException", typeof(ChannelsNotFoundException))]
     [JsonInheritanceAttribute("SuperAdminRolesNotAssignableToChannelException", typeof(SuperAdminRolesNotAssignableToChannelException))]
     [JsonInheritanceAttribute("CustomerClonesNotAcceptedException", typeof(CustomerClonesNotAcceptedException))]
+    [JsonInheritanceAttribute("ShareOutputNotFoundException", typeof(ShareOutputNotFoundException))]
     [JsonInheritanceAttribute("ShareByTokenNotFoundException", typeof(ShareByTokenNotFoundException))]
     [JsonInheritanceAttribute("TokenGenerationException", typeof(TokenGenerationException))]
     [JsonInheritanceAttribute("ShareExpiredException", typeof(ShareExpiredException))]
@@ -5772,6 +5773,28 @@ namespace Picturepark.SDK.V1.Contract
         {
 
             return Newtonsoft.Json.JsonConvert.DeserializeObject<CustomerClonesNotAcceptedException>(data, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+
+    }
+
+    [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
+    [Newtonsoft.Json.JsonObjectAttribute]
+    public partial class ShareOutputNotFoundException : PictureparkNotFoundException
+    {
+        [Newtonsoft.Json.JsonProperty("contentId", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public string ContentId { get; set; }
+
+        public string ToJson()
+        {
+
+            return Newtonsoft.Json.JsonConvert.SerializeObject(this, new Newtonsoft.Json.JsonSerializerSettings());
+
+        }
+        public static ShareOutputNotFoundException FromJson(string data)
+        {
+
+            return Newtonsoft.Json.JsonConvert.DeserializeObject<ShareOutputNotFoundException>(data, new Newtonsoft.Json.JsonSerializerSettings());
 
         }
 
@@ -36435,6 +36458,9 @@ namespace Picturepark.SDK.V1.Contract
 
     }
 
+    /// <summary>
+    /// Shared output for a display content
+    /// </summary>
     [System.CodeDom.Compiler.GeneratedCode("NJsonSchema", "13.16.1.0 (NJsonSchema v10.7.2.0 (Newtonsoft.Json v13.0.0.0))")]
     public partial class ShareOutputDisplayContent : ShareOutputBase
     {

@@ -31973,6 +31973,23 @@
           }
         ]
       },
+      "ShareOutputNotFoundException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkNotFoundException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "contentId": {
+                "type": "string",
+                "nullable": true
+              }
+            }
+          }
+        ]
+      },
       "ShareNotFoundException": {
         "allOf": [
           {
@@ -56198,6 +56215,7 @@
           },
           {
             "type": "object",
+            "description": "Shared output for a display content",
             "additionalProperties": false
           }
         ]
