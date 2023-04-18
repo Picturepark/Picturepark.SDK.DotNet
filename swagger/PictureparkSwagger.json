@@ -22776,6 +22776,143 @@
         }
       }
     },
+    "/d/{token}/displayContent/{contentId}/{outputFormatId}": {
+      "get": {
+        "tags": [
+          "Share"
+        ],
+        "summary": "Download shared display content outputs",
+        "operationId": "Share_DownloadDisplayContentOutputs",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "path",
+            "required": true,
+            "description": "Share token",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 1
+          },
+          {
+            "name": "contentId",
+            "in": "path",
+            "required": true,
+            "description": "The content id",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 2
+          },
+          {
+            "name": "outputFormatId",
+            "in": "path",
+            "required": true,
+            "description": "Id of the output format",
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "x-position": 3
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Validation exception",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkValidationException"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkForbiddenException"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Entity not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkNotFoundException"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "409": {
+            "description": "Version conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkConflictException"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkTooManyRequestsException"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PictureparkException"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": null,
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          },
+          "206": {
+            "description": null,
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          },
+          "412": {
+            "description": null
+          }
+        }
+      }
+    },
     "/v1/Shares/{id}": {
       "get": {
         "tags": [
@@ -55949,14 +56086,6 @@
             "description": "Contains an URL that can be used to retrieve the icon corresponding to the file type.",
             "nullable": true
           },
-          "displayContentOutputs": {
-            "type": "array",
-            "description": "The Outputs generated from the related display content.",
-            "nullable": true,
-            "items": {
-              "$ref": "#/components/schemas/Output"
-            }
-          },
           "displayContentId": {
             "type": "string",
             "description": "The id of related DisplayContent",
@@ -55970,7 +56099,8 @@
           "propertyName": "kind",
           "mapping": {
             "ShareOutputBasic": "#/components/schemas/ShareOutputBasic",
-            "ShareOutputEmbed": "#/components/schemas/ShareOutputEmbed"
+            "ShareOutputEmbed": "#/components/schemas/ShareOutputEmbed",
+            "ShareOutputDisplayContent": "#/components/schemas/ShareOutputDisplayContent"
           }
         },
         "description": "Base of shared output",
@@ -56058,6 +56188,17 @@
                 "nullable": true
               }
             }
+          }
+        ]
+      },
+      "ShareOutputDisplayContent": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/ShareOutputBase"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false
           }
         ]
       },
