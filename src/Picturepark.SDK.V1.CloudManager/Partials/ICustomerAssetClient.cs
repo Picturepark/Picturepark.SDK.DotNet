@@ -7,7 +7,6 @@ public partial interface ICustomerAssetClient
     System.Threading.Tasks.Task PutLogoAsync(
         string customerId,
         LogoKind type,
-        System.IO.Stream body,
-        string fileName,
+        string path,
         System.Threading.CancellationToken cancellationToken = default);
 }
