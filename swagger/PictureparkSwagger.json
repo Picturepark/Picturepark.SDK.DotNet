@@ -38781,6 +38781,26 @@
           }
         ]
       },
+      "SelfReferencingDisplayContentNotSupportedException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "contentIds": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ]
+      },
       "BusinessProcessCreateRequest": {
         "type": "object",
         "description": "Create request to create a BusinessProcess.",

@@ -6454,7 +6454,7 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
-        public virtual async System.Threading.Tasks.Task PutLogoAsync(string customerId, LogoKind type, System.IO.Stream body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        protected virtual async System.Threading.Tasks.Task PutLogoCoreAsync(string customerId, LogoKind type, System.IO.Stream body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             if (type == null)
                 throw new System.ArgumentNullException("type");
@@ -6793,7 +6793,7 @@ namespace Picturepark.SDK.V1.CloudManager
         /// <exception cref="PictureparkException">Internal server error</exception>
         /// <exception cref="PictureparkException">Entity not found</exception>
         /// <exception cref="PictureparkNotFoundException">Entity not found</exception>
-        public virtual async System.Threading.Tasks.Task PutWatermarkAsync(string customerId, System.IO.Stream body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        protected virtual async System.Threading.Tasks.Task PutWatermarkCoreAsync(string customerId, System.IO.Stream body = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             var urlBuilder_ = new System.Text.StringBuilder();
             urlBuilder_.Append(BaseUrl != null ? BaseUrl.TrimEnd('/') : "").Append("/CustomerAssets/{customerId}/watermark");
