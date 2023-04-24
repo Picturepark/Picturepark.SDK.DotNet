@@ -4202,36 +4202,8 @@
           "content": {
             "multipart/form-data": {
               "schema": {
-                "properties": {
-                  "ContentType": {
-                    "type": "string",
-                    "nullable": true
-                  },
-                  "ContentDisposition": {
-                    "type": "string",
-                    "nullable": true
-                  },
-                  "Headers": {
-                    "nullable": true,
-                    "oneOf": [
-                      {
-                        "$ref": "#/components/schemas/IHeaderDictionary"
-                      }
-                    ]
-                  },
-                  "Length": {
-                    "type": "integer",
-                    "format": "int64"
-                  },
-                  "Name": {
-                    "type": "string",
-                    "nullable": true
-                  },
-                  "FileName": {
-                    "type": "string",
-                    "nullable": true
-                  }
-                }
+                "type": "string",
+                "format": "binary"
               }
             }
           }
@@ -4477,36 +4449,8 @@
           "content": {
             "multipart/form-data": {
               "schema": {
-                "properties": {
-                  "ContentType": {
-                    "type": "string",
-                    "nullable": true
-                  },
-                  "ContentDisposition": {
-                    "type": "string",
-                    "nullable": true
-                  },
-                  "Headers": {
-                    "nullable": true,
-                    "oneOf": [
-                      {
-                        "$ref": "#/components/schemas/IHeaderDictionary"
-                      }
-                    ]
-                  },
-                  "Length": {
-                    "type": "integer",
-                    "format": "int64"
-                  },
-                  "Name": {
-                    "type": "string",
-                    "nullable": true
-                  },
-                  "FileName": {
-                    "type": "string",
-                    "nullable": true
-                  }
-                }
+                "type": "string",
+                "format": "binary"
               }
             }
           }
