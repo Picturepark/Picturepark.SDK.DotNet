@@ -7,6 +7,9 @@ using Picturepark.SDK.V1.CloudManager.Contract;
 
 namespace Picturepark.SDK.V1.CloudManager;
 
+/// <summary>
+/// Contains methods to work around the limitations of the NSwag-generated code
+/// </summary>
 public partial class CustomerAssetClient
 {
     public async Task PutLogoAsync(
@@ -15,11 +18,7 @@ public partial class CustomerAssetClient
         FileParameter file,
         System.Threading.CancellationToken cancellationToken = default)
     {
-        var bf = new BinaryFormatter();
-        using var ms = new MemoryStream();
-        bf.Serialize(ms, new FileParameterSerializable(file));
-        ms.Seek(0, SeekOrigin.Begin);
-
+        using var ms = SerializeFileParameter(file);
         await PutLogoCoreAsync(customerId, type, ms, cancellationToken);
     }
 
@@ -28,25 +27,18 @@ public partial class CustomerAssetClient
         FileParameter file,
         System.Threading.CancellationToken cancellationToken = default)
     {
-        var bf = new BinaryFormatter();
-        using var ms = new MemoryStream();
-        bf.Serialize(ms, new FileParameterSerializable(file));
-        ms.Seek(0, SeekOrigin.Begin);
-
+        using var ms = SerializeFileParameter(file);
         await PutWatermarkCoreAsync(customerId, ms, cancellationToken);
     }
 
     partial void PrepareRequest(HttpClient client, HttpRequestMessage request, string url)
     {
-        if (request.Content is not StreamContent streamContent)
-            return;
-
-        if (streamContent.Headers.ContentType.MediaType != "multipart/form-data")
+        if (request.Content is not StreamContent streamContent || streamContent.Headers.ContentType.MediaType != "multipart/form-data")
             return;
 
         var stream = streamContent.ReadAsStreamAsync().Result;
-        var binForm = new BinaryFormatter();
-        var file = (FileParameterSerializable)binForm.Deserialize(stream);
+        var bf = new BinaryFormatter();
+        var file = (FileParameterSerializable)bf.Deserialize(stream);
 
         var boundary = Guid.NewGuid().ToString();
         var content = new MultipartFormDataContent(boundary);
@@ -54,6 +46,15 @@ public partial class CustomerAssetClient
         content.Headers.TryAddWithoutValidation("Content-Type", "multipart/form-data; boundary=" + boundary);
         content.Add(new ByteArrayContent(file.File), "formFile", file.FileName);
         request.Content = content;
+    }
+
+    private MemoryStream SerializeFileParameter(FileParameter file)
+    {
+        var bf = new BinaryFormatter();
+        var ms = new MemoryStream();
+        bf.Serialize(ms, new FileParameterSerializable(file));
+        ms.Seek(0, SeekOrigin.Begin);
+        return ms;
     }
 
     [Serializable]
