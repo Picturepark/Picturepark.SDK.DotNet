@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Net.Http;
 using System.Runtime.Serialization.Formatters.Binary;
 using Picturepark.SDK.V1.CloudManager.Contract;
@@ -15,7 +16,7 @@ public partial class CustomerAssetClient
     {
         var bf = new BinaryFormatter();
         using var ms = new MemoryStream();
-        bf.Serialize(ms, file);
+        bf.Serialize(ms, new FileParameterSerializable(file));
 
         /*var boundary = System.Guid.NewGuid().ToString();
         var content = new MultipartFormDataContent(boundary);
@@ -41,13 +42,29 @@ public partial class CustomerAssetClient
 
         var stream = streamContent.ReadAsStreamAsync().Result;
         var binForm = new BinaryFormatter();
-        var file = (FileParameter)binForm.Deserialize(stream);
+        var file = (FileParameterSerializable)binForm.Deserialize(stream);
 
         var boundary = System.Guid.NewGuid().ToString();
         var content = new MultipartFormDataContent(boundary);
         content.Headers.Remove("Content-Type");
         content.Headers.TryAddWithoutValidation("Content-Type", "multipart/form-data; boundary=" + boundary);
-        content.Add(new StreamContent(file.Data), "formFile", file.FileName);
+        content.Add(new ByteArrayContent(file.File), "formFile", file.FileName);
         request.Content = content;
+    }
+
+    [Serializable]
+    private class FileParameterSerializable
+    {
+        public FileParameterSerializable(FileParameter fileParameter)
+        {
+            FileName = fileParameter.FileName;
+
+            using var br = new BinaryReader(fileParameter.Data);
+            File = br.ReadBytes((int)fileParameter.Data.Length);
+        }
+
+        public string FileName { get; set; }
+
+        public byte[] File { get; set; }
     }
 }
