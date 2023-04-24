@@ -2,13 +2,14 @@
 using System.IO;
 using System.Net.Http;
 using System.Runtime.Serialization.Formatters.Binary;
+using System.Threading.Tasks;
 using Picturepark.SDK.V1.CloudManager.Contract;
 
 namespace Picturepark.SDK.V1.CloudManager;
 
 public partial class CustomerAssetClient
 {
-    public async System.Threading.Tasks.Task PutLogoAsync(
+    public async Task PutLogoAsync(
         string customerId,
         LogoKind type,
         FileParameter file,
@@ -19,33 +20,35 @@ public partial class CustomerAssetClient
         bf.Serialize(ms, new FileParameterSerializable(file));
         ms.Seek(0, SeekOrigin.Begin);
 
-        /*var boundary = System.Guid.NewGuid().ToString();
-        var content = new MultipartFormDataContent(boundary);
-        content.Headers.Remove("Content-Type");
-        content.Headers.TryAddWithoutValidation("Content-Type", "multipart/form-data; boundary=" + boundary);
-        content.Add(new StreamContent(body), "formFile", fileName);
-        var contentStream = await content.ReadAsStreamAsync();*/
-
         await PutLogoCoreAsync(customerId, type, ms, cancellationToken);
+    }
+
+    public async Task PutWatermarkAsync(
+        string customerId,
+        FileParameter file,
+        System.Threading.CancellationToken cancellationToken = default)
+    {
+        var bf = new BinaryFormatter();
+        using var ms = new MemoryStream();
+        bf.Serialize(ms, new FileParameterSerializable(file));
+        ms.Seek(0, SeekOrigin.Begin);
+
+        await PutWatermarkCoreAsync(customerId, ms, cancellationToken);
     }
 
     partial void PrepareRequest(HttpClient client, HttpRequestMessage request, string url)
     {
         if (request.Content is not StreamContent streamContent)
-        {
             return;
-        }
 
         if (streamContent.Headers.ContentType.MediaType != "multipart/form-data")
-        {
             return;
-        }
 
         var stream = streamContent.ReadAsStreamAsync().Result;
         var binForm = new BinaryFormatter();
         var file = (FileParameterSerializable)binForm.Deserialize(stream);
 
-        var boundary = System.Guid.NewGuid().ToString();
+        var boundary = Guid.NewGuid().ToString();
         var content = new MultipartFormDataContent(boundary);
         content.Headers.Remove("Content-Type");
         content.Headers.TryAddWithoutValidation("Content-Type", "multipart/form-data; boundary=" + boundary);

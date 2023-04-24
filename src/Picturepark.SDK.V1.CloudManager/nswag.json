@@ -15,7 +15,7 @@
       "generateClientInterfaces": true,
       "injectHttpClient": true,
       "disposeHttpClient": true,
-      "protectedMethods": ["CustomerAssetClient.PutLogoAsync"],
+      "protectedMethods": ["CustomerAssetClient.PutLogoAsync", "CustomerAssetClient.PutWatermarkAsync"],
       "generateExceptionClasses": true,
       "exceptionClass": "ApiException",
       "wrapDtoExceptions": false,
