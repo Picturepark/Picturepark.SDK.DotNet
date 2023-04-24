@@ -17,6 +17,7 @@ public partial class CustomerAssetClient
         var bf = new BinaryFormatter();
         using var ms = new MemoryStream();
         bf.Serialize(ms, new FileParameterSerializable(file));
+        ms.Seek(0, SeekOrigin.Begin);
 
         /*var boundary = System.Guid.NewGuid().ToString();
         var content = new MultipartFormDataContent(boundary);
