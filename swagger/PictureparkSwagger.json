@@ -38764,7 +38764,27 @@
       "VirtualDisplayContentNotSupportedException": {
         "allOf": [
           {
-            "$ref": "#/components/schemas/PictureparkNotFoundException"
+            "$ref": "#/components/schemas/PictureparkValidationException"
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "contentIds": {
+                "type": "array",
+                "nullable": true,
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "NestedDisplayContentNotSupportedException": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PictureparkValidationException"
           },
           {
             "type": "object",
