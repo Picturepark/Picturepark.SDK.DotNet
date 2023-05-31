@@ -130,7 +130,7 @@
   
   <h5 id="Picturepark_SDK_V1_MetadataClient_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class MetadataClient : ClientBase, IMetadataClient</code></pre>
+    <pre><code class="lang-csharp hljs">public class MetadataClient : ClientBase</code></pre>
   </div>
   
   
@@ -143,7 +143,7 @@
   
   <a id="Picturepark_SDK_V1_MetadataClient__ctor_" data-uid="Picturepark.SDK.V1.MetadataClient.#ctor*"></a>
   
-  <h4 id="Picturepark_SDK_V1_MetadataClient__ctor_Picturepark_SDK_V1_Contract_IPictureparkServiceSettings_System_Net_Http_HttpClient_" data-uid="Picturepark.SDK.V1.MetadataClient.#ctor(Picturepark.SDK.V1.Contract.IPictureparkServiceSettings,System.Net.Http.HttpClient)"><a href="#collapsible-Picturepark_SDK_V1_MetadataClient__ctor_Picturepark_SDK_V1_Contract_IPictureparkServiceSettings_System_Net_Http_HttpClient_" class="expander" data-toggle="collapse">MetadataClient(IPictureparkServiceSettings, Http.HttpClient)</a></h4>
+  <h4 id="Picturepark_SDK_V1_MetadataClient__ctor_Picturepark_SDK_V1_Contract_IPictureparkServiceSettings_System_Net_Http_HttpClient_" data-uid="Picturepark.SDK.V1.MetadataClient.#ctor(Picturepark.SDK.V1.Contract.IPictureparkServiceSettings,System.Net.Http.HttpClient)"><a href="#collapsible-Picturepark_SDK_V1_MetadataClient__ctor_Picturepark_SDK_V1_Contract_IPictureparkServiceSettings_System_Net_Http_HttpClient_" class="expander" data-toggle="collapse">MetadataClient(Contract.IPictureparkServiceSettings, Http.HttpClient)</a></h4>
   
   <div id="collapsible-Picturepark_SDK_V1_MetadataClient__ctor_Picturepark_SDK_V1_Contract_IPictureparkServiceSettings_System_Net_Http_HttpClient_" class="collapse in">
   <div class="markdown level1 summary"></div>
@@ -151,14 +151,14 @@
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public MetadataClient(IPictureparkServiceSettings configuration, Http.HttpClient httpClient)</code></pre>
+    <pre><code class="lang-csharp hljs">public MetadataClient(Contract.IPictureparkServiceSettings configuration, Http.HttpClient httpClient)</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
       <td>
-        <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.IPictureparkServiceSettings.html">IPictureparkServiceSettings</a></span>
+        <span class="pull-right"><span class="xref">Picturepark.SDK.V1.Contract.IPictureparkServiceSettings</span></span>
         <span class="parametername">configuration</span>
         <p>
       </td>
@@ -291,7 +291,7 @@
   <table>
     <tr>
       <td>
-        <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.MetadataStatus.html">MetadataStatus</a>&gt;
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">MetadataStatus</span>&gt;
         <p><p>The overall status of the contents and list items in comparison to the actual schemas&apos; structure</p>
 </p>
       </td>
@@ -303,56 +303,9 @@
   
   
   
-  <h5 class="implements">Implements</h5>
-      <div><a class="xref" href="Picturepark.SDK.V1.Contract.IMetadataClient.html#Picturepark_SDK_V1_Contract_IMetadataClient_GetStatusAsync_System_Threading_CancellationToken_">IMetadataClient.GetStatusAsync(CancellationToken)</a></div>
   
   
   
-  <h5 class="exceptions">Exceptions</h5>
-  <table>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
-        <p><p>A server side error occurred.</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkForbiddenException.html">PictureparkForbiddenException</a>
-        <p><p>Forbidden</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
-        <p><p>Entity not found</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
-        <p><p>Version conflict</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
-</p>
-      </td>
-    </tr>
-  </table>
   
   </div>
   
@@ -456,7 +409,7 @@
   <table>
     <tr>
       <td>
-        <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.BusinessProcess.html">BusinessProcess</a>&gt;
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">BusinessProcess</span>&gt;
         <p><p>Business process</p>
 </p>
       </td>
@@ -468,56 +421,9 @@
   
   
   
-  <h5 class="implements">Implements</h5>
-      <div><a class="xref" href="Picturepark.SDK.V1.Contract.IMetadataClient.html#Picturepark_SDK_V1_Contract_IMetadataClient_UpdateOutdatedAsync_System_Threading_CancellationToken_">IMetadataClient.UpdateOutdatedAsync(CancellationToken)</a></div>
   
   
   
-  <h5 class="exceptions">Exceptions</h5>
-  <table>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
-        <p><p>A server side error occurred.</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkForbiddenException.html">PictureparkForbiddenException</a>
-        <p><p>Forbidden</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
-        <p><p>Entity not found</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
-        <p><p>Version conflict</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
-</p>
-      </td>
-    </tr>
-  </table>
   
   </div>
   

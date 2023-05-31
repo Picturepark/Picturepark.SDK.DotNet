@@ -130,7 +130,7 @@
   
   <h5 id="Picturepark_SDK_V1_OutputClient_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class OutputClient : ClientBase, IOutputClient</code></pre>
+    <pre><code class="lang-csharp hljs">public class OutputClient : ClientBase</code></pre>
   </div>
   
   
@@ -143,7 +143,7 @@
   
   <a id="Picturepark_SDK_V1_OutputClient__ctor_" data-uid="Picturepark.SDK.V1.OutputClient.#ctor*"></a>
   
-  <h4 id="Picturepark_SDK_V1_OutputClient__ctor_Picturepark_SDK_V1_Contract_IPictureparkServiceSettings_System_Net_Http_HttpClient_" data-uid="Picturepark.SDK.V1.OutputClient.#ctor(Picturepark.SDK.V1.Contract.IPictureparkServiceSettings,System.Net.Http.HttpClient)"><a href="#collapsible-Picturepark_SDK_V1_OutputClient__ctor_Picturepark_SDK_V1_Contract_IPictureparkServiceSettings_System_Net_Http_HttpClient_" class="expander" data-toggle="collapse">OutputClient(IPictureparkServiceSettings, Http.HttpClient)</a></h4>
+  <h4 id="Picturepark_SDK_V1_OutputClient__ctor_Picturepark_SDK_V1_Contract_IPictureparkServiceSettings_System_Net_Http_HttpClient_" data-uid="Picturepark.SDK.V1.OutputClient.#ctor(Picturepark.SDK.V1.Contract.IPictureparkServiceSettings,System.Net.Http.HttpClient)"><a href="#collapsible-Picturepark_SDK_V1_OutputClient__ctor_Picturepark_SDK_V1_Contract_IPictureparkServiceSettings_System_Net_Http_HttpClient_" class="expander" data-toggle="collapse">OutputClient(Contract.IPictureparkServiceSettings, Http.HttpClient)</a></h4>
   
   <div id="collapsible-Picturepark_SDK_V1_OutputClient__ctor_Picturepark_SDK_V1_Contract_IPictureparkServiceSettings_System_Net_Http_HttpClient_" class="collapse in">
   <div class="markdown level1 summary"></div>
@@ -151,14 +151,14 @@
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public OutputClient(IPictureparkServiceSettings configuration, Http.HttpClient httpClient)</code></pre>
+    <pre><code class="lang-csharp hljs">public OutputClient(Contract.IPictureparkServiceSettings configuration, Http.HttpClient httpClient)</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
       <td>
-        <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.IPictureparkServiceSettings.html">IPictureparkServiceSettings</a></span>
+        <span class="pull-right"><span class="xref">Picturepark.SDK.V1.Contract.IPictureparkServiceSettings</span></span>
         <span class="parametername">configuration</span>
         <p>
       </td>
@@ -299,7 +299,7 @@
   <table>
     <tr>
       <td>
-        <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.OutputDetail.html">OutputDetail</a>&gt;
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">OutputDetail</span>&gt;
         <p><p>Output detail</p>
 </p>
       </td>
@@ -311,56 +311,9 @@
   
   
   
-  <h5 class="implements">Implements</h5>
-      <div><a class="xref" href="Picturepark.SDK.V1.Contract.IOutputClient.html#Picturepark_SDK_V1_Contract_IOutputClient_GetAsync_System_String_System_Threading_CancellationToken_">IOutputClient.GetAsync(String, CancellationToken)</a></div>
   
   
   
-  <h5 class="exceptions">Exceptions</h5>
-  <table>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
-        <p><p>A server side error occurred.</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkForbiddenException.html">PictureparkForbiddenException</a>
-        <p><p>Forbidden</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
-        <p><p>Entity not found</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
-        <p><p>Version conflict</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
-</p>
-      </td>
-    </tr>
-  </table>
   
   </div>
   
@@ -436,9 +389,9 @@
   
   <a id="Picturepark_SDK_V1_OutputClient_ResetRetryAttemptsAsync_" data-uid="Picturepark.SDK.V1.OutputClient.ResetRetryAttemptsAsync*"></a>
   
-  <h4 id="Picturepark_SDK_V1_OutputClient_ResetRetryAttemptsAsync_Picturepark_SDK_V1_Contract_OutputResetRetryAttemptsRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.OutputClient.ResetRetryAttemptsAsync(Picturepark.SDK.V1.Contract.OutputResetRetryAttemptsRequest,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_OutputClient_ResetRetryAttemptsAsync_Picturepark_SDK_V1_Contract_OutputResetRetryAttemptsRequest_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">ResetRetryAttemptsAsync(OutputResetRetryAttemptsRequest, CancellationToken)</a></h4>
+  <h4 id="Picturepark_SDK_V1_OutputClient_ResetRetryAttemptsAsync_OutputResetRetryAttemptsRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.OutputClient.ResetRetryAttemptsAsync(OutputResetRetryAttemptsRequest,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_OutputClient_ResetRetryAttemptsAsync_OutputResetRetryAttemptsRequest_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">ResetRetryAttemptsAsync(OutputResetRetryAttemptsRequest, CancellationToken)</a></h4>
   
-  <div id="collapsible-Picturepark_SDK_V1_OutputClient_ResetRetryAttemptsAsync_Picturepark_SDK_V1_Contract_OutputResetRetryAttemptsRequest_System_Threading_CancellationToken_" class="collapse in">
+  <div id="collapsible-Picturepark_SDK_V1_OutputClient_ResetRetryAttemptsAsync_OutputResetRetryAttemptsRequest_System_Threading_CancellationToken_" class="collapse in">
   <div class="markdown level1 summary"><p>Resets retry attempt counters.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -452,7 +405,7 @@
   <table>
     <tr>
       <td>
-        <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.OutputResetRetryAttemptsRequest.html">OutputResetRetryAttemptsRequest</a></span>
+        <span class="pull-right"><span class="xref">OutputResetRetryAttemptsRequest</span></span>
         <span class="parametername">request</span>
         <p><p>Request containing options to filter which outputs should be reset.</p>
 </p>
@@ -472,7 +425,7 @@
   <table>
     <tr>
       <td>
-        <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.BusinessProcess.html">BusinessProcess</a>&gt;
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">BusinessProcess</span>&gt;
         <p><p>Business process tracking the resetting</p>
 </p>
       </td>
@@ -484,65 +437,18 @@
   
   
   
-  <h5 class="implements">Implements</h5>
-      <div><a class="xref" href="Picturepark.SDK.V1.Contract.IOutputClient.html#Picturepark_SDK_V1_Contract_IOutputClient_ResetRetryAttemptsAsync_Picturepark_SDK_V1_Contract_OutputResetRetryAttemptsRequest_System_Threading_CancellationToken_">IOutputClient.ResetRetryAttemptsAsync(OutputResetRetryAttemptsRequest, CancellationToken)</a></div>
   
   
   
-  <h5 class="exceptions">Exceptions</h5>
-  <table>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
-        <p><p>A server side error occurred.</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkForbiddenException.html">PictureparkForbiddenException</a>
-        <p><p>Forbidden</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
-        <p><p>Entity not found</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
-        <p><p>Version conflict</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
-</p>
-      </td>
-    </tr>
-  </table>
   
   </div>
   
   
   <a id="Picturepark_SDK_V1_OutputClient_SearchAsync_" data-uid="Picturepark.SDK.V1.OutputClient.SearchAsync*"></a>
   
-  <h4 id="Picturepark_SDK_V1_OutputClient_SearchAsync_Picturepark_SDK_V1_Contract_OutputSearchRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.OutputClient.SearchAsync(Picturepark.SDK.V1.Contract.OutputSearchRequest,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_OutputClient_SearchAsync_Picturepark_SDK_V1_Contract_OutputSearchRequest_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">SearchAsync(OutputSearchRequest, CancellationToken)</a></h4>
+  <h4 id="Picturepark_SDK_V1_OutputClient_SearchAsync_OutputSearchRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.OutputClient.SearchAsync(OutputSearchRequest,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_OutputClient_SearchAsync_OutputSearchRequest_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">SearchAsync(OutputSearchRequest, CancellationToken)</a></h4>
   
-  <div id="collapsible-Picturepark_SDK_V1_OutputClient_SearchAsync_Picturepark_SDK_V1_Contract_OutputSearchRequest_System_Threading_CancellationToken_" class="collapse in">
+  <div id="collapsible-Picturepark_SDK_V1_OutputClient_SearchAsync_OutputSearchRequest_System_Threading_CancellationToken_" class="collapse in">
   <div class="markdown level1 summary"><p>Search output documents</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -556,7 +462,7 @@
   <table>
     <tr>
       <td>
-        <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.OutputSearchRequest.html">OutputSearchRequest</a></span>
+        <span class="pull-right"><span class="xref">OutputSearchRequest</span></span>
         <span class="parametername">request</span>
         <p><p>The output search request.</p>
 </p>
@@ -576,7 +482,7 @@
   <table>
     <tr>
       <td>
-        <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.OutputSearchResult.html">OutputSearchResult</a>&gt;
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">OutputSearchResult</span>&gt;
         <p><p>Output result set</p>
 </p>
       </td>
@@ -588,56 +494,9 @@
   
   
   
-  <h5 class="implements">Implements</h5>
-      <div><a class="xref" href="Picturepark.SDK.V1.Contract.IOutputClient.html#Picturepark_SDK_V1_Contract_IOutputClient_SearchAsync_Picturepark_SDK_V1_Contract_OutputSearchRequest_System_Threading_CancellationToken_">IOutputClient.SearchAsync(OutputSearchRequest, CancellationToken)</a></div>
   
   
   
-  <h5 class="exceptions">Exceptions</h5>
-  <table>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
-        <p><p>A server side error occurred.</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkForbiddenException.html">PictureparkForbiddenException</a>
-        <p><p>Forbidden</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
-        <p><p>Entity not found</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
-        <p><p>Version conflict</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
-</p>
-      </td>
-    </tr>
-  </table>
   
   </div>
   

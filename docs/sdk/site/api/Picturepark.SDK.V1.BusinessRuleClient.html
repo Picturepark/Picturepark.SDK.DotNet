@@ -130,7 +130,7 @@
   
   <h5 id="Picturepark_SDK_V1_BusinessRuleClient_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class BusinessRuleClient : ClientBase, IBusinessRuleClient</code></pre>
+    <pre><code class="lang-csharp hljs">public class BusinessRuleClient : ClientBase</code></pre>
   </div>
   
   
@@ -143,7 +143,7 @@
   
   <a id="Picturepark_SDK_V1_BusinessRuleClient__ctor_" data-uid="Picturepark.SDK.V1.BusinessRuleClient.#ctor*"></a>
   
-  <h4 id="Picturepark_SDK_V1_BusinessRuleClient__ctor_Picturepark_SDK_V1_Contract_IPictureparkServiceSettings_System_Net_Http_HttpClient_" data-uid="Picturepark.SDK.V1.BusinessRuleClient.#ctor(Picturepark.SDK.V1.Contract.IPictureparkServiceSettings,System.Net.Http.HttpClient)"><a href="#collapsible-Picturepark_SDK_V1_BusinessRuleClient__ctor_Picturepark_SDK_V1_Contract_IPictureparkServiceSettings_System_Net_Http_HttpClient_" class="expander" data-toggle="collapse">BusinessRuleClient(IPictureparkServiceSettings, Http.HttpClient)</a></h4>
+  <h4 id="Picturepark_SDK_V1_BusinessRuleClient__ctor_Picturepark_SDK_V1_Contract_IPictureparkServiceSettings_System_Net_Http_HttpClient_" data-uid="Picturepark.SDK.V1.BusinessRuleClient.#ctor(Picturepark.SDK.V1.Contract.IPictureparkServiceSettings,System.Net.Http.HttpClient)"><a href="#collapsible-Picturepark_SDK_V1_BusinessRuleClient__ctor_Picturepark_SDK_V1_Contract_IPictureparkServiceSettings_System_Net_Http_HttpClient_" class="expander" data-toggle="collapse">BusinessRuleClient(Contract.IPictureparkServiceSettings, Http.HttpClient)</a></h4>
   
   <div id="collapsible-Picturepark_SDK_V1_BusinessRuleClient__ctor_Picturepark_SDK_V1_Contract_IPictureparkServiceSettings_System_Net_Http_HttpClient_" class="collapse in">
   <div class="markdown level1 summary"></div>
@@ -151,14 +151,14 @@
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public BusinessRuleClient(IPictureparkServiceSettings configuration, Http.HttpClient httpClient)</code></pre>
+    <pre><code class="lang-csharp hljs">public BusinessRuleClient(Contract.IPictureparkServiceSettings configuration, Http.HttpClient httpClient)</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
       <td>
-        <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.IPictureparkServiceSettings.html">IPictureparkServiceSettings</a></span>
+        <span class="pull-right"><span class="xref">Picturepark.SDK.V1.Contract.IPictureparkServiceSettings</span></span>
         <span class="parametername">configuration</span>
         <p>
       </td>
@@ -291,7 +291,7 @@
   <table>
     <tr>
       <td>
-        <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.BusinessRuleConfiguration.html">BusinessRuleConfiguration</a>&gt;
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">BusinessRuleConfiguration</span>&gt;
         <p><p>BusinessRuleConfiguration</p>
 </p>
       </td>
@@ -303,56 +303,9 @@
   
   
   
-  <h5 class="implements">Implements</h5>
-      <div><a class="xref" href="Picturepark.SDK.V1.Contract.IBusinessRuleClient.html#Picturepark_SDK_V1_Contract_IBusinessRuleClient_GetConfigurationAsync_System_Threading_CancellationToken_">IBusinessRuleClient.GetConfigurationAsync(CancellationToken)</a></div>
   
   
   
-  <h5 class="exceptions">Exceptions</h5>
-  <table>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
-        <p><p>A server side error occurred.</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkForbiddenException.html">PictureparkForbiddenException</a>
-        <p><p>Forbidden</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
-        <p><p>Entity not found</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
-        <p><p>Version conflict</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
-</p>
-      </td>
-    </tr>
-  </table>
   
   </div>
   
@@ -428,9 +381,9 @@
   
   <a id="Picturepark_SDK_V1_BusinessRuleClient_RunScheduleAsync_" data-uid="Picturepark.SDK.V1.BusinessRuleClient.RunScheduleAsync*"></a>
   
-  <h4 id="Picturepark_SDK_V1_BusinessRuleClient_RunScheduleAsync_Picturepark_SDK_V1_Contract_BusinessRuleSchedule_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.BusinessRuleClient.RunScheduleAsync(Picturepark.SDK.V1.Contract.BusinessRuleSchedule,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_BusinessRuleClient_RunScheduleAsync_Picturepark_SDK_V1_Contract_BusinessRuleSchedule_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">RunScheduleAsync(BusinessRuleSchedule, CancellationToken)</a></h4>
+  <h4 id="Picturepark_SDK_V1_BusinessRuleClient_RunScheduleAsync_BusinessRuleSchedule_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.BusinessRuleClient.RunScheduleAsync(BusinessRuleSchedule,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_BusinessRuleClient_RunScheduleAsync_BusinessRuleSchedule_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">RunScheduleAsync(BusinessRuleSchedule, CancellationToken)</a></h4>
   
-  <div id="collapsible-Picturepark_SDK_V1_BusinessRuleClient_RunScheduleAsync_Picturepark_SDK_V1_Contract_BusinessRuleSchedule_System_Threading_CancellationToken_" class="collapse in">
+  <div id="collapsible-Picturepark_SDK_V1_BusinessRuleClient_RunScheduleAsync_BusinessRuleSchedule_System_Threading_CancellationToken_" class="collapse in">
   <div class="markdown level1 summary"><p>Runs the supplied business rule schedule immediately.
 <br>Allows for testing of schedules.</p>
 </div>
@@ -445,7 +398,7 @@
   <table>
     <tr>
       <td>
-        <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.BusinessRuleSchedule.html">BusinessRuleSchedule</a></span>
+        <span class="pull-right"><span class="xref">BusinessRuleSchedule</span></span>
         <span class="parametername">schedule</span>
         <p><p>BusinessRuleSchedule</p>
 </p>
@@ -465,7 +418,7 @@
   <table>
     <tr>
       <td>
-        <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.BusinessProcess.html">BusinessProcess</a>&gt;
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">BusinessProcess</span>&gt;
         <p><p>BusinessProcess of the metadata operation triggered by the schedule.</p>
 </p>
       </td>
@@ -477,65 +430,18 @@
   
   
   
-  <h5 class="implements">Implements</h5>
-      <div><a class="xref" href="Picturepark.SDK.V1.Contract.IBusinessRuleClient.html#Picturepark_SDK_V1_Contract_IBusinessRuleClient_RunScheduleAsync_Picturepark_SDK_V1_Contract_BusinessRuleSchedule_System_Threading_CancellationToken_">IBusinessRuleClient.RunScheduleAsync(BusinessRuleSchedule, CancellationToken)</a></div>
   
   
   
-  <h5 class="exceptions">Exceptions</h5>
-  <table>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
-        <p><p>A server side error occurred.</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkForbiddenException.html">PictureparkForbiddenException</a>
-        <p><p>Forbidden</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
-        <p><p>Entity not found</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
-        <p><p>Version conflict</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
-</p>
-      </td>
-    </tr>
-  </table>
   
   </div>
   
   
   <a id="Picturepark_SDK_V1_BusinessRuleClient_SearchTracesAsync_" data-uid="Picturepark.SDK.V1.BusinessRuleClient.SearchTracesAsync*"></a>
   
-  <h4 id="Picturepark_SDK_V1_BusinessRuleClient_SearchTracesAsync_Picturepark_SDK_V1_Contract_BusinessRuleTraceLogSearchRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.BusinessRuleClient.SearchTracesAsync(Picturepark.SDK.V1.Contract.BusinessRuleTraceLogSearchRequest,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_BusinessRuleClient_SearchTracesAsync_Picturepark_SDK_V1_Contract_BusinessRuleTraceLogSearchRequest_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">SearchTracesAsync(BusinessRuleTraceLogSearchRequest, CancellationToken)</a></h4>
+  <h4 id="Picturepark_SDK_V1_BusinessRuleClient_SearchTracesAsync_BusinessRuleTraceLogSearchRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.BusinessRuleClient.SearchTracesAsync(BusinessRuleTraceLogSearchRequest,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_BusinessRuleClient_SearchTracesAsync_BusinessRuleTraceLogSearchRequest_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">SearchTracesAsync(BusinessRuleTraceLogSearchRequest, CancellationToken)</a></h4>
   
-  <div id="collapsible-Picturepark_SDK_V1_BusinessRuleClient_SearchTracesAsync_Picturepark_SDK_V1_Contract_BusinessRuleTraceLogSearchRequest_System_Threading_CancellationToken_" class="collapse in">
+  <div id="collapsible-Picturepark_SDK_V1_BusinessRuleClient_SearchTracesAsync_BusinessRuleTraceLogSearchRequest_System_Threading_CancellationToken_" class="collapse in">
   <div class="markdown level1 summary"><p>Searches for trace logs produces by business rule execution.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -549,7 +455,7 @@
   <table>
     <tr>
       <td>
-        <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.BusinessRuleTraceLogSearchRequest.html">BusinessRuleTraceLogSearchRequest</a></span>
+        <span class="pull-right"><span class="xref">BusinessRuleTraceLogSearchRequest</span></span>
         <span class="parametername">request</span>
         <p><p>Request</p>
 </p>
@@ -569,7 +475,7 @@
   <table>
     <tr>
       <td>
-        <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.BusinessRuleTraceLogSearchResult.html">BusinessRuleTraceLogSearchResult</a>&gt;
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">BusinessRuleTraceLogSearchResult</span>&gt;
         <p><p>Holds results of trace log search.</p>
 </p>
       </td>
@@ -581,65 +487,18 @@
   
   
   
-  <h5 class="implements">Implements</h5>
-      <div><a class="xref" href="Picturepark.SDK.V1.Contract.IBusinessRuleClient.html#Picturepark_SDK_V1_Contract_IBusinessRuleClient_SearchTracesAsync_Picturepark_SDK_V1_Contract_BusinessRuleTraceLogSearchRequest_System_Threading_CancellationToken_">IBusinessRuleClient.SearchTracesAsync(BusinessRuleTraceLogSearchRequest, CancellationToken)</a></div>
   
   
   
-  <h5 class="exceptions">Exceptions</h5>
-  <table>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
-        <p><p>A server side error occurred.</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkForbiddenException.html">PictureparkForbiddenException</a>
-        <p><p>Forbidden</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
-        <p><p>Entity not found</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
-        <p><p>Version conflict</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
-</p>
-      </td>
-    </tr>
-  </table>
   
   </div>
   
   
   <a id="Picturepark_SDK_V1_BusinessRuleClient_UpdateConfigurationAsync_" data-uid="Picturepark.SDK.V1.BusinessRuleClient.UpdateConfigurationAsync*"></a>
   
-  <h4 id="Picturepark_SDK_V1_BusinessRuleClient_UpdateConfigurationAsync_Picturepark_SDK_V1_Contract_BusinessRuleConfigurationUpdateRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.BusinessRuleClient.UpdateConfigurationAsync(Picturepark.SDK.V1.Contract.BusinessRuleConfigurationUpdateRequest,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_BusinessRuleClient_UpdateConfigurationAsync_Picturepark_SDK_V1_Contract_BusinessRuleConfigurationUpdateRequest_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">UpdateConfigurationAsync(BusinessRuleConfigurationUpdateRequest, CancellationToken)</a></h4>
+  <h4 id="Picturepark_SDK_V1_BusinessRuleClient_UpdateConfigurationAsync_BusinessRuleConfigurationUpdateRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.BusinessRuleClient.UpdateConfigurationAsync(BusinessRuleConfigurationUpdateRequest,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_BusinessRuleClient_UpdateConfigurationAsync_BusinessRuleConfigurationUpdateRequest_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">UpdateConfigurationAsync(BusinessRuleConfigurationUpdateRequest, CancellationToken)</a></h4>
   
-  <div id="collapsible-Picturepark_SDK_V1_BusinessRuleClient_UpdateConfigurationAsync_Picturepark_SDK_V1_Contract_BusinessRuleConfigurationUpdateRequest_System_Threading_CancellationToken_" class="collapse in">
+  <div id="collapsible-Picturepark_SDK_V1_BusinessRuleClient_UpdateConfigurationAsync_BusinessRuleConfigurationUpdateRequest_System_Threading_CancellationToken_" class="collapse in">
   <div class="markdown level1 summary"><p>Updates the business rule configuration.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -653,7 +512,7 @@
   <table>
     <tr>
       <td>
-        <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.BusinessRuleConfigurationUpdateRequest.html">BusinessRuleConfigurationUpdateRequest</a></span>
+        <span class="pull-right"><span class="xref">BusinessRuleConfigurationUpdateRequest</span></span>
         <span class="parametername">request</span>
         <p><p>Request containing the new configuration.</p>
 </p>
@@ -673,7 +532,7 @@
   <table>
     <tr>
       <td>
-        <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.BusinessProcess.html">BusinessProcess</a>&gt;
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">BusinessProcess</span>&gt;
         <p><p>Business process</p>
 </p>
       </td>
@@ -685,56 +544,9 @@
   
   
   
-  <h5 class="implements">Implements</h5>
-      <div><a class="xref" href="Picturepark.SDK.V1.Contract.IBusinessRuleClient.html#Picturepark_SDK_V1_Contract_IBusinessRuleClient_UpdateConfigurationAsync_Picturepark_SDK_V1_Contract_BusinessRuleConfigurationUpdateRequest_System_Threading_CancellationToken_">IBusinessRuleClient.UpdateConfigurationAsync(BusinessRuleConfigurationUpdateRequest, CancellationToken)</a></div>
   
   
   
-  <h5 class="exceptions">Exceptions</h5>
-  <table>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
-        <p><p>A server side error occurred.</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkForbiddenException.html">PictureparkForbiddenException</a>
-        <p><p>Forbidden</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
-        <p><p>Entity not found</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
-        <p><p>Version conflict</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
-</p>
-      </td>
-    </tr>
-  </table>
   
   </div>
   
