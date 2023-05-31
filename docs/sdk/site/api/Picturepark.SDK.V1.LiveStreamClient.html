@@ -130,7 +130,7 @@
   
   <h5 id="Picturepark_SDK_V1_LiveStreamClient_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class LiveStreamClient : ClientBase, ILiveStreamClient</code></pre>
+    <pre><code class="lang-csharp hljs">public class LiveStreamClient : ClientBase</code></pre>
   </div>
   
   
@@ -143,7 +143,7 @@
   
   <a id="Picturepark_SDK_V1_LiveStreamClient__ctor_" data-uid="Picturepark.SDK.V1.LiveStreamClient.#ctor*"></a>
   
-  <h4 id="Picturepark_SDK_V1_LiveStreamClient__ctor_Picturepark_SDK_V1_Contract_IPictureparkServiceSettings_System_Net_Http_HttpClient_" data-uid="Picturepark.SDK.V1.LiveStreamClient.#ctor(Picturepark.SDK.V1.Contract.IPictureparkServiceSettings,System.Net.Http.HttpClient)"><a href="#collapsible-Picturepark_SDK_V1_LiveStreamClient__ctor_Picturepark_SDK_V1_Contract_IPictureparkServiceSettings_System_Net_Http_HttpClient_" class="expander" data-toggle="collapse">LiveStreamClient(IPictureparkServiceSettings, Http.HttpClient)</a></h4>
+  <h4 id="Picturepark_SDK_V1_LiveStreamClient__ctor_Picturepark_SDK_V1_Contract_IPictureparkServiceSettings_System_Net_Http_HttpClient_" data-uid="Picturepark.SDK.V1.LiveStreamClient.#ctor(Picturepark.SDK.V1.Contract.IPictureparkServiceSettings,System.Net.Http.HttpClient)"><a href="#collapsible-Picturepark_SDK_V1_LiveStreamClient__ctor_Picturepark_SDK_V1_Contract_IPictureparkServiceSettings_System_Net_Http_HttpClient_" class="expander" data-toggle="collapse">LiveStreamClient(Contract.IPictureparkServiceSettings, Http.HttpClient)</a></h4>
   
   <div id="collapsible-Picturepark_SDK_V1_LiveStreamClient__ctor_Picturepark_SDK_V1_Contract_IPictureparkServiceSettings_System_Net_Http_HttpClient_" class="collapse in">
   <div class="markdown level1 summary"></div>
@@ -151,14 +151,14 @@
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public LiveStreamClient(IPictureparkServiceSettings configuration, Http.HttpClient httpClient)</code></pre>
+    <pre><code class="lang-csharp hljs">public LiveStreamClient(Contract.IPictureparkServiceSettings configuration, Http.HttpClient httpClient)</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
       <td>
-        <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.IPictureparkServiceSettings.html">IPictureparkServiceSettings</a></span>
+        <span class="pull-right"><span class="xref">Picturepark.SDK.V1.Contract.IPictureparkServiceSettings</span></span>
         <span class="parametername">configuration</span>
         <p>
       </td>
@@ -332,9 +332,9 @@
   
   <a id="Picturepark_SDK_V1_LiveStreamClient_SearchAsync_" data-uid="Picturepark.SDK.V1.LiveStreamClient.SearchAsync*"></a>
   
-  <h4 id="Picturepark_SDK_V1_LiveStreamClient_SearchAsync_Picturepark_SDK_V1_Contract_LiveStreamSearchRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.LiveStreamClient.SearchAsync(Picturepark.SDK.V1.Contract.LiveStreamSearchRequest,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_LiveStreamClient_SearchAsync_Picturepark_SDK_V1_Contract_LiveStreamSearchRequest_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">SearchAsync(LiveStreamSearchRequest, CancellationToken)</a></h4>
+  <h4 id="Picturepark_SDK_V1_LiveStreamClient_SearchAsync_LiveStreamSearchRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.LiveStreamClient.SearchAsync(LiveStreamSearchRequest,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_LiveStreamClient_SearchAsync_LiveStreamSearchRequest_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">SearchAsync(LiveStreamSearchRequest, CancellationToken)</a></h4>
   
-  <div id="collapsible-Picturepark_SDK_V1_LiveStreamClient_SearchAsync_Picturepark_SDK_V1_Contract_LiveStreamSearchRequest_System_Threading_CancellationToken_" class="collapse in">
+  <div id="collapsible-Picturepark_SDK_V1_LiveStreamClient_SearchAsync_LiveStreamSearchRequest_System_Threading_CancellationToken_" class="collapse in">
   <div class="markdown level1 summary"><p>Search</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -348,7 +348,7 @@
   <table>
     <tr>
       <td>
-        <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.LiveStreamSearchRequest.html">LiveStreamSearchRequest</a></span>
+        <span class="pull-right"><span class="xref">LiveStreamSearchRequest</span></span>
         <span class="parametername">request</span>
         <p><p>Parameters for the search</p>
 </p>
@@ -368,7 +368,7 @@
   <table>
     <tr>
       <td>
-        <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.LiveStreamSearchResult.html">LiveStreamSearchResult</a>&gt;
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">LiveStreamSearchResult</span>&gt;
         <p><p>Resulting live stream events</p>
 </p>
       </td>
@@ -380,56 +380,9 @@
   
   
   
-  <h5 class="implements">Implements</h5>
-      <div><a class="xref" href="Picturepark.SDK.V1.Contract.ILiveStreamClient.html#Picturepark_SDK_V1_Contract_ILiveStreamClient_SearchAsync_Picturepark_SDK_V1_Contract_LiveStreamSearchRequest_System_Threading_CancellationToken_">ILiveStreamClient.SearchAsync(LiveStreamSearchRequest, CancellationToken)</a></div>
   
   
   
-  <h5 class="exceptions">Exceptions</h5>
-  <table>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
-        <p><p>A server side error occurred.</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkForbiddenException.html">PictureparkForbiddenException</a>
-        <p><p>Forbidden</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
-        <p><p>Entity not found</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
-        <p><p>Version conflict</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
-</p>
-      </td>
-    </tr>
-  </table>
   
   </div>
   

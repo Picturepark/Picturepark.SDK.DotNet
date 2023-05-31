@@ -130,7 +130,7 @@
   
   <h5 id="Picturepark_SDK_V1_UserRoleClient_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class UserRoleClient : ClientBase, IUserRoleClient</code></pre>
+    <pre><code class="lang-csharp hljs">public class UserRoleClient : ClientBase</code></pre>
   </div>
   
   
@@ -143,7 +143,7 @@
   
   <a id="Picturepark_SDK_V1_UserRoleClient__ctor_" data-uid="Picturepark.SDK.V1.UserRoleClient.#ctor*"></a>
   
-  <h4 id="Picturepark_SDK_V1_UserRoleClient__ctor_Picturepark_SDK_V1_Contract_IPictureparkServiceSettings_System_Net_Http_HttpClient_" data-uid="Picturepark.SDK.V1.UserRoleClient.#ctor(Picturepark.SDK.V1.Contract.IPictureparkServiceSettings,System.Net.Http.HttpClient)"><a href="#collapsible-Picturepark_SDK_V1_UserRoleClient__ctor_Picturepark_SDK_V1_Contract_IPictureparkServiceSettings_System_Net_Http_HttpClient_" class="expander" data-toggle="collapse">UserRoleClient(IPictureparkServiceSettings, Http.HttpClient)</a></h4>
+  <h4 id="Picturepark_SDK_V1_UserRoleClient__ctor_Picturepark_SDK_V1_Contract_IPictureparkServiceSettings_System_Net_Http_HttpClient_" data-uid="Picturepark.SDK.V1.UserRoleClient.#ctor(Picturepark.SDK.V1.Contract.IPictureparkServiceSettings,System.Net.Http.HttpClient)"><a href="#collapsible-Picturepark_SDK_V1_UserRoleClient__ctor_Picturepark_SDK_V1_Contract_IPictureparkServiceSettings_System_Net_Http_HttpClient_" class="expander" data-toggle="collapse">UserRoleClient(Contract.IPictureparkServiceSettings, Http.HttpClient)</a></h4>
   
   <div id="collapsible-Picturepark_SDK_V1_UserRoleClient__ctor_Picturepark_SDK_V1_Contract_IPictureparkServiceSettings_System_Net_Http_HttpClient_" class="collapse in">
   <div class="markdown level1 summary"></div>
@@ -151,14 +151,14 @@
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public UserRoleClient(IPictureparkServiceSettings configuration, Http.HttpClient httpClient)</code></pre>
+    <pre><code class="lang-csharp hljs">public UserRoleClient(Contract.IPictureparkServiceSettings configuration, Http.HttpClient httpClient)</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
       <td>
-        <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.IPictureparkServiceSettings.html">IPictureparkServiceSettings</a></span>
+        <span class="pull-right"><span class="xref">Picturepark.SDK.V1.Contract.IPictureparkServiceSettings</span></span>
         <span class="parametername">configuration</span>
         <p>
       </td>
@@ -263,9 +263,9 @@
   
   <a id="Picturepark_SDK_V1_UserRoleClient_CreateAsync_" data-uid="Picturepark.SDK.V1.UserRoleClient.CreateAsync*"></a>
   
-  <h4 id="Picturepark_SDK_V1_UserRoleClient_CreateAsync_Picturepark_SDK_V1_Contract_UserRoleCreateRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.UserRoleClient.CreateAsync(Picturepark.SDK.V1.Contract.UserRoleCreateRequest,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_UserRoleClient_CreateAsync_Picturepark_SDK_V1_Contract_UserRoleCreateRequest_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">CreateAsync(UserRoleCreateRequest, CancellationToken)</a></h4>
+  <h4 id="Picturepark_SDK_V1_UserRoleClient_CreateAsync_UserRoleCreateRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.UserRoleClient.CreateAsync(UserRoleCreateRequest,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_UserRoleClient_CreateAsync_UserRoleCreateRequest_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">CreateAsync(UserRoleCreateRequest, CancellationToken)</a></h4>
   
-  <div id="collapsible-Picturepark_SDK_V1_UserRoleClient_CreateAsync_Picturepark_SDK_V1_Contract_UserRoleCreateRequest_System_Threading_CancellationToken_" class="collapse in">
+  <div id="collapsible-Picturepark_SDK_V1_UserRoleClient_CreateAsync_UserRoleCreateRequest_System_Threading_CancellationToken_" class="collapse in">
   <div class="markdown level1 summary"><p>Create user role</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -279,7 +279,7 @@
   <table>
     <tr>
       <td>
-        <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.UserRoleCreateRequest.html">UserRoleCreateRequest</a></span>
+        <span class="pull-right"><span class="xref">UserRoleCreateRequest</span></span>
         <span class="parametername">request</span>
         <p><p>Request containing information needed to create new user role.</p>
 </p>
@@ -299,7 +299,7 @@
   <table>
     <tr>
       <td>
-        <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.UserRoleDetail.html">UserRoleDetail</a>&gt;
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">UserRoleDetail</span>&gt;
         <p><p>Represents a user role, which associates users with user rights.</p>
 </p>
       </td>
@@ -311,65 +311,18 @@
   
   
   
-  <h5 class="implements">Implements</h5>
-      <div><a class="xref" href="Picturepark.SDK.V1.Contract.IUserRoleClient.html#Picturepark_SDK_V1_Contract_IUserRoleClient_CreateAsync_Picturepark_SDK_V1_Contract_UserRoleCreateRequest_System_Threading_CancellationToken_">IUserRoleClient.CreateAsync(UserRoleCreateRequest, CancellationToken)</a></div>
   
   
   
-  <h5 class="exceptions">Exceptions</h5>
-  <table>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
-        <p><p>A server side error occurred.</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkForbiddenException.html">PictureparkForbiddenException</a>
-        <p><p>Forbidden</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
-        <p><p>Entity not found</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
-        <p><p>Version conflict</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
-</p>
-      </td>
-    </tr>
-  </table>
   
   </div>
   
   
   <a id="Picturepark_SDK_V1_UserRoleClient_CreateManyAsync_" data-uid="Picturepark.SDK.V1.UserRoleClient.CreateManyAsync*"></a>
   
-  <h4 id="Picturepark_SDK_V1_UserRoleClient_CreateManyAsync_Picturepark_SDK_V1_Contract_UserRoleCreateManyRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.UserRoleClient.CreateManyAsync(Picturepark.SDK.V1.Contract.UserRoleCreateManyRequest,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_UserRoleClient_CreateManyAsync_Picturepark_SDK_V1_Contract_UserRoleCreateManyRequest_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">CreateManyAsync(UserRoleCreateManyRequest, CancellationToken)</a></h4>
+  <h4 id="Picturepark_SDK_V1_UserRoleClient_CreateManyAsync_UserRoleCreateManyRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.UserRoleClient.CreateManyAsync(UserRoleCreateManyRequest,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_UserRoleClient_CreateManyAsync_UserRoleCreateManyRequest_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">CreateManyAsync(UserRoleCreateManyRequest, CancellationToken)</a></h4>
   
-  <div id="collapsible-Picturepark_SDK_V1_UserRoleClient_CreateManyAsync_Picturepark_SDK_V1_Contract_UserRoleCreateManyRequest_System_Threading_CancellationToken_" class="collapse in">
+  <div id="collapsible-Picturepark_SDK_V1_UserRoleClient_CreateManyAsync_UserRoleCreateManyRequest_System_Threading_CancellationToken_" class="collapse in">
   <div class="markdown level1 summary"><p>Create multiple user roles</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -383,7 +336,7 @@
   <table>
     <tr>
       <td>
-        <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.UserRoleCreateManyRequest.html">UserRoleCreateManyRequest</a></span>
+        <span class="pull-right"><span class="xref">UserRoleCreateManyRequest</span></span>
         <span class="parametername">request</span>
         <p><p>Request containing information needed to create new user role.</p>
 </p>
@@ -403,7 +356,7 @@
   <table>
     <tr>
       <td>
-        <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.BulkResponse.html">BulkResponse</a>&gt;
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">BulkResponse</span>&gt;
         <p><p>Response to a bulk operation</p>
 </p>
       </td>
@@ -415,56 +368,9 @@
   
   
   
-  <h5 class="implements">Implements</h5>
-      <div><a class="xref" href="Picturepark.SDK.V1.Contract.IUserRoleClient.html#Picturepark_SDK_V1_Contract_IUserRoleClient_CreateManyAsync_Picturepark_SDK_V1_Contract_UserRoleCreateManyRequest_System_Threading_CancellationToken_">IUserRoleClient.CreateManyAsync(UserRoleCreateManyRequest, CancellationToken)</a></div>
   
   
   
-  <h5 class="exceptions">Exceptions</h5>
-  <table>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
-        <p><p>A server side error occurred.</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkForbiddenException.html">PictureparkForbiddenException</a>
-        <p><p>Forbidden</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
-        <p><p>Entity not found</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
-        <p><p>Version conflict</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
-</p>
-      </td>
-    </tr>
-  </table>
   
   </div>
   
@@ -518,65 +424,18 @@
   
   
   
-  <h5 class="implements">Implements</h5>
-      <div><a class="xref" href="Picturepark.SDK.V1.Contract.IUserRoleClient.html#Picturepark_SDK_V1_Contract_IUserRoleClient_DeleteAsync_System_String_System_Threading_CancellationToken_">IUserRoleClient.DeleteAsync(String, CancellationToken)</a></div>
   
   
   
-  <h5 class="exceptions">Exceptions</h5>
-  <table>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
-        <p><p>A server side error occurred.</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkForbiddenException.html">PictureparkForbiddenException</a>
-        <p><p>Forbidden</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
-        <p><p>Entity not found</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
-        <p><p>Version conflict</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
-</p>
-      </td>
-    </tr>
-  </table>
   
   </div>
   
   
   <a id="Picturepark_SDK_V1_UserRoleClient_DeleteManyAsync_" data-uid="Picturepark.SDK.V1.UserRoleClient.DeleteManyAsync*"></a>
   
-  <h4 id="Picturepark_SDK_V1_UserRoleClient_DeleteManyAsync_Picturepark_SDK_V1_Contract_UserRoleDeleteManyRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.UserRoleClient.DeleteManyAsync(Picturepark.SDK.V1.Contract.UserRoleDeleteManyRequest,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_UserRoleClient_DeleteManyAsync_Picturepark_SDK_V1_Contract_UserRoleDeleteManyRequest_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">DeleteManyAsync(UserRoleDeleteManyRequest, CancellationToken)</a></h4>
+  <h4 id="Picturepark_SDK_V1_UserRoleClient_DeleteManyAsync_UserRoleDeleteManyRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.UserRoleClient.DeleteManyAsync(UserRoleDeleteManyRequest,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_UserRoleClient_DeleteManyAsync_UserRoleDeleteManyRequest_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">DeleteManyAsync(UserRoleDeleteManyRequest, CancellationToken)</a></h4>
   
-  <div id="collapsible-Picturepark_SDK_V1_UserRoleClient_DeleteManyAsync_Picturepark_SDK_V1_Contract_UserRoleDeleteManyRequest_System_Threading_CancellationToken_" class="collapse in">
+  <div id="collapsible-Picturepark_SDK_V1_UserRoleClient_DeleteManyAsync_UserRoleDeleteManyRequest_System_Threading_CancellationToken_" class="collapse in">
   <div class="markdown level1 summary"><p>Delete multiple user roles</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -590,7 +449,7 @@
   <table>
     <tr>
       <td>
-        <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.UserRoleDeleteManyRequest.html">UserRoleDeleteManyRequest</a></span>
+        <span class="pull-right"><span class="xref">UserRoleDeleteManyRequest</span></span>
         <span class="parametername">request</span>
         <p><p>The request with user role IDs to delete.</p>
 </p>
@@ -610,7 +469,7 @@
   <table>
     <tr>
       <td>
-        <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.BulkResponse.html">BulkResponse</a>&gt;
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">BulkResponse</span>&gt;
         <p><p>Response to a bulk operation</p>
 </p>
       </td>
@@ -622,56 +481,9 @@
   
   
   
-  <h5 class="implements">Implements</h5>
-      <div><a class="xref" href="Picturepark.SDK.V1.Contract.IUserRoleClient.html#Picturepark_SDK_V1_Contract_IUserRoleClient_DeleteManyAsync_Picturepark_SDK_V1_Contract_UserRoleDeleteManyRequest_System_Threading_CancellationToken_">IUserRoleClient.DeleteManyAsync(UserRoleDeleteManyRequest, CancellationToken)</a></div>
   
   
   
-  <h5 class="exceptions">Exceptions</h5>
-  <table>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
-        <p><p>A server side error occurred.</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkForbiddenException.html">PictureparkForbiddenException</a>
-        <p><p>Forbidden</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
-        <p><p>Entity not found</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
-        <p><p>Version conflict</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
-</p>
-      </td>
-    </tr>
-  </table>
   
   </div>
   
@@ -714,7 +526,7 @@
   <table>
     <tr>
       <td>
-        <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.UserRoleDetail.html">UserRoleDetail</a>&gt;
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">UserRoleDetail</span>&gt;
         <p><p>Represents a user role, which associates users with user rights.</p>
 </p>
       </td>
@@ -726,56 +538,9 @@
   
   
   
-  <h5 class="implements">Implements</h5>
-      <div><a class="xref" href="Picturepark.SDK.V1.Contract.IUserRoleClient.html#Picturepark_SDK_V1_Contract_IUserRoleClient_GetAsync_System_String_System_Threading_CancellationToken_">IUserRoleClient.GetAsync(String, CancellationToken)</a></div>
   
   
   
-  <h5 class="exceptions">Exceptions</h5>
-  <table>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
-        <p><p>A server side error occurred.</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkForbiddenException.html">PictureparkForbiddenException</a>
-        <p><p>Forbidden</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
-        <p><p>Entity not found</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
-        <p><p>Version conflict</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
-</p>
-      </td>
-    </tr>
-  </table>
   
   </div>
   
@@ -818,7 +583,7 @@
   <table>
     <tr>
       <td>
-        <span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">System.Collections.Generic.ICollection</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.UserRoleDetail.html">UserRoleDetail</a>&gt;&gt;
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">System.Collections.Generic.ICollection</span>&lt;<span class="xref">UserRoleDetail</span>&gt;&gt;
         <p><p>Array of Represents a user role, which associates users with user rights.</p>
 </p>
       </td>
@@ -830,63 +595,9 @@
   
   
   
-  <h5 class="implements">Implements</h5>
-      <div><a class="xref" href="Picturepark.SDK.V1.Contract.IUserRoleClient.html#Picturepark_SDK_V1_Contract_IUserRoleClient_GetManyAsync_System_Collections_Generic_IEnumerable_System_String__System_Threading_CancellationToken_">IUserRoleClient.GetManyAsync(IEnumerable&lt;String&gt;, CancellationToken)</a></div>
   
   
   
-  <h5 class="exceptions">Exceptions</h5>
-  <table>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
-        <p><p>A server side error occurred.</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkForbiddenException.html">PictureparkForbiddenException</a>
-        <p><p>Forbidden</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
-        <p><p>Entity not found</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
-        <p><p>Version conflict</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.RequestSizeLimitExceededException.html">RequestSizeLimitExceededException</a>
-        <p><p>List of IDs exceeded maximum size</p>
-</p>
-      </td>
-    </tr>
-  </table>
   
   </div>
   
@@ -962,9 +673,9 @@
   
   <a id="Picturepark_SDK_V1_UserRoleClient_SearchAsync_" data-uid="Picturepark.SDK.V1.UserRoleClient.SearchAsync*"></a>
   
-  <h4 id="Picturepark_SDK_V1_UserRoleClient_SearchAsync_Picturepark_SDK_V1_Contract_UserRoleSearchRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.UserRoleClient.SearchAsync(Picturepark.SDK.V1.Contract.UserRoleSearchRequest,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_UserRoleClient_SearchAsync_Picturepark_SDK_V1_Contract_UserRoleSearchRequest_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">SearchAsync(UserRoleSearchRequest, CancellationToken)</a></h4>
+  <h4 id="Picturepark_SDK_V1_UserRoleClient_SearchAsync_UserRoleSearchRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.UserRoleClient.SearchAsync(UserRoleSearchRequest,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_UserRoleClient_SearchAsync_UserRoleSearchRequest_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">SearchAsync(UserRoleSearchRequest, CancellationToken)</a></h4>
   
-  <div id="collapsible-Picturepark_SDK_V1_UserRoleClient_SearchAsync_Picturepark_SDK_V1_Contract_UserRoleSearchRequest_System_Threading_CancellationToken_" class="collapse in">
+  <div id="collapsible-Picturepark_SDK_V1_UserRoleClient_SearchAsync_UserRoleSearchRequest_System_Threading_CancellationToken_" class="collapse in">
   <div class="markdown level1 summary"><p>Search user roles</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -978,7 +689,7 @@
   <table>
     <tr>
       <td>
-        <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.UserRoleSearchRequest.html">UserRoleSearchRequest</a></span>
+        <span class="pull-right"><span class="xref">UserRoleSearchRequest</span></span>
         <span class="parametername">request</span>
         <p><p>User role search request.</p>
 </p>
@@ -998,7 +709,7 @@
   <table>
     <tr>
       <td>
-        <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.UserRoleSearchResult.html">UserRoleSearchResult</a>&gt;
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">UserRoleSearchResult</span>&gt;
         <p><p>Result of the user role search</p>
 </p>
       </td>
@@ -1010,65 +721,18 @@
   
   
   
-  <h5 class="implements">Implements</h5>
-      <div><a class="xref" href="Picturepark.SDK.V1.Contract.IUserRoleClient.html#Picturepark_SDK_V1_Contract_IUserRoleClient_SearchAsync_Picturepark_SDK_V1_Contract_UserRoleSearchRequest_System_Threading_CancellationToken_">IUserRoleClient.SearchAsync(UserRoleSearchRequest, CancellationToken)</a></div>
   
   
   
-  <h5 class="exceptions">Exceptions</h5>
-  <table>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
-        <p><p>A server side error occurred.</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkForbiddenException.html">PictureparkForbiddenException</a>
-        <p><p>Forbidden</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
-        <p><p>Entity not found</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
-        <p><p>Version conflict</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
-</p>
-      </td>
-    </tr>
-  </table>
   
   </div>
   
   
   <a id="Picturepark_SDK_V1_UserRoleClient_UpdateAsync_" data-uid="Picturepark.SDK.V1.UserRoleClient.UpdateAsync*"></a>
   
-  <h4 id="Picturepark_SDK_V1_UserRoleClient_UpdateAsync_System_String_Picturepark_SDK_V1_Contract_UserRoleEditable_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.UserRoleClient.UpdateAsync(System.String,Picturepark.SDK.V1.Contract.UserRoleEditable,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_UserRoleClient_UpdateAsync_System_String_Picturepark_SDK_V1_Contract_UserRoleEditable_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">UpdateAsync(String, UserRoleEditable, CancellationToken)</a></h4>
+  <h4 id="Picturepark_SDK_V1_UserRoleClient_UpdateAsync_System_String_UserRoleEditable_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.UserRoleClient.UpdateAsync(System.String,UserRoleEditable,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_UserRoleClient_UpdateAsync_System_String_UserRoleEditable_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">UpdateAsync(String, UserRoleEditable, CancellationToken)</a></h4>
   
-  <div id="collapsible-Picturepark_SDK_V1_UserRoleClient_UpdateAsync_System_String_Picturepark_SDK_V1_Contract_UserRoleEditable_System_Threading_CancellationToken_" class="collapse in">
+  <div id="collapsible-Picturepark_SDK_V1_UserRoleClient_UpdateAsync_System_String_UserRoleEditable_System_Threading_CancellationToken_" class="collapse in">
   <div class="markdown level1 summary"><p>Update user role</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -1090,7 +754,7 @@
     </tr>
     <tr>
       <td>
-        <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.UserRoleEditable.html">UserRoleEditable</a></span>
+        <span class="pull-right"><span class="xref">UserRoleEditable</span></span>
         <span class="parametername">request</span>
         <p><p>Request containing information needed to update the user role.</p>
 </p>
@@ -1110,7 +774,7 @@
   <table>
     <tr>
       <td>
-        <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.UserRoleDetail.html">UserRoleDetail</a>&gt;
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">UserRoleDetail</span>&gt;
         <p><p>Represents a user role, which associates users with user rights.</p>
 </p>
       </td>
@@ -1122,65 +786,18 @@
   
   
   
-  <h5 class="implements">Implements</h5>
-      <div><a class="xref" href="Picturepark.SDK.V1.Contract.IUserRoleClient.html#Picturepark_SDK_V1_Contract_IUserRoleClient_UpdateAsync_System_String_Picturepark_SDK_V1_Contract_UserRoleEditable_System_Threading_CancellationToken_">IUserRoleClient.UpdateAsync(String, UserRoleEditable, CancellationToken)</a></div>
   
   
   
-  <h5 class="exceptions">Exceptions</h5>
-  <table>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
-        <p><p>A server side error occurred.</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkForbiddenException.html">PictureparkForbiddenException</a>
-        <p><p>Forbidden</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
-        <p><p>Entity not found</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
-        <p><p>Version conflict</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
-</p>
-      </td>
-    </tr>
-  </table>
   
   </div>
   
   
   <a id="Picturepark_SDK_V1_UserRoleClient_UpdateManyAsync_" data-uid="Picturepark.SDK.V1.UserRoleClient.UpdateManyAsync*"></a>
   
-  <h4 id="Picturepark_SDK_V1_UserRoleClient_UpdateManyAsync_Picturepark_SDK_V1_Contract_UserRoleUpdateManyRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.UserRoleClient.UpdateManyAsync(Picturepark.SDK.V1.Contract.UserRoleUpdateManyRequest,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_UserRoleClient_UpdateManyAsync_Picturepark_SDK_V1_Contract_UserRoleUpdateManyRequest_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">UpdateManyAsync(UserRoleUpdateManyRequest, CancellationToken)</a></h4>
+  <h4 id="Picturepark_SDK_V1_UserRoleClient_UpdateManyAsync_UserRoleUpdateManyRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.UserRoleClient.UpdateManyAsync(UserRoleUpdateManyRequest,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_UserRoleClient_UpdateManyAsync_UserRoleUpdateManyRequest_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">UpdateManyAsync(UserRoleUpdateManyRequest, CancellationToken)</a></h4>
   
-  <div id="collapsible-Picturepark_SDK_V1_UserRoleClient_UpdateManyAsync_Picturepark_SDK_V1_Contract_UserRoleUpdateManyRequest_System_Threading_CancellationToken_" class="collapse in">
+  <div id="collapsible-Picturepark_SDK_V1_UserRoleClient_UpdateManyAsync_UserRoleUpdateManyRequest_System_Threading_CancellationToken_" class="collapse in">
   <div class="markdown level1 summary"><p>Update multiple user roles</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -1194,7 +811,7 @@
   <table>
     <tr>
       <td>
-        <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.UserRoleUpdateManyRequest.html">UserRoleUpdateManyRequest</a></span>
+        <span class="pull-right"><span class="xref">UserRoleUpdateManyRequest</span></span>
         <span class="parametername">request</span>
         <p><p>Request containing information needed to update the user role.</p>
 </p>
@@ -1214,7 +831,7 @@
   <table>
     <tr>
       <td>
-        <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.BulkResponse.html">BulkResponse</a>&gt;
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">BulkResponse</span>&gt;
         <p><p>Response to a bulk operation</p>
 </p>
       </td>
@@ -1226,56 +843,9 @@
   
   
   
-  <h5 class="implements">Implements</h5>
-      <div><a class="xref" href="Picturepark.SDK.V1.Contract.IUserRoleClient.html#Picturepark_SDK_V1_Contract_IUserRoleClient_UpdateManyAsync_Picturepark_SDK_V1_Contract_UserRoleUpdateManyRequest_System_Threading_CancellationToken_">IUserRoleClient.UpdateManyAsync(UserRoleUpdateManyRequest, CancellationToken)</a></div>
   
   
   
-  <h5 class="exceptions">Exceptions</h5>
-  <table>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
-        <p><p>A server side error occurred.</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkForbiddenException.html">PictureparkForbiddenException</a>
-        <p><p>Forbidden</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
-        <p><p>Entity not found</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
-        <p><p>Version conflict</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
-</p>
-      </td>
-    </tr>
-  </table>
   
   </div>
   

@@ -130,7 +130,7 @@
   
   <h5 id="Picturepark_SDK_V1_BusinessProcessClient_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class BusinessProcessClient : ClientBase, IBusinessProcessClient</code></pre>
+    <pre><code class="lang-csharp hljs">public class BusinessProcessClient : ClientBase</code></pre>
   </div>
   
   
@@ -143,7 +143,7 @@
   
   <a id="Picturepark_SDK_V1_BusinessProcessClient__ctor_" data-uid="Picturepark.SDK.V1.BusinessProcessClient.#ctor*"></a>
   
-  <h4 id="Picturepark_SDK_V1_BusinessProcessClient__ctor_Picturepark_SDK_V1_Contract_IPictureparkServiceSettings_System_Net_Http_HttpClient_" data-uid="Picturepark.SDK.V1.BusinessProcessClient.#ctor(Picturepark.SDK.V1.Contract.IPictureparkServiceSettings,System.Net.Http.HttpClient)"><a href="#collapsible-Picturepark_SDK_V1_BusinessProcessClient__ctor_Picturepark_SDK_V1_Contract_IPictureparkServiceSettings_System_Net_Http_HttpClient_" class="expander" data-toggle="collapse">BusinessProcessClient(IPictureparkServiceSettings, Http.HttpClient)</a></h4>
+  <h4 id="Picturepark_SDK_V1_BusinessProcessClient__ctor_Picturepark_SDK_V1_Contract_IPictureparkServiceSettings_System_Net_Http_HttpClient_" data-uid="Picturepark.SDK.V1.BusinessProcessClient.#ctor(Picturepark.SDK.V1.Contract.IPictureparkServiceSettings,System.Net.Http.HttpClient)"><a href="#collapsible-Picturepark_SDK_V1_BusinessProcessClient__ctor_Picturepark_SDK_V1_Contract_IPictureparkServiceSettings_System_Net_Http_HttpClient_" class="expander" data-toggle="collapse">BusinessProcessClient(Contract.IPictureparkServiceSettings, Http.HttpClient)</a></h4>
   
   <div id="collapsible-Picturepark_SDK_V1_BusinessProcessClient__ctor_Picturepark_SDK_V1_Contract_IPictureparkServiceSettings_System_Net_Http_HttpClient_" class="collapse in">
   <div class="markdown level1 summary"></div>
@@ -151,14 +151,14 @@
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public BusinessProcessClient(IPictureparkServiceSettings configuration, Http.HttpClient httpClient)</code></pre>
+    <pre><code class="lang-csharp hljs">public BusinessProcessClient(Contract.IPictureparkServiceSettings configuration, Http.HttpClient httpClient)</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
       <td>
-        <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.IPictureparkServiceSettings.html">IPictureparkServiceSettings</a></span>
+        <span class="pull-right"><span class="xref">Picturepark.SDK.V1.Contract.IPictureparkServiceSettings</span></span>
         <span class="parametername">configuration</span>
         <p>
       </td>
@@ -310,65 +310,18 @@
   
   
   
-  <h5 class="implements">Implements</h5>
-      <div><a class="xref" href="Picturepark.SDK.V1.Contract.IBusinessProcessClient.html#Picturepark_SDK_V1_Contract_IBusinessProcessClient_CancelAsync_System_String_System_Threading_CancellationToken_">IBusinessProcessClient.CancelAsync(String, CancellationToken)</a></div>
   
   
   
-  <h5 class="exceptions">Exceptions</h5>
-  <table>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
-        <p><p>A server side error occurred.</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkForbiddenException.html">PictureparkForbiddenException</a>
-        <p><p>Forbidden</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
-        <p><p>Entity not found</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
-        <p><p>Version conflict</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
-</p>
-      </td>
-    </tr>
-  </table>
   
   </div>
   
   
   <a id="Picturepark_SDK_V1_BusinessProcessClient_ChangeStateAsync_" data-uid="Picturepark.SDK.V1.BusinessProcessClient.ChangeStateAsync*"></a>
   
-  <h4 id="Picturepark_SDK_V1_BusinessProcessClient_ChangeStateAsync_System_String_Picturepark_SDK_V1_Contract_BusinessProcessStateChangeRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.BusinessProcessClient.ChangeStateAsync(System.String,Picturepark.SDK.V1.Contract.BusinessProcessStateChangeRequest,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_BusinessProcessClient_ChangeStateAsync_System_String_Picturepark_SDK_V1_Contract_BusinessProcessStateChangeRequest_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">ChangeStateAsync(String, BusinessProcessStateChangeRequest, CancellationToken)</a></h4>
+  <h4 id="Picturepark_SDK_V1_BusinessProcessClient_ChangeStateAsync_System_String_BusinessProcessStateChangeRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.BusinessProcessClient.ChangeStateAsync(System.String,BusinessProcessStateChangeRequest,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_BusinessProcessClient_ChangeStateAsync_System_String_BusinessProcessStateChangeRequest_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">ChangeStateAsync(String, BusinessProcessStateChangeRequest, CancellationToken)</a></h4>
   
-  <div id="collapsible-Picturepark_SDK_V1_BusinessProcessClient_ChangeStateAsync_System_String_Picturepark_SDK_V1_Contract_BusinessProcessStateChangeRequest_System_Threading_CancellationToken_" class="collapse in">
+  <div id="collapsible-Picturepark_SDK_V1_BusinessProcessClient_ChangeStateAsync_System_String_BusinessProcessStateChangeRequest_System_Threading_CancellationToken_" class="collapse in">
   <div class="markdown level1 summary"><p>Change business process state</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -390,7 +343,7 @@
     </tr>
     <tr>
       <td>
-        <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.BusinessProcessStateChangeRequest.html">BusinessProcessStateChangeRequest</a></span>
+        <span class="pull-right"><span class="xref">BusinessProcessStateChangeRequest</span></span>
         <span class="parametername">request</span>
         <p><p>The business process state change request.</p>
 </p>
@@ -410,7 +363,7 @@
   <table>
     <tr>
       <td>
-        <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.BusinessProcess.html">BusinessProcess</a>&gt;
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">BusinessProcess</span>&gt;
         <p><p>BusinessProcess</p>
 </p>
       </td>
@@ -422,65 +375,18 @@
   
   
   
-  <h5 class="implements">Implements</h5>
-      <div><a class="xref" href="Picturepark.SDK.V1.Contract.IBusinessProcessClient.html#Picturepark_SDK_V1_Contract_IBusinessProcessClient_ChangeStateAsync_System_String_Picturepark_SDK_V1_Contract_BusinessProcessStateChangeRequest_System_Threading_CancellationToken_">IBusinessProcessClient.ChangeStateAsync(String, BusinessProcessStateChangeRequest, CancellationToken)</a></div>
   
   
   
-  <h5 class="exceptions">Exceptions</h5>
-  <table>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
-        <p><p>A server side error occurred.</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkForbiddenException.html">PictureparkForbiddenException</a>
-        <p><p>Forbidden</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
-        <p><p>Entity not found</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
-        <p><p>Version conflict</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
-</p>
-      </td>
-    </tr>
-  </table>
   
   </div>
   
   
   <a id="Picturepark_SDK_V1_BusinessProcessClient_CreateAsync_" data-uid="Picturepark.SDK.V1.BusinessProcessClient.CreateAsync*"></a>
   
-  <h4 id="Picturepark_SDK_V1_BusinessProcessClient_CreateAsync_Picturepark_SDK_V1_Contract_BusinessProcessCreateRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.BusinessProcessClient.CreateAsync(Picturepark.SDK.V1.Contract.BusinessProcessCreateRequest,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_BusinessProcessClient_CreateAsync_Picturepark_SDK_V1_Contract_BusinessProcessCreateRequest_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">CreateAsync(BusinessProcessCreateRequest, CancellationToken)</a></h4>
+  <h4 id="Picturepark_SDK_V1_BusinessProcessClient_CreateAsync_BusinessProcessCreateRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.BusinessProcessClient.CreateAsync(BusinessProcessCreateRequest,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_BusinessProcessClient_CreateAsync_BusinessProcessCreateRequest_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">CreateAsync(BusinessProcessCreateRequest, CancellationToken)</a></h4>
   
-  <div id="collapsible-Picturepark_SDK_V1_BusinessProcessClient_CreateAsync_Picturepark_SDK_V1_Contract_BusinessProcessCreateRequest_System_Threading_CancellationToken_" class="collapse in">
+  <div id="collapsible-Picturepark_SDK_V1_BusinessProcessClient_CreateAsync_BusinessProcessCreateRequest_System_Threading_CancellationToken_" class="collapse in">
   <div class="markdown level1 summary"><p>Create business process</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -494,7 +400,7 @@
   <table>
     <tr>
       <td>
-        <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.BusinessProcessCreateRequest.html">BusinessProcessCreateRequest</a></span>
+        <span class="pull-right"><span class="xref">BusinessProcessCreateRequest</span></span>
         <span class="parametername">request</span>
         <p><p>The business process create request.</p>
 </p>
@@ -514,7 +420,7 @@
   <table>
     <tr>
       <td>
-        <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.BusinessProcess.html">BusinessProcess</a>&gt;
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">BusinessProcess</span>&gt;
         <p><p>BusinessProcess</p>
 </p>
       </td>
@@ -526,56 +432,9 @@
   
   
   
-  <h5 class="implements">Implements</h5>
-      <div><a class="xref" href="Picturepark.SDK.V1.Contract.IBusinessProcessClient.html#Picturepark_SDK_V1_Contract_IBusinessProcessClient_CreateAsync_Picturepark_SDK_V1_Contract_BusinessProcessCreateRequest_System_Threading_CancellationToken_">IBusinessProcessClient.CreateAsync(BusinessProcessCreateRequest, CancellationToken)</a></div>
   
   
   
-  <h5 class="exceptions">Exceptions</h5>
-  <table>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
-        <p><p>A server side error occurred.</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkForbiddenException.html">PictureparkForbiddenException</a>
-        <p><p>Forbidden</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
-        <p><p>Entity not found</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
-        <p><p>Version conflict</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
-</p>
-      </td>
-    </tr>
-  </table>
   
   </div>
   
@@ -618,7 +477,7 @@
   <table>
     <tr>
       <td>
-        <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.BusinessProcess.html">BusinessProcess</a>&gt;
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">BusinessProcess</span>&gt;
         <p><p>BusinessProcess</p>
 </p>
       </td>
@@ -630,56 +489,9 @@
   
   
   
-  <h5 class="implements">Implements</h5>
-      <div><a class="xref" href="Picturepark.SDK.V1.Contract.IBusinessProcessClient.html#Picturepark_SDK_V1_Contract_IBusinessProcessClient_GetAsync_System_String_System_Threading_CancellationToken_">IBusinessProcessClient.GetAsync(String, CancellationToken)</a></div>
   
   
   
-  <h5 class="exceptions">Exceptions</h5>
-  <table>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
-        <p><p>A server side error occurred.</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkForbiddenException.html">PictureparkForbiddenException</a>
-        <p><p>Forbidden</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
-        <p><p>Entity not found</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
-        <p><p>Version conflict</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
-</p>
-      </td>
-    </tr>
-  </table>
   
   </div>
   
@@ -723,7 +535,7 @@ public virtual async Task&lt;BusinessProcessDetails&gt; GetDetailsAsync(string i
   <table>
     <tr>
       <td>
-        <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.BusinessProcessDetails.html">BusinessProcessDetails</a>&gt;
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">BusinessProcessDetails</span>&gt;
         <p><p>BusinessProcessDetails</p>
 </p>
       </td>
@@ -735,56 +547,9 @@ public virtual async Task&lt;BusinessProcessDetails&gt; GetDetailsAsync(string i
   
   
   
-  <h5 class="implements">Implements</h5>
-      <div><a class="xref" href="Picturepark.SDK.V1.Contract.IBusinessProcessClient.html#Picturepark_SDK_V1_Contract_IBusinessProcessClient_GetDetailsAsync_System_String_System_Threading_CancellationToken_">IBusinessProcessClient.GetDetailsAsync(String, CancellationToken)</a></div>
   
   
   
-  <h5 class="exceptions">Exceptions</h5>
-  <table>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
-        <p><p>A server side error occurred.</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkForbiddenException.html">PictureparkForbiddenException</a>
-        <p><p>Forbidden</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
-        <p><p>Entity not found</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
-        <p><p>Version conflict</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
-</p>
-      </td>
-    </tr>
-  </table>
   
   </div>
   
@@ -844,7 +609,7 @@ public virtual async Task&lt;BusinessProcessDetails&gt; GetDetailsAsync(string i
   <table>
     <tr>
       <td>
-        <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.BusinessProcessBatch.html">BusinessProcessBatch</a>&gt;
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">BusinessProcessBatch</span>&gt;
         <p><p>BusinessProcessBatch</p>
 </p>
       </td>
@@ -856,56 +621,9 @@ public virtual async Task&lt;BusinessProcessDetails&gt; GetDetailsAsync(string i
   
   
   
-  <h5 class="implements">Implements</h5>
-      <div><a class="xref" href="Picturepark.SDK.V1.Contract.IBusinessProcessClient.html#Picturepark_SDK_V1_Contract_IBusinessProcessClient_GetFailedItemsAsync_System_String_System_Int32_System_String_System_Threading_CancellationToken_">IBusinessProcessClient.GetFailedItemsAsync(String, Int32, String, CancellationToken)</a></div>
   
   
   
-  <h5 class="exceptions">Exceptions</h5>
-  <table>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
-        <p><p>A server side error occurred.</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkForbiddenException.html">PictureparkForbiddenException</a>
-        <p><p>Forbidden</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
-        <p><p>Entity not found</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
-        <p><p>Version conflict</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
-</p>
-      </td>
-    </tr>
-  </table>
   
   </div>
   
@@ -965,7 +683,7 @@ public virtual async Task&lt;BusinessProcessDetails&gt; GetDetailsAsync(string i
   <table>
     <tr>
       <td>
-        <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.BusinessProcessBatch.html">BusinessProcessBatch</a>&gt;
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">BusinessProcessBatch</span>&gt;
         <p><p>BusinessProcessBatch</p>
 </p>
       </td>
@@ -977,56 +695,9 @@ public virtual async Task&lt;BusinessProcessDetails&gt; GetDetailsAsync(string i
   
   
   
-  <h5 class="implements">Implements</h5>
-      <div><a class="xref" href="Picturepark.SDK.V1.Contract.IBusinessProcessClient.html#Picturepark_SDK_V1_Contract_IBusinessProcessClient_GetSuccessfulItemsAsync_System_String_System_Int32_System_String_System_Threading_CancellationToken_">IBusinessProcessClient.GetSuccessfulItemsAsync(String, Int32, String, CancellationToken)</a></div>
   
   
   
-  <h5 class="exceptions">Exceptions</h5>
-  <table>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
-        <p><p>A server side error occurred.</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkForbiddenException.html">PictureparkForbiddenException</a>
-        <p><p>Forbidden</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
-        <p><p>Entity not found</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
-        <p><p>Version conflict</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
-</p>
-      </td>
-    </tr>
-  </table>
   
   </div>
   
@@ -1071,7 +742,7 @@ public virtual async Task&lt;BusinessProcessDetails&gt; GetDetailsAsync(string i
   <table>
     <tr>
       <td>
-        <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.BusinessProcessSummaryBase.html">BusinessProcessSummaryBase</a>&gt;
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">BusinessProcessSummaryBase</span>&gt;
         <p><p>BusinessProcessSummaryBase</p>
 </p>
       </td>
@@ -1083,56 +754,9 @@ public virtual async Task&lt;BusinessProcessDetails&gt; GetDetailsAsync(string i
   
   
   
-  <h5 class="implements">Implements</h5>
-      <div><a class="xref" href="Picturepark.SDK.V1.Contract.IBusinessProcessClient.html#Picturepark_SDK_V1_Contract_IBusinessProcessClient_GetSummaryAsync_System_String_System_Threading_CancellationToken_">IBusinessProcessClient.GetSummaryAsync(String, CancellationToken)</a></div>
   
   
   
-  <h5 class="exceptions">Exceptions</h5>
-  <table>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
-        <p><p>A server side error occurred.</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkForbiddenException.html">PictureparkForbiddenException</a>
-        <p><p>Forbidden</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
-        <p><p>Entity not found</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
-        <p><p>Version conflict</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
-</p>
-      </td>
-    </tr>
-  </table>
   
   </div>
   
@@ -1208,9 +832,9 @@ public virtual async Task&lt;BusinessProcessDetails&gt; GetDetailsAsync(string i
   
   <a id="Picturepark_SDK_V1_BusinessProcessClient_SearchAsync_" data-uid="Picturepark.SDK.V1.BusinessProcessClient.SearchAsync*"></a>
   
-  <h4 id="Picturepark_SDK_V1_BusinessProcessClient_SearchAsync_Picturepark_SDK_V1_Contract_BusinessProcessSearchRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.BusinessProcessClient.SearchAsync(Picturepark.SDK.V1.Contract.BusinessProcessSearchRequest,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_BusinessProcessClient_SearchAsync_Picturepark_SDK_V1_Contract_BusinessProcessSearchRequest_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">SearchAsync(BusinessProcessSearchRequest, CancellationToken)</a></h4>
+  <h4 id="Picturepark_SDK_V1_BusinessProcessClient_SearchAsync_BusinessProcessSearchRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.BusinessProcessClient.SearchAsync(BusinessProcessSearchRequest,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_BusinessProcessClient_SearchAsync_BusinessProcessSearchRequest_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">SearchAsync(BusinessProcessSearchRequest, CancellationToken)</a></h4>
   
-  <div id="collapsible-Picturepark_SDK_V1_BusinessProcessClient_SearchAsync_Picturepark_SDK_V1_Contract_BusinessProcessSearchRequest_System_Threading_CancellationToken_" class="collapse in">
+  <div id="collapsible-Picturepark_SDK_V1_BusinessProcessClient_SearchAsync_BusinessProcessSearchRequest_System_Threading_CancellationToken_" class="collapse in">
   <div class="markdown level1 summary"><p>Search</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -1224,7 +848,7 @@ public virtual async Task&lt;BusinessProcessDetails&gt; GetDetailsAsync(string i
   <table>
     <tr>
       <td>
-        <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.BusinessProcessSearchRequest.html">BusinessProcessSearchRequest</a></span>
+        <span class="pull-right"><span class="xref">BusinessProcessSearchRequest</span></span>
         <span class="parametername">request</span>
         <p><p>The business process request.</p>
 </p>
@@ -1244,7 +868,7 @@ public virtual async Task&lt;BusinessProcessDetails&gt; GetDetailsAsync(string i
   <table>
     <tr>
       <td>
-        <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.BusinessProcessSearchResult.html">BusinessProcessSearchResult</a>&gt;
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">BusinessProcessSearchResult</span>&gt;
         <p><p>BusinessProcessSearchResult</p>
 </p>
       </td>
@@ -1256,65 +880,18 @@ public virtual async Task&lt;BusinessProcessDetails&gt; GetDetailsAsync(string i
   
   
   
-  <h5 class="implements">Implements</h5>
-      <div><a class="xref" href="Picturepark.SDK.V1.Contract.IBusinessProcessClient.html#Picturepark_SDK_V1_Contract_IBusinessProcessClient_SearchAsync_Picturepark_SDK_V1_Contract_BusinessProcessSearchRequest_System_Threading_CancellationToken_">IBusinessProcessClient.SearchAsync(BusinessProcessSearchRequest, CancellationToken)</a></div>
   
   
   
-  <h5 class="exceptions">Exceptions</h5>
-  <table>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
-        <p><p>A server side error occurred.</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkForbiddenException.html">PictureparkForbiddenException</a>
-        <p><p>Forbidden</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
-        <p><p>Entity not found</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
-        <p><p>Version conflict</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
-</p>
-      </td>
-    </tr>
-  </table>
   
   </div>
   
   
   <a id="Picturepark_SDK_V1_BusinessProcessClient_UpdateNotificationAsync_" data-uid="Picturepark.SDK.V1.BusinessProcessClient.UpdateNotificationAsync*"></a>
   
-  <h4 id="Picturepark_SDK_V1_BusinessProcessClient_UpdateNotificationAsync_System_String_Picturepark_SDK_V1_Contract_BusinessProcessNotificationUpdateRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.BusinessProcessClient.UpdateNotificationAsync(System.String,Picturepark.SDK.V1.Contract.BusinessProcessNotificationUpdateRequest,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_BusinessProcessClient_UpdateNotificationAsync_System_String_Picturepark_SDK_V1_Contract_BusinessProcessNotificationUpdateRequest_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">UpdateNotificationAsync(String, BusinessProcessNotificationUpdateRequest, CancellationToken)</a></h4>
+  <h4 id="Picturepark_SDK_V1_BusinessProcessClient_UpdateNotificationAsync_System_String_BusinessProcessNotificationUpdateRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.BusinessProcessClient.UpdateNotificationAsync(System.String,BusinessProcessNotificationUpdateRequest,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_BusinessProcessClient_UpdateNotificationAsync_System_String_BusinessProcessNotificationUpdateRequest_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">UpdateNotificationAsync(String, BusinessProcessNotificationUpdateRequest, CancellationToken)</a></h4>
   
-  <div id="collapsible-Picturepark_SDK_V1_BusinessProcessClient_UpdateNotificationAsync_System_String_Picturepark_SDK_V1_Contract_BusinessProcessNotificationUpdateRequest_System_Threading_CancellationToken_" class="collapse in">
+  <div id="collapsible-Picturepark_SDK_V1_BusinessProcessClient_UpdateNotificationAsync_System_String_BusinessProcessNotificationUpdateRequest_System_Threading_CancellationToken_" class="collapse in">
   <div class="markdown level1 summary"><p>Update business process notification</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -1336,7 +913,7 @@ public virtual async Task&lt;BusinessProcessDetails&gt; GetDetailsAsync(string i
     </tr>
     <tr>
       <td>
-        <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.BusinessProcessNotificationUpdateRequest.html">BusinessProcessNotificationUpdateRequest</a></span>
+        <span class="pull-right"><span class="xref">BusinessProcessNotificationUpdateRequest</span></span>
         <span class="parametername">request</span>
         <p><p>The business process notification update request.</p>
 </p>
@@ -1367,56 +944,9 @@ public virtual async Task&lt;BusinessProcessDetails&gt; GetDetailsAsync(string i
   
   
   
-  <h5 class="implements">Implements</h5>
-      <div><a class="xref" href="Picturepark.SDK.V1.Contract.IBusinessProcessClient.html#Picturepark_SDK_V1_Contract_IBusinessProcessClient_UpdateNotificationAsync_System_String_Picturepark_SDK_V1_Contract_BusinessProcessNotificationUpdateRequest_System_Threading_CancellationToken_">IBusinessProcessClient.UpdateNotificationAsync(String, BusinessProcessNotificationUpdateRequest, CancellationToken)</a></div>
   
   
   
-  <h5 class="exceptions">Exceptions</h5>
-  <table>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
-        <p><p>A server side error occurred.</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkForbiddenException.html">PictureparkForbiddenException</a>
-        <p><p>Forbidden</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
-        <p><p>Entity not found</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
-        <p><p>Version conflict</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
-</p>
-      </td>
-    </tr>
-  </table>
   
   </div>
   
@@ -1426,8 +956,7 @@ public virtual async Task&lt;BusinessProcessDetails&gt; GetDetailsAsync(string i
   <h4 id="Picturepark_SDK_V1_BusinessProcessClient_WaitForCompletionAsync_System_String_System_Nullable_TimeSpan__System_Boolean_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.BusinessProcessClient.WaitForCompletionAsync(System.String,System.Nullable{TimeSpan},System.Boolean,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_BusinessProcessClient_WaitForCompletionAsync_System_String_System_Nullable_TimeSpan__System_Boolean_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">WaitForCompletionAsync(String, Nullable&lt;TimeSpan&gt;, Boolean, CancellationToken)</a></h4>
   
   <div id="collapsible-Picturepark_SDK_V1_BusinessProcessClient_WaitForCompletionAsync_System_String_System_Nullable_TimeSpan__System_Boolean_System_Threading_CancellationToken_" class="collapse in">
-  <div class="markdown level1 summary"><p>Waits until the business process is completed or the timeout is reached.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   
@@ -1441,32 +970,28 @@ public virtual async Task&lt;BusinessProcessDetails&gt; GetDetailsAsync(string i
       <td>
         <span class="pull-right"><span class="xref">System.String</span></span>
         <span class="parametername">processId</span>
-        <p><p>The process ID.</p>
-</p>
+        <p>
       </td>
     </tr>
     <tr>
       <td>
         <span class="pull-right"><span class="xref">System.Nullable</span>&lt;<span class="xref">TimeSpan</span>&gt;</span>
         <span class="parametername">timeout</span>
-        <p><p>The timeout in ms to wait for completion.</p>
-</p>
+        <p>
       </td>
     </tr>
     <tr>
       <td>
         <span class="pull-right"><span class="xref">System.Boolean</span></span>
         <span class="parametername">waitForContinuationCompletion</span>
-        <p><p>Waits for the completion of the continuation business process (if existing, recursively). Default to true.</p>
-</p>
+        <p>
       </td>
     </tr>
     <tr>
       <td>
         <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
         <span class="parametername">cancellationToken</span>
-        <p><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
-</p>
+        <p>
       </td>
     </tr>
   </table>
@@ -1475,9 +1000,8 @@ public virtual async Task&lt;BusinessProcessDetails&gt; GetDetailsAsync(string i
   <table>
     <tr>
       <td>
-        <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.BusinessProcessWaitForLifeCycleResult.html">BusinessProcessWaitForLifeCycleResult</a>&gt;
-        <p><p>The wait result.</p>
-</p>
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">BusinessProcessWaitForLifeCycleResult</span>&gt;
+        <p>
       </td>
     </tr>
   </table>
@@ -1487,28 +1011,9 @@ public virtual async Task&lt;BusinessProcessDetails&gt; GetDetailsAsync(string i
   
   
   
-  <h5 class="implements">Implements</h5>
-      <div><a class="xref" href="Picturepark.SDK.V1.Contract.IBusinessProcessClient.html#Picturepark_SDK_V1_Contract_IBusinessProcessClient_WaitForCompletionAsync_System_String_System_Nullable_TimeSpan__System_Boolean_System_Threading_CancellationToken_">IBusinessProcessClient.WaitForCompletionAsync(String, Nullable&lt;TimeSpan&gt;, Boolean, CancellationToken)</a></div>
   
   
   
-  <h5 class="exceptions">Exceptions</h5>
-  <table>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
-        <p><p>A server side error occurred.</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
-</p>
-      </td>
-    </tr>
-  </table>
   
   </div>
   
@@ -1567,7 +1072,7 @@ public virtual async Task&lt;BusinessProcessDetails&gt; GetDetailsAsync(string i
   <table>
     <tr>
       <td>
-        <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.BusinessProcessWaitForLifeCycleResult.html">BusinessProcessWaitForLifeCycleResult</a>&gt;
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">BusinessProcessWaitForLifeCycleResult</span>&gt;
         <p><p>BusinessProcessWaitResult</p>
 </p>
       </td>
@@ -1582,62 +1087,16 @@ public virtual async Task&lt;BusinessProcessDetails&gt; GetDetailsAsync(string i
   
   
   
-  <h5 class="exceptions">Exceptions</h5>
-  <table>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
-        <p><p>A server side error occurred.</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkForbiddenException.html">PictureparkForbiddenException</a>
-        <p><p>Forbidden</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
-        <p><p>Entity not found</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
-        <p><p>Version conflict</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
-</p>
-      </td>
-    </tr>
-  </table>
   
   </div>
   
   
   <a id="Picturepark_SDK_V1_BusinessProcessClient_WaitForLifeCyclesAsync_" data-uid="Picturepark.SDK.V1.BusinessProcessClient.WaitForLifeCyclesAsync*"></a>
   
-  <h4 id="Picturepark_SDK_V1_BusinessProcessClient_WaitForLifeCyclesAsync_System_String_IEnumerable_Picturepark_SDK_V1_Contract_BusinessProcessLifeCycle__System_Nullable_TimeSpan__System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.BusinessProcessClient.WaitForLifeCyclesAsync(System.String,IEnumerable{Picturepark.SDK.V1.Contract.BusinessProcessLifeCycle},System.Nullable{TimeSpan},System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_BusinessProcessClient_WaitForLifeCyclesAsync_System_String_IEnumerable_Picturepark_SDK_V1_Contract_BusinessProcessLifeCycle__System_Nullable_TimeSpan__System_Threading_CancellationToken_" class="expander" data-toggle="collapse">WaitForLifeCyclesAsync(String, IEnumerable&lt;BusinessProcessLifeCycle&gt;, Nullable&lt;TimeSpan&gt;, CancellationToken)</a></h4>
+  <h4 id="Picturepark_SDK_V1_BusinessProcessClient_WaitForLifeCyclesAsync_System_String_IEnumerable_BusinessProcessLifeCycle__System_Nullable_TimeSpan__System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.BusinessProcessClient.WaitForLifeCyclesAsync(System.String,IEnumerable{BusinessProcessLifeCycle},System.Nullable{TimeSpan},System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_BusinessProcessClient_WaitForLifeCyclesAsync_System_String_IEnumerable_BusinessProcessLifeCycle__System_Nullable_TimeSpan__System_Threading_CancellationToken_" class="expander" data-toggle="collapse">WaitForLifeCyclesAsync(String, IEnumerable&lt;BusinessProcessLifeCycle&gt;, Nullable&lt;TimeSpan&gt;, CancellationToken)</a></h4>
   
-  <div id="collapsible-Picturepark_SDK_V1_BusinessProcessClient_WaitForLifeCyclesAsync_System_String_IEnumerable_Picturepark_SDK_V1_Contract_BusinessProcessLifeCycle__System_Nullable_TimeSpan__System_Threading_CancellationToken_" class="collapse in">
-  <div class="markdown level1 summary"><p>Waits until the business process transitioned into one of the given lifecycles or the timeout is reached.</p>
-</div>
+  <div id="collapsible-Picturepark_SDK_V1_BusinessProcessClient_WaitForLifeCyclesAsync_System_String_IEnumerable_BusinessProcessLifeCycle__System_Nullable_TimeSpan__System_Threading_CancellationToken_" class="collapse in">
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   
@@ -1651,32 +1110,28 @@ public virtual async Task&lt;BusinessProcessDetails&gt; GetDetailsAsync(string i
       <td>
         <span class="pull-right"><span class="xref">System.String</span></span>
         <span class="parametername">processId</span>
-        <p><p>The process ID.</p>
-</p>
+        <p>
       </td>
     </tr>
     <tr>
       <td>
-        <span class="pull-right"><span class="xref">IEnumerable</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.BusinessProcessLifeCycle.html">BusinessProcessLifeCycle</a>&gt;</span>
+        <span class="pull-right"><span class="xref">IEnumerable</span>&lt;<span class="xref">BusinessProcessLifeCycle</span>&gt;</span>
         <span class="parametername">lifeCycleIds</span>
-        <p><p>The business process lifecycle IDs to wait for.</p>
-</p>
+        <p>
       </td>
     </tr>
     <tr>
       <td>
         <span class="pull-right"><span class="xref">System.Nullable</span>&lt;<span class="xref">TimeSpan</span>&gt;</span>
         <span class="parametername">timeout</span>
-        <p><p>The timeout in ms to wait for completion.</p>
-</p>
+        <p>
       </td>
     </tr>
     <tr>
       <td>
         <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
         <span class="parametername">cancellationToken</span>
-        <p><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
-</p>
+        <p>
       </td>
     </tr>
   </table>
@@ -1685,9 +1140,8 @@ public virtual async Task&lt;BusinessProcessDetails&gt; GetDetailsAsync(string i
   <table>
     <tr>
       <td>
-        <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.BusinessProcessWaitForLifeCycleResult.html">BusinessProcessWaitForLifeCycleResult</a>&gt;
-        <p><p>The wait result.</p>
-</p>
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">BusinessProcessWaitForLifeCycleResult</span>&gt;
+        <p>
       </td>
     </tr>
   </table>
@@ -1697,37 +1151,18 @@ public virtual async Task&lt;BusinessProcessDetails&gt; GetDetailsAsync(string i
   
   
   
-  <h5 class="implements">Implements</h5>
-      <div><a class="xref" href="Picturepark.SDK.V1.Contract.IBusinessProcessClient.html#Picturepark_SDK_V1_Contract_IBusinessProcessClient_WaitForLifeCyclesAsync_System_String_IEnumerable_Picturepark_SDK_V1_Contract_BusinessProcessLifeCycle__System_Nullable_TimeSpan__System_Threading_CancellationToken_">IBusinessProcessClient.WaitForLifeCyclesAsync(String, IEnumerable&lt;BusinessProcessLifeCycle&gt;, Nullable&lt;TimeSpan&gt;, CancellationToken)</a></div>
   
   
   
-  <h5 class="exceptions">Exceptions</h5>
-  <table>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
-        <p><p>A server side error occurred.</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
-</p>
-      </td>
-    </tr>
-  </table>
   
   </div>
   
   
   <a id="Picturepark_SDK_V1_BusinessProcessClient_WaitForLifeCyclesCoreAsync_" data-uid="Picturepark.SDK.V1.BusinessProcessClient.WaitForLifeCyclesCoreAsync*"></a>
   
-  <h4 id="Picturepark_SDK_V1_BusinessProcessClient_WaitForLifeCyclesCoreAsync_System_String_System_Collections_Generic_IEnumerable_Picturepark_SDK_V1_Contract_BusinessProcessLifeCycle__System_Nullable_System_TimeSpan__System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.BusinessProcessClient.WaitForLifeCyclesCoreAsync(System.String,System.Collections.Generic.IEnumerable{Picturepark.SDK.V1.Contract.BusinessProcessLifeCycle},System.Nullable{System.TimeSpan},System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_BusinessProcessClient_WaitForLifeCyclesCoreAsync_System_String_System_Collections_Generic_IEnumerable_Picturepark_SDK_V1_Contract_BusinessProcessLifeCycle__System_Nullable_System_TimeSpan__System_Threading_CancellationToken_" class="expander" data-toggle="collapse">WaitForLifeCyclesCoreAsync(String, IEnumerable&lt;BusinessProcessLifeCycle&gt;, Nullable&lt;TimeSpan&gt;, CancellationToken)</a></h4>
+  <h4 id="Picturepark_SDK_V1_BusinessProcessClient_WaitForLifeCyclesCoreAsync_System_String_System_Collections_Generic_IEnumerable_BusinessProcessLifeCycle__System_Nullable_System_TimeSpan__System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.BusinessProcessClient.WaitForLifeCyclesCoreAsync(System.String,System.Collections.Generic.IEnumerable{BusinessProcessLifeCycle},System.Nullable{System.TimeSpan},System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_BusinessProcessClient_WaitForLifeCyclesCoreAsync_System_String_System_Collections_Generic_IEnumerable_BusinessProcessLifeCycle__System_Nullable_System_TimeSpan__System_Threading_CancellationToken_" class="expander" data-toggle="collapse">WaitForLifeCyclesCoreAsync(String, IEnumerable&lt;BusinessProcessLifeCycle&gt;, Nullable&lt;TimeSpan&gt;, CancellationToken)</a></h4>
   
-  <div id="collapsible-Picturepark_SDK_V1_BusinessProcessClient_WaitForLifeCyclesCoreAsync_System_String_System_Collections_Generic_IEnumerable_Picturepark_SDK_V1_Contract_BusinessProcessLifeCycle__System_Nullable_System_TimeSpan__System_Threading_CancellationToken_" class="collapse in">
+  <div id="collapsible-Picturepark_SDK_V1_BusinessProcessClient_WaitForLifeCyclesCoreAsync_System_String_System_Collections_Generic_IEnumerable_BusinessProcessLifeCycle__System_Nullable_System_TimeSpan__System_Threading_CancellationToken_" class="collapse in">
   <div class="markdown level1 summary"><p>Wait for life cycles</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -1749,7 +1184,7 @@ public virtual async Task&lt;BusinessProcessDetails&gt; GetDetailsAsync(string i
     </tr>
     <tr>
       <td>
-        <span class="pull-right"><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.BusinessProcessLifeCycle.html">BusinessProcessLifeCycle</a>&gt;</span>
+        <span class="pull-right"><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">BusinessProcessLifeCycle</span>&gt;</span>
         <span class="parametername">lifeCycles</span>
         <p><p>Business process life cycles to wait for.</p>
 </p>
@@ -1777,7 +1212,7 @@ public virtual async Task&lt;BusinessProcessDetails&gt; GetDetailsAsync(string i
   <table>
     <tr>
       <td>
-        <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.BusinessProcessWaitForLifeCycleResult.html">BusinessProcessWaitForLifeCycleResult</a>&gt;
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">BusinessProcessWaitForLifeCycleResult</span>&gt;
         <p><p>BusinessProcessWaitForLifeCycleResult</p>
 </p>
       </td>
@@ -1792,51 +1227,6 @@ public virtual async Task&lt;BusinessProcessDetails&gt; GetDetailsAsync(string i
   
   
   
-  <h5 class="exceptions">Exceptions</h5>
-  <table>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
-        <p><p>A server side error occurred.</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkForbiddenException.html">PictureparkForbiddenException</a>
-        <p><p>Forbidden</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
-        <p><p>Entity not found</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
-        <p><p>Version conflict</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
-</p>
-      </td>
-    </tr>
-  </table>
   
   </div>
   
@@ -1846,8 +1236,7 @@ public virtual async Task&lt;BusinessProcessDetails&gt; GetDetailsAsync(string i
   <h4 id="Picturepark_SDK_V1_BusinessProcessClient_WaitForStatesAsync_System_String_IEnumerable_System_String__System_Nullable_TimeSpan__System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.BusinessProcessClient.WaitForStatesAsync(System.String,IEnumerable{System.String},System.Nullable{TimeSpan},System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_BusinessProcessClient_WaitForStatesAsync_System_String_IEnumerable_System_String__System_Nullable_TimeSpan__System_Threading_CancellationToken_" class="expander" data-toggle="collapse">WaitForStatesAsync(String, IEnumerable&lt;String&gt;, Nullable&lt;TimeSpan&gt;, CancellationToken)</a></h4>
   
   <div id="collapsible-Picturepark_SDK_V1_BusinessProcessClient_WaitForStatesAsync_System_String_IEnumerable_System_String__System_Nullable_TimeSpan__System_Threading_CancellationToken_" class="collapse in">
-  <div class="markdown level1 summary"><p>Waits until the business process transitioned into one of the given states or the timeout is reached.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   
@@ -1861,32 +1250,28 @@ public virtual async Task&lt;BusinessProcessDetails&gt; GetDetailsAsync(string i
       <td>
         <span class="pull-right"><span class="xref">System.String</span></span>
         <span class="parametername">processId</span>
-        <p><p>The process ID.</p>
-</p>
+        <p>
       </td>
     </tr>
     <tr>
       <td>
         <span class="pull-right"><span class="xref">IEnumerable</span>&lt;<span class="xref">System.String</span>&gt;</span>
         <span class="parametername">states</span>
-        <p><p>The states to wait for.</p>
-</p>
+        <p>
       </td>
     </tr>
     <tr>
       <td>
         <span class="pull-right"><span class="xref">System.Nullable</span>&lt;<span class="xref">TimeSpan</span>&gt;</span>
         <span class="parametername">timeout</span>
-        <p><p>The timeout in ms to wait for completion.</p>
-</p>
+        <p>
       </td>
     </tr>
     <tr>
       <td>
         <span class="pull-right"><span class="xref">System.Threading.CancellationToken</span></span>
         <span class="parametername">cancellationToken</span>
-        <p><p>A cancellation token that can be used by other objects or threads to receive notice of cancellation.</p>
-</p>
+        <p>
       </td>
     </tr>
   </table>
@@ -1895,9 +1280,8 @@ public virtual async Task&lt;BusinessProcessDetails&gt; GetDetailsAsync(string i
   <table>
     <tr>
       <td>
-        <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.BusinessProcessWaitForStateResult.html">BusinessProcessWaitForStateResult</a>&gt;
-        <p><p>The wait result.</p>
-</p>
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">BusinessProcessWaitForStateResult</span>&gt;
+        <p>
       </td>
     </tr>
   </table>
@@ -1907,28 +1291,9 @@ public virtual async Task&lt;BusinessProcessDetails&gt; GetDetailsAsync(string i
   
   
   
-  <h5 class="implements">Implements</h5>
-      <div><a class="xref" href="Picturepark.SDK.V1.Contract.IBusinessProcessClient.html#Picturepark_SDK_V1_Contract_IBusinessProcessClient_WaitForStatesAsync_System_String_IEnumerable_System_String__System_Nullable_TimeSpan__System_Threading_CancellationToken_">IBusinessProcessClient.WaitForStatesAsync(String, IEnumerable&lt;String&gt;, Nullable&lt;TimeSpan&gt;, CancellationToken)</a></div>
   
   
   
-  <h5 class="exceptions">Exceptions</h5>
-  <table>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
-        <p><p>A server side error occurred.</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
-</p>
-      </td>
-    </tr>
-  </table>
   
   </div>
   
@@ -1987,7 +1352,7 @@ public virtual async Task&lt;BusinessProcessDetails&gt; GetDetailsAsync(string i
   <table>
     <tr>
       <td>
-        <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.BusinessProcessWaitForStateResult.html">BusinessProcessWaitForStateResult</a>&gt;
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">BusinessProcessWaitForStateResult</span>&gt;
         <p><p>BusinessProcessWaitResult</p>
 </p>
       </td>
@@ -2002,51 +1367,6 @@ public virtual async Task&lt;BusinessProcessDetails&gt; GetDetailsAsync(string i
   
   
   
-  <h5 class="exceptions">Exceptions</h5>
-  <table>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
-        <p><p>A server side error occurred.</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkForbiddenException.html">PictureparkForbiddenException</a>
-        <p><p>Forbidden</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
-        <p><p>Entity not found</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
-        <p><p>Version conflict</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
-</p>
-      </td>
-    </tr>
-  </table>
   
   </div>
   
