@@ -130,7 +130,7 @@
   
   <h5 id="Picturepark_SDK_V1_ContentPermissionSetClient_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class ContentPermissionSetClient : ClientBase, IContentPermissionSetClient</code></pre>
+    <pre><code class="lang-csharp hljs">public class ContentPermissionSetClient : ClientBase</code></pre>
   </div>
   
   
@@ -143,7 +143,7 @@
   
   <a id="Picturepark_SDK_V1_ContentPermissionSetClient__ctor_" data-uid="Picturepark.SDK.V1.ContentPermissionSetClient.#ctor*"></a>
   
-  <h4 id="Picturepark_SDK_V1_ContentPermissionSetClient__ctor_Picturepark_SDK_V1_Contract_IPictureparkServiceSettings_System_Net_Http_HttpClient_" data-uid="Picturepark.SDK.V1.ContentPermissionSetClient.#ctor(Picturepark.SDK.V1.Contract.IPictureparkServiceSettings,System.Net.Http.HttpClient)"><a href="#collapsible-Picturepark_SDK_V1_ContentPermissionSetClient__ctor_Picturepark_SDK_V1_Contract_IPictureparkServiceSettings_System_Net_Http_HttpClient_" class="expander" data-toggle="collapse">ContentPermissionSetClient(IPictureparkServiceSettings, Http.HttpClient)</a></h4>
+  <h4 id="Picturepark_SDK_V1_ContentPermissionSetClient__ctor_Picturepark_SDK_V1_Contract_IPictureparkServiceSettings_System_Net_Http_HttpClient_" data-uid="Picturepark.SDK.V1.ContentPermissionSetClient.#ctor(Picturepark.SDK.V1.Contract.IPictureparkServiceSettings,System.Net.Http.HttpClient)"><a href="#collapsible-Picturepark_SDK_V1_ContentPermissionSetClient__ctor_Picturepark_SDK_V1_Contract_IPictureparkServiceSettings_System_Net_Http_HttpClient_" class="expander" data-toggle="collapse">ContentPermissionSetClient(Contract.IPictureparkServiceSettings, Http.HttpClient)</a></h4>
   
   <div id="collapsible-Picturepark_SDK_V1_ContentPermissionSetClient__ctor_Picturepark_SDK_V1_Contract_IPictureparkServiceSettings_System_Net_Http_HttpClient_" class="collapse in">
   <div class="markdown level1 summary"></div>
@@ -151,14 +151,14 @@
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ContentPermissionSetClient(IPictureparkServiceSettings configuration, Http.HttpClient httpClient)</code></pre>
+    <pre><code class="lang-csharp hljs">public ContentPermissionSetClient(Contract.IPictureparkServiceSettings configuration, Http.HttpClient httpClient)</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
       <td>
-        <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.IPictureparkServiceSettings.html">IPictureparkServiceSettings</a></span>
+        <span class="pull-right"><span class="xref">Picturepark.SDK.V1.Contract.IPictureparkServiceSettings</span></span>
         <span class="parametername">configuration</span>
         <p>
       </td>
@@ -263,9 +263,9 @@
   
   <a id="Picturepark_SDK_V1_ContentPermissionSetClient_CreateAsync_" data-uid="Picturepark.SDK.V1.ContentPermissionSetClient.CreateAsync*"></a>
   
-  <h4 id="Picturepark_SDK_V1_ContentPermissionSetClient_CreateAsync_Picturepark_SDK_V1_Contract_ContentPermissionSetCreateRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.ContentPermissionSetClient.CreateAsync(Picturepark.SDK.V1.Contract.ContentPermissionSetCreateRequest,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_ContentPermissionSetClient_CreateAsync_Picturepark_SDK_V1_Contract_ContentPermissionSetCreateRequest_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">CreateAsync(ContentPermissionSetCreateRequest, CancellationToken)</a></h4>
+  <h4 id="Picturepark_SDK_V1_ContentPermissionSetClient_CreateAsync_ContentPermissionSetCreateRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.ContentPermissionSetClient.CreateAsync(ContentPermissionSetCreateRequest,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_ContentPermissionSetClient_CreateAsync_ContentPermissionSetCreateRequest_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">CreateAsync(ContentPermissionSetCreateRequest, CancellationToken)</a></h4>
   
-  <div id="collapsible-Picturepark_SDK_V1_ContentPermissionSetClient_CreateAsync_Picturepark_SDK_V1_Contract_ContentPermissionSetCreateRequest_System_Threading_CancellationToken_" class="collapse in">
+  <div id="collapsible-Picturepark_SDK_V1_ContentPermissionSetClient_CreateAsync_ContentPermissionSetCreateRequest_System_Threading_CancellationToken_" class="collapse in">
   <div class="markdown level1 summary"><p>Create content permission set</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -279,7 +279,7 @@
   <table>
     <tr>
       <td>
-        <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.ContentPermissionSetCreateRequest.html">ContentPermissionSetCreateRequest</a></span>
+        <span class="pull-right"><span class="xref">ContentPermissionSetCreateRequest</span></span>
         <span class="parametername">permissionSet</span>
         <p><p>Permission set</p>
 </p>
@@ -299,7 +299,7 @@
   <table>
     <tr>
       <td>
-        <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.ContentPermissionSetDetail.html">ContentPermissionSetDetail</a>&gt;
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">ContentPermissionSetDetail</span>&gt;
         <p><p>Detail of a content permission set</p>
 </p>
       </td>
@@ -311,65 +311,18 @@
   
   
   
-  <h5 class="implements">Implements</h5>
-      <div><a class="xref" href="Picturepark.SDK.V1.Contract.IContentPermissionSetClient.html#Picturepark_SDK_V1_Contract_IContentPermissionSetClient_CreateAsync_Picturepark_SDK_V1_Contract_ContentPermissionSetCreateRequest_System_Threading_CancellationToken_">IContentPermissionSetClient.CreateAsync(ContentPermissionSetCreateRequest, CancellationToken)</a></div>
   
   
   
-  <h5 class="exceptions">Exceptions</h5>
-  <table>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
-        <p><p>A server side error occurred.</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkForbiddenException.html">PictureparkForbiddenException</a>
-        <p><p>Forbidden</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
-        <p><p>Entity not found</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
-        <p><p>Version conflict</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
-</p>
-      </td>
-    </tr>
-  </table>
   
   </div>
   
   
   <a id="Picturepark_SDK_V1_ContentPermissionSetClient_CreateManyAsync_" data-uid="Picturepark.SDK.V1.ContentPermissionSetClient.CreateManyAsync*"></a>
   
-  <h4 id="Picturepark_SDK_V1_ContentPermissionSetClient_CreateManyAsync_Picturepark_SDK_V1_Contract_ContentPermissionSetCreateManyRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.ContentPermissionSetClient.CreateManyAsync(Picturepark.SDK.V1.Contract.ContentPermissionSetCreateManyRequest,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_ContentPermissionSetClient_CreateManyAsync_Picturepark_SDK_V1_Contract_ContentPermissionSetCreateManyRequest_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">CreateManyAsync(ContentPermissionSetCreateManyRequest, CancellationToken)</a></h4>
+  <h4 id="Picturepark_SDK_V1_ContentPermissionSetClient_CreateManyAsync_ContentPermissionSetCreateManyRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.ContentPermissionSetClient.CreateManyAsync(ContentPermissionSetCreateManyRequest,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_ContentPermissionSetClient_CreateManyAsync_ContentPermissionSetCreateManyRequest_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">CreateManyAsync(ContentPermissionSetCreateManyRequest, CancellationToken)</a></h4>
   
-  <div id="collapsible-Picturepark_SDK_V1_ContentPermissionSetClient_CreateManyAsync_Picturepark_SDK_V1_Contract_ContentPermissionSetCreateManyRequest_System_Threading_CancellationToken_" class="collapse in">
+  <div id="collapsible-Picturepark_SDK_V1_ContentPermissionSetClient_CreateManyAsync_ContentPermissionSetCreateManyRequest_System_Threading_CancellationToken_" class="collapse in">
   <div class="markdown level1 summary"><p>Create multiple content permission sets</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -383,7 +336,7 @@
   <table>
     <tr>
       <td>
-        <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.ContentPermissionSetCreateManyRequest.html">ContentPermissionSetCreateManyRequest</a></span>
+        <span class="pull-right"><span class="xref">ContentPermissionSetCreateManyRequest</span></span>
         <span class="parametername">request</span>
         <p><p>Request to create multiple content permission sets.</p>
 </p>
@@ -403,7 +356,7 @@
   <table>
     <tr>
       <td>
-        <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.BulkResponse.html">BulkResponse</a>&gt;
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">BulkResponse</span>&gt;
         <p><p>Response to a bulk operation</p>
 </p>
       </td>
@@ -415,56 +368,9 @@
   
   
   
-  <h5 class="implements">Implements</h5>
-      <div><a class="xref" href="Picturepark.SDK.V1.Contract.IContentPermissionSetClient.html#Picturepark_SDK_V1_Contract_IContentPermissionSetClient_CreateManyAsync_Picturepark_SDK_V1_Contract_ContentPermissionSetCreateManyRequest_System_Threading_CancellationToken_">IContentPermissionSetClient.CreateManyAsync(ContentPermissionSetCreateManyRequest, CancellationToken)</a></div>
   
   
   
-  <h5 class="exceptions">Exceptions</h5>
-  <table>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
-        <p><p>A server side error occurred.</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkForbiddenException.html">PictureparkForbiddenException</a>
-        <p><p>Forbidden</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
-        <p><p>Entity not found</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
-        <p><p>Version conflict</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
-</p>
-      </td>
-    </tr>
-  </table>
   
   </div>
   
@@ -518,65 +424,18 @@
   
   
   
-  <h5 class="implements">Implements</h5>
-      <div><a class="xref" href="Picturepark.SDK.V1.Contract.IContentPermissionSetClient.html#Picturepark_SDK_V1_Contract_IContentPermissionSetClient_DeleteAsync_System_String_System_Threading_CancellationToken_">IContentPermissionSetClient.DeleteAsync(String, CancellationToken)</a></div>
   
   
   
-  <h5 class="exceptions">Exceptions</h5>
-  <table>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
-        <p><p>A server side error occurred.</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkForbiddenException.html">PictureparkForbiddenException</a>
-        <p><p>Forbidden</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
-        <p><p>Entity not found</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
-        <p><p>Version conflict</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
-</p>
-      </td>
-    </tr>
-  </table>
   
   </div>
   
   
   <a id="Picturepark_SDK_V1_ContentPermissionSetClient_DeleteManyAsync_" data-uid="Picturepark.SDK.V1.ContentPermissionSetClient.DeleteManyAsync*"></a>
   
-  <h4 id="Picturepark_SDK_V1_ContentPermissionSetClient_DeleteManyAsync_Picturepark_SDK_V1_Contract_PermissionSetDeleteManyRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.ContentPermissionSetClient.DeleteManyAsync(Picturepark.SDK.V1.Contract.PermissionSetDeleteManyRequest,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_ContentPermissionSetClient_DeleteManyAsync_Picturepark_SDK_V1_Contract_PermissionSetDeleteManyRequest_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">DeleteManyAsync(PermissionSetDeleteManyRequest, CancellationToken)</a></h4>
+  <h4 id="Picturepark_SDK_V1_ContentPermissionSetClient_DeleteManyAsync_PermissionSetDeleteManyRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.ContentPermissionSetClient.DeleteManyAsync(PermissionSetDeleteManyRequest,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_ContentPermissionSetClient_DeleteManyAsync_PermissionSetDeleteManyRequest_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">DeleteManyAsync(PermissionSetDeleteManyRequest, CancellationToken)</a></h4>
   
-  <div id="collapsible-Picturepark_SDK_V1_ContentPermissionSetClient_DeleteManyAsync_Picturepark_SDK_V1_Contract_PermissionSetDeleteManyRequest_System_Threading_CancellationToken_" class="collapse in">
+  <div id="collapsible-Picturepark_SDK_V1_ContentPermissionSetClient_DeleteManyAsync_PermissionSetDeleteManyRequest_System_Threading_CancellationToken_" class="collapse in">
   <div class="markdown level1 summary"><p>Delete multiple content permission sets</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -590,7 +449,7 @@
   <table>
     <tr>
       <td>
-        <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.PermissionSetDeleteManyRequest.html">PermissionSetDeleteManyRequest</a></span>
+        <span class="pull-right"><span class="xref">PermissionSetDeleteManyRequest</span></span>
         <span class="parametername">request</span>
         <p><p>Request to delete multiple permission sets.</p>
 </p>
@@ -610,7 +469,7 @@
   <table>
     <tr>
       <td>
-        <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.BulkResponse.html">BulkResponse</a>&gt;
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">BulkResponse</span>&gt;
         <p><p>Response to a bulk operation</p>
 </p>
       </td>
@@ -622,56 +481,9 @@
   
   
   
-  <h5 class="implements">Implements</h5>
-      <div><a class="xref" href="Picturepark.SDK.V1.Contract.IContentPermissionSetClient.html#Picturepark_SDK_V1_Contract_IContentPermissionSetClient_DeleteManyAsync_Picturepark_SDK_V1_Contract_PermissionSetDeleteManyRequest_System_Threading_CancellationToken_">IContentPermissionSetClient.DeleteManyAsync(PermissionSetDeleteManyRequest, CancellationToken)</a></div>
   
   
   
-  <h5 class="exceptions">Exceptions</h5>
-  <table>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
-        <p><p>A server side error occurred.</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkForbiddenException.html">PictureparkForbiddenException</a>
-        <p><p>Forbidden</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
-        <p><p>Entity not found</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
-        <p><p>Version conflict</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
-</p>
-      </td>
-    </tr>
-  </table>
   
   </div>
   
@@ -714,7 +526,7 @@
   <table>
     <tr>
       <td>
-        <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.ContentPermissionSetDetail.html">ContentPermissionSetDetail</a>&gt;
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">ContentPermissionSetDetail</span>&gt;
         <p><p>Detail of a content permission set</p>
 </p>
       </td>
@@ -726,56 +538,9 @@
   
   
   
-  <h5 class="implements">Implements</h5>
-      <div><a class="xref" href="Picturepark.SDK.V1.Contract.IContentPermissionSetClient.html#Picturepark_SDK_V1_Contract_IContentPermissionSetClient_GetAsync_System_String_System_Threading_CancellationToken_">IContentPermissionSetClient.GetAsync(String, CancellationToken)</a></div>
   
   
   
-  <h5 class="exceptions">Exceptions</h5>
-  <table>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
-        <p><p>A server side error occurred.</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkForbiddenException.html">PictureparkForbiddenException</a>
-        <p><p>Forbidden</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
-        <p><p>Entity not found</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
-        <p><p>Version conflict</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
-</p>
-      </td>
-    </tr>
-  </table>
   
   </div>
   
@@ -818,7 +583,7 @@
   <table>
     <tr>
       <td>
-        <span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">System.Collections.Generic.ICollection</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.ContentPermissionSetDetail.html">ContentPermissionSetDetail</a>&gt;&gt;
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">System.Collections.Generic.ICollection</span>&lt;<span class="xref">ContentPermissionSetDetail</span>&gt;&gt;
         <p><p>Array of Detail of a content permission set</p>
 </p>
       </td>
@@ -830,56 +595,9 @@
   
   
   
-  <h5 class="implements">Implements</h5>
-      <div><a class="xref" href="Picturepark.SDK.V1.Contract.IContentPermissionSetClient.html#Picturepark_SDK_V1_Contract_IContentPermissionSetClient_GetManyAsync_System_Collections_Generic_IEnumerable_System_String__System_Threading_CancellationToken_">IContentPermissionSetClient.GetManyAsync(IEnumerable&lt;String&gt;, CancellationToken)</a></div>
   
   
   
-  <h5 class="exceptions">Exceptions</h5>
-  <table>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
-        <p><p>A server side error occurred.</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkForbiddenException.html">PictureparkForbiddenException</a>
-        <p><p>Forbidden</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
-        <p><p>Entity not found</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
-        <p><p>Version conflict</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
-</p>
-      </td>
-    </tr>
-  </table>
   
   </div>
   
@@ -922,7 +640,7 @@
   <table>
     <tr>
       <td>
-        <span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">System.Collections.Generic.ICollection</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.PermissionSetRight.html">PermissionSetRight</a>&gt;&gt;
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">System.Collections.Generic.ICollection</span>&lt;<span class="xref">PermissionSetRight</span>&gt;&gt;
         <p><p>Array of Permission set rights</p>
 </p>
       </td>
@@ -934,56 +652,9 @@
   
   
   
-  <h5 class="implements">Implements</h5>
-      <div><a class="xref" href="Picturepark.SDK.V1.Contract.IContentPermissionSetClient.html#Picturepark_SDK_V1_Contract_IContentPermissionSetClient_GetPermissionsAsync_System_String_System_Threading_CancellationToken_">IContentPermissionSetClient.GetPermissionsAsync(String, CancellationToken)</a></div>
   
   
   
-  <h5 class="exceptions">Exceptions</h5>
-  <table>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
-        <p><p>A server side error occurred.</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkForbiddenException.html">PictureparkForbiddenException</a>
-        <p><p>Forbidden</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
-        <p><p>Entity not found</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
-        <p><p>Version conflict</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
-</p>
-      </td>
-    </tr>
-  </table>
   
   </div>
   
@@ -1026,7 +697,7 @@
   <table>
     <tr>
       <td>
-        <span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">System.Collections.Generic.ICollection</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.PermissionSetUserPermissionRights.html">PermissionSetUserPermissionRights</a>&gt;&gt;
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">System.Collections.Generic.ICollection</span>&lt;<span class="xref">PermissionSetUserPermissionRights</span>&gt;&gt;
         <p><p>Array of Rights that the current user has on a permission set</p>
 </p>
       </td>
@@ -1038,56 +709,9 @@
   
   
   
-  <h5 class="implements">Implements</h5>
-      <div><a class="xref" href="Picturepark.SDK.V1.Contract.IContentPermissionSetClient.html#Picturepark_SDK_V1_Contract_IContentPermissionSetClient_GetPermissionsManyAsync_System_Collections_Generic_IEnumerable_System_String__System_Threading_CancellationToken_">IContentPermissionSetClient.GetPermissionsManyAsync(IEnumerable&lt;String&gt;, CancellationToken)</a></div>
   
   
   
-  <h5 class="exceptions">Exceptions</h5>
-  <table>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
-        <p><p>A server side error occurred.</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkForbiddenException.html">PictureparkForbiddenException</a>
-        <p><p>Forbidden</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
-        <p><p>Entity not found</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
-        <p><p>Version conflict</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
-</p>
-      </td>
-    </tr>
-  </table>
   
   </div>
   
@@ -1163,9 +787,9 @@
   
   <a id="Picturepark_SDK_V1_ContentPermissionSetClient_SearchAsync_" data-uid="Picturepark.SDK.V1.ContentPermissionSetClient.SearchAsync*"></a>
   
-  <h4 id="Picturepark_SDK_V1_ContentPermissionSetClient_SearchAsync_Picturepark_SDK_V1_Contract_PermissionSetSearchRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.ContentPermissionSetClient.SearchAsync(Picturepark.SDK.V1.Contract.PermissionSetSearchRequest,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_ContentPermissionSetClient_SearchAsync_Picturepark_SDK_V1_Contract_PermissionSetSearchRequest_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">SearchAsync(PermissionSetSearchRequest, CancellationToken)</a></h4>
+  <h4 id="Picturepark_SDK_V1_ContentPermissionSetClient_SearchAsync_PermissionSetSearchRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.ContentPermissionSetClient.SearchAsync(PermissionSetSearchRequest,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_ContentPermissionSetClient_SearchAsync_PermissionSetSearchRequest_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">SearchAsync(PermissionSetSearchRequest, CancellationToken)</a></h4>
   
-  <div id="collapsible-Picturepark_SDK_V1_ContentPermissionSetClient_SearchAsync_Picturepark_SDK_V1_Contract_PermissionSetSearchRequest_System_Threading_CancellationToken_" class="collapse in">
+  <div id="collapsible-Picturepark_SDK_V1_ContentPermissionSetClient_SearchAsync_PermissionSetSearchRequest_System_Threading_CancellationToken_" class="collapse in">
   <div class="markdown level1 summary"><p>Search content permission set</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -1179,7 +803,7 @@
   <table>
     <tr>
       <td>
-        <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.PermissionSetSearchRequest.html">PermissionSetSearchRequest</a></span>
+        <span class="pull-right"><span class="xref">PermissionSetSearchRequest</span></span>
         <span class="parametername">request</span>
         <p><p>Request to search permission sets.</p>
 </p>
@@ -1199,7 +823,7 @@
   <table>
     <tr>
       <td>
-        <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.PermissionSetSearchResult.html">PermissionSetSearchResult</a>&gt;
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">PermissionSetSearchResult</span>&gt;
         <p><p>Result of a permission set search operation</p>
 </p>
       </td>
@@ -1211,65 +835,18 @@
   
   
   
-  <h5 class="implements">Implements</h5>
-      <div><a class="xref" href="Picturepark.SDK.V1.Contract.IContentPermissionSetClient.html#Picturepark_SDK_V1_Contract_IContentPermissionSetClient_SearchAsync_Picturepark_SDK_V1_Contract_PermissionSetSearchRequest_System_Threading_CancellationToken_">IContentPermissionSetClient.SearchAsync(PermissionSetSearchRequest, CancellationToken)</a></div>
   
   
   
-  <h5 class="exceptions">Exceptions</h5>
-  <table>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
-        <p><p>A server side error occurred.</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkForbiddenException.html">PictureparkForbiddenException</a>
-        <p><p>Forbidden</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
-        <p><p>Entity not found</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
-        <p><p>Version conflict</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
-</p>
-      </td>
-    </tr>
-  </table>
   
   </div>
   
   
   <a id="Picturepark_SDK_V1_ContentPermissionSetClient_TransferOwnershipAsync_" data-uid="Picturepark.SDK.V1.ContentPermissionSetClient.TransferOwnershipAsync*"></a>
   
-  <h4 id="Picturepark_SDK_V1_ContentPermissionSetClient_TransferOwnershipAsync_System_String_Picturepark_SDK_V1_Contract_PermissionSetOwnershipTransferRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.ContentPermissionSetClient.TransferOwnershipAsync(System.String,Picturepark.SDK.V1.Contract.PermissionSetOwnershipTransferRequest,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_ContentPermissionSetClient_TransferOwnershipAsync_System_String_Picturepark_SDK_V1_Contract_PermissionSetOwnershipTransferRequest_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">TransferOwnershipAsync(String, PermissionSetOwnershipTransferRequest, CancellationToken)</a></h4>
+  <h4 id="Picturepark_SDK_V1_ContentPermissionSetClient_TransferOwnershipAsync_System_String_PermissionSetOwnershipTransferRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.ContentPermissionSetClient.TransferOwnershipAsync(System.String,PermissionSetOwnershipTransferRequest,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_ContentPermissionSetClient_TransferOwnershipAsync_System_String_PermissionSetOwnershipTransferRequest_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">TransferOwnershipAsync(String, PermissionSetOwnershipTransferRequest, CancellationToken)</a></h4>
   
-  <div id="collapsible-Picturepark_SDK_V1_ContentPermissionSetClient_TransferOwnershipAsync_System_String_Picturepark_SDK_V1_Contract_PermissionSetOwnershipTransferRequest_System_Threading_CancellationToken_" class="collapse in">
+  <div id="collapsible-Picturepark_SDK_V1_ContentPermissionSetClient_TransferOwnershipAsync_System_String_PermissionSetOwnershipTransferRequest_System_Threading_CancellationToken_" class="collapse in">
   <div class="markdown level1 summary"><p>Transfer ownership of content permission set</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -1291,7 +868,7 @@
     </tr>
     <tr>
       <td>
-        <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.PermissionSetOwnershipTransferRequest.html">PermissionSetOwnershipTransferRequest</a></span>
+        <span class="pull-right"><span class="xref">PermissionSetOwnershipTransferRequest</span></span>
         <span class="parametername">request</span>
         <p><p>Request to transfer the ownership of a permission set.</p>
 </p>
@@ -1322,65 +899,18 @@
   
   
   
-  <h5 class="implements">Implements</h5>
-      <div><a class="xref" href="Picturepark.SDK.V1.Contract.IContentPermissionSetClient.html#Picturepark_SDK_V1_Contract_IContentPermissionSetClient_TransferOwnershipAsync_System_String_Picturepark_SDK_V1_Contract_PermissionSetOwnershipTransferRequest_System_Threading_CancellationToken_">IContentPermissionSetClient.TransferOwnershipAsync(String, PermissionSetOwnershipTransferRequest, CancellationToken)</a></div>
   
   
   
-  <h5 class="exceptions">Exceptions</h5>
-  <table>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
-        <p><p>A server side error occurred.</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkForbiddenException.html">PictureparkForbiddenException</a>
-        <p><p>Forbidden</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
-        <p><p>Entity not found</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
-        <p><p>Version conflict</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
-</p>
-      </td>
-    </tr>
-  </table>
   
   </div>
   
   
   <a id="Picturepark_SDK_V1_ContentPermissionSetClient_TransferOwnershipManyAsync_" data-uid="Picturepark.SDK.V1.ContentPermissionSetClient.TransferOwnershipManyAsync*"></a>
   
-  <h4 id="Picturepark_SDK_V1_ContentPermissionSetClient_TransferOwnershipManyAsync_Picturepark_SDK_V1_Contract_PermissionSetOwnershipTransferManyRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.ContentPermissionSetClient.TransferOwnershipManyAsync(Picturepark.SDK.V1.Contract.PermissionSetOwnershipTransferManyRequest,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_ContentPermissionSetClient_TransferOwnershipManyAsync_Picturepark_SDK_V1_Contract_PermissionSetOwnershipTransferManyRequest_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">TransferOwnershipManyAsync(PermissionSetOwnershipTransferManyRequest, CancellationToken)</a></h4>
+  <h4 id="Picturepark_SDK_V1_ContentPermissionSetClient_TransferOwnershipManyAsync_PermissionSetOwnershipTransferManyRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.ContentPermissionSetClient.TransferOwnershipManyAsync(PermissionSetOwnershipTransferManyRequest,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_ContentPermissionSetClient_TransferOwnershipManyAsync_PermissionSetOwnershipTransferManyRequest_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">TransferOwnershipManyAsync(PermissionSetOwnershipTransferManyRequest, CancellationToken)</a></h4>
   
-  <div id="collapsible-Picturepark_SDK_V1_ContentPermissionSetClient_TransferOwnershipManyAsync_Picturepark_SDK_V1_Contract_PermissionSetOwnershipTransferManyRequest_System_Threading_CancellationToken_" class="collapse in">
+  <div id="collapsible-Picturepark_SDK_V1_ContentPermissionSetClient_TransferOwnershipManyAsync_PermissionSetOwnershipTransferManyRequest_System_Threading_CancellationToken_" class="collapse in">
   <div class="markdown level1 summary"><p>Transfer ownership of multiple content permission sets</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -1394,7 +924,7 @@
   <table>
     <tr>
       <td>
-        <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.PermissionSetOwnershipTransferManyRequest.html">PermissionSetOwnershipTransferManyRequest</a></span>
+        <span class="pull-right"><span class="xref">PermissionSetOwnershipTransferManyRequest</span></span>
         <span class="parametername">request</span>
         <p><p>Request to transfer the ownership of multiple permission sets.</p>
 </p>
@@ -1425,65 +955,18 @@
   
   
   
-  <h5 class="implements">Implements</h5>
-      <div><a class="xref" href="Picturepark.SDK.V1.Contract.IContentPermissionSetClient.html#Picturepark_SDK_V1_Contract_IContentPermissionSetClient_TransferOwnershipManyAsync_Picturepark_SDK_V1_Contract_PermissionSetOwnershipTransferManyRequest_System_Threading_CancellationToken_">IContentPermissionSetClient.TransferOwnershipManyAsync(PermissionSetOwnershipTransferManyRequest, CancellationToken)</a></div>
   
   
   
-  <h5 class="exceptions">Exceptions</h5>
-  <table>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
-        <p><p>A server side error occurred.</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkForbiddenException.html">PictureparkForbiddenException</a>
-        <p><p>Forbidden</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
-        <p><p>Entity not found</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
-        <p><p>Version conflict</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
-</p>
-      </td>
-    </tr>
-  </table>
   
   </div>
   
   
   <a id="Picturepark_SDK_V1_ContentPermissionSetClient_UpdateAsync_" data-uid="Picturepark.SDK.V1.ContentPermissionSetClient.UpdateAsync*"></a>
   
-  <h4 id="Picturepark_SDK_V1_ContentPermissionSetClient_UpdateAsync_System_String_Picturepark_SDK_V1_Contract_ContentPermissionSetUpdateRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.ContentPermissionSetClient.UpdateAsync(System.String,Picturepark.SDK.V1.Contract.ContentPermissionSetUpdateRequest,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_ContentPermissionSetClient_UpdateAsync_System_String_Picturepark_SDK_V1_Contract_ContentPermissionSetUpdateRequest_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">UpdateAsync(String, ContentPermissionSetUpdateRequest, CancellationToken)</a></h4>
+  <h4 id="Picturepark_SDK_V1_ContentPermissionSetClient_UpdateAsync_System_String_ContentPermissionSetUpdateRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.ContentPermissionSetClient.UpdateAsync(System.String,ContentPermissionSetUpdateRequest,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_ContentPermissionSetClient_UpdateAsync_System_String_ContentPermissionSetUpdateRequest_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">UpdateAsync(String, ContentPermissionSetUpdateRequest, CancellationToken)</a></h4>
   
-  <div id="collapsible-Picturepark_SDK_V1_ContentPermissionSetClient_UpdateAsync_System_String_Picturepark_SDK_V1_Contract_ContentPermissionSetUpdateRequest_System_Threading_CancellationToken_" class="collapse in">
+  <div id="collapsible-Picturepark_SDK_V1_ContentPermissionSetClient_UpdateAsync_System_String_ContentPermissionSetUpdateRequest_System_Threading_CancellationToken_" class="collapse in">
   <div class="markdown level1 summary"><p>Update content permission set</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -1505,7 +988,7 @@
     </tr>
     <tr>
       <td>
-        <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.ContentPermissionSetUpdateRequest.html">ContentPermissionSetUpdateRequest</a></span>
+        <span class="pull-right"><span class="xref">ContentPermissionSetUpdateRequest</span></span>
         <span class="parametername">permissionSet</span>
         <p><p>Permission set</p>
 </p>
@@ -1525,7 +1008,7 @@
   <table>
     <tr>
       <td>
-        <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.ContentPermissionSetDetail.html">ContentPermissionSetDetail</a>&gt;
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">ContentPermissionSetDetail</span>&gt;
         <p><p>Detail of a content permission set</p>
 </p>
       </td>
@@ -1537,65 +1020,18 @@
   
   
   
-  <h5 class="implements">Implements</h5>
-      <div><a class="xref" href="Picturepark.SDK.V1.Contract.IContentPermissionSetClient.html#Picturepark_SDK_V1_Contract_IContentPermissionSetClient_UpdateAsync_System_String_Picturepark_SDK_V1_Contract_ContentPermissionSetUpdateRequest_System_Threading_CancellationToken_">IContentPermissionSetClient.UpdateAsync(String, ContentPermissionSetUpdateRequest, CancellationToken)</a></div>
   
   
   
-  <h5 class="exceptions">Exceptions</h5>
-  <table>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
-        <p><p>A server side error occurred.</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkForbiddenException.html">PictureparkForbiddenException</a>
-        <p><p>Forbidden</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
-        <p><p>Entity not found</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
-        <p><p>Version conflict</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
-</p>
-      </td>
-    </tr>
-  </table>
   
   </div>
   
   
   <a id="Picturepark_SDK_V1_ContentPermissionSetClient_UpdateManyAsync_" data-uid="Picturepark.SDK.V1.ContentPermissionSetClient.UpdateManyAsync*"></a>
   
-  <h4 id="Picturepark_SDK_V1_ContentPermissionSetClient_UpdateManyAsync_Picturepark_SDK_V1_Contract_ContentPermissionSetUpdateManyRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.ContentPermissionSetClient.UpdateManyAsync(Picturepark.SDK.V1.Contract.ContentPermissionSetUpdateManyRequest,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_ContentPermissionSetClient_UpdateManyAsync_Picturepark_SDK_V1_Contract_ContentPermissionSetUpdateManyRequest_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">UpdateManyAsync(ContentPermissionSetUpdateManyRequest, CancellationToken)</a></h4>
+  <h4 id="Picturepark_SDK_V1_ContentPermissionSetClient_UpdateManyAsync_ContentPermissionSetUpdateManyRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.ContentPermissionSetClient.UpdateManyAsync(ContentPermissionSetUpdateManyRequest,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_ContentPermissionSetClient_UpdateManyAsync_ContentPermissionSetUpdateManyRequest_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">UpdateManyAsync(ContentPermissionSetUpdateManyRequest, CancellationToken)</a></h4>
   
-  <div id="collapsible-Picturepark_SDK_V1_ContentPermissionSetClient_UpdateManyAsync_Picturepark_SDK_V1_Contract_ContentPermissionSetUpdateManyRequest_System_Threading_CancellationToken_" class="collapse in">
+  <div id="collapsible-Picturepark_SDK_V1_ContentPermissionSetClient_UpdateManyAsync_ContentPermissionSetUpdateManyRequest_System_Threading_CancellationToken_" class="collapse in">
   <div class="markdown level1 summary"><p>Update multiple content permission sets</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -1609,7 +1045,7 @@
   <table>
     <tr>
       <td>
-        <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.ContentPermissionSetUpdateManyRequest.html">ContentPermissionSetUpdateManyRequest</a></span>
+        <span class="pull-right"><span class="xref">ContentPermissionSetUpdateManyRequest</span></span>
         <span class="parametername">request</span>
         <p><p>Request to update multiple content permission sets.</p>
 </p>
@@ -1629,7 +1065,7 @@
   <table>
     <tr>
       <td>
-        <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.BulkResponse.html">BulkResponse</a>&gt;
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">BulkResponse</span>&gt;
         <p><p>Response to a bulk operation</p>
 </p>
       </td>
@@ -1641,56 +1077,9 @@
   
   
   
-  <h5 class="implements">Implements</h5>
-      <div><a class="xref" href="Picturepark.SDK.V1.Contract.IContentPermissionSetClient.html#Picturepark_SDK_V1_Contract_IContentPermissionSetClient_UpdateManyAsync_Picturepark_SDK_V1_Contract_ContentPermissionSetUpdateManyRequest_System_Threading_CancellationToken_">IContentPermissionSetClient.UpdateManyAsync(ContentPermissionSetUpdateManyRequest, CancellationToken)</a></div>
   
   
   
-  <h5 class="exceptions">Exceptions</h5>
-  <table>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
-        <p><p>A server side error occurred.</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkForbiddenException.html">PictureparkForbiddenException</a>
-        <p><p>Forbidden</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
-        <p><p>Entity not found</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
-        <p><p>Version conflict</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
-</p>
-      </td>
-    </tr>
-  </table>
   
   </div>
   

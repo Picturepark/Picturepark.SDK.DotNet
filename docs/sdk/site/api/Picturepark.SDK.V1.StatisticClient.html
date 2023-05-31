@@ -130,7 +130,7 @@
   
   <h5 id="Picturepark_SDK_V1_StatisticClient_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class StatisticClient : ClientBase, IStatisticClient</code></pre>
+    <pre><code class="lang-csharp hljs">public class StatisticClient : ClientBase</code></pre>
   </div>
   
   
@@ -143,7 +143,7 @@
   
   <a id="Picturepark_SDK_V1_StatisticClient__ctor_" data-uid="Picturepark.SDK.V1.StatisticClient.#ctor*"></a>
   
-  <h4 id="Picturepark_SDK_V1_StatisticClient__ctor_Picturepark_SDK_V1_Contract_IPictureparkServiceSettings_System_Net_Http_HttpClient_" data-uid="Picturepark.SDK.V1.StatisticClient.#ctor(Picturepark.SDK.V1.Contract.IPictureparkServiceSettings,System.Net.Http.HttpClient)"><a href="#collapsible-Picturepark_SDK_V1_StatisticClient__ctor_Picturepark_SDK_V1_Contract_IPictureparkServiceSettings_System_Net_Http_HttpClient_" class="expander" data-toggle="collapse">StatisticClient(IPictureparkServiceSettings, Http.HttpClient)</a></h4>
+  <h4 id="Picturepark_SDK_V1_StatisticClient__ctor_Picturepark_SDK_V1_Contract_IPictureparkServiceSettings_System_Net_Http_HttpClient_" data-uid="Picturepark.SDK.V1.StatisticClient.#ctor(Picturepark.SDK.V1.Contract.IPictureparkServiceSettings,System.Net.Http.HttpClient)"><a href="#collapsible-Picturepark_SDK_V1_StatisticClient__ctor_Picturepark_SDK_V1_Contract_IPictureparkServiceSettings_System_Net_Http_HttpClient_" class="expander" data-toggle="collapse">StatisticClient(Contract.IPictureparkServiceSettings, Http.HttpClient)</a></h4>
   
   <div id="collapsible-Picturepark_SDK_V1_StatisticClient__ctor_Picturepark_SDK_V1_Contract_IPictureparkServiceSettings_System_Net_Http_HttpClient_" class="collapse in">
   <div class="markdown level1 summary"></div>
@@ -151,14 +151,14 @@
   <h5 class="decalaration">Declaration</h5>
   
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public StatisticClient(IPictureparkServiceSettings configuration, Http.HttpClient httpClient)</code></pre>
+    <pre><code class="lang-csharp hljs">public StatisticClient(Contract.IPictureparkServiceSettings configuration, Http.HttpClient httpClient)</code></pre>
   </div>
   
   <h5 class="parameters">Parameters</h5>
   <table>
     <tr>
       <td>
-        <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.IPictureparkServiceSettings.html">IPictureparkServiceSettings</a></span>
+        <span class="pull-right"><span class="xref">Picturepark.SDK.V1.Contract.IPictureparkServiceSettings</span></span>
         <span class="parametername">configuration</span>
         <p>
       </td>
@@ -263,9 +263,9 @@
   
   <a id="Picturepark_SDK_V1_StatisticClient_AddContentEventsAsync_" data-uid="Picturepark.SDK.V1.StatisticClient.AddContentEventsAsync*"></a>
   
-  <h4 id="Picturepark_SDK_V1_StatisticClient_AddContentEventsAsync_Picturepark_SDK_V1_Contract_AddContentEventsRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.StatisticClient.AddContentEventsAsync(Picturepark.SDK.V1.Contract.AddContentEventsRequest,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_StatisticClient_AddContentEventsAsync_Picturepark_SDK_V1_Contract_AddContentEventsRequest_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">AddContentEventsAsync(AddContentEventsRequest, CancellationToken)</a></h4>
+  <h4 id="Picturepark_SDK_V1_StatisticClient_AddContentEventsAsync_AddContentEventsRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.StatisticClient.AddContentEventsAsync(AddContentEventsRequest,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_StatisticClient_AddContentEventsAsync_AddContentEventsRequest_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">AddContentEventsAsync(AddContentEventsRequest, CancellationToken)</a></h4>
   
-  <div id="collapsible-Picturepark_SDK_V1_StatisticClient_AddContentEventsAsync_Picturepark_SDK_V1_Contract_AddContentEventsRequest_System_Threading_CancellationToken_" class="collapse in">
+  <div id="collapsible-Picturepark_SDK_V1_StatisticClient_AddContentEventsAsync_AddContentEventsRequest_System_Threading_CancellationToken_" class="collapse in">
   <div class="markdown level1 summary"><p>Add content events</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -279,7 +279,7 @@
   <table>
     <tr>
       <td>
-        <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.AddContentEventsRequest.html">AddContentEventsRequest</a></span>
+        <span class="pull-right"><span class="xref">AddContentEventsRequest</span></span>
         <span class="parametername">request</span>
         <p><p>Request</p>
 </p>
@@ -299,7 +299,7 @@
   <table>
     <tr>
       <td>
-        <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.BusinessProcess.html">BusinessProcess</a>&gt;
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">BusinessProcess</span>&gt;
         <p><p>Business process</p>
 </p>
       </td>
@@ -311,65 +311,18 @@
   
   
   
-  <h5 class="implements">Implements</h5>
-      <div><a class="xref" href="Picturepark.SDK.V1.Contract.IStatisticClient.html#Picturepark_SDK_V1_Contract_IStatisticClient_AddContentEventsAsync_Picturepark_SDK_V1_Contract_AddContentEventsRequest_System_Threading_CancellationToken_">IStatisticClient.AddContentEventsAsync(AddContentEventsRequest, CancellationToken)</a></div>
   
   
   
-  <h5 class="exceptions">Exceptions</h5>
-  <table>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
-        <p><p>A server side error occurred.</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkForbiddenException.html">PictureparkForbiddenException</a>
-        <p><p>Forbidden</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
-        <p><p>Entity not found</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
-        <p><p>Version conflict</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
-</p>
-      </td>
-    </tr>
-  </table>
   
   </div>
   
   
   <a id="Picturepark_SDK_V1_StatisticClient_ExportContentStatisticsAsync_" data-uid="Picturepark.SDK.V1.StatisticClient.ExportContentStatisticsAsync*"></a>
   
-  <h4 id="Picturepark_SDK_V1_StatisticClient_ExportContentStatisticsAsync_Picturepark_SDK_V1_Contract_ExportContentStatisticsRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.StatisticClient.ExportContentStatisticsAsync(Picturepark.SDK.V1.Contract.ExportContentStatisticsRequest,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_StatisticClient_ExportContentStatisticsAsync_Picturepark_SDK_V1_Contract_ExportContentStatisticsRequest_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">ExportContentStatisticsAsync(ExportContentStatisticsRequest, CancellationToken)</a></h4>
+  <h4 id="Picturepark_SDK_V1_StatisticClient_ExportContentStatisticsAsync_ExportContentStatisticsRequest_System_Threading_CancellationToken_" data-uid="Picturepark.SDK.V1.StatisticClient.ExportContentStatisticsAsync(ExportContentStatisticsRequest,System.Threading.CancellationToken)"><a href="#collapsible-Picturepark_SDK_V1_StatisticClient_ExportContentStatisticsAsync_ExportContentStatisticsRequest_System_Threading_CancellationToken_" class="expander" data-toggle="collapse">ExportContentStatisticsAsync(ExportContentStatisticsRequest, CancellationToken)</a></h4>
   
-  <div id="collapsible-Picturepark_SDK_V1_StatisticClient_ExportContentStatisticsAsync_Picturepark_SDK_V1_Contract_ExportContentStatisticsRequest_System_Threading_CancellationToken_" class="collapse in">
+  <div id="collapsible-Picturepark_SDK_V1_StatisticClient_ExportContentStatisticsAsync_ExportContentStatisticsRequest_System_Threading_CancellationToken_" class="collapse in">
   <div class="markdown level1 summary"><p>Export content statistics</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -383,7 +336,7 @@
   <table>
     <tr>
       <td>
-        <span class="pull-right"><a class="xref" href="Picturepark.SDK.V1.Contract.ExportContentStatisticsRequest.html">ExportContentStatisticsRequest</a></span>
+        <span class="pull-right"><span class="xref">ExportContentStatisticsRequest</span></span>
         <span class="parametername">request</span>
         <p><p>Request</p>
 </p>
@@ -403,7 +356,7 @@
   <table>
     <tr>
       <td>
-        <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.BusinessProcess.html">BusinessProcess</a>&gt;
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">BusinessProcess</span>&gt;
         <p><p>Business process</p>
 </p>
       </td>
@@ -415,56 +368,9 @@
   
   
   
-  <h5 class="implements">Implements</h5>
-      <div><a class="xref" href="Picturepark.SDK.V1.Contract.IStatisticClient.html#Picturepark_SDK_V1_Contract_IStatisticClient_ExportContentStatisticsAsync_Picturepark_SDK_V1_Contract_ExportContentStatisticsRequest_System_Threading_CancellationToken_">IStatisticClient.ExportContentStatisticsAsync(ExportContentStatisticsRequest, CancellationToken)</a></div>
   
   
   
-  <h5 class="exceptions">Exceptions</h5>
-  <table>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
-        <p><p>A server side error occurred.</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkForbiddenException.html">PictureparkForbiddenException</a>
-        <p><p>Forbidden</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
-        <p><p>Entity not found</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
-        <p><p>Version conflict</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
-</p>
-      </td>
-    </tr>
-  </table>
   
   </div>
   
@@ -515,7 +421,7 @@
   <table>
     <tr>
       <td>
-        <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.ContentStatisticsAggregated.html">ContentStatisticsAggregated</a>&gt;
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">ContentStatisticsAggregated</span>&gt;
         <p>
       </td>
     </tr>
@@ -526,56 +432,9 @@
   
   
   
-  <h5 class="implements">Implements</h5>
-      <div><a class="xref" href="Picturepark.SDK.V1.Contract.IStatisticClient.html#Picturepark_SDK_V1_Contract_IStatisticClient_GetSingleContentStatisticsAsync_System_String_System_Collections_Generic_IEnumerable_System_TimeSpan__System_Threading_CancellationToken_">IStatisticClient.GetSingleContentStatisticsAsync(String, IEnumerable&lt;TimeSpan&gt;, CancellationToken)</a></div>
   
   
   
-  <h5 class="exceptions">Exceptions</h5>
-  <table>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
-        <p><p>A server side error occurred.</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkForbiddenException.html">PictureparkForbiddenException</a>
-        <p><p>Forbidden</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
-        <p><p>Entity not found</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
-        <p><p>Version conflict</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
-</p>
-      </td>
-    </tr>
-  </table>
   
   </div>
   
@@ -687,7 +546,7 @@
   <table>
     <tr>
       <td>
-        <span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Picturepark.SDK.V1.Contract.DownloadLink.html">DownloadLink</a>&gt;
+        <span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">DownloadLink</span>&gt;
         <p><p>Download link information</p>
 </p>
       </td>
@@ -699,56 +558,9 @@
   
   
   
-  <h5 class="implements">Implements</h5>
-      <div><a class="xref" href="Picturepark.SDK.V1.Contract.IStatisticClient.html#Picturepark_SDK_V1_Contract_IStatisticClient_ResolveDownloadLinkAsync_System_String_System_Threading_CancellationToken_">IStatisticClient.ResolveDownloadLinkAsync(String, CancellationToken)</a></div>
   
   
   
-  <h5 class="exceptions">Exceptions</h5>
-  <table>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.ApiException.html">ApiException</a>
-        <p><p>A server side error occurred.</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkValidationException.html">PictureparkValidationException</a>
-        <p><p>Validation exception</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkForbiddenException.html">PictureparkForbiddenException</a>
-        <p><p>Forbidden</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkNotFoundException.html">PictureparkNotFoundException</a>
-        <p><p>Entity not found</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkConflictException.html">PictureparkConflictException</a>
-        <p><p>Version conflict</p>
-</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a class="xref" href="Picturepark.SDK.V1.Contract.PictureparkException.html">PictureparkException</a>
-        <p><p>Internal server error</p>
-</p>
-      </td>
-    </tr>
-  </table>
   
   </div>
   
